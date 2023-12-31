@@ -1,0 +1,31 @@
+---
+layout: 'layout/page.html'
+pagination:
+    data: ui
+    size: 1
+    alias: component
+permalink: '/ui/{{ component.folder }}/{{ component.slug }}/'
+eleventyComputed:
+    title: "{{ component.title }}"
+---
+
+{% if component.preview %}
+    <iframe srcdoc="{{ component.preview }}"></iframe>
+{% endif %}
+
+{% if component.previewHTML %}
+    {% highlight "html" %}
+        {{ component.previewHTML | safe }}
+    {% endhighlight %}
+{% endif %}
+
+{% if component.previewSCSS %}
+    {% highlight "scss" %}
+        {{ component.previewSCSS | safe }}
+    {% endhighlight %}
+{% endif %}
+
+{{ component.content | markdown | safe }}
+
+<a href="/ui/{{ ui[pagination.pageNumber - 1].folder }}/{{ ui[pagination.pageNumber - 1].slug }}">{{ ui[pagination.pageNumber - 1].title }}</a>
+<a href="/ui/{{ ui[pagination.pageNumber + 1].folder }}/{{ ui[pagination.pageNumber + 1].slug }}">{{ ui[pagination.pageNumber + 1].title }}</a>

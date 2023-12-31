@@ -1,0 +1,21 @@
+<div class="intro">
+    <div class="container container--narrow">
+        <div class="intro__inner">
+            <div class="intro__caption">
+                <h1 class="intro__title">{{ intro.title }}</h1>
+                <p class="intro__description">{{ intro.description }}</p>
+            </div>
+            {% highlight "shell" %}
+            npm run prod
+            {% endhighlight %}
+            <ul>
+                {%- for component in ui %}
+                <li>
+                    <a href="/ui/{{ component.folder }}/{{ component.slug }}/">
+                        {{ component.title }}
+                    </a>
+                </li>
+                {% endfor -%}
+            </ul>
+    </div>
+</div>
