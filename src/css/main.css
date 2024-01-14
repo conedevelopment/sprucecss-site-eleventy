@@ -2340,6 +2340,36 @@ pre[class*=language-] {
   aspect-ratio: 16/10;
 }
 
+.cta {
+  background-color: var(--spruce-footer-color-background);
+  border-block-end: 1px solid hsla(0, 0%, 100%, 0.08);
+  padding-block: var(--spruce-section-gap-half);
+}
+.cta__inner {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 3rem;
+  justify-content: space-between;
+}
+.cta__caption > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.cta__caption > * + * {
+  margin-block-start: 1rem;
+}
+.cta .heading {
+  margin-block-end: 0;
+}
+.cta * {
+  color: hsl(0, 0%, 100%);
+}
+.cta p {
+  font-size: clamp(1.02rem, 2vw + 1rem, 1.2rem);
+  max-inline-size: 55ch;
+}
+
 .site-footer {
   padding-block: clamp(4.5rem, 5vw, 7rem);
 }

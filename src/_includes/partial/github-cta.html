@@ -1,0 +1,19 @@
+<div class="cta">
+    <div class="container">
+        <div class="cta__inner">
+            <div class="cta__caption">
+                <div class="heading">
+                    <h2 class="heading__title cta__title">{{ cta.title }}</h2>
+                </div>
+                <p>{{ cta.description }}</p>
+            </div>
+            {% if cta.button.text %}
+                <div class="cta__actions">
+                    <a href="{{ cta.button.url }}" class="btn btn--primary btn--rounded btn--lg">
+                        {{ cta.button.text }}
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

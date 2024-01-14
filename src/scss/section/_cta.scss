@@ -1,0 +1,33 @@
+@use '../config/dark-colors' as dark;
+@use 'sprucecss/scss/spruce' as *;
+
+.cta {
+  background-color: color('background', 'footer');
+  border-block-end: 1px solid color('border', $only-color: true, $map: dark.$colors);
+  padding-block: get-css-variable(--section-gap-half);
+
+  &__inner {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('m') spacer('l');
+    justify-content: space-between;
+  }
+
+  &__caption {
+    @include layout-stack('s');
+  }
+
+  .heading {
+    margin-block-end: 0;
+  }
+
+  * {
+    color: hsl(0deg 0% 100%);
+  }
+
+  p {
+    font-size: responsive-font-size(1.2rem);
+    max-inline-size: 55ch;
+  }
+}
