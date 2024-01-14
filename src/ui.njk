@@ -25,6 +25,12 @@ eleventyComputed:
     {% endhighlight %}
 {% endif %}
 
+{% if component.previewJS %}
+    {% highlight "js" %}
+        {{ component.previewJS | safe }}
+    {% endhighlight %}
+{% endif %}
+
 {{ component.content | markdown | safe }}
 
 <a href="/ui/{{ ui[pagination.pageNumber - 1].folder }}/{{ ui[pagination.pageNumber - 1].slug }}">{{ ui[pagination.pageNumber - 1].title }}</a>

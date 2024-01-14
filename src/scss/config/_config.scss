@@ -1,41 +1,80 @@
 @use 'dark-colors' as dark;
 
+$color-dark: hsl(260deg 70% 6%);
+
 @use 'sprucecss/scss/spruce' with (
-  $btn: (
-    'font-family': #{'Manrope', sans-serif},
-    'font-weight': 600,
-  ),
+  $color-black: $color-dark,
   $colors: (
+    'base': (
+      'code-tab-background': hsl(222deg 100% 98%),
+      'primary-dark': hsl(261deg 52% 35%),
+      'primary-darkest': hsl(272deg 100% 9%),
+      'primary-lightest': hsl(259deg 53% 94%),
+    ),
+    'breadcrumb': (
+      'arrow': hsl(0deg 0% 0% / 10%),
+    ),
     'btn': (
+      'dark-background': $color-dark,
+      'dark-background-hover': hsl(260deg 70% 12%),
+      'dark-foreground': hsl(0deg 0% 100%),
+      'decline-background': hsl(207deg 39% 17%),
+      'decline-foreground': hsl(0deg 0% 100%),
+      'discrete-background': hsla(206deg 40% 17% / 10%),
+      'discrete-background-hover': hsl(262deg 71% 49%),
+      'discrete-foreground': hsl(0deg 0% 10%),
+      'discrete-foreground-hover': hsl(0deg 0% 100%),
+      'install-background': hsl(0deg 0% 95%),
+      'install-background-hover': hsl(0deg 0% 90%),
+      'install-foreground': hsl(0deg 0% 10%),
       'pagination-background': hsl(263deg 40% 96%),
       'pagination-background-hover': hsl(262deg 71% 49%),
       'pagination-focus-ring': hsl(262deg 71% 49%),
       'pagination-foreground': hsl(262deg 71% 49%),
       'pagination-foreground-hover': hsl(0deg 0% 100%),
     ),
+    'cookie': (
+      'background': hsl(207deg 95% 8%),
+      'foreground': hsl(0deg 0% 100%),
+    ),
+    'footer': (
+      'background': $color-dark,
+    ),
+    'hero': (
+      'gradient-end': hsl(0deg 0% 100%),
+      'gradient-start': hsl(210deg 100% 98%),
+      'note-background': hsl(210deg 100% 97%),
+      'note-color': hsl(216deg 50% 44%),
+    ),
+    'ide': (
+      'header-background': hsl(0deg 0% 100%),
+    ),
     'navigation': (
-      'arrow': hsl(0deg 0% 0% / 15%),
+      'icon-background': hsl(259deg 53% 94%),
+      'icon-background-hover': hsl(262deg 71% 49%),
+      'icon-foreground': hsl(262deg 71% 49%),
+      'icon-foreground-hover': hsl(0deg 0% 100%),
     ),
     'prism': (
-      'color': hsl(243deg 14% 29%),
       'background': hsl(0deg 0% 98%),
-      'comment': hsl(225deg 14% 46%),
-      'punctuation': hsl(279deg 50% 53%),
-      'namespace': hsl(173deg 100% 24%),
-      'deleted': hsl(1deg 83% 63% / 56%),
       'boolean': hsl(0deg 44% 53%),
-      'number': hsl(315deg 90% 35%),
-      'constant': hsl(221deg 57% 52%),
       'class-name': hsl(0deg 0% 7%),
-      'regex': hsl(1deg 48% 59%),
+      'color': hsl(243deg 14% 29%),
+      'comment': hsl(225deg 14% 46%),
+      'constant': hsl(221deg 57% 52%),
+      'deleted': hsla(1deg 83% 63% / 56%),
+      'namespace': hsl(173deg 100% 24%),
+      'number': hsl(315deg 90% 35%),
+      'punctuation': hsl(279deg 50% 53%),
+      'regex': hsl(1deg 66% 47%),
     ),
   ),
   $dark-colors: dark.$colors,
-  $settings: (
-    'prefix': 'spruce-x-11ty'
+  $layout: (
+    'container-inline-size': 94rem,
   ),
-  $typography: (
-    'font-family-base': #{'Open Sans', sans-serif},
-    'font-family-heading': #{'Manrope', sans-serif},
+  $settings: (
+    'css-custom-properties': true,
+    'html-smooth-scrolling': false,
   ),
 );
