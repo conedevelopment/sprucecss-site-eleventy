@@ -76,16 +76,30 @@
       &[aria-current='page'] {
         font-weight: 700;
       }
+
+      span {
+        margin-inline-end: spacer('xs');
+      }
+
+      svg {
+        --dimension: 0.65em;
+        block-size: var(--dimension);
+        color: color('icon', 'footer');
+        inline-size: var(--dimension);
+      }
     }
   }
 
   &__bottom {
     border-block-start: 1px solid color('border', $only-color: true, $map: dark.$colors);
-    padding-block: spacer('m');
+    display: flex;
+    flex-direction: column;
+    gap: spacer('s') spacer('m');
+    padding-block: spacer-clamp('m', 'l');
 
     @include breakpoint('md') {
       align-items: center;
-      display: flex;
+      flex-direction: row;
       justify-content: space-between;
     }
   }
@@ -102,10 +116,7 @@
     }
   }
 
-  &__information-wrapper {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    gap: spacer('s');
+  &__copyright {
+    margin-block: 0;
   }
 }

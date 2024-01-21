@@ -18,7 +18,18 @@
   }
 }
 
-.btn--install { @include btn-variant('install'); }
-.btn--decline { @include btn-variant('decline'); }
-.btn--discrete { @include btn-variant('discrete'); }
-.btn--dark { @include btn-variant('dark'); }
+.btn--install {
+  @include btn-variant('install');
+}
+
+.btn--decline {
+  @include btn-variant('decline');
+}
+
+.btn--discrete {
+  @include btn-variant('discrete');
+}
+
+.btn--dark {
+  @include btn-variant('dark');
+}
