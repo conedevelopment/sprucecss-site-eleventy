@@ -2,16 +2,9 @@
     <div class="container">
         <div class="site-footer__top">
             <div class="site-footer__col">
+                <p class="site-footer__slogen">Another <br/>CSS framework.</p>
                 <a class="site-footer__logo" href="/">
-                    <img
-                        src="/img/cone-made-logo-dark.svg"
-                        alt="Cone Made"
-                        width="72"
-                        height="72"
-                        data-theme-mode="data-theme-mode"
-                        data-light-asset="/img/cone-made-logo-dark.svg"
-                        data-dark-asset="/img/cone-made-logo-light.svg"
-                    />
+                    {% svgIcon './src/img/spruce-logo-without-text.svg' %}
                 </a>
             </div>
             {% for block in navigation.footer %}
@@ -47,9 +40,11 @@
             {% endfor %}
         </div>
         <div class="site-footer__bottom">
-            <p class="site-footer__copyright">
-                © {{ global.year() }} Cone Made - Some rights are reserved.
-            </p>
+            <a href="https://conedevelopment.com/" className="site-footer__cone-logo" aria-label="Cone">
+                {% svgIcon './src/img/cone-logo.svg' %}
+            </a>
+            <p className="site-footer__copyright">Code is licensed under <a href="https://github.com/conedevelopment/sprucecss/blob/master/LICENSE/">MIT</a>, docs is <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. - Version <strong>{{ site.version }}</strong> - <a href="/privacy-policy">Privacy Policy</a></p>
+            {% include "partial/theme-switcher.html" %}
         </div>
     </div>
 </footer>

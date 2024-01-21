@@ -1,66 +1,111 @@
+@use '../config/dark-colors' as dark;
 @use 'sprucecss/scss/spruce' as *;
 
 .site-footer {
-  padding-block: spacer-clamp('xl', 'xxl');
+  background-color: color('background', 'footer');
+  color: hsl(0deg 0% 100% / 85%);
+  font-size: 1rem;
+
+  a {
+    color: color('link', $only-color: true, $map: dark.$colors);
+
+    &:hover,
+    &:focus {
+      color: color('link-hover', $only-color: true, $map: dark.$colors);
+    }
+  }
+
+  &__slogen {
+    color: hsl(0deg 0% 100%);
+    font-family: var(--doc-heading-font-family);
+    font-size: responsive-font-size(3rem, 30, '4vw + 1rem');
+    font-weight: 700;
+    grid-auto-rows: auto;
+    line-height: calc(#{config('line-height-heading', $typography)} * 1.15);
+    margin-block: 0 2rem;
+  }
 
   &__top {
-    @include layout-grid(spacer('l'), 14rem);
+    --gtc: minmax(0, 1fr);
+    display: grid;
+    gap: spacer('l');
+    grid-template-columns: var(--gtc);
+    padding-block: get-css-variable(--section-gap);
+
+    @include breakpoint(md) {
+      --gtc: minmax(0, 2.5fr) repeat(3, minmax(0, 1fr));
+    }
   }
 
   &__logo {
-    --dimension: 4rem;
-    block-size: var(--dimension);
     display: inline-flex;
-    inline-size: var(--dimension);
+    opacity: 0.15;
+
+    svg {
+      block-size: auto;
+      inline-size: 2.5rem;
+    }
   }
 
   &__title {
+    color: hsl(0 0% 100%);
     font-size: font-size('h4');
     margin-block: 0 spacer('m');
   }
 
+  strong {
+    color: hsl(0 0% 100%);
+  }
+
   &__navigation {
     @include clear-list;
-    @include layout-stack(spacer('xs'));
+    @include layout-stack('xs');
+    font-size: 1rem;
 
     a {
-      align-items: center;
-      color: color('text');
-      display: flex;
-      gap: spacer('xs');
+      color: hsl(0 0% 100% / 85%);
       text-decoration: none;
 
       &:hover,
       &:focus,
       &:active,
       &[aria-current='page'] {
-        color: color('primary');
+        color: color('link-hover', $only-color: true, $map: dark.$colors);
       }
 
       &[aria-current='page'] {
         font-weight: 700;
       }
-
-      svg {
-        --dimension: 0.65em;
-        block-size: var(--dimension);
-        inline-size: var(--dimension);
-      }
     }
   }
 
   &__bottom {
-    padding-block-start: spacer('l');
+    border-block-start: 1px solid color('border', $only-color: true, $map: dark.$colors);
+    padding-block: spacer('m');
 
     @include breakpoint('md') {
       align-items: center;
       display: flex;
-      gap: spacer('s');
       justify-content: space-between;
     }
   }
 
-  &__copyright {
-    margin-block: 0;
+  &__cone-logo {
+    align-items: center;
+    display: inline-flex;
+    margin-inline-end: spacer('xs');
+
+    svg {
+      --size: 1.5rem;
+      block-size: var(--size);
+      inline-size: var(--size);
+    }
+  }
+
+  &__information-wrapper {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
   }
 }
