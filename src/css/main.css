@@ -3,42 +3,42 @@
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
-  src: url("../../fonts/inter-v13-latin-regular.woff2") format("woff2");
+  src: url("../../font/inter-v13-latin-regular.woff2") format("woff2");
 }
 @font-face {
   font-display: swap;
   font-family: "Inter";
   font-style: normal;
   font-weight: 500;
-  src: url("../../fonts/inter-v13-latin-500.woff2") format("woff2");
+  src: url("../../font/inter-v13-latin-500.woff2") format("woff2");
 }
 @font-face {
   font-display: swap;
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
-  src: url("../../fonts/inter-v13-latin-700.woff2") format("woff2");
+  src: url("../../font/inter-v13-latin-700.woff2") format("woff2");
 }
 @font-face {
   font-display: swap;
   font-family: "Figtree";
   font-style: normal;
   font-weight: 400;
-  src: url("../../fonts/figtree-v5-latin-regular.woff2") format("woff2");
+  src: url("../../font/figtree-v5-latin-regular.woff2") format("woff2");
 }
 @font-face {
   font-display: swap;
   font-family: "Figtree";
   font-style: normal;
   font-weight: 500;
-  src: url("../../fonts/figtree-v5-latin-500.woff2") format("woff2");
+  src: url("../../font/figtree-v5-latin-500.woff2") format("woff2");
 }
 @font-face {
   font-display: swap;
   font-family: "Figtree";
   font-style: normal;
   font-weight: 700;
-  src: url("../../fonts/figtree-v5-latin-700.woff2") format("woff2");
+  src: url("../../font/figtree-v5-latin-700.woff2") format("woff2");
 }
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -1841,6 +1841,31 @@ legend {
   pointer-events: none;
 }
 
+.heading {
+  margin-block-end: 3rem;
+}
+.heading > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.heading > * + * {
+  margin-block-start: 0.5rem;
+}
+.heading--center {
+  text-align: center;
+}
+.heading--center .heading__description {
+  margin-inline: auto;
+}
+.heading__title {
+  font-size: clamp(2.1rem, 2vw + 1rem, 3rem);
+}
+.heading__description {
+  font-size: clamp(1rem, 0.5rem + 1vw, 1.25rem);
+  line-height: var(--spruce-line-height-md);
+  max-inline-size: 50ch;
+}
+
 .accordion-list--boxed > * {
   margin-block-end: 0;
   margin-block-start: 0;
@@ -2437,10 +2462,117 @@ pre[class*=language-] {
   margin-block: 0;
 }
 
+.btn--rounded {
+  border-radius: var(--doc-border-radius-md);
+}
+
+.btn--rounded:not(.btn--icon) {
+  font-size: 0.91375rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.btn--rounded.btn--lg {
+  padding: 1.05em 1.25em;
+}
+@media (min-width: 64em) {
+  .btn--rounded.btn--lg {
+    padding: 1.25em 1.5em;
+  }
+}
+
+.btn--install {
+  background-color: var(--spruce-btn-color-install-background);
+  border-color: var(--spruce-btn-color-install-background);
+  color: var(--spruce-btn-color-install-foreground);
+}
+.btn--install:focus-visible {
+  outline: 2px solid var(--spruce-btn-color-install-background);
+  outline-offset: 2px;
+}
+.btn--install:hover {
+  background-color: var(--spruce-btn-color-install-background-hover);
+  border-color: var(--spruce-btn-color-install-background-hover);
+  color: var(--spruce-btn-color-install-foreground);
+}
+
+.btn--decline {
+  background-color: var(--spruce-btn-color-decline-background);
+  border-color: var(--spruce-btn-color-decline-background);
+  color: var(--spruce-btn-color-decline-foreground);
+}
+.btn--decline:focus-visible {
+  outline: 2px solid var(--spruce-btn-color-decline-background);
+  outline-offset: 2px;
+}
+.btn--decline:hover {
+  background-color: #0b1319;
+  border-color: #0b1319;
+  color: var(--spruce-btn-color-decline-foreground);
+}
+
+.btn--discrete {
+  background-color: var(--spruce-btn-color-discrete-background);
+  border-color: var(--spruce-btn-color-discrete-background);
+  color: var(--spruce-btn-color-discrete-foreground);
+}
+.btn--discrete:focus-visible {
+  outline: 2px solid var(--spruce-btn-color-discrete-background);
+  outline-offset: 2px;
+}
+.btn--discrete:hover {
+  background-color: var(--spruce-btn-color-discrete-background-hover);
+  border-color: var(--spruce-btn-color-discrete-background-hover);
+  color: var(--spruce-btn-color-discrete-foreground-hover);
+}
+
+.btn--dark {
+  background-color: var(--spruce-btn-color-dark-background);
+  border-color: var(--spruce-btn-color-dark-background);
+  color: var(--spruce-btn-color-dark-foreground);
+}
+.btn--dark:focus-visible {
+  outline: 2px solid var(--spruce-btn-color-dark-background);
+  outline-offset: 2px;
+}
+.btn--dark:hover {
+  background-color: var(--spruce-btn-color-dark-background-hover);
+  border-color: var(--spruce-btn-color-dark-background-hover);
+  color: var(--spruce-btn-color-dark-foreground);
+}
+
+.table--font-size-reset {
+  font-size: 1rem;
+}
+.table th,
+.table td {
+  min-inline-size: 10rem;
+}
+
 .m-block\:0 {
   margin-block: 0 !important;
 }
 
 :root {
-  --spruce-section-gap: clamp(4.5rem, 5vw, 7rem);
+  --spruce-section-gap: clamp(5rem, 8vw, 9rem);
+  --spruce-section-gap-half: clamp(3.5rem, 8vw, 6rem);
+}
+
+body {
+  --doc-heading-font-family: "Figtree", sans-serif;
+  --doc-body-font-family: "Inter", sans-serif;
+  --doc-border-radius-sm: 0.5rem;
+  --doc-border-radius-md: 0.925rem;
+  --doc-border-radius-lg: 2rem;
+  font-family: var(--doc-body-font-family);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--doc-heading-font-family);
 }

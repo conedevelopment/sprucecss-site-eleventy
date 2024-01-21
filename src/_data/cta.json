@@ -2,9 +2,9 @@
   "title": "Find us on GitHub",
   "description": "Did you find a bug? Have an idea or a question? Please open an issue to help us develop the project.",
   "button": {
-    "text": "Open an issue",
+    "text": "GitHub",
     "url": "https://github.com/conedevelopment/sprucecss",
     "target": "_blank",
-    "icon": "github"
+    "icon": "./src/img/icon/github.svg"
   }
 }

@@ -1,0 +1,24 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.btn--rounded {
+  border-radius: var(--doc-border-radius-md);
+}
+
+.btn--rounded:not(.btn--icon) {
+  font-size: 0.91375rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.btn--rounded.btn--lg {
+  padding: 1.05em 1.25em;
+
+  @include breakpoint('md') {
+    padding: 1.25em 1.5em;
+  }
+}
+
+.btn--install { @include btn-variant('install'); }
+.btn--decline { @include btn-variant('decline'); }
+.btn--discrete { @include btn-variant('discrete'); }
+.btn--dark { @include btn-variant('dark'); }

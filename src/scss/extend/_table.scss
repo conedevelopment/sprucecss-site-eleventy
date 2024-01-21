@@ -1,0 +1,12 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.table {
+  &--font-size-reset {
+    font-size: 1rem;
+  }
+
+  th,
+  td {
+    min-inline-size: 10rem;
+  }
+}

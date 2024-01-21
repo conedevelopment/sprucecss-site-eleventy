@@ -10,6 +10,10 @@
             {% if cta.button.text %}
                 <div class="cta__actions">
                     <a href="{{ cta.button.url }}" class="btn btn--primary btn--rounded btn--lg">
+                        {% if cta.button.icon %}
+                            {% svgIcon cta.button.icon, 'btn__icon' %}
+                        {% endif %}
+
                         {{ cta.button.text }}
                     </a>
                 </div>

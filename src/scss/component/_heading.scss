@@ -1,0 +1,26 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.heading {
+  $this: &;
+
+  @include layout-stack('xs');
+  margin-block-end: spacer('l');
+
+  &--center {
+    text-align: center;
+
+    #{$this}__description {
+      margin-inline: auto;
+    }
+  }
+
+  &__title {
+    font-size: responsive-font-size(3rem, 30);
+  }
+
+  &__description {
+    font-size: responsive-font-size(1.25rem, 20, '0.5rem + 1vw');
+    line-height: config('line-height-md', $typography);
+    max-inline-size: 50ch;
+  }
+}

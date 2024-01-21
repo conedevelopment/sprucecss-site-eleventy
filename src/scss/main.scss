@@ -2,6 +2,7 @@
 @forward 'layout';
 @forward 'component';
 @forward 'section';
+@forward 'extend';
 @forward 'helper';
 
 
@@ -9,6 +10,27 @@
 
 :root {
   @include set-css-variable((
-    --section-gap: spacer-clamp('xl', 'xxl')
+    --section-gap: clamp(5rem, 8vw, 9rem),
+    --section-gap-half: clamp(3.5rem, 8vw, 6rem)
   ));
+}
+
+body {
+  --doc-heading-font-family: 'Figtree', sans-serif;
+  --doc-body-font-family: 'Inter', sans-serif;
+  --doc-border-radius-sm: 0.5rem;
+  --doc-border-radius-md: 0.925rem;
+  --doc-border-radius-lg: 2rem;
+
+  font-family: var(--doc-body-font-family);
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--doc-heading-font-family);
 }
