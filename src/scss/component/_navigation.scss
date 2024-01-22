@@ -1,8 +1,7 @@
 @use 'sprucecss/scss/spruce' as *;
 
 .site-navigation {
-  --inset-block-start: 6rem;
-  font-family: config('font-family-heading', $typography);
+  font-family: var(--doc-body-font-family);
 
   &__btn {
     @include breakpoint('md') {
@@ -19,7 +18,7 @@
     display: none;
     flex-direction: column;
     gap: spacer('s');
-    inset: var(--inset-block-start) 0 auto 0;
+    inset: 100% 0 auto 0;
     list-style: none;
     margin: 0;
     padding-block: spacer('m');
@@ -60,12 +59,6 @@
 
     &[aria-current='page'] {
       font-weight: 700;
-    }
-
-    svg {
-      --dimension: 0.65em;
-      block-size: var(--dimension);
-      inline-size: var(--dimension);
     }
   }
 }

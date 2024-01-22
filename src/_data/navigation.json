@@ -2,23 +2,19 @@
   "header": [
     {
       "caption": "Docs",
-      "url": "/docs/getting-started/introduction/",
-      "external": false
+      "url": "/docs/getting-started/introduction/"
     },
     {
       "caption": "Components",
-      "url": "/ui/getting-started/introduction/",
-      "external": false
+      "url": "/ui/getting-started/introduction/"
     },
     {
       "caption": "Templates",
-      "url": "/templates/",
-      "external": false
+      "url": "/templates/"
     },
     {
       "caption": "Blog",
-      "url": "/blog/",
-      "external": false
+      "url": "/blog/"
     },
     {
       "caption": "Releases",
@@ -32,23 +28,19 @@
       "items": [
         {
           "caption": "Introduction",
-          "url": "/docs/getting-started/introduction/",
-          "external": false
+          "url": "/docs/getting-started/introduction/"
         },
         {
           "caption": "Installation",
-          "url": "/docs/getting-started/installation/",
-          "external": false
+          "url": "/docs/getting-started/installation/"
         },
         {
           "caption": "Structure and Code",
-          "url": "/docs/getting-started/structure-and-code/",
-          "external": false
+          "url": "/docs/getting-started/structure-and-code/"
         },
         {
           "caption": "Sass",
-          "url": "/docs/getting-started/sass/",
-          "external": false
+          "url": "/docs/getting-started/sass/"
         }
       ]
     },
@@ -57,23 +49,19 @@
       "items": [
         {
           "caption": "Typography",
-          "url": "/docs/elements/typography/",
-          "external": false
+          "url": "/docs/elements/typography/"
         },
         {
           "caption": "Tables",
-          "url": "/docs/elements/tables/",
-          "external": false
+          "url": "/docs/elements/tables/"
         },
         {
           "caption": "Buttons",
-          "url": "/docs/elements/buttons/",
-          "external": false
+          "url": "/docs/elements/buttons/"
         },
         {
           "caption": "Forms",
-          "url": "/docs/elements/forms/",
-          "external": false
+          "url": "/docs/elements/forms/"
         }
       ]
     },
@@ -82,23 +70,19 @@
       "items": [
         {
           "caption": "Services",
-          "url": "https://conedevelopment.com/services/",
-          "external": true
+          "url": "https://conedevelopment.com/services/"
         },
         {
           "caption": "Pine development blog",
-          "url": "https://pineco.de/",
-          "external": true
+          "url": "https://pineco.de/"
         },
         {
           "caption": "Root Laravel admin",
-          "url": "https://root.conedevelopment.com/",
-          "external": true
+          "url": "https://root.conedevelopment.com/"
         },
         {
           "caption": "Bite-Sized Accessibility",
-          "url": "https://bite-sized-a11y.com/",
-          "external": true
+          "url": "https://bite-sized-a11y.com/"
         }
       ]
     }

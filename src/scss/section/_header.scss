@@ -4,13 +4,39 @@
   position: relative;
 
   &__inner {
-    --block-size: 6rem;
+    --block-size: 5rem;
     align-items: center;
     block-size: var(--block-size);
     display: flex;
     flex-wrap: wrap;
-    gap: spacer-clamp('s', 'l');
+    gap: spacer-clamp('xs', 'l', 3vw);
     justify-content: space-between;
+
+    @include breakpoint('md') {
+      --block-size: 6rem;
+    }
+  }
+
+  &__logo {
+    align-items: center;
+    display: flex;
+
+    a {
+      display: inline-flex;
+    }
+
+    svg {
+      block-size: 1.725rem;
+      bottom: -0.1em;
+      inline-size: auto;
+      position: relative;
+    }
+
+    &--ui {
+      svg {
+        block-size: 2.14rem;
+      }
+    }
   }
 
   &__column {
@@ -21,24 +47,15 @@
   }
 
   &__actions {
-    align-items: center;
     display: flex;
-    gap: spacer-clamp('s', 'm');
-  }
+    gap: spacer('s');
 
-  &__logo {
-    --dimension: 4rem;
-    block-size: var(--dimension);
-    display: inline-flex;
-    inline-size: var(--dimension);
-  }
+    .btn--twitter {
+      display: none;
 
-  &__email {
-    display: none;
-    text-decoration: none;
-
-    @include breakpoint('sm') {
-      display: inline-block;
+      @include breakpoint('md') {
+        display: inline-flex;
+      }
     }
   }
 
@@ -50,7 +67,7 @@
     }
 
     ul {
-      border-block-start: 1px solid color('border');
+      border-block: 1px solid color('border');
 
       @include breakpoint('sm') {
         border-block: none;

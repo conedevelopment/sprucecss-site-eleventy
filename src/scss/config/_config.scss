@@ -39,16 +39,15 @@ $color-dark: hsl(260deg 70% 6%);
     ),
     'footer': (
       'background': $color-dark,
-      'icon': hsl(0deg 0% 100% / 15%),
+    ),
+    'ide': (
+      'header-background': hsl(0deg 0% 100%),
     ),
     'hero': (
       'gradient-end': hsl(0deg 0% 100%),
       'gradient-start': hsl(210deg 100% 98%),
       'note-background': hsl(210deg 100% 97%),
       'note-color': hsl(216deg 50% 44%),
-    ),
-    'ide': (
-      'header-background': hsl(0deg 0% 100%),
     ),
     'navigation': (
       'icon-background': hsl(259deg 53% 94%),

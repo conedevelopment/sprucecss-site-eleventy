@@ -80,13 +80,6 @@
       span {
         margin-inline-end: spacer('xs');
       }
-
-      svg {
-        --dimension: 0.65em;
-        block-size: var(--dimension);
-        color: color('icon', 'footer');
-        inline-size: var(--dimension);
-      }
     }
   }
 
