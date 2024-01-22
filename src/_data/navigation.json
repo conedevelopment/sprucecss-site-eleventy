@@ -1,8 +1,18 @@
 {
   "header": [
     {
-      "caption": "Home",
-      "url": "/",
+      "caption": "Docs",
+      "url": "/docs/getting-started/introduction/",
+      "external": false
+    },
+    {
+      "caption": "Components",
+      "url": "/ui/getting-started/introduction/",
+      "external": false
+    },
+    {
+      "caption": "Templates",
+      "url": "/templates/",
       "external": false
     },
     {
@@ -11,18 +21,8 @@
       "external": false
     },
     {
-      "caption": "About",
-      "url": "/about/",
-      "external": false
-    },
-    {
-      "caption": "Contact",
-      "url": "/contact/",
-      "external": false
-    },
-    {
-      "caption": "GitHub",
-      "url": "https://github.com/conedevelopment/sprucecss-eleventy-starter",
+      "caption": "Releases",
+      "url": "https://github.com/conedevelopment/sprucecss/releases",
       "external": true
     }
   ],

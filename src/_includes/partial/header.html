@@ -2,16 +2,8 @@
     <div class="container">
         <div class="site-header__inner">
             <div class="site-header__column">
-                <a class="site-header__logo" href="/">
-                    <img
-                        src="/img/cone-made-logo-dark.svg"
-                        alt="Cone Made"
-                        width="72"
-                        height="72"
-                        data-theme-mode="data-theme-mode"
-                        data-light-asset="/img/cone-made-logo-dark.svg"
-                        data-dark-asset="/img/cone-made-logo-light.svg"
-                    />
+                <a class="site-header__logo" href="/" aria-label="Spruce CSS">
+                    {% svgIcon './src/img/spruce-logo.svg' %}
                 </a>
                 <nav
                     class="site-navigation site-header__navigation"
@@ -53,10 +45,19 @@
             </div>
             <div class="site-header__actions">
                 <a
-                    class="site-header__email"
-                    href="mailto:hello@conedevelopment.com"
-                    >hello@conedevelopment.com</a
+                    aria-label="GitHub"
+                    class="btn btn--primary btn--icon btn--github btn--rounded"
+                    href="https://github.com/conedevelopment/sprucecss"
                 >
+                    {% svgIcon './src/img/icon/github.svg', 'btn__icon' %}
+                </a>
+                <a
+                    aria-label="X"
+                    class="btn btn--primary btn--icon btn--twitter btn--rounded"
+                    href="https://twitter.com/conedevelopment"
+                >
+                    {% svgIcon './src/img/icon/x.svg', 'btn__icon' %}
+                </a>
             </div>
         </div>
     </div>
