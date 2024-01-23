@@ -2220,6 +2220,7 @@ pre[class*=language-] {
 
 .site-header {
   position: relative;
+  z-index: 10;
 }
 .site-header__inner {
   --block-size: 5rem;
@@ -2304,10 +2305,12 @@ pre[class*=language-] {
 .hero__note {
   background-color: var(--spruce-hero-color-note-background);
   border-radius: var(--spruce-border-radius-sm);
+  -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
   color: var(--spruce-hero-color-note-color);
   display: inline;
   font-size: 1rem;
+  isolation: isolate;
   line-height: var(--spruce-line-height-md);
   padding: 0.5em 0.8em 0.5em 0.65em;
   text-decoration: none;
@@ -2321,7 +2324,6 @@ pre[class*=language-] {
   color: hsl(45, 100%, 50%);
   inline-size: var(--size);
   inset-block-end: -0.15em;
-  margin-inline-end: 0.35em;
   position: relative;
 }
 .hero__note + * {

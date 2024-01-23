@@ -24,10 +24,12 @@
   &__note {
     background-color: color('note-background', 'hero');
     border-radius: config('border-radius-sm', $display);
+    -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     color: color('note-color', 'hero');
     display: inline;
     font-size: 1rem;
+    isolation: isolate;
     line-height: config('line-height-md', $typography);
     padding: 0.5em 0.8em 0.5em 0.65em;
     text-decoration: none;
@@ -43,7 +45,6 @@
       color: hsl(45deg 100% 50%);
       inline-size: var(--size);
       inset-block-end: -0.15em;
-      margin-inline-end: 0.35em;
       position: relative;
     }
 
