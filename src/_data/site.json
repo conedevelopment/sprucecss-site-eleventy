@@ -1,5 +1,17 @@
 {
   "name": "Spruce CSS",
   "url": "https://sprucecss.com",
-  "version": "2.3.1"
+  "version": "2.3.1",
+  "socials": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/conedevelopment/sprucecss",
+      "icon": "./src/img/icon/github.svg"
+    },
+    {
+      "name": "X",
+      "url": "https://twitter.com/conedevelopment",
+      "icon": "./src/img/icon/x.svg"
+    }
+  ]
 }
