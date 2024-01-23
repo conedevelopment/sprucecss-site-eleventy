@@ -1786,15 +1786,10 @@ legend {
     display: flex !important;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 1.5rem;
+    gap: clamp(1.5rem, 5vw, 3rem);
     inset: auto;
     padding: 0;
     position: relative;
-  }
-}
-@media (min-width: 80em) {
-  .site-navigation ul {
-    gap: 3rem;
   }
 }
 .site-navigation li {
@@ -1811,6 +1806,7 @@ legend {
   color: var(--spruce-base-color-primary);
 }
 .site-navigation a[aria-current=page] {
+  color: var(--spruce-base-color-primary);
   font-weight: 700;
 }
 
@@ -2282,36 +2278,80 @@ pre[class*=language-] {
   }
 }
 .site-header__navigation ul {
-  border-block: 1px solid var(--spruce-base-color-border);
+  border-block-start: 1px solid var(--spruce-base-color-border);
 }
-@media (min-width: 48em) {
+@media (min-width: 64em) {
   .site-header__navigation ul {
-    border-block: none;
+    border-block-start: none;
   }
 }
 
-.intro {
-  padding-block: var(--spruce-section-gap);
+.hero-wrapper {
+  background: linear-gradient(0deg, var(--spruce-hero-color-gradient-start) 0%, var(--spruce-hero-color-gradient-end) 100%);
 }
-.intro__inner > * {
-  margin-block-end: 0;
-  margin-block-start: 0;
+
+.hero__caption {
+  margin-inline: auto;
+  max-inline-size: 52rem;
+  padding-block: var(--spruce-section-gap-half);
+  text-align: center;
 }
-.intro__inner > * + * {
-  margin-block-start: 3rem;
+@media (min-width: 64em) {
+  .hero__caption {
+    padding-block: calc(var(--spruce-section-gap-half) / 1.25) var(--spruce-section-gap-half);
+  }
 }
-.intro__caption {
-  font-size: var(--spruce-font-size-lead);
+.hero__note {
+  background-color: var(--spruce-hero-color-note-background);
+  border-radius: var(--spruce-border-radius-sm);
+  box-decoration-break: clone;
+  color: var(--spruce-hero-color-note-color);
+  display: inline;
+  font-size: 1rem;
+  line-height: var(--spruce-line-height-md);
+  padding: 0.5em 0.8em 0.5em 0.65em;
+  text-decoration: none;
 }
-.intro__caption > * {
-  margin-block-end: 0;
-  margin-block-start: 0;
+.hero__note:hover, .hero__note:focus {
+  color: var(--spruce-hero-color-note-color);
 }
-.intro__caption > * + * {
-  margin-block-start: 1.5rem;
+.hero__note svg {
+  --size: 1em;
+  block-size: var(--size);
+  color: hsl(45, 100%, 50%);
+  inline-size: var(--size);
+  inset-block-end: -0.15em;
+  margin-inline-end: 0.35em;
+  position: relative;
 }
-.intro__title {
-  font-size: clamp(2.45rem, 3vw + 1rem, 3.5rem);
+.hero__note + * {
+  margin-block-start: 1.5rem !important;
+}
+.hero__title {
+  font-size: clamp(2.75rem, 4vw + 1rem, 5rem);
+  font-weight: 400;
+  letter-spacing: -3px;
+  margin-block: 0;
+  margin-inline: auto;
+  max-inline-size: 15ch;
+  text-wrap: balance;
+}
+.hero__title span {
+  font-weight: 700;
+}
+.hero__description {
+  font-size: clamp(0.945rem, 1vw + 0.85rem, 1.35rem);
+  margin-block: 1.25rem 0;
+  margin-inline: auto;
+  max-inline-size: 45ch;
+}
+.hero__btns {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2.15rem;
 }
 
 .post-heading {

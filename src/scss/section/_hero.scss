@@ -1,0 +1,84 @@
+@use 'sass:color';
+@use 'sprucecss/scss/spruce' as *;
+
+.hero-wrapper {
+  background: linear-gradient(
+    0deg,
+    color('gradient-start', 'hero') 0%,
+    color('gradient-end', 'hero') 100%
+  );
+}
+
+.hero {
+  &__caption {
+    margin-inline: auto;
+    max-inline-size: 52rem;
+    padding-block: get-css-variable(--section-gap-half);
+    text-align: center;
+
+    @include breakpoint('md') {
+      padding-block: calc(#{get-css-variable(--section-gap-half)} / 1.25) get-css-variable(--section-gap-half);
+    }
+  }
+
+  &__note {
+    background-color: color('note-background', 'hero');
+    border-radius: config('border-radius-sm', $display);
+    box-decoration-break: clone;
+    color: color('note-color', 'hero');
+    display: inline;
+    font-size: 1rem;
+    line-height: config('line-height-md', $typography);
+    padding: 0.5em 0.8em 0.5em 0.65em;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: color('note-color', 'hero');
+    }
+
+    svg {
+      --size: 1em;
+      block-size: var(--size);
+      color: hsl(45deg 100% 50%);
+      inline-size: var(--size);
+      inset-block-end: -0.15em;
+      margin-inline-end: 0.35em;
+      position: relative;
+    }
+
+    + * {
+      margin-block-start: 1.5rem !important;
+    }
+  }
+
+  &__title {
+    font-size: responsive-font-size(5rem, 45, '4vw + 1rem');
+    font-weight: 400;
+    letter-spacing: -3px;
+    margin-block: 0;
+    margin-inline: auto;
+    max-inline-size: 15ch;
+    text-wrap: balance;
+
+    span {
+      font-weight: 700;
+    }
+  }
+
+  &__description {
+    font-size: responsive-font-size(1.35rem, 30, '1vw + 0.85rem');
+    margin-block: 1.25rem 0;
+    margin-inline: auto;
+    max-inline-size: 45ch;
+  }
+
+  &__btns {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('m');
+    justify-content: center;
+    margin-top: 2.15rem;
+  }
+}

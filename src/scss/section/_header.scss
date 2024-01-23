@@ -67,10 +67,10 @@
     }
 
     ul {
-      border-block: 1px solid color('border');
+      border-block-start: 1px solid color('border');
 
-      @include breakpoint('sm') {
-        border-block: none;
+      @include breakpoint('md') {
+        border-block-start: none;
       }
     }
   }

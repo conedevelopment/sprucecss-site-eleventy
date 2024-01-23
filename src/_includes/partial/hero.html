@@ -1,0 +1,27 @@
+{% if hero.title.length %}
+    <div class="hero">
+        <div class="container">
+            <div class="hero__inner">
+                <div class="hero__caption">
+                    {% if hero.note %}
+                        <a href="{{ hero.note.url }}" class="hero__note">
+                            {% svgIcon './src/img/icon/lightning.svg' %}
+                            {{ hero.note.caption }}
+                        </a>
+                    {% endif %}
+                    <h1 class="hero__title">{{ hero.title | safe }}</h1>
+                    <p class="hero__description">{{ hero.description | safe }}</p>
+                    {% if hero.btn %}
+                        <div class="hero__btns">
+                            {% for btn in hero.btn %}
+                                <a href="{{ btn.url }}" class="{{ btn.class }}">
+                                    {{ btn.caption }}
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
