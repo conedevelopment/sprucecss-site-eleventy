@@ -9,11 +9,11 @@
     var(--inline-size)
   );
 
-  &--wide {
-    --inline-size: 100%;
+  &--narrow {
+    --inline-size: 60rem;
   }
 
-  &--narrow {
+  &--narrower {
     --inline-size: 50rem;
   }
 }

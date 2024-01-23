@@ -1,0 +1,100 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.accordion-list {
+  @include layout-stack('s');
+}
+
+.accordion-card {
+  $this: &;
+  background-color: color('background');
+  border: 1px solid color('border');
+  border-radius: config('border-radius-lg', $display);
+
+  &__title {
+    font-size: font-size('h4');
+    margin-block: 0;
+    padding: spacer('m');
+
+    &:has(#{$this}__toggle) {
+      padding: 0;
+    }
+  }
+
+  &__toggle {
+    @include clear-btn;
+    align-items: center;
+    display: flex;
+    gap: spacer('m');
+    inline-size: 100%;
+    justify-content: space-between;
+    padding: spacer('m');
+    text-align: start;
+
+    &:focus-visible {
+      #{$this}__icon {
+        @include short-ring('button', 'primary');
+      }
+    }
+
+    &[aria-expanded='true'] {
+      svg {
+        rotate: 90deg;
+      }
+
+      .horizontal-line {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__icon {
+    --size: 1.75rem;
+    align-items: center;
+    background-color: color('primary-background', 'btn');
+    block-size: var(--size);
+    border-radius: config('border-radius-sm', $display);
+    color: color('primary-foreground', 'btn');
+    display: flex;
+    flex-shrink: 0;
+    inline-size: var(--size);
+    justify-content: center;
+
+    svg {
+      --size: 1.25rem;
+      @include transition;
+      block-size: var(--size);
+      inline-size: var(--size);
+    }
+
+    .horizontal-line {
+      @include transition;
+    }
+  }
+
+  &__content {
+    @include transition($property: grid-template-rows);
+    display: grid;
+    padding-inline: spacer('m');
+
+    &[aria-hidden="true"] {
+      grid-template-rows: 0fr;
+    }
+
+    &[aria-hidden="false"] {
+      grid-template-rows: 1fr;
+      padding-block-end: spacer('m');
+    }
+
+    > div {
+      @include layout-stack('xs');
+      overflow: hidden;
+
+      * + h2,
+      * + h3,
+      * + h4,
+      * + h5 {
+        margin-block-start: spacer('s');
+      }
+    }
+  }
+}

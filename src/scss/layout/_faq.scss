@@ -1,0 +1,5 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.l-faq {
+  padding-block: get-css-variable(--section-gap-half) get-css-variable(--section-gap);
+}

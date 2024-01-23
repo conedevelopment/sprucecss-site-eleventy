@@ -1,0 +1,28 @@
+{% if faq.cards.length %}
+    <div class="l-faq">
+        <div class="container container--narrower">
+            <div class="l-faq__inner">
+                {% if faq.heading %}
+                <div class="heading heading--center">
+                    <h2 class="heading__title">{{ faq.heading.title }}</h2>
+                    <p class="heading__description">{{ faq.heading.description }}</p>
+                </div>
+                {% endif %}
+                <div class="accordion-list">
+                    {% for card in faq.cards %}
+                        <div class="accordion-card">
+                            <h3 class="accordion-card__title">
+                                {{ card.title }}
+                            </h3>
+                            <div class="accordion-card__content" aria-hidden="true">
+                                <div>
+                                    {{ card.description | safe }}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
