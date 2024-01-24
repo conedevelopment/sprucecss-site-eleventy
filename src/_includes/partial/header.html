@@ -3,7 +3,7 @@
         <div class="site-header__inner">
             <div class="site-header__column">
                 <a class="site-header__logo" href="/" aria-label="Spruce CSS">
-                    {% svgIcon './src/img/spruce-logo.svg' %}
+                    {% svgIcon "./src/img/spruce-logo.svg" %}
                 </a>
                 <nav
                     class="site-navigation site-header__navigation"
@@ -16,7 +16,7 @@
                         aria-expanded="false"
                         aria-label="Menu"
                     >
-                        {% svgIcon './src/img/icon/menu.svg', 'btn__icon' %}
+                        {% svgIcon "./src/img/icon/menu.svg", "btn__icon" %}
                     </button>
 
                     {% if navigation.header.length > 0 %}
@@ -45,7 +45,7 @@
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            {% svgIcon social.icon, 'btn__icon' %}
+                            {% svgIcon social.icon, "btn__icon" %}
                         </a>
                     {% endfor %}
                 </div>

@@ -1,0 +1,30 @@
+@use 'sass:color';
+@use 'sprucecss/scss/spruce' as *;
+
+.getting-started-card {
+  $this: &;
+  @include a11y-card-link('.getting-started-card__link', true);
+  align-items: flex-start;
+  background-color: color('background');
+  border-radius: config('border-radius-lg', $display);
+  display: flex;
+  gap: spacer('m');
+
+  &__caption {
+    @include layout-stack('xs');
+  }
+
+  &__icon {
+    --size: 5rem;
+    block-size: var(--size);
+    flex-shrink: 0;
+    inline-size: var(--size);
+  }
+
+  &__link {
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+}

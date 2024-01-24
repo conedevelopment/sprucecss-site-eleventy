@@ -1,0 +1,22 @@
+<div class="l-getting-started {{ gettingStartedSettings.classes }}">
+    <div class="container">
+        <div class="l-getting-started__inner">
+            {% for card in gettingStarted %}
+                <div class="getting-started-card">
+                    <img src="" alt="">
+                    <div class="getting-started-card__caption">
+                        <h3 class="getting-started-card__title">{{ card.title }}</h3>
+                        <p class="getting-started-card__description">{{ card.description }}</p>
+                        <div class="getting-started-card__more">
+                            <a href={{ card.link.url }} class="text-btn getting-started-card__link">
+                                {{ card.link.caption }}
+                                <div class="sr-only">{{ card.title }}</div>
+                                {% svgIcon "./src/img/icon/play.svg", "text-btn__icon" %}
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>

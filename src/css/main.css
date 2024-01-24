@@ -1752,6 +1752,26 @@ legend {
   padding-block: var(--spruce-section-gap-half) var(--spruce-section-gap);
 }
 
+.l-getting-started {
+  padding-block: 3rem;
+}
+.l-getting-started--border-block-end {
+  border-block-end: 1px solid var(--spruce-base-color-border);
+}
+.l-getting-started--border-block-start {
+  border-block-start: 1px solid var(--spruce-base-color-border);
+}
+.l-getting-started__inner {
+  align-items: flex-start;
+  display: grid;
+  gap: 3rem;
+}
+@supports (inline-size: min(20rem, 100%)) {
+  .l-getting-started__inner {
+    grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr));
+  }
+}
+
 .skip-link {
   inset: -50vh auto auto 1.5rem;
   position: fixed;
@@ -1860,23 +1880,46 @@ legend {
   max-inline-size: 50ch;
 }
 
-.accordion-list--boxed > * {
-  margin-block-end: 0;
-  margin-block-start: 0;
-}
-.accordion-list--boxed > * + * {
-  margin-block-start: 1rem;
-}
-.accordion-list--stacked > * + * {
-  border-block-start: 1px solid var(--spruce-base-color-border);
-}
-
 .accordion-list > * {
   margin-block-end: 0;
   margin-block-start: 0;
 }
 .accordion-list > * + * {
   margin-block-start: 1rem;
+}
+
+.getting-started-card {
+  position: relative;
+  align-items: flex-start;
+  background-color: var(--spruce-base-color-background);
+  border-radius: var(--spruce-border-radius-lg);
+  display: flex;
+  gap: 1.5rem;
+}
+.getting-started-card__link::before {
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.getting-started-card__caption > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.getting-started-card__caption > * + * {
+  margin-block-start: 0.5rem;
+}
+.getting-started-card__icon {
+  --size: 5rem;
+  block-size: var(--size);
+  flex-shrink: 0;
+  inline-size: var(--size);
+}
+.getting-started-card__link {
+  font-size: var(--spruce-font-size-sm);
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
 .accordion-card {
@@ -2016,6 +2059,18 @@ legend {
 }
 .post-author__name {
   color: var(--spruce-base-color-text);
+}
+
+.text-btn {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.25rem;
+  line-height: 1;
+}
+.text-btn__icon {
+  --dimension: 0.65em;
+  block-size: var(--dimension);
+  inline-size: var(--dimension);
 }
 
 .form-group-wrapper > * {
