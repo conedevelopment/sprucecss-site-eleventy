@@ -49,10 +49,10 @@ module.exports = config => {
     return stringify(svg);
   });
 
-  config.addShortcode('image', async function(src, alt, sizes) {
+  config.addShortcode('image', async function(src, alt = "", widths = [], sizes = "") {
     let metadata = await Image(src, {
       formats: ['webp', 'jpeg'],
-      widths: [250, 500],
+      widths,
       outputDir: './dist/img/',
     });
 
