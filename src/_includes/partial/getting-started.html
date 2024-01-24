@@ -3,7 +3,7 @@
         <div class="l-getting-started__inner">
             {% for card in gettingStarted %}
                 <div class="getting-started-card">
-                    <img src="" alt="">
+                    {% image card.thumbnail, "", "(min-resolution: 192dpi) 100vw, 50vw" %}
                     <div class="getting-started-card__caption">
                         <h3 class="getting-started-card__title">{{ card.title }}</h3>
                         <p class="getting-started-card__description">{{ card.description }}</p>

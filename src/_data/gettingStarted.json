@@ -2,7 +2,7 @@
   {
     "title": "Documentation",
     "description": "Learn about Spruce CSS through our extensive documentation.",
-    "icon": "./src/img/icon/github.svg",
+    "thumbnail": "./src/img/getting-started/documentation.png",
     "link": {
       "caption": "Read more",
       "url": "/docs/getting-started/introduction"
@@ -11,7 +11,7 @@
   {
     "title": "Components",
     "description": "Explore our extensive UI library built with Spruce CSS.",
-    "icon": "./src/img/icon/github.svg",
+    "thumbnail": "./src/img/getting-started/components.png",
     "link": {
       "caption": "Read more",
       "url": "/ui/getting-started/introduction"
@@ -20,7 +20,7 @@
   {
     "title": "Blog",
     "description": "Read about front-end development and concepts of Spruce CSS.",
-    "icon": "./src/img/icon/github.svg",
+    "thumbnail": "./src/img/getting-started/blog.png",
     "link": {
       "caption": "Read more",
       "url": "/blog"

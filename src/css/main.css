@@ -1909,7 +1909,7 @@ legend {
 .getting-started-card__caption > * + * {
   margin-block-start: 0.5rem;
 }
-.getting-started-card__icon {
+.getting-started-card picture {
   --size: 5rem;
   block-size: var(--size);
   flex-shrink: 0;

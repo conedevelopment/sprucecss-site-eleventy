@@ -14,7 +14,7 @@
     @include layout-stack('xs');
   }
 
-  &__icon {
+  picture {
     --size: 5rem;
     block-size: var(--size);
     flex-shrink: 0;
