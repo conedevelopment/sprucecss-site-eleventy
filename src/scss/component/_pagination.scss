@@ -21,6 +21,10 @@
 
   a {
     @include btn-variant('pagination');
+    border-radius: var(--doc-border-radius-md);
+    font-size: 0.91375rem;
+    font-weight: 700;
+    text-transform: uppercase;
 
     &[aria-current="page"] {
       background: color('pagination-background-hover', 'btn');

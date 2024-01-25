@@ -8,32 +8,42 @@
 {% endif %}
 
 {% block content %}
-    <div class="l-post">
-        <div class="container container--narrow">
-            {% include "partial/post-heading.html" %}
-            <ol class="l-post__list">
+    <main id="content" class="l-blog">
+        <div class="container">
+            {% set heading = {
+                "title": "Blog",
+                "description": "Spruce how-to and generic front-end development articles."
+            } %}
+            {% include "../partial/page-heading.html" %}
+            <div class="l-blog__inner">
                 {% for post in posts %}
                     {% set tags = post.data.tags %}
-                    <li>
-                        <div class="blog-card">
-                            <h2 class="blog-card__title">
-                                <a href="{{ post.url }}" class="blog-card__link">
-                                    {{ post.data.title }}
-                                </a>
-                            </h2>
-                            <div class="blog-card__meta">
-                                {% if post.data.date %}
-                                    <time datetime="{{ post.data.date | w3DateFilter }}">{{ post.data.date | dateFilter('en') }}</time>
-                                {% endif %}
-                                {% include "partial/tags.html" %}
-                            </div>
+                    <div class="blog-card">
+                        <h2 class="blog-card__title">
+                            <a href="{{ post.url }}" class="blog-card__link">
+                                {{ post.data.title }}
+                            </a>
+                        </h2>
+                        <div class="blog-card__meta">
+                            {% if post.data.date %}
+                                <time datetime="{{ post.data.date | w3DateFilter }}">{{ post.data.date | dateFilter('en') }}</time>
+                            {% endif %}
+                            {% include "partial/tags.html" %}
                         </div>
-                    </li>
+                    </div>
                 {% endfor %}
-            </ol>
+            </div>
             {% if not tag %}
-                {% include "partial/pagination.html" %}
+                <div class="l-blog__pagination">
+                    {% include "partial/pagination.html" %}
+                </div>
             {% endif %}
         </div>
-    </div>
+    </main>
+
+    {% set gettingStartedSettings = {
+        "classes": "l-getting-started--border-block-start"
+    } %}
+    {% include "../partial/getting-started.html" %}
+
 {% endblock %}

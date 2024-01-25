@@ -1604,6 +1604,7 @@ legend {
   --spruce-base-color-marker: hsl(261, 54%, 70%);
   --spruce-base-color-primary: hsl(261, 54%, 70%);
   --spruce-base-color-secondary: hsl(227, 92%, 55%);
+  --spruce-base-color-strong: hsl(0, 0%, 97%);
   --spruce-base-color-text: hsl(0, 0%, 97%);
 }
 
@@ -1772,6 +1773,26 @@ legend {
   }
 }
 
+.l-blog {
+  padding-block: 0 clamp(4.5rem, 8vw, 7rem);
+}
+.l-blog__inner {
+  --column: 1;
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(var(--column), minmax(0, 2fr));
+}
+@media (min-width: 48em) {
+  .l-blog__inner {
+    --column: 2;
+  }
+}
+@media (min-width: 80em) {
+  .l-blog__inner {
+    --column: 3;
+  }
+}
+
 .skip-link {
   inset: -50vh auto auto 1.5rem;
   position: fixed;
@@ -1878,6 +1899,53 @@ legend {
   font-size: clamp(1rem, 0.5rem + 1vw, 1.25rem);
   line-height: var(--spruce-line-height-md);
   max-inline-size: 50ch;
+}
+
+.page-heading {
+  align-items: center;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: minmax(0, 1fr);
+  justify-content: center;
+  padding-block: clamp(3rem, 10vw, 5rem) clamp(4.5rem, 10vw, 7rem);
+  text-align: center;
+}
+@media (min-width: 64em) {
+  .page-heading {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+    justify-content: flex-start;
+    text-align: start;
+  }
+}
+.page-heading__title {
+  font-size: clamp(2.4rem, 4vw + 1rem, 4rem);
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-block: 0;
+  max-inline-size: 50ch;
+}
+.page-heading__caption {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 64em) {
+  .page-heading__caption {
+    align-items: flex-start;
+  }
+}
+.page-heading__description {
+  font-size: clamp(0.875rem, 1vw + 0.75rem, 1.25rem);
+  margin: 1.5rem 0 0;
+  margin-block: 0;
+  max-inline-size: 50ch;
+}
+.page-heading__btns {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-block-start: 0.5rem;
 }
 
 .accordion-list > * {
@@ -2159,6 +2227,10 @@ legend {
   background-color: var(--spruce-btn-color-pagination-background);
   border-color: var(--spruce-btn-color-pagination-background);
   color: var(--spruce-btn-color-pagination-foreground);
+  border-radius: var(--doc-border-radius-md);
+  font-size: 0.91375rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 .pagination a:focus-visible {
   outline: 2px solid var(--spruce-btn-color-pagination-focus-ring);

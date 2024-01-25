@@ -1,0 +1,21 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.l-blog {
+  padding-block: 0 clamp(spacer('xl'), 8vw, 7rem);
+
+  &__inner {
+    --column: 1;
+
+    display: grid;
+    gap: spacer('l');
+    grid-template-columns: repeat(var(--column), minmax(0, 2fr));
+
+    @include breakpoint('sm') {
+      --column: 2;
+    }
+
+    @include breakpoint('lg') {
+      --column: 3;
+    }
+  }
+}
