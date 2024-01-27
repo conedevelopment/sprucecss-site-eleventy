@@ -6,7 +6,7 @@
                 {% include "partial/tags.html" %}
                 <span>
                     <span class="sr-only">Posted on</span>
-                    <time datetime="{{ date | w3DateFilter }}">{{ date | dateFilter('en') }}</time>
+                    <time datetime="{{ date | w3Date }}">{{ date | date('en') }}</time>
                 </span>
             </div>
         {% endif %}

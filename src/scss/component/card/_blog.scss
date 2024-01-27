@@ -1,10 +1,31 @@
 @use 'sprucecss/scss/spruce' as *;
 
+@use 'sprucecss/scss/spruce' as *;
+
 .blog-card {
-  @include layout-stack('xs');
+  @include a11y-card-link('.blog-card__link', true);
+  @include layout-stack('s');
+
+  picture,
+  img {
+    border-radius: var(--doc-border-radius-sm);
+  }
+
+  &__meta {
+    column-gap: spacer('m');
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: spacer('xs');
+
+    a {
+      position: relative;
+      z-index: 10;
+    }
+  }
 
   &__title {
-    font-family: config('font-family-base', $typography);
+    font-size: font-size('h3');
+    margin-block-start: spacer('xs');
   }
 
   &__link {
@@ -15,13 +36,5 @@
     &:focus {
       color: color('heading');
     }
-  }
-
-  &__meta {
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
-    font-family: config('font-family-heading', $typography);
-    gap: spacer('m');
   }
 }

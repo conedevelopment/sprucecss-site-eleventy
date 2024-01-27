@@ -1,0 +1,37 @@
+---
+title: "How to Reduce Spruce CSS Size"
+date: "2023-01-04"
+featuredImage: "./src/img/blog/how-to-03.png"
+alt: ""
+tags: ["how-to"]
+---
+
+<p class="lead">We try to make Spruce CSS smaller but still, we talk about 1000+ lines of code. Sometimes we don’t need all of them.</p>
+
+This framework only writes out any code if we tell it explicitly through a mixin. We call these mixins generators. We can control the size of our codebase by using or omitting them.
+
+Usually, we use `generate-styles`:
+
+```scss
+@use 'sprucecss/scss/spruce' as *;
+
+@include generate-styles;
+```
+
+and we configure what to generate through the `$generators` map.
+
+You can see that from the [source code](https://github.com/conedevelopment/sprucecss/blob/main/scss/mixin/_generator.scss) that these mixin contains a lot of condition based on the [previously mentioned map](/docs/sass/variables/#generators).
+
+```scss
+@use 'sprucecss/scss/spruce' with (
+  $generators: (
+    'form': (
+      'btn': false,
+    ),
+  ),
+);
+```
+
+Using this setting we turn off the button style generation.
+
+<Notification type="info">Please visit our <a href="/blog/how-to-configure-spruce-css-in-your-project">first how-to article</a> to learn more about how you should set up your config files.</Notification>

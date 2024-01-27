@@ -19,17 +19,18 @@
                 {% for post in posts %}
                     {% set tags = post.data.tags %}
                     <div class="blog-card">
+                        {% image post.data.featuredImage, "", [700, 1200], "(max-resolution: 72dpi) 25rem, (max-resolution: 300dpi) 25rem" %}
+                        <div class="blog-card__meta">
+                            {% include "partial/tags.html" %}
+                            {% if post.data.date %}
+                                <time datetime="{{ post.data.date | w3Date }}">{{ post.data.date | date('en') }}</time>
+                            {% endif %}
+                        </div>
                         <h2 class="blog-card__title">
                             <a href="{{ post.url }}" class="blog-card__link">
                                 {{ post.data.title }}
                             </a>
                         </h2>
-                        <div class="blog-card__meta">
-                            {% if post.data.date %}
-                                <time datetime="{{ post.data.date | w3DateFilter }}">{{ post.data.date | dateFilter('en') }}</time>
-                            {% endif %}
-                            {% include "partial/tags.html" %}
-                        </div>
                     </div>
                 {% endfor %}
             </div>
