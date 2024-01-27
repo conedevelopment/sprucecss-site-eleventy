@@ -19,7 +19,9 @@
                 {% for post in posts %}
                     {% set tags = post.data.tags %}
                     <div class="blog-card">
-                        {% image post.data.featuredImage, "", [700, 1200], "(max-resolution: 72dpi) 25rem, (max-resolution: 300dpi) 25rem" %}
+                        {% if post.data.featuredImage %}
+                            {% image post.data.featuredImage, "", [700, 1200], "(max-resolution: 72dpi) 25rem, (max-resolution: 300dpi) 25rem" %}
+                        {% endif %}
                         <div class="blog-card__meta">
                             {% include "partial/tags.html" %}
                             {% if post.data.date %}

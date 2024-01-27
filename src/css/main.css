@@ -2281,12 +2281,30 @@ legend {
   margin-block-start: 0;
 }
 
+pre[class*=language-] {
+  position: relative;
+}
+pre[class*=language-]::before {
+  border-radius: 0 0 var(--spruce-border-radius-sm) var(--spruce-border-radius-sm);
+  color: var(--spruce-prism-color-comment);
+  content: attr(data-language);
+  display: inline-block;
+  font-family: var(--doc-heading-font-family);
+  font-size: 0.6rem;
+  font-weight: 500;
+  inset: 1rem 1rem auto auto;
+  line-height: 1;
+  pointer-events: none;
+  position: absolute;
+  text-transform: uppercase;
+}
+
 code[class*=language-],
 pre[class*=language-] {
-  border-radius: var(--spruce-border-radius-lg);
+  border-radius: var(--spruce-border-radius-sm);
   color: var(--spruce-prism-color-color);
-  font-family: var(--spruce-font-family-cursive);
-  font-size: var(--spruce-font-size-base);
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-size: 0.9375rem;
   hyphens: none;
   line-height: 1.5;
   tab-size: 4;

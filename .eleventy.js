@@ -19,7 +19,14 @@ md.use(markdownItPrism);
 module.exports = config => {
   config.addFilter('date', dateFilter);
   config.addFilter('w3Date', w3DateFilter);
-  config.addPlugin(syntaxHighlight);
+  config.addPlugin(syntaxHighlight, {
+    preAttributes: {
+      tabindex: 0,
+      'data-language': function({ language, content, options }) {
+        return language;
+      }
+    },
+  });
 
   config.addFilter('markdown', (content) => {
     return md.render(content);
