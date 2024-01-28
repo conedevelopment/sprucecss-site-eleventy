@@ -24,7 +24,7 @@
   &__note {
     background-color: color('note-background', 'hero');
     border-radius: config('border-radius-sm', $display);
-    -webkit-box-decoration-break: clone;
+    -webkit-box-decoration-break: clone; // stylelint-disable-line
     box-decoration-break: clone;
     color: color('note-color', 'hero');
     display: inline;
@@ -56,7 +56,7 @@
   &__title {
     font-size: responsive-font-size(5rem, 45, '4vw + 1rem');
     font-weight: 400;
-    letter-spacing: -3px;
+    letter-spacing: -0.05em;
     margin-block: 0;
     margin-inline: auto;
     max-inline-size: 15ch;
