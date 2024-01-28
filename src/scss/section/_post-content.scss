@@ -7,8 +7,8 @@
     font-size: 1.0375rem;
   }
 
-  :is(dd, dl, dl, h1, h2, h3, h4, h5, h6, hr, ul, ol, p:not(p:has(img)), blockquote, form, pre[class*=language-]) {
-    @include layout-center(null, 40rem);
+  :is(dd, dl, dl, h1, h2, h3, h4, h5, h6, hr, ul, ol, p:not(p:has(img)), blockquote, form, pre, [class*=language-]) {
+    @include layout-center(null, 45rem);
   }
 
   * + h2,
@@ -26,10 +26,16 @@
 
   img,
   iframe {
-    border-radius: config('border-radius-sm', $display);
+    border-radius: var(--doc-border-radius-sm);
   }
 
   iframe {
     aspect-ratio: 16 / 10;
+    block-size: auto;
+    inline-size: 100;
+  }
+
+  > picture:first-child + * {
+    margin-block-start: spacer('l');
   }
 }

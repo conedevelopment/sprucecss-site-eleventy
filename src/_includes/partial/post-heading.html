@@ -1,14 +1,27 @@
-<div class="post-heading">
-    <div class="post-heading__inner">
-        <h1 class="post-heading__title">{{ title }}</h1>
-        {% if showMeta %}
-            <div class="post-heading__meta">
-                {% include "partial/tags.html" %}
-                <span>
-                    <span class="sr-only">Posted on</span>
-                    <time datetime="{{ date | w3Date }}">{{ date | date('en') }}</time>
-                </span>
-            </div>
-        {% endif %}
-    </div>
+<div class="post-heading {{ heading.class }}">
+    <h1 class="post-heading__title">{{ heading.title }}</h1>
+
+    {% if heading.description %}
+        <p class="post-heading__description">{{ heading.description }}</p>
+    {% endif %}
+
+    {% if heading.showBreadcrumb %}
+        <div class="post-heading__breadcrumb">
+            <ul class="breadcrumb-list">
+                <li><a href="/">Home</a></li>
+                <li><a href="/blog/">Blog</a></li>
+                <li><span aria-current="page">{{ title }}</span></li>
+            </ul>
+        </div>
+    {% endif %}
+
+    {% if heading.showMeta %}
+        <div class="post-heading__meta">
+            {% include "partial/tags.html" %}
+            <span>
+                <span class="sr-only">Posted on</span>
+                <time datetime="{{ date | w3Date }}">{{ date | date('en') }}</time>
+            </span>
+        </div>
+    {% endif %}
 </div>

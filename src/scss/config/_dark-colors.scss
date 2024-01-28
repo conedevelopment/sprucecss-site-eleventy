@@ -29,7 +29,7 @@ $colors: (
     'text': $color-gray,
   ),
   'breadcrumb': (
-    arrow: hsl(0deg 0% 100% / 10%),
+    'separator': hsl(0deg 0% 100% / 10%),
   ),
   'btn': (
     'discrete-background-hover': hsl(261deg 52% 59%),

@@ -2,11 +2,19 @@
 
 {% block content %}
     <div class="l-post">
-        <div class="container">
+        <div class="container container--narrow">
+            {% set heading = {
+                "title": title,
+                "class": "post-heading--center",
+                "showBreadcrumb": true,
+                "showMeta": true
+            } %}
+            {% include "partial/post-heading.html" %}
             <div class="l-post__inner">
-                {% set showMeta = true %}
-                {% include "partial/post-heading.html" %}
                 <div class="post-content">
+                    {% if featuredImage %}
+                        {% image featuredImage, "", [1200, 1600], "(max-resolution: 72dpi) 53.75rem, (max-resolution: 300dpi) 53.75rem" %}
+                    {% endif %}
                     {{ content | safe }}
                 </div>
             </div>

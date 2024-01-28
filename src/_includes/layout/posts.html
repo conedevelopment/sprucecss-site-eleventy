@@ -14,7 +14,8 @@
                 "title": "Blog",
                 "description": "Spruce how-to and generic front-end development articles."
             } %}
-            {% include "../partial/page-heading.html" %}
+            {% include "partial/post-heading.html" %}
+
             <div class="l-blog__inner">
                 {% for post in posts %}
                     {% set tags = post.data.tags %}
@@ -36,6 +37,7 @@
                     </div>
                 {% endfor %}
             </div>
+
             {% if not tag %}
                 <div class="l-blog__pagination">
                     {% include "partial/pagination.html" %}
