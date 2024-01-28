@@ -4,16 +4,20 @@
 
 {% if collections[ tag ] %}
     {% set posts = collections[tag].reverse() %}
-    {% set title = 'Tagged with: ' + tag %}
+    {% set title = "#" + tag %}
+    {% set heading = {
+        "title": "#" + tag
+    } %}
+{% else %}
+    {% set heading = {
+        "title": "Blog",
+        "description": "Spruce how-to and generic front-end development articles."
+    } %}
 {% endif %}
 
 {% block content %}
     <main id="content" class="l-blog">
         <div class="container">
-            {% set heading = {
-                "title": "Blog",
-                "description": "Spruce how-to and generic front-end development articles."
-            } %}
             {% include "partial/post-heading.html" %}
 
             <div class="l-blog__inner">
