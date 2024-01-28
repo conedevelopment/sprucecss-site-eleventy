@@ -66,28 +66,31 @@ module.exports = (value, locale) => {
 
 Or **create shortcodes** for managing more complex tasks from your template:
 
+{% raw %}
 ```html
-{ % image 'your-image.png', 'Your alt text' % }
+{% image 'your-image.png', 'Your alt text' %}
 ```
+{% endraw %}
 
 ```js
 // .eleventy.js
-config.addShortcode("image", async function(src, alt, sizes) {
+config.addShortcode('image', async function(src, alt, sizes) {
   let metadata = await Image(src, {
-    formats: ["webp", "jpeg"],
-    outputDir: "./dist/img/",
+    formats: ['webp', 'jpeg'],
+    outputDir: './dist/img/',
   });
 
   let imageAttributes = {
     alt,
     sizes,
-    loading: "lazy",
-    decoding: "async",
+    loading: 'lazy',
+    decoding: 'async',
   };
 
   return Image.generateHTML(metadata, imageAttributes);
 });
 ```
+
 The last example is also a good one. In any project, the images will cause one of the biggest headaches. We can use the first-party `Image` plugin to resize or convert our images quickly.
 
 <Notification type="info">In Eleventy, your config file is named <strong>.eleventy.js</strong> and lives at the project root.</Notification>
