@@ -36,7 +36,9 @@ To talk about modern Sass, first, we must speak a little about old Sass. Let’s
 - We could separate our files by components and merge them at a build process with @import; this is useful today, but now we have @use and @forward.
 - We made mathematical calculations. Don’t get me wrong, we still make calculations with Sass, but now we have [calc()](https://developer.mozilla.org/en-US/docs/Web/CSS/calc).
 
-<Notification type="info">Please note that we can still use the listed things (except <a href="https://sass-lang.com/documentation/at-rules/import">@import</a>, which is deprecated), but today we do not need them as much as we needed some years ago. Also, this is a personal list, nothing more.</Notification>
+{% notification %}
+Please note that we can still use the listed things (except [@import](https://sass-lang.com/documentation/at-rules/import), which is deprecated), but today we do not need them as much as we needed some years ago. Also, this is a personal list, nothing more.
+{% endnotification %}
 
 ## The Modern Sass
 

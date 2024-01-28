@@ -10,7 +10,9 @@ tags: ["css", "ui"]
 
 In this article, I will show you my logic behind handling multi-themed (light, dark, and system) projects with all their in and outs. Please, note that this is my way of doing it. It can be wrong in some places and out of style for you, which is fine.
 
-<Notification type="info">This article is partly based on the method we use in Spruce CSS, but in the end, there is nothing magic here; you can apply it anywhere.</Notification>
+{% notification %}
+This article is partly based on the method we use in Spruce CSS, but in the end, there is nothing magic here; you can apply it anywhere.
+{% endnotification %}
 
 Let's look at the thought process and go forward step by step.
 
@@ -48,7 +50,9 @@ You can identify and handle the theme as you wish; data attribute is just one co
 
 On the first visit, we want the system settings that will complicate our code.
 
-<Notification type="info">This example has three states: <code>system</code>, <code>dark</code>, and <code>light</code>. In practice, it will be reduced to two: <code>light</code> and <code>dark</code>. We handle the light as a default (we write our code as always) and dark as an overwriting to redeclare the color variables.</Notification>
+{% notification %}
+This example has three states: `system`, `dark`, and `light`. In practice, it will be reduced to two: `light` and `dark`. We handle the light as a default (we write our code as always) and dark as an overwriting to redeclare the color variables.
+{% endnotification %}
 
 ## 1. Switching Between Themes
 

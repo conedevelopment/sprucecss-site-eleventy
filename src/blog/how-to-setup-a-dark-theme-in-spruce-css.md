@@ -12,7 +12,9 @@ Using Spruce CSS, you can make any theme, which means you overwrite the default,
 
 Spruce has an empty `$dark-colors` map for the dark colors that we can use to attach the new values.
 
-<Notification type="info">We need the <a href="/blog/how-to-configure-spruce-css-in-your-project">config structure</a> from our first how-to post.</Notification>
+{% notification %}
+We need the [config structure](/blog/how-to-configure-spruce-css-in-your-project) from our first how-to post.
+{% endnotification %}
 
 ```scss
 .

@@ -118,7 +118,9 @@ These two layout modes will handle the direction switching by mirroring your str
 
 The values that we use for our flex or grid properties are and were logical ones. Before `start` and `end` for the `justify-content` property, we used `flex-start` and `flex-end`. These values mean the same but are unified (we can use them now in many cases).
 
-<Notification type="info">To see all of this in action, check out this <a href="https://ui.sprucecss.com/html/page/post-preview.html?dir=rtl">complex example from Spruce UI</a>. You can remove the <code>dir</code> attribute from the URL to see the RTL version.</Notification>
+{% notification %}
+To see all of this in action, check out this [complex example from Spruce UI](https://ui.sprucecss.com/html/page/post-preview.html?dir=rtl). You can remove the `dir` attribute from the URL to see the RTL version.
+{% endnotification %}
 
 ## I18n With CSS Summary
 

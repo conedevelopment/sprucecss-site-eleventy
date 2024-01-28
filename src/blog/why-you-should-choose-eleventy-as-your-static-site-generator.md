@@ -93,7 +93,9 @@ config.addShortcode('image', async function(src, alt, sizes) {
 
 The last example is also a good one. In any project, the images will cause one of the biggest headaches. We can use the first-party `Image` plugin to resize or convert our images quickly.
 
-<Notification type="info">In Eleventy, your config file is named <strong>.eleventy.js</strong> and lives at the project root.</Notification>
+{% notification %}
+In Eleventy, your config file is named **.eleventy.js** and lives at the project root.
+{% endnotification %}
 
 ## Data
 

@@ -12,7 +12,9 @@ And why should you know the type of the library you are using? Well, you shouldn
 
 So why do I care? When I started with Spruce CSS, I went through several CSS frameworks to learn. You would be amazed to know how many of them exist and how they are similar in the concept but different in the core. For me, categorizing Spruce is not easy, so I was curious about the options because it is a big help to communicate it clearly.
 
-<Notification type="info">Most of these libraries can overlap into multiple categories; there isn’t any fine line. A module-based system can give you utilities, and a utility-based can give you components.</Notification>
+{% notification %}
+Most of these libraries can overlap into multiple categories; there isn’t any fine line. A module-based system can give you utilities, and a utility-based can give you components.
+{% endnotification %}
 
 ## Component-based CSS Frameworks
 
@@ -24,7 +26,9 @@ Naming this group is tricky. In my opinion, this is the original CSS framework; 
 
 You can put [Bulma](https://bulma.io/) and [Spruce CSS](https://sprucecss.com/docs/getting-started/introduction) into this group too.
 
-<Notification type="info">We can call these kinds of frameworks the traditional ones because these were the first ones.</Notification>
+{% notification %}
+We can call these kinds of frameworks the traditional ones because these were the first ones.
+{% endnotification %}
 
 ## Utility-based CSS Frameworks
 

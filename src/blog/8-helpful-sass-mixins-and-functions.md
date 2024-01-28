@@ -78,7 +78,9 @@ Using the [@font-face](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-fa
 
 I haven't used it for a long time because, using Google Fonts, you can "embed" any font just with a stylesheet. With the rise of related GDPR problems, self-hosting our fonts is a good idea.
 
-<Notification type="info">If you want to download any Google Font, you can use the [google webfonts helper](https://gwfh.mranftl.com/fonts) website where you can get the newest font variants.</Notification>
+{% notification %}
+If you want to download any Google Font, you can use the [google webfonts helper](https://gwfh.mranftl.com/fonts) website where you can get the newest font variants.
+{% endnotification %}
 
 ```scss
 @use 'sass:string';

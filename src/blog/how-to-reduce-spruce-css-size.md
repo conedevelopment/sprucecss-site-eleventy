@@ -34,4 +34,6 @@ You can see that from the [source code](https://github.com/conedevelopment/spruc
 
 Using this setting we turn off the button style generation.
 
-<Notification type="info">Please visit our <a href="/blog/how-to-configure-spruce-css-in-your-project">first how-to article</a> to learn more about how you should set up your config files.</Notification>
+{% notification %}
+Please visit our [first how-to article](/blog/how-to-configure-spruce-css-in-your-project) to learn more about how you should set up your config files.
+{% endnotification %}
