@@ -2112,9 +2112,6 @@ legend {
   gap: 0.5rem;
   text-decoration: none;
 }
-.post-author--small .post-author__avatar {
-  --avatar-size: 1.8rem;
-}
 .post-author__avatar {
   block-size: var(--avatar-size);
   border-radius: calc(var(--avatar-size) / 2);
@@ -2570,6 +2567,7 @@ pre[class*=language-] {
   margin-block: 0;
   margin-inline: auto;
   max-inline-size: 20ch;
+  text-wrap: balance;
 }
 .post-heading__breadcrumb {
   display: flex;
@@ -2611,13 +2609,6 @@ pre[class*=language-] {
 .post-content * + h2,
 .post-content * + h3 {
   margin-block-start: 3rem;
-}
-.post-content h2 + *,
-.post-content h3 + *,
-.post-content h4 + *,
-.post-content h5 + *,
-.post-content h6 + * {
-  margin-block-start: 1rem;
 }
 .post-content img,
 .post-content iframe {

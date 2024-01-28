@@ -9,12 +9,6 @@
   gap: spacer('xs');
   text-decoration: none;
 
-  &--small {
-    #{$this}__avatar {
-      --avatar-size: 1.8rem;
-    }
-  }
-
   &__avatar {
     block-size: var(--avatar-size);
     border-radius: calc(var(--avatar-size) / 2);
