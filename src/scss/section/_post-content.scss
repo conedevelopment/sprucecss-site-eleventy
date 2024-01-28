@@ -7,7 +7,7 @@
     font-size: 1.0375rem;
   }
 
-  :is(dd, dl, dl, h1, h2, h3, h4, h5, h6, hr, ul, ol, p:not(p:has(img)), blockquote, form, pre, [class*=language-]) {
+  :is(dd, dl, dl, h1, h2, h3, h4, h5, h6, hr, ul, ol, p:not(p:has(img)), blockquote, form, pre, [class*=language-], .notification) {
     @include layout-center(null, 45rem);
   }
 

@@ -1,6 +1,7 @@
 @use 'sprucecss/scss/spruce' as *;
 
 .post-heading {
+  $this: &;
   align-items: center;
   display: grid;
   gap: spacer('s');
@@ -24,6 +25,11 @@
     .breadcrumb-list {
       margin-inline: auto;
     }
+
+    #{$this}__title {
+      font-size: responsive-font-size(4.25rem, 40, '4vw + 1rem');
+      margin-inline: auto;
+    }
   }
 
   &__title {
@@ -31,7 +37,6 @@
     letter-spacing: -2px;
     line-height: 1;
     margin-block: 0;
-    margin-inline: auto;
     max-inline-size: 20ch;
     text-wrap: balance;
   }

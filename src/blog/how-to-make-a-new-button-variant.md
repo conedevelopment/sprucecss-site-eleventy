@@ -30,7 +30,9 @@ You must declare your new colors under the `$colors` map's `btn` property. In th
 );
 ```
 
-<Notification type="info">You must choose an use a prefix (like "dark-") that you can reference later.</Notification>
+{% notification %}
+You must choose an use a prefix (like "dark-") that you can reference later.
+{% endnotification %}
 
 As you see, there are a bunch of options. The `dark-outline-*` is only for the outlined variation. We declare them to gain more control over their appearance.
 

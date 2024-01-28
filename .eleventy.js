@@ -16,6 +16,21 @@ const md = markdownIt({
 
 md.use(markdownItPrism);
 
+async function getImage(src, cls) {
+  const metadata = await Image(src, {
+    formats: ['svg'],
+    dryRun: true,
+  });
+  const svg = parse(metadata.svg[0].buffer.toString());
+
+  svg[0].attributes.push({
+    key: 'class',
+    value: cls ? cls : 'icon'
+  });
+
+  return stringify(svg);
+}
+
 module.exports = config => {
   config.addFilter('date', dateFilter);
   config.addFilter('w3Date', w3DateFilter);
@@ -41,20 +56,7 @@ module.exports = config => {
     return [...collection.getFilteredByGlob('./src/blog/*.md')];
   });
 
-  config.addNunjucksAsyncShortcode('svgIcon', async (src, cls) => {
-    const metadata = await Image(src, {
-      formats: ['svg'],
-      dryRun: true,
-    });
-    const svg = parse(metadata.svg[0].buffer.toString());
-
-    svg[0].attributes.push({
-      key: 'class',
-      value: cls ? cls : 'icon'
-    });
-
-    return stringify(svg);
-  });
+  config.addNunjucksAsyncShortcode('svgIcon', getImage);
 
   config.addShortcode('image', async function(src, alt = "", widths = [], sizes = "") {
     let metadata = await Image(src, {
@@ -71,6 +73,30 @@ module.exports = config => {
     };
 
     return Image.generateHTML(metadata, imageAttributes);
+  });
+
+  /**
+   * Displaying a notification block.
+   * @param {string} content - The content of the notification.
+   * @param {string} type - The type of the notification. Can be `info`, `good` or `bad`.
+   * @returns {string} The HTML markup of the notification.
+   */
+  config.addPairedAsyncShortcode('notification', async (content, type = 'info') => {
+    let iconName = null;
+
+    switch (type) {
+      case 'bad':
+        iconName = 'cross';
+        break;
+      case 'good':
+        iconName = 'check';
+        break;
+      default:
+        iconName = 'info';
+    }
+
+    const icon = await getImage(`./src/img/icon/${iconName}.svg`, 'notification__icon');
+    return `<div class="notification notification--${type}">${icon}<div class="notification__content">${md.render(content)}</div></div>`;
   });
 
   if (isProduction) {
