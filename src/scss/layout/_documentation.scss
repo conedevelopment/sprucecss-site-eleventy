@@ -1,0 +1,94 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.l-documentation {
+  padding-block: spacer-clamp('m', 'l') spacer-clamp('l', 'xl');
+
+  &--code {
+    padding-block: 0 spacer-clamp('l', 'xl');
+  }
+
+  &__inner {
+    display: grid;
+    gap: spacer('xl');
+    grid-template-columns: minmax(0, 1fr);
+
+    @include breakpoint('sm') {
+      grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+    }
+  }
+
+  &__sidebar {
+    @include breakpoint('sm') {
+      max-block-size: calc(100vh - 4rem);
+      position: sticky;
+    }
+  }
+
+  &__body-helper {
+    order: -1;
+
+    @include breakpoint('sm') {
+      order: 2;
+    }
+  }
+
+  &__body {
+    column-gap: spacer('xl');
+    display: grid;
+    grid-auto-rows: min-content;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: spacer('m');
+
+    @include breakpoint('lg') {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 15rem);
+    }
+  }
+
+  &__table-of-content {
+    inset-block-start: 2rem;
+    margin-inline: auto;
+    max-inline-size: 45rem;
+    position: sticky;
+
+    &-helper {
+      @include breakpoint('lg') {
+        grid-column: 2 / 3;
+        order: 2;
+      }
+    }
+  }
+
+  &__content {
+    @include breakpoint('lg') {
+      grid-column: 1 / 2;
+    }
+
+    .post-content {
+      margin-inline: auto;
+      max-inline-size: 45rem;
+    }
+  }
+
+  &__title {
+    font-size: responsive-font-size(3.3rem, 27.5, '3vw + 1rem');
+    margin-block: 0;
+    margin-inline: auto;
+    max-inline-size: 45rem;
+
+    @include breakpoint('lg') {
+      grid-column: 1 / 2;
+    }
+  }
+
+  &__navigation-top {
+    border-block-end: 1px solid color('border');
+    margin-block-end: spacer-clamp('l', 'xl');
+    padding-block: spacer('m');
+  }
+
+  &__navigation-bottom {
+    border-block-start: 1px solid color('border');
+    margin-block-start: spacer('xl');
+    padding-block-start: spacer('m');
+  }
+}

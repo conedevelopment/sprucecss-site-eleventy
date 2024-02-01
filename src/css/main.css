@@ -1729,6 +1729,91 @@ legend {
   --inline-size: 50rem;
 }
 
+.l-documentation {
+  padding-block: clamp(1.5rem, 5vw, 3rem) clamp(3rem, 5vw, 4.5rem);
+}
+.l-documentation--code {
+  padding-block: 0 clamp(3rem, 5vw, 4.5rem);
+}
+.l-documentation__inner {
+  display: grid;
+  gap: 4.5rem;
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 48em) {
+  .l-documentation__inner {
+    grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  }
+}
+@media (min-width: 48em) {
+  .l-documentation__sidebar {
+    max-block-size: calc(100vh - 4rem);
+    position: sticky;
+  }
+}
+.l-documentation__body-helper {
+  order: -1;
+}
+@media (min-width: 48em) {
+  .l-documentation__body-helper {
+    order: 2;
+  }
+}
+.l-documentation__body {
+  column-gap: 4.5rem;
+  display: grid;
+  grid-auto-rows: min-content;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: 1.5rem;
+}
+@media (min-width: 80em) {
+  .l-documentation__body {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 15rem);
+  }
+}
+.l-documentation__table-of-content {
+  inset-block-start: 2rem;
+  margin-inline: auto;
+  max-inline-size: 45rem;
+  position: sticky;
+}
+@media (min-width: 80em) {
+  .l-documentation__table-of-content-helper {
+    grid-column: 2/3;
+    order: 2;
+  }
+}
+@media (min-width: 80em) {
+  .l-documentation__content {
+    grid-column: 1/2;
+  }
+}
+.l-documentation__content .post-content {
+  margin-inline: auto;
+  max-inline-size: 45rem;
+}
+.l-documentation__title {
+  font-size: clamp(2.3925rem, 3vw + 1rem, 3.3rem);
+  margin-block: 0;
+  margin-inline: auto;
+  max-inline-size: 45rem;
+}
+@media (min-width: 80em) {
+  .l-documentation__title {
+    grid-column: 1/2;
+  }
+}
+.l-documentation__navigation-top {
+  border-block-end: 1px solid var(--spruce-base-color-border);
+  margin-block-end: clamp(3rem, 5vw, 4.5rem);
+  padding-block: 1.5rem;
+}
+.l-documentation__navigation-bottom {
+  border-block-start: 1px solid var(--spruce-base-color-border);
+  margin-block-start: 4.5rem;
+  padding-block-start: 1.5rem;
+}
+
 .l-post__inner {
   display: flex;
   flex-direction: column;
