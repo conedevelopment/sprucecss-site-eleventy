@@ -22,7 +22,7 @@ After the installation, we can access the npm command to init new projects and m
 
 **Open your terminal, navigate to the project root and run:**
 
-```bash
+```command
 npm init
 ```
 
@@ -46,7 +46,7 @@ Answer the asked questions (which you can modify later) or/and press enters. **A
 
 To install Sass, we have to run the following npm command:
 
-```bash
+```command
 npm install sass --save-dev
 ```
 
@@ -76,7 +76,7 @@ As you see, we set up two scripts to compile Sass:
 
 **Our project’s folder structure (should) look like this:**
 
-```
+```structure
 sass-compile/
 ├── assets/
 │   ├── css/
@@ -102,13 +102,13 @@ As you see, the npm scripts work like an alias (right now we only use the Sass C
 
 After the previous steps, all we need is to run our scripts based on all needs. **If you develop, then use:**
 
-```bash
+```command
 npm run sass-dev
 ```
 
 **If you want to make a minified file, use:**
 
-```bash
+```command
 npm run sass-prod
 ```
 
