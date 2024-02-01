@@ -2462,6 +2462,33 @@ pre[class*=language-] {
   font-style: italic;
 }
 
+.anchor-heading {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  position: relative;
+}
+.anchor-heading:hover .anchor-heading__link, .anchor-heading:focus-within .anchor-heading__link {
+  opacity: 1;
+}
+.anchor-heading h2,
+.anchor-heading h3 {
+  margin-block: 0;
+}
+.anchor-heading__link {
+  transition-duration: var(--spruce-duration);
+  transition-property: all;
+  transition-timing-function: var(--spruce-timing-function);
+  display: inline-flex;
+  flex-shrink: 0;
+  opacity: 0;
+}
+.anchor-heading__link svg {
+  --size: 0.65em;
+  block-size: var(--size);
+  inline-size: var(--size);
+}
+
 .site-header {
   position: relative;
   z-index: 10;
@@ -2669,13 +2696,14 @@ pre[class*=language-] {
     font-size: 1.0375rem;
   }
 }
-.post-content :is(dd, dl, dl, h1, h2, h3, h4, h5, h6, hr, ul, ol, p:not(p:has(img)), blockquote, form, pre, [class*=language-], .notification) {
+.post-content :is(dd, dl, dl, h1, h2, h3, h4, h5, h6, hr, ul, ol, p:not(p:has(img)), blockquote, form, pre, [class*=language-], .notification, .anchor-heading) {
   inline-size: 100%;
   margin-inline: auto;
   max-inline-size: 45rem;
 }
 .post-content * + h2,
-.post-content * + h3 {
+.post-content * + h3,
+.post-content * + .anchor-heading {
   margin-block-start: 3rem;
 }
 .post-content img,
