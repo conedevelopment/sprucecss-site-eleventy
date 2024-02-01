@@ -37,4 +37,10 @@
       color: color('heading');
     }
   }
+
+  .tags {
+    &__title {
+      @include visually-hidden;
+    }
+  }
 }
