@@ -1745,6 +1745,38 @@ legend {
     grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
   }
 }
+@media (min-width: 64em) {
+  .l-documentation__inner {
+    grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
+  }
+}
+.l-documentation__sidebar {
+  inset-block-start: 2rem;
+  overflow-y: auto;
+  padding-inline-end: 1.5rem;
+}
+.l-documentation__sidebar > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.l-documentation__sidebar > * + * {
+  margin-block-start: 1.5rem;
+}
+.l-documentation__sidebar::-webkit-scrollbar {
+  block-size: 0.5rem;
+  inline-size: 0.5rem;
+}
+.l-documentation__sidebar::-webkit-scrollbar-thumb {
+  background: var(--spruce-scrollbar-color-thumb-background);
+  border-radius: 0.15rem;
+}
+.l-documentation__sidebar::-webkit-scrollbar-thumb:hover {
+  background: var(--spruce-scrollbar-color-thumb-background-hover);
+}
+.l-documentation__sidebar::-webkit-scrollbar-track {
+  background: var(--spruce-scrollbar-color-track-background);
+  border-radius: 0.15rem;
+}
 @media (min-width: 48em) {
   .l-documentation__sidebar {
     max-block-size: calc(100vh - 4rem);
@@ -2491,6 +2523,41 @@ legend {
 }
 .code-tab__body iframe {
   border: 0;
+}
+
+.sidebar-section__title {
+  color: var(--spruce-base-color-heading);
+  font-size: var(--spruce-font-size-base);
+  margin-block: 0;
+}
+.sidebar-section__navigation {
+  border-inline-start: 1px solid var(--spruce-base-color-border);
+  font-size: 1rem;
+  margin-block-start: 1rem;
+  padding-inline-start: 1rem;
+}
+.sidebar-section__navigation ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sidebar-section__navigation a {
+  color: var(--spruce-base-color-text);
+  text-decoration: none;
+}
+.sidebar-section__navigation a[data-state=active] {
+  color: var(--spruce-base-color-heading);
+  font-weight: 700;
+  position: relative;
+}
+.sidebar-section__navigation a[data-state=active]::before {
+  background-color: var(--spruce-base-color-primary);
+  border-radius: 0 var(--spruce-border-radius-sm) var(--spruce-border-radius-sm) 0;
+  content: "";
+  inline-size: 0.3rem;
+  inset-block: 0;
+  inset-inline-start: -1rem;
+  position: absolute;
 }
 
 .post-navigation {

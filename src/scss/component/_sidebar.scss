@@ -1,0 +1,41 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.sidebar-section {
+  &__title {
+    color: color('heading');
+    font-size: config('font-size-base', $typography);
+    margin-block: 0;
+  }
+
+  &__navigation {
+    border-inline-start: 1px solid color('border');
+    font-size: 1rem;
+    margin-block-start: 1rem;
+    padding-inline-start: 1rem;
+
+    ul {
+      @include clear-list;
+    }
+
+    a {
+      color: color('text');
+      text-decoration: none;
+
+      &[data-state='active'] {
+        color: color('heading');
+        font-weight: 700;
+        position: relative;
+
+        &::before {
+          background-color: color('primary');
+          border-radius: 0 config('border-radius-sm', $display) config('border-radius-sm', $display) 0;
+          content: '';
+          inline-size: 0.3rem;
+          inset-block: 0;
+          inset-inline-start: -1rem;
+          position: absolute;
+        }
+      }
+    }
+  }
+}
