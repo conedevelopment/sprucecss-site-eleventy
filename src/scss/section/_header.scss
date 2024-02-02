@@ -51,7 +51,7 @@
     display: flex;
     gap: spacer('s');
 
-    .btn--twitter {
+    .btn:last-child {
       display: none;
 
       @include breakpoint('md') {

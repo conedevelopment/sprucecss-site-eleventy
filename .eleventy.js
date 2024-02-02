@@ -95,7 +95,7 @@ module.exports = config => {
     return [...collection.getFilteredByGlob('./src/blog/*.md')];
   });
 
-  config.addNunjucksAsyncShortcode('svgIcon', getImage);
+  config.addShortcode('svgIcon', getImage);
 
   config.addShortcode('image', async function(src, alt = '', widths = [], sizes = '') {
     let metadata = await Image(src, {
@@ -134,7 +134,7 @@ module.exports = config => {
         iconName = 'info';
     }
 
-    const icon = await getImage(`./src/img/icon/${iconName}.svg`, 'notification__icon');
+    const icon = await getImage(`./src/_includes/icon/${iconName}.svg`, 'notification__icon');
     return `<div class="notification notification--${type}">${icon}<div class="notification__content">${md.render(content)}</div></div>`;
   });
 

@@ -4,6 +4,7 @@
             <p class="code-tab__title">{{ title }}</p>
             {% if component.previewURL %}
                 <a class="code-tab__open-new" href="{{ component.previewURL }}" target="_blank" rel="noreferrer">
+                    {% include "icon/open-in-new.svg" %}
                     Open in New Window
                 </a>
             {% endif %}

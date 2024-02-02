@@ -34,7 +34,7 @@
     align-items: center;
     background-color: color('icon-background', 'navigation');
     block-size: 3rem;
-    border-radius: config('border-radius', $btn, false);
+    border-radius: var(--doc-border-radius-md);
     color: color('icon-foreground', 'navigation');
     display: flex;
     flex-shrink: 0;
@@ -42,10 +42,10 @@
     justify-content: center;
 
     svg {
-      --dimension: 1rem;
+      --size: 1.15rem;
 
-      block-size: var(--dimension);
-      inline-size: var(--dimension);
+      block-size: var(--size);
+      inline-size: var(--size);
 
       @at-root {
         [dir='rtl'] & {
