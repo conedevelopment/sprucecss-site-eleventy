@@ -2801,11 +2801,6 @@ pre[class*=language-] {
     font-size: 1.0375rem;
   }
 }
-.post-content :is(dd, dl, dl, h1, h2, h3, h4, h5, h6, hr, ul, ol, p:not(p:has(img)), blockquote, form, pre, [class*=language-], .notification, .anchor-heading) {
-  inline-size: 100%;
-  margin-inline: auto;
-  max-inline-size: 45rem;
-}
 .post-content * + h2,
 .post-content * + h3,
 .post-content * + .anchor-heading {
