@@ -19,7 +19,11 @@
   }
 
   &__title {
+    color: color('heading');
     font-size: font-size('h5');
+    font-family: config('font-family-heading', $typography);
+    font-weight: config('font-weight-heading', $typography);
+    line-height: config('line-height-heading', $typography);
     margin-block: 0;
   }
 

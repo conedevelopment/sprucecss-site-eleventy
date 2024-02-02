@@ -2,9 +2,11 @@
     <div class="code-tab__header">
         <div class="code-tab__group code-tab__group--title">
             <p class="code-tab__title">{{ title }}</p>
-            <a class="code-tab__open-new" href="#" target="_blank" rel="noreferrer">
-                Open in New Window
-            </a>
+            {% if component.previewURL %}
+                <a class="code-tab__open-new" href="{{ component.previewURL }}" target="_blank" rel="noreferrer">
+                    Open in New Window
+                </a>
+            {% endif %}
         </div>
         <ul class="code-tab__group code-tab__group--tabs">
             {% if component.preview %}
