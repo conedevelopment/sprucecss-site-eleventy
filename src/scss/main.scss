@@ -34,3 +34,5 @@ h5,
 h6 {
   font-family: var(--doc-heading-font-family);
 }
+
+[x-cloak] { display: none !important; }

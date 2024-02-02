@@ -1,8 +1,13 @@
 {% extends "layout/base.html" %}
 
 {% block content %}
-    <div class="l-documentation">
+    <div class="l-documentation l-documentation--code">
         <div class="container">
+            {% if component.preview %}
+                <div class="l-documentation__code-tab">
+                    {% include 'partial/code-tab.html' %}
+                </div>
+            {% endif %}
             <div class="l-documentation__inner">
                 <aside class="l-documentation__sidebar">
                     [sidebar]
@@ -19,12 +24,13 @@
                         </div>
                         <div class="l-documentation__content">
                             <div class="post-content">
-                                {{ content | safe }}
+                                {{ component.content | markdown | safe }}
                             </div>
                         </div>
                     </div>
                     <div class="l-documentation__navigation-bottom">
-                        [navigation]
+                        <a href="/ui/{{ ui[pagination.pageNumber - 1].folder }}/{{ ui[pagination.pageNumber - 1].slug }}">{{ ui[pagination.pageNumber - 1].title }}</a>
+                        <a href="/ui/{{ ui[pagination.pageNumber + 1].folder }}/{{ ui[pagination.pageNumber + 1].slug }}">{{ ui[pagination.pageNumber + 1].title }}</a>
                     </div>
                 </div>
             </div>

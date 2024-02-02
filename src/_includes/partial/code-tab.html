@@ -1,0 +1,74 @@
+<div x-data="{ activeTab: 'preview' }" x-cloak class="code-tab">
+    <div class="code-tab__header">
+        <div class="code-tab__group code-tab__group--title">
+            <p class="code-tab__title">{{ title }}</p>
+            <a class="code-tab__open-new" href="#" target="_blank" rel="noreferrer">
+                Open in New Window
+            </a>
+        </div>
+        <ul class="code-tab__group code-tab__group--tabs">
+            {% if component.preview %}
+                <li>
+                    <button @click="activeTab = 'preview'" :class="{ 'btn--active': activeTab === 'preview', 'btn--primary': activeTab === 'preview', 'btn--discrete': activeTab !== 'preview' }" class="btn btn--sm">
+                        Preview
+                    </button>
+                </li>
+            {% endif %}
+            {% if component.previewSCSS %}
+                <li>
+                    <button @click="activeTab = 'scss'" :class="{ 'btn--active': activeTab === 'scss', 'btn--primary': activeTab === 'scss', 'btn--discrete': activeTab !== 'scss' }" class="btn btn--sm">
+                        SCSS
+                    </button>
+                </li>
+            {% endif %}
+            {% if component.previewHTML %}
+                <li>
+                    <button @click="activeTab = 'html'" :class="{ 'btn--active': activeTab === 'html', 'btn--primary': activeTab === 'html', 'btn--discrete': activeTab !== 'html' }" class="btn btn--sm">
+                        HTML
+                    </button>
+                </li>
+            {% endif %}
+            {% if component.previewJS %}
+                <li>
+                    <button @click="activeTab = 'js'" :class="{ 'btn--active': activeTab === 'js', 'btn--primary': activeTab === 'js', 'btn--discrete': activeTab !== 'js' }" class="btn btn--sm">
+                        JS
+                    </button>
+                </li>
+            {% endif %}
+        </ul>
+        <button class="btn btn--primary btn--icon btn--sm copy-btn" aria-label="Copy">
+            copy
+        </button>
+    </div>
+    <div class="code-tab__body">
+        {% if component.preview %}
+            <div id="tab-content-preview" role="tabpanel" aria-labelledby="tab-control-preview" x-show="activeTab === 'preview'">
+                <iframe style="block-size: {{ component.previewHeight }};" srcdoc="{{ component.preview }}"></iframe>
+            </div>
+        {% endif %}
+
+        {% if component.previewSCSS %}
+            <div id="tab-content-scss" role="tabpanel" aria-labelledby="tab-control-scss" x-show="activeTab === 'scss'">
+                {% highlight "scss" %}
+                    {{ component.previewSCSS | safe }}
+                {% endhighlight %}
+            </div>
+        {% endif %}
+
+        {% if component.previewHTML %}
+            <div id="tab-content-html" role="tabpanel" aria-labelledby="tab-control-html" x-show="activeTab === 'html'">
+                {% highlight "html" %}
+                    {{ component.previewHTML | safe }}
+                {% endhighlight %}
+            </div>
+        {% endif %}
+
+        {% if component.previewJS %}
+            <div id="tab-content-js" role="tabpanel" aria-labelledby="tab-control-js" x-show="activeTab === 'js'">
+                {% highlight "js" %}
+                    {{ component.previewJS | safe }}
+                {% endhighlight %}
+            </div>
+        {% endif %}
+    </div>
+</div>
