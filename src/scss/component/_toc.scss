@@ -1,0 +1,45 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.toc {
+  @include breakpoint('lg') {
+    @include scrollbar(
+      color('thumb-background', 'scrollbar'),
+      color('thumb-background-hover', 'scrollbar'),
+      color('track-background', 'scrollbar'),
+      0.5rem
+    );
+    max-block-size: calc(100vh - 4rem);
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  &__title {
+    color: color('heading');
+    font-size: config('font-size-base', $typography);
+    margin-block: 0;
+  }
+
+  &__navigation {
+    border-inline-start: 1px solid color('border');
+    margin-block-start: 1rem;
+    padding-inline-start: 1rem;
+
+    ol {
+      @include clear-list;
+      @include layout-stack('xs');
+
+      max-inline-size: 95%;
+    }
+
+    a {
+      color: color('text');
+      display: inline-flex;
+      line-height: config('line-height-md', $typography);
+      text-decoration: none;
+
+      &:hover {
+        color: color('primary');
+      }
+    }
+  }
+}

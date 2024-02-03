@@ -138,6 +138,40 @@ module.exports = config => {
     return `<div class="notification notification--${type}">${icon}<div class="notification__content">${md.render(content)}</div></div>`;
   });
 
+  config.addFilter('toc', function(content) {
+    const md = markdownIt({ html: true }).use(markdownItAnchor, {
+      slugify: (s) => slugify(s, {
+        lower: true,
+        strict: true,
+        remove: /["]/g,
+      })
+    });
+
+    let toc = '';
+
+    md.renderer.rules.heading_open = function(tokens, idx, options, env, self) {
+      const token = tokens[idx];
+      const level = token.tag.replace(/[^\d]/g, '');
+      let anchor = ''; // Define anchor here
+
+      if (level >= 2 && level <= 3) {
+        const headingContent = tokens[idx + 1].content; // Extract content from the next token
+        anchor = md.utils.escapeHtml(slugify(headingContent, { lower: true, remove: /[*+~.()'"!:@]/g }));
+        toc += `<li class="toc-level-${level}"><a href="#${anchor}">${headingContent}</a></li>`;
+      }
+      return `<h${level} id="${anchor}">`;
+    };
+
+    md.render(content);
+
+    return `<div class="toc">
+              <h3 class="toc__title">On this page</h3>
+              <nav class="toc__navigation" aria-label="Table of Contents">
+                <ol>${toc}</ol>
+              </nav>
+            </div>`;
+  });
+
   if (isProduction) {
     config.addTransform('htmlmin', htmlMinTransform);
   }

@@ -31,4 +31,9 @@
   > picture:first-child + * {
     margin-block-start: spacer('l');
   }
+
+  .anchor-heading h2,
+  .anchor-heading h3 {
+    scroll-padding-block-start: spacer('m');
+  }
 }
