@@ -2619,6 +2619,20 @@ legend {
 .toc__navigation a:hover {
   color: var(--spruce-base-color-primary);
 }
+.toc__navigation a.active {
+  color: var(--spruce-base-color-heading);
+  font-weight: 700;
+  position: relative;
+}
+.toc__navigation a.active::before {
+  background-color: var(--spruce-base-color-primary);
+  border-radius: 0 var(--spruce-border-radius-sm) var(--spruce-border-radius-sm) 0;
+  content: "";
+  inline-size: 0.3rem;
+  inset-block: 0;
+  inset-inline-start: -1rem;
+  position: absolute;
+}
 
 .post-navigation {
   align-items: center;
