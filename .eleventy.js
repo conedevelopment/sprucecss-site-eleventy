@@ -139,14 +139,6 @@ module.exports = config => {
   });
 
   config.addFilter('toc', function(content) {
-    const md = markdownIt({ html: true }).use(markdownItAnchor, {
-      slugify: (s) => slugify(s, {
-        lower: true,
-        strict: true,
-        remove: /["]/g,
-      })
-    });
-
     let toc = '';
 
     md.renderer.rules.heading_open = function(tokens, idx, options, env, self) {

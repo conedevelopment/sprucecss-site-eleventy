@@ -3088,7 +3088,7 @@ pre[class*=language-] {
 }
 .post-content .anchor-heading h2,
 .post-content .anchor-heading h3 {
-  scroll-padding-block-start: 1.5rem;
+  scroll-margin-top: 1.5rem;
 }
 
 .cta {

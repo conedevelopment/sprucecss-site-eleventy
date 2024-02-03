@@ -1,12 +1,12 @@
 (() => {
-  const tocItems = document.querySelectorAll('.toc a');
+  const items = document.querySelectorAll('.toc a');
   const scrollItems = [];
 
-  if (!tocItems.length) {
+  if (!items.length) {
     return;
   }
 
-  tocItems.forEach((item) => {
+  items.forEach((item) => {
     const targetId = item.getAttribute('href').substring(1);
     const targetElement = document.getElementById(targetId);
 
@@ -18,7 +18,7 @@
     }
   });
 
-  function updateActiveTocItem() {
+  function updateActiveItems() {
     const scrollPosition = window.scrollY;
 
     const activeItem = scrollItems.reduce((closestItem, currentItem) => {
@@ -28,7 +28,7 @@
       return closestItem;
     }, scrollItems[0]);
 
-    tocItems.forEach((item) => {
+    items.forEach((item) => {
       item.classList.remove('active');
     });
 
@@ -37,6 +37,6 @@
     }
   }
 
-  window.addEventListener('scroll', updateActiveTocItem);
-  updateActiveTocItem();
+  window.addEventListener('scroll', updateActiveItems);
+  updateActiveItems();
 })();
