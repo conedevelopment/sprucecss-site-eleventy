@@ -4,7 +4,6 @@
   &__inner {
     display: flex;
     flex-direction: column;
-    gap: spacer('l');
     padding-block-end: get-css-variable(--section-gap);
   }
 }

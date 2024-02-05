@@ -30,6 +30,10 @@
       font-size: responsive-font-size(4.25rem, 40, '4vw + 1rem');
       margin-inline: auto;
     }
+
+    #{$this}__description {
+      margin-inline: auto;
+    }
   }
 
   &__title {

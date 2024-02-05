@@ -1854,7 +1854,6 @@ legend {
 .l-post__inner {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
   padding-block-end: var(--spruce-section-gap);
 }
 
@@ -3022,6 +3021,9 @@ pre[class*=language-] {
 }
 .post-heading--center .post-heading__title {
   font-size: clamp(2.55rem, 4vw + 1rem, 4.25rem);
+  margin-inline: auto;
+}
+.post-heading--center .post-heading__description {
   margin-inline: auto;
 }
 .post-heading__title {
