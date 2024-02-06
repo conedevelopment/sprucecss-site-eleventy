@@ -15,6 +15,11 @@
 
     ul {
       @include clear-list;
+      @include layout-stack(0.65rem);
+    }
+
+    li {
+      line-height: config('line-height-md', $typography);
     }
 
     a {

@@ -17,7 +17,7 @@
     }
 
     @include breakpoint('md') {
-      grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 16.5rem) minmax(0, 1fr);
     }
   }
 

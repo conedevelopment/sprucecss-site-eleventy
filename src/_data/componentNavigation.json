@@ -1,0 +1,208 @@
+[
+  {
+    "title": "Getting Started",
+    "items": [
+      {
+        "caption": "Introduction",
+        "url": "/ui/getting-started/introduction"
+      },
+      {
+        "caption": "Config",
+        "url": "/ui/getting-started/config"
+      }
+    ]
+  },
+  {
+    "title": "Card",
+    "items": [
+      {
+        "caption": "Accordion",
+        "url": "/ui/card/accordion"
+      },
+      {
+        "caption": "Order",
+        "url": "/ui/card/order"
+      },
+      {
+        "caption": "Payment",
+        "url": "/ui/card/payment"
+      },
+      {
+        "caption": "Post",
+        "url": "/ui/card/postr"
+      }
+    ]
+  },
+  {
+    "title": "Content and Layout",
+    "items": [
+      {
+        "caption": "Container",
+        "url": "/ui/content-and-layout/container"
+      },
+      {
+        "caption": "Feature",
+        "url": "/ui/content-and-layout/feature"
+      },
+      {
+        "caption": "Gallery",
+        "url": "/ui/content-and-layout/gallery"
+      },
+      {
+        "caption": "Modal",
+        "url": "/ui/content-and-layout/modal"
+      },
+      {
+        "caption": "Post Author",
+        "url": "/ui/content-and-layout/post-author"
+      },
+      {
+        "caption": "Post Content",
+        "url": "/ui/content-and-layout/post-content"
+      },
+      {
+        "caption": "Site Footer",
+        "url": "/ui/content-and-layout/site-footer"
+      },
+      {
+        "caption": "Site Header",
+        "url": "/ui/content-and-layout/site-header"
+      }
+    ]
+  },
+  {
+    "title": "Ecommerce",
+    "items": [
+      {
+        "caption": "Checkout",
+        "url": "/ui/ecommerce/checkout"
+      },
+      {
+        "caption": "Invoice",
+        "url": "/ui/ecommerce/invoice"
+      }
+    ]
+  },
+  {
+    "title": "Feedback",
+    "items": [
+      {
+        "caption": "Alert",
+        "url": "/ui/feedback/alert"
+      },
+      {
+        "caption": "Preloader",
+        "url": "/ui/feedback/preloader"
+      }
+    ]
+  },
+  {
+    "title": "Form",
+    "items": [
+      {
+        "caption": "Auth",
+        "url": "/ui/form/auth"
+      },
+      {
+        "caption": "Combobox",
+        "url": "/ui/form/combobox"
+      },
+      {
+        "caption": "File Group",
+        "url": "/ui/form/file-group"
+      },
+      {
+        "caption": "File List",
+        "url": "/ui/form/file-list"
+      },
+      {
+        "caption": "Number Group",
+        "url": "/ui/form/number-group"
+      },
+      {
+        "caption": "Range Group",
+        "url": "/ui/form/range-group"
+      }
+    ]
+  },
+  {
+    "title": "List",
+    "items": [
+      {
+        "caption": "Changelog",
+        "url": "/ui/list/changelog"
+      },
+      {
+        "caption": "Post",
+        "url": "/ui/list/post"
+      },
+      {
+        "caption": "Timeline",
+        "url": "/ui/list/timeline"
+      }
+    ]
+  },
+  {
+    "title": "Misc",
+    "items": [
+      {
+        "caption": "Cookie Consent",
+        "url": "/ui/misc/cookie-consent"
+      },
+      {
+        "caption": "Skip Link",
+        "url": "/ui/misc/skip-link"
+      },
+      {
+        "caption": "Theme Switcher Button",
+        "url": "/ui/misc/theme-switcher-button"
+      },
+      {
+        "caption": "Theme Switcher Select",
+        "url": "/ui/misc/theme-switcher-select"
+      }
+    ]
+  },
+  {
+    "title": "Navigation",
+    "items": [
+      {
+        "caption": "Breadcrumb List",
+        "url": "/ui/navigation/breadcrumb-list"
+      },
+      {
+        "caption": "Context Menu",
+        "url": "/ui/navigation/context-menu"
+      },
+      {
+        "caption": "Open Search",
+        "url": "/ui/navigation/open-search"
+      },
+      {
+        "caption": "Pagination",
+        "url": "/ui/navigation/pagination"
+      },
+      {
+        "caption": "Post",
+        "url": "/ui/navigation/post"
+      },
+      {
+        "caption": "Site Navigation",
+        "url": "/ui/navigation/site-navigation"
+      }
+    ]
+  },
+  {
+    "title": "Pages",
+    "items": [
+      {
+        "caption": "Auth",
+        "url": "/ui/page/auth"
+      },
+      {
+        "caption": "Post",
+        "url": "/ui/page/post"
+      }
+    ]
+  }
+]

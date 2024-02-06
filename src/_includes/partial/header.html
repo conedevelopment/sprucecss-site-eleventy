@@ -2,8 +2,12 @@
     <div class="container">
         <div class="site-header__inner">
             <div class="site-header__column">
-                <a class="site-header__logo" href="/" aria-label="Spruce CSS">
-                    {% svgIcon "./src/img/spruce-logo.svg" %}
+                <a class="site-header__logo {% if page.fileSlug == 'ui' %}site-header__logo--ui{% endif %}" href="/" aria-label="Spruce CSS">
+                    {% if page.fileSlug == 'ui' %}
+                        {% svgIcon "./src/img/spruce-ui-logo.svg" %}
+                    {% else %}
+                        {% svgIcon "./src/img/spruce-logo.svg" %}
+                    {% endif %}
                 </a>
                 <nav
                     class="site-navigation site-header__navigation"
