@@ -1,5 +1,6 @@
 <svg
     aria-hidden="true"
+    class="btn__icon btn__icon--copy"
     fill="currentColor"
     focusable="false"
     height="24"

@@ -1,4 +1,26 @@
-<div x-data="{ activeTab: 'preview' }" x-cloak class="code-tab">
+<div x-data="{
+    activeTab: 'preview',
+    copied: false,
+    async copyTextToClipboard() {
+        const code = document.querySelector(`#tab-content-${this.activeTab}`).dataset.code;
+
+        if ('clipboard' in navigator) {
+            return await navigator.clipboard.writeText(code);
+        } else {
+            return document.execCommand('copy', true, code);
+        }
+    },
+    copyCode() {
+        this.copyTextToClipboard()
+        .then(() => {
+            this.copied = true;
+            setTimeout(() => this.copied = false, 2500);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+    }
+}" x-cloak class="code-tab">
     <div class="code-tab__header">
         <div class="code-tab__group code-tab__group--title">
             <p class="code-tab__title">{{ title }}</p>
@@ -39,8 +61,9 @@
                 </li>
             {% endif %}
         </ul>
-        <button class="btn btn--primary btn--icon btn--sm copy-btn" aria-label="Copy">
-            copy
+        <button @click="copyCode" class="btn btn--primary btn--icon btn--sm copy-btn" aria-label="Copy" :disabled="activeTab === 'preview'">
+            <span x-show="!copied">{% include "icon/copy.svg" %}</span>
+            <span x-show="copied">{% include "icon/check-copy.svg" %}</span>
         </button>
     </div>
     <div class="code-tab__body">
@@ -51,7 +74,7 @@
         {% endif %}
 
         {% if component.previewSCSS %}
-            <div id="tab-content-scss" role="tabpanel" aria-labelledby="tab-control-scss" x-show="activeTab === 'scss'">
+            <div id="tab-content-scss" role="tabpanel" aria-labelledby="tab-control-scss" x-show="activeTab === 'scss'" data-code="{{ component.previewSCSS | safe }}">
                 {% highlight "scss" %}
                     {{ component.previewSCSS | safe }}
                 {% endhighlight %}
@@ -59,7 +82,7 @@
         {% endif %}
 
         {% if component.previewHTML %}
-            <div id="tab-content-html" role="tabpanel" aria-labelledby="tab-control-html" x-show="activeTab === 'html'">
+            <div id="tab-content-html" role="tabpanel" aria-labelledby="tab-control-html" x-show="activeTab === 'html'" data-code="{{ component.previewHTML }}">
                 {% highlight "html" %}
                     {{ component.previewHTML | safe }}
                 {% endhighlight %}
@@ -67,7 +90,7 @@
         {% endif %}
 
         {% if component.previewJS %}
-            <div id="tab-content-js" role="tabpanel" aria-labelledby="tab-control-js" x-show="activeTab === 'js'">
+            <div id="tab-content-js" role="tabpanel" aria-labelledby="tab-control-js" x-show="activeTab === 'js'" data-code="{{ component.previewJS | safe }}">
                 {% highlight "js" %}
                     {{ component.previewJS | safe }}
                 {% endhighlight %}
