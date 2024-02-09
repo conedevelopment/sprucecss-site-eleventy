@@ -1,20 +1,19 @@
 ---
-title: 'Documentation'
-description: 'A simple and modern documentation template with categories, code highlighting, RTL support and dark mode built on Eleventy.'
-featuredImage: '../images/templates/documentation.png'
-alt: 'The preview of the documentation template in a browser.'
-darkImage: '../images/templates/documentation-dark.png'
-github: 'https://github.com/conedevelopment/sprucecss-eleventy-documentation-template'
-demo: 'https://eleventy-documentation.sprucecss.com/'
-license: 'MIT'
-version: 'v1.2.0'
-date: '2023-05-23'
-updated: '2023-12-17'
-published: true
-tags: ['Eleventy', 'Free']
+title: "Documentation"
+description: "A simple and modern documentation template with categories, code highlighting, RTL support and dark mode built on Eleventy."
+featuredImage: "./src/img/templates/documentation.png"
+alt: "The preview of the documentation template in a browser."
+darkImage: "./src/img/templates/documentation-dark.png"
+github: "https://github.com/conedevelopment/sprucecss-eleventy-documentation-template"
+demo: "https://eleventy-documentation.sprucecss.com/"
+license: "MIT"
+version: "v1.2.0"
+date: "2023-05-23"
+updated: "2023-12-17"
+tags: ["Eleventy", "Free"]
 ---
 
-<p className="lead">Welcome to the official documentation of **Spruce Docs** Elventy theme. A small template you can use to document any of your projects.</p>
+<p class="lead">Welcome to the official documentation of **Spruce Docs** Elventy theme. A small template you can use to document any of your projects.</p>
 
 A documentation template is always helpful. There are a lot of solutions to make one; we wanted to create our self-hosted version based on our favorite static site generator [Eleventy](https://www.11ty.dev/).
 

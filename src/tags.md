@@ -1,8 +1,8 @@
 ---
-title: "Tag Archive"
+title: "Tags"
 layout: "layout/posts.html"
 pagination:
-  data: collections
+  data: collections.posts
   size: 1
   reverse: true
   alias: tag

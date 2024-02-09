@@ -1,0 +1,45 @@
+{% extends "layout/base.html" %}
+
+{% set heading = {
+    "title": "Templates",
+    "description": "High-quality templates to help you build better and faster."
+} %}
+
+{% block content %}
+    <main id="content" class="l-templates">
+        <div class="container">
+            {% include "partial/post-heading.html" %}
+
+            <div class="l-templates__inner">
+                {% for template in templates %}
+                    <div class="template-card">
+                        {% if template.data.featuredImage %}
+                            <div class="template-card__preview">
+                                {% image template.data.featuredImage, "", [700, 1200], "(max-resolution: 72dpi) 25rem, (max-resolution: 300dpi) 25rem" %}
+                            </div>
+                        {% endif %}
+                        <h2 class="template-card__title">
+                            <a href="{{ template.url }}" class="template-card__link">
+                                {{ template.data.title }}
+                            </a>
+                        </h2>
+                        <p class="template-card__description">
+                            {{ template.data.description }}
+                        </p>
+                        <div class="template-card__meta">
+                            <div class="template-card__tags">
+                                [tags]
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </main>
+
+    {% set gettingStartedSettings = {
+        "classes": "l-getting-started--border-block-start"
+    } %}
+    {% include "../partial/getting-started.html" %}
+
+{% endblock %}

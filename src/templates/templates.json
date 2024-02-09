@@ -1,0 +1,4 @@
+{
+  "layout": "layout/template.html",
+  "permalink": "/templates/{{ title | slug }}/index.html"
+}

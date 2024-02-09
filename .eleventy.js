@@ -91,6 +91,10 @@ module.exports = config => {
   config.addPassthroughCopy('./src/js/**');
   config.addPassthroughCopy('./src/font/**');
 
+  config.addCollection('templates', collection => {
+    return [...collection.getFilteredByGlob('./src/templates/*.md')];
+  });
+
   config.addCollection('blog', collection => {
     return [...collection.getFilteredByGlob('./src/blog/*.md')];
   });

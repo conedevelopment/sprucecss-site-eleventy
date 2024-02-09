@@ -1,20 +1,19 @@
 ---
-title: 'Root'
-description: 'A straightforward and free HTML administration template with standard views and many components.'
-featuredImage: '../images/templates/root.png'
-alt: 'The preview of the documentation template in a browser.'
-darkImage: '../images/templates/root-dark.png'
-github: 'https://github.com/conedevelopment/sprucecss-root-admin-template'
-demo: 'https://root-admin.sprucecss.com/'
-license: 'MIT'
-version: 'v1.0.3'
-date: '2023-11-18'
-updated: '2023-12-17'
-published: true
-tags: ['HTML', 'Free']
+title: "Root"
+description: "A straightforward and free HTML administration template with standard views and many components."
+featuredImage: "./src/img/templates/root.png"
+alt: "The preview of the documentation template in a browser."
+darkImage: "./src/img/templates/root-dark.png"
+github: "https://github.com/conedevelopment/sprucecss-root-admin-template"
+demo: "https://root-admin.sprucecss.com/"
+license: "MIT"
+version: "v1.0.3"
+date: "2023-11-18"
+updated: "2023-12-17"
+tags: ["HTML", "Free"]
 ---
 
-<p className="lead">A straightforward administration template with standard views and many components.</p>
+<p class="lead">A straightforward administration template with standard views and many components.</p>
 
 The Root theme is minimalistic, still containing many things that can be handy when you build a fully-fledged administration app.
 
