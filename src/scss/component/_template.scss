@@ -7,7 +7,7 @@
   display: flex;
   padding: spacer-clamp('s', 2rem);
 
-  .gatsby-image-wrapper {
+  img {
     border-radius: var(--doc-border-radius-sm);
     box-shadow: 0 0 1.25rem hsl(0deg 0% 0% / 5%);
   }

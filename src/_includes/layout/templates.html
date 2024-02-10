@@ -14,7 +14,7 @@
                 {% for template in templates %}
                     <div class="template-card">
                         {% if template.data.featuredImage %}
-                            <div class="template-card__preview">
+                            <div class="template-preview">
                                 {% image template.data.featuredImage, "", [700, 1200], "(max-resolution: 72dpi) 25rem, (max-resolution: 300dpi) 25rem" %}
                             </div>
                         {% endif %}

@@ -1,0 +1,50 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.l-template {
+  padding-block: 0 clamp(spacer('xl'), 8vw, 7rem);
+
+  &__inner {
+    display: grid;
+    gap: spacer-clamp('l', 'xl');
+    grid-template-columns: minmax(0, 2fr);
+    margin-block-start: spacer-clamp('xl', 'xxl');
+
+    @include breakpoint('md') {
+      grid-template-columns: minmax(0, 2fr) 28rem;
+    }
+
+    @include breakpoint('lg') {
+      grid-template-columns: minmax(0, 2fr) 32rem;
+    }
+  }
+
+  &__sidebar {
+    @include layout-stack('l');
+    order: -1;
+
+    @include breakpoint('md') {
+      order: 0;
+    }
+  }
+
+  &__previews {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+
+    @include breakpoint('md') {
+      flex-direction: row;
+    }
+  }
+
+  &__preview {
+    background-color: hsl(0deg 0% 97%);
+    border-radius: config('border-radius-sm', $display);
+    padding: 2rem;
+
+    img {
+      border-radius: config('border-radius-sm', $display);
+      box-shadow: 0 0 1.25rem hsl(0deg 0% 0% / 5%);
+    }
+  }
+}
