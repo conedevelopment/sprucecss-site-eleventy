@@ -1,6 +1,7 @@
 @use 'sprucecss/scss/spruce' as *;
 
 .template-card {
+  @include a11y-card-link('.template-card__link', true);
   @include layout-stack('xs');
 
   &__preview {
@@ -18,10 +19,15 @@
   &__title {
     font-size: responsive-font-size(2.5rem, 25, '2vw + 1rem');
     margin-block-start: 2rem;
+  }
 
-    a {
+  &__link {
+    color: color('heading');
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
       color: color('heading');
-      text-decoration: none;
     }
   }
 

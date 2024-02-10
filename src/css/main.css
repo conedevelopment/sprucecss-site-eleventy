@@ -2252,6 +2252,15 @@ legend {
   white-space: nowrap !important;
 }
 
+.template-card {
+  position: relative;
+}
+.template-card__link::before {
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
 .template-card > * {
   margin-block-end: 0;
   margin-block-start: 0;
@@ -2273,9 +2282,12 @@ legend {
   font-size: clamp(1.875rem, 2vw + 1rem, 2.5rem);
   margin-block-start: 2rem;
 }
-.template-card__title a {
+.template-card__link {
   color: var(--spruce-base-color-heading);
   text-decoration: none;
+}
+.template-card__link:hover, .template-card__link:focus {
+  color: var(--spruce-base-color-heading);
 }
 .template-card__description {
   font-size: clamp(0.99rem, 1vw + 0.55rem, 1.2rem);
@@ -2430,6 +2442,69 @@ legend {
 }
 .pagination a--sm {
   min-inline-size: 1.75rem;
+}
+
+.template-preview {
+  background-color: hsl(0, 0%, 97%);
+  border-radius: var(--doc-border-radius-sm);
+  display: flex;
+  padding: clamp(1rem, 5vw, 2rem);
+}
+.template-preview .gatsby-image-wrapper {
+  border-radius: var(--doc-border-radius-sm);
+  box-shadow: 0 0 1.25rem hsla(0, 0%, 0%, 0.05);
+}
+
+.template-tag {
+  background-color: var(--spruce-btn-color-dark-background);
+  border-radius: var(--spruce-border-radius-sm);
+  color: var(--spruce-btn-color-dark-foreground);
+  font-size: var(--spruce-font-size-sm);
+  font-weight: 700;
+  padding: 0.25rem 1rem;
+  text-transform: uppercase;
+}
+.template-tag--free {
+  background-color: #dbffed;
+  color: #005c2e;
+}
+
+.template-actions {
+  --columns: 1;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+}
+@media (min-width: 64em) {
+  .template-actions {
+    --columns: 2;
+  }
+}
+
+.template-meta {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--spruce-base-color-border);
+  border-radius: var(--spruce-border-radius-sm);
+  padding: 1.5rem;
+}
+.template-meta > * + * {
+  border-block-start: 1px dashed var(--spruce-base-color-border);
+  margin-block-start: 1rem;
+  padding-block-start: 1rem;
+}
+.template-meta__item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+.template-meta__item--tags {
+  justify-content: end;
+}
+.template-meta__item strong {
+  color: var(--spruce-base-color-heading);
 }
 
 .notification {
