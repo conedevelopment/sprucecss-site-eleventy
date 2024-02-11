@@ -1,0 +1,38 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+    <div class="l-documentation">
+        <div class="container">
+            <div class="l-documentation__inner">
+                <aside class="l-documentation__sidebar">
+                    [sidebar]
+                </aside>
+                <div class="l-documentation__body-helper">
+                    <div class="l-documentation__body">
+                        <div class="l-documentation__title-helper">
+                            <h1 class="l-documentation__title">{{ title }}</h1>
+                        </div>
+                        <div class="l-documentation__table-of-content-helper">
+                            <div class="l-documentation__table-of-content">
+                                {{ content | toc | safe }}
+                            </div>
+                        </div>
+                        <div class="l-documentation__content">
+                            <div class="post-content">
+                                {{ content | markdown | safe }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="l-documentation__navigation-bottom">
+                        {% include "partial/post-navigation.html" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% set gettingStartedSettings = {
+        "classes": "l-getting-started--border-block-start"
+    } %}
+    {% include "../partial/getting-started.html" %}
+{% endblock %}
