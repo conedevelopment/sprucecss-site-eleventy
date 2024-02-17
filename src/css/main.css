@@ -2768,6 +2768,7 @@ pre[class*=language-] {
   align-items: center;
   display: flex;
   gap: 1rem;
+  justify-content: space-between;
   position: relative;
 }
 .anchor-heading:hover .anchor-heading__link, .anchor-heading:focus-within .anchor-heading__link {
