@@ -8,7 +8,6 @@ const isProduction = process.env.NODE_ENV === 'production';
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 const w3DateFilter = require('./src/filters/w3-date.js');
 const markdownIt = require('markdown-it');
-const markdownItPrism = require('markdown-it-prism');
 const markdownItAnchor = require('markdown-it-anchor');
 const slugify = require('slugify');
 
