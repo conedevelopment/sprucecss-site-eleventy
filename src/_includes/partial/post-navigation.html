@@ -1,24 +1,27 @@
+{% set previousPost = postNavigation | getPreviousCollectionItem %}
+{% set nextPost = postNavigation | getNextCollectionItem %}
+
 <nav class="post-navigation">
-    {% if ui[pagination.pageNumber - 1].title %}
-        <a class="post-navigation-item post-navigation-item--prev" href="/ui/{{ ui[pagination.pageNumber - 1].folder }}/{{ ui[pagination.pageNumber - 1].slug }}">
+    {% if previousPost %}
+        <a class="post-navigation-item post-navigation-item--prev" href="{{ previousPost.url }}">
             <span class="post-navigation-item__icon">
                 {% include "icon/arrow-left.svg" %}
             </span>
             <span class="post-navigation-item__caption">
                 Previous
-                <span class="post-navigation-item__title">{{ ui[pagination.pageNumber - 1].title }}</span>
+                <span class="post-navigation-item__title">{{ previousPost.data.title }}</span>
             </span>
         </a>
     {% endif %}
-    {% if ui[pagination.pageNumber + 1].title %}
-        <a class="post-navigation-item post-navigation-item--next" href="/ui/{{ ui[pagination.pageNumber + 1].folder }}/{{ ui[pagination.pageNumber + 1].slug }}">
+    {% if nextPost %}
+        <a class="post-navigation-item post-navigation-item--next" href="{{ nextPost.url }}">
             <span class="post-navigation-item__caption">
                 Next
-                <span class="post-navigation-item__title">{{ ui[pagination.pageNumber + 1].title }}</span>
+                <span class="post-navigation-item__title">{{ nextPost.data.title }}</span>
             </span>
             <span class="post-navigation-item__icon">
                 {% include "icon/arrow-right.svg" %}
-            </span>
-        </a>
+            </span
+        ></a>
     {% endif %}
 </nav>

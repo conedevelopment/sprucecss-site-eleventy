@@ -91,7 +91,7 @@ module.exports = config => {
   config.addPassthroughCopy('./src/font/**');
 
   config.addCollection('docs', collection => {
-    return [...collection.getFilteredByGlob('./src/docs/*.md')].sort((a, b) => {
+    return [...collection.getFilteredByGlob('./src/docs/**/*.md')].sort((a, b) => {
       return a.data.order - b.data.order;
     });
   });

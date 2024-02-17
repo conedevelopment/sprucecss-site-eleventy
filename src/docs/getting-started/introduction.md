@@ -11,7 +11,7 @@ By minimalism, we mean it contains only the bare minimum needed for a complex sy
 
 The generated CSS is relatively tiny (~7kb gzipped), somewhere around [+1500 lines of code](https://github.com/conedevelopment/sprucecss/blob/main/css/spruce.css) (it uses [normalize.css](https://necolas.github.io/normalize.css/), which takes up +200 lines of code).
 
-<Notification type="info">Although it seems small, it isn’t. Spruce CSS uses Sass with many <a href="/docs/sass/variables/">variables</a>, <a href="/docs/sass/mixins/">mixins</a>, and <a href="/docs/sass/functions/">functions</a> to ease the work and use its code on demand.</Notification>
+{% notification %}Although it seems small, it isn’t. Spruce CSS uses Sass with many <a href="/docs/sass/variables/">variables</a>, <a href="/docs/sass/mixins/">mixins</a>, and <a href="/docs/sass/functions/">functions</a> to ease the work and use its code on demand.{% endnotification %}
 
 ## Our Goals with Spruce CSS
 
