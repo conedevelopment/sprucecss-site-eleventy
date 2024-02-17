@@ -148,22 +148,20 @@ module.exports = config => {
   });
 
   config.addFilter('toc', function(content) {
+    const HTMLContent = md.render(content);
+    const elements = parse(HTMLContent);
     let toc = '';
 
-    md.renderer.rules.heading_open = function(tokens, idx, options, env, self) {
-      const token = tokens[idx];
-      const level = token.tag.replace(/[^\d]/g, '');
-      let anchor = ''; // Define anchor here
+    elements.forEach(element => {
+      if (
+        element.tagName === 'div' &&
+        element.attributes.find(attr => attr.key === 'class').value.includes('anchor-heading')
+      ) {
+        const heading = element.children.filter(child => child.tagName === 'h2' || child.tagName === 'h3')[0];
 
-      if (level >= 2 && level <= 3) {
-        const headingContent = tokens[idx + 1].content; // Extract content from the next token
-        anchor = md.utils.escapeHtml(slugify(headingContent, { lower: true, remove: /[*+~.()'"!:@]/g }));
-        toc += `<li class="toc-level-${level}"><a href="#${anchor}">${headingContent}</a></li>`;
+        toc += `<li class="toc-level-${heading.tagName}"><a href="#${heading.attributes[0].value}">${heading.children[0].content}</a></li>`;
       }
-      return `<h${level} id="${anchor}">`;
-    };
-
-    md.render(content);
+    });
 
     return `<div class="toc">
               <h3 class="toc__title">On this page</h3>
