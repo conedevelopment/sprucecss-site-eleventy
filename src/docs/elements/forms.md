@@ -659,7 +659,7 @@ You can create a row stack using `form-row--mixed` class. It uses flexbox and au
 
 <Preview>
   <div class="form-row--mixed">
-    <div class="form-group" style={{'--inline-size': '30ch'}}>
+    <div class="form-group" style="--inline-size: 30ch;">
       <label class="form-label" for="city">City</label>
       <input class="form-control" id="city" name="city" type="text"/>
     </div>

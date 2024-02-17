@@ -1,0 +1,110 @@
+[
+  {
+    "title": "Getting Started",
+    "items": [
+      {
+        "caption": "Introduction",
+        "url": "/docs/getting-started/introduction"
+      },
+      {
+        "caption": "Installation",
+        "url": "/docs/getting-started/installation"
+      },
+      {
+        "caption": "Structure and Code",
+        "url": "/docs/getting-started/structure-and-code"
+      },
+      {
+        "caption": "Sass",
+        "url": "/docs/getting-started/sass"
+      },
+      {
+        "caption": "Accessibility",
+        "url": "/docs/getting-started/accessibility"
+      },
+      {
+        "caption": "Internationalization",
+        "url": "/docs/getting-started/internationalization"
+      },
+      {
+        "caption": "Print",
+        "url": "/docs/getting-started/print"
+      },
+      {
+        "caption": "Contribution",
+        "url": "/docs/getting-started/contribution"
+      },
+      {
+        "caption": "Appendix",
+        "url": "/docs/getting-started/appendix"
+      }
+    ]
+  },
+  {
+    "title": "Customization",
+    "items": [
+      {
+        "caption": "Variables",
+        "url": "/docs/customization/variables"
+      },
+      {
+        "caption": "Settings",
+        "url": "/docs/customization/settings"
+      },
+      {
+        "caption": "Themes",
+        "url": "/docs/customization/themes"
+      }
+    ]
+  },
+  {
+    "title": "Sass",
+    "items": [
+      {
+        "caption": "Colors",
+        "url": "/docs/sass/colors"
+      },
+      {
+        "caption": "Variables",
+        "url": "/docs/sass/variables"
+      },
+      {
+        "caption": "Mixins",
+        "url": "/docs/sass/mixins"
+      },
+      {
+        "caption": "Functions",
+        "url": "/docs/sass/functions"
+      }
+    ]
+  },
+  {
+    "title": "Elements",
+    "items": [
+      {
+        "caption": "Generators",
+        "url": "/docs/elements/generators"
+      },
+      {
+        "caption": "Typography",
+        "url": "/docs/elements/typography"
+      },
+      {
+        "caption": "Tables",
+        "url": "/docs/elements/tables"
+      },
+      {
+        "caption": "Buttons",
+        "url": "/docs/elements/buttons"
+      },
+      {
+        "caption": "Forms",
+        "url": "/docs/elements/forms"
+      },
+      {
+        "caption": "Media",
+        "url": "/docs/elements/media"
+      }
+    ]
+  }
+]
