@@ -64,7 +64,7 @@ If you prefer the namespaces, leave the `as *` part out and use the following:
 }
 ```
 
-<Notification type="info">Based on your compile configuration you may need the tilde <code>~</code> character (at start of the @use statement). This is a shorthand to the <code>node_modules</code> folder in a Webpack configuration, so you don’t have to use a relative path.</Notification>
+{% notification %}Based on your compile configuration you may need the tilde <code>~</code> character (at start of the @use statement). This is a shorthand to the <code>node_modules</code> folder in a Webpack configuration, so you don’t have to use a relative path.{% endnotification %}
 
 ### Load Styles
 

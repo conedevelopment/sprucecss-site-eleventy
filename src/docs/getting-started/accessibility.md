@@ -9,7 +9,7 @@ github: 'https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/ge
 
 Building something more inclusive is a long process. We learn on the way, too, so this always will be a work in progress.
 
-<Notification type="info">We will do our best to test our code with <a href="https://www.nvaccess.org/download/">NVDA</a> (under Windows 10). Testing is an area where help is much appreciated. <a href="https://github.com/conedevelopment/sprucecss/issues">Please open an issue</a> if you have any input related to this topic. Thank you!</Notification>
+{% notification %}We will do our best to test our code with <a href="https://www.nvaccess.org/download/">NVDA</a> (under Windows 10). Testing is an area where help is much appreciated. <a href="https://github.com/conedevelopment/sprucecss/issues">Please open an issue</a> if you have any input related to this topic. Thank you!{% endnotification %}
 
 ## WCAG 2.1
 
