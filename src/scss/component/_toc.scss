@@ -31,6 +31,10 @@
       max-inline-size: 95%;
     }
 
+    .toc-level-h3 a {
+      padding-inline-start: spacer('s');
+    }
+
     a {
       color: color('text');
       display: inline-flex;

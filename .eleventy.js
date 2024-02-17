@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+const { JSDOM } = require('jsdom');
 const { parse, stringify } = require('himalaya');
 const dateFilter = require('./src/filters/date.js');
 const htmlMinTransform = require('./src/transforms/html-min-transform.js');
@@ -148,18 +149,17 @@ module.exports = config => {
   });
 
   config.addFilter('toc', function(content) {
-    const HTMLContent = md.render(content);
-    const elements = parse(HTMLContent);
+    const dom = new JSDOM(md.render(content));
+    const document = dom.window.document;
+
+    const elements = document.querySelectorAll('.anchor-heading');
     let toc = '';
 
     elements.forEach(element => {
-      if (
-        element.tagName === 'div' &&
-        element.attributes.find(attr => attr.key === 'class').value.includes('anchor-heading')
-      ) {
-        const heading = element.children.filter(child => child.tagName === 'h2' || child.tagName === 'h3')[0];
+      const heading = element.querySelector('h2, h3');
 
-        toc += `<li class="toc-level-${heading.tagName}"><a href="#${heading.attributes[0].value}">${heading.children[0].content}</a></li>`;
+      if (heading) {
+        toc += `<li class="toc-level-${heading.tagName.toLowerCase()}"><a href="#${heading.id}">${heading.textContent}</a></li>`;
       }
     });
 

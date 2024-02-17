@@ -2544,6 +2544,9 @@ legend {
 .toc__navigation ol > * + * {
   margin-block-start: 0.5rem;
 }
+.toc__navigation .toc-level-h3 a {
+  padding-inline-start: 1rem;
+}
 .toc__navigation a {
   color: var(--spruce-base-color-text);
   display: inline-flex;
