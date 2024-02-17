@@ -2406,8 +2406,8 @@ legend {
 }
 .code-tab__title {
   color: var(--spruce-base-color-heading);
-  font-size: 1rem;
   font-family: var(--spruce-font-family-heading);
+  font-size: 1rem;
   font-weight: var(--spruce-font-weight-heading);
   line-height: var(--spruce-line-height-heading);
   margin-block: 0;
@@ -2556,12 +2556,12 @@ legend {
 .toc__navigation a:hover {
   color: var(--spruce-base-color-primary);
 }
-.toc__navigation a.active {
+.toc__navigation .active {
   color: var(--spruce-base-color-heading);
   font-weight: 700;
   position: relative;
 }
-.toc__navigation a.active::before {
+.toc__navigation .active::before {
   background-color: var(--spruce-base-color-primary);
   border-radius: 0 var(--spruce-border-radius-sm) var(--spruce-border-radius-sm) 0;
   content: "";
@@ -2624,24 +2624,6 @@ legend {
   color: var(--spruce-base-color-primary);
   display: flex;
   font-weight: 700;
-}
-
-pre[class*=language-] {
-  position: relative;
-}
-pre[class*=language-]::before {
-  border-radius: 0 0 var(--spruce-border-radius-sm) var(--spruce-border-radius-sm);
-  color: var(--spruce-prism-color-comment);
-  content: attr(data-language);
-  display: inline-block;
-  font-family: var(--doc-heading-font-family);
-  font-size: 0.6rem;
-  font-weight: 500;
-  inset: 1rem 1rem auto auto;
-  line-height: 1;
-  pointer-events: none;
-  position: absolute;
-  text-transform: uppercase;
 }
 
 code[class*=language-],
@@ -3031,6 +3013,23 @@ pre[class*=language-] {
 .post-content .anchor-heading h2,
 .post-content .anchor-heading h3 {
   scroll-margin-top: 1.5rem;
+}
+.post-content pre[class*=language-] {
+  position: relative;
+}
+.post-content pre[class*=language-]::before {
+  border-radius: 0 0 var(--spruce-border-radius-sm) var(--spruce-border-radius-sm);
+  color: var(--spruce-prism-color-comment);
+  content: attr(data-language);
+  display: inline-block;
+  font-family: var(--doc-heading-font-family);
+  font-size: 0.6rem;
+  font-weight: 500;
+  inset: 1rem 1rem auto auto;
+  line-height: 1;
+  pointer-events: none;
+  position: absolute;
+  text-transform: uppercase;
 }
 
 .cta {

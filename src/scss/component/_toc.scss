@@ -44,21 +44,21 @@
       &:hover {
         color: color('primary');
       }
+    }
 
-      &.active {
-        color: color('heading');
-        font-weight: 700;
-        position: relative;
+    .active {
+      color: color('heading');
+      font-weight: 700;
+      position: relative;
 
-        &::before {
-          background-color: color('primary');
-          border-radius: 0 config('border-radius-sm', $display) config('border-radius-sm', $display) 0;
-          content: '';
-          inline-size: 0.3rem;
-          inset-block: 0;
-          inset-inline-start: -1rem;
-          position: absolute;
-        }
+      &::before {
+        background-color: color('primary');
+        border-radius: 0 config('border-radius-sm', $display) config('border-radius-sm', $display) 0;
+        content: '';
+        inline-size: 0.3rem;
+        inset-block: 0;
+        inset-inline-start: -1rem;
+        position: absolute;
       }
     }
   }
