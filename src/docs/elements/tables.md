@@ -11,28 +11,30 @@ github: 'https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/el
 Use the `table` class on an HTML `<table>` element to use the default styling.
 
 {% preview %}
-<table class="table">
-    <caption>A generic introduction to the table.</caption>
-    <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Block of Text</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>John&nbsp;Doe</td>
-            <td>Nullam quis risus eget urna mollis ornare vel eu leo.</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td><a href="#">Jane&nbsp;Doe</a></td>
-            <td>Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.</td>
-        </tr>
-    </tbody>
-</table>
+<div class="table-responsive">
+    <table class="table">
+        <caption>A generic introduction to the table.</caption>
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Block of Text</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>John&nbsp;Doe</td>
+                <td>Nullam quis risus eget urna mollis ornare vel eu leo.</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td><a href="#">Jane&nbsp;Doe</a></td>
+                <td>Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 {% endpreview %}
 
 ```html
@@ -63,49 +65,49 @@ Use the `table--striped` class on a `<table>` to display a zebra-striped styling
 
 You control the stripe pattern with the <code><a href="/docs/sass/variables#tables">config('stripe', $table)</a></code> variable (odd, even).
 
-<Preview>
-  {
-    <table class="table--striped table--hover">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Number</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>John&nbsp;Doe</td>
-          <td>900</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td><a href="#">Jane&nbsp;Doe</a></td>
-          <td>1200</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Jim&nbsp;Doe</td>
-          <td>1200</td>
-        </tr>
-      </tbody>
+{% preview %}
+<div class="table-responsive">
+    <table class="table table--striped table--hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Number</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>John&nbsp;Doe</td>
+                <td>900</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td><a href="#">Jane&nbsp;Doe</a></td>
+                <td>1200</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Jim&nbsp;Doe</td>
+                <td>1200</td>
+            </tr>
+        </tbody>
     </table>
-  }
-</Preview>
+</div>
+{% endpreview %}
 
 ```html
 <table class="table table--striped table--hover">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Number</th>
-    </tr>
-  </thead>
-  <tbody>
-    ...
-  </tbody>
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        ...
+    </tbody>
 </table>
 ```
 
@@ -113,44 +115,44 @@ You control the stripe pattern with the <code><a href="/docs/sass/variables#tabl
 
 Use the `table--clear-border` class on a `<table>` to remove the default border style.
 
-<Preview>
-  {
-    <table class="table--clear-border">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Number</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>John&nbsp;Doe</td>
-          <td>900</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td><a href="#">Jane&nbsp;Doe</a></td>
-          <td>1200</td>
-        </tr>
-      </tbody>
+{% preview %}
+<div class="table-responsive">
+    <table class="table table--clear-border">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>John&nbsp;Doe</td>
+                <td>900</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td><a href="#">Jane&nbsp;Doe</a></td>
+                <td>1200</td>
+            </tr>
+        </tbody>
     </table>
-  }
-</Preview>
+</div>
+{% endpreview %}
 
 ```html
 <table class="table table--clear-border">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Number</th>
-    </tr>
-  </thead>
-  <tbody>
-    ...
-  </tbody>
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        ...
+    </tbody>
 </table>
 ```
 
@@ -158,31 +160,31 @@ Use the `table--clear-border` class on a `<table>` to remove the default border 
 
 Use the `table--sm` class on a `<table>` to make it smaller.
 
-<Preview>
-  {
-    <table class="table--sm">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Number</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>John&nbsp;Doe</td>
-          <td>900</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td><a href="#">Jane&nbsp;Doe</a></td>
-          <td>1200</td>
-        </tr>
-      </tbody>
+{% preview %}
+<div class="table-responsive">
+    <table class="table table--sm">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>John&nbsp;Doe</td>
+                <td>900</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td><a href="#">Jane&nbsp;Doe</a></td>
+                <td>1200</td>
+            </tr>
+        </tbody>
     </table>
-  }
-</Preview>
+</div>
+{% endpreview %}
 
 ```html
 <table class="table table--sm">
@@ -203,54 +205,54 @@ Use the `table--sm` class on a `<table>` to make it smaller.
 
 Use the `table--rounded` class on a `<table>` to make rounded background. For the best result use it with `table--striped` and `table--clear-border`.
 
-<Preview>
-  {
-    <table class="table--rounded table--striped table--clear-border">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Number</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>John&nbsp;Doe</td>
-          <td>900</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jane&nbsp;Doe</td>
-          <td>1200</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Jack&nbsp;Doe</td>
-          <td>200</td>
-        </tr>
-        <tr>
-          <th scope="row">4</th>
-          <td>Jill&nbsp;Doe</td>
-          <td>1400</td>
-        </tr>
-      </tbody>
+{% preview %}
+<div class="table-responsive">
+    <table class="table table--rounded table--striped table--clear-border">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>John&nbsp;Doe</td>
+                <td>900</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jane&nbsp;Doe</td>
+                <td>1200</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Jack&nbsp;Doe</td>
+                <td>200</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>Jill&nbsp;Doe</td>
+                <td>1400</td>
+            </tr>
+        </tbody>
     </table>
-  }
-</Preview>
+</div>
+{% endpreview %}
 
 ```html
 <table class="table table--rounded table--striped table--clear-border">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Number</th>
-    </tr>
-  </thead>
-  <tbody>
-    ...
-  </tbody>
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        ...
+    </tbody>
 </table>
 ```
 
@@ -258,54 +260,54 @@ Use the `table--rounded` class on a `<table>` to make rounded background. For th
 
 Use the `table--in-line` class on a `<table>` to remove the inline padding from the first (on start) and last (on end) `<th>` and `<td>` element.
 
-<Preview>
-  {
-    <table class="table--in-line">
-      <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Number</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>John&nbsp;Doe</td>
-          <td>900</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jane&nbsp;Doe</td>
-          <td>1200</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Jack&nbsp;Doe</td>
-          <td>200</td>
-        </tr>
-        <tr>
-          <th scope="row">4</th>
-          <td>Jill&nbsp;Doe</td>
-          <td>1400</td>
-        </tr>
-      </tbody>
+{% preview %}
+<div class="table-responsive">
+    <table class="table table--in-line">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Number</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>John&nbsp;Doe</td>
+                <td>900</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jane&nbsp;Doe</td>
+                <td>1200</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Jack&nbsp;Doe</td>
+                <td>200</td>
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>Jill&nbsp;Doe</td>
+                <td>1400</td>
+            </tr>
+        </tbody>
     </table>
-  }
-</Preview>
+</div>
+{% endpreview %}
 
 ```html
 <table class="table table--in-line">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Number</th>
-    </tr>
-  </thead>
-  <tbody>
-    ...
-  </tbody>
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        ...
+    </tbody>
 </table>
 ```
 
@@ -317,22 +319,22 @@ You can control the width of the scrollable table with the `config('responsive-i
 
 ```html
 <div class="table-responsive">
-  <table class="table table--striped table--hover">
-    <thead>
-      ...
-    </thead>
-    <tbody>
-      ...
-    </tbody>
-  </table>
+    <table class="table table--striped table--hover">
+        <thead>
+            ...
+        </thead>
+        <tbody>
+            ...
+        </tbody>
+    </table>
 </div>
 ```
 
 ```html
 <div class="table-responsive" style="--inline-size: 20rem;">
-  <table class="table">
-    ...
-  </table>
+    <table class="table">
+        ...
+    </table>
 </div>
 ```
 
