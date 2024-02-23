@@ -124,6 +124,10 @@ module.exports = config => {
     return Image.generateHTML(metadata, imageAttributes);
   });
 
+  config.addPairedShortcode('preview', content => {
+    return `<div class="preview">${content}</div>`;
+  });
+
   /**
    * Displaying a notification block.
    * @param {string} content - The content of the notification.

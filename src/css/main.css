@@ -2454,6 +2454,54 @@ legend {
   border: 0;
 }
 
+.preview {
+  border: 1px solid var(--spruce-base-color-border);
+  border-radius: var(--spruce-border-radius-sm);
+  font-size: 1rem;
+  padding: 1.5rem;
+}
+.preview > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.preview > * + * {
+  margin-block-start: 1.5rem !important;
+}
+.preview > * {
+  font-family: var(--spruce-font-family-base);
+}
+.preview ul > li > p {
+  margin-block: 0;
+}
+
+.button-grid {
+  align-items: flex-start;
+  display: flex;
+  gap: 1.5rem;
+}
+.button-grid--stacked {
+  flex-wrap: wrap;
+}
+
+.inline-text-element-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.inline-text-element-list > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.inline-text-element-list > * + * {
+  margin-block-start: 1rem;
+}
+@media (min-width: 48em) {
+  .inline-text-element-list {
+    column-gap: 3rem;
+    columns: 2 auto;
+  }
+}
+
 .sidebar-section__title {
   color: var(--spruce-base-color-heading);
   font-size: var(--spruce-font-size-base);

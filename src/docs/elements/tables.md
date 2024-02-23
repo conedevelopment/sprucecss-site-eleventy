@@ -10,50 +10,48 @@ github: 'https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/el
 
 Use the `table` class on an HTML `<table>` element to use the default styling.
 
-<Preview>
-  {
-    <table class="table">
-      <caption>A generic introduction to the table.</caption>
-      <thead>
+{% preview %}
+<table class="table">
+    <caption>A generic introduction to the table.</caption>
+    <thead>
         <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Block of Text</th>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Block of Text</th>
         </tr>
-      </thead>
-      <tbody>
+    </thead>
+    <tbody>
         <tr>
-          <th scope="row">1</th>
-          <td>John&nbsp;Doe</td>
-          <td>Nullam quis risus eget urna mollis ornare vel eu leo.</td>
+            <th scope="row">1</th>
+            <td>John&nbsp;Doe</td>
+            <td>Nullam quis risus eget urna mollis ornare vel eu leo.</td>
         </tr>
         <tr>
-          <th scope="row">2</th>
-          <td><a href="#">Jane&nbsp;Doe</a></td>
-          <td>Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.</td>
+            <th scope="row">2</th>
+            <td><a href="#">Jane&nbsp;Doe</a></td>
+            <td>Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.</td>
         </tr>
-      </tbody>
-    </table>
-  }
-</Preview>
+    </tbody>
+</table>
+{% endpreview %}
 
 ```html
 <table class="table">
-  <caption>A generic introduction to the table.</caption>
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Block of Text</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>John Doe</td>
-      <td>Nullam quis risus eget urna mollis ornare vel eu leo.</td>
-    </tr>
-  </tbody>
+    <caption>A generic introduction to the table.</caption>
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Block of Text</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>John Doe</td>
+            <td>Nullam quis risus eget urna mollis ornare vel eu leo.</td>
+        </tr>
+    </tbody>
 </table>
 ```
 
