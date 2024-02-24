@@ -57,7 +57,7 @@ Use the `table` class on an HTML `<table>` element to use the default styling.
 </table>
 ```
 
-{% notification type="correct" %}Use <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#attr-scope">scope attribute</a> to define which header relates with which table cells.{% endnotification %}
+{% notification "good" %}Use <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#attr-scope">scope attribute</a> to define which header relates with which table cells.{% endnotification %}
 
 ## Striped and Hover Styles
 
