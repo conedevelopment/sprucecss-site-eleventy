@@ -74,7 +74,7 @@
         {% endif %}
 
         {% if component.previewSCSS %}
-            <div id="tab-content-scss" role="tabpanel" aria-labelledby="tab-control-scss" x-show="activeTab === 'scss'" data-code="{{ component.previewSCSS | safe }}">
+            <div id="tab-content-scss" role="tabpanel" aria-labelledby="tab-control-scss" x-show="activeTab === 'scss'" data-code="{{ component.previewSCSS }}">
                 {% highlight "scss" %}
                     {{ component.previewSCSS | safe }}
                 {% endhighlight %}
@@ -90,7 +90,7 @@
         {% endif %}
 
         {% if component.previewJS %}
-            <div id="tab-content-js" role="tabpanel" aria-labelledby="tab-control-js" x-show="activeTab === 'js'" data-code="{{ component.previewJS | safe }}">
+            <div id="tab-content-js" role="tabpanel" aria-labelledby="tab-control-js" x-show="activeTab === 'js'" data-code="{{ component.previewJS }}">
                 {% highlight "js" %}
                     {{ component.previewJS | safe }}
                 {% endhighlight %}
