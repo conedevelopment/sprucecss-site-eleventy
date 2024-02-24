@@ -619,7 +619,7 @@ This mixin aims to query the [transition variables](/docs/sass/variables#transit
 |-------------------|---------------------|---------------------------------------------------------------------------------------------------|
 | `$duration`       | `config('duration', $transition)`  | The default duration value is `0.15s`.                                             |
 | `$property`       | `all`               | Set the `transition-property` to `all`. For multiple value use quotes like `'transition, color'`. |
-| `$timing-function`| `config('timing-function', $transition)` | The default timing-function value is `ease-in-out`.                        |
+| `$timing-function`| `config('timing-function', $transition)` | The default timing-function value is `ease-in-out`.                          |
 
 [View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/mixin/_transition.scss#L3)
 
