@@ -54,7 +54,7 @@ const md = markdownIt({
 }).use(markdownItAnchor, markdownItAnchorOptions);
 
 md.renderer.rules.table_open = function(tokens, idx) {
-  return '<div class="responsive-table"><table class="table">';
+  return '<div class="table-responsive"><table class="table">';
 };
 
 md.renderer.rules.table_close = function(tokens, idx) {
