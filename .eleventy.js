@@ -170,9 +170,7 @@ module.exports = config => {
     }
 
     const icon = await getImage(`./src/_includes/icon/${iconName}.svg`, 'notification__icon');
-    return `<div class="notification notification--${type}">${icon}
-              <div class="notification__content">${md.render(content)}</div>
-            </div>`;
+    return `<div class="notification notification--${type}">${icon}<div class="notification__content">${md.render(content)}</div></div>`;
   });
 
   config.addFilter('toc', function(content) {
