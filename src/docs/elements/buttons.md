@@ -141,8 +141,8 @@ The `.btn` has `inline-flex` display with a `gap` value.
 
 {% preview %}
 <div class="button-grid button-grid--stacked">
-    <button type="button" class="btn btn--primary"><Icon type="arrow-right" class="btn__icon" /> Read more</button>
-    <button type="button" class="btn btn--secondary">Read more <Icon type="arrow-right" class="btn__icon" /></button>
+    <button type="button" class="btn btn--primary">{% svgIcon "./src/_includes/icon/arrow-right.svg", "btn__icon" %} Read more</button>
+    <button type="button" class="btn btn--secondary">Read more {% svgIcon "./src/_includes/icon/arrow-right.svg", "btn__icon" %}</button>
 </div>
 {% endpreview %}
 
@@ -163,9 +163,7 @@ To make an only icon button use the `btn--icon` modifier class. If you create an
 
 {% preview %}
 <div class="button-grid button-grid--stacked">
-    <button class="btn btn--secondary btn--icon" aria-label="Copy Text">
-        <Icon type="copy" class="btn__icon" />
-    </button>
+    <button class="btn btn--secondary btn--icon" aria-label="Copy Text">{% svgIcon "./src/_includes/icon/copy.svg", "btn__icon" %}</button>
 </div>
 {% endpreview %}
 
