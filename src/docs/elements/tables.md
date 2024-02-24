@@ -188,16 +188,16 @@ Use the `table--sm` class on a `<table>` to make it smaller.
 
 ```html
 <table class="table table--sm">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-      <th scope="col">Name</th>
-      <th scope="col">Number</th>
-    </tr>
-  </thead>
-  <tbody>
-    ...
-  </tbody>
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Number</th>
+        </tr>
+    </thead>
+    <tbody>
+        ...
+    </tbody>
 </table>
 ```
 

@@ -28,14 +28,14 @@ $font-sizes: (
 );
 ```
 
-<Preview>
-  <h1 class="preview-heading">h1: The quick brown fox jumps over the lazy dog</h1>
-  <h2 class="preview-heading">h2: The quick brown fox jumps over the lazy dog</h2>
-  <h3 class="preview-heading">h3: The quick brown fox jumps over the lazy dog</h3>
-  <h4 class="preview-heading">h4: The quick brown fox jumps over the lazy dog</h4>
-  <h5 class="preview-heading">h5: The quick brown fox jumps over the lazy dog</h5>
-  <h6 class="preview-heading">h6: The quick brown fox jumps over the lazy dog</h6>
-</Preview>
+{% preview %}
+<h1 class="preview-heading">h1: The quick brown fox jumps over the lazy dog</h1>
+<h2 class="preview-heading">h2: The quick brown fox jumps over the lazy dog</h2>
+<h3 class="preview-heading">h3: The quick brown fox jumps over the lazy dog</h3>
+<h4 class="preview-heading">h4: The quick brown fox jumps over the lazy dog</h4>
+<h5 class="preview-heading">h5: The quick brown fox jumps over the lazy dog</h5>
+<h6 class="preview-heading">h6: The quick brown fox jumps over the lazy dog</h6>
+{% endpreview %}
 
 ```html
 <h1>h1: The quick brown fox jumps over the lazy dog</h1>
@@ -52,9 +52,9 @@ To access any of the `$font-sizes` map sizes, you can use the <code><a href="/do
 
 ## Paragraphs and Lead
 
-<Preview>
-  <p>Mauris sit amet ipsum eget orci congue egestas a eu ipsum. Mauris porttitor tincidunt ligula at finibus. Vestibulum feugiat semper aliquet.</p>
-</Preview>
+{% preview %}
+<p>Mauris sit amet ipsum eget orci congue egestas a eu ipsum. Mauris porttitor tincidunt ligula at finibus. Vestibulum feugiat semper aliquet.</p>
+{% endpreview %}
 
 ```html
 <p>Mauris sit amet ipsum eget orci congue egestas a eu ipsum. Mauris porttitor tincidunt ligula at finibus. Vestibulum feugiat semper aliquet.</p>
@@ -62,9 +62,9 @@ To access any of the `$font-sizes` map sizes, you can use the <code><a href="/do
 
 You can create paragraphs with bigger font-size using the `lead` class.
 
-<Preview>
-  <p class="lead">Mauris sit amet ipsum eget orci congue egestas a eu ipsum. Mauris porttitor tincidunt ligula at finibus. Vestibulum feugiat semper aliquet.</p>
-</Preview>
+{% preview %}
+<p class="lead">Mauris sit amet ipsum eget orci congue egestas a eu ipsum. Mauris porttitor tincidunt ligula at finibus. Vestibulum feugiat semper aliquet.</p>
+{% endpreview %}
 
 ```html
 <p class="lead">Mauris sit amet ipsum eget orci congue egestas a eu ipsum. Mauris porttitor tincidunt ligula at finibus. Vestibulum feugiat semper aliquet.</p>
@@ -74,42 +74,42 @@ You can create paragraphs with bigger font-size using the `lead` class.
 
 You can use a `blockquote` element with citation:
 
-<Preview>
-  <figure class="quote">
+{% preview %}
+<figure class="quote">
     <blockquote>“Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.”</blockquote>
     <figcaption>
-      &mdash; Albert Einstein, <cite><a href="https://quoteinvestigator.com/2010/05/04/universe-einstein/">Quote Investigator</a></cite>
+        &mdash; Albert Einstein, <cite><a href="https://quoteinvestigator.com/2010/05/04/universe-einstein/">Quote Investigator</a></cite>
     </figcaption>
-  </figure>
-</Preview>
+</figure>
+{% endpreview %}
 
 ```html
 <figure class="quote">
-  <blockquote>“Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.”</blockquote>
-  <figcaption>&mdash; Albert Einstein,
-    <cite><a href="https://quoteinvestigator.com/2010/05/04/universe-einstein/">Quote Investigator</a></cite>
-  </figcaption>
+    <blockquote>“Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.”</blockquote>
+    <figcaption>&mdash; Albert Einstein,
+        <cite><a href="https://quoteinvestigator.com/2010/05/04/universe-einstein/">Quote Investigator</a></cite>
+    </figcaption>
 </figure>
 ```
 
 or without citation:
 
-<Preview>
-  <blockquote>
+{% preview %}
+<blockquote>
     <p>“Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.”</p>
-  </blockquote>
-</Preview>
+</blockquote>
+{% endpreview %}
 
 ```html
 <blockquote>
-  <p>“Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.”</p>
+    <p>“Two things are infinite: the universe and human stupidity; and I'm not sure about the universe.”</p>
 </blockquote>
 ```
 
 ## Inline Text elements
 
-<Preview>
-  <ul class="inline-text-element-list">
+{% preview %}
+<ul class="inline-text-element-list">
     <li><code>code element</code> <code>code</code></li>
     <li><abbr title="Accessibility">A11Y</abbr> <code>abbr</code></li>
     <li><mark>mark element</mark> <code>mark</code></li>
@@ -123,8 +123,8 @@ or without citation:
     <li><cite>cite element</cite> <code>cite</code></li>
     <li>sup <sup>element</sup> <code>sup</code></li>
     <li>sub <sub>element</sub> <code>sub</code></li>
-  </ul>
-</Preview>
+</ul>
+{% endpreview %}
 
 ```html
 <code>code element</code>
@@ -144,67 +144,66 @@ sub <sub>element</sub>
 
 ## Lists
 
-<Preview>
-{
+{% preview %}
 <ul>
-  <li>Milk</li>
-  <li>Cheese
-    <ul>
-      <li>Blue cheese</li>
-      <li>Feta</li>
-    </ul>
-  </li>
+    <li>Milk</li>
+    <li>Cheese
+        <ul>
+            <li>Blue cheese</li>
+            <li>Feta</li>
+        </ul>
+    </li>
 </ul>
-}
+
 <ol>
-  <li>Alpha</li>
-  <li>Beta</li>
-  <li>Gamma</li>
-  <li>Delta</li>
+    <li>Alpha</li>
+    <li>Beta</li>
+    <li>Gamma</li>
+    <li>Delta</li>
 </ol>
 
 <dl>
-  <dt>Chrome</dt>
-  <dd>
-    Nulla accumsan elit ac libero mattis malesuada id sed lorem. Aliquam at commodo dui.
-  </dd>
-  <dt>Firefox</dt>
-  <dd>
-    Morbi fermentum varius arcu, in hendrerit turpis. Ut vestibulum nibh sed lorem blandit, ac ultrices arcu dictum.
-  </dd>
+    <dt>Chrome</dt>
+    <dd>
+        Nulla accumsan elit ac libero mattis malesuada id sed lorem. Aliquam at commodo dui.
+    </dd>
+    <dt>Firefox</dt>
+    <dd>
+        Morbi fermentum varius arcu, in hendrerit turpis. Ut vestibulum nibh sed lorem blandit, ac ultrices arcu dictum.
+    </dd>
 </dl>
-</Preview>
+{% endpreview %}
 
 ```html
 <!-- Unordered list -->
 <ul>
-  <li>Milk</li>
-  <li> Cheese
-    <ul>
-      <li>Blue cheese</li>
-      <li>Feta</li>
-    </ul>
-  </li>
+    <li>Milk</li>
+    <li> Cheese
+        <ul>
+            <li>Blue cheese</li>
+            <li>Feta</li>
+        </ul>
+    </li>
 </ul>
 
 <!-- Ordered list -->
 <ol>
-  <li>Alpha</li>
-  <li>Beta</li>
-  <li>Gamma</li>
-  <li>Delta</li>
+    <li>Alpha</li>
+    <li>Beta</li>
+    <li>Gamma</li>
+    <li>Delta</li>
 </ol>
 
 <!-- Definition list -->
 <dl>
-  <dt>Chrome</dt>
-  <dd>
-    Nulla accumsan elit ac libero mattis malesuada id sed lorem. Aliquam at commodo dui.
-  </dd>
-  <dt>Firefox</dt>
-  <dd>
-    Morbi fermentum varius arcu, in hendrerit turpis. Ut vestibulum nibh sed lorem blandit, ac ultrices arcu dictum.
-  </dd>
+    <dt>Chrome</dt>
+    <dd>
+        Nulla accumsan elit ac libero mattis malesuada id sed lorem. Aliquam at commodo dui.
+    </dd>
+    <dt>Firefox</dt>
+    <dd>
+        Morbi fermentum varius arcu, in hendrerit turpis. Ut vestibulum nibh sed lorem blandit, ac ultrices arcu dictum.
+    </dd>
 </dl>
 
 ```

@@ -53,6 +53,9 @@ const md = markdownIt({
   html: true,
 }).use(markdownItAnchor, markdownItAnchorOptions);
 
+/*
+ * Wrap <table> into .table-responsive and add .table
+ */
 md.renderer.rules.table_open = function(tokens, idx) {
   return '<div class="table-responsive"><table class="table">';
 };
@@ -60,7 +63,6 @@ md.renderer.rules.table_open = function(tokens, idx) {
 md.renderer.rules.table_close = function(tokens, idx) {
   return '</table></div>';
 };
-
 
 async function getImage(src, cls) {
   const metadata = await Image(src, {

@@ -10,12 +10,12 @@ github: 'https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/el
 
 You can use two default color variants named: primary and secondary. To overwrite colors, see the [configurable variables](#configurable-variables) section.
 
-<Preview>
-  <div class="button-grid">
+{% preview %}
+<div class="button-grid">
     <button type="button" class="btn btn--primary">Primary</button>
     <a href="https://conedevelopment.com" class="btn btn--secondary">Secondary</a>
-  </div>
-</Preview>
+</div>
+{% endpreview %}
 
 ```html
 <button type="button" class="btn btn--primary">Primary</button>
@@ -47,12 +47,12 @@ Use the `btn--outline-*` modifier class for outlined buttons. If you want to hav
 
 To make a custom outline button, you need to use the <a href="/docs/sass/mixins/#btn-variant-outline"><code>btn-variant-outline</code></a> mixin.
 
-<Preview>
-  <div class="button-grid">
+{% preview %}
+<div class="button-grid">
     <button type="button" class="btn btn--outline-primary">Primary</button>
     <a href="https://conedevelopment.com" class="btn btn--outline-secondary">Secondary</a>
-  </div>
-</Preview>
+</div>
+{% endpreview %}
 
 ```html
 <button type="button" class="btn btn--outline-primary">Primary</button>
@@ -63,12 +63,12 @@ To make a custom outline button, you need to use the <a href="/docs/sass/mixins/
 
 Use the `btn--*-shadow` modifier class to add a shadow to the button. This class is generated automatically if there is a color value under the `btn` section with the `*-shadow` key in the `$colors` map.
 
-<Preview>
-  <div class="button-grid">
+{% preview %}
+<div class="button-grid">
     <button type="button" class="btn btn--primary btn--primary-shadow">Primary</button>
     <a href="https://conedevelopment.com" class="btn btn--secondary btn--secondary-shadow">Secondary</a>
-  </div>
-</Preview>
+</div>
+{% endpreview %}
 
 ```html
 <button type="button" class="btn btn--primary btn--primary-shadow">Primary</button>
@@ -79,13 +79,13 @@ Use the `btn--*-shadow` modifier class to add a shadow to the button. This class
 
 Spruce came with three different button sizes: small, regular, large. Using the standard size, you don't have to use any modifier. For small use: `btn--sm`, for large use: `btn--lg` class.
 
-<Preview>
-  <div class="button-grid">
+{% preview %}
+<div class="button-grid">
     <button type="button" class="btn btn--primary btn--sm">Small</button>
     <button type="button" class="btn btn--primary">Regular</button>
     <button type="button" class="btn btn--primary btn--lg">Large</button>
-  </div>
-</Preview>
+</div>
+{% endpreview %}
 
 ```html
 <button type="button" class="btn btn--primary btn--sm">Small</button>
@@ -99,16 +99,16 @@ To disable any button element, use the disabled boolean attribute. The disabled 
 
 The disabled attribute doesn't work on links, so you have to use the `btn--disabled` modifier class. Also, you should omit the `href` attribute and set the `aria-disabled="true"`.
 
-<Preview>
-  <div class="button-grid">
+{% preview %}
+<div class="button-grid">
     <button type="button" class="btn btn--primary" disabled>Disabled button</button>
     <button type="button" class="btn btn--secondary" disabled>Disabled button</button>
-  </div>
-  <div class="button-grid">
+</div>
+<div class="button-grid">
     <a class="btn btn--primary btn--disabled" aria-disabled="true">Disabled button</a>
     <a class="btn btn--secondary btn--disabled" aria-disabled="true">Disabled button</a>
-  </div>
-</Preview>
+</div>
+{% endpreview %}
 
 ```html
 <button type="button" class="btn btn--primary" disabled>Disabled button</button>
@@ -121,12 +121,12 @@ The disabled attribute doesn't work on links, so you have to use the `btn--disab
 
 To display a block button, you can use the `btn--block` modifier class.
 
-<Preview>
-  <div class="button-grid button-grid--stacked">
+{% preview %}
+<div class="button-grid button-grid--stacked">
     <button type="button" class="btn btn--primary btn--block">Block button</button>
     <button type="button" class="btn btn--secondary btn--block">Block button</button>
-  </div>
-</Preview>
+</div>
+{% endpreview %}
 
 ```html
 <button type="button" class="btn btn--primary btn--block">Block button</button>
@@ -139,21 +139,21 @@ To use any icon with Spruce, you must specify it in image format, preferably in 
 
 The `.btn` has `inline-flex` display with a `gap` value.
 
-<Preview>
-  <div class="button-grid button-grid--stacked">
+{% preview %}
+<div class="button-grid button-grid--stacked">
     <button type="button" class="btn btn--primary"><Icon type="arrow-right" class="btn__icon" /> Read more</button>
     <button type="button" class="btn btn--secondary">Read more <Icon type="arrow-right" class="btn__icon" /></button>
-  </div>
-</Preview>
+</div>
+{% endpreview %}
 
 ```html
 <button type="button" class="btn btn--primary">
-  <svg class="btn__icon">...</svg>
-  Read more
+    <svg class="btn__icon">...</svg>
+    Read more
 </button>
 <button type="button" class="btn btn--secondary">
-  Read more
-  <svg class="btn__icon">...</svg>
+    Read more
+    <svg class="btn__icon">...</svg>
 </button>
 ```
 
@@ -161,18 +161,18 @@ The `.btn` has `inline-flex` display with a `gap` value.
 
 To make an only icon button use the `btn--icon` modifier class. If you create an icon button, use `aria-label` to add a caption.
 
-<Preview>
-  <div class="button-grid button-grid--stacked">
+{% preview %}
+<div class="button-grid button-grid--stacked">
     <button class="btn btn--secondary btn--icon" aria-label="Copy Text">
-      <Icon type="copy" class="btn__icon" />
+        <Icon type="copy" class="btn__icon" />
     </button>
-  </div>
-</Preview>
+</div>
+{% endpreview %}
 
 ```html
 <button class="btn btn--secondary btn--icon" aria-label="Copy Text">
-  <svg class="btn__icon">...</svg>
-  Read more
+    <svg class="btn__icon">...</svg>
+    Read more
 </button>
 ```
 
