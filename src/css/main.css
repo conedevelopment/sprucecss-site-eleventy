@@ -2099,6 +2099,33 @@ legend {
   gap: 1rem;
 }
 
+.color-card {
+  align-items: start;
+  display: flex;
+  gap: 1.5rem;
+}
+.color-card--bordered .color-card__color {
+  box-shadow: 0 0 0 1px var(--spruce-base-color-border) inset;
+}
+.color-card__color {
+  block-size: 3rem;
+  border-radius: var(--spruce-border-radius-lg);
+  flex-shrink: 0;
+  inline-size: 3rem;
+}
+.color-card__caption {
+  display: flex;
+  flex-direction: column;
+  line-height: var(--spruce-line-height-md);
+}
+.color-card__name {
+  color: var(--spruce-base-color-heading);
+  font-weight: 700;
+}
+.color-card__value {
+  font-weight: 300;
+}
+
 .post-author {
   --avatar-size: 2.5rem;
   align-items: center;
@@ -3446,6 +3473,26 @@ pre[class*=language-] {
 .l-template__preview img {
   border-radius: var(--spruce-border-radius-sm);
   box-shadow: 0 0 1.25rem hsla(0, 0%, 0%, 0.05);
+}
+
+.l-color > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.l-color > * + * {
+  margin-block-start: 1.5rem;
+}
+.l-color__inner {
+  display: grid;
+  gap: 1.5rem;
+}
+@supports (inline-size: min(15rem, 100%)) {
+  .l-color__inner {
+    grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
+  }
+}
+.l-color + .l-color {
+  margin-block-start: 3rem;
 }
 
 .l-templates {

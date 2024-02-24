@@ -135,6 +135,16 @@ module.exports = config => {
     return Image.generateHTML(metadata, imageAttributes);
   });
 
+  config.addShortcode('color', (color, name, value, bordered = false) => {
+    return `<div class="color-card ${bordered ? 'color-card--bordered' : ''}">
+              <span class="color-card__color" style="background-color: ${color};"></span>
+              <span class="color-card__caption">
+                <span class="color-card__name">${name}</span>
+                <span class="color-card__value">${value}</span>
+              </span>
+            </div>`;
+  });
+
   config.addPairedShortcode('preview', content => {
     return `<div class="preview">${content}</div>`;
   });
@@ -160,7 +170,9 @@ module.exports = config => {
     }
 
     const icon = await getImage(`./src/_includes/icon/${iconName}.svg`, 'notification__icon');
-    return `<div class="notification notification--${type}">${icon}<div class="notification__content">${md.render(content)}</div></div>`;
+    return `<div class="notification notification--${type}">${icon}
+              <div class="notification__content">${md.render(content)}</div>
+            </div>`;
   });
 
   config.addFilter('toc', function(content) {

@@ -11,9 +11,10 @@ github: 'https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/sa
 
 You can access the following colors through Spruce’s `$colors` map by default. You can also use the [color() helper function](/docs/sass/functions#color) to access the colors.
 
-<div class="l-colors">
-  <h3 class="l-colors__title">Shared</h3>
-  <div class="l-colors__inner">
+<div class="l-color">
+  <h3 class="l-color__title">Shared</h3>
+  <div class="l-color__inner">
+    {% color "hsl(205deg 100% 2%)", "black", "$color-black" %}
     <ColorCard
       color="hsl(205deg 100% 2%)"
       name="black"
@@ -58,9 +59,9 @@ You can access the following colors through Spruce’s `$colors` map by default.
   </div>
 </div>
 
-<div class="l-colors">
-  <h3 class="l-colors__title">Alert</h3>
-  <div class="l-colors__inner">
+<div class="l-color">
+  <h3 class="l-color__title">Alert</h3>
+  <div class="l-color__inner">
     <ColorCard
       color="hsl(0deg 71% 51%)"
       name="danger"
@@ -84,9 +85,9 @@ You can access the following colors through Spruce’s `$colors` map by default.
   </div>
 </div>
 
-<div class="l-colors">
-  <h3 class="l-colors__title">Base</h3>
-  <div class="l-colors__inner">
+<div class="l-color">
+  <h3 class="l-color__title">Base</h3>
+  <div class="l-color__inner">
     <ColorCard
       bordered={true}
       color="hsl(0deg 0% 100%)"
@@ -166,9 +167,9 @@ You can access the following colors through Spruce’s `$colors` map by default.
   </div>
 </div>
 
-<div class="l-colors">
-  <h3 class="l-colors__title">Btn (Button)</h3>
-  <div class="l-colors__inner">
+<div class="l-color">
+  <h3 class="l-color__title">Btn (Button)</h3>
+  <div class="l-color__inner">
     <ColorCard
       color="hsl(262deg 71% 49%)"
       name="primary-background"
@@ -216,9 +217,9 @@ You can access the following colors through Spruce’s `$colors` map by default.
   </div>
 </div>
 
-<div class="l-colors">
-  <h3 class="l-colors__title">Form</h3>
-  <div class="l-colors__inner">
+<div class="l-color">
+  <h3 class="l-color__title">Form</h3>
+  <div class="l-color__inner">
     <ColorCard
       bordered={true}
       color="hsl(0deg 0% 100%)"
@@ -340,9 +341,9 @@ You can access the following colors through Spruce’s `$colors` map by default.
   </div>
 </div>
 
-<div class="l-colors">
-  <h3 class="l-colors__title">Selection</h3>
-  <div class="l-colors__inner">
+<div class="l-color">
+  <h3 class="l-color__title">Selection</h3>
+  <div class="l-color__inner">
     <ColorCard
       bordered={true}
       color="hsl(0deg 0% 100%)"
@@ -357,9 +358,9 @@ You can access the following colors through Spruce’s `$colors` map by default.
   </div>
 </div>
 
-<div class="l-colors">
-  <h3 class="l-colors__title">Scrollbar</h3>
-  <div class="l-colors__inner">
+<div class="l-color">
+  <h3 class="l-color__title">Scrollbar</h3>
+  <div class="l-color__inner">
     <ColorCard
       color="hsl(0deg 0% 0% / 15%)"
       name="thumb-background"
@@ -378,9 +379,9 @@ You can access the following colors through Spruce’s `$colors` map by default.
   </div>
 </div>
 
-<div class="l-colors">
-  <h3 class="l-colors__title">Table</h3>
-  <div class="l-colors__inner">
+<div class="l-color">
+  <h3 class="l-color__title">Table</h3>
+  <div class="l-color__inner">
     <ColorCard
       color="hsl(215deg 63% 93%)"
       name="border"
