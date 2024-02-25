@@ -1,0 +1,162 @@
+<div x-data="{
+      activeTab: 'component/_index.scss',
+      sidebarVisible: false,
+      handleMenuClick() {
+        this.sidebarVisible = !this.sidebarVisible;
+      },
+      handleButtonClick(tab) {
+        this.sidebarVisible = false;
+        this.activeTab = tab;
+      }
+    }"
+    class="ide-wrapper">
+    <div class="container">
+        <div class="ide">
+            <div class="ide__header">
+                <div class="ide__controls">
+                    <div class="ide__control" style="background-color: #ff5f56;"></div>
+                    <div class="ide__control" style="background-color: #ffbd2e;"></div>
+                    <div class="ide__control" style="background-color: #27c93f;"></div>
+                </div>
+                <div class="ide__title" x-text="activeTab"></div>
+            </div>
+            <div class="ide__inner">
+                <aside class="ide__sidebar">
+                    <button
+                        @click="handleMenuClick"
+                        :aria-expanded="sidebarVisible.toString()"
+                        :aria-label="sidebarVisible ? 'Close sidebar' : 'Open sidebar'"
+                        class="btn btn--primary btn--icon btn--rounded ide__toggle"
+                    >
+                        {% svgIcon "./src/_includes/icon/menu.svg", "btn__icon" %}
+                    </button>
+                    <div class="ide__sidebar-helper" x-show="sidebarVisible" x-cloak>
+                        <div class="ide-section">
+                            <h3 class="ide-section__title">
+                                {% svgIcon "./src/_includes/icon/folder.svg"%}
+                                component
+                            </h3>
+                            <ul class="ide-section__list ide-section__list--border">
+                                <li>
+                                    <button
+                                        :class="activeTab === 'component/_index.scss' ? 'active' : ''"
+                                        @click="handleButtonClick('component/_index.scss')"
+                                    >
+                                        {% svgIcon "./src/_includes/icon/sass.svg"%}
+                                        _index.scss
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        :class="activeTab === 'component/_footer.scss' ? 'active' : ''"
+                                        @click="handleButtonClick('component/_footer.scss')"
+                                    >
+                                        {% svgIcon "./src/_includes/icon/sass.svg"%}
+                                        _footer.scss
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        :class="activeTab === 'component/_header.scss' ? 'active' : ''"
+                                        @click="handleButtonClick('component/_header.scss')"
+                                    >
+                                        {% svgIcon "./src/_includes/icon/sass.svg"%}
+                                        _header.scss
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ide-section">
+                            <h3 class="ide-section__title">
+                                <IconFolder />
+                                config
+                            </h3>
+                            <ul class="ide-section__list ide-section__list--border">
+                                <li>
+                                    <button
+                                        :class="activeTab === 'config/_config.scss' ? 'active' : ''"
+                                        @click="handleButtonClick('config/_config.scss')"
+                                    >
+                                        {% svgIcon "./src/_includes/icon/sass.svg"%}
+                                        _config.scss
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        :class="activeTab === 'config/_dark-colors.scss' ? 'active' : ''"
+                                        @click="handleButtonClick('config/_dark-colors.scss')"
+                                    >
+                                        {% svgIcon "./src/_includes/icon/sass.svg"%}
+                                        _dark-colors.scss
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        :class="activeTab === 'config/_dark-mode.scss' ? 'active' : ''"
+                                        @click="handleButtonClick('config/_dark-mode.scss')"
+                                    >
+                                        {% svgIcon "./src/_includes/icon/sass.svg"%}
+                                        _dark-mode.scss
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        :class="activeTab === 'config/_fonts.scss' ? 'active' : ''"
+                                        @click="handleButtonClick('config/_fonts.scss')"
+                                    >
+                                        {% svgIcon "./src/_includes/icon/sass.svg"%}
+                                        _fonts.scss
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        :class="activeTab === 'config/_index.scss' ? 'active' : ''"
+                                        @click="handleButtonClick('config/_index.scss')"
+                                    >
+                                        {% svgIcon "./src/_includes/icon/sass.svg"%}
+                                        _index.scss
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        :class="activeTab === 'config/_styles.scss' ? 'active' : ''"
+                                        @click="handleButtonClick('config/_styles.scss')"
+                                    >
+                                        {% svgIcon "./src/_includes/icon/sass.svg"%}
+                                        _styles.scss
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="ide-section">
+                            <ul class="ide-section__list">
+                                <li>
+                                    <button
+                                        :class="activeTab === 'main.scss' ? 'active' : ''"
+                                        @click="handleButtonClick('main.scss')"
+                                    >
+                                        {% svgIcon "./src/_includes/icon/sass.svg"%}
+                                        main.scss
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+                <div class="ide__body">
+                    <div class="ide__editor" x-show="activeTab === 'component/_index.scss'">
+                        {% include "partial/ide/component/_index.html" %}
+                    </div>
+
+                    <div class="ide__editor" x-show="activeTab === 'component/_footer.scss'">
+                        {% include "partial/ide/component/_footer.html" %}
+                    </div>
+
+                    <div class="ide__editor" x-show="activeTab === 'component/_header.scss'">
+                        {% include "partial/ide/component/_header.html" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

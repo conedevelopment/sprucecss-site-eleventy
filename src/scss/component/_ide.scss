@@ -1,0 +1,165 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.ide-wrapper {
+  margin-inline: auto;
+  max-inline-size: 74rem;
+  padding-block-end: get-css-variable(--section-gap);
+}
+
+.ide {
+  background-color: color('background');
+  border: 1px solid color('border');
+  border-radius: var(--doc-border-radius-md);
+  box-shadow: 0 0 3rem hsl(0deg 0% 0% / 10%);
+  font-size: 0.9375rem;
+  margin-inline: auto;
+
+  &__header {
+    align-items: center;
+    background-color: color('header-background', 'ide');
+    border-block-end: 1px solid color('border');
+    border-radius: var(--doc-border-radius-md) var(--doc-border-radius-md) 0 0;
+    display: flex;
+    gap: 1rem;
+    padding: 0.45rem 1.25rem;
+  }
+
+  &__controls {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &__control {
+    --dimension: 0.75rem;
+    block-size: var(--dimension);
+    border-radius: 50%;
+    inline-size: var(--dimension);
+  }
+
+  &__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    overflow: hidden;
+    position: relative;
+
+    @include breakpoint('md') {
+      grid-template-columns: minmax(0, 16.5rem) minmax(0, 1fr);
+    }
+  }
+
+  &__toggle {
+    border-end-start-radius: 0 !important;
+    border-start-end-radius: 0 !important;
+    inset: auto 0 0 auto;
+    position: absolute;
+
+    @include breakpoint('md') {
+      display: none;
+      position: relative;
+    }
+  }
+
+  &__sidebar {
+    background-color: color('background');
+    border-end-end-radius: var(--doc-border-radius-md);
+    border-end-start-radius: var(--doc-border-radius-md);
+    inset: 0 0 0 auto;
+    position: absolute;
+    z-index: 2;
+
+    @include breakpoint('md') {
+      border-end-end-radius: 0;
+      position: relative;
+    }
+
+    &-helper {
+      @include layout-stack('s');
+      block-size: 100%;
+      overflow-y: auto;
+      padding: 2rem;
+
+      @include breakpoint('md') {
+        display: block !important;
+      }
+    }
+  }
+
+  &__editor,
+  &__editor > pre,
+  &__editor > pre > code {
+    border-end-start-radius: var(--doc-border-radius-md);
+    block-size: 100%;
+    margin-block: 0;
+    max-block-size: 28rem;
+
+    @include breakpoint('md') {
+      border-end-start-radius: 0;
+    }
+  }
+
+  pre[class*=language-] {
+    border-radius: 0 0 var(--doc-border-radius-md);
+    padding: 2rem 2.25rem;
+  }
+}
+
+.ide-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85em;
+
+  &__title {
+    align-items: center;
+    display: flex;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    gap: spacer('xs');
+    line-height: 1;
+    margin-block: 0;
+
+    svg {
+      --dimension: 0.9rem;
+      block-size: var(--dimension);
+      color: hsl(207deg 90% 61%);
+      flex-shrink: 0;
+      inline-size: var(--dimension);
+    }
+  }
+
+  &__list {
+    @include clear-list;
+    @include layout-stack(0.85em);
+
+    &--border {
+      border-inline-start: 1px solid color('border');
+      margin-inline-start: spacer('xs');
+      padding-inline-start: spacer('s');
+    }
+  }
+
+  button {
+    align-items: center;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    display: flex;
+    font-family: var(--doc-heading-font-family);
+    gap: spacer('xs');
+    line-height: 1;
+    padding: 0;
+    text-align: start;
+
+    svg {
+      --dimension: 0.85rem;
+      block-size: var(--dimension);
+      color: hsl(330deg 53% 60%);
+      flex-shrink: 0;
+      inline-size: var(--dimension);
+    }
+  }
+
+  .active {
+    color: color('heading');
+    font-weight: 700;
+  }
+}
