@@ -14,8 +14,8 @@ import {
     caption = `<div class="cookie-consent-helper"><div class="cookie-consent" tabindex="-1">
         <div class="cookie-consent__caption">This site use cookies. For more information please visit our <a href="/privacy-policy/">privacy policy</a> page.</div>
         <div class="cookie-consent__btns">
+        <button class="btn btn--sm btn--decline" data-action="cookie-decline">Decline</button>
           <button class="btn btn--sm btn--primary" data-action="cookie-accept">Accept</button>
-          <button class="btn btn--sm btn--decline" data-action="cookie-decline">Decline</button>
         </div>
       </div></div>`;
 
