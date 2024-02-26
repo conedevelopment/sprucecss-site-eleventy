@@ -1,0 +1,16 @@
+{% highlight "scss" %}
+@use 'dark-colors' as dark;
+
+@use 'sprucecss/scss/spruce' with (
+  $colors: (
+    'footer': (
+      'background': hsl(215deg 100% 98%),
+    )
+  ),
+  $dark-colors: dark.$colors,
+  $typography: (
+    'font-family-base': #{'Open Sans', sans-serif},
+    'font-family-heading': #{'Manrope', sans-serif},
+  ),
+);
+{% endhighlight %}

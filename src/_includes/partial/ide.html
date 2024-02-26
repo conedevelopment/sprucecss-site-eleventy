@@ -1,5 +1,5 @@
 <div x-data="{
-      activeTab: 'component/_index.scss',
+      activeTab: 'config/_config.scss',
       sidebarVisible: false,
       handleMenuClick() {
         this.sidebarVisible = !this.sidebarVisible;
@@ -154,6 +154,34 @@
 
                     <div class="ide__editor" x-show="activeTab === 'component/_header.scss'">
                         {% include "partial/ide/component/_header.html" %}
+                    </div>
+
+                    <div class="ide__editor" x-show="activeTab === 'config/_config.scss'">
+                        {% include "partial/ide/config/_config.html" %}
+                    </div>
+
+                    <div class="ide__editor" x-show="activeTab === 'config/_dark-colors.scss'">
+                        {% include "partial/ide/config/_dark-colors.html" %}
+                    </div>
+
+                    <div class="ide__editor" x-show="activeTab === 'config/_dark-mode.scss'">
+                        {% include "partial/ide/config/_dark-mode.html" %}
+                    </div>
+
+                    <div class="ide__editor" x-show="activeTab === 'config/_fonts.scss'">
+                        {% include "partial/ide/config/_fonts.html" %}
+                    </div>
+
+                    <div class="ide__editor" x-show="activeTab === 'config/_index.scss'">
+                        {% include "partial/ide/config/_index.html" %}
+                    </div>
+
+                    <div class="ide__editor" x-show="activeTab === 'config/_styles.scss'">
+                        {% include "partial/ide/config/_styles.html" %}
+                    </div>
+
+                    <div class="ide__editor" x-show="activeTab === 'main.scss'">
+                        {% include "partial/ide/main.html" %}
                     </div>
                 </div>
             </div>
