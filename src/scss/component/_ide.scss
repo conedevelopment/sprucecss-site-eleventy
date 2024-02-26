@@ -87,8 +87,8 @@
   &__editor,
   &__editor > pre,
   &__editor > pre > code {
-    border-end-start-radius: var(--doc-border-radius-md);
     block-size: 100%;
+    border-end-start-radius: var(--doc-border-radius-md);
     margin-block: 0;
     max-block-size: 28rem;
 

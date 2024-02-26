@@ -15,404 +15,117 @@ You can access the following colors through Spruce’s `$colors` map by default.
   <h3 class="l-color__title">Shared</h3>
   <div class="l-color__inner">
     {% color "hsl(205deg 100% 2%)", "black", "$color-black" %}
-    <ColorCard
-      color="hsl(205deg 100% 2%)"
-      name="black"
-      value="$color-black"
-    />
-    <ColorCard
-      color="hsl(0deg 71% 51%)"
-      name="danger"
-      value="$color-danger"
-    />
-    <ColorCard
-      color="hsl(208deg 9% 42%)"
-      name="gray"
-      value="$color-gray"
-    />
-    <ColorCard
-      color="hsl(215deg 63% 93%)"
-      name="gray light"
-      value="$color-gray-light"
-    />
-    <ColorCard
-      color="hsl(262deg 71% 49%)"
-      name="primary"
-      value="$color-primary"
-    />
-    <ColorCard
-      color="hsl(227deg 92% 55%)"
-      name="secondary"
-      value="$color-secondary"
-    />
-    <ColorCard
-      color="hsl(150deg 100% 33%)"
-      name="success"
-      value="$color-success"
-    />
-    <ColorCard
-      bordered={true}
-      color="hsl(0deg 0% 100%)"
-      name="white"
-      value="$color-white"
-    />
+    {% color "hsl(0deg 71% 51%)", "danger", "$color-danger" %}
+    {% color "hsl(0deg 71% 51%)", "danger", "$color-danger" %}
+    {% color "hsl(208deg 9% 42%)", "gray", "$color-gray" %}
+    {% color "hsl(215deg 63% 93%)", "gray light", "$color-gray-light" %}
+    {% color "hsl(262deg 71% 49%)", "primary", "$color-primary" %}
+    {% color "hsl(227deg 92% 55%)", "secondary", "$color-secondary" %}
+    {% color "hsl(150deg 100% 33%)", "success", "$color-success" %}
+    {% color "hsl(0deg 0% 100%)", "white", "$color-white", true %}
   </div>
 </div>
 
 <div class="l-color">
   <h3 class="l-color__title">Alert</h3>
   <div class="l-color__inner">
-    <ColorCard
-      color="hsl(0deg 71% 51%)"
-      name="danger"
-      value="$color-danger"
-    />
-    <ColorCard
-      color="hsl(195deg 100% 42%)"
-      name="info"
-      value="hsl(195deg 100% 42%)"
-    />
-    <ColorCard
-      color="hsl(150deg 100% 33%)"
-      name="success"
-      value="$color-success"
-    />
-    <ColorCard
-      color="hsl(48deg 89% 55%)"
-      name="warning"
-      value="hsl(48deg 89% 55%)"
-    />
+    {% color "hsl(0deg 71% 51%)", "danger", "$color-danger" %}
+    {% color "hsl(195deg 100% 42%)", "info", "hsl(195deg 100% 42%)" %}
+    {% color "hsl(150deg 100% 33%)", "success", "$color-success" %}
+    {% color "hsl(48deg 89% 55%)", "warning", "hsl(48deg 89% 55%)" %}
   </div>
 </div>
 
 <div class="l-color">
   <h3 class="l-color__title">Base</h3>
   <div class="l-color__inner">
-    <ColorCard
-      bordered={true}
-      color="hsl(0deg 0% 100%)"
-      name="background"
-      value="$color-white"
-    />
-    <ColorCard
-      color="hsl(262deg 71% 49%)"
-      name="blockquote-border"
-      value="$color-primary"
-    />
-    <ColorCard
-      color="hsl(215deg 63% 93%)"
-      name="border"
-      value="$color-gray-light"
-    />
-    <ColorCard
-      color="hsl(261.82deg 73.33% 97.06%)"
-      name="code-background"
-      value="color.change($color-primary, $lightness: 97%)"
-    />
-    <ColorCard
-      color="hsl(205deg 100% 2%)"
-      name="code-foreground"
-      value="$color-black"
-    />
-    <ColorCard
-      color="hsl(205deg 100% 2%)"
-      name="heading"
-      value="$color-black"
-    />
-    <ColorCard
-      color="hsl(262deg 71% 49%)"
-      name="link"
-      value="$color-primary"
-    />
-    <ColorCard
-      color="hsl(261.97deg 71% 39.22%)"
-      name="link-hover"
-      value="color.scale($color-primary, $lightness: -20%)"
-    />
-    <ColorCard
-      color="hsl(50deg 100% 80%)"
-      name="mark-background"
-      value="hsl(50deg 100% 80%)"
-    />
-    <ColorCard
-      color="hsl(205deg 100% 2%)"
-      name="mark-foreground"
-      value="$color-black"
-    />
-    <ColorCard
-      color="hsl(262deg 71% 49%)"
-      name="marker"
-      value="$color-primary"
-    />
-    <ColorCard
-      color="hsl(262deg 71% 49%)"
-      name="primary"
-      value="$color-primary"
-    />
-    <ColorCard
-      color="hsl(227deg 92% 55%)"
-      name="secondary"
-      value="$color-secondary"
-    />
-    <ColorCard
-      color="hsl(205deg 100% 2%)"
-      name="strong"
-      value="$color-black"
-    />
-    <ColorCard
-      color="hsl(208deg 9% 42%)"
-      name="text"
-      value="$color-gray"
-    />
+    {% color "hsl(0deg 0% 100%)", "background", "$color-white", true %}
+    {% color "hsl(262deg 71% 49%)", "blockquote-border", "$color-primary" %}
+    {% color "hsl(215deg 63% 93%)", "border", "$color-gray-light" %}
+    {% color "hsl(261.82deg 73.33% 97.06%)", "code-background", "color.change($color-primary, $lightness: 97%)" %}
+    {% color "hsl(205deg 100% 2%)", "code-foreground", "$color-black" %}
+    {% color "hsl(205deg 100% 2%)", "heading", "$color-black" %}
+    {% color "hsl(262deg 71% 49%)", "link", "$color-primary" %}
+    {% color "hsl(261.97deg 71% 39.22%)", "link-hover", "color.scale($color-primary, $lightness: -20%)" %}
+    {% color "hsl(50deg 100% 80%)", "mark-background", "hsl(50deg 100% 80%)" %}
+    {% color "hsl(205deg 100% 2%)", "mark-foreground", "$color-black" %}
+    {% color "hsl(262deg 71% 49%)", "marker", "$color-primary" %}
+    {% color "hsl(262deg 71% 49%)", "primary", "$color-primary" %}
+    {% color "hsl(227deg 92% 55%)", "secondary", "$color-secondary" %}
+    {% color "hsl(205deg 100% 2%)", "strong", "$color-black" %}
+    {% color "hsl(208deg 9% 42%)", "text", "$color-gray" %}
   </div>
 </div>
 
 <div class="l-color">
   <h3 class="l-color__title">Btn (Button)</h3>
   <div class="l-color__inner">
-    <ColorCard
-      color="hsl(262deg 71% 49%)"
-      name="primary-background"
-      value="$color-primary"
-    />
-    <ColorCard
-      color="hsl(262.13deg 70.85% 39.02%)"
-      name="primary-background-hover"
-      value="color.adjust($color-primary, $lightness: -10%)"
-    />
-    <ColorCard
-      bordered={true}
-      color="hsl(0deg 0% 100%)"
-      name="primary-foreground"
-      value="$color-white"
-    />
-    <ColorCard
-      bordered={false}
-      color="hsl(261.72deg 70.73% 83.92%)"
-      name="primary-shadow"
-      value="color.adjust($color-primary, $lightness: 35%)"
-    />
-    <ColorCard
-      color="hsl(227deg 92% 55%)"
-      name="secondary-background"
-      value="$color-secondary"
-    />
-    <ColorCard
-      color="hsl(226.92deg 92.14% 44.9%)"
-      name="secondary-background-hover"
-      value="color.adjust($color-secondary, $lightness: -10%)"
-    />
-    <ColorCard
-      bordered={true}
-      color="hsl(0deg 0% 100%)"
-      name="secondary-foreground"
-      value="$color-white"
-    />
-    <ColorCard
-      bordered={false}
-      color="hsl(227.23deg 92.16% 90%)"
-      name="secondary-shadow"
-      value="color.adjust($color-secondary, $lightness: 35%)"
-    />
+    {% color "hsl(262deg 71% 49%)", "primary-background", "$color-primary" %}
+    {% color "hsl(262.13deg 70.85% 39.02%)", "primary-background-hover", "color.adjust($color-primary, $lightness: -10%)" %}
+    {% color "hsl(0deg 0% 100%)", "primary-foreground", "$color-white", true %}
+    {% color "hsl(261.72deg 70.73% 83.92%)", "primary-shadow", "color.adjust($color-primary, $lightness: 35%)" %}
+    {% color "hsl(227deg 92% 55%)", "secondary-background", "$color-secondary" %}
+    {% color "hsl(226.92deg 92.14% 44.9%)", "secondary-background-hover", "color.adjust($color-secondary, $lightness: -10%)" %}
+    {% color "hsl(0deg 0% 100%)", "secondary-foreground", "$color-white", true %}
+    {% color "hsl(227.23deg 92.16% 90%)", "secondary-shadow", "color.adjust($color-secondary, $lightness: 35%)" %}
   </div>
 </div>
 
 <div class="l-color">
   <h3 class="l-color__title">Form</h3>
   <div class="l-color__inner">
-    <ColorCard
-      bordered={true}
-      color="hsl(0deg 0% 100%)"
-      name="background"
-      value="$color-white"
-    />
-    <ColorCard
-      color="hsl(0deg 0% 95%)"
-      name="background-disabled"
-      value="hsl(0deg 0% 95%)"
-    />
-    <ColorCard
-      color="hsl(260deg 4% 70%)"
-      name="border"
-      value="hsl(260deg 4% 70%)"
-    />
-    <ColorCard
-      color="hsl(215deg 63% 93%)"
-      name="border-disabled"
-      value="$color-gray-light"
-    />
-    <ColorCard
-      color="hsl(262deg 71% 49%)"
-      name="border-focus"
-      value="$color-primary"
-    />
-    <ColorCard
-      color="hsl(262deg 71% 49%)"
-      name="check-background"
-      value="$color-primary"
-    />
-    <ColorCard
-      color="hsl(262deg 71% 49%)"
-      name="check-focus-ring"
-      value="$color-primary"
-    />
-    <ColorCard
-      bordered={true}
-      color="hsl(0deg 0% 100%)"
-      name="check-foreground"
-      value="$color-white"
-    />
-    <ColorCard
-      bordered={true}
-      color="hsl(210deg 60% 98%)"
-      name="group-label-background"
-      value="hsl(210deg 60% 98%)"
-    />
-    <ColorCard
-      color="hsl(208deg 9% 42%)"
-      name="group-label-foreground"
-      value="$color-gray"
-    />
-    <ColorCard
-      color="hsl(0deg 71% 51%)"
-      name="invalid"
-      value="$color-danger"
-    />
-    <ColorCard
-      color="hsl(0deg 71.2% 50.98% / 25%)"
-      name="invalid-focus-ring"
-      value="color.adjust($color-danger, $alpha: -0.75)"
-    />
-    <ColorCard
-      color="hsl(205deg 100% 2%)"
-      name="label"
-      value="$color-black"
-    />
-    <ColorCard
-      color="hsl(205deg 100% 2%)"
-      name="legend"
-      value="$color-black"
-    />
-    <ColorCard
-      color="hsl(208deg 7% 40%)"
-      name="placeholder"
-      value="hsl(208deg 7% 40%)"
-    />
-    <ColorCard
-      color="hsl(262deg 71% 49%)"
-      name="range-thumb-background"
-      value="$color-primary"
-    />
-    <ColorCard
-      color="hsl(262deg 71% 49%)"
-      name="range-thumb-focus-ring"
-      value="$color-primary"
-    />
-    <ColorCard
-      color="hsl(215deg 63% 93%)"
-      name="range-track-background"
-      value="$color-gray-light"
-    />
-    <ColorCard
-      color="hsl(261.91deg 71.2% 49.02% / 25%)"
-      name="ring-focus"
-      value="color.adjust($color-primary, $alpha: -0.75)"
-    />
-    <ColorCard
-      color="hsl(205deg 100% 2%)"
-      name="select-foreground"
-      value="$color-black"
-    />
-    <ColorCard
-      color="hsl(208deg 9% 42%)"
-      name="text"
-      value="$color-gray"
-    />
-    <ColorCard
-      color="hsl(150deg 100% 33%)"
-      name="valid"
-      value="$color-success"
-    />
-    <ColorCard
-      color="hsl(150deg 100% 32.94% / 25%)"
-      name="valid-focus-ring"
-      value="color.adjust($color-success, $alpha: -0.75)"
-    />
+    {% color "hsl(0deg 0% 100%)", "background", "$color-white", true %}
+    {% color "hsl(0deg 0% 95%)", "background-disabled", "hsl(0deg 0% 95%)" %}
+    {% color "hsl(260deg 4% 70%)", "border", "hsl(260deg 4% 70%)" %}
+    {% color "hsl(215deg 63% 93%)", "border-disabled", "$color-gray-light" %}
+    {% color "hsl(262deg 71% 49%)", "border-focus", "$color-primary" %}
+    {% color "hsl(262deg 71% 49%)", "check-background", "$color-primary" %}
+    {% color "hsl(262deg 71% 49%)", "check-focus-ring", "$color-primary" %}
+    {% color "hsl(0deg 0% 100%)", "check-foreground", "$color-white", true %}
+    {% color "hsl(210deg 60% 98%)", "group-label-background", "hsl(210deg 60% 98%)", true %}
+    {% color "hsl(208deg 9% 42%)", "group-label-foreground", "$color-gray" %}
+    {% color "hsl(0deg 71% 51%)", "invalid", "$color-danger" %}
+    {% color "hsl(0deg 71.2% 50.98% / 25%)", "invalid-focus-ring", "color.adjust($color-danger, $alpha: -0.75)" %}
+    {% color "hsl(205deg 100% 2%)", "label", "$color-black" %}
+    {% color "hsl(205deg 100% 2%)", "legend", "$color-black" %}
+    {% color "hsl(208deg 7% 40%)", "placeholder", "hsl(208deg 7% 40%)" %}
+    {% color "hsl(262deg 71% 49%)", "range-thumb-background", "$color-primary" %}
+    {% color "hsl(262deg 71% 49%)", "range-thumb-focus-ring", "$color-primary" %}
+    {% color "hsl(215deg 63% 93%)", "range-track-background", "$color-gray-light" %}
+    {% color "hsl(261.91deg 71.2% 49.02% / 25%)", "ring-focus", "color.adjust($color-primary, $alpha: -0.75)" %}
+    {% color "hsl(205deg 100% 2%)", "select-foreground", "$color-black" %}
+    {% color "hsl(208deg 9% 42%)", "text", "$color-gray" %}
+    {% color "hsl(150deg 100% 33%)", "valid", "$color-success" %}
+    {% color "hsl(150deg 100% 32.94% / 25%)", "valid-focus-ring", "color.adjust($color-success, $alpha: -0.75)" %}
   </div>
 </div>
 
 <div class="l-color">
   <h3 class="l-color__title">Selection</h3>
   <div class="l-color__inner">
-    <ColorCard
-      bordered={true}
-      color="hsl(0deg 0% 100%)"
-      name="foreground"
-      value="$color-white"
-    />
-    <ColorCard
-      color="hsl(262deg 71% 49%)"
-      name="background"
-      value="$color-primary"
-    />
+    {% color "hsl(0deg 0% 100%)", "foreground", "$color-white", true %}
+    {% color "hsl(262deg 71% 49%)", "background", "$color-primary" %}
   </div>
 </div>
 
 <div class="l-color">
   <h3 class="l-color__title">Scrollbar</h3>
   <div class="l-color__inner">
-    <ColorCard
-      color="hsl(0deg 0% 0% / 15%)"
-      name="thumb-background"
-      value="hsl(0deg 0% 0% / 15%)"
-    />
-    <ColorCard
-      color="hsl(0deg 0% 0% / 25%)"
-      name="thumb-background-hover"
-      value="hsl(0deg 0% 0% / 25%)"
-    />
-    <ColorCard
-      color="hsl(0deg 0% 0% / 5%)"
-      name="track-background"
-      value="hsl(0deg 0% 0% / 5%)"
-    />
+    {% color "hsl(0deg 0% 0% / 15%)", "thumb-background", "hsl(0deg 0% 0% / 15%)" %}
+    {% color "hsl(0deg 0% 0% / 25%)", "thumb-background-hover", "hsl(0deg 0% 0% / 25%)" %}
+    {% color "hsl(0deg 0% 0% / 5%)", "track-background", "hsl(0deg 0% 0% / 5%)" %}
   </div>
 </div>
 
 <div class="l-color">
   <h3 class="l-color__title">Table</h3>
   <div class="l-color__inner">
-    <ColorCard
-      color="hsl(215deg 63% 93%)"
-      name="border"
-      value="$color-gray-light"
-    />
-    <ColorCard
-      color="hsl(208deg 9% 42%)"
-      name="caption"
-      value="$color-gray"
-    />
-    <ColorCard
-      color="hsl(205deg 100% 2%)"
-      name="heading"
-      value="$color-black"
-    />
-    <ColorCard
-      color="hsl(0deg 0% 0% / 5%)"
-      name="hover"
-      value="hsl(0deg 0% 0% / 5%)"
-    />
-    <ColorCard
-      bordered={true}
-      color="hsl(0deg 0% 0% / 2.5%)"
-      name="stripe"
-      value="hsl(0deg 0% 0% / 2.5%)"
-    />
-    <ColorCard
-      color="hsl(208deg 9% 42%)"
-      name="text"
-      value="$color-gray"
-    />
+    {% color "hsl(215deg 63% 93%)", "border", "$color-gray-light" %}
+    {% color "hsl(208deg 9% 42%)", "caption", "$color-gray" %}
+    {% color "hsl(205deg 100% 2%)", "heading", "$color-black" %}
+    {% color "hsl(0deg 0% 0% / 5%)", "hover", "hsl(0deg 0% 0% / 5%)" %}
+    {% color "hsl(0deg 0% 0% / 2.5%)", "stripe", "hsl(0deg 0% 0% / 2.5%)", true %}
+    {% color "hsl(208deg 9% 42%)", "text", "$color-gray" %}
   </div>
 </div>
 
