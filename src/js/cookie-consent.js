@@ -6,12 +6,14 @@ import {
   const prefix = 'spruce';
   const btns = document.querySelectorAll('button[data-action="cookie"]');
   let caption = '';
+  let consentModal = null;
+  let redirect = false;
 
   if (
     !issetCookie(`${prefix}-cookie-law-analytics`)
     && !issetCookie(`${prefix}-cookie-law-denied`)
   ) {
-    caption = `<div class="cookie-consent-helper"><div class="cookie-consent" tabindex="-1">
+    caption = `<div class="cookie-consent-helper"><div class="cookie-consent cookie-consent--slidein" tabindex="-1">
         <div class="cookie-consent__caption">This site use cookies. For more information please visit our <a href="/privacy-policy/">privacy policy</a> page.</div>
         <div class="cookie-consent__btns">
         <button class="btn btn--sm btn--decline" data-action="cookie-decline">Decline</button>
@@ -20,7 +22,16 @@ import {
       </div></div>`;
 
     document.body.insertAdjacentHTML('afterbegin', caption);
-    document.querySelector('.cookie-consent').focus();
+    consentModal = document.querySelector('.cookie-consent');
+    consentModal.focus();
+  }
+
+  function animationEndCallback() {
+    consentModal.removeEventListener('animationend', animationEndCallback);
+
+    if (redirect) {
+      window.location.reload();
+    }
   }
 
   document.addEventListener('click', (e) => {
@@ -29,7 +40,10 @@ import {
       && e.target.getAttribute('data-action') === 'cookie-accept'
     ) {
       setCookie(`${prefix}-cookie-law-analytics`, 'accepted', 365);
-      window.location.reload();
+
+      redirect = true;
+      consentModal.classList.add('cookie-consent--slideout');
+      consentModal.addEventListener('animationend', animationEndCallback);
     }
 
     if (
@@ -37,7 +51,10 @@ import {
       && e.target.getAttribute('data-action') === 'cookie-decline'
     ) {
       setCookie(`${prefix}-cookie-law-denied`, 'true');
-      window.location.reload();
+
+      redirect = false;
+      consentModal.classList.add('cookie-consent--slideout');
+      consentModal.addEventListener('animationend', animationEndCallback);
     }
   });
 

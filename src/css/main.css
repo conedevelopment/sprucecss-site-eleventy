@@ -1786,6 +1786,7 @@ legend {
   inset: auto 1.5rem 1.5rem 1.5rem;
   justify-content: center;
   position: fixed;
+  pointer-events: none;
   z-index: 25;
 }
 
@@ -1804,7 +1805,15 @@ legend {
   gap: 1rem 1.5rem;
   justify-content: center;
   padding: 1rem;
+  pointer-events: all;
   text-align: center;
+  transform: translateY(200%);
+}
+.cookie-consent--slidein {
+  animation: slidein var(--spruce-duration) forwards;
+}
+.cookie-consent--slideout {
+  animation: slideout var(--spruce-duration) forwards;
 }
 .cookie-consent__caption > * {
   margin-block-end: 0;
@@ -1818,6 +1827,22 @@ legend {
   gap: 1rem;
 }
 
+@keyframes slidein {
+  from {
+    transform: translateY(200%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes slideout {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(200%);
+  }
+}
 .theme-switcher {
   color: var(--spruce-base-color-text);
   display: inline-flex;

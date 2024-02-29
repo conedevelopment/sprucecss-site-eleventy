@@ -1,21 +1,21 @@
 @use 'sass:color';
+@use '../config/dark-colors' as dark;
 @use 'sprucecss/scss/spruce' as *;
-
-$color-primary: hsl(261deg 54% 70%);
 
 .cookie-consent-helper {
   display: flex;
   inset: auto spacer('m') spacer('m') spacer('m');
   justify-content: center;
   position: fixed;
+  pointer-events: none;
   z-index: 25;
 }
 
 .cookie-consent {
   @include set-css-variable((
     --base-color-text: hsl(0deg 0% 97%),
-    --base-color-link: $color-primary,
-    --base-color-link-hover: color.scale($color-primary, $lightness: 20%),
+    --base-color-link: color('primary', $only-color: true, $map: dark.$colors),
+    --base-color-link-hover: color.scale(color('primary', $only-color: true, $map: dark.$colors), $lightness: 20%),
   ));
 
   align-items: center;
@@ -29,7 +29,17 @@ $color-primary: hsl(261deg 54% 70%);
   gap: spacer('s') spacer('m');
   justify-content: center;
   padding: spacer('s');
+  pointer-events: all;
   text-align: center;
+  transform: translateY(200%);
+
+  &--slidein {
+    animation: slidein config('duration', $transition) forwards;
+  }
+
+  &--slideout {
+    animation: slideout config('duration', $transition) forwards;
+  }
 
   &__caption {
     @include layout-stack('xs');
@@ -38,5 +48,23 @@ $color-primary: hsl(261deg 54% 70%);
   &__btns {
     display: flex;
     gap: spacer('s');
+  }
+}
+
+@keyframes slidein {
+  from {
+    transform: translateY(200%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideout {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(200%);
   }
 }
