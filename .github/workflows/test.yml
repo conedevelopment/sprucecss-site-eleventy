@@ -70,15 +70,18 @@ jobs:
 
         steps:
         -
-            name: Checkout code
-            uses: actions/checkout@v2
-        -
-            name: Install Rust
-            uses: actions/setup-rust@v1
-        -
-            name: Install Lychee
-            run: cargo install lychee
+            name: Checkout repository
+            uses: actions/checkout@v3
         -
             name: Run Lychee
-            run: lychee --version
-
+            uses: lycheeverse/lychee-action@v1.9.3
+            with:
+                args: >-
+                    --verbose
+                    --no-progress
+                    --require-https
+                    --max-concurrency 2
+                    --user-agent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36'
+                    './**/*.md'
+                output: ${{ runner.temp }}/lychee/out.md
+                fail: true
