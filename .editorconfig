@@ -18,3 +18,7 @@ indent_size = 2
 
 [acf-json/*.json]
 insert_final_newline = unset
+
+# Ignore paths
+[/src/_includes/partial/ide/**]
+indent_size = unset
