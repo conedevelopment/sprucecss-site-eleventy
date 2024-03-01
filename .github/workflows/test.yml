@@ -70,12 +70,15 @@ jobs:
 
         steps:
         -
-            name: Checkout repository
-            uses: actions/checkout@v3
+            name: Checkout code
+            uses: actions/checkout@v2
         -
-            name: Install lychee
-            run: npm install -g lychee
+            name: Install Rust
+            uses: actions/setup-rust@v1
         -
-            name: Check links
-            run: |
-                git ls-files -z -- 'src/**.md' | xargs -0 -n 1 -- python -m lychee
+            name: Install Lychee
+            run: cargo install lychee
+        -
+            name: Run Lychee
+            run: lychee --version
+
