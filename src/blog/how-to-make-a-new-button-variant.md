@@ -70,11 +70,11 @@ After the declaration, you can use your new button modification classes.
 
 ```html
 <a href="https://sprucecss.com" class="btn btn--dark">
-	Open Spruce CSS
+  Open Spruce CSS
 </a>
 
 <a href="https://sprucecss.com" class="btn btn--outline-dark">
-	Open Spruce CSS
+  Open Spruce CSS
 </a>
 ```
 
@@ -82,6 +82,6 @@ If you declare the `dark-shadow` property, you can use the `btn--dark-shadow` to
 
 ```html
 <a href="https://sprucecss.com" class="btn btn--dark btn--dark-shadow">
-	Open Spruce CSS
+  Open Spruce CSS
 </a>
 ```
