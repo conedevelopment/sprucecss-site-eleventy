@@ -76,11 +76,6 @@ jobs:
             name: Install lychee
             run: npm install -g lychee
         -
-            name: Find Markdown files
-            id: find_md_files
-            run: |
-                find src -name "*.md" > md_files.txt
-        -
             name: Check links
             run: |
-                cat md_files.txt | xargs -I {} lychee validate {}
+                git ls-files -z -- 'src/**.md' | xargs -I {} lychee validate {}
