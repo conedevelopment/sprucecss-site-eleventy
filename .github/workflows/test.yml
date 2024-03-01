@@ -71,10 +71,7 @@ jobs:
         steps:
         -
             name: Checkout code
-            uses: actions/checkout@v2
-        -
-            name: Install Rust
-            uses: actions/setup-rust@v1
+            uses: actions/checkout@v3
         -
             name: Install Lychee
             run: cargo install lychee
