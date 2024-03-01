@@ -6,8 +6,8 @@
   display: flex;
   inset: auto spacer('m') spacer('m') spacer('m');
   justify-content: center;
-  position: fixed;
   pointer-events: none;
+  position: fixed;
   z-index: 25;
 }
 
@@ -55,6 +55,7 @@
   from {
     transform: translateY(200%);
   }
+
   to {
     transform: translateY(0);
   }
@@ -64,6 +65,7 @@
   from {
     transform: translateY(0);
   }
+
   to {
     transform: translateY(200%);
   }
