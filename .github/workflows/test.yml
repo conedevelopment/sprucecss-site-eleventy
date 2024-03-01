@@ -16,10 +16,10 @@ jobs:
         steps:
         -
             name: Checkout repository
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
         -
             name: Set up Node.js
-            uses: actions/setup-node@v3
+            uses: actions/setup-node@v4
             with:
                 node-version: 'lts/*'
         -
@@ -45,10 +45,10 @@ jobs:
         steps:
         -
             name: Checkout repository
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
         -
             name: Cache pip
-            uses: actions/cache@v3
+            uses: actions/cache@v4
             with:
                 path: '~/.cache/pip'
                 key: '${{ runner.os }}-pip-yamllint'
@@ -71,7 +71,7 @@ jobs:
         steps:
         -
             name: Checkout repository
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
         -
             name: Run Lychee
             uses: lycheeverse/lychee-action@v1.9.3
