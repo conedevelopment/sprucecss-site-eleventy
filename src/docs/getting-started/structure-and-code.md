@@ -20,7 +20,7 @@ github: "https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/ge
 
 ## BEM (Block Element Modifier)
 
-We use [BEM](http://getbem.com/naming/), a simple naming convention that helps create manageable code for writing complex components. A simple example looks like this:
+We use [BEM](https://getbem.com/naming/), a simple naming convention that helps create manageable code for writing complex components. A simple example looks like this:
 
 - Block: a component element, like `.btn`.
 - Element: a child element of the component like `.btn__icon`.

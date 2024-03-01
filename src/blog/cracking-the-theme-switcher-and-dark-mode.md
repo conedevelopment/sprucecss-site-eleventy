@@ -74,7 +74,7 @@ Both options are valid and usable for us. Which one you choose will depend on yo
 
 The localStorage is easier to handle from the front-end side because it has a capable API. It also doesn't travel to the server, only live on the client system. We need it because we don't use a back-end, we have a static site, or our server cache kills the cookies.
 
-**Knowing all of this, here is our theme switcher JS code that you can also find in the [Spruce UI](https://sprucecss.com/ui/component/theme-switcher/) with the markup and styling.**
+**Knowing all of this, here is our theme switcher JS code that you can also find in the [Spruce UI](https://sprucecss.com/ui/misc/theme-switcher-select/) with the markup and styling.**
 
 ```js
 (() => {

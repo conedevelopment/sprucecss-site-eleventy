@@ -56,8 +56,8 @@ A methodology is a lifesaver because we have just a few rules in CSS, which can 
 Using an extensive description, a system of rules when writing stylesheets isn’t the silver bullet but can help us hugely. For me, the most significant advantage of BEM is the possibility of thinking in components that in HTML/CSS are often not tangible concepts.
 
 Some excellent CSS architecture solution:
-- [BEM](http://smacss.com/)
-- [SMACSS](http://smacss.com/)
+- [BEM](https://getbem.com/)
+- [SMACSS](https://smacss.com/)
 - [ITCSS](https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/)
 - [CUBE CSS](https://cube.fyi/)
 
