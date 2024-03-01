@@ -1,8 +1,8 @@
 ---
-title: 'Forms'
-description: 'Spruce CSS comes with overall form support for styling the different native elements.'
+title: "Forms"
+description: "Spruce CSS comes with overall form support for styling the different native elements."
 order: 22
-github: 'https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/elements/forms.mdx'
+github: "https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/elements/forms.mdx"
 ---
 
 <p class="lead">Spruce CSS comes with overall form support for styling the different native elements. Also, it has some form layout helpers.</p>

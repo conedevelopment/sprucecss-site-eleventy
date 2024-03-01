@@ -1,8 +1,8 @@
 ---
-title: 'Appendix'
-description: 'In the appendix, you can find some references that inspired or gave any input related to any aspects of Spruce CSS or our learning in general.'
+title: "Appendix"
+description: "In the appendix, you can find some references that inspired or gave any input related to any aspects of Spruce CSS or our learning in general."
 order: 10
-github: 'https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/getting-started/appendix.mdx'
+github: "https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/getting-started/appendix.mdx"
 ---
 
 <p class="lead">In the appendix, you can find some references that inspired or gave any input related to any aspects of Spruce CSS or our learning in general.</p>

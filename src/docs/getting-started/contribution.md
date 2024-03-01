@@ -1,8 +1,8 @@
 ---
-title: 'Contribution'
-description: 'You can help us tremendously with any small contribution, like fixing a typo.'
+title: "Contribution"
+description: "You can help us tremendously with any small contribution, like fixing a typo."
 order: 9
-github: 'https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/getting-started/contribution.mdx'
+github: "https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/getting-started/contribution.mdx"
 ---
 
 <p class="lead">First, thank you for considering contributing to Spruce. We appreciate your time and effort in making this CSS system better. We want to make contributing to this project as easy and transparent as possible, whether it's:</p>

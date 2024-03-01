@@ -1,8 +1,8 @@
 ---
-title: 'Inclusivity and Accessibility'
-description: 'Create more inclusive and accessible solutions using our micro-framework and its components.'
+title: "Inclusivity and Accessibility"
+description: "Create more inclusive and accessible solutions using our micro-framework and its components."
 order: 5
-github: 'https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/getting-started/accessibility.mdx'
+github: "https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/getting-started/accessibility.mdx"
 ---
 
 <p class="lead">Inclusivity and accessibility (A11Y) are some of the main concerns of Spruce CSS. We aim to help you develop more accessible web-based projects through our code and documentation, where we will try to show you small, related tips and guidance where necessary.</p>

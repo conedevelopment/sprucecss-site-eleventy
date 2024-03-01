@@ -1,8 +1,8 @@
 ---
-title: 'Colors'
-description: 'Through colors, you can genuinely make Spruce CSS your own. Control everything with the $colors map.'
+title: "Colors"
+description: "Through colors, you can genuinely make Spruce CSS your own. Control everything with the $colors map."
 order: 14
-github: 'https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/sass/variables.mdx'
+github: "https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/sass/variables.mdx"
 ---
 
 <p class="lead">Spruce CSS comes with a bunch of Sass variables and generates CSS custom properties.</p>

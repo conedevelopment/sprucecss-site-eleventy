@@ -1,7 +1,7 @@
 ---
-title: 'Buttons'
+title: "Buttons"
 order: 21
-github: 'https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/elements/buttons.mdx'
+github: "https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/elements/buttons.mdx"
 ---
 
 <p class="lead">Spruce comes with basic button variations like size, width, color, state and can also generate your custom color variants.</p>

@@ -1,8 +1,8 @@
 ---
-title: 'Mixins'
-description: 'You can do more with less code with the mixins in Spruce CSS micro-framework.'
+title: "Mixins"
+description: "You can do more with less code with the mixins in Spruce CSS micro-framework."
 order: 16
-github: 'https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/sass/mixins.mdx'
+github: "https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/sass/mixins.mdx"
 ---
 
 ## a11y-card-link
