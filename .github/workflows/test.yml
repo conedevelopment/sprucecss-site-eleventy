@@ -78,4 +78,4 @@ jobs:
         -
             name: Check links
             run: |
-                git ls-files -z -- 'src/**.md' | xargs -I {} lychee validate {}
+                git ls-files -z -- 'src/**.md' | xxargs -0 -n 1 -- python -m lychee
