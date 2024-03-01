@@ -63,3 +63,24 @@ jobs:
             name: Check Front Matter
             run: |
                 git ls-files -z -- 'src/**.md' | xargs -0 -n 1 -- python -m yamllint
+
+    check_links:
+        name: Check Links
+        runs-on: ubuntu-latest
+
+        steps:
+        -
+            name: Checkout repository
+            uses: actions/checkout@v3
+        -
+            name: Install lychee
+            run: npm install -g lychee
+        -
+            name: Find Markdown files
+            id: find_md_files
+            run: |
+                find src -name "*.md" > md_files.txt
+        -
+            name: Check links
+            run: |
+                cat md_files.txt | xargs -I {} lychee validate {}
