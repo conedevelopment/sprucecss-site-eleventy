@@ -2,9 +2,9 @@
 title: "Tags"
 layout: "layout/posts.html"
 pagination:
-    data: collections.posts
+    data: "collections.posts"
     size: 1
     reverse: true
-    alias: tag
+    alias: "tag"
 permalink: "/tag/{{ tag | slug }}/"
 ---

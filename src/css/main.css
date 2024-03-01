@@ -1785,8 +1785,8 @@ legend {
   display: flex;
   inset: auto 1.5rem 1.5rem 1.5rem;
   justify-content: center;
-  position: fixed;
   pointer-events: none;
+  position: fixed;
   z-index: 25;
 }
 
