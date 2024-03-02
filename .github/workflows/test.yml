@@ -29,6 +29,11 @@ jobs:
             name: Run linter
             run: npm run sass:lint
         -
+            name: Build website
+            env:
+                UI_API_URL: ""
+            run: npm run prod
+        -
             name: Check EditorConfig configuration
             run: test -f .editorconfig
         -
