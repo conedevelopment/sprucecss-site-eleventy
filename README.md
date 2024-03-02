@@ -30,10 +30,10 @@ We use `eleventy --serve` and compile Sass with sass-cli with npm scripts.
 
 3. **Run the development mode**
 
-    To run the development mode, use the `npm script`.   This script will also watch for changes.
+    To run the development mode, use the `npm run start`. This script will also watch for changes.
 
     ```shell
-    npm start
+    npm run start
     ```
 
 4. **Run the production mode**
