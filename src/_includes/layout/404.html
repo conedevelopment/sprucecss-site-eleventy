@@ -1,0 +1,23 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+    <div class="l-404">
+        <div class="container">
+            <div class="l-404__inner">
+                <img src="/img/not-found.svg" class="l-404__image" alt="">
+                <div class="l-404__caption">
+                    <h1 class="l-404__title">{{ title }}</h1>
+                    <div class="post-content">
+                        {{ content | safe }}
+                    </div>
+                  <a href="/" class="btn btn--rounded btn--lg btn--primary">Go home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% set gettingStartedSettings = {
+        "classes": "l-getting-started--border-block-start"
+    } %}
+    {% include "../partial/getting-started.html" %}
+{% endblock %}

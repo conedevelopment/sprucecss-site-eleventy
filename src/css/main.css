@@ -3737,6 +3737,37 @@ pre[class*=language-] {
   }
 }
 
+.l-404 {
+  border-block-end: 1px solid var(--spruce-base-color-border);
+  padding-block: var(--spruce-section-gap);
+}
+.l-404__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+}
+.l-404__image {
+  margin-inline: auto;
+  max-inline-size: 12rem;
+}
+.l-404__caption {
+  margin-inline: auto;
+  max-inline-size: 40rem;
+  text-align: center;
+  text-wrap: balance;
+}
+.l-404__caption > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.l-404__caption > * + * {
+  margin-block-start: 1.5rem;
+}
+.l-404__title {
+  font-size: clamp(2.275rem, 5vw + 1rem, 3.5rem);
+}
+
 .btn--rounded {
   border-radius: var(--doc-border-radius-md);
 }
