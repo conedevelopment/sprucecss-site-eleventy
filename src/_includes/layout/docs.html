@@ -20,6 +20,12 @@
                         <div class="l-documentation__content">
                             <div class="post-content">
                                 {{ content | safe }}
+
+                                {% if github %}
+                                    <div>
+                                        <a href="{{ github }}" target="_blank" rel="noopener">Edit on GitHub</a>
+                                    </div>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
