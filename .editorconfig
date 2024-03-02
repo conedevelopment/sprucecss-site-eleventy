@@ -13,12 +13,11 @@ block_comment_start = /*
 block_comment = *
 block_comment_end = */
 
-[*.{scss,css,js,json,md}]
+[*.{scss,css,js,json}]
 indent_size = 2
+
+[*.{html,md}]
+indent_size = unset
 
 [acf-json/*.json]
 insert_final_newline = unset
-
-# Ignore paths
-[/src/_includes/partial/ide/**]
-indent_size = unset
