@@ -1,16 +1,16 @@
 {
   "scripts": {
-    "delete:dist": "del-cli --force dist",
-    "eleventy:dev": "npx eleventy --serve",
-    "eleventy:prod": "npx eleventy",
-    "js:lint": "npx eslint \"src/js/**\"",
-    "js:lint:fix": "npx eslint \"src/js/**\" --fix",
-    "prod": "npm-run-all delete:dist eleventy:prod sass:prod",
-    "sass:dev": "sass --load-path=node_modules --watch --no-source-map --update --style=expanded src/scss:src/css",
-    "sass:lint:fix": "stylelint src/scss/**/*.scss --fix",
+    "dist:delete": "del-cli --force dist",
+    "eleventy:serve": "npx eleventy --serve",
+    "eleventy:build": "npx eleventy",
+    "js:lint": "npx eslint 'src/js/**'",
+    "js:fix": "npx eslint --fix 'src/js/**'",
+    "build": "npm-run-all dist:delete eleventy:build sass:compile",
+    "sass:watch": "sass --watch --update --load-path=node_modules --no-source-map --style=expanded src/scss:src/css",
+    "sass:fix": "stylelint src/scss/**/*.scss --fix",
     "sass:lint": "stylelint src/scss/**/*.scss",
-    "sass:prod": "sass --load-path=node_modules --no-source-map --style=compressed src/scss:src/css",
-    "start": "npm-run-all --parallel eleventy:dev sass:dev"
+    "sass:compile": "sass --load-path=node_modules --no-source-map --style=compressed src/scss:src/css",
+    "start": "npm-run-all --parallel eleventy:serve sass:watch"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
