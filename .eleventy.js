@@ -101,6 +101,8 @@ module.exports = config => {
   config.addPassthroughCopy('./src/css/**');
   config.addPassthroughCopy('./src/js/**');
   config.addPassthroughCopy('./src/font/**');
+  config.addPassthroughCopy({ './src/img/favicon/favicon.ico': '/favicon.ico' });
+  config.addPassthroughCopy({ './src/robots.txt': '/robots.txt' });
 
   config.addCollection('docs', collection => {
     return [...collection.getFilteredByGlob('./src/docs/**/*.md')].sort((a, b) => {
