@@ -6,5 +6,5 @@ ignore-hidden = false
 
 [default]
 extend-ignore-re = [
-    "Morbi fermentum various arcu",
+    "Morbi fermentum varius arcu",
 ]
