@@ -53,8 +53,3 @@ The project compiles the SCSS files from the `./src/scss` folder into the `./src
 - **sass:lint/sass:lint:fix** You can lint your SCSS files with [Stylelint](https://stylelint.io/) and [stylelint-config-sass-guidelines](https://github.com/bjankord/stylelint-config-sass-guidelines) preset with the `npm run sass:lint` command. Use the `npm run sass:lint:fix` command if you want automatic fixes.
 
 - **js:lint/js:lint:fix** You can also lint your JS like with Sass. For the rules, we use the Airbnb preset.
-
-## License
-
-The code is licensed under the [MIT](LICENSE).
-
