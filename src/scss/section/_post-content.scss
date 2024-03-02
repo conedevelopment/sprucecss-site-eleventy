@@ -57,4 +57,13 @@
       text-transform: uppercase;
     }
   }
+
+  a[href*='youtube'] {
+    img {
+      aspect-ratio: 16 / 9;
+      inline-size: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
 }

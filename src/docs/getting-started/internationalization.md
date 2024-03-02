@@ -13,7 +13,7 @@ The simplest example is the right-to-left (RTL) writing mode used by Arabic and 
 
 For more information, check out this excellent introductory video from [Moriel Schottlender](https://twitter.com/mooeypoo) hosted by [Jason Lengstorf](https://www.jason.af/):
 
-<iframe width="600" height="400" src="https://www.youtube.com/embed/OHF2h1_fBCM" title="Right-to Left (RTL) Support for Websites (with Moriel Schottlender) — Learn With Jason" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+[![Right-to Left (RTL) Support for Websites (with Moriel Schottlender) — Learn With Jason](https://img.youtube.com/vi/OHF2h1_fBCM/hqdefault.jpg)](https://www.youtube.com/watch?v=OHF2h1_fBCM)
 
 ## Logical Properties and Values
 

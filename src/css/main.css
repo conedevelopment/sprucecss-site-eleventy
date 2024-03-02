@@ -3333,6 +3333,12 @@ pre[class*=language-] {
   position: absolute;
   text-transform: uppercase;
 }
+.post-content a[href*=youtube] img {
+  aspect-ratio: 16/9;
+  inline-size: 100%;
+  object-fit: cover;
+  object-position: center;
+}
 
 .cta {
   background-color: var(--spruce-footer-color-background);
