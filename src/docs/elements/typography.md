@@ -169,7 +169,7 @@ sub <sub>element</sub>
     </dd>
     <dt>Firefox</dt>
     <dd>
-        Morbi fermentum varius arcu, in hendrerit turpis. Ut vestibulum nibh sed lorem blandit, ac ultrices arcu dictum.
+        Morbi fermentum various arcu, in hendrerit turpis. Ut vestibulum nibh sed lorem blandit, ac ultrices arcu dictum.
     </dd>
 </dl>
 {% endpreview %}
@@ -202,7 +202,7 @@ sub <sub>element</sub>
     </dd>
     <dt>Firefox</dt>
     <dd>
-        Morbi fermentum varius arcu, in hendrerit turpis. Ut vestibulum nibh sed lorem blandit, ac ultrices arcu dictum.
+        Morbi fermentum various arcu, in hendrerit turpis. Ut vestibulum nibh sed lorem blandit, ac ultrices arcu dictum.
     </dd>
 </dl>
 
