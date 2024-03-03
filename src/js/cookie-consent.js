@@ -1,6 +1,6 @@
 import {
   setCookie, getCookie, issetCookie, removeCookie,
-} from './cookie.js';
+} from './cookie';
 
 (() => {
   const prefix = 'spruce';
