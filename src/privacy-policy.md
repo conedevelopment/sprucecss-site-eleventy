@@ -8,7 +8,7 @@ layout: "layout/page.html"
 
 If you accept the cookies in the consent banner, you accept [Google Analytics tracking](https://developers.google.com/analytics/devguides/collection/analyticsjs/cookie-usage), which uses cookies.
 
-We store this choice of you in the `spruce-gdpr-cookies` cookie.
+We store this choice of you in the `spruce-cookie-law-analytics` cookie.
 
 If you want to opt-out or accept our cookies, please press the button below.
 
