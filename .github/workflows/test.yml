@@ -26,13 +26,14 @@ jobs:
             name: Install dependencies
             run: npm ci
         -
-            name: Run linter
+            name: Run SASS linter
             run: npm run sass:lint
         -
+            name: Run JavaScript linter
+            run: npm run js:lint
+        -
             name: Build website
-            env:
-                UI_API_URL: ""
-            run: npm run prod
+            run: npm run build
         -
             name: Check EditorConfig configuration
             run: test -f .editorconfig

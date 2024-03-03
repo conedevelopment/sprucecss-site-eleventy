@@ -185,7 +185,7 @@ module.exports = config => {
     elements.forEach(element => {
       const heading = element.querySelector('h2, h3');
 
-      if (heading && heading.textContent !== 'Example(s)' && heading.textContent !== 'Argument(s)' && heading.textContent !== 'References') {
+      if (heading && ! ['Example(s)', 'Argument(s)', 'References'].includes(heading.textContent)) {
         toc += `<li class="toc-level-${heading.tagName.toLowerCase()}"><a href="#${heading.id}">${heading.textContent}</a></li>`;
       }
     });
