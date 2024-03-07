@@ -1,2 +1,2 @@
 [build]
-    command = "npm run prod"
+    command = "npm run build"
