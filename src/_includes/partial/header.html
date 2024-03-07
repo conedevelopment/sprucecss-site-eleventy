@@ -41,17 +41,20 @@
             </div>
             {% if site.socials.length %}
                 <div class="site-header__actions">
-                    {% for social in site.socials %}
-                        <a
-                            aria-label="{{ social.name }}"
-                            class="btn btn--primary btn--icon btn--rounded"
-                            href="{{ social.url }}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            {% svgIcon social.icon, "btn__icon" %}
-                        </a>
-                    {% endfor %}
+                    {% include "partial/open-search.html" %}
+                    <div class="site-header__socials">
+                        {% for social in site.socials %}
+                            <a
+                                aria-label="{{ social.name }}"
+                                class="btn btn--primary btn--icon btn--rounded"
+                                href="{{ social.url }}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {% svgIcon social.icon, "btn__icon" %}
+                            </a>
+                        {% endfor %}
+                    </div>
                 </div>
             {% endif %}
         </div>

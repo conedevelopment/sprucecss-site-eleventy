@@ -13,19 +13,24 @@
         <link rel="stylesheet" href="/css/main.css">
     </head>
     <body>
-        <a class="btn btn--primary skip-link" href="#content">Skip to content</a>
-        {% include "partial/header.html" %}
+        <div class="site-wrapper">
+            <a class="btn btn--primary skip-link" href="#content">Skip to content</a>
+            {% include "partial/header.html" %}
 
-        <main id="content">
-            {% block content %}{% endblock %}
-        </main>
+            <main id="content">
+                {% block content %}{% endblock %}
+            </main>
 
-        {% include "partial/github-cta.html" %}
-        {% include "partial/footer.html" %}
+            {% include "partial/github-cta.html" %}
+            {% include "partial/footer.html" %}
+        </div>
+
+        {% include "partial/search-modal.html" %}
 
         <script defer src="/js/navigation.js"></script>
         <script defer src="/js/accordion-card.js"></script>
         <script defer src="/js/theme-switcher.js"></script>
+        <script defer src="/js/modal.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
         <script defer src="/js/toc.js"></script>
         <script src="/js/cookie-consent.js?{{ assetHash }}" type="module"></script>

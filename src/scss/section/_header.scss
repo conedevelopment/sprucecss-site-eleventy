@@ -49,6 +49,11 @@
 
   &__actions {
     display: flex;
+    gap: spacer('l');
+  }
+
+  &__socials {
+    display: flex;
     gap: spacer('s');
 
     .btn:last-child {

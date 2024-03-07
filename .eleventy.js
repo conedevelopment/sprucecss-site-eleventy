@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+const { execSync } = require('child_process');
 const { JSDOM } = require('jsdom');
 const { parse, stringify } = require('himalaya');
 const dateFilter = require('./src/filters/date.js');
@@ -196,6 +197,10 @@ module.exports = config => {
                 <ol>${toc}</ol>
               </nav>
             </div>`;
+  });
+
+  config.on('eleventy.after', () => {
+    execSync(`npx pagefind --site dist --glob \"**/*.html\"`, { encoding: 'utf-8' })
   });
 
   if (isProduction) {

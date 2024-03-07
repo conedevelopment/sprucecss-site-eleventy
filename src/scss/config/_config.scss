@@ -68,6 +68,9 @@ $color-dark: hsl(260deg 70% 6%);
       'punctuation': hsl(279deg 50% 53%),
       'regex': hsl(1deg 66% 47%),
     ),
+    'search': (
+      'icon': hsl(259deg 53% 94%),
+    ),
   ),
   $dark-colors: dark.$colors,
   $layout: (
