@@ -10,7 +10,7 @@
     block-size: var(--block-size);
     display: flex;
     flex-wrap: wrap;
-    gap: spacer-clamp('xs', 'l', 3vw);
+    gap: spacer-clamp('s', 'l', 3vw);
     justify-content: space-between;
 
     @include breakpoint('md') {
@@ -49,7 +49,11 @@
 
   &__actions {
     display: flex;
-    gap: spacer('l');
+    gap: spacer('s');
+
+    @include breakpoint('lg') {
+      gap: spacer('l');
+    }
   }
 
   &__socials {
@@ -65,17 +69,23 @@
     }
   }
 
+  &__search-btn {
+    @include breakpoint('lg') {
+      display: none;
+    }
+  }
+
   &__navigation {
     margin-inline-start: auto;
 
-    @include breakpoint('md') {
+    @include breakpoint('lg') {
       margin-inline-start: 0;
     }
 
     ul {
       border-block-start: 1px solid color('border');
 
-      @include breakpoint('md') {
+      @include breakpoint('lg') {
         border-block-start: none;
       }
     }

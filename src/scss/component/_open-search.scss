@@ -3,8 +3,12 @@
 .open-search {
   @include a11y-card-link('.open-search__btn', true);
   align-items: center;
-  display: flex;
+  display: none;
   gap: spacer('xs');
+
+  @include breakpoint('lg') {
+    display: flex;
+  }
 
   &__icon {
     --size: 1rem;

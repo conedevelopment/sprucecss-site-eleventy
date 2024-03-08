@@ -1,11 +1,11 @@
 (() => {
   let activeElement = null;
   const siteWrapper = document.querySelector('.site-wrapper');
-  const button = document.querySelector('[data-action="open-search"]');
+  const buttons = document.querySelectorAll('[data-action="open-search"]');
   const input = document.querySelector('.pagefind-ui__search-input');
   const modal = document.querySelector('.modal-backdrop');
 
-  if (!button || !modal) return;
+  if (!buttons || !modal) return;
 
   function openModal() {
     activeElement = document.activeElement;
@@ -37,8 +37,10 @@
     }
   });
 
-  button.addEventListener('click', () => {
-    openModal();
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      openModal();
+    });
   });
 
   window.addEventListener('keydown', handleKeyDown);

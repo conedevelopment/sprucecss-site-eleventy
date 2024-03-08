@@ -41,8 +41,13 @@
     letter-spacing: -2px;
     line-height: 1;
     margin-block: 0;
+    margin-inline: auto;
     max-inline-size: 20ch;
     text-wrap: balance;
+
+    @include breakpoint('md') {
+      margin-inline: 0;
+    }
   }
 
   &__breadcrumb {
@@ -54,8 +59,13 @@
     font-size: responsive-font-size(1.25rem, 30, '1vw + 0.75rem');
     margin: spacer('m') 0 0;
     margin-block: 0;
+    margin-inline: auto;
     max-inline-size: 50ch;
     text-wrap: balance;
+
+    @include breakpoint('md') {
+      margin-inline: 0;
+    }
   }
 
   &__meta {

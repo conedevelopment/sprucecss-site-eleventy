@@ -42,6 +42,9 @@
             {% if site.socials.length %}
                 <div class="site-header__actions">
                     {% include "partial/open-search.html" %}
+                    <button class="btn btn--primary btn--icon btn--rounded site-header__search-btn" aria-label="Search" data-action="open-search">
+                        {% svgIcon "./src/_includes/icon/search.svg", "btn__icon" %}
+                    </button>
                     <div class="site-header__socials">
                         {% for social in site.socials %}
                             <a

@@ -4,7 +4,7 @@
   font-family: var(--doc-body-font-family);
 
   &__btn {
-    @include breakpoint('md') {
+    @include breakpoint('lg') {
       display: none;
     }
 
@@ -25,7 +25,7 @@
     padding-inline: spacer-clamp('m', 'l');
     position: absolute;
 
-    @include breakpoint('md') {
+    @include breakpoint('lg') {
       align-items: center;
       background-color: transparent;
       display: flex !important;
