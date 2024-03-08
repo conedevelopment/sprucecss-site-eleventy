@@ -6,19 +6,40 @@
   position: relative;
 
   &__search-input {
-    padding: config('padding', $form-control, false) !important;
+    border: none;
+    border-block-end: 1px solid color('border');
+    border-end-start-radius: 0;
+    border-end-end-radius: 0;
+    padding: spacer('s') spacer('m') !important;
+
+    &:focus {
+      border-block-end: 1px solid color('border');
+      box-shadow: none;
+    }
   }
 
   &__form {
-    @include layout-stack('s');
+    @include layout-stack('m');
+
+    &::before {
+      --size: 1em;
+      background-image: url('data:image/svg+xml;base64,PHN2Zw0KICAgIGFyaWEtaGlkZGVuPSJ0cnVlIg0KICAgIGZvY3VzYWJsZT0iZmFsc2UiDQogICAgcm9sZT0iaW1nIg0KICAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyINCiAgICB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayINCiAgICB2aWV3Qm94PSIwIDAgMjQgMjQiDQogICAgd2lkdGg9IjI0Ig0KICAgIGhlaWdodD0iMjQiDQogICAgc3R5bGU9ImZpbGw6IGN1cnJlbnRDb2xvciINCj4NCiAgICA8cGF0aA0KICAgICAgICBkPSJNMTkuNTAxLDkuNzVjLTAsMi4xNTIgLTAuNjk5LDQuMTQgLTEuODc1LDUuNzUybDUuOTM1LDUuOTRjMC41ODUsMC41ODYgMC41ODUsMS41MzcgLTAsMi4xMjNjLTAuNTg2LDAuNTg2IC0xLjUzOCwwLjU4NiAtMi4xMjQsMGwtNS45MzUsLTUuOTM5Yy0xLjYxMiwxLjE4MSAtMy42LDEuODc1IC01Ljc1MiwxLjg3NWMtNS4zODYsLTAgLTkuNzUsLTQuMzY0IC05Ljc1LC05Ljc1MWMwLC01LjM4NiA0LjM2NCwtOS43NSA5Ljc1LC05Ljc1YzUuMzg3LC0wIDkuNzUxLDQuMzY0IDkuNzUxLDkuNzVabS05Ljc1MSw2Ljc1MWMzLjcwNCwtMCA2Ljc1MSwtMy4wNDcgNi43NTEsLTYuNzUxYy0wLC0zLjcwMyAtMy4wNDcsLTYuNzUgLTYuNzUxLC02Ljc1Yy0zLjcwMywwIC02Ljc1LDMuMDQ3IC02Ljc1LDYuNzVjMCwzLjcwNCAzLjA0Nyw2Ljc1MSA2Ljc1LDYuNzUxWiINCiAgICA+PC9wYXRoPg0KPC9zdmc+DQo=');
+      background-size: var(--size);
+      block-size: var(--size);
+      content: '';
+      display: inline-flex;
+      inline-size: var(--size);
+      position: absolute;
+    }
   }
 
   &__search-clear {
     background: none;
     border: 0;
-    font-size: config('font-size-sm', $typography);
-    inset-block-start: 0.8em;
-    inset-inline-end: 0.5em;
+    font-size: 0.7rem;
+    font-weight: 700;
+    inset-block-start: 2em;
+    inset-inline-end: spacer('s');
     margin-block-start: 0;
     position: absolute;
     text-transform: uppercase;
@@ -26,6 +47,7 @@
 
   &__drawer {
     @include scrollbar;
+    margin: spacer('m') spacer('m') spacer('m');
     max-block-size: 20rem;
     overflow-y: auto;
   }
@@ -50,6 +72,18 @@
 
   &__result-title {
     font-weight: 700;
+  }
+
+  &__button {
+    @include clear-btn;
+    color: color('link');
+    margin-block-start: spacer('s');
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+      color: color('link-hover');
+    }
   }
 
   &__hidden {

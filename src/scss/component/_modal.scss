@@ -1,16 +1,19 @@
 @use 'sprucecss/scss/spruce' as *;
 
 .modal-backdrop {
-  backdrop-filter: blur(0.35rem);
-  background-color: hsl(0deg 0% 100% / 35%);
+  align-items: start;
+  backdrop-filter: blur(0.15rem);
+  background-color: color('background', 'modal');
   display: none;
   inset: 0;
+  justify-content: center;
+  overflow-y: auto;
   padding: spacer('s');
   position: fixed;
-  z-index: 100;
+  z-index: 25;
 
   &--open {
-    display: block;
+    display: flex;
   }
 }
 
@@ -19,8 +22,9 @@
   border: 1px solid color('border');
   border-radius: config('border-radius-sm', $display);
   box-shadow: 0 0 spacer('xxs') hsl(201.15deg 72.03% 32.71% / 5%);
-  inline-size: 34rem;
-  margin: spacer('m');
+  inline-size: 40rem;
+  margin-block: 7rem;
+  margin-inline: auto;
   max-inline-size: 100%;
   outline: 0;
   position: relative;
