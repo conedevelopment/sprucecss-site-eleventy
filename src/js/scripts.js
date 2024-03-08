@@ -1,6 +1,6 @@
 import {
   getCookie,
-} from './cookie.js'; // eslint-disable-line
+} from './cookie.js';
 
 if (getCookie('spruce-cookie-law-analytics') === 'accepted') {
   function gtag() { // eslint-disable-line
