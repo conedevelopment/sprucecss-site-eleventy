@@ -16,9 +16,12 @@
 
 .modal {
   background-color: color('background');
+  border: 1px solid color('border');
   border-radius: config('border-radius-sm', $display);
-  box-shadow: get-css-variable(--box-shadow);
-  margin-block: 7rem;
-  margin-inline: auto;
-  max-inline-size: 40rem;
+  box-shadow: 0 0 spacer('xxs') hsl(201.15deg 72.03% 32.71% / 5%);
+  inline-size: 34rem;
+  margin: spacer('m');
+  max-inline-size: 100%;
+  outline: 0;
+  position: relative;
 }

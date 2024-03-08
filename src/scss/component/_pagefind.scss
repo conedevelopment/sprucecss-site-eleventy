@@ -53,6 +53,14 @@
   }
 
   &__hidden {
-    display: none;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-block-start: 0;
+    min-block-size: 10rem;
+
+    &::before {
+      content: 'No recent searches';
+    }
   }
 }
