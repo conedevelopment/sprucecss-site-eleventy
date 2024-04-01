@@ -11,7 +11,7 @@ Thanks for the logical properties and values; we can do more with i18n, just wit
 
 The simplest example is the right-to-left (RTL) writing mode used by Arabic and Hebrew languages, among others. When you write RTL, you should mirror your site: your logo in the header moves to the right side, and your layout and text alignment similarly change place.
 
-For more information, check out this excellent introductory video from [Moriel Schottlender](https://twitter.com/mooeypoo) hosted by [Jason Lengstorf](https://www.jason.af/):
+For more information, check out this excellent introductory video from [Moriel Schottlender](https://twitter.com/mooeypoo) hosted by [Jason Lengstorf](https://jason.energy):
 
 [![Right-to Left (RTL) Support for Websites (with Moriel Schottlender) — Learn With Jason](https://img.youtube.com/vi/OHF2h1_fBCM/hqdefault.jpg)](https://www.youtube.com/watch?v=OHF2h1_fBCM)
 
