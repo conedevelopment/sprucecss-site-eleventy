@@ -16,6 +16,12 @@
     gap: spacer('xs') spacer('m');
     justify-content: space-between;
     padding: spacer('s');
+
+    .copy-btn {
+      > span {
+        display: inline-flex;
+      }
+    }
   }
 
   &__title {
