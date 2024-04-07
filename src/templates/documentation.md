@@ -10,7 +10,7 @@ license: "MIT"
 version: "v1.2.0"
 date: "2023-05-23"
 updated: "2023-12-17"
-tags: ["Eleventy", "Free"]
+templateTags: ["Eleventy", "Free"]
 ---
 
 <p class="lead">Welcome to the official documentation of **Spruce Docs** Elventy theme. A small template you can use to document any of your projects.</p>

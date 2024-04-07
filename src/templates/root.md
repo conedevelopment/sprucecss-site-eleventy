@@ -10,7 +10,7 @@ license: "MIT"
 version: "v1.0.3"
 date: "2023-11-18"
 updated: "2023-12-17"
-tags: ["HTML", "Free"]
+templateTags: ["HTML", "Free"]
 ---
 
 <p class="lead">A straightforward administration template with standard views and many components.</p>

@@ -1,10 +1,10 @@
 {% if tags %}
     <div class="tags">
         <p class="tags__title">Posted in</p>
-        <ul class="tags__list" aria-describedby="tags-desc">
+        <ul class="tags__list">
             {% for tag in tags %}
             <li>
-                <a href="/tag/{{ tag | slug }}/">#{{ tag }}</a>
+                <a href="/blog/tag/{{ tag | slug }}/">#{{ tag }}</a>
             </li>
             {% endfor %}
         </ul>

@@ -27,9 +27,9 @@
                             {{ template.data.description }}
                         </p>
                         <div class="template-card__meta">
-                            {% if template.data.tags %}
+                            {% if template.data.templateTags %}
                                 <div class="template-card__tags">
-                                    {% for tag in template.data.tags %}
+                                    {% for tag in template.data.templateTags %}
                                         <span class="template-tag template-tag--{{ tag | lower }}">
                                             {{ tag }}
                                         </span>
