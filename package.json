@@ -36,5 +36,10 @@
     "stylelint": "^16.2.1",
     "stylelint-config-sass-guidelines": "^11.0.0",
     "stylelint-order": "^6.0.4"
+  },
+  "engines": {
+    "node": "^20.11",
+    "npm": "^10.2",
+    "yarn": "please-use-npm"
   }
 }
