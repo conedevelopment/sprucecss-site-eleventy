@@ -12,7 +12,7 @@
     "sass:compile": "sass --load-path=node_modules --no-source-map --style=compressed src/scss:src/css",
     "start": "npm-run-all --parallel sass:watch eleventy:serve"
   },
-  "devDependencies": {
+  "dependencies": {
     "@11ty/eleventy": "^2.0.1",
     "@11ty/eleventy-fetch": "^4.0.1",
     "@11ty/eleventy-img": "^4.0.2",
