@@ -6,7 +6,7 @@ alt: "A geometric illustration pattern."
 tags: ["scss"]
 ---
 
-<p class="lead">Sass is a CSS preprocessor, like CSS on steroids, a small programming language. Wheater it is helpful for your project or not, it is a powerful tool that can solve and simplify things.</p>
+<p class="lead">Sass is a CSS preprocessor, like CSS on steroids, a small programming language. Whether it is helpful for your project or not, it is a powerful tool that can solve and simplify things.</p>
 
 Why today's Sass is not the old Sass, [we wrote previously](/blog/about-modern-sass/). If you are interested in our thoughts, please check it out.
 

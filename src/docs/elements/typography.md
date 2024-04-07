@@ -210,6 +210,6 @@ sub <sub>element</sub>
 
 ## Variables, Helpers
 
-- [Typograhpy related variables](/docs/sass/variables/#typography)
+- [Typography related variables](/docs/sass/variables/#typography)
 - [font-size() function](/docs/sass/functions/#font-size)
 - [responsive-font-size() function](/docs/sass/functions/#responsive-font-size)

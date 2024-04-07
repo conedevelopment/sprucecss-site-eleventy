@@ -64,7 +64,7 @@ You can set two additional sizes with `form-control--sm` and `form-control--lg` 
 
 ## File
 
-Use the `form-file` class on an `input[type="file"]` to nativly style the file input.
+Use the `form-file` class on an `input[type="file"]` to natively style the file input.
 
 - You can size the input with `form-file--sm` and `form-file--lg`.
 - The styling is the same as the `.btn`.

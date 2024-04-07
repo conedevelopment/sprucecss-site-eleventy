@@ -2,7 +2,7 @@
 title: "How to Choose a CSS Framework"
 date: "2022-03-17"
 featuredImage: "./src/img/blog/how-to-choose-a-css-framework.png"
-alt: "An illustration with a hand holding a lightbulb."
+alt: "An illustration with a hand holding a light bulb."
 tags: ["css"]
 ---
 

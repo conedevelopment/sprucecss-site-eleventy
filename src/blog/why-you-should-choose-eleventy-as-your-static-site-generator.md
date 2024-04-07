@@ -21,11 +21,11 @@ Using your choice of tool, you can make the managing experience similar to any m
 
 ## Simple
 
-If you have any rutin with similar tools, it will be effortless to start with it. Initializing a new instance is like a charm. Updating from v1 to v2 is like a breeze.
+If you have any routine with similar tools, it will be effortless to start with it. Initializing a new instance is like a charm. Updating from v1 to v2 is like a breeze.
 
 In 11ty, all your stuff (almost) lives under the `src` folder (usually, but you can set up any structure you wish): your layout files, content, CSS, JS, and helpers.
 
-For templating, you have various options: Nunjucks (my choice), HTML, Markdown, WebC, JavaScript, Liquid, Handlebard, Mustache, EJS, Haml, Pug, or custom. So basically, any JS templating language.
+For templating, you have various options: Nunjucks (my choice), HTML, Markdown, WebC, JavaScript, Liquid, Handlebars, Mustache, EJS, Haml, Pug, or custom. So basically, any JS templating language.
 
 You don't need a JS framework to run it, which means no client-side JS (by default, you can use any of them if you wish) when generating your site.
 
