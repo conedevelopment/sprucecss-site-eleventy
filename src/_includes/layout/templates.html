@@ -6,7 +6,7 @@
 } %}
 
 {% block content %}
-    <main id="content" class="l-templates">
+    <div class="l-templates">
         <div class="container">
             {% include "partial/post-heading.html" %}
 
@@ -41,7 +41,7 @@
                 {% endfor %}
             </div>
         </div>
-    </main>
+    </div>
 
     {% set gettingStartedSettings = {
         "classes": "l-getting-started--border-block-start"

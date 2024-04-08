@@ -16,7 +16,7 @@
 {% endif %}
 
 {% block content %}
-    <main id="content" class="l-blog">
+    <div class="l-blog">
         <div class="container">
             {% include "partial/post-heading.html" %}
 
@@ -48,7 +48,7 @@
                 </div>
             {% endif %}
         </div>
-    </main>
+    </div>
 
     {% set gettingStartedSettings = {
         "classes": "l-getting-started--border-block-start"
