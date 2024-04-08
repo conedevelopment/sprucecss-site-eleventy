@@ -51,7 +51,7 @@ For generic purposes, for a simple project (where you don’t have many dependen
 - The nesting to write [BEM-based](https://css-tricks.com/using-sass-control-scope-bem-naming/) (or other methodology-based) components.
 - Break your code into multiple files and [@forward or @use](https://sprucecss.com/blog/why-use-sass#use-and-forward) them.
 - To create (or use third-party) mixins that can make the development faster. One new mixin I will need often is a font-face one; because of the GDPR, I can’t include them directly from Google.
-- Write DRY code. Sass has three basic pilar: variables, functions, and mixins. With mixins, we can make reusable, configurable code blocks easily.
+- Write DRY code. Sass has three basic pillars: variables, functions, and mixins. With mixins, we can make reusable, configurable code blocks easily.
 - You can add logic to your code; for example, you can determine contrast automatically.
 - And last but not least: utilize CSS with it. Use CSS custom properties; they know more than a static variable. Combine them; each one is good in a different way.
 

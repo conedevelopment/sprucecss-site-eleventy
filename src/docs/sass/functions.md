@@ -19,7 +19,7 @@ Get color value by key and type name from the `$colors` map. The `$colors` map i
 |-------------------|---------------|-------------------------------------------------------------------|
 | `$key`            |               | The name of the color.                                            |
 | `$type`           | `'base'`        | The group of the color.                                         |
-| `$only-color`     | `false`       | Wheater to get just the color value or the CSS custom property.   |
+| `$only-color`     | `false`       | Whether to get just the color value or the CSS custom property.   |
 | `$map`            | `$colors`     | The name of the map from which the function will get the values.  |
 
 
@@ -96,7 +96,7 @@ If you use the CSS custom property mode, you should always use this function bec
 |--------------------|-------------------|-----------------------------------------------------|
 | `$key`             |                   | The name of the key.                                |
 | `$map`             |                   | The name of the map.                                |
-| `$custom-property` | `true`            | Wheater if you want CSS custom property or not.     |
+| `$custom-property` | `true`            | Whether if you want CSS custom property or not.     |
 
 [View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/function/_config.scss#L29)
 

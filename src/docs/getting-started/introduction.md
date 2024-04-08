@@ -20,7 +20,7 @@ The generated CSS is relatively tiny (~7kb gzipped), somewhere around [+1500 lin
 - Keep it modern. Defining modern is challenging in a constantly changing environment, but the essence here is to **follow the new things in CSS**; this is a number one priority because it helps us learn and utilize the new stuff.
 - **Include just a few components.** For UI, we have a separate project named [Spruce UI](/ui/getting-started/introduction), where you can find drop-in components.
 - Follow semantic and accessibility best practices when possible; this doesn’t mean much in the core library but will be under the UI.
-- We don’t want to compete or be compared with other CSS frameworks. We think almost all of them are great - we learn(t) a lot from them. Besides, they have weaknesses and greatnesses, too, like Spruce CSS.
+- We don’t want to compete or be compared with other CSS frameworks. We think almost all of them are great - we learn(t) a lot from them. Besides, they have weaknesses and strengths too, like Spruce CSS.
 - Although it has some design opinions, it is not something to help you design (User Interfaces). The goal is to give you the correct patterns and a small system to help you create manageable projects in the long run; the UI is your job.
 - **Spruce CSS is just a tool. It can help you, and it will, but alone it can’t make your code better.** As with any framework or tool, your knowledge is what truly matters.
 

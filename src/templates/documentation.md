@@ -13,7 +13,7 @@ updated: "2023-12-17"
 templateTags: ["Eleventy", "Free"]
 ---
 
-<p class="lead">Welcome to the official documentation of **Spruce Docs** Elventy theme. A small template you can use to document any of your projects.</p>
+<p class="lead">Welcome to the official documentation of **Spruce Docs** Eleventy theme. A small template you can use to document any of your projects.</p>
 
 A documentation template is always helpful. There are a lot of solutions to make one; we wanted to create our self-hosted version based on our favorite static site generator [Eleventy](https://www.11ty.dev/).
 
