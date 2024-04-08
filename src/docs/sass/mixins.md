@@ -12,7 +12,7 @@ Create better card component linking by only using the title’s link (and not t
 | Name                            | Default Value  | Description                                                                      |
 | ------------------------------- | -------------- | -------------------------------------------------------------------------------- |
 | `$link`                         |                | The selector of the link element.                                                |
-| `$at-root`                      | `false`        | Wheater output the link as a child of the parent component or at the root level. |
+| `$at-root`                      | `false`        | Whether output the link as a child of the parent component or at the root level. |
 
 [View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/mixin/_utilities.scss#L82)
 
@@ -468,7 +468,7 @@ Using the help of the `layout-stack` mixin, you can classical stack layout where
 | `$gap`         | `'m'`                    | The margin value between the elements. The value comes from the `$spacers` map, use any declared key name for shorthand. |
 | `$inline-size` | `false`                  | Whether it has explicit width (inline-size).                                                                             |
 | `$align`       | `none`                   | Set explicit align to the elements(`none`, `left`, `right`).                                                             |
-| `$important`   | `false`                  | Add !important on descandent elements to `margin-block-start`.                                                           |
+| `$important`   | `false`                  | Add !important on descendant elements to `margin-block-start`.                                                           |
 | `$split`       | `0`                      | Split the elements vertically from the nth element.                                                                      |
 
 [View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/mixin/_layout.scss#L16)
