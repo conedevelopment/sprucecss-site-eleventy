@@ -11,7 +11,8 @@
 :root {
   @include set-css-variable((
     --section-gap: clamp(5rem, 8vw, 9rem),
-    --section-gap-half: clamp(3.5rem, 8vw, 6rem)
+    --section-gap-half: clamp(3.5rem, 8vw, 6rem),
+    --duration: 0.15s,
   ));
 }
 
