@@ -34,11 +34,15 @@
   transform: translateY(200%);
 
   &--slidein {
-    animation: slidein config('duration', $transition) forwards;
+    animation-duration: config('duration', $transition);
+    animation-fill-mode: forwards;
+    animation-name: slidein;
   }
 
   &--slideout {
-    animation: slideout config('duration', $transition) forwards;
+    animation-duration: config('duration', $transition);
+    animation-fill-mode: forwards;
+    animation-name: slideout;
   }
 
   &__caption {
