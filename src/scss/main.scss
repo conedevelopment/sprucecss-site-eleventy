@@ -5,15 +5,16 @@
 @forward 'extend';
 @forward 'helper';
 
-
 @use 'sprucecss/scss/spruce' as *;
 
 :root {
-  @include set-css-variable((
-    --section-gap: clamp(5rem, 8vw, 9rem),
-    --section-gap-half: clamp(3.5rem, 8vw, 6rem),
-    --duration: 0.15s,
-  ));
+  @include set-css-variable(
+    (
+      --section-gap: clamp(5rem, 8vw, 9rem),
+      --section-gap-half: clamp(3.5rem, 8vw, 6rem),
+      --duration: 0.15s,
+    )
+  );
 }
 
 body {
@@ -36,4 +37,6 @@ h6 {
   font-family: var(--doc-heading-font-family);
 }
 
-[x-cloak] { display: none !important; }
+[x-cloak] {
+  display: none !important;
+}

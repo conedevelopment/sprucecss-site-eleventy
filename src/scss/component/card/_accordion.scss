@@ -72,11 +72,11 @@
     display: grid;
     padding-inline: spacer('m');
 
-    &[aria-hidden="true"] {
+    &[aria-hidden='true'] {
       grid-template-rows: 0fr;
     }
 
-    &[aria-hidden="false"] {
+    &[aria-hidden='false'] {
       grid-template-rows: 1fr;
       padding-block-end: spacer('m');
     }

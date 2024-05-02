@@ -6,9 +6,10 @@
     "js:lint": "npx eslint 'src/js/**'",
     "js:fix": "npx eslint --fix 'src/js/**'",
     "build": "npm-run-all dist:delete sass:compile eleventy:build",
+    "prettier": "npx prettier --check 'src/scss/**/*.scss'",
     "sass:watch": "sass --watch --update --load-path=node_modules --no-source-map --style=expanded src/scss:src/css",
-    "sass:fix": "stylelint src/scss/**/*.scss --fix",
-    "sass:lint": "stylelint src/scss/**/*.scss",
+    "sass:fix": "stylelint 'src/scss/**/*.scss' --fix",
+    "sass:lint": "stylelint 'src/scss/**/*.scss'",
     "sass:compile": "sass --load-path=node_modules --no-source-map --style=compressed src/scss:src/css",
     "start": "npm-run-all --parallel sass:watch eleventy:serve"
   },

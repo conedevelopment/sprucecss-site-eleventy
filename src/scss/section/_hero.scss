@@ -2,11 +2,7 @@
 @use 'sprucecss/scss/spruce' as *;
 
 .hero-wrapper {
-  background: linear-gradient(
-    0deg,
-    color('gradient-start', 'hero') 0%,
-    color('gradient-end', 'hero') 100%
-  );
+  background: linear-gradient(0deg, color('gradient-start', 'hero') 0%, color('gradient-end', 'hero') 100%);
 }
 
 .hero {

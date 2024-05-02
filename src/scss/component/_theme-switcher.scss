@@ -5,9 +5,15 @@
   display: inline-flex;
   position: relative;
 
-  &[data-theme-mode='system'] &__system-mode { display: flex; }
-  &[data-theme-mode='light'] &__light-mode { display: flex; }
-  &[data-theme-mode='dark'] &__dark-mode { display: flex; }
+  &[data-theme-mode='system'] &__system-mode {
+    display: flex;
+  }
+  &[data-theme-mode='light'] &__light-mode {
+    display: flex;
+  }
+  &[data-theme-mode='dark'] &__dark-mode {
+    display: flex;
+  }
 
   button {
     display: none;
