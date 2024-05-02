@@ -1,12 +1,12 @@
 {
   "scripts": {
     "dist:delete": "del-cli --force dist",
-    "eleventy:serve": "npx eleventy --serve",
-    "eleventy:build": "npx eleventy",
-    "js:lint": "npx eslint 'src/js/**'",
-    "js:fix": "npx eslint --fix 'src/js/**'",
+    "eleventy:serve": "eleventy --serve",
+    "eleventy:build": "eleventy",
+    "js:lint": "eslint 'src/js/**'",
+    "js:fix": "eslint --fix 'src/js/**'",
     "build": "npm-run-all dist:delete sass:compile eleventy:build",
-    "prettier": "npx prettier --check 'src/scss/**/*.scss'",
+    "prettier": "prettier --check 'src/scss/**/*.scss'",
     "sass:watch": "sass --watch --update --load-path=node_modules --no-source-map --style=expanded src/scss:src/css",
     "sass:fix": "stylelint 'src/scss/**/*.scss' --fix",
     "sass:lint": "stylelint 'src/scss/**/*.scss'",
