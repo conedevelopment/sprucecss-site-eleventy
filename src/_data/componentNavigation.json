@@ -20,6 +20,10 @@
         "url": "/ui/card/accordion"
       },
       {
+        "caption": "Info",
+        "url": "/ui/card/info"
+      },
+      {
         "caption": "Number",
         "url": "/ui/card/number"
       },
@@ -43,6 +47,10 @@
       {
         "caption": "Container",
         "url": "/ui/content-and-layout/container"
+      },
+      {
+        "caption": "Call to Action",
+        "url": "/ui/content-and-layout/call-to-action"
       },
       {
         "caption": "Feature",
