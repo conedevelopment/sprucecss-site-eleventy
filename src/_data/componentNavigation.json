@@ -20,6 +20,10 @@
         "url": "/ui/card/accordion"
       },
       {
+        "caption": "Number",
+        "url": "/ui/card/number"
+      },
+      {
         "caption": "Order",
         "url": "/ui/card/order"
       },
@@ -148,6 +152,10 @@
       {
         "caption": "Cookie Consent",
         "url": "/ui/misc/cookie-consent"
+      },
+      {
+        "caption": "Lang Switcher",
+        "url": "/ui/misc/lang-switcher"
       },
       {
         "caption": "Skip Link",
