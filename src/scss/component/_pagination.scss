@@ -1,11 +1,6 @@
 @use 'sprucecss/scss/spruce' as *;
 
-@include generate-btn(
-  '.pagination a',
-  null,
-  false,
-  true
-);
+@include generate-btn('.pagination a', null, false, true);
 
 .pagination {
   @include clear-list;
@@ -21,15 +16,17 @@
 
   a {
     @include btn-variant('pagination');
-    @include set-css-variable((
-      --padding: 1em 1.25em,
-    ));
+    @include set-css-variable(
+      (
+        --padding: 1em 1.25em,
+      )
+    );
     border-radius: var(--doc-border-radius-md);
     font-size: 0.91375rem;
     font-weight: 700;
     text-transform: uppercase;
 
-    &[aria-current="page"] {
+    &[aria-current='page'] {
       background: color('pagination-background-hover', 'btn');
       border-color: color('pagination-background-hover', 'btn');
       color: color('pagination-foreground-hover', 'btn');

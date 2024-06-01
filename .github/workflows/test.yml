@@ -32,6 +32,9 @@ jobs:
             name: Run JavaScript linter
             run: npm run js:lint
         -
+            name: Run Prettier
+            run: npm run prettier
+        -
             name: Build website
             run: npm run build
         -

@@ -23,10 +23,7 @@
 
     &::before {
       --size: 1em;
-      @include field-icon(
-        config('search', $form-icon, false),
-        color('icon', 'search', true)
-      );
+      @include field-icon(config('search', $form-icon, false), color('icon', 'search', true));
       background-size: var(--size);
       block-size: var(--size);
       content: '';
