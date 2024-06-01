@@ -24,7 +24,7 @@
     "eslint-plugin-import": "^2.29.1",
     "himalaya": "^1.1.0",
     "html-minifier": "^4.0.0",
-    "jsdom": "^24.0.0",
+    "jsdom": "^24.1.0",
     "markdown-it": "^14.0.0",
     "markdown-it-anchor": "^8.6.7",
     "moment": "^2.30.1",
