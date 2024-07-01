@@ -116,6 +116,10 @@
         "url": "/ui/form/auth"
       },
       {
+        "caption": "Color Option",
+        "url": "/ui/form/color-option"
+      },
+      {
         "caption": "Combobox",
         "url": "/ui/form/combobox"
       },
@@ -134,6 +138,10 @@
       {
         "caption": "Range Group",
         "url": "/ui/form/range-group"
+      },
+      {
+        "caption": "Size Option",
+        "url": "/ui/form/size-option"
       }
     ]
   },
