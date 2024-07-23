@@ -15,4 +15,8 @@
       color('select-foreground', 'form', true, $dark-colors),
     );
   }
+
+  .cta {
+    border-block-start: 1px solid color('border');
+  }
 }

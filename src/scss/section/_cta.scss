@@ -22,7 +22,11 @@
     margin-block-end: 0;
   }
 
-  * {
+  &__title {
+    color: color('tertiary');
+  }
+
+  p {
     color: hsl(0deg 0% 100%);
   }
 

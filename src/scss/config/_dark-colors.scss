@@ -71,6 +71,9 @@ $colors: (
     'valid': $dark-color-success,
     'valid-focus-ring': color.adjust($dark-color-success, $alpha: -0.75),
   ),
+  'footer': (
+    'background': hsl(206deg 100% 6%),
+  ),
   'hero': (
     'note-color': hsl(0deg 0% 100%),
     'note-background': hsl(207deg 64% 16%),
