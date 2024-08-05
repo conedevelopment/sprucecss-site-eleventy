@@ -30,7 +30,7 @@
                         </div>
                     </div>
                     <div class="l-documentation__navigation-bottom">
-                        {% set postNavigation = collections.docs %}
+                        {% set postNavigation = collections.docs | reverse %}
                         {% include "partial/post-navigation.html" %}
                     </div>
                 </div>
