@@ -24,6 +24,7 @@
     ],
     "selector-class-pattern": null,
     "scss/percent-placeholder-pattern": null,
-    "order/properties-alphabetical-order": true
+    "order/properties-alphabetical-order": true,
+    "@stylistic/function-parentheses-space-inside": null
   }
 }

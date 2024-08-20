@@ -29,7 +29,7 @@
     font-weight: 700;
     text-transform: uppercase;
 
-    &[aria-current="page"] {
+    &[aria-current='page'] {
       background: color('pagination-background-hover', 'btn');
       border-color: color('pagination-background-hover', 'btn');
       color: color('pagination-foreground-hover', 'btn');
