@@ -94,6 +94,9 @@ You can access the following colors through Spruce’s `$colors` map by default.
     {% color "hsl(215deg 63% 93%)", "range-track-background", "$color-gray-light" %}
     {% color "hsl(261.91deg 71.2% 49.02% / 25%)", "ring-focus", "color.adjust($color-primary, $alpha: -0.75)" %}
     {% color "hsl(205deg 100% 2%)", "select-foreground", "$color-black" %}
+    {% color "hsl(262deg 71% 49%)", "switch-background", "$color-primary" %}
+    {% color "hsl(262deg 71% 49%)", "switch-focus-ring", "$color-primary" %}
+    {% color "hsl(0deg 0% 100%)", "switch-foreground", "$color-white", true %}
     {% color "hsl(208deg 9% 42%)", "text", "$color-gray" %}
     {% color "hsl(150deg 100% 33%)", "valid", "$color-success" %}
     {% color "hsl(150deg 100% 32.94% / 25%)", "valid-focus-ring", "color.adjust($color-success, $alpha: -0.75)" %}
@@ -209,6 +212,9 @@ Below is the full declaration of the `$colors` map.
       'range-track-background': $color-gray-light,
       'ring-focus': color.adjust($color-primary, $alpha: -0.75),
       'select-foreground': $color-black,
+      'switch-background': $color-primary,
+      'switch-focus-ring': $color-primary,
+      'switch-foreground': $color-white,
       'text': $color-gray,
       'valid': $color-success,
       'valid-focus-ring': color.adjust($color-success, $alpha: -0.75),
