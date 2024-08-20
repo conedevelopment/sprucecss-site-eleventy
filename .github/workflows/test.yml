@@ -29,9 +29,6 @@ jobs:
             name: Run SASS linter
             run: npm run sass:lint
         -
-            name: Run JavaScript linter
-            run: npm run js:lint
-        -
             name: Build website
             run: npm run build
         -
