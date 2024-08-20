@@ -124,7 +124,7 @@ We use the `$escaping-characters` under the <code><a href="/docs/sass/functions/
     'font-size': 1.125rem,
     'font-weight': map.get($form-check, 'font-weight'),
     'line-height': map.get($typography, 'line-height-heading'),
-    'margin-block-start': 0.1em,
+    'margin-block': 0.1em,
     'vertical-alignment': center,
   ),
   $form-check-lg: (
