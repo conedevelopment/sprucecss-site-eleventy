@@ -27,7 +27,7 @@
     "pagefind": "^1.1.0",
     "sass": "^1.77.8",
     "slugify": "^1.6.6",
-    "sprucecss": "^2.3.2",
+    "sprucecss": "^2.3.3",
     "stylelint": "^16.8.2",
     "stylelint-config-sass-guidelines": "^12.0.0",
     "stylelint-order": "^6.0.4"

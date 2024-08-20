@@ -1815,7 +1815,7 @@ legend {
 
 .cookie-consent-helper {
   display: flex;
-  inset: auto 1.5rem 1.5rem 1.5rem;
+  inset: auto 1.5rem 1.5rem;
   justify-content: center;
   pointer-events: none;
   position: fixed;
@@ -1923,7 +1923,7 @@ legend {
 
 .breadcrumb-list {
   list-style: none;
-  margin-inline: 0;
+  margin: 0;
   padding: 0;
   align-items: center;
   display: flex;
@@ -2319,7 +2319,7 @@ legend {
 
 .pagination {
   list-style: none;
-  margin-inline: 0;
+  margin: 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
@@ -2490,7 +2490,7 @@ textarea.pagefind-ui__search-input {
 }
 .pagefind-ui__results {
   list-style: none;
-  margin-inline: 0;
+  margin: 0;
   padding: 0;
   padding-inline-end: 1.5rem;
 }
@@ -2615,7 +2615,7 @@ textarea.pagefind-ui__search-input {
 
 .template-meta {
   list-style: none;
-  margin-inline: 0;
+  margin: 0;
   padding: 0;
   border: 1px solid var(--spruce-base-color-border);
   border-radius: var(--spruce-border-radius-sm);
@@ -2739,7 +2739,7 @@ textarea.pagefind-ui__search-input {
 }
 .tags__list {
   list-style: none;
-  margin-inline: 0;
+  margin: 0;
   padding: 0;
   align-items: center;
   display: flex;
@@ -2876,7 +2876,7 @@ textarea.pagefind-ui__search-input {
 }
 .ide-section__list {
   list-style: none;
-  margin-inline: 0;
+  margin: 0;
   padding: 0;
 }
 .ide-section__list > * {
@@ -2956,7 +2956,7 @@ textarea.pagefind-ui__search-input {
 }
 .code-tab__group {
   list-style: none;
-  margin-inline: 0;
+  margin: 0;
   padding: 0;
   align-items: center;
   display: flex;
@@ -3016,7 +3016,7 @@ textarea.pagefind-ui__search-input {
 
 .inline-text-element-list {
   list-style: none;
-  margin-inline: 0;
+  margin: 0;
   padding: 0;
 }
 .inline-text-element-list > * {
@@ -3046,7 +3046,7 @@ textarea.pagefind-ui__search-input {
 }
 .sidebar-section__navigation ul {
   list-style: none;
-  margin-inline: 0;
+  margin: 0;
   padding: 0;
 }
 .sidebar-section__navigation ul > * {
@@ -3112,7 +3112,7 @@ textarea.pagefind-ui__search-input {
 }
 .toc__navigation ol {
   list-style: none;
-  margin-inline: 0;
+  margin: 0;
   padding: 0;
   max-inline-size: 95%;
 }
@@ -3726,7 +3726,7 @@ pre[class*=language-] {
 }
 .site-footer__navigation {
   list-style: none;
-  margin-inline: 0;
+  margin: 0;
   padding: 0;
   font-size: 1rem;
 }
