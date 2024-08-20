@@ -300,9 +300,9 @@ We use the `$escaping-characters` under the <code><a href="/docs/sass/functions/
 ```scss
 @use 'sprucecss/scss/spruce' with (
   $form-select: (
-    'icon-width': 1.25em,
+    'icon-inline-size': 1.25em,
     'icon-right-offset': 0.5em,
-    'padding-right': calc(0.75em + 1.25em),
+    'padding-inline-end': calc(0.75em + 1.25em),
   ),
 );
 ```
