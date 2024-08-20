@@ -428,6 +428,9 @@ template {
   --spruce-form-color-range-track-background: hsl(215, 63%, 93%);
   --spruce-form-color-ring-focus: rgba(101, 36, 214, 0.25);
   --spruce-form-color-select-foreground: hsl(260, 70%, 6%);
+  --spruce-form-color-switch-background: hsl(262, 71%, 49%);
+  --spruce-form-color-switch-focus-ring: hsl(262, 71%, 49%);
+  --spruce-form-color-switch-foreground: hsl(0, 0%, 100%);
   --spruce-form-color-text: hsl(208, 9%, 42%);
   --spruce-form-color-valid: hsl(150, 100%, 33%);
   --spruce-form-color-valid-focus-ring: rgba(0, 168, 84, 0.25);
@@ -528,6 +531,11 @@ template {
   --spruce-container-inline-size: 94rem;
   --spruce-page-margin: 2cm;
   --spruce-hidden-elements: header, footer, aside, nav, form, iframe, [class^="aspect-ratio"];
+}
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --spruce-duration: 0;
+  }
 }
 @media (prefers-reduced-motion: no-preference) {
   :root {
@@ -1380,11 +1388,15 @@ html[dir=rtl] select.form-control:not([multiple]):not([size]) {
   transition-property: background-position, border, box-shadow;
   transition-timing-function: var(--spruce-timing-function);
 }
+.form-switch__control:focus-visible {
+  outline: 2px solid var(--spruce-form-color-switch-focus-ring);
+  outline-offset: 2px;
+}
 .form-switch__control:checked {
   background-image: url('data:image/svg+xml,%3csvg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"%3e%3ccircle cx="12" cy="12" r="8.5" style="fill:hsl%280, 0%, 100%%29;"/%3e%3c/svg%3e');
-  background-color: var(--spruce-form-color-check-background);
+  background-color: var(--spruce-form-color-switch-background);
   background-position: right center;
-  border-color: var(--spruce-form-color-check-background);
+  border-color: var(--spruce-form-color-switch-background);
 }
 .form-switch__control:disabled {
   background-color: var(--spruce-form-color-background-disabled);
@@ -1911,7 +1923,7 @@ legend {
 
 .breadcrumb-list {
   list-style: none;
-  margin: 0;
+  margin-inline: 0;
   padding: 0;
   align-items: center;
   display: flex;
@@ -2307,7 +2319,7 @@ legend {
 
 .pagination {
   list-style: none;
-  margin: 0;
+  margin-inline: 0;
   padding: 0;
   display: flex;
   flex-wrap: wrap;
@@ -2478,7 +2490,7 @@ textarea.pagefind-ui__search-input {
 }
 .pagefind-ui__results {
   list-style: none;
-  margin: 0;
+  margin-inline: 0;
   padding: 0;
   padding-inline-end: 1.5rem;
 }
@@ -2603,7 +2615,7 @@ textarea.pagefind-ui__search-input {
 
 .template-meta {
   list-style: none;
-  margin: 0;
+  margin-inline: 0;
   padding: 0;
   border: 1px solid var(--spruce-base-color-border);
   border-radius: var(--spruce-border-radius-sm);
@@ -2727,7 +2739,7 @@ textarea.pagefind-ui__search-input {
 }
 .tags__list {
   list-style: none;
-  margin: 0;
+  margin-inline: 0;
   padding: 0;
   align-items: center;
   display: flex;
@@ -2864,7 +2876,7 @@ textarea.pagefind-ui__search-input {
 }
 .ide-section__list {
   list-style: none;
-  margin: 0;
+  margin-inline: 0;
   padding: 0;
 }
 .ide-section__list > * {
@@ -2944,7 +2956,7 @@ textarea.pagefind-ui__search-input {
 }
 .code-tab__group {
   list-style: none;
-  margin: 0;
+  margin-inline: 0;
   padding: 0;
   align-items: center;
   display: flex;
@@ -3004,7 +3016,7 @@ textarea.pagefind-ui__search-input {
 
 .inline-text-element-list {
   list-style: none;
-  margin: 0;
+  margin-inline: 0;
   padding: 0;
 }
 .inline-text-element-list > * {
@@ -3034,7 +3046,7 @@ textarea.pagefind-ui__search-input {
 }
 .sidebar-section__navigation ul {
   list-style: none;
-  margin: 0;
+  margin-inline: 0;
   padding: 0;
 }
 .sidebar-section__navigation ul > * {
@@ -3100,7 +3112,7 @@ textarea.pagefind-ui__search-input {
 }
 .toc__navigation ol {
   list-style: none;
-  margin: 0;
+  margin-inline: 0;
   padding: 0;
   max-inline-size: 95%;
 }
@@ -3714,7 +3726,7 @@ pre[class*=language-] {
 }
 .site-footer__navigation {
   list-style: none;
-  margin: 0;
+  margin-inline: 0;
   padding: 0;
   font-size: 1rem;
 }
