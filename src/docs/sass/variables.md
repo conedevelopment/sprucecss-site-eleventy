@@ -147,6 +147,7 @@ We use the `$escaping-characters` under the <code><a href="/docs/sass/functions/
     'focus-ring-offset': 2px,
     'focus-ring-size': 0.25rem,
     'focus-ring-type': box-shadow,
+    'font-family': null,
     'font-size': map.get($typography, 'font-size-base'),
     'font-weight': null,
     'line-height': 1.5,
@@ -200,7 +201,7 @@ We use the `$escaping-characters` under the <code><a href="/docs/sass/functions/
 ```scss
 @use 'sprucecss/scss/spruce' with (
   $form-fieldset: (
-    'gap': map.get($spacers, 's'),
+    'layout-gap': map.get($spacers, 's'),
     'legend-font-family': null,
     'legend-font-size': clamp(#{map.get($font-sizes, 'h5')}, 5vw, #{map.get($font-sizes, 'h4')}),
     'legend-font-weight': 700,
@@ -263,6 +264,7 @@ We use the `$escaping-characters` under the <code><a href="/docs/sass/functions/
     'font-style': null,
     'font-weight': null,
     'text-align': start,
+    'text-transform': null,
   ),
 );
 ```
