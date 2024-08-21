@@ -36,5 +36,10 @@
     "node": "^21",
     "npm": "^10",
     "yarn": "please-use-npm"
+  },
+  "devDependencies": {
+    "@types/linkify-it": "^5.0.0",
+    "@types/markdown-it": "^14.1.2",
+    "@types/mdurl": "^2.0.0"
   }
 }
