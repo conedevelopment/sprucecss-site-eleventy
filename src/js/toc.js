@@ -13,12 +13,12 @@
     if (targetElement) {
       scrollItems.push({
         offset: targetElement.getBoundingClientRect().top + document.documentElement.scrollTop - 70,
-        element: item,
+        element: item
       });
     }
   });
 
-  function updateActiveItems() {
+  function updateActiveItems () {
     const scrollPosition = window.scrollY;
 
     const activeItem = scrollItems.reduce((closestItem, currentItem) => {

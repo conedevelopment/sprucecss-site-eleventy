@@ -1,5 +1,5 @@
 import {
-  setCookie, getCookie, issetCookie, removeCookie,
+  setCookie, getCookie, issetCookie, removeCookie
 } from './cookie.js';
 
 (() => {
@@ -10,8 +10,8 @@ import {
   let redirect = false;
 
   if (
-    !issetCookie(`${prefix}-cookie-law-analytics`)
-    && !issetCookie(`${prefix}-cookie-law-denied`)
+    !issetCookie(`${prefix}-cookie-law-analytics`) &&
+    !issetCookie(`${prefix}-cookie-law-denied`)
   ) {
     caption = `<div class="cookie-consent-helper"><div class="cookie-consent cookie-consent--slidein" tabindex="-1">
         <div class="cookie-consent__caption">This site use cookies. For more information please visit our <a href="/privacy-policy/">privacy policy</a> page.</div>
@@ -26,7 +26,7 @@ import {
     consentModal.focus();
   }
 
-  function animationEndCallback() {
+  function animationEndCallback () {
     consentModal.removeEventListener('animationend', animationEndCallback);
 
     if (redirect) {
@@ -36,8 +36,8 @@ import {
 
   document.addEventListener('click', (e) => {
     if (
-      e.target
-      && e.target.getAttribute('data-action') === 'cookie-accept'
+      e.target &&
+      e.target.getAttribute('data-action') === 'cookie-accept'
     ) {
       setCookie(`${prefix}-cookie-law-analytics`, 'accepted', 365);
 
@@ -47,8 +47,8 @@ import {
     }
 
     if (
-      e.target
-      && e.target.getAttribute('data-action') === 'cookie-decline'
+      e.target &&
+      e.target.getAttribute('data-action') === 'cookie-decline'
     ) {
       setCookie(`${prefix}-cookie-law-denied`, 'true');
 
@@ -60,8 +60,8 @@ import {
 
   btns.forEach((btn) => {
     if (
-      issetCookie(`${prefix}-cookie-law-${btn.getAttribute('data-type')}`)
-      && getCookie(`${prefix}-cookie-law-${btn.getAttribute('data-type')}`) === 'accepted'
+      issetCookie(`${prefix}-cookie-law-${btn.getAttribute('data-type')}`) &&
+      getCookie(`${prefix}-cookie-law-${btn.getAttribute('data-type')}`) === 'accepted'
     ) {
       btn.innerHTML = `${btn.getAttribute('data-on-text')} ${btn.innerHTML}`;
     } else {
@@ -70,8 +70,8 @@ import {
 
     btn.addEventListener('click', () => {
       if (
-        issetCookie(`${prefix}-cookie-law-${btn.getAttribute('data-type')}`)
-        && getCookie(`${prefix}-cookie-law-${btn.getAttribute('data-type')}`) === 'accepted'
+        issetCookie(`${prefix}-cookie-law-${btn.getAttribute('data-type')}`) &&
+        getCookie(`${prefix}-cookie-law-${btn.getAttribute('data-type')}`) === 'accepted'
       ) {
         removeCookie(`${prefix}-cookie-law-${btn.getAttribute('data-type')}`);
       } else {

@@ -1,5 +1,5 @@
 import {
-  getCookie,
+  getCookie
 } from './cookie.js';
 
 if (getCookie('spruce-cookie-law-analytics') === 'accepted') {
@@ -19,6 +19,6 @@ if (getCookie('spruce-cookie-law-analytics') === 'accepted') {
   gtag('js', new Date());
   gtag('config', spruceGtagId, {
     cookie_domain: window.location.hostname,
-    cookie_flags: 'SameSite=None;Secure',
+    cookie_flags: 'SameSite=None;Secure'
   });
 }

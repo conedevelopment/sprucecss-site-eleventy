@@ -1,8 +1,10 @@
+/* global localStorage */
+
 (() => {
   const systemMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   const preferredTheme = localStorage.getItem('preferred-theme');
 
-  function setTheme(theme) {
+  function setTheme (theme) {
     document.documentElement.setAttribute('data-theme-mode', theme === 'system' ? systemMode : theme);
   }
 

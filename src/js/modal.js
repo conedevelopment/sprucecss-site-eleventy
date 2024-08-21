@@ -7,20 +7,20 @@
 
   if (!buttons || !modal) return;
 
-  function openModal() {
+  function openModal () {
     activeElement = document.activeElement;
     siteWrapper.setAttribute('inert', '');
     modal.classList.add('modal-backdrop--open');
     input.focus();
   }
 
-  function closeModal() {
+  function closeModal () {
     siteWrapper.removeAttribute('inert');
     modal.classList.remove('modal-backdrop--open');
     activeElement.focus();
   }
 
-  function handleKeyDown(e) {
+  function handleKeyDown (e) {
     if (e.code === 'Escape') {
       closeModal();
     }

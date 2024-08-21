@@ -8,19 +8,21 @@
  * @param  {object}  options
  * @return {void}
  */
-export function setCookie(key, value, expires = null, path = '/', options = {}) {
+export function setCookie (key, value, expires = null, path = '/', options = {}) {
   const defaults = {
     [key]: value,
     expires,
     path,
     SameSite: 'Lax',
-    Secure: true,
+    Secure: true
   };
 
   const pairs = { ...defaults, ...options };
 
-  pairs.expires = pairs.expires ? new Date(Date.now() + 86400 * 1000 * pairs.expires)
-    .toUTCString() : null;
+  pairs.expires = pairs.expires
+    ? new Date(Date.now() + 86400 * 1000 * pairs.expires)
+      .toUTCString()
+    : null;
 
   document.cookie = Object.entries(pairs)
     .reduce((stack, entry) => stack.concat(entry.join('=')), [])
@@ -33,7 +35,7 @@ export function setCookie(key, value, expires = null, path = '/', options = {}) 
  * @param  {string}  key
  * @return {mixed}
  */
-export function getCookie(key) {
+export function getCookie (key) {
   const cookie = document.cookie.match(new RegExp(`(^| )${key}=([^;]+)`));
 
   return (cookie && cookie[2]) ? cookie[2] : null;
@@ -45,7 +47,7 @@ export function getCookie(key) {
  * @param  {string}  key
  * @return {bool}
  */
-export function issetCookie(key) {
+export function issetCookie (key) {
   return document.cookie.match(new RegExp(`(^| )${key}=([^;]+)`)) !== null;
 }
 
@@ -55,6 +57,6 @@ export function issetCookie(key) {
  * @param  {string}  key
  * @return {void}
  */
-export function removeCookie(key) {
+export function removeCookie (key) {
   setCookie(key, null, 'Thu, 01 Jan 1970 00:00:01 GMT');
 }

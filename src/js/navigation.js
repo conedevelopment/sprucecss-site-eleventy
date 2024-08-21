@@ -1,3 +1,5 @@
+/* global getComputedStyle */
+
 (() => {
   const header = document.querySelector('.site-header');
   const navigation = document.querySelector('.site-navigation');
@@ -7,7 +9,7 @@
 
   if (!menu || typeof button === 'undefined') return;
 
-  function widthChange(query) {
+  function widthChange (query) {
     button.setAttribute('aria-expanded', !query.matches);
   }
 

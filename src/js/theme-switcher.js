@@ -1,3 +1,5 @@
+/* global localStorage */
+
 (() => {
   const themeSwitcher = document.querySelector('#theme-switcher');
   const preferredTheme = localStorage.getItem('preferred-theme') ?? 'system';
