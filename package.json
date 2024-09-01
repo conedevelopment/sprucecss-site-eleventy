@@ -31,7 +31,7 @@
     "slugify": "^1.6.6",
     "sprucecss": "^2.3.3",
     "semistandard": "^17.0.0",
-    "stylelint": "^16.8.2",
+    "stylelint": "^16.9.0",
     "stylelint-config-sass-guidelines": "^12.0.0",
     "stylelint-order": "^6.0.4"
   },
