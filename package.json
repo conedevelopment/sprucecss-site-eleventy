@@ -21,7 +21,7 @@
     "dotenv": "^16.4.5",
     "himalaya": "^1.1.0",
     "html-minifier": "^4.0.0",
-    "jsdom": "^24.1.1",
+    "jsdom": "^25.0.0",
     "markdown-it": "^14.1.0",
     "markdown-it-anchor": "^9.0.1",
     "moment": "^2.30.1",
