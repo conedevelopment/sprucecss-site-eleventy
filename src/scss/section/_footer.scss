@@ -16,7 +16,7 @@
   }
 
   &__slogan {
-    color: color('tertiary');
+    color: hsl(0deg 0% 100%);
     font-family: var(--doc-heading-font-family);
     font-size: responsive-font-size(3rem, 30, '4vw + 1rem');
     font-weight: 700;

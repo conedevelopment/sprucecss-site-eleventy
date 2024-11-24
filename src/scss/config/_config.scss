@@ -1,7 +1,6 @@
 @use 'dark-colors' as dark;
 
 $color-dark: hsl(260deg 70% 6%);
-$color-tertiary: hsl(323deg 90% 92%);
 
 @use 'sprucecss/scss/spruce' with (
   $color-black: $color-dark,
@@ -11,7 +10,6 @@ $color-tertiary: hsl(323deg 90% 92%);
       'primary-dark': hsl(261deg 52% 35%),
       'primary-darkest': hsl(272deg 100% 9%),
       'primary-lightest': hsl(259deg 53% 94%),
-      'tertiary': $color-tertiary,
     ),
     'breadcrumb': (
       'separator': hsl(0deg 0% 0% / 10%),

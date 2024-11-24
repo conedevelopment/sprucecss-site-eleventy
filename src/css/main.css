@@ -376,7 +376,6 @@ template {
   --spruce-base-color-primary-dark: hsl(261, 52%, 35%);
   --spruce-base-color-primary-darkest: hsl(272, 100%, 9%);
   --spruce-base-color-primary-lightest: hsl(259, 53%, 94%);
-  --spruce-base-color-tertiary: hsl(323, 90%, 92%);
 }
 
 :root {
@@ -3666,7 +3665,7 @@ pre[class*=language-] {
   margin-block-end: 0;
 }
 .cta__title {
-  color: var(--spruce-base-color-tertiary);
+  color: hsl(0, 0%, 100%);
 }
 .cta p {
   color: hsl(0, 0%, 100%);
@@ -3688,7 +3687,7 @@ pre[class*=language-] {
   color: #b8a1e3;
 }
 .site-footer__slogan {
-  color: var(--spruce-base-color-tertiary);
+  color: hsl(0, 0%, 100%);
   font-family: var(--doc-heading-font-family);
   font-size: clamp(2.1rem, 4vw + 1rem, 3rem);
   font-weight: 700;
