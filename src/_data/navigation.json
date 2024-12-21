@@ -69,20 +69,16 @@
       "title": "More From Us",
       "items": [
         {
-          "caption": "Services",
-          "url": "https://conedevelopment.com/services/"
+          "caption": "Laravel Development",
+          "url": "https://conedevelopment.com/services/application-development/"
         },
         {
-          "caption": "Pine development blog",
-          "url": "https://pineco.de/"
+          "caption": "WordPress Development",
+          "url": "https://conedevelopment.com/services/website-development/"
         },
         {
-          "caption": "Root Laravel admin",
+          "caption": "Root Laravel Admin Package",
           "url": "https://root.conedevelopment.com/"
-        },
-        {
-          "caption": "Bite-Sized Accessibility",
-          "url": "https://bite-sized-a11y.com/"
         }
       ]
     }
