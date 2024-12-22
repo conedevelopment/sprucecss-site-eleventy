@@ -2,7 +2,7 @@
 title: "Installation"
 description: "Install Spruce easily with npm or use it as a standalone dependency; it's all on you."
 order: 2
-github: "https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/getting-started/installation.mdx"
+github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/getting-started/installation.mdx"
 ---
 
 <p class="lead">Spruce CSS is built on Sass; to get its full potential, you should use with it. If you want, you can load the compiled CSS too, but you will lose many features.</p>

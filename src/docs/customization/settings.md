@@ -2,7 +2,7 @@
 title: "Settings"
 description: "By changing the settings parameters, you can customize a generic part of the behavior of Spruce CSS."
 order: 11
-github: "https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/customization/settings.mdx"
+github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/customization/settings.mdx"
 ---
 
 <p class="lead">In Spruce CSS, the settings are global options controlled through a Sass map.</p>

@@ -2,7 +2,7 @@
 title: "Structure and Code"
 description: "Explore the style guide and structure of Spruce CSS micro-framework. You can find some core principles and the main structure on this page."
 order: 3
-github: "https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/getting-started/structure-and-code.mdx"
+github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/getting-started/structure-and-code.mdx"
 ---
 
 <p class="lead">Spruce tries to be customizable and straightforward. You can find some core principles and the main structure on this page.</p>

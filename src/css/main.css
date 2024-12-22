@@ -360,11 +360,11 @@ template {
   --spruce-base-color-background: hsl(0, 0%, 100%);
   --spruce-base-color-blockquote-border: hsl(262, 71%, 49%);
   --spruce-base-color-border: hsl(215, 63%, 93%);
-  --spruce-base-color-code-background: #f6f2fd;
+  --spruce-base-color-code-background: hsl(262, 71%, 97%);
   --spruce-base-color-code-foreground: hsl(260, 70%, 6%);
   --spruce-base-color-heading: hsl(260, 70%, 6%);
   --spruce-base-color-link: hsl(262, 71%, 49%);
-  --spruce-base-color-link-hover: #511dab;
+  --spruce-base-color-link-hover: hsl(262, 71%, 39.2%);
   --spruce-base-color-mark-background: hsl(50, 100%, 80%);
   --spruce-base-color-mark-foreground: hsl(260, 70%, 6%);
   --spruce-base-color-marker: hsl(262, 71%, 49%);
@@ -380,13 +380,13 @@ template {
 
 :root {
   --spruce-btn-color-primary-background: hsl(262, 71%, 49%);
-  --spruce-btn-color-primary-background-hover: #511daa;
+  --spruce-btn-color-primary-background-hover: hsl(262, 71%, 39%);
   --spruce-btn-color-primary-foreground: hsl(0, 0%, 100%);
-  --spruce-btn-color-primary-shadow: #ceb9f3;
+  --spruce-btn-color-primary-shadow: hsl(262, 71%, 84%);
   --spruce-btn-color-secondary-background: hsl(227, 92%, 55%);
-  --spruce-btn-color-secondary-background-hover: #0937dc;
+  --spruce-btn-color-secondary-background-hover: hsl(227, 92%, 45%);
   --spruce-btn-color-secondary-foreground: hsl(0, 0%, 100%);
-  --spruce-btn-color-secondary-shadow: #ced8fd;
+  --spruce-btn-color-secondary-shadow: hsl(227, 92%, 90%);
   --spruce-btn-color-dark-background: hsl(260, 70%, 6%);
   --spruce-btn-color-dark-background-hover: hsl(260, 70%, 12%);
   --spruce-btn-color-dark-foreground: hsl(0, 0%, 100%);
@@ -418,21 +418,21 @@ template {
   --spruce-form-color-group-label-background: hsl(210, 60%, 98%);
   --spruce-form-color-group-label-foreground: hsl(208, 9%, 42%);
   --spruce-form-color-invalid: hsl(0, 71%, 51%);
-  --spruce-form-color-invalid-focus-ring: rgba(219, 41, 41, 0.25);
+  --spruce-form-color-invalid-focus-ring: hsla(0, 71%, 51%, 0.25);
   --spruce-form-color-label: hsl(260, 70%, 6%);
   --spruce-form-color-legend: hsl(260, 70%, 6%);
   --spruce-form-color-placeholder: hsl(208, 7%, 40%);
   --spruce-form-color-range-thumb-background: hsl(262, 71%, 49%);
   --spruce-form-color-range-thumb-focus-ring: hsl(262, 71%, 49%);
   --spruce-form-color-range-track-background: hsl(215, 63%, 93%);
-  --spruce-form-color-ring-focus: rgba(101, 36, 214, 0.25);
+  --spruce-form-color-ring-focus: hsla(262, 71%, 49%, 0.25);
   --spruce-form-color-select-foreground: hsl(260, 70%, 6%);
   --spruce-form-color-switch-background: hsl(262, 71%, 49%);
   --spruce-form-color-switch-focus-ring: hsl(262, 71%, 49%);
   --spruce-form-color-switch-foreground: hsl(0, 0%, 100%);
   --spruce-form-color-text: hsl(208, 9%, 42%);
   --spruce-form-color-valid: hsl(150, 100%, 33%);
-  --spruce-form-color-valid-focus-ring: rgba(0, 168, 84, 0.25);
+  --spruce-form-color-valid-focus-ring: hsla(150, 100%, 33%, 0.25);
 }
 
 :root {
@@ -1623,7 +1623,7 @@ legend {
   --spruce-base-color-code-tab-background: hsla(0, 0%, 0%, 0.15);
   --spruce-base-color-heading: hsl(0, 0%, 95%);
   --spruce-base-color-link: hsl(261, 54%, 70%);
-  --spruce-base-color-link-hover: #b8a1e3;
+  --spruce-base-color-link-hover: hsl(261, 54%, 76%);
   --spruce-base-color-mark-background: hsl(50, 100%, 80%);
   --spruce-base-color-mark-foreground: hsl(206, 100%, 7%);
   --spruce-base-color-marker: hsl(261, 54%, 70%);
@@ -1648,15 +1648,15 @@ legend {
   --spruce-btn-color-primary-background: hsl(261, 52%, 59%);
   --spruce-btn-color-primary-background-hover: hsl(261, 52%, 65%);
   --spruce-btn-color-primary-foreground: hsl(0, 0%, 95%);
-  --spruce-btn-color-primary-shadow: #6035b1;
+  --spruce-btn-color-primary-shadow: hsl(261, 54%, 45%);
   --spruce-btn-color-secondary-background: hsl(227, 92%, 55%);
-  --spruce-btn-color-secondary-background-hover: #3b64f7;
+  --spruce-btn-color-secondary-background-hover: hsl(227, 92%, 60%);
   --spruce-btn-color-secondary-foreground: hsl(0, 0%, 95%);
-  --spruce-btn-color-secondary-shadow: #072bab;
+  --spruce-btn-color-secondary-shadow: hsl(227, 92%, 35%);
 }
 
 :root[data-theme-mode=dark] {
-  --spruce-form-color-background: #00223b;
+  --spruce-form-color-background: hsl(206, 100%, 11.65%);
   --spruce-form-color-background-disabled: hsl(206, 100%, 7%);
   --spruce-form-color-border: hsla(0, 0%, 100%, 0.08);
   --spruce-form-color-border-disabled: hsla(0, 0%, 100%, 0.08);
@@ -1665,18 +1665,18 @@ legend {
   --spruce-form-color-check-focus-ring: hsl(261, 54%, 70%);
   --spruce-form-color-check-foreground: hsl(206, 100%, 7%);
   --spruce-form-color-invalid: hsl(0, 71%, 51%);
-  --spruce-form-color-invalid-focus-ring: rgba(219, 41, 41, 0.25);
+  --spruce-form-color-invalid-focus-ring: hsla(0, 71%, 51%, 0.25);
   --spruce-form-color-label: hsl(0, 0%, 95%);
   --spruce-form-color-legend: hsl(0, 0%, 95%);
   --spruce-form-color-placeholder: hsl(0, 0%, 60%);
   --spruce-form-color-range-thumb-background: hsl(261, 54%, 70%);
   --spruce-form-color-range-thumb-focus-ring: hsl(261, 54%, 70%);
   --spruce-form-color-range-track-background: hsla(0, 0%, 100%, 0.08);
-  --spruce-form-color-ring-focus: rgba(166, 137, 220, 0.25);
+  --spruce-form-color-ring-focus: hsla(261, 54%, 70%, 0.25);
   --spruce-form-color-select-foreground: hsl(0, 0%, 100%);
   --spruce-form-color-text: hsl(0, 0%, 97%);
   --spruce-form-color-valid: hsl(150, 100%, 33%);
-  --spruce-form-color-valid-focus-ring: rgba(0, 168, 84, 0.25);
+  --spruce-form-color-valid-focus-ring: hsla(150, 100%, 33%, 0.25);
 }
 
 :root[data-theme-mode=dark] {
@@ -1824,7 +1824,7 @@ legend {
 .cookie-consent {
   --spruce-base-color-text: hsl(0, 0%, 97%);
   --spruce-base-color-link: hsl(261, 54%, 70%);
-  --spruce-base-color-link-hover: #b8a1e3;
+  --spruce-base-color-link-hover: hsl(261, 54%, 76%);
   align-items: center;
   background-color: hsl(260, 70%, 6%);
   border-radius: var(--spruce-border-radius-lg);
@@ -2596,8 +2596,8 @@ textarea.pagefind-ui__search-input {
   text-transform: uppercase;
 }
 .template-tag--free {
-  background-color: #dbffed;
-  color: #005c2e;
+  background-color: hsl(150, 100%, 93%);
+  color: hsl(150, 100%, 18%);
 }
 
 .template-actions {
@@ -2651,7 +2651,7 @@ textarea.pagefind-ui__search-input {
   border: 1px solid;
 }
 .notification--info {
-  background-color: rgba(0, 161, 214, 0.1);
+  background-color: hsla(195, 100%, 42%, 0.1);
   border-block-start: 0.5rem solid var(--spruce-alert-color-info);
 }
 .notification--info .notification__icon {
@@ -2660,10 +2660,10 @@ textarea.pagefind-ui__search-input {
 .notification--info code,
 .notification--info kbd,
 .notification--info samp {
-  border-color: rgba(0, 161, 214, 0.5);
+  border-color: hsla(195, 100%, 42%, 0.5);
 }
 .notification--good {
-  background-color: rgba(0, 168, 84, 0.1);
+  background-color: hsla(150, 100%, 33%, 0.1);
   border-block-start: 0.5rem solid var(--spruce-alert-color-success);
 }
 .notification--good .notification__icon {
@@ -2672,10 +2672,10 @@ textarea.pagefind-ui__search-input {
 .notification--good code,
 .notification--good kbd,
 .notification--good samp {
-  border-color: rgba(0, 168, 84, 0.5);
+  border-color: hsla(150, 100%, 33%, 0.5);
 }
 .notification--bad {
-  background-color: rgba(219, 41, 41, 0.1);
+  background-color: hsla(0, 71%, 51%, 0.1);
   border-block-start: 0.5rem solid var(--spruce-alert-color-danger);
 }
 .notification--bad .notification__icon {
@@ -2684,7 +2684,7 @@ textarea.pagefind-ui__search-input {
 .notification--bad code,
 .notification--bad kbd,
 .notification--bad samp {
-  border-color: rgba(219, 41, 41, 0.5);
+  border-color: hsla(0, 71%, 51%, 0.5);
 }
 .notification__content > * {
   margin-block-end: 0;
@@ -3684,7 +3684,7 @@ pre[class*=language-] {
   color: hsl(261, 54%, 70%);
 }
 .site-footer a:hover, .site-footer a:focus {
-  color: #b8a1e3;
+  color: hsl(261, 54%, 76%);
 }
 .site-footer__slogan {
   color: hsl(0, 0%, 100%);
@@ -3741,7 +3741,7 @@ pre[class*=language-] {
   text-decoration: none;
 }
 .site-footer__navigation a:hover, .site-footer__navigation a:focus, .site-footer__navigation a:active, .site-footer__navigation a[aria-current=page] {
-  color: #b8a1e3;
+  color: hsl(261, 54%, 76%);
 }
 .site-footer__navigation a[aria-current=page] {
   font-weight: 700;
@@ -4123,8 +4123,8 @@ pre[class*=language-] {
   outline-offset: 2px;
 }
 .btn--decline:hover {
-  background-color: #0b1319;
-  border-color: #0b1319;
+  background-color: hsl(207, 39%, 7%);
+  border-color: hsl(207, 39%, 7%);
   color: var(--spruce-btn-color-decline-foreground);
 }
 

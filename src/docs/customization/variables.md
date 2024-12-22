@@ -2,7 +2,7 @@
 title: "Variables"
 description: "Spruce CSS is a highly customizable framework through variables. In this post, you will learn how to customize and get them."
 order: 10
-github: "https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/customization/variables.mdx"
+github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/customization/variables.mdx"
 ---
 
 <p class="lead">Spruce CSS is a highly customizable through variables. In this post, you will learn how to get and customize them.</p>

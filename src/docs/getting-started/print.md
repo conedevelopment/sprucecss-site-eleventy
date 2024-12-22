@@ -2,7 +2,7 @@
 title: "Print"
 description: "With some necessary print styles, you can control better your print view with Spruce CSS framework."
 order: 7
-github: "https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/getting-started/print.mdx"
+github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/getting-started/print.mdx"
 ---
 
 <p class="lead">Spruce has some print-related styles. Nothing severe or fancy, but a set of minimal styles.</p>

@@ -2,7 +2,7 @@
 title: "Introduction"
 description: "Read more about our goals and intentions with Spruce CSS framework. Why we built it, and why is it a good choice for you too?"
 order: 1
-github: "https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/getting-started/introduction.mdx"
+github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/getting-started/introduction.mdx"
 ---
 
 <p class= "lead">Spruce is a Sass-based minimalistic CSS framework to get the foundation right for any web-based project.</p>

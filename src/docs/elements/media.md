@@ -1,7 +1,7 @@
 ---
 title: "Media"
 order: 23
-github: "https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/elements/media.mdx"
+github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/elements/media.mdx"
 ---
 
 <p class="lead">Under media, you can find some of the media-related styles.</p>

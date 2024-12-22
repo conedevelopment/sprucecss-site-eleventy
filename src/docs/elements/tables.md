@@ -1,7 +1,7 @@
 ---
 title: "Tables"
 order: 20
-github: "https://github.com/conedevelopment/sprucecss-site/blob/main/src/docs/elements/tables.mdx"
+github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/elements/tables.mdx"
 ---
 
 <p class="lead">Spruce ships with some basic table styling targeted only with classes to opt-in.</p>
