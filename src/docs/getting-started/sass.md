@@ -2,7 +2,7 @@
 title: "Sass"
 description: "Utilizing Sass helps you achieve more with less code and faster with built-in mixins and functions."
 order: 4
-github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/getting-started/sass.mdx"
+github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/getting-started/sass.md"
 ---
 
 <p class="lead">Spruce uses Sass (Syntactically Awesome Style Sheets) to generate CSS code. Sass is a popular and mature CSS extension language that lets us write stylesheets more programmatically.</p>

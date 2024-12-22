@@ -2,7 +2,7 @@
 title: "Typography"
 description: "Spruce CSS comes with fluid typography; it scales automatically depending on the viewport."
 order: 19
-github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/elements/typography.mdx"
+github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/elements/typography.md"
 ---
 
 <p class="lead">Typography is an essential part of any system. With Spruce, you get basic styles for the most related HTML elements.</p>

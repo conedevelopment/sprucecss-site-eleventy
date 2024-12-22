@@ -1,7 +1,7 @@
 ---
 title: "Generators"
 order: 18
-github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/elements/generators.mdx"
+github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/elements/generators.md"
 ---
 
 <p class="lead">The generators are special (a naming convention in Spruce CSS only) mixins, which we use to generate base styles.</p>

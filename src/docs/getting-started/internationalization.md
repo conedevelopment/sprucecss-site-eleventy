@@ -2,7 +2,7 @@
 title: "Internationalization"
 description: "With core internationalization support through modern CSS and its logical properties, you can handle RTL layouts more easily with Spruce CSS."
 order: 6
-github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/getting-started/internationalization.mdx"
+github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/getting-started/internationalization.md"
 ---
 
 <p class="lead">Internationalization (i18n) means preparing the code and design to handle different languages and writing modes.</p>

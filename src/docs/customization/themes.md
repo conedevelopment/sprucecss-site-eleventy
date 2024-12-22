@@ -2,7 +2,7 @@
 title: "Themes"
 description: "Create dark - or any additional - theme easily with Spruce CSS and custom CSS properties."
 order: 13
-github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/customization/themes.mdx"
+github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/customization/themes.md"
 ---
 
 <p class="lead">Spruce uses CSS custom properties to handle the theming. It means that you can easily overwrite the colors if needed (like in a case of a dark theme mode).</p>

@@ -2,7 +2,7 @@
 title: "Functions"
 description: "The functions are an essential part of the Spruce CSS framework. You can get values, set up your fluid typography, and more."
 order: 17
-github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/sass/functions.mdx"
+github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/sass/functions.md"
 ---
 
 ## color

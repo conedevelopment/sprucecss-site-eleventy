@@ -2,7 +2,7 @@
 title: "Variables"
 description: "The variables are fundamental for better customisability. Luckily Spruce CSS gives you a lot of them."
 order: 15
-github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/sass/variables.mdx"
+github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/sass/variables.md"
 ---
 
 <p class="lead">Spruce CSS has several Sass variables that it can generate into CSS custom properties.</p>
