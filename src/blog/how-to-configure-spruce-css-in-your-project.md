@@ -24,10 +24,6 @@ Create a **config** folder inside your **scss** folder. We need an **_index.scss
     └── main.scss
 ```
 
-{% notification %}
-You can see this file structure in action at our [Spruce CSS Starter Kit](https://github.com/conedevelopment/sprucecss-starter-kit).
-{% endnotification %}
-
 ## _index.scss
 
 In this file, we just forward all of the config files.

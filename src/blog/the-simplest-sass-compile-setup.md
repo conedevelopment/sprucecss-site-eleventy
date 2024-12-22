@@ -111,7 +111,3 @@ npm run sass-dev
 ```command
 npm run sass-prod
 ```
-
-{% notification %}
-Visit the [Spruce CSS Starter Kit](https://github.com/conedevelopment/sprucecss-starter-kit) to see all of this work.
-{% endnotification %}
