@@ -1,0 +1,32 @@
+{% extends "layout/base.njk" %}
+
+{% set title = "Alert" %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ domain }}/css/content-and-layout/container.css?{{ hash }}">
+    <link rel="stylesheet" href="{{ domain }}/css/feedback/alert.css?{{ hash }}">
+    <style>
+        body {
+            color: hsl(262deg 71% 49%);
+            padding-block: 4rem;
+        }
+
+        .container > * + * {
+            margin-block-start: 1rem;
+        }
+
+        h2 {
+            margin-block: 0;
+        }
+
+        .alert + h2 {
+            margin-block-start: 2.5rem;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container container--narrow">
+        {% include "./alert.njk" %}
+    </div>
+{% endblock %}

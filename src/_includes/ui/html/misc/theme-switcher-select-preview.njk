@@ -1,0 +1,19 @@
+{% extends "layout/base.njk" %}
+
+{% set title = "Theme Switcher Select" %}
+
+{% block style %}
+    <script>
+        {% include "../../js/misc/theme-detection.js" %}
+    </script>
+    <link rel="stylesheet" href="{{ domain }}/css/utility/center.css?{{ hash }}">
+    <link rel="stylesheet" href="{{ domain }}/css/misc/theme-switcher-select.css?{{ hash }}">
+{% endblock %}
+
+{% block script %}
+    <script defer src="{{ domain }}/js/misc/theme-switcher-select.js?{{ hash }}"></script>
+{% endblock %}
+
+{% block content %}
+    {% include "./theme-switcher-select.njk" %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "layout/base.njk" %}
+
+{% set title = "Post Author" %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ domain }}/css/utility/center.css?{{ hash }}">
+    <link rel="stylesheet" href="{{ domain }}/css/content-and-layout/post-author.css?{{ hash }}">
+{% endblock %}
+
+{% block content %}
+    {% include "./post-author.njk" %}
+{% endblock %}

@@ -1,0 +1,22 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.l-number {
+  &__inner {
+    --inline-size: 15rem;
+    @include layout-flex('l');
+  }
+}
+
+.number-card {
+  @include layout-stack('xs');
+  border-bottom: 1px solid color('border');
+  padding-block-end: spacer('l');
+
+  &__data {
+    color: color('primary');
+    font-family: config('font-family-heading', $typography);
+    font-size: responsive-font-size(5rem);
+    font-weight: 700;
+    line-height: 1;
+  }
+}

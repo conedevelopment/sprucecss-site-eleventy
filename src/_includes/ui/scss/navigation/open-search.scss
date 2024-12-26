@@ -1,0 +1,16 @@
+@use '../config/config'; // Use (need) only if this is a standalone file.
+@use 'sprucecss/scss/spruce' as *;
+
+.open-search {
+  @include a11y-card-link('.open-search__btn', true);
+  align-items: center;
+  display: flex;
+  gap: spacer('xs');
+
+  &__icon {
+    --size: 1rem;
+    block-size: var(--size);
+    color: color('icon', 'search');
+    inline-size: var(--size);
+  }
+}

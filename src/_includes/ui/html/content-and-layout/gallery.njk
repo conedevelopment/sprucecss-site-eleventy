@@ -1,0 +1,15 @@
+{% if not gallery %}
+    {% set gallery = {
+        'class': 'gallery gallery--uneven'
+    } %}
+{% endif %}
+
+<div class="{{ gallery.class }}">
+    {% for item in images %}
+        <figure class="gallery-item gallery-item--{{ loop.index }}">
+            <a href="#">
+                <img src="{{ domain }}{{ item.url }}" alt="{{ item.alt }}" lazyload>
+            </a>
+        </figure>
+    {% endfor %}
+</div>

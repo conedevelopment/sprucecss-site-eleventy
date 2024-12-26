@@ -1,0 +1,35 @@
+@use '../config/config';
+@use 'sprucecss/scss/spruce' as *;
+
+.tablist-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+[role='tablist'] {
+  @include clear-list;
+  display: flex;
+  gap: spacer('s');
+  margin-block-end: spacer('m');
+  max-inline-size: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+[role='tablist'] > * + * {
+  margin-block-start: 0;
+}
+
+[role='tab'] {
+  background: none;
+  border: 0;
+  border-radius: config('border-radius-sm', $display);
+  line-height: 1;
+  padding: 0.35em 0.65em;
+}
+
+[role='tab'][aria-selected='true'] {
+  background-color: color('background', 'tab');
+  color: color('code-foreground');
+  font-weight: 700;
+}

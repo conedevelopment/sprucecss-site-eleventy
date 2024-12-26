@@ -111,6 +111,12 @@ module.exports = config => {
     });
   });
 
+  config.addCollection('ui', collection => {
+    return [...collection.getFilteredByGlob('./src/ui/**/*.njk')].sort((a, b) => {
+      return a.data.order - b.data.order;
+    });
+  });
+
   config.addCollection('templates', collection => {
     return [...collection.getFilteredByGlob('./src/templates/*.md')];
   });

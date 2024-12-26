@@ -1,0 +1,11 @@
+<div x-cloak class="number-group" x-data="{ quantity: 1, min: 1, max: 99 }" x-init="$watch('quantity', (value) => { quantity = value < min ? min : (value > max ? max : value) })">
+    <button class="btn btn--primary btn--sm btn--icon number-group__decrement" type="button" data-action="decrement" aria-label="Decrement quantity" @click="quantity = Math.max(min, --quantity)">
+        {% svgIcon './src/img/icon/minus.svg',
+        'btn__icon' %}
+    </button>
+    <input class="number-group__input" x-model="quantity" type="number" :min="min" :max="max"/>
+    <button class="btn btn--primary btn--sm btn--icon number-group__increment" type="button" data-action="increment" aria-label="Increment quantity" @click="quantity = Math.min(max, ++quantity)">
+        {% svgIcon './src/img/icon/plus.svg',
+        'btn__icon' %}
+    </button>
+</div>

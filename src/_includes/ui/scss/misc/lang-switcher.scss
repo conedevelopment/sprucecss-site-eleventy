@@ -1,0 +1,69 @@
+@use 'sass:color';
+@use 'sprucecss/scss/spruce' as *;
+
+.lang-switcher {
+  $this: &;
+  min-inline-size: 2.875rem;
+  position: relative;
+  text-transform: uppercase;
+
+  &--upward {
+    #{$this}__panel {
+      inset: auto 0 120% auto;
+    }
+
+    svg {
+      rotate: 180deg;
+    }
+  }
+
+  &__control {
+    @include clear-btn;
+    align-items: center;
+    border-radius: config('border-radius', $btn);
+    color: color('heading');
+    display: flex;
+    gap: spacer('xxs');
+    text-transform: uppercase;
+
+    &:focus-visible {
+      @include short-ring('button');
+    }
+  }
+
+  &__panel {
+    @include clear-list;
+    background-color: hsl(0deg 0% 0%);
+    border-radius: config('border-radius-sm', $display);
+    inset: 120% 0 auto auto;
+    padding-block: spacer('xxs');
+    position: absolute;
+
+    > * + * {
+      margin-block-start: 0;
+    }
+
+    li {
+      line-height: 1;
+    }
+
+    a {
+      color: hsl(0deg 0% 100%);
+      display: flex;
+      padding-block: spacer('xxs');
+      padding-inline: spacer('s');
+      text-decoration: none;
+
+      &:hover {
+        color: color.adjust(color('primary', $only-color: true), $lightness: 40%);
+      }
+    }
+  }
+
+  svg {
+    --size: 1em;
+    block-size: var(--size);
+    color: color('primary');
+    inline-size: var(--size);
+  }
+}

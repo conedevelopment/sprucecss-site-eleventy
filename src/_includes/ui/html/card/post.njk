@@ -1,0 +1,31 @@
+{% if not item %}
+    {% set item = {
+        'title': post[5].title,
+        'date': post[5].date,
+        'category': post[5].category,
+        'thumbnail': post[5].thumbnail,
+        'alt': post[5].alt
+    } %}
+{% endif %}
+
+{% if not postCard %}
+    {% set postCard = {
+        'class': 'post-card'
+    } %}
+{% endif %}
+
+<div class="{{ postCard.class }}">
+  <img class="post-card__thumbnail" src="{{ domain }}{{ item.thumbnail }}" alt="{{ item.alt }}" />
+  <div class="post-card__body">
+    <div class="post-card__meta">
+      <div class="post-card__tags">
+        <a href="#">#{{ item.category }}</a>
+      </div>
+      <time datetime="{{ item.date | w3Date}}">{{ item.date }}</time>
+    </div>
+    <h2 class="post-card__title">
+      <a class="post-card__link" href="#">{{ item.title }}</a>
+    </h2>
+    {% include "../content-and-layout/post-author.njk" %}
+  </div>
+</div>

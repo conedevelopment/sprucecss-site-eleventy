@@ -1,0 +1,51 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.post-card {
+  $this: &;
+
+  @include a11y-card-link('.post-card__link', true);
+  display: flex;
+  flex-direction: column;
+  gap: spacer('m');
+
+  &--horizontal {
+    align-items: center;
+
+    @include breakpoint('xs') {
+      flex-direction: row;
+    }
+
+    #{$this}__thumbnail {
+      @include breakpoint('xs') {
+        aspect-ratio: 1;
+        inline-size: 10rem;
+      }
+    }
+  }
+
+  &__thumbnail {
+    aspect-ratio: 16 / 10;
+    border-radius: config('border-radius-sm', $display);
+    object-fit: cover;
+  }
+
+  &__body {
+    @include layout-stack(s);
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs') spacer('m');
+    line-height: 1;
+  }
+
+  &__title {
+    font-size: font-size('h3');
+
+    a {
+      color: color('heading');
+      text-decoration: none;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{% extends "layout/base.njk" %}
+
+{% set title = "Preloader" %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ domain }}/css/utility/center.css?{{ hash }}">
+    <link rel="stylesheet" href="{{ domain }}/css/content-and-layout/container.css?{{ hash }}">
+    <link rel="stylesheet" href="{{ domain }}/css/feedback/preloader.css?{{ hash }}">
+    <style>
+        body {
+            color: hsl(262deg 71% 49%);
+            padding-block: 4rem;
+        }
+
+        html[data-theme-mode='dark'] body {
+            color: hsl(261deg 54% 70%);
+        }
+
+        .container {
+            align-items: center;
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container container--narrow">
+        {% include "./preloader.njk" %}
+    </div>
+{% endblock %}

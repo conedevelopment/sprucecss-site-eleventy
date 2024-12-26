@@ -1,0 +1,32 @@
+<div
+    @click.outside="open = false"
+    @keyup.escape.window="open = false"
+    class="lang-switcher"
+    x-data="{ open: false }"
+>
+    <button
+        @click="open = ! open"
+        :aria-expanded="open"
+        aria-label="English"
+        aria-expanded="false"
+        class="lang-switcher__control"
+        type="button"
+    >
+        en
+        {% svgIcon './src/img/icon/chevron-down.svg' %}
+    </button>
+    <ul
+        class="lang-switcher__panel"
+        x-cloak
+        x-trap="open"
+        x-show="open"
+        x-transition.origin.top.leff
+    >
+        <li>
+            <a hreflang="de" href="/de/" aria-label="German">de</a>
+        </li>
+        <li>
+            <a hreflang="fr" href="/fr/" aria-label="French">fr</a>
+        </li>
+    </ul>
+</div>

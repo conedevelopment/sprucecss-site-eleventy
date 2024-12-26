@@ -1,0 +1,12 @@
+{% extends "layout/base.njk" %}
+
+{% set title = "Auth Page" %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ domain }}/css/page/auth.css?{{ hash }}">
+    <link rel="stylesheet" href="{{ domain }}/css/form/auth.css?{{ hash }}">
+{% endblock %}
+
+{% block content %}
+    {% include "./auth.njk" %}
+{% endblock %}

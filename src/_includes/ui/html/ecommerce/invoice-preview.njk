@@ -1,0 +1,20 @@
+{% extends "layout/base.njk" %}
+
+{% set title = "Invoice" %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ domain }}/css/content-and-layout/container.css?{{ hash }}">
+    <link rel="stylesheet" href="{{ domain }}/css/ecommerce/invoice.css?{{ hash }}">
+    <link rel="stylesheet" href="{{ domain }}/css/utility/invoice.css?{{ hash }}">
+    <style>
+        .l-checkout {
+            margin-block: 3rem;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container" style="--inline-size: 64rem;">
+        {% include "./invoice.njk" %}
+    </div>
+{% endblock %}

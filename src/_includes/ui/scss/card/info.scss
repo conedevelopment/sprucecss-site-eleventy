@@ -1,0 +1,48 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.info-card {
+  $this: &;
+
+  @include a11y-card-link('.info-card__link', true);
+  @include transition;
+  border: 1px solid color('border');
+  border-radius: config('border-radius-lg', $display);
+  color: color('text');
+  display: flex;
+  flex-direction: column;
+  gap: spacer('m');
+  padding: spacer-clamp('m', 'l');
+
+  &:hover {
+    @include set-css-variable((
+      --base-color-heading: hsl(0deg 0% 100%),
+      --base-color-link: hsl(0deg 0% 100%),
+      --base-color-link-hover: hsl(0deg 0% 100%),
+      --base-color-text: hsl(0deg 0% 100%),
+    ));
+    background-color: color('primary');
+    transform: translateY(-0.5rem);
+  }
+
+  > * {
+    margin-block: 0;
+  }
+
+  &__caption {
+    @include layout-stack('s');
+  }
+
+  &__title {
+    @include transition;
+    font-weight: 400;
+
+    a {
+      color: color('heading');
+      text-decoration: none;
+    }
+  }
+
+  &__link {
+    margin-block-start: auto;
+  }
+}

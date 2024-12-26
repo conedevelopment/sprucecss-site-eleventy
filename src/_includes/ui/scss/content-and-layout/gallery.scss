@@ -1,0 +1,87 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.gallery {
+  $this: &;
+
+  img {
+    border-radius: config('border-radius-sm', $display);
+    object-fit: cover;
+  }
+
+  &-item {
+    margin-block: 0;
+  }
+
+  &--even {
+    @include layout-grid('m', 15rem);
+
+    img {
+      aspect-ratio: 1;
+    }
+  }
+
+  &--uneven {
+    display: grid;
+    grid-auto-rows: min-content;
+    grid-gap: spacer-clamp('s', 'm');
+    grid-template-columns: repeat(6, 1fr);
+
+    #{$this}-item--1 {
+      grid-column: 1 / span 3;
+      grid-row: 1 / span 1;
+    }
+
+    #{$this}-item--2 {
+      grid-column: 4 / span 3;
+      grid-row: 1 / span 1;
+    }
+
+    #{$this}-item--3 {
+      grid-column: 1 / span 2;
+      grid-row: 2 / span 1;
+    }
+
+    #{$this}-item--4 {
+      grid-column: 3 / span 2;
+      grid-row: 2 / span 1;
+    }
+
+    #{$this}-item--5 {
+      grid-column: 5 / span 2;
+      grid-row: 2 / span 1;
+    }
+
+    #{$this}-item--6 {
+      grid-column: 1 / span 3;
+      grid-row: 3 / span 1;
+
+      img {
+        aspect-ratio: 3 / 1.5;
+      }
+    }
+
+    #{$this}-item--7 {
+      grid-column: 1 / span 3;
+      grid-row: 4 / span 1;
+
+      img {
+        aspect-ratio: 3 / 1.5;
+      }
+    }
+
+    #{$this}-item--8 {
+      grid-column: 4 / span 3;
+      grid-row: 3 / span 2;
+
+      img {
+        aspect-ratio: auto;
+      }
+    }
+
+    img {
+      aspect-ratio: 3 / 2;
+      block-size: 100%;
+      inline-size: 100%;
+    }
+  }
+}

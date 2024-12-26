@@ -1,0 +1,39 @@
+@use '../config/config'; // Use (need) only if this is a standalone file.
+@use 'sprucecss/scss/spruce' as *;
+
+@include generate-btn(
+  '.pagination__page-number',
+  null,
+  false,
+  true
+);
+
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  &__links {
+    @include clear-list;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
+
+    > * + * {
+      margin-block-start: 0;
+    }
+  }
+
+  &__page-number {
+    @include btn-variant('pagination');
+
+    &--current {
+      background: color('pagination-background-hover', 'btn');
+      border-color: color('pagination-background-hover', 'btn');
+      color: color('pagination-foreground-hover', 'btn');
+    }
+
+    &--sm {
+      min-inline-size: 1.75rem;
+    }
+  }
+}

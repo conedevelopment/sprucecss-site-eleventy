@@ -1,0 +1,24 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.cookie-consent {
+  align-items: center;
+  background-color: color('background');
+  border-block-end: 1px solid color('border');
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: spacer('s') spacer('m');
+  justify-content: center;
+  padding-block: spacer('m');
+  padding-inline: get-css-variable(--container-gap);
+  text-align: center;
+
+  &__caption {
+    @include layout-stack('xs');
+  }
+
+  &__btns {
+    display: flex;
+    gap: spacer('s');
+  }
+}

@@ -1,0 +1,65 @@
+{% extends "layout/base.njk" %}
+
+{% set title = "Post Card" %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ domain }}/css/utility/center.css?{{ hash }}">
+    <link rel="stylesheet" href="{{ domain }}/css/content-and-layout/container.css?{{ hash }}">
+    <link rel="stylesheet" href="{{ domain }}/css/card/post.css?{{ hash }}">
+    <link rel="stylesheet" href="{{ domain }}/css/content-and-layout/post-author.css?{{ hash }}">
+    <link rel="stylesheet" href="{{ domain }}/css/utility/tab.css?{{ hash }}">
+    <style>
+        .post-card {
+            margin-inline: auto;
+        }
+
+        .post-card:not(.post-card--horizontal) {
+            max-inline-size: 24rem;
+        }
+
+        .post-card.post-card--horizontal {
+            max-inline-size: 40rem;
+        }
+    </style>
+{% endblock %}
+
+{% block script %}
+    <script src="{{ domain }}/js/tabs.js?{{ hash }}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="tablist-wrapper">
+            <ul role="tablist" aria-label="Variants">
+                <li>
+                    <button id="tab-1" role="tab" aria-selected="true" aria-controls="tabpanel-1">default</button>
+                </li>
+                <li>
+                    <button id="tab-2" role="tab" aria-selected="false" aria-controls="tabpanel-2">--horizontal</button>
+                </li>
+            </ul>
+        </div>
+        <div id="tabpanel-1" role="tabpanel" tabindex="0" aria-labelledby="tab-1">
+            {% set item = {
+                'title': post[5].title,
+                'date': post[5].date,
+                'category': post[5].category,
+                'thumbnail': post[5].thumbnail,
+                'alt': post[5].alt
+            } %}
+
+            {% set postCard = {
+                'class': 'post-card'
+            } %}
+
+            {% include "./post.njk" %}
+        </div>
+        <div id="tabpanel-2" role="tabpanel" tabindex="0" aria-labelledby="tab-2" class="hidden">
+            {% set postCard = {
+                'class': 'post-card post-card--horizontal'
+            } %}
+
+            {% include "./post.njk" %}
+        </div>
+    </div>
+{% endblock %}

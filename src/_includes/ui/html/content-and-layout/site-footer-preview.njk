@@ -1,0 +1,20 @@
+{% extends "layout/base.njk" %}
+
+{% set title = "Site Footer" %}
+
+{% block style %}
+    <script>
+        {% include "../../js/misc/theme-detection.js" %}
+    </script>
+    <link rel="stylesheet" href="{{ domain }}/css/content-and-layout/container.css?{{ hash }}">
+    <link rel="stylesheet" href="{{ domain }}/css/content-and-layout/site-footer.css?{{ hash }}">
+    <link rel="stylesheet" href="{{ domain }}/css/misc/theme-switcher-button.css?{{ hash }}">
+{% endblock %}
+
+{% block script %}
+    <script defer src="{{ domain }}/js/misc/theme-switcher-button.js?{{ hash }}"></script>
+{% endblock %}
+
+{% block content %}
+    {% include "./site-footer.njk" %}
+{% endblock %}

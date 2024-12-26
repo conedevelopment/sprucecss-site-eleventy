@@ -1,0 +1,49 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.l-feature {
+  &__inner {
+    @include layout-stack(spacer-clamp('xl', 'xxl'));
+  }
+}
+
+.feature {
+  $this: &;
+
+  align-items: center;
+  display: grid;
+  gap: spacer('l') spacer('xl');
+  grid-template-columns: minmax(0, 1fr);
+
+  &--start {
+    @include breakpoint('md') {
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    }
+  }
+
+  &--end {
+    @include breakpoint('md') {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr);
+
+      #{$this}__thumbnail {
+        order: 1;
+      }
+    }
+  }
+
+  &__thumbnail {
+    aspect-ratio: 6 / 4.5;
+    border-radius: config('border-radius-lg', $display);
+  }
+
+  &__caption {
+    @include layout-stack('s');
+  }
+
+  &__title {
+    font-size: responsive-font-size(3rem, 25, '4vw + 1rem');
+  }
+
+  &__btn {
+    margin-block-start: spacer('m');
+  }
+}

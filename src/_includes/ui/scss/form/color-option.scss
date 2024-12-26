@@ -1,0 +1,76 @@
+@use '../config/config'; // Use (need) only if this is a standalone file.
+@use 'sprucecss/scss/spruce' as *;
+
+.form-color-option {
+  @include layout-stack('xs');
+
+  &__label {
+    font-family: config('font-family', $form-label, false);
+    font-size: config('font-size', $form-label, false);
+    font-weight: config('font-weight', $form-label, false);
+  }
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
+  }
+}
+
+.form-color {
+  $this: &;
+  --size: 2.5rem;
+
+  &--check-light {
+    #{$this}__control:checked + #{$this}__label::before {
+      @include field-icon(config('checkbox', $form-icon, false), white);
+    }
+  }
+
+  &--check-dark {
+    #{$this}__control:checked + #{$this}__label::before {
+      @include field-icon(config('checkbox', $form-icon, false), black);
+    }
+  }
+
+  &__control {
+    @include visually-hidden;
+
+    &:checked + #{$this}__label {
+      box-shadow: none;
+
+      &::before {
+        --size: 1.5rem;
+        background-size: var(--size);
+        block-size: var(--size);
+        content: '';
+        inline-size: var(--size);
+      }
+    }
+
+    &:focus-visible + #{$this}__label {
+      @include focus-ring(
+        $type: config('focus-ring-type', $btn, false),
+        $ring-color: currentColor,
+        $box-shadow-type: config('focus-ring-box-shadow-type', $btn, false),
+        $ring-size: config('focus-ring-size', $btn, false),
+        $ring-offset: config('focus-ring-offset', $btn, false)
+      );
+    }
+
+    &:disabled + #{$this}__label {
+      cursor: not-allowed;
+      opacity: 25%;
+    }
+  }
+
+  &__label {
+    align-items: center;
+    background-color: currentColor;
+    block-size: var(--size);
+    border-radius: 50%;
+    display: inline-flex;
+    inline-size: var(--size);
+    justify-content: center;
+  }
+}

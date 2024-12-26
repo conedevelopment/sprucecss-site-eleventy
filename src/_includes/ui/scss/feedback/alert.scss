@@ -1,0 +1,69 @@
+@use 'sass:color';
+@use 'sass:map';
+@use 'sprucecss/scss/spruce' as *;
+
+.alert {
+  align-items: center;
+  border: 1px solid;
+  border-radius: config('border-radius-lg', $display);
+  display: flex;
+  gap: spacer('m');
+  justify-content: space-between;
+  line-height: config('line-height-md', $typography);
+  padding: 1em 1.25em;
+
+  @each $name, $value in map.get($colors, 'alert') {
+    @at-root .alert--#{$name} {
+      @include set-css-variable((
+        --base-color-text: color.scale($value, $lightness: -50%),
+        --base-color-heading: color.scale($value, $lightness: -50%),
+        --base-color-link: color.scale($value, $lightness: -50%),
+        --base-color-link-hover: color.scale($value, $lightness: -30%),
+        --base-color-strong: color.scale($value, $lightness: -50%)
+      ));
+      background-color: color.scale($value, $lightness: 95%);
+
+      border-color: color.scale($value, $lightness: 85%);
+      color: color.scale($value, $lightness: -50%);
+    }
+
+    @at-root .alert--#{$name} .alert__close {
+      background-color: color.scale($value, $lightness: -30%);
+      color: color.scale($value, $lightness: 90%);
+    }
+  }
+
+  @each $name, $value in map.get($colors, 'alert') {
+    @at-root [data-theme-mode='dark'] .alert--#{$name} {
+      background-color: transparent;
+      border-color: color.scale($value, $lightness: -30%);
+      color: color('text');
+    }
+  }
+
+  &__caption {
+    @include layout-stack('xxs');
+  }
+
+  &__close {
+    @include clear-btn;
+    @include transition;
+    align-items: center;
+    border-radius: config('border-radius-sm', $display);
+    display: flex;
+    flex-shrink: 0;
+    justify-content: center;
+    padding: config('icon-padding', $btn-sm, false);
+
+    &:hover,
+    &:focus {
+      opacity: 0.75;
+    }
+
+    svg {
+      --size: #{config('icon-size', $btn-sm, false)};
+      block-size: var(--size);
+      inline-size: var(--size);
+    }
+  }
+}

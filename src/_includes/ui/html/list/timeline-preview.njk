@@ -1,0 +1,26 @@
+{% extends "layout/base.njk" %}
+
+{% set title = "Timeline" %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ domain }}/css/list/timeline.css?{{ hash }}">
+    <style>
+        body {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            padding-block: 4rem;
+            padding-inline: 1rem;
+        }
+        .container {
+            inline-size: 100%;
+            max-inline-size: 35rem;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% include "./timeline.njk" %}
+    </div>
+{% endblock %}

@@ -1,0 +1,102 @@
+@use 'sass:color';
+@use 'dark-colors' as dark;
+
+$color-primary: hsl(262deg 71% 49%);
+$color-primary-lightest: hsl(262deg 71% 98%);
+$color-danger: hsl(0deg 71% 51%);
+
+@use 'sprucecss/scss/spruce' with (
+  $btn: (
+    'font-family': #{'Manrope', sans-serif},
+    'font-weight': 600,
+  ),
+  $btn-lg: (
+    'font-size': 1rem,
+  ),
+  $colors: (
+    'base': (
+      'primary-lightest': $color-primary-lightest,
+    ),
+    'breadcrumb': (
+      'separator': hsl(0deg 0% 80%),
+    ),
+    'btn': (
+      'dark-background': hsl(205deg 100% 2%),
+      'dark-background-hover': hsl(205deg 100% 5%),
+      'dark-foreground': hsl(0deg 0% 100%),
+      'dark-outline-border': hsl(260deg 4% 70%),
+      'dark-outline-foreground': hsl(205deg 100% 2%),
+      'dark-outline-foreground-hover': hsl(0deg 0% 100%),
+      'dark-outline-background-hover': hsl(205deg 100% 2%),
+      'dark-outline-focus-ring': hsl(205deg 100% 2%),
+      'delete-background': color.adjust($color-danger, $lightness: 45%),
+      'delete-background-hover': $color-danger,
+      'delete-focus-ring': $color-danger,
+      'delete-foreground': $color-danger,
+      'delete-foreground-hover': hsl(0deg 0% 100%),
+      'light-background': $color-primary-lightest,
+      'light-background-hover': $color-primary,
+      'light-focus-ring': $color-primary,
+      'light-foreground': $color-primary,
+      'light-foreground-hover': hsl(0deg 0% 100%),
+      'pagination-background': hsl(263deg 40% 96%),
+      'pagination-background-hover': $color-primary,
+      'pagination-foreground': $color-primary,
+      'pagination-foreground-hover': hsl(0deg 0% 100%),
+      'pagination-focus-ring': $color-primary,
+    ),
+    'combobox': (
+      'item-background': $color-primary-lightest,
+      'item-foreground': $color-primary,
+    ),
+    'container': (
+      'background': hsl(0deg 0% 95%),
+    ),
+    'invoice': (
+      'background': hsl(234deg 100% 98%),
+    ),
+    'media': (
+      'background': $color-primary-lightest,
+      'dropzone-background': hsl(214deg 98% 49% / 75%),
+      'dropzone-border': hsl(214deg 98% 40%),
+      'icon': $color-primary,
+    ),
+    'modal': (
+      'background': hsl(210deg 60% 98% / 90%),
+    ),
+    'navigation': (
+      'icon-background': $color-primary-lightest,
+      'icon-background-hover': $color-primary,
+      'icon-foreground': $color-primary,
+      'icon-foreground-hover': hsl(0deg 0% 100%),
+    ),
+    'tab': (
+      'background': hsl(222deg 100% 98%),
+    ),
+    'search': (
+      'icon': hsl(229deg 26% 48% / 25%),
+    ),
+  ),
+  $dark-colors: dark.$colors,
+  $form-check: (
+    'font-weight': 400,
+  ),
+  $form-label: (
+    'font-family': #{'Manrope', sans-serif},
+    'font-size': 1rem,
+    'font-weight': 600,
+  ),
+  $settings: (
+    'css-custom-properties': true,
+    'html-smooth-scrolling': false,
+    'print': true,
+    'utilities': (
+      'display': true,
+      'typography': true,
+    ),
+  ),
+  $typography: (
+    'font-family-base': #{'Open Sans', sans-serif},
+    'font-family-heading': #{'Manrope', sans-serif},
+  ),
+);

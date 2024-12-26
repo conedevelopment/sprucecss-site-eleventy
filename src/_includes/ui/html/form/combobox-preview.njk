@@ -1,0 +1,21 @@
+{% extends "layout/base.njk" %}
+
+{% set title = "Combobox" %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ domain }}/css/utility/center-vertical.css?{{ hash }}">
+    <link rel="stylesheet" href="{{ domain }}/css/content-and-layout/container.css?{{ hash }}">
+    <link rel="stylesheet" href="{{ domain }}/css/form/combobox.css?{{ hash }}">
+{% endblock %}
+
+{% block script %}
+    <script defer src="{{ domain }}/js/form/combobox.js?{{ hash }}"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container container--narrow">
+        {% include "./combobox.njk" %}
+    </div>
+{% endblock %}

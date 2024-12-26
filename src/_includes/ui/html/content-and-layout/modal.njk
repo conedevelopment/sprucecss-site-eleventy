@@ -1,0 +1,88 @@
+<div
+    x-data="{
+        open: false,
+        close() {
+            this.open = false;
+            $refs.open.focus();
+        }
+    }"
+>
+    <button
+        x-ref="open"
+        class="btn btn--primary"
+        @click="open = true"
+    >
+        Open modal
+    </button>
+    <template x-teleport="body">
+        <div
+            class="modal-backdrop"
+            x-show="open"
+            x-transition.opacity
+            @keydown.escape="close"
+        >
+            <div
+                role="dialog"
+                aria-modal="true"
+                tabindex="0"
+                class="modal"
+                @click.away="close"
+                x-show="open"
+                x-transition
+                x-trap.noscroll="open"
+            >
+                <div class="modal__header">
+                    <div class="modal__header-caption">
+                        <h2 class="modal__title">Sign In</h2>
+                        <p class="modal__subtitle">Hey there, welcome back!</p>
+                    </div>
+                    <button
+                        class="btn btn--icon btn--sm btn--light"
+                        aria-label="Close modal"
+                        @click="close"
+                    >
+                        {% svgIcon './src/img/icon/close.svg', 'btn__icon' %}
+                    </button>
+                </div>
+                <div class="modal__body">
+                    <div class="auth-form">
+                        <form method="POST" action="#">
+                            <div class="form-group-stack">
+                                <div class="auth-form__social">
+                                    <button class="btn btn--outline-dark btn--lg btn--icon btn--block">
+                                        {% svgIcon './src/img/icon/google.svg', 'btn__icon' %}
+                                        Sign in with Google
+                                    </button>
+                                    <button class="btn btn--outline-dark btn--lg btn--icon btn--block">
+                                        {% svgIcon './src/img/icon/apple.svg', 'btn__icon' %}
+                                        Sign in with Apple ID
+                                    </button>
+                                </div>
+                                <div class="auth-form__separator">or</div>
+                                <div class="form-group">
+                                    <label class="form-label" for="email">Email</label>
+                                    <input class="form-control form-control--lg" id="email" type="text" name="email" required="required" autocomplete="off" autofocus="autofocus"/>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label form-label--space-between" for="password">Password <a href="#">Forgot your password?</a>
+                                    </label>
+                                    <input class="form-control form-control--lg" id="password" type="password" name="password" required="required" autocomplete="off"/>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-check form-check--lg" for="remember">
+                                        <input class="form-check__control" id="remember" type="checkbox" name="remember"/>
+                                        <span class="form-label form-check__label">Remember me</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal__footer">
+                    <button class="btn btn--outline-primary btn--block" @click="close">Cancel</button>
+                    <button class="btn btn--primary btn--block btn--primary-shadow">Save</button>
+                </div>
+            </div>
+        </div>
+    </template>
+</div>

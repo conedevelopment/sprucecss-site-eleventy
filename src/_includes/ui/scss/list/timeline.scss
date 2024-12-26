@@ -1,0 +1,44 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.l-timeline {
+  --size: 1.25em;
+  --offset: calc(#{config('line-height-base', $typography, false) + 0em} / 6);
+  @include layout-stack('l');
+  position: relative;
+
+  &::before {
+    --inline-size: 0.15em;
+    background-color: color('border');
+    content: '';
+    inline-size: var(--inline-size);
+    inset: var(--offset) auto var(--offset) calc(var(--size) / 2 - var(--inline-size) / 2);
+    position: absolute;
+    z-index: -1;
+  }
+
+  &__item {
+    display: flex;
+    gap: spacer('s');
+
+    &::before {
+      background-color: color('primary');
+      block-size: var(--size);
+      border-radius: config('border-radius-sm', $display);
+      content: '';
+      display: flex;
+      flex-shrink: 0;
+      inline-size: var(--size);
+      margin-block-start: var(--offset);
+    }
+  }
+
+  &__content {
+    @include layout-stack('s');
+
+    strong {
+      color: color('heading');
+    }
+  }
+}
+
+

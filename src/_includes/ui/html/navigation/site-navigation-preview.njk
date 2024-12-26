@@ -1,0 +1,23 @@
+{% extends "layout/base.njk" %}
+
+{% set title = "Site Navigation" %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ domain }}/css/content-and-layout/container.css?{{ hash }}">
+    <link rel="stylesheet" href="{{ domain }}/css/navigation/site-navigation.css?{{ hash }}">
+    <style>
+        body {
+            padding-block: 3rem;
+        }
+    </style>
+{% endblock %}
+
+{% block script %}
+    <script defer src="{{ domain }}/js/navigation/site-navigation.js?{{ hash }}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% include "./site-navigation.njk" %}
+    </div>
+{% endblock %}

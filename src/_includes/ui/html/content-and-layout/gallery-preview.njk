@@ -1,0 +1,47 @@
+{% extends "layout/base.njk" %}
+
+{% set title = "Gallery" %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ domain }}/css/content-and-layout/container.css?{{ hash }}">
+    <link rel="stylesheet" href="{{ domain }}/css/content-and-layout/gallery.css?{{ hash }}">
+    <link rel="stylesheet" href="{{ domain }}/css/utility/tab.css?{{ hash }}">
+    <style>
+        body {
+            padding-block: 2rem;
+        }
+    </style>
+{% endblock %}
+
+{% block script %}
+    <script src="{{ domain }}/js/tabs.js?{{ hash }}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="tablist-wrapper">
+            <ul role="tablist" aria-label="Variants">
+                <li>
+                    <button id="tab-1" role="tab" aria-selected="true" aria-controls="tabpanel-1">--eneven</button>
+                </li>
+                <li>
+                    <button id="tab-2" role="tab" aria-selected="false" aria-controls="tabpanel-2">--even</button>
+                </li>
+            </ul>
+        </div>
+        <div id="tabpanel-1" role="tabpanel" tabindex="0" aria-labelledby="tab-1">
+            {% set gallery = {
+                'class': 'gallery gallery--uneven'
+            } %}
+
+            {% include "./gallery.njk" %}
+        </div>
+        <div id="tabpanel-2" role="tabpanel" tabindex="0" aria-labelledby="tab-2" class="hidden">
+            {% set gallery = {
+                'class': 'gallery gallery--even'
+            } %}
+
+            {% include "./gallery.njk" %}
+        </div>
+    </div>
+{% endblock %}

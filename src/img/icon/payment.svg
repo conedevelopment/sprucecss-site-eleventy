@@ -1,0 +1,12 @@
+<svg
+    aria-hidden="true"
+    focusable="false" role="img"
+    height="24"
+    style="fill-rule:evenodd;clip-rule:evenodd;fill:currentColor;overflow:visible;"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns="http://www.w3.org/2000/svg"
+>
+    <path d="M24,4.8l0,14.4c0,0.66 -0.235,1.225 -0.705,1.695c-0.47,0.47 -1.035,0.705 -1.695,0.705l-19.2,0c-0.66,0 -1.225,-0.235 -1.695,-0.705c-0.47,-0.47 -0.705,-1.035 -0.705,-1.695l-0,-14.4c-0,-0.66 0.235,-1.225 0.705,-1.695c0.47,-0.47 1.035,-0.705 1.695,-0.705l19.2,0c0.66,0 1.225,0.235 1.695,0.705c0.47,0.47 0.705,1.035 0.705,1.695Zm-21.6,2.4l19.2,0l0,-2.4l-19.2,0l0,2.4Zm0,4.8l0,7.2l19.2,0l0,-7.2l-19.2,0Zm0,7.2l0,-14.4l0,14.4Z"></path>
+</svg>

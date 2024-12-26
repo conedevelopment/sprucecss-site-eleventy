@@ -1,0 +1,49 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.l-checkout {
+  &__inner {
+    display: grid;
+    gap: spacer-clamp('l', 'xl');
+    grid-template-columns: minmax(0, 1fr);
+
+    @include breakpoint('md') {
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: spacer-clamp('l', 'xl');
+  }
+
+  &__title {
+    margin-block: 0;
+  }
+
+  &__form {
+    @include layout-stack('m');
+  }
+
+  &__billing,
+  &__summary,
+  &__payment {
+    @include layout-stack('m');
+  }
+
+  &__summary {
+    block-size: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__order {
+    @include layout-stack('xs');
+    margin-block-start: auto;
+    padding-top: spacer('m');
+
+    .form-group--submit {
+      margin-block-start: spacer('m');
+    }
+  }
+}

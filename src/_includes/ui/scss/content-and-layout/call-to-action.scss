@@ -1,0 +1,33 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.call-to-action {
+  border-block-start: 1px solid color('border');
+  display: flex;
+  flex-direction: column;
+  gap: spacer('s') spacer-clamp('m', 'l');
+  padding-block: spacer-clamp('l', 'xl');
+
+  @include breakpoint('md') {
+    flex-direction: row;
+  }
+
+  &__title {
+    font-size: font-size('h1');
+    font-weight: 400;
+    margin-block: 0;
+  }
+
+  &__caption {
+    @include layout-stack('m');
+  }
+
+  &__description {
+    font-size: config('font-size-lead', $typography);
+  }
+
+  &__btns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('m');
+  }
+}

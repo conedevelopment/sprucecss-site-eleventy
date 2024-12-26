@@ -1,0 +1,15 @@
+{% extends "layout/base.njk" %}
+
+{% set title = "Post Navigation" %}
+
+{% block style %}
+    <link rel="stylesheet" href="{{ domain }}/css/utility/center-vertical.css?{{ hash }}">
+    <link rel="stylesheet" href="{{ domain }}/css/content-and-layout/container.css?{{ hash }}">
+    <link rel="stylesheet" href="{{ domain }}/css/navigation/post.css?{{ hash }}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% include "./post.njk" %}
+    </div>
+{% endblock %}

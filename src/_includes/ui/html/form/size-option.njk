@@ -1,0 +1,32 @@
+<fieldset
+    class="form-size-option"
+    x-data="{ selected: 'M' }"
+>
+    <legend class="form-size-option__label">Size: <span class="form-size-option__selected" x-text="selected"></span></legend>
+    <div class="form-size-option__inner">
+        <label class="form-size">
+            <input class="form-size__control" type="radio" value="xs" name="size" @change="selected = 'XS'"/>
+            <span class="form-size__label">XS</span>
+        </label>
+        <label class="form-size">
+            <input class="form-size__control" type="radio" value="s" name="size" disabled="disabled"/>
+            <span class="form-size__label">S</span>
+        </label>
+        <label class="form-size">
+            <input class="form-size__control" type="radio" value="m" name="size" @change="selected = 'M'" checked/>
+            <span class="form-size__label">M</span>
+        </label>
+        <label class="form-size">
+            <input class="form-size__control" type="radio" value="l" name="size" @change="selected = 'L'"/>
+            <span class="form-size__label">L</span>
+        </label>
+        <label class="form-size">
+            <input class="form-size__control" type="radio" value="xl" name="size" @change="selected = 'XL'"/>
+            <span class="form-size__label">XL</span>
+        </label>
+        <label class="form-size">
+            <input class="form-size__control" type="radio" value="xxl" name="size" @change="selected = 'XXL'"/>
+            <span class="form-size__label">XXL</span>
+        </label>
+    </div>
+</fieldset>
