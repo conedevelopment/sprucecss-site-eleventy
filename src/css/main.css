@@ -375,7 +375,7 @@ template {
   --spruce-base-color-code-tab-background: hsl(222, 100%, 98%);
   --spruce-base-color-primary-dark: hsl(261, 52%, 35%);
   --spruce-base-color-primary-darkest: hsl(272, 100%, 9%);
-  --spruce-base-color-primary-lightest: hsl(259, 53%, 94%);
+  --spruce-base-color-primary-lightest: hsl(259, 53%, 98%);
 }
 
 :root {
