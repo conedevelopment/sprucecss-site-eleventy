@@ -93,7 +93,7 @@ module.exports = config => {
   });
 
   config.addFilter('markdown', (content) => {
-    return md.render(content).replace(/<p>\s*<\/p>/g, '');
+    return md.render(content.trim());
   });
 
   config.setLibrary('md', md);
