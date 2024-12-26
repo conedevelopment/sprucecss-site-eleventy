@@ -70,7 +70,7 @@
         {% if scss %}
             <div id="tab-content-scss" role="tabpanel" aria-labelledby="tab-control-scss" x-show="activeTab === 'scss'" data-code="{{ component.previewSCSS }}">
                 {% highlight "scss" %}
-                    {{ scss | safe }}
+                    {{ scss | removeFirstLine | safe }}
                 {% endhighlight %}
             </div>
         {% endif %}

@@ -1,4 +1,4 @@
-@use '../config/config'; // Use (need) only if this is a standalone file.
+@use '../../../../scss/config/config'; // DELETE
 @use 'sprucecss/scss/spruce' as *;
 
 .file-group-container {

@@ -1,8 +1,0 @@
-@use 'sprucecss/scss/spruce' as *;
-
-body {
-  align-items: center;
-  display: grid;
-  min-block-size: 100dvh;
-  padding-block: spacer('s');
-}

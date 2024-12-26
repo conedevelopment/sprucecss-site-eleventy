@@ -207,6 +207,16 @@ module.exports = config => {
             </div>`;
   });
 
+  config.addFilter('removeFirstLine', function (input) {
+    const lines = input.split('\n');
+
+    if (lines[1].includes('DELETE')) {
+      return lines.slice(2).join('\n');
+    } else {
+      return input;
+    }
+  });
+
   config.on('eleventy.after', () => {
     execSync(`npx pagefind --site dist --glob \"**/*.html\"`, { encoding: 'utf-8' })
   });
