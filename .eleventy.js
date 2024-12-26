@@ -93,14 +93,16 @@ module.exports = config => {
   });
 
   config.addFilter('markdown', (content) => {
-    return md.render(content);
+    return md.render(content).replace(/<p>\s*<\/p>/g, '');
   });
 
   config.setLibrary('md', md);
 
   config.addPassthroughCopy('./src/img/**');
   config.addPassthroughCopy('./src/css/**');
+  config.addPassthroughCopy('./src/_includes/ui/css/**');
   config.addPassthroughCopy('./src/js/**');
+  config.addPassthroughCopy('./src/_includes/ui/js/**');
   config.addPassthroughCopy('./src/font/**');
   config.addPassthroughCopy({ './src/img/favicon/favicon.ico': '/favicon.ico' });
   config.addPassthroughCopy({ './src/robots.txt': '/robots.txt' });
