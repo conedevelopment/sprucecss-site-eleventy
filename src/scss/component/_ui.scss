@@ -1,0 +1,47 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.ui-center {
+  display: grid;
+  justify-content: center;
+  padding: spacer('m');
+
+  .range-group {
+    inline-size: 20rem;
+    max-inline-size: 100%;
+  }
+}
+
+.ui-tablist {
+  display: flex;
+  justify-content: center;
+}
+
+[role=tablist] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  margin-block-end: 1.5rem;
+  max-inline-size: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+[role=tablist] > * + * {
+  margin-block-start: 0;
+}
+
+[role=tab] {
+  background: none;
+  border: 0;
+  border-radius: var(--spruce-border-radius-sm);
+  line-height: 1;
+  padding: 0.35em 0.65em;
+}
+
+[role=tab][aria-selected=true] {
+  background-color: var(--spruce-tab-color-background);
+  color: var(--spruce-base-color-code-foreground);
+  font-weight: 700;
+}
