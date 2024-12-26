@@ -1,13 +1,23 @@
 @use 'sprucecss/scss/spruce' as *;
 
-.ui-center {
-  display: grid;
-  justify-content: center;
-  padding: spacer('m');
+.ui {
+  padding: spacer-clamp('m', 'l');
 
-  .range-group {
-    inline-size: 20rem;
-    max-inline-size: 100%;
+  &--center {
+    display: grid;
+    gap: spacer('m');
+    place-content: center;
+  }
+
+  &--file-group {
+    @include layout-stack('m');
+    margin-inline: auto;
+    max-inline-size: 45rem;
+  }
+
+  &--range-group {
+    margin-inline: auto;
+    max-inline-size: 30rem;
   }
 }
 

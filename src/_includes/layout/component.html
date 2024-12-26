@@ -11,7 +11,7 @@
                     {% include "partial/code-tab.html" %}
                 </div>
                 <div class="l-documentation__navigation-top">
-                    {% set postNavigation = collections.ui | reverse %}
+                    {% set postNavigation = collections.ui %}
                     {% include "partial/post-navigation.html" %}
                 </div>
             {% endif %}
@@ -37,7 +37,7 @@
                     </div>
                     {% if not preview %}
                         <div class="l-documentation__navigation-bottom">
-                            {% set postNavigation = collections.ui | reverse %}
+                            {% set postNavigation = collections.ui %}
                             {% include "partial/post-navigation.html" %}
                         </div>
                     {% endif %}

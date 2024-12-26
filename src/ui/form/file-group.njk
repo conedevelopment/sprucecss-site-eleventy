@@ -1,14 +1,28 @@
 ---
 title: 'File Group'
 order: 26
-previewURL: 'https://ui.sprucecss.com/html/form/file-group-preview.html'
-previewHeight: '38rem'
 ---
 
-<p class="lead">A file upload field with a preview section and place for metadata.</p>
+{% extends "layout/component.html" %}
 
-## Technical Details
+{% set preview %}
+    <div class="ui ui--file-group">
+        {% include "ui/html/form/file-group.html" %}
+    </div>
+{% endset %}
 
-- The component is an "extended" file upload field only. With your custom functionality, you can extend it to be an actual user-friendly component.
-- If the `.file-group__preview` has a `background-image`, it will automatically display the remove button and hide the blank slate icon. For this, it uses `:has`.
-- It also utilizes `@container` for breaking on mobile.
+{% set html %}
+    {% include "ui/html/form/file-group.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/form/file-group.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/form/file-group.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/form/file-group.css">
+{% endblock %}

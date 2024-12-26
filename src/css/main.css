@@ -392,6 +392,11 @@ template {
   --spruce-btn-color-dark-foreground: hsl(0, 0%, 100%);
   --spruce-btn-color-decline-background: hsl(207, 39%, 17%);
   --spruce-btn-color-decline-foreground: hsl(0, 0%, 100%);
+  --spruce-btn-color-delete-background: hsl(0, 71%, 94%);
+  --spruce-btn-color-delete-background-hover: hsl(0, 71%, 51%);
+  --spruce-btn-color-delete-focus-ring: hsl(0, 71%, 51%);
+  --spruce-btn-color-delete-foreground: hsl(0, 71%, 51%);
+  --spruce-btn-color-delete-foreground-hover: hsl(0, 0%, 100%);
   --spruce-btn-color-discrete-background: hsla(206, 40%, 17%, 0.1);
   --spruce-btn-color-discrete-background-hover: hsl(262, 71%, 49%);
   --spruce-btn-color-discrete-foreground: hsl(0, 0%, 10%);
@@ -399,6 +404,11 @@ template {
   --spruce-btn-color-install-background: hsl(0, 0%, 95%);
   --spruce-btn-color-install-background-hover: hsl(0, 0%, 90%);
   --spruce-btn-color-install-foreground: hsl(0, 0%, 10%);
+  --spruce-btn-color-light-background: hsl(259, 53%, 94%);
+  --spruce-btn-color-light-background-hover: hsl(262, 71%, 49%);
+  --spruce-btn-color-light-focus-ring: hsl(262, 71%, 49%);
+  --spruce-btn-color-light-foreground: hsl(262, 71%, 49%);
+  --spruce-btn-color-light-foreground-hover: hsl(0, 0%, 100%);
   --spruce-btn-color-pagination-background: hsl(263, 40%, 96%);
   --spruce-btn-color-pagination-background-hover: hsl(262, 71%, 49%);
   --spruce-btn-color-pagination-focus-ring: hsl(262, 71%, 49%);
@@ -3355,14 +3365,28 @@ pre[class*=language-] {
   inline-size: var(--size);
 }
 
-.ui-center {
-  display: grid;
-  justify-content: center;
-  padding: 1.5rem;
+.ui {
+  padding: clamp(1.5rem, 5vw, 3rem);
 }
-.ui-center .range-group {
-  inline-size: 20rem;
-  max-inline-size: 100%;
+.ui--center {
+  display: grid;
+  gap: 1.5rem;
+  place-content: center;
+}
+.ui--file-group {
+  margin-inline: auto;
+  max-inline-size: 45rem;
+}
+.ui--file-group > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.ui--file-group > * + * {
+  margin-block-start: 1.5rem;
+}
+.ui--range-group {
+  margin-inline: auto;
+  max-inline-size: 30rem;
 }
 
 .ui-tablist {
@@ -4203,12 +4227,66 @@ pre[class*=language-] {
   color: var(--spruce-btn-color-dark-foreground);
 }
 
+.btn--outline-dark {
+  background-color: transparent;
+  border-color: var(--spruce-btn-color-dark-background);
+  color: var(--spruce-btn-color-dark-background);
+}
+.btn--outline-dark:focus-visible {
+  outline: 2px solid var(--spruce-btn-color-dark-background);
+  outline-offset: 2px;
+}
+.btn--outline-dark:hover {
+  background-color: var(--spruce-btn-color-dark-background);
+  border-color: var(--spruce-btn-color-dark-background);
+  color: var(--spruce-btn-color-dark-foreground);
+}
+
+.btn--delete {
+  background-color: var(--spruce-btn-color-delete-background);
+  border-color: var(--spruce-btn-color-delete-background);
+  color: var(--spruce-btn-color-delete-foreground);
+}
+.btn--delete:focus-visible {
+  outline: 2px solid var(--spruce-btn-color-delete-focus-ring);
+  outline-offset: 2px;
+}
+.btn--delete:hover {
+  background-color: var(--spruce-btn-color-delete-background-hover);
+  border-color: var(--spruce-btn-color-delete-background-hover);
+  color: var(--spruce-btn-color-delete-foreground-hover);
+}
+
+.btn--light {
+  background-color: var(--spruce-btn-color-light-background);
+  border-color: var(--spruce-btn-color-light-background);
+  color: var(--spruce-btn-color-light-foreground);
+}
+.btn--light:focus-visible {
+  outline: 2px solid var(--spruce-btn-color-light-focus-ring);
+  outline-offset: 2px;
+}
+.btn--light:hover {
+  background-color: var(--spruce-btn-color-light-background-hover);
+  border-color: var(--spruce-btn-color-light-background-hover);
+  color: var(--spruce-btn-color-light-foreground-hover);
+}
+.btn--light.btn--active {
+  background-color: var(--spruce-btn-color-light-background-hover);
+  border-color: var(--spruce-btn-color-light-background-hover);
+  color: var(--spruce-btn-color-light-foreground-hover);
+}
+
 .table--font-size-reset {
   font-size: 1rem;
 }
 .table th,
 .table td {
   min-inline-size: 10rem;
+}
+
+[x-cloak] {
+  display: none !important;
 }
 
 .m-block\:0 {

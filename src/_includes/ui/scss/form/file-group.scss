@@ -24,6 +24,10 @@
     #{$this}__remove {
       display: inline-flex;
     }
+
+    #{$this}__input {
+      display: none;
+    }
   }
 
   &__preview {
@@ -69,7 +73,6 @@
 
   &__title {
     color: color('heading');
-    font-family: config('font-family-heading', $typography);
     font-weight: 700;
   }
 
