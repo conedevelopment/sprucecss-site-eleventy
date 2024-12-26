@@ -26,7 +26,7 @@ pre[class*='language-'] {
 /* Code blocks */
 pre[class*='language-'] {
   display: grid;
-  overflow: auto;
+  overflow: visible;
   padding: spacer('m');
 }
 
@@ -38,7 +38,6 @@ pre[class*='language-'] code {
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
   background: color('background', 'prism');
-  overflow-x: auto;
 }
 
 .token.comment,

@@ -2988,10 +2988,17 @@ textarea.pagefind-ui__search-input {
 }
 .code-tab__body [class^=language-] {
   margin-block: 0;
-  max-block-size: 40rem;
 }
 .code-tab__body iframe {
   border: 0;
+}
+.code-tab [role=tabpanel] {
+  max-block-size: 40rem;
+  overflow-y: auto;
+}
+.code-tab [role=tabpanel]:not([aria-labelledby=tab-control-preview]) {
+  background: var(--spruce-prism-color-background);
+  display: grid;
 }
 
 .preview {
@@ -3239,7 +3246,7 @@ pre[class*=language-] {
 /* Code blocks */
 pre[class*=language-] {
   display: grid;
-  overflow: auto;
+  overflow: visible;
   padding: 1.5rem;
 }
 
@@ -3251,7 +3258,6 @@ pre[class*=language-] code {
 :not(pre) > code[class*=language-],
 pre[class*=language-] {
   background: var(--spruce-prism-color-background);
-  overflow-x: auto;
 }
 
 .token.comment,
