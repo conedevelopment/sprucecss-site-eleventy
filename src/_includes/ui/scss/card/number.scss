@@ -1,12 +1,5 @@
 @use 'sprucecss/scss/spruce' as *;
 
-.l-number {
-  &__inner {
-    --inline-size: 15rem;
-    @include layout-flex('l');
-  }
-}
-
 .number-card {
   @include layout-stack('xs');
   border-bottom: 1px solid color('border');

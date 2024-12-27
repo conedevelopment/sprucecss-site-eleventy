@@ -8,14 +8,12 @@
 );
 
 .number-group {
-  @include set-css-variable((
-    --padding: 0.25em,
-  ));
-
   align-items: center;
   display: inline-flex;
   gap: spacer('xxs');
   inline-size: auto;
+  max-inline-size: 6.5rem;
+  padding: 0.25em;
   position: relative;
 
   &:focus-within {

@@ -1,14 +1,3 @@
----
-title: 'Number Card'
-order: 5
-preview: true
-previewURL: 'https://ui.sprucecss.com/html/card/number-preview.html'
-previewHTML: true
-previewSCSS: true
-previewJS: true
-previewHeight: '16rem'
----
-
 <p class="lead">A JavaScript-based count-up number card where you can easily highlight your or your company's accomplishments.</p>
 
 ## Technical Details

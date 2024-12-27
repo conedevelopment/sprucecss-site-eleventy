@@ -1,10 +1,3 @@
----
-title: 'Order Card'
-order: 6
-previewURL: 'https://ui.sprucecss.com/html/card/order-preview.html'
-previewHeight: '26rem'
----
-
 <p class="lead">A simple order card for checkout or previous order page with metadata and quantity options.</p>
 
 ## Technical Details

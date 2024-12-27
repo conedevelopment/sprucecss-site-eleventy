@@ -3379,15 +3379,15 @@ pre[class*=language-] {
   gap: 1.5rem;
   place-content: center;
 }
-.ui--file-group {
+.ui--order-card, .ui--file-group {
   margin-inline: auto;
   max-inline-size: 45rem;
 }
-.ui--file-group > * {
+.ui--order-card > *, .ui--file-group > * {
   margin-block-end: 0;
   margin-block-start: 0;
 }
-.ui--file-group > * + * {
+.ui--order-card > * + *, .ui--file-group > * + * {
   margin-block-start: 1.5rem;
 }
 .ui--range-group {
@@ -3397,6 +3397,31 @@ pre[class*=language-] {
 .ui--accordion {
   margin-inline: auto;
   max-inline-size: 50rem;
+}
+.ui--info-card {
+  --column: 1;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(var(--column), minmax(0, 1fr));
+}
+@media (min-width: 64em) {
+  .ui--info-card {
+    --column: 2;
+  }
+}
+@media (min-width: 80em) {
+  .ui--info-card {
+    --column: 3;
+  }
+}
+.ui--number-card {
+  --inline-size: 12rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.ui--number-card > * {
+  flex: 1 1 var(--inline-size);
 }
 
 .ui-tablist {
