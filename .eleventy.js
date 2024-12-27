@@ -217,6 +217,13 @@ module.exports = config => {
     }
   });
 
+  config.addFilter('removeEmptyLines', (content) => {
+    return content
+      .split('\n')
+      .filter(line => line.trim() !== '')
+      .join('\n');
+  });
+
   config.on('eleventy.after', () => {
     execSync(`npx pagefind --site dist --glob \"**/*.html\"`, { encoding: 'utf-8' })
   });

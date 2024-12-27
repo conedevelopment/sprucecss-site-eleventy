@@ -3394,6 +3394,10 @@ pre[class*=language-] {
   margin-inline: auto;
   max-inline-size: 30rem;
 }
+.ui--accordion {
+  margin-inline: auto;
+  max-inline-size: 50rem;
+}
 
 .ui-tablist {
   display: flex;

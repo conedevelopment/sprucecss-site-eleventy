@@ -1,14 +1,3 @@
----
-title: 'Accordion Card'
-order: 3
-preview: true
-previewURL: 'https://ui.sprucecss.com/html/card/accordion-preview.html'
-previewHTML: true
-previewSCSS: true
-previewJS: true
-previewHeight: '29rem'
----
-
 <p class="lead">An accordion (or collapsible) card component can be helpful if you want to display more information in a smaller area. Using it, you can hide anything other than the title and show the rest on demand.</p>
 
 ## Technical Details

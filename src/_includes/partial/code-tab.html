@@ -76,9 +76,9 @@
         {% endif %}
 
         {% if html %}
-            <div id="tab-content-html" role="tabpanel" aria-labelledby="tab-control-html" x-show="activeTab === 'html'" data-code="{{ html | trim }}">
+            <div id="tab-content-html" role="tabpanel" aria-labelledby="tab-control-html" x-show="activeTab === 'html'" data-code="{{ html | removeEmptyLines | trim }}">
                 {% highlight "html" %}
-                    {{ html | safe }}
+                    {{ html | removeEmptyLines | safe }}
                 {% endhighlight %}
             </div>
         {% endif %}

@@ -1,8 +1,3 @@
----
-title: 'Config'
-order: 2
----
-
 <p class="lead">You can find specific configs on this page needed to get the styling you see. It is mostly color and typography customizations.</p>
 
 ## _config.scss
@@ -16,13 +11,6 @@ $color-primary-lightest: hsl(262deg 71% 98%);
 $color-danger: hsl(0deg 71% 51%);
 
 @use 'sprucecss/scss/spruce' with (
-  $btn: (
-    'font-family': #{'Manrope', sans-serif},
-    'font-weight': 600,
-  ),
-  $btn-lg: (
-    'font-size': 1rem,
-  ),
   $colors: (
     'base': (
       'primary-lightest': $color-primary-lightest,
@@ -88,27 +76,6 @@ $color-danger: hsl(0deg 71% 51%);
     ),
   ),
   $dark-colors: dark.$colors,
-  $form-check: (
-    'font-weight': 400,
-  ),
-  $form-label: (
-    'font-family': #{'Manrope', sans-serif},
-    'font-size': 1rem,
-    'font-weight': 600,
-  ),
-  $settings: (
-    'css-custom-properties': true,
-    'html-smooth-scrolling': false,
-    'print': true,
-    'utilities': (
-      'display': true,
-      'typography': true,
-    ),
-  ),
-  $typography: (
-    'font-family-base': #{'Open Sans', sans-serif},
-    'font-family-heading': #{'Manrope', sans-serif},
-  ),
 );
 
 ```
