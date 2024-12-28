@@ -4,6 +4,24 @@ title: 'Checkout'
 
 {% extends "layout/component.html" %}
 
+{% set preview %}
+    <div class="ui ui--site-footer">
+        {% include "ui/md/ecommerce/checkout.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/md/ecommerce/checkout.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/md/ecommerce/checkout.scss" %}
+{% endset %}
+
 {% set description %}
     {% include "ui/md/ecommerce/checkout.md" %}
 {% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/md/ecommerce/checkout.css">
+{% endblock %}
