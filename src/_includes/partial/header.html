@@ -2,8 +2,8 @@
     <div class="container">
         <div class="site-header__inner">
             <div class="site-header__column">
-                <a class="site-header__logo {% if page.fileSlug == 'ui' %}site-header__logo--ui{% endif %}" href="/" aria-label="Spruce CSS">
-                    {% if page.fileSlug == 'ui' %}
+                <a class="site-header__logo {% if page.url.includes('/ui/') %}site-header__logo--ui{% endif %}" href="/" aria-label="Spruce CSS">
+                    {% if page.url.includes('/ui/') %}
                         {% svgIcon "./src/img/spruce-ui-logo.svg" %}
                     {% else %}
                         {% svgIcon "./src/img/spruce-logo.svg" %}
