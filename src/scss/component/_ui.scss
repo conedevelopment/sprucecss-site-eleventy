@@ -69,6 +69,42 @@
     padding-inline: 0;
   }
 
+  &--invoice {
+    background-color: color('primary-lightest');
+  }
+
+  &--alert {
+    > * {
+      margin-inline: auto;
+      max-inline-size: 50rem;
+    }
+
+    > h2 {
+      margin-block: 0 spacer('s');
+    }
+
+    .alert + h2 {
+      margin-block-start: spacer('m');
+    }
+
+    .alert + .alert {
+      margin-block-start: spacer('s');
+    }
+  }
+
+  &--preloader {
+    color: color('primary');
+    display: flex;
+    gap: spacer('m');
+  }
+
+  &--auth-form {
+    .auth-form {
+      margin-inline: auto;
+      max-inline-size: 30rem;
+    }
+  }
+
   .bit {
     align-items: center;
     background-color: color('background', 'container');

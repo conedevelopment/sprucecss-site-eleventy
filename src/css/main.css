@@ -474,6 +474,11 @@ template {
 }
 
 :root {
+  --spruce-combobox-color-item-background: hsl(259, 53%, 98%);
+  --spruce-combobox-color-item-foreground: hsl(262, 71%, 49%);
+}
+
+:root {
   --spruce-cookie-color-background: hsl(207, 95%, 8%);
   --spruce-cookie-color-foreground: hsl(0, 0%, 100%);
 }
@@ -3446,6 +3451,31 @@ pre[class*=language-] {
 }
 .ui--container {
   padding-inline: 0;
+}
+.ui--invoice {
+  background-color: var(--spruce-base-color-primary-lightest);
+}
+.ui--alert > * {
+  margin-inline: auto;
+  max-inline-size: 50rem;
+}
+.ui--alert > h2 {
+  margin-block: 0 1rem;
+}
+.ui--alert .alert + h2 {
+  margin-block-start: 1.5rem;
+}
+.ui--alert .alert + .alert {
+  margin-block-start: 1rem;
+}
+.ui--preloader {
+  color: var(--spruce-base-color-primary);
+  display: flex;
+  gap: 1.5rem;
+}
+.ui--auth-form .auth-form {
+  margin-inline: auto;
+  max-inline-size: 30rem;
 }
 .ui .bit {
   align-items: center;

@@ -4,6 +4,24 @@ title: 'Auth Form'
 
 {% extends "layout/component.html" %}
 
+{% set preview %}
+    <div class="ui ui--auth-form">
+        {% include "ui/html/form/auth.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/form/auth.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/form/auth.scss" %}
+{% endset %}
+
 {% set description %}
     {% include "ui/md/form/auth.md" %}
 {% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/form/auth.css">
+{% endblock %}
