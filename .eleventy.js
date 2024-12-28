@@ -115,7 +115,31 @@ module.exports = config => {
 
   config.addCollection('ui', collection => {
     return [...collection.getFilteredByGlob('./src/ui/**/*.njk')].sort((a, b) => {
-      return a.data.order - b.data.order;
+      const categoryA = a.data.category || '';
+      const categoryB = b.data.category || '';
+      const titleA = a.data.title || '';
+      const titleB = b.data.title || '';
+
+      if (categoryA === 'Getting Started' && categoryB !== 'Getting Started') {
+        return -1;
+      }
+
+      if (categoryB === 'Getting Started' && categoryA !== 'Getting Started') {
+        return 1;
+      }
+
+      if (categoryA === 'Getting Started' && categoryB === 'Getting Started') {
+        if (titleA === 'Introduction') return -1;
+        if (titleB === 'Introduction') return 1;
+      }
+
+      const categoryComparison = categoryA.localeCompare(categoryB);
+
+      if (categoryComparison !== 0) {
+        return categoryComparison;
+      }
+
+      return titleA.localeCompare(titleB);
     });
   });
 
@@ -226,6 +250,22 @@ module.exports = config => {
       .split('\n')
       .filter(line => line.trim() !== '')
       .join('\n');
+  });
+
+  config.addFilter('groupBy', (array, key) => {
+    const grouped = {};
+
+    array.forEach(item => {
+      const groupKey = item.data[key] || 'Uncategorized';
+
+      if (!grouped[groupKey]) {
+        grouped[groupKey] = [];
+      }
+
+      grouped[groupKey].push(item);
+    });
+
+    return grouped;
   });
 
   config.on('eleventy.after', () => {
