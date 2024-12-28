@@ -1,0 +1,16 @@
+<div class="btn-dropdown" x-data="{ open: false }" @click.outside="open = false">
+    <button class="btn btn--primary btn--icon" :aria-expanded="open" @click="open = ! open">
+        Add section
+        <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </button>
+    <ul x-cloak x-show="open" x-transition class="context-menu context-menu--inline-start">
+        <li>
+            <button class="context-menu__item">YouTube Video</button>
+        </li>
+        <li>
+            <button class="context-menu__item">Testimonial</button>
+        </li>
+    </ul>
+</div>

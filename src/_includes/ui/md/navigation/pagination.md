@@ -1,10 +1,3 @@
----
-title: 'Pagination'
-order: 42
-previewURL: 'https://ui.sprucecss.com/html/navigation/pagination-preview.html'
-previewHeight: '13rem'
----
-
 <p class="lead">A simple button-like pagination section to display navigation for the post listings.</p>
 
 ## Variations

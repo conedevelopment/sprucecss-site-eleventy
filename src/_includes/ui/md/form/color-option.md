@@ -1,10 +1,3 @@
----
-title: 'Color Option'
-order: 24
-previewURL: 'https://ui.sprucecss.com/html/form/color-option-preview.html'
-previewHeight: '15rem'
----
-
 <p class="lead">A generic color option selector for e-commerce sites.</p>
 
 ## Technical Details

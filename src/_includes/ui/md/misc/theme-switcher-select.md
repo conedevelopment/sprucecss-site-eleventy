@@ -1,10 +1,3 @@
----
-title: 'Theme Switcher Select'
-order: 38
-previewURL: 'https://ui.sprucecss.com/html/misc/theme-switcher-select-preview.html'
-previewHeight: '14rem'
----
-
 <p class="lead">The theme switcher is a customized <strong>select</strong> element with a small script to control your theme modes.</p>
 
 ## Technical Details

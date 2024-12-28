@@ -1,10 +1,3 @@
----
-title: 'Alert'
-order: 21
-previewURL: 'https://ui.sprucecss.com/html/feedback/alert-preview.html'
-previewHeight: '30rem'
----
-
 <p class="lead">A generic alert component with different type variation and close option.'</p>
 
 ## Variations

@@ -199,6 +199,10 @@ module.exports = config => {
       }
     });
 
+    if (!toc) {
+      return;
+    }
+
     return `<div class="toc">
               <h3 class="toc__title">On this page</h3>
               <nav class="toc__navigation" aria-label="Table of Contents">

@@ -1,10 +1,3 @@
----
-title: 'Skip Link'
-order: 36
-previewURL: 'https://ui.sprucecss.com/html/misc/skip-link-preview.html'
-previewHeight: '20rem'
----
-
 <p class="lead">A skip link is a practical way of navigating with the keyboard. Usually, one is always needed to jump through your site’s header navigation to the main content (using an anchor).</p>
 
 In this example, we aren’t using any visual styling; we use the buttons of Spruce CSS.

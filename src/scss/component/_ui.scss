@@ -10,7 +10,8 @@
   }
 
   &--order-card,
-  &--file-group {
+  &--file-group,
+  &--payment-card {
     @include layout-stack('m');
     margin-inline: auto;
     max-inline-size: 45rem;
@@ -45,6 +46,37 @@
     --inline-size: 12rem;
 
     @include layout-flex;
+  }
+
+  &--post-card,
+  &--gallery {
+    --inline-size: 45rem;
+    margin-inline: auto;
+    max-inline-size: var(--inline-size);
+
+    > * + * {
+      border-block-start: 1px solid color('border');
+      margin-block-start: spacer('l');
+      padding-block-start: spacer('l');
+    }
+  }
+
+  &--gallery {
+    --inline-size: 65rem;
+  }
+
+  &--container {
+    padding-inline: 0;
+  }
+
+  .bit {
+    align-items: center;
+    background-color: color('background', 'container');
+    border-radius: 0.25rem;
+    display: flex;
+    justify-content: center;
+    margin-block: 1rem;
+    padding: 1rem;
   }
 }
 

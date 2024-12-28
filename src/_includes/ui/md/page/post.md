@@ -1,10 +1,3 @@
----
-title: 'Post Page'
-order: 46
-previewURL: 'https://ui.sprucecss.com/html/page/post-preview.html'
-previewHeight: '40rem'
----
-
 <p class="lead">An entire site layout for any post. It is helpful for a news or blog page.</p>
 
 ## Technical Details

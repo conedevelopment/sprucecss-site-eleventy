@@ -1,10 +1,3 @@
----
-title: 'Cookie Conset'
-order: 34
-previewURL: 'https://ui.sprucecss.com/html/misc/cookie-consent-preview.html'
-previewHeight: '20rem'
----
-
 <p class="lead">This component is one of the most basic implementations of the cookie consent banner.</p>
 
 ## How It Works

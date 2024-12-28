@@ -1,10 +1,3 @@
----
-title: 'Modal'
-order: 13
-previewURL: 'https://ui.sprucecss.com/html/content-and-layout/modal-preview.html'
-previewHeight: '40rem'
----
-
 <p class="lead">A generic - animated - modal component wrapper to display content over anything.</p>
 
 ## Technical Details

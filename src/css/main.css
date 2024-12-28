@@ -470,6 +470,10 @@ template {
 }
 
 :root {
+  --spruce-container-color-background: hsl(0, 0%, 95%);
+}
+
+:root {
   --spruce-cookie-color-background: hsl(207, 95%, 8%);
   --spruce-cookie-color-foreground: hsl(0, 0%, 100%);
 }
@@ -1666,6 +1670,10 @@ legend {
 }
 
 :root[data-theme-mode=dark] {
+  --spruce-container-color-background: hsl(207, 92%, 12%);
+}
+
+:root[data-theme-mode=dark] {
   --spruce-form-color-background: hsl(206, 100%, 11.65%);
   --spruce-form-color-background-disabled: hsl(206, 100%, 7%);
   --spruce-form-color-border: hsla(0, 0%, 100%, 0.08);
@@ -2556,7 +2564,7 @@ textarea.pagefind-ui__search-input {
   content: "No recent searches";
 }
 
-.modal-backdrop {
+.spruce-modal-backdrop {
   align-items: start;
   backdrop-filter: blur(0.15rem);
   background-color: var(--spruce-modal-color-background);
@@ -2568,11 +2576,11 @@ textarea.pagefind-ui__search-input {
   position: fixed;
   z-index: 25;
 }
-.modal-backdrop--open {
+.spruce-modal-backdrop--open {
   display: flex;
 }
 
-.modal {
+.spruce-modal {
   background-color: var(--spruce-base-color-background);
   border: 1px solid var(--spruce-base-color-border);
   border-radius: var(--spruce-border-radius-sm);
@@ -3379,15 +3387,15 @@ pre[class*=language-] {
   gap: 1.5rem;
   place-content: center;
 }
-.ui--order-card, .ui--file-group {
+.ui--order-card, .ui--file-group, .ui--payment-card {
   margin-inline: auto;
   max-inline-size: 45rem;
 }
-.ui--order-card > *, .ui--file-group > * {
+.ui--order-card > *, .ui--file-group > *, .ui--payment-card > * {
   margin-block-end: 0;
   margin-block-start: 0;
 }
-.ui--order-card > * + *, .ui--file-group > * + * {
+.ui--order-card > * + *, .ui--file-group > * + *, .ui--payment-card > * + * {
   margin-block-start: 1.5rem;
 }
 .ui--range-group {
@@ -3422,6 +3430,31 @@ pre[class*=language-] {
 }
 .ui--number-card > * {
   flex: 1 1 var(--inline-size);
+}
+.ui--post-card, .ui--gallery {
+  --inline-size: 45rem;
+  margin-inline: auto;
+  max-inline-size: var(--inline-size);
+}
+.ui--post-card > * + *, .ui--gallery > * + * {
+  border-block-start: 1px solid var(--spruce-base-color-border);
+  margin-block-start: 3rem;
+  padding-block-start: 3rem;
+}
+.ui--gallery {
+  --inline-size: 65rem;
+}
+.ui--container {
+  padding-inline: 0;
+}
+.ui .bit {
+  align-items: center;
+  background-color: var(--spruce-container-color-background);
+  border-radius: 0.25rem;
+  display: flex;
+  justify-content: center;
+  margin-block: 1rem;
+  padding: 1rem;
 }
 
 .ui-tablist {

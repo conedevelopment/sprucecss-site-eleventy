@@ -1,10 +1,3 @@
----
-title: 'Breadcrumb List'
-order: 39
-previewURL: 'https://ui.sprucecss.com/html/navigation/breadcrumb-list-preview.html'
-previewHeight: '12rem'
----
-
 <p class="lead">The breadcrumb is a standard navigation element that helps the user identify their site location.</p>
 
 ## Technical Details

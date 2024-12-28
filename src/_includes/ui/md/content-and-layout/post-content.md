@@ -1,10 +1,3 @@
----
-title: 'Post Content'
-order: 15
-previewURL: 'https://ui.sprucecss.com/html/content-and-layout/post-content-preview.html'
-previewHeight: '40rem'
----
-
 <p class="lead">A centered post layout with overflown media elements.</p>
 
 ## Technical Details

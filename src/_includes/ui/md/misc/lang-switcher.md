@@ -1,10 +1,3 @@
----
-title: 'Lang Switcher'
-order: 35
-previewURL: 'https://ui.sprucecss.com/html/misc/lang-siwtcher.html'
-previewHeight: '13rem'
----
-
 <p class="lead">A plain dropdown language switcher.</p>
 
 ## Technical Details

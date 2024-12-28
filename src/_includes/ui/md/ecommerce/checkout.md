@@ -1,10 +1,3 @@
----
-title: 'Checkout'
-order: 19
-previewURL: 'https://ui.sprucecss.com/html/ecommerce/checkout-preview.html'
-previewHeight: '50rem'
----
-
 <p class="lead">A summary checkout page with "Billing information", "Payment Method" and "Order Summary".</p>
 
 ## Technical Details

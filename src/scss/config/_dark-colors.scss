@@ -48,6 +48,9 @@ $colors: (
     'secondary-foreground': $dark-color-white,
     'secondary-shadow': color.adjust($dark-color-secondary, $lightness: -20%),
   ),
+  'container': (
+    'background': hsl(207deg 92% 12%),
+  ),
   'form': (
     'background': color.scale($dark-color-black, $lightness: 5%),
     'background-disabled': $dark-color-black,

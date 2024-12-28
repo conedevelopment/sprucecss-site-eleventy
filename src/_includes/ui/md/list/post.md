@@ -1,10 +1,3 @@
----
-title: 'Post List'
-order: 32
-previewURL: 'https://ui.sprucecss.com/html/list/post-preview.html'
-previewHeight: '40rem'
----
-
 <p class="lead">A grid-based post list is a generic and usually needed displaying method of any of your posts.</p>
 
 ## Technical Details

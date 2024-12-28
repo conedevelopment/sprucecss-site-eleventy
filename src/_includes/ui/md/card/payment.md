@@ -1,10 +1,3 @@
----
-title: 'Payment Card'
-order: 7
-previewURL: 'https://ui.sprucecss.com/html/card/payment-preview.html'
-previewHeight: '26rem'
----
-
 <p class="lead">A payment selection card for a checkout page operated with a simple radio button.</p>
 
 ## Technical Details

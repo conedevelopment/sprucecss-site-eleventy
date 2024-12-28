@@ -1,15 +1,8 @@
----
-title: 'Post Card'
-order: 8
-previewURL: 'https://ui.sprucecss.com/html/card/post-preview.html'
-previewHeight: '37rem'
----
-
 <p class="lead">The post card component is a generic UI element we can use in many cases, but it is the most common in post (blog, news) listings.</p>
 
 There isn’t much work with the card component because the requirements mainly depend on the context. Nonetheless, it would be best if you watched for the following:
 
-- if you use an image, you must set a [proper](https://bite-sized-a11y.com/4-write-better-alt-text/) `alt` value.
+- if you use an image, you must set a [proper](https://adamlaki.com/bite-sized-accessibility/4-write-better-alt-text/) `alt` value.
 - If you list them, using a list with `<ul>` and `<li>` is a good idea.
 - If you have a publication date, use the <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time">time</a></code> element.
 
@@ -29,5 +22,4 @@ There isn’t much work with the card component because the requirements mainly 
 
 ## Resources
 
-- Image: [1](https://unsplash.com/photos/WCID2JWoxwE)
 - [A detailed post about the card component](https://inclusive-components.design/cards/)

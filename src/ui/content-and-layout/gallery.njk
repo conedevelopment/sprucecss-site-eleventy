@@ -1,0 +1,29 @@
+---
+title: 'Gallery'
+order: 12
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--gallery">
+        {% include "ui/html/content-and-layout/gallery.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/content-and-layout/gallery.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/content-and-layout/gallery.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/content-and-layout/gallery.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/gallery.css">
+{% endblock %}
+

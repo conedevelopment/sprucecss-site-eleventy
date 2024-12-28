@@ -1,10 +1,3 @@
----
-title: 'Theme Switcher Button'
-order: 37
-previewURL: 'https://ui.sprucecss.com/html/misc/theme-switcher-button-preview.html'
-previewHeight: '14rem'
----
-
 <p class="lead">The theme switcher is a group of <strong>button</strong> elements with a small script to control your theme modes.</p>
 
 ## Technical Details

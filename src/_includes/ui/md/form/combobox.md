@@ -1,10 +1,3 @@
----
-title: 'Combobox'
-order: 25
-previewURL: 'https://ui.sprucecss.com/html/form/combobox-preview.html'
-previewHeight: '30rem'
----
-
 <p class="lead">A fully functional combobox for multi-selecting items.</p>
 
 ## Technical Details

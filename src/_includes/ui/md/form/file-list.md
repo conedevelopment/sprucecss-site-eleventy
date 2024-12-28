@@ -1,10 +1,3 @@
----
-title: 'File List'
-order: 27
-previewURL: 'https://ui.sprucecss.com/html/form/file-list-preview.html'
-previewHeight: '30rem'
----
-
 <p class="lead">A file list section if you create a multi-selectable file selection field.</p>
 
 ## Technical Details

@@ -1,10 +1,3 @@
----
-title: 'Invoice'
-order: 20
-previewURL: 'https://ui.sprucecss.com/html/ecommerce/invoice-preview.html'
-previewHeight: '50rem'
----
-
 <p class="lead">A generic, print-ready invoice template. It looks good on the screen, but you can also print it.</p>
 
 ## Technical Details

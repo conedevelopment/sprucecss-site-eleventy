@@ -1,10 +1,3 @@
----
-title: 'Size Option'
-order: 30
-previewURL: 'https://ui.sprucecss.com/html/form/size-option-preview.html'
-previewHeight: '15rem'
----
-
 <p class="lead">A generic size option selector for e-commerce sites.</p>
 
 ## Technical Details

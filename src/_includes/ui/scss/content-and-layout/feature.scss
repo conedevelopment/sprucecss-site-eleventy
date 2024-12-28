@@ -33,6 +33,8 @@
   &__thumbnail {
     aspect-ratio: 6 / 4.5;
     border-radius: config('border-radius-lg', $display);
+    object-fit: cover;
+    object-position: center;
   }
 
   &__caption {

@@ -1,10 +1,3 @@
----
-title: 'Gallery'
-order: 12
-previewURL: 'https://ui.sprucecss.com/html/content-and-layout/gallery-preview.html'
-previewHeight: '40rem'
----
-
 <p class="lead">Different types of grids to show galleries.</p>
 
 ## Variations

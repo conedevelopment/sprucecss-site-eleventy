@@ -1,10 +1,3 @@
----
-title: 'Preloader'
-order: 22
-previewURL: 'https://ui.sprucecss.com/html/feedback/preloader-preview.html'
-previewHeight: '10rem'
----
-
 <p class="lead"> These square-based preloaders can add loading states to your screen or buttons.</p>
 
 ## Variations

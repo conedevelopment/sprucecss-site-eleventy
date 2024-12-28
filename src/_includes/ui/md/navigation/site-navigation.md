@@ -1,10 +1,3 @@
----
-title: 'Site Navigation'
-order: 44
-previewURL: 'https://ui.sprucecss.com/html/navigation/site-navigation-preview.html'
-previewHeight: '20rem'
----
-
 <p class="lead">The site navigation component is a simple hamburger toggle button on mobile controlled by the <code>aria-expanded</code> attribute.</p>
 
 ## Technical Details
