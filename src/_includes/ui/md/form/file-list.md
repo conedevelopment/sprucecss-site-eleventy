@@ -12,8 +12,6 @@
 $colors: (
   'media': (
     'background': hsl(262deg 71% 98%),
-    'dropzone-background': hsl(214deg 98% 49% / 75%),
-    'dropzone-border': hsl(214deg 98% 40%),
     'icon': hsl(262deg 71% 49%),
   ),
 ),

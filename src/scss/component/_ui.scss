@@ -105,6 +105,12 @@
     }
   }
 
+  &--combobox {
+    block-size: 25rem;
+    margin-inline: auto;
+    max-inline-size: 40rem;
+  }
+
   .bit {
     align-items: center;
     background-color: color('background', 'container');

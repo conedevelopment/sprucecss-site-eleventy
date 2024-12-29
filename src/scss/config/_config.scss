@@ -73,6 +73,10 @@ $color-dark: hsl(260deg 70% 6%);
       'icon-foreground': hsl(262deg 71% 49%),
       'icon-foreground-hover': hsl(0deg 0% 100%),
     ),
+    'media': (
+      'background': $color-primary-lightest,
+      'icon': hsl(262deg 71% 49%),
+    ),
     'modal': (
       'background': hsl(210deg 60% 98% / 70%),
     ),

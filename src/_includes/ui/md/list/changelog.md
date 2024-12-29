@@ -1,4 +1,4 @@
-p class="lead">A generic changelog layout to display anything in a date change list.</p>
+<p class="lead">A generic changelog layout to display anything in a date change list.</p>
 
 ## Resources
 

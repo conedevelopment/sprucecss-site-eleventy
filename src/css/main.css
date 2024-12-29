@@ -506,6 +506,11 @@ template {
 }
 
 :root {
+  --spruce-media-color-background: hsl(259, 53%, 98%);
+  --spruce-media-color-icon: hsl(262, 71%, 49%);
+}
+
+:root {
   --spruce-modal-color-background: hsla(210, 60%, 98%, 0.7);
 }
 
@@ -3476,6 +3481,11 @@ pre[class*=language-] {
 .ui--auth-form .auth-form {
   margin-inline: auto;
   max-inline-size: 30rem;
+}
+.ui--combobox {
+  block-size: 25rem;
+  margin-inline: auto;
+  max-inline-size: 40rem;
 }
 .ui .bit {
   align-items: center;

@@ -4,6 +4,24 @@ title: 'File List'
 
 {% extends "layout/component.html" %}
 
+{% set preview %}
+    <div class="ui ui--file-group">
+        {% include "ui/html/form/file-list.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/form/file-list.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/form/file-list.scss" %}
+{% endset %}
+
 {% set description %}
     {% include "ui/md/form/file-list.md" %}
 {% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/form/file-list.css">
+{% endblock %}
