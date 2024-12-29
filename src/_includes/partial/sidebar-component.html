@@ -1,6 +1,6 @@
 {% set grouped = collections.ui | groupBy('category') %}
 
-<aside class="sidebar l-documentation__sidebar">
+<aside class="sidebar">
     {% for category, items in grouped %}
         <div class="sidebar-section">
             <h3 class="sidebar-section__title">{{ category }}</h3>

@@ -4,6 +4,24 @@ title: 'Breadcrumb List'
 
 {% extends "layout/component.html" %}
 
+{% set preview %}
+    <div class="ui ui--center ui--breadcrumb-list">
+        {% include "ui/html/navigation/breadcrumb-list.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/navigation/breadcrumb-list.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/navigation/breadcrumb-list.scss" %}
+{% endset %}
+
 {% set description %}
     {% include "ui/md/navigation/breadcrumb-list.md" %}
 {% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/navigation/breadcrumb-list.css">
+{% endblock %}

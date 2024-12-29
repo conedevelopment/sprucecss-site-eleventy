@@ -4,6 +4,32 @@ title: 'Cookie Conset'
 
 {% extends "layout/component.html" %}
 
+{% set preview %}
+    <div class="ui ui--cookie-consent">
+        {% include "ui/html/misc/cookie-consent.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/misc/cookie-consent.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/misc/cookie-consent.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/misc/cookie-consent.js" %}
+{% endset %}
+
 {% set description %}
     {% include "ui/md/misc/cookie-consent.md" %}
 {% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/misc/cookie-consent.css">
+{% endblock %}
+
+{% block script %}
+    <script type="module" src="/_includes/ui/js/misc/cookie-consent.js"></script>
+{% endblock %}

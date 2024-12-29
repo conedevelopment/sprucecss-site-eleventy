@@ -4,6 +4,25 @@ title: 'Auth Page'
 
 {% extends "layout/component.html" %}
 
+{% set preview %}
+    <div class="ui ui--auth">
+        {% include "ui/html/page/auth.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/page/auth.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/page/auth.scss" %}
+{% endset %}
+
 {% set description %}
     {% include "ui/md/page/auth.md" %}
 {% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/page/auth.css">
+    <link rel="stylesheet" href="/_includes/ui/css/form/auth.css">
+{% endblock %}

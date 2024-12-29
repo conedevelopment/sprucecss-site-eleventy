@@ -3067,6 +3067,14 @@ textarea.pagefind-ui__search-input {
   }
 }
 
+.sidebar > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.sidebar > * + * {
+  margin-block-start: 1.5rem;
+}
+
 .sidebar-section__title {
   color: var(--spruce-base-color-heading);
   font-size: var(--spruce-font-size-base);
@@ -3097,12 +3105,12 @@ textarea.pagefind-ui__search-input {
   color: var(--spruce-base-color-text);
   text-decoration: none;
 }
-.sidebar-section__navigation a[data-state=active] {
+.sidebar-section__navigation a[aria-current=page] {
   color: var(--spruce-base-color-heading);
   font-weight: 700;
   position: relative;
 }
-.sidebar-section__navigation a[data-state=active]::before {
+.sidebar-section__navigation a[aria-current=page]::before {
   background-color: var(--spruce-base-color-primary);
   border-radius: 0 var(--spruce-border-radius-sm) var(--spruce-border-radius-sm) 0;
   content: "";
@@ -3397,24 +3405,52 @@ pre[class*=language-] {
   gap: 1.5rem;
   place-content: center;
 }
-.ui--order-card, .ui--file-group, .ui--payment-card {
+.ui--order-card, .ui--file-group, .ui--payment-card, .ui--range-group, .ui--accordion, .ui--changelog, .ui--combobox, .ui--timeline {
+  --inline-size: 45rem;
   margin-inline: auto;
-  max-inline-size: 45rem;
+  max-inline-size: var(--inline-size);
 }
-.ui--order-card > *, .ui--file-group > *, .ui--payment-card > * {
+.ui--order-card > *, .ui--file-group > *, .ui--payment-card > *, .ui--range-group > *, .ui--accordion > *, .ui--changelog > *, .ui--combobox > *, .ui--timeline > * {
   margin-block-end: 0;
   margin-block-start: 0;
 }
-.ui--order-card > * + *, .ui--file-group > * + *, .ui--payment-card > * + * {
+.ui--order-card > * + *, .ui--file-group > * + *, .ui--payment-card > * + *, .ui--range-group > * + *, .ui--accordion > * + *, .ui--changelog > * + *, .ui--combobox > * + *, .ui--timeline > * + * {
   margin-block-start: 1.5rem;
 }
-.ui--range-group {
+.ui--post-card, .ui--gallery {
+  --inline-size: 45rem;
   margin-inline: auto;
-  max-inline-size: 30rem;
+  max-inline-size: var(--inline-size);
 }
-.ui--accordion {
-  margin-inline: auto;
-  max-inline-size: 50rem;
+.ui--post-card > * + *, .ui--gallery > * + * {
+  border-block-start: 1px solid var(--spruce-base-color-border);
+  margin-block-start: 3rem;
+  padding-block-start: 3rem;
+}
+.ui--gallery {
+  --inline-size: 65rem;
+}
+.ui--range-group {
+  --inline-size: 30rem;
+}
+.ui--accordion, .ui--timeline {
+  --inline-size: 50rem;
+}
+.ui--changelog {
+  --inline-size: 60rem;
+}
+.ui--combobox {
+  --inline-size: 40rem;
+  block-size: 25rem;
+}
+.ui--lang-switcher {
+  block-size: 12.5rem;
+}
+.ui--skip-link {
+  position: relative;
+}
+.ui--skip-link .skip-link {
+  position: absolute;
 }
 .ui--info-card {
   --column: 1;
@@ -3441,20 +3477,7 @@ pre[class*=language-] {
 .ui--number-card > * {
   flex: 1 1 var(--inline-size);
 }
-.ui--post-card, .ui--gallery {
-  --inline-size: 45rem;
-  margin-inline: auto;
-  max-inline-size: var(--inline-size);
-}
-.ui--post-card > * + *, .ui--gallery > * + * {
-  border-block-start: 1px solid var(--spruce-base-color-border);
-  margin-block-start: 3rem;
-  padding-block-start: 3rem;
-}
-.ui--gallery {
-  --inline-size: 65rem;
-}
-.ui--container {
+.ui--post, .ui--container {
   padding-inline: 0;
 }
 .ui--invoice {
@@ -3482,10 +3505,14 @@ pre[class*=language-] {
   margin-inline: auto;
   max-inline-size: 30rem;
 }
-.ui--combobox {
-  block-size: 25rem;
-  margin-inline: auto;
-  max-inline-size: 40rem;
+.ui--context-menu {
+  block-size: 20rem;
+}
+.ui--context-menu .btn-dropdown {
+  position: relative;
+}
+.ui--site-navigation {
+  block-size: 15rem;
 }
 .ui .bit {
   align-items: center;
@@ -3993,14 +4020,8 @@ pre[class*=language-] {
 .l-documentation__sidebar {
   inset-block-start: 2rem;
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding-inline-end: 1.5rem;
-}
-.l-documentation__sidebar > * {
-  margin-block-end: 0;
-  margin-block-start: 0;
-}
-.l-documentation__sidebar > * + * {
-  margin-block-start: 1.5rem;
 }
 .l-documentation__sidebar::-webkit-scrollbar {
   block-size: 0.5rem;

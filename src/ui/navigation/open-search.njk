@@ -4,6 +4,24 @@ title: 'Open Search Button'
 
 {% extends "layout/component.html" %}
 
+{% set preview %}
+    <div class="ui ui--center ui--open-search">
+        {% include "ui/html/navigation/open-search.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/navigation/open-search.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/navigation/open-search.scss" %}
+{% endset %}
+
 {% set description %}
     {% include "ui/md/navigation/open-search.md" %}
 {% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/navigation/open-search.css">
+{% endblock %}

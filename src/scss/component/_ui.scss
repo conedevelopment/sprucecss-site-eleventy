@@ -11,20 +11,63 @@
 
   &--order-card,
   &--file-group,
-  &--payment-card {
+  &--payment-card,
+  &--range-group,
+  &--accordion,
+  &--changelog,
+  &--combobox,
+  &--timeline {
+    --inline-size: 45rem;
     @include layout-stack('m');
     margin-inline: auto;
-    max-inline-size: 45rem;
+    max-inline-size: var(--inline-size);
+  }
+
+  &--post-card,
+  &--gallery {
+    --inline-size: 45rem;
+    margin-inline: auto;
+    max-inline-size: var(--inline-size);
+
+    > * + * {
+      border-block-start: 1px solid color('border');
+      margin-block-start: spacer('l');
+      padding-block-start: spacer('l');
+    }
+  }
+
+  &--gallery {
+    --inline-size: 65rem;
   }
 
   &--range-group {
-    margin-inline: auto;
-    max-inline-size: 30rem;
+    --inline-size: 30rem;
   }
 
-  &--accordion {
-    margin-inline: auto;
-    max-inline-size: 50rem;
+  &--accordion,
+  &--timeline {
+    --inline-size: 50rem;
+  }
+
+  &--changelog {
+    --inline-size: 60rem;
+  }
+
+  &--combobox {
+    --inline-size: 40rem;
+    block-size: 25rem;
+  }
+
+  &--lang-switcher {
+    block-size: 12.5rem;
+  }
+
+  &--skip-link {
+    position: relative;
+
+    .skip-link {
+      position: absolute;
+    }
   }
 
   &--info-card {
@@ -48,23 +91,7 @@
     @include layout-flex;
   }
 
-  &--post-card,
-  &--gallery {
-    --inline-size: 45rem;
-    margin-inline: auto;
-    max-inline-size: var(--inline-size);
-
-    > * + * {
-      border-block-start: 1px solid color('border');
-      margin-block-start: spacer('l');
-      padding-block-start: spacer('l');
-    }
-  }
-
-  &--gallery {
-    --inline-size: 65rem;
-  }
-
+  &--post,
   &--container {
     padding-inline: 0;
   }
@@ -105,10 +132,16 @@
     }
   }
 
-  &--combobox {
-    block-size: 25rem;
-    margin-inline: auto;
-    max-inline-size: 40rem;
+  &--context-menu {
+    block-size: 20rem;
+
+    .btn-dropdown {
+      position: relative;
+    }
+  }
+
+  &--site-navigation {
+    block-size: 15rem;
   }
 
   .bit {
