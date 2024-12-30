@@ -1,6 +1,6 @@
 @use 'sprucecss/scss/spruce' as *;
 
-.accordion-card {
+.sprucecss-accordion-card {
   $this: &;
   background-color: color('background');
   border: 1px solid color('border');

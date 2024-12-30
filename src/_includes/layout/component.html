@@ -22,7 +22,13 @@
                 <div class="l-documentation__body-helper">
                     <div class="l-documentation__body">
                         <div class="l-documentation__title-helper">
-                            <h1 class="l-documentation__title">{{ title }}</h1>
+                            <h1 class="l-documentation__title">
+                                {% if extendedTitle %}
+                                    {{ extendedTitle }}
+                                {% else %}
+                                    {{ title }}
+                                {% endif %}
+                            </h1>
                         </div>
                         <div class="l-documentation__table-of-content-helper">
                             <div class="l-documentation__table-of-content">

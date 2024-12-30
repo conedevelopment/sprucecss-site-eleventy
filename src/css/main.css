@@ -1986,11 +1986,11 @@ legend {
   text-align: start;
 }
 
-.accordion-list > * {
+.sprucecss-accordion-list > * {
   margin-block-end: 0;
   margin-block-start: 0;
 }
-.accordion-list > * + * {
+.sprucecss-accordion-list > * + * {
   margin-block-start: 1rem;
 }
 
@@ -2028,20 +2028,20 @@ legend {
   text-transform: uppercase;
 }
 
-.accordion-card {
+.sprucecss-accordion-card {
   background-color: var(--spruce-base-color-background);
   border: 1px solid var(--spruce-base-color-border);
   border-radius: var(--spruce-border-radius-lg);
 }
-.accordion-card__title {
+.sprucecss-accordion-card__title {
   font-size: clamp(1.0625rem, 2vw + 1rem, 1.25rem);
   margin-block: 0;
   padding: 1.5rem;
 }
-.accordion-card__title:has(.accordion-card__toggle) {
+.sprucecss-accordion-card__title:has(.sprucecss-accordion-card__toggle) {
   padding: 0;
 }
-.accordion-card__toggle {
+.sprucecss-accordion-card__toggle {
   background: none;
   border: 0;
   color: inherit;
@@ -2057,17 +2057,17 @@ legend {
   padding: 1.5rem;
   text-align: start;
 }
-.accordion-card__toggle:focus-visible .accordion-card__icon {
+.sprucecss-accordion-card__toggle:focus-visible .sprucecss-accordion-card__icon {
   outline: 2px solid var(--spruce-btn-color-primary-background);
   outline-offset: 2px;
 }
-.accordion-card__toggle[aria-expanded=true] svg {
+.sprucecss-accordion-card__toggle[aria-expanded=true] svg {
   rotate: 90deg;
 }
-.accordion-card__toggle[aria-expanded=true] .horizontal-line {
+.sprucecss-accordion-card__toggle[aria-expanded=true] .horizontal-line {
   opacity: 0;
 }
-.accordion-card__icon {
+.sprucecss-accordion-card__icon {
   --size: 1.75rem;
   align-items: center;
   background-color: var(--spruce-btn-color-primary-background);
@@ -2079,7 +2079,7 @@ legend {
   inline-size: var(--size);
   justify-content: center;
 }
-.accordion-card__icon svg {
+.sprucecss-accordion-card__icon svg {
   --size: 1.25rem;
   transition-duration: var(--spruce-duration);
   transition-property: all;
@@ -2087,39 +2087,39 @@ legend {
   block-size: var(--size);
   inline-size: var(--size);
 }
-.accordion-card__icon .horizontal-line {
+.sprucecss-accordion-card__icon .horizontal-line {
   transition-duration: var(--spruce-duration);
   transition-property: all;
   transition-timing-function: var(--spruce-timing-function);
 }
-.accordion-card__content {
+.sprucecss-accordion-card__content {
   transition-duration: var(--spruce-duration);
   transition-property: grid-template-rows;
   transition-timing-function: var(--spruce-timing-function);
   display: grid;
   padding-inline: 1.5rem;
 }
-.accordion-card__content[aria-hidden=true] {
+.sprucecss-accordion-card__content[aria-hidden=true] {
   grid-template-rows: 0fr;
 }
-.accordion-card__content[aria-hidden=false] {
+.sprucecss-accordion-card__content[aria-hidden=false] {
   grid-template-rows: 1fr;
   padding-block-end: 1.5rem;
 }
-.accordion-card__content > div {
+.sprucecss-accordion-card__content > div {
   overflow: hidden;
 }
-.accordion-card__content > div > * {
+.sprucecss-accordion-card__content > div > * {
   margin-block-end: 0;
   margin-block-start: 0;
 }
-.accordion-card__content > div > * + * {
+.sprucecss-accordion-card__content > div > * + * {
   margin-block-start: 0.5rem;
 }
-.accordion-card__content > div * + h2,
-.accordion-card__content > div * + h3,
-.accordion-card__content > div * + h4,
-.accordion-card__content > div * + h5 {
+.sprucecss-accordion-card__content > div * + h2,
+.sprucecss-accordion-card__content > div * + h3,
+.sprucecss-accordion-card__content > div * + h4,
+.sprucecss-accordion-card__content > div * + h5 {
   margin-block-start: 1rem;
 }
 

@@ -23,7 +23,13 @@
 }" x-cloak class="code-tab">
     <div class="code-tab__header">
         <div class="code-tab__group code-tab__group--title">
-            <p class="code-tab__title">{{ title }}</p>
+            <p class="code-tab__title">
+                {% if extendedTitle %}
+                    {{ extendedTitle }}
+                {% else %}
+                    {{ title }}
+                {% endif %}
+            </p>
         </div>
         <ul class="code-tab__group code-tab__group--tabs">
             {% if preview %}

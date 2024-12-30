@@ -1,4 +1,4 @@
-<p class="lead">This collection of reusable user interfaces (total of {{ collections.ui.length - 2 }}) aims to help you create more coherently with Spruce CSS. These are useful, modern, expanding patterns that can assist you in your daily development job.</p>
+<p class="lead">This collection of reusable user interfaces (total of {{ collections.ui.length - 1 }}) aims to help you create more coherently with Spruce CSS. These are useful, modern, expanding patterns that can assist you in your daily development job.</p>
 
 ## Patterns and Components
 
