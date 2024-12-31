@@ -4,5 +4,3 @@
 
 - Our count-up number card utilizes straightforward JavaScript code that includes an observer. This observer detects when the items are in the viewport.
 - Modify the `duration` in the JS file to configure the animation duration.
-- The `.l-number` is a simple layout; feel free to remove it if you have a custom solution.
-

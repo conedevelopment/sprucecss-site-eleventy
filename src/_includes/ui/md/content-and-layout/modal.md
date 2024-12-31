@@ -9,9 +9,9 @@
 
 - [Alpine.js](https://alpinejs.dev/) - Some or all of the components require Alpine.js for functionality.
 - [Alpine.js Focus Plugin](https://alpinejs.dev/plugins/focus) - You should also consider adding the focus plugin for better focus management.
-- [Auth Form](/ui/form/auth/)
+- [Auth Form](/ui/form/auth/) - The content preview inside of the modal.
 
-<Notification type="info">For this component there are some extra variables at the <a href="/ui/getting-started/config/">config page</a> like you see it below.</Notification>
+## Colors
 
 ```scss
 $colors: (

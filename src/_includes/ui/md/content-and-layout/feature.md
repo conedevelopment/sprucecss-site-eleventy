@@ -9,7 +9,3 @@
 
 - It uses `order` to display the images first on mobile regardless of the variation.
 - For the thumbnail, you can use `aspect-ratio` to customize its dimension.
-
-## Resources
-
-- Images: [1](https://unsplash.com/photos/3iiyde9Zj8A), [2](https://unsplash.com/photos/xW7L8MnnBdA)
