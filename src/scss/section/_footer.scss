@@ -1,7 +1,7 @@
 @use '../config/dark-colors' as dark;
 @use 'sprucecss/scss/spruce' as *;
 
-.site-footer {
+.sprucecss-site-footer {
   background-color: color('background', 'footer');
   color: hsl(0deg 0% 100% / 85%);
   font-size: 1rem;
