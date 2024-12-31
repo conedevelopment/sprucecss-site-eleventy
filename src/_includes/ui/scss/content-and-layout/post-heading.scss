@@ -11,6 +11,7 @@
   &__title {
     font-size: responsive-font-size(4.5rem, 50, '5vw + 1rem');
     margin-block: 0;
+    text-wrap: balance;
   }
 
   &__meta {

@@ -3,6 +3,7 @@
 ## Technical Details
 
 - The `grid` layout is needed the scrolling functionality of the breadcrumb list.
+- Using `text-wrap: balance;` to break the title a bit better.
 
 ## Dependencies
 
