@@ -1,6 +1,7 @@
 (() => {
-  const button = document.querySelector('[data-action="navigation-toggle"]');
-  const menu = document.querySelector('.navigation-menu');
+  const navigation = document.querySelector('.site-navigation');
+  const button = navigation.querySelector('[data-action="navigation-toggle"]');
+  const menu = navigation.querySelector('.navigation-menu');
   const mq = window.matchMedia('(max-width: 64em)');
 
   if (!menu || typeof button === 'undefined') return;

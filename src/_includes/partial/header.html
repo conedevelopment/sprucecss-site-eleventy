@@ -1,8 +1,8 @@
-<header class="site-header">
+<header class="sprucecss-site-header">
     <div class="container">
-        <div class="site-header__inner">
-            <div class="site-header__column">
-                <a class="site-header__logo {% if page.url.includes('/ui/') %}site-header__logo--ui{% endif %}" href="/" aria-label="Spruce CSS">
+        <div class="sprucecss-site-header__inner">
+            <div class="sprucecss-site-header__column">
+                <a class="sprucecss-site-header__logo {% if page.url.includes('/ui/') %}sprucecss-site-header__logo--ui{% endif %}" href="/" aria-label="Spruce CSS">
                     {% if page.url.includes('/ui/') %}
                         {% svgIcon "./src/img/spruce-ui-logo.svg" %}
                     {% else %}
@@ -10,11 +10,11 @@
                     {% endif %}
                 </a>
                 <nav
-                    class="site-navigation site-header__navigation"
+                    class="sprucecss-site-navigation sprucecss-site-header__navigation"
                     aria-label="Site"
                 >
                     <button
-                        class="btn btn--primary btn--icon btn--rounded site-navigation__btn"
+                        class="btn btn--primary btn--icon btn--rounded sprucecss-site-navigation__btn"
                         data-action="navigation-toggle"
                         aria-controls="primary-menu"
                         aria-expanded="false"
@@ -40,12 +40,12 @@
                 </nav>
             </div>
             {% if site.socials.length %}
-                <div class="site-header__actions">
+                <div class="sprucecss-site-header__actions">
                     {% include "partial/open-search.html" %}
-                    <button class="btn btn--primary btn--icon btn--rounded site-header__search-btn" aria-label="Search" data-action="open-search">
+                    <button class="btn btn--primary btn--icon btn--rounded sprucecss-site-header__search-btn" aria-label="Search" data-action="open-search">
                         {% svgIcon "./src/_includes/icon/search.svg", "btn__icon" %}
                     </button>
-                    <div class="site-header__socials">
+                    <div class="sprucecss-site-header__socials">
                         {% for social in site.socials %}
                             <a
                                 aria-label="{{ social.name }}"

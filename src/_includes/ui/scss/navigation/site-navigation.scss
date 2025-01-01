@@ -2,7 +2,6 @@
 
 .site-navigation {
   --inset-block-start: 6rem;
-  font-family: config('font-family-heading', $typography);
 
   &__btn {
     @include breakpoint('md') {

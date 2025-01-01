@@ -144,6 +144,11 @@
     block-size: 15rem;
   }
 
+  &--site-header {
+    block-size: 20rem;
+    padding-block: spacer('s');
+  }
+
   .bit {
     align-items: center;
     background-color: color('background', 'container');
