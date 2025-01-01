@@ -1,6 +1,6 @@
 @use 'sprucecss/scss/spruce' as *;
 
-.post-content {
+.sprucecss-post-content {
   @include layout-stack;
 
   @include breakpoint('md') {

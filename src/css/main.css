@@ -3784,48 +3784,48 @@ pre[class*=language-] {
   row-gap: 0.5rem;
 }
 
-.post-content > * {
+.sprucecss-post-content > * {
   margin-block-end: 0;
   margin-block-start: 0;
 }
-.post-content > * + * {
+.sprucecss-post-content > * + * {
   margin-block-start: 1.5rem;
 }
 @media (min-width: 64em) {
-  .post-content {
+  .sprucecss-post-content {
     font-size: 1.0375rem;
   }
 }
-.post-content--blog :is(dd, dl, dl, h1, h2, h3, h4, h5, h6, hr, ul, ol, p:not(p:has(img)), blockquote, form, pre, [class*=language-], .notification, .anchor-heading) {
+.sprucecss-post-content--blog :is(dd, dl, dl, h1, h2, h3, h4, h5, h6, hr, ul, ol, p:not(p:has(img)), blockquote, form, pre, [class*=language-], .notification, .anchor-heading) {
   inline-size: 100%;
   margin-inline: auto;
   max-inline-size: 45rem;
 }
-.post-content * + h2,
-.post-content * + h3,
-.post-content * + .anchor-heading {
+.sprucecss-post-content * + h2,
+.sprucecss-post-content * + h3,
+.sprucecss-post-content * + .anchor-heading {
   margin-block-start: 3rem;
 }
-.post-content img,
-.post-content iframe {
+.sprucecss-post-content img,
+.sprucecss-post-content iframe {
   border-radius: var(--doc-border-radius-sm);
 }
-.post-content iframe {
+.sprucecss-post-content iframe {
   aspect-ratio: 16/10;
   block-size: auto;
   inline-size: 100;
 }
-.post-content > picture:first-child + * {
+.sprucecss-post-content > picture:first-child + * {
   margin-block-start: 3rem;
 }
-.post-content .anchor-heading h2,
-.post-content .anchor-heading h3 {
+.sprucecss-post-content .anchor-heading h2,
+.sprucecss-post-content .anchor-heading h3 {
   scroll-margin-top: 1.5rem;
 }
-.post-content pre[class*=language-] {
+.sprucecss-post-content pre[class*=language-] {
   position: relative;
 }
-.post-content pre[class*=language-]::before {
+.sprucecss-post-content pre[class*=language-]::before {
   border-radius: 0 0 var(--spruce-border-radius-sm) var(--spruce-border-radius-sm);
   color: var(--spruce-prism-color-comment);
   content: attr(data-language);
@@ -3839,7 +3839,7 @@ pre[class*=language-] {
   position: absolute;
   text-transform: uppercase;
 }
-.post-content a[href*=youtube] img {
+.sprucecss-post-content a[href*=youtube] img {
   aspect-ratio: 16/9;
   inline-size: 100%;
   object-fit: cover;
@@ -4081,7 +4081,7 @@ pre[class*=language-] {
     grid-column: 1/2;
   }
 }
-.l-documentation__content .post-content {
+.l-documentation__content .sprucecss-post-content {
   margin-inline: auto;
   max-inline-size: 45rem;
 }
