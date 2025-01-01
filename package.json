@@ -18,7 +18,7 @@
     "@11ty/eleventy-img": "^5.0.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "del-cli": "^6.0.0",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.4.7",
     "himalaya": "^1.1.0",
     "html-minifier": "^4.0.0",
     "jsdom": "^25.0.1",
