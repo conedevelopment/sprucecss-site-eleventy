@@ -492,6 +492,10 @@ template {
 }
 
 :root {
+  --spruce-invoice-color-background: hsl(234, 100%, 98%);
+}
+
+:root {
   --spruce-hero-color-gradient-end: hsl(0, 0%, 100%);
   --spruce-hero-color-gradient-start: hsl(210, 100%, 98%);
   --spruce-hero-color-note-background: hsl(210, 100%, 97%);
@@ -1720,6 +1724,10 @@ legend {
 
 :root[data-theme-mode=dark] {
   --spruce-ide-color-header-background: hsl(0, 0%, 0%);
+}
+
+:root[data-theme-mode=dark] {
+  --spruce-invoice-color-background: hsl(234, 49%, 6%);
 }
 
 :root[data-theme-mode=dark] {
@@ -3481,7 +3489,11 @@ pre[class*=language-] {
   padding-inline: 0;
 }
 .ui--invoice {
-  background-color: var(--spruce-base-color-primary-lightest);
+  background-color: var(--spruce-invoice-color-background);
+}
+.ui--invoice .invoice {
+  margin-inline: auto;
+  max-inline-size: 60rem;
 }
 .ui--alert > * {
   margin-inline: auto;
@@ -3503,7 +3515,7 @@ pre[class*=language-] {
 }
 .ui--auth-form .auth-form {
   margin-inline: auto;
-  max-inline-size: 30rem;
+  max-inline-size: 25rem;
 }
 .ui--context-menu {
   block-size: 20rem;

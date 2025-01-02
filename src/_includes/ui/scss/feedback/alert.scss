@@ -33,14 +33,6 @@
     }
   }
 
-  @each $name, $value in map.get($colors, 'alert') {
-    @at-root [data-theme-mode='dark'] .alert--#{$name} {
-      background-color: transparent;
-      border-color: color.scale($value, $lightness: -30%);
-      color: color('text');
-    }
-  }
-
   &__caption {
     @include layout-stack('xxs');
   }

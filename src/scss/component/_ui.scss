@@ -97,7 +97,12 @@
   }
 
   &--invoice {
-    background-color: color('primary-lightest');
+    background-color: color('background', 'invoice');
+
+    .invoice {
+      margin-inline: auto;
+      max-inline-size: 60rem;
+    }
   }
 
   &--alert {
@@ -128,7 +133,7 @@
   &--auth-form {
     .auth-form {
       margin-inline: auto;
-      max-inline-size: 30rem;
+      max-inline-size: 25rem;
     }
   }
 
