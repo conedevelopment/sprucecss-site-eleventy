@@ -9,7 +9,7 @@
 
 As you see, it uses custom color values from the `$colors` map.
 
-<Notification type="info">For this component there are some extra variables at the <a href="/ui/getting-started/config/">config page</a> like you see it below.</Notification>
+## Colors
 
 ```scss
 $colors: (

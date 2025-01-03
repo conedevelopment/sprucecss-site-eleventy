@@ -10,7 +10,7 @@
 - [Alpine.js](https://alpinejs.dev/) - Some or all of the components require Alpine.js for functionality.
 - [Alpine.js Focus Plugin](https://alpinejs.dev/plugins/focus) - You should also consider adding the focus plugin for better focus management.
 
-<Notification type="info">For this component there are some extra variables at the <a href="/ui/getting-started/config/">config page</a> like you see it below.</Notification>
+## Colors
 
 ```scss
 $colors: (
@@ -18,5 +18,19 @@ $colors: (
     'item-background': hsl(262deg 71% 98%),
     'item-foreground': hsl(262deg 71% 49%),
   ),
-),
+);
+```
+
+```scss
+// Dark mode addition to color the chevron icon.
+[data-theme-mode='dark'] {
+  color-scheme: dark;
+
+  .combobox__control {
+    @include field-icon(
+      config('select', $form-icon, false),
+      color('select-foreground', 'form', true, $dark-colors),
+    );
+  }
+}
 ```

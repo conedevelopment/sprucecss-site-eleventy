@@ -16,7 +16,8 @@
   &--accordion,
   &--changelog,
   &--combobox,
-  &--timeline {
+  &--timeline,
+  &--file-list {
     --inline-size: 45rem;
     @include layout-stack('m');
     margin-inline: auto;
@@ -51,6 +52,10 @@
 
   &--changelog {
     --inline-size: 60rem;
+  }
+
+  &--file-list {
+    --inline-size: 35rem;
   }
 
   &--combobox {

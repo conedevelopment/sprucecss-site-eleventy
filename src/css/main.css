@@ -1700,10 +1700,10 @@ legend {
   --spruce-form-color-invalid-focus-ring: hsla(0, 71%, 51%, 0.25);
   --spruce-form-color-label: hsl(0, 0%, 95%);
   --spruce-form-color-legend: hsl(0, 0%, 95%);
-  --spruce-form-color-placeholder: hsl(0, 0%, 60%);
+  --spruce-form-color-placeholder: hsl(0, 0%, 70%);
   --spruce-form-color-range-thumb-background: hsl(261, 54%, 70%);
   --spruce-form-color-range-thumb-focus-ring: hsl(261, 54%, 70%);
-  --spruce-form-color-range-track-background: hsla(0, 0%, 100%, 0.08);
+  --spruce-form-color-range-track-background: hsl(206, 100%, 20%);
   --spruce-form-color-ring-focus: hsla(261, 54%, 70%, 0.25);
   --spruce-form-color-select-foreground: hsl(0, 0%, 100%);
   --spruce-form-color-text: hsl(0, 0%, 97%);
@@ -1780,6 +1780,9 @@ legend {
   /* stylelint-disable-next-line selector-no-qualifying-type */
 }
 [data-theme-mode=dark] select.form-control:not([multiple]):not([size]) {
+  background-image: url('data:image/svg+xml,%3csvg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"%3e%3cpath d="M12,12.507l-3.816,-3.815c-0.171,-0.172 -0.45,-0.172 -0.622,-0l-0.933,0.933c-0.172,0.172 -0.172,0.451 0,0.623l5.06,5.06c0.172,0.172 0.45,0.172 0.622,0l5.06,-5.06c0.172,-0.172 0.172,-0.451 -0,-0.623l-0.933,-0.933c-0.172,-0.172 -0.451,-0.172 -0.622,-0l-3.816,3.815Z" style="fill:hsl%280, 0%, 100%%29;"/%3e%3c/svg%3e');
+}
+[data-theme-mode=dark] .combobox__control {
   background-image: url('data:image/svg+xml,%3csvg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"%3e%3cpath d="M12,12.507l-3.816,-3.815c-0.171,-0.172 -0.45,-0.172 -0.622,-0l-0.933,0.933c-0.172,0.172 -0.172,0.451 0,0.623l5.06,5.06c0.172,0.172 0.45,0.172 0.622,0l5.06,-5.06c0.172,-0.172 0.172,-0.451 -0,-0.623l-0.933,-0.933c-0.172,-0.172 -0.451,-0.172 -0.622,-0l-3.816,3.815Z" style="fill:hsl%280, 0%, 100%%29;"/%3e%3c/svg%3e');
 }
 [data-theme-mode=dark] .cta {
@@ -3413,16 +3416,16 @@ pre[class*=language-] {
   gap: 1.5rem;
   place-content: center;
 }
-.ui--order-card, .ui--file-group, .ui--payment-card, .ui--range-group, .ui--accordion, .ui--changelog, .ui--combobox, .ui--timeline {
+.ui--order-card, .ui--file-group, .ui--payment-card, .ui--range-group, .ui--accordion, .ui--changelog, .ui--combobox, .ui--timeline, .ui--file-list {
   --inline-size: 45rem;
   margin-inline: auto;
   max-inline-size: var(--inline-size);
 }
-.ui--order-card > *, .ui--file-group > *, .ui--payment-card > *, .ui--range-group > *, .ui--accordion > *, .ui--changelog > *, .ui--combobox > *, .ui--timeline > * {
+.ui--order-card > *, .ui--file-group > *, .ui--payment-card > *, .ui--range-group > *, .ui--accordion > *, .ui--changelog > *, .ui--combobox > *, .ui--timeline > *, .ui--file-list > * {
   margin-block-end: 0;
   margin-block-start: 0;
 }
-.ui--order-card > * + *, .ui--file-group > * + *, .ui--payment-card > * + *, .ui--range-group > * + *, .ui--accordion > * + *, .ui--changelog > * + *, .ui--combobox > * + *, .ui--timeline > * + * {
+.ui--order-card > * + *, .ui--file-group > * + *, .ui--payment-card > * + *, .ui--range-group > * + *, .ui--accordion > * + *, .ui--changelog > * + *, .ui--combobox > * + *, .ui--timeline > * + *, .ui--file-list > * + * {
   margin-block-start: 1.5rem;
 }
 .ui--post-card, .ui--gallery {
@@ -3446,6 +3449,9 @@ pre[class*=language-] {
 }
 .ui--changelog {
   --inline-size: 60rem;
+}
+.ui--file-list {
+  --inline-size: 35rem;
 }
 .ui--combobox {
   --inline-size: 40rem;

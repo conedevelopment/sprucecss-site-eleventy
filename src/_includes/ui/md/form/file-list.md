@@ -4,9 +4,7 @@
 
 - A multi-item media list is ideal for an admin interface (gallery) or anywhere where you need multiple attachment options.
 
-## Dependencies
-
-<Notification type="info">For this component there are some extra variables at the <a href="/ui/getting-started/config/">config page</a> like you see it below.</Notification>
+## Colors
 
 ```scss
 $colors: (
