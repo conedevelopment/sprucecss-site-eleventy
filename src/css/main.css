@@ -1851,7 +1851,7 @@ legend {
   font-weight: 700;
 }
 
-.cookie-consent-helper {
+.sprucecss-cookie-consent-helper {
   display: flex;
   inset: auto 1.5rem 1.5rem;
   justify-content: center;
@@ -1860,7 +1860,7 @@ legend {
   z-index: 25;
 }
 
-.cookie-consent {
+.sprucecss-cookie-consent {
   --spruce-base-color-text: hsl(0, 0%, 97%);
   --spruce-base-color-link: hsl(261, 54%, 70%);
   --spruce-base-color-link-hover: hsl(261, 54%, 76%);
@@ -1879,20 +1879,20 @@ legend {
   text-align: center;
   transform: translateY(200%);
 }
-.cookie-consent--slidein {
+.sprucecss-cookie-consent--slidein {
   animation: slidein var(--spruce-duration) forwards;
 }
-.cookie-consent--slideout {
+.sprucecss-cookie-consent--slideout {
   animation: slideout var(--spruce-duration) forwards;
 }
-.cookie-consent__caption > * {
+.sprucecss-cookie-consent__caption > * {
   margin-block-end: 0;
   margin-block-start: 0;
 }
-.cookie-consent__caption > * + * {
+.sprucecss-cookie-consent__caption > * + * {
   margin-block-start: 0.5rem;
 }
-.cookie-consent__btns {
+.sprucecss-cookie-consent__btns {
   display: flex;
   gap: 1rem;
 }

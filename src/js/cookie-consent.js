@@ -1,28 +1,26 @@
-import {
-  setCookie, getCookie, issetCookie, removeCookie
-} from './cookie.js';
+import Cookie from './qkie.js';
 
 (() => {
-  const prefix = 'spruce';
-  const btns = document.querySelectorAll('button[data-action="cookie"]');
+  const cookie = new Cookie('sprucecss-gdpr-');
+  const btns = document.querySelectorAll('button[data-sprucecss-action="cookie"]');
   let caption = '';
   let consentModal = null;
   let redirect = false;
 
   if (
-    !issetCookie(`${prefix}-cookie-law-analytics`) &&
-    !issetCookie(`${prefix}-cookie-law-denied`)
+    !cookie.isset(`analytics`) &&
+    !cookie.isset(`denied`)
   ) {
-    caption = `<div class="cookie-consent-helper"><div class="cookie-consent cookie-consent--slidein" tabindex="-1">
-        <div class="cookie-consent__caption">This site use cookies. For more information please visit our <a href="/privacy-policy/">privacy policy</a> page.</div>
-        <div class="cookie-consent__btns">
+    caption = `<div class="sprucecss-cookie-consent-helper"><div class="sprucecss-cookie-consent sprucecss-cookie-consent--slidein" tabindex="-1">
+        <div class="sprucecss-cookie-consent__caption">This site use cookies. For more information please visit our <a href="/privacy-policy/">privacy policy</a> page.</div>
+        <div class="sprucecss-cookie-consent__btns">
         <button class="btn btn--sm btn--decline" data-action="cookie-decline">Decline</button>
           <button class="btn btn--sm btn--primary" data-action="cookie-accept">Accept</button>
         </div>
       </div></div>`;
 
     document.body.insertAdjacentHTML('afterbegin', caption);
-    consentModal = document.querySelector('.cookie-consent');
+    consentModal = document.querySelector('.sprucecss-cookie-consent');
     consentModal.focus();
   }
 
@@ -39,10 +37,10 @@ import {
       e.target &&
       e.target.getAttribute('data-action') === 'cookie-accept'
     ) {
-      setCookie(`${prefix}-cookie-law-analytics`, 'accepted', 365);
+      cookie.set(`analytics`, 'accepted', 365);
 
       redirect = true;
-      consentModal.classList.add('cookie-consent--slideout');
+      consentModal.classList.add('sprucecss-cookie-consent--slideout');
       consentModal.addEventListener('animationend', animationEndCallback);
     }
 
@@ -50,18 +48,18 @@ import {
       e.target &&
       e.target.getAttribute('data-action') === 'cookie-decline'
     ) {
-      setCookie(`${prefix}-cookie-law-denied`, 'true');
+      cookie.set(`denied`, 'true');
 
       redirect = false;
-      consentModal.classList.add('cookie-consent--slideout');
+      consentModal.classList.add('sprucecss-cookie-consent--slideout');
       consentModal.addEventListener('animationend', animationEndCallback);
     }
   });
 
   btns.forEach((btn) => {
     if (
-      issetCookie(`${prefix}-cookie-law-${btn.getAttribute('data-type')}`) &&
-      getCookie(`${prefix}-cookie-law-${btn.getAttribute('data-type')}`) === 'accepted'
+      cookie.isset(`${btn.getAttribute('data-type')}`) &&
+      cookie.get(`${btn.getAttribute('data-type')}`) === 'accepted'
     ) {
       btn.innerHTML = `${btn.getAttribute('data-on-text')} ${btn.innerHTML}`;
     } else {
@@ -70,12 +68,12 @@ import {
 
     btn.addEventListener('click', () => {
       if (
-        issetCookie(`${prefix}-cookie-law-${btn.getAttribute('data-type')}`) &&
-        getCookie(`${prefix}-cookie-law-${btn.getAttribute('data-type')}`) === 'accepted'
+        cookie.isset(`${btn.getAttribute('data-type')}`) &&
+        cookie.get(`${btn.getAttribute('data-type')}`) === 'accepted'
       ) {
-        removeCookie(`${prefix}-cookie-law-${btn.getAttribute('data-type')}`);
+        cookie.remove(`${btn.getAttribute('data-type')}`);
       } else {
-        setCookie(`${prefix}-cookie-law-${btn.getAttribute('data-type')}`, 'accepted', 365);
+        cookie.set(`${btn.getAttribute('data-type')}`, 'accepted', 365);
       }
       window.location.reload();
     });
