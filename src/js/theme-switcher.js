@@ -1,7 +1,7 @@
 /* global localStorage */
 
 (() => {
-  const themeSwitcher = document.querySelector('#theme-switcher');
+  const themeSwitcher = document.querySelector('#sprucecss-theme-switcher');
   const preferredTheme = localStorage.getItem('preferred-theme') ?? 'system';
 
   if (!themeSwitcher) {
@@ -20,7 +20,7 @@
     localStorage.setItem('preferred-theme', theme);
     document.documentElement.setAttribute('data-theme-mode', theme === 'system' ? systemMode : theme);
     themeSwitcher.setAttribute('data-theme-mode', theme);
-    themeSwitcher.querySelector(`.theme-switcher__${theme}-mode`).focus();
+    themeSwitcher.querySelector(`.sprucecss-theme-switcher__${theme}-mode`).focus();
     document.documentElement.classList.remove('no-transition');
   });
 

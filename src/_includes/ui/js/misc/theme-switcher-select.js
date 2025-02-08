@@ -1,6 +1,6 @@
 (() => {
   const themeSwitcher = document.querySelector('#theme-switcher');
-  const preferredTheme = localStorage.getItem('preferred-theme-demo') || 'system';
+  const preferredTheme = localStorage.getItem('preferred-theme') || 'system';
 
   if (!themeSwitcher) {
     return;
@@ -11,7 +11,7 @@
 
     document.documentElement.classList.add('no-transition');
 
-    localStorage.setItem('preferred-theme-demo', theme);
+    localStorage.setItem('preferred-theme', theme);
     document.documentElement.setAttribute('data-theme-mode', theme === 'system' ? systemMode : theme);
 
     themeSwitcher.setAttribute('data-theme-mode', theme);
