@@ -1959,7 +1959,7 @@ legend {
   max-inline-size: 50ch;
 }
 
-.breadcrumb-list {
+.sprucecss-breadcrumb-list {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -1969,12 +1969,12 @@ legend {
   overflow-x: auto;
   white-space: nowrap;
 }
-.breadcrumb-list > li {
+.sprucecss-breadcrumb-list > li {
   align-items: center;
   display: inline-flex;
   margin-block: 0;
 }
-.breadcrumb-list > li + li::before {
+.sprucecss-breadcrumb-list > li + li::before {
   block-size: 0.4em;
   border-block-end: 2px solid var(--spruce-breadcrumb-color-separator);
   border-inline-end: 2px solid var(--spruce-breadcrumb-color-separator);
@@ -1984,11 +1984,11 @@ legend {
   margin-inline: 0.75em;
   transform: rotate(-45deg);
 }
-[dir=rtl] .breadcrumb-list > li + li::before {
+[dir=rtl] .sprucecss-breadcrumb-list > li + li::before {
   transform: rotate(45deg);
 }
 
-.breadcrumb-list [aria-current=page] {
+.sprucecss-breadcrumb-list [aria-current=page] {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -2294,7 +2294,7 @@ legend {
   margin-block-start: 1rem;
 }
 
-.pagination a {
+.sprucecss-pagination a {
   --spruce-border-radius: 0.425rem;
   --spruce-border-width: 1px;
   --spruce-font-size: 1rem;
@@ -2323,17 +2323,17 @@ legend {
   transition-timing-function: var(--spruce-timing-function);
 }
 
-.pagination a:focus {
+.sprucecss-pagination a:focus {
   outline-color: transparent;
   outline-style: solid;
 }
 
-.pagination a:disabled {
+.sprucecss-pagination a:disabled {
   opacity: 0.5;
   pointer-events: none;
 }
 
-.pagination a--sm {
+.sprucecss-pagination a--sm {
   --spruce-font-size: 0.8rem;
   --spruce-gap: 0.25rem;
   --spruce-icon-padding: 0.5em;
@@ -2344,18 +2344,18 @@ legend {
   padding: var(--spruce-padding);
 }
 
-.pagination a--lg {
+.sprucecss-pagination a--lg {
   --spruce-font-size: 1.15rem;
   --spruce-gap: 0.5rem;
   --spruce-icon-padding: 0.9em;
   --spruce-padding: 0.9em 1.15em;
 }
 
-.pagination a--block {
+.sprucecss-pagination a--block {
   inline-size: 100%;
 }
 
-.pagination {
+.sprucecss-pagination {
   list-style: none;
   margin: 0;
   padding: 0;
@@ -2365,10 +2365,10 @@ legend {
   justify-content: center;
   margin-block-start: 3rem;
 }
-.pagination > * + * {
+.sprucecss-pagination > * + * {
   margin-block-start: 0;
 }
-.pagination a {
+.sprucecss-pagination a {
   background-color: var(--spruce-btn-color-pagination-background);
   border-color: var(--spruce-btn-color-pagination-background);
   color: var(--spruce-btn-color-pagination-foreground);
@@ -2378,21 +2378,21 @@ legend {
   font-weight: 700;
   text-transform: uppercase;
 }
-.pagination a:focus-visible {
+.sprucecss-pagination a:focus-visible {
   outline: 2px solid var(--spruce-btn-color-pagination-focus-ring);
   outline-offset: 2px;
 }
-.pagination a:hover {
+.sprucecss-pagination a:hover {
   background-color: var(--spruce-btn-color-pagination-background-hover);
   border-color: var(--spruce-btn-color-pagination-background-hover);
   color: var(--spruce-btn-color-pagination-foreground-hover);
 }
-.pagination a[aria-current=page] {
+.sprucecss-pagination a[aria-current=page] {
   background: var(--spruce-btn-color-pagination-background-hover);
   border-color: var(--spruce-btn-color-pagination-background-hover);
   color: var(--spruce-btn-color-pagination-foreground-hover);
 }
-.pagination a--sm {
+.sprucecss-pagination a--sm {
   min-inline-size: 1.75rem;
 }
 
@@ -3189,7 +3189,7 @@ textarea.pagefind-ui__search-input {
   position: absolute;
 }
 
-.post-navigation {
+.sprucecss-post-navigation {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
@@ -3197,21 +3197,21 @@ textarea.pagefind-ui__search-input {
   justify-content: space-between;
 }
 
-.post-navigation-item {
+.sprucecss-post-navigation-item {
   align-items: center;
   display: flex;
   gap: 1rem;
   text-decoration: none;
 }
-.post-navigation-item:hover .post-navigation-item__icon {
+.sprucecss-post-navigation-item:hover .sprucecss-post-navigation-item__icon {
   background-color: var(--spruce-navigation-color-icon-background-hover);
   color: var(--spruce-navigation-color-icon-foreground-hover);
 }
-.post-navigation-item--next {
+.sprucecss-post-navigation-item--next {
   margin-inline-start: auto;
   text-align: end;
 }
-.post-navigation-item__icon {
+.sprucecss-post-navigation-item__icon {
   transition-duration: var(--spruce-duration);
   transition-property: all;
   transition-timing-function: var(--spruce-timing-function);
@@ -3225,20 +3225,20 @@ textarea.pagefind-ui__search-input {
   inline-size: 3rem;
   justify-content: center;
 }
-.post-navigation-item__icon svg {
+.sprucecss-post-navigation-item__icon svg {
   --size: 1.15rem;
   block-size: var(--size);
   inline-size: var(--size);
 }
-[dir=rtl] .post-navigation-item__icon svg {
+[dir=rtl] .sprucecss-post-navigation-item__icon svg {
   transform: rotate(180deg);
 }
 
-.post-navigation-item__caption {
+.sprucecss-post-navigation-item__caption {
   color: var(--spruce-base-color-text);
   line-height: var(--spruce-line-height-md);
 }
-.post-navigation-item__title {
+.sprucecss-post-navigation-item__title {
   color: var(--spruce-base-color-primary);
   display: flex;
   font-weight: 700;
@@ -3468,6 +3468,9 @@ pre[class*=language-] {
 .ui--skip-link .skip-link {
   position: absolute;
 }
+.ui--auth {
+  padding: 0;
+}
 .ui--info-card {
   --column: 1;
   display: grid;
@@ -3493,7 +3496,7 @@ pre[class*=language-] {
 .ui--number-card > * {
   flex: 1 1 var(--inline-size);
 }
-.ui--post, .ui--container {
+.ui--post-list, .ui--container {
   padding-inline: 0;
 }
 .ui--invoice {
@@ -3532,7 +3535,8 @@ pre[class*=language-] {
   position: relative;
 }
 .ui--site-navigation {
-  block-size: 15rem;
+  block-size: 10rem;
+  position: relative;
 }
 .ui--site-header {
   block-size: 20rem;
@@ -3757,7 +3761,7 @@ pre[class*=language-] {
   padding-block: clamp(5rem, 10vw + 1rem, 7rem) 4.5rem;
   text-align: center;
 }
-.sprucecss-post-heading--center .breadcrumb-list {
+.sprucecss-post-heading--center .sprucecss-post-heading__breadcrumb {
   margin-inline: auto;
 }
 .sprucecss-post-heading--center .sprucecss-post-heading__title {

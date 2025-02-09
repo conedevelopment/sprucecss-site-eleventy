@@ -26,10 +26,15 @@
   &__page-number {
     @include btn-variant('pagination');
 
-    &--current {
+    &[aria-current='page'] {
       background: color('pagination-background-hover', 'btn');
       border-color: color('pagination-background-hover', 'btn');
       color: color('pagination-foreground-hover', 'btn');
+      pointer-events: none;
+    }
+
+    &[disabled] {
+      pointer-events: none;
     }
 
     &--sm {

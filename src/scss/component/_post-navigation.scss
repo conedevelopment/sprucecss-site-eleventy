@@ -1,7 +1,7 @@
 @use '../config/config'; // Use (need) only if this is a standalone file.
 @use 'sprucecss/scss/spruce' as *;
 
-.post-navigation {
+.sprucecss-post-navigation {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
@@ -9,7 +9,7 @@
   justify-content: space-between;
 }
 
-.post-navigation-item {
+.sprucecss-post-navigation-item {
   $this: &;
 
   align-items: center;

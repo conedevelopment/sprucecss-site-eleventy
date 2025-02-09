@@ -22,7 +22,7 @@
     padding-block: clamp(5rem, 10vw + 1rem, 7rem) spacer('xl');
     text-align: center;
 
-    .breadcrumb-list {
+    #{$this}__breadcrumb {
       margin-inline: auto;
     }
 

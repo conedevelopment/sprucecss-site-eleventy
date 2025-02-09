@@ -1,13 +1,13 @@
 @use 'sprucecss/scss/spruce' as *;
 
 @include generate-btn(
-  '.pagination a',
+  '.sprucecss-pagination a',
   null,
   false,
   true
 );
 
-.pagination {
+.sprucecss-pagination {
   @include clear-list;
   display: flex;
   flex-wrap: wrap;

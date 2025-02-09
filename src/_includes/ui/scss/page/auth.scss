@@ -1,6 +1,8 @@
 @use 'sprucecss/scss/spruce' as *;
 
 .l-auth {
+  position: relative;
+
   &__inner {
     background-attachment: fixed;
     display: flex;
@@ -30,7 +32,7 @@
       inset-block: spacer('l');
       inset-inline: 50% spacer('l');
       margin: 0;
-      position: fixed;
+      position: absolute;
     }
   }
 

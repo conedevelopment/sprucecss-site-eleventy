@@ -75,6 +75,10 @@
     }
   }
 
+  &--auth {
+    padding: 0;
+  }
+
   &--info-card {
     --column: 1;
     display: grid;
@@ -96,7 +100,7 @@
     @include layout-flex;
   }
 
-  &--post,
+  &--post-list,
   &--container {
     padding-inline: 0;
   }
@@ -151,7 +155,8 @@
   }
 
   &--site-navigation {
-    block-size: 15rem;
+    block-size: 10rem;
+    position: relative;
   }
 
   &--site-header {

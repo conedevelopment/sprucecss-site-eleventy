@@ -15,7 +15,3 @@
 - [Gallery](/ui/content-and-layout/gallery)
 - [Site Header](/ui/content-and-layout/site-header)
 - [Site Footer](/ui/content-and-layout/site-footer)
-
-## Resources
-
-- Images: [1](https://unsplash.com/photos/ETRPjvb0KM0), [2](https://unsplash.com/photos/Lks7vei-eAg), [3](https://unsplash.com/photos/WCID2JWoxwE), [4](https://unsplash.com/photos/hvSr_CVecVI), [5](https://unsplash.com/photos/tZc3vjPCk-Q), [6](https://unsplash.com/photos/hGV2TfOh0ns), [7](https://unsplash.com/photos/a4X1cdC1QAc), [8](https://unsplash.com/photos/4UGmm3WRUoQ), [9](https://unsplash.com/photos/842ofHC6MaI)

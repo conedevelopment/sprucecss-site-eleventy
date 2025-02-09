@@ -1,7 +1,7 @@
 {% if pagination.href.next or pagination.href.previous %}
-    <nav aria-labelledby="pagination">
-        <h2 id="pagination" class="sr-only">Pagination</h2>
-        <ol class="pagination">
+    <nav aria-labelledby="sprucecss-pagination">
+        <h2 id="sprucecss-pagination" class="sr-only">Pagination</h2>
+        <ol class="sprucecss-pagination">
             {% if pagination.href.previous %}
                 <li>
                     <a href="{{ pagination.href.previous }}{{ paginationAnchor }}" class="prev">

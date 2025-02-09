@@ -3,7 +3,6 @@
 ## Variations
 
 - **--sm**: smaller display version.
-- **--lg**: larger display version.
 
 ## Technical Details
 
