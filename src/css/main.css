@@ -3270,12 +3270,28 @@ pre[class*=language-] {
 pre[class*=language-] {
   display: grid;
   overflow: visible;
-  padding: 1.5rem;
+  padding: 1.5rem 1.5rem 1rem;
 }
 
 pre[class*=language-] code {
   background-color: transparent;
-  padding: 0;
+  overflow-x: auto;
+  padding: 0 0 1rem;
+}
+pre[class*=language-] code::-webkit-scrollbar {
+  block-size: 0.5rem;
+  inline-size: 0.5rem;
+}
+pre[class*=language-] code::-webkit-scrollbar-thumb {
+  background: var(--spruce-scrollbar-color-thumb-background);
+  border-radius: var(--spruce-border-radius-sm);
+}
+pre[class*=language-] code::-webkit-scrollbar-thumb:hover {
+  background: var(--spruce-scrollbar-color-thumb-background-hover);
+}
+pre[class*=language-] code::-webkit-scrollbar-track {
+  background: var(--spruce-scrollbar-color-track-background);
+  border-radius: var(--spruce-border-radius-sm);
 }
 
 :not(pre) > code[class*=language-],
@@ -3831,7 +3847,6 @@ pre[class*=language-] {
   scroll-margin-top: 1.5rem;
 }
 .sprucecss-post-content pre[class*=language-] {
-  overflow-x: auto;
   position: relative;
 }
 .sprucecss-post-content pre[class*=language-]::before {

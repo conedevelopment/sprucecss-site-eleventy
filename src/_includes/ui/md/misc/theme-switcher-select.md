@@ -29,7 +29,3 @@ The JS code above only handles the switch and its states. You also have to detec
   setTheme(preferredTheme || systemMode);
 })();
 ```
-
-## Resources
-
-- Icons: [1](https://fonts.google.com/icons?selected=Material%20Icons%3Adark_mode%3A), [2](https://fonts.google.com/icons?selected=Material%20Icons%3Alight_mode%3A), [3](https://fonts.google.com/icons?selected=Material%20Icons%3Alaptop%3A)
