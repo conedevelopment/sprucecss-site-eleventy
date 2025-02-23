@@ -26,4 +26,12 @@
   .cta {
     border-block-start: 1px solid color('border');
   }
+
+  .sprucecss-site-header {
+    .btn--outline-primary {
+      @include set-css-variable((
+        --btn-color-primary-background: hsl(261deg 54% 80%)
+      ));
+    }
+  }
 }

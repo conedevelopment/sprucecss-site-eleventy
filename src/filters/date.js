@@ -1,7 +1,9 @@
-const moment = require('moment');
+import { format, parseISO } from 'date-fns';
+import { enUS, fr, es, de } from 'date-fns/locale';
 
-module.exports = (value, locale) => {
-  moment.locale(locale);
-  const dateObject = moment(value);
-  return dateObject.format('LL');
-};
+const locales = { en: enUS, fr, es, de };
+
+export default function formatDate(value, locale = 'en') {
+  const date = parseISO(value);
+  return format(date, 'PP', { locale: locales[locale] || enUS });
+}

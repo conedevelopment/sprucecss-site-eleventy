@@ -1,7 +1,7 @@
-const htmlmin = require('html-minifier');
+import htmlmin from 'html-minifier';
 
-module.exports = (value, outputPath) => {
-  if (outputPath && outputPath.indexOf('.html') > -1) {
+export default function htmlMinTransform(value, outputPath) {
+  if (outputPath && outputPath.includes('.html')) {
     return htmlmin.minify(value, {
       useShortDoctype: true,
       removeComments: true,
@@ -11,4 +11,4 @@ module.exports = (value, outputPath) => {
   }
 
   return value;
-};
+}
