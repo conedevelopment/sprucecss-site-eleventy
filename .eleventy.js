@@ -1,17 +1,19 @@
-require('dotenv').config();
+import { execSync } from 'child_process';
+import { JSDOM } from 'jsdom';
+import { parse, stringify } from 'himalaya';
+import Image from '@11ty/eleventy-img';
+import syntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
+import markdownIt from 'markdown-it';
+import markdownItAnchor from 'markdown-it-anchor';
+import slugify from 'slugify';
+import dateFilter from './src/filters/date.js';
+import htmlMinTransform from './src/transforms/html-min-transform.js';
+import w3DateFilter from './src/filters/w3-date.js';
+import dotenv from 'dotenv';
 
-const { execSync } = require('child_process');
-const { JSDOM } = require('jsdom');
-const { parse, stringify } = require('himalaya');
-const dateFilter = require('./src/filters/date.js');
-const htmlMinTransform = require('./src/transforms/html-min-transform.js');
-const Image = require('@11ty/eleventy-img');
+dotenv.config();
+
 const isProduction = process.env.NODE_ENV === 'production';
-const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
-const w3DateFilter = require('./src/filters/w3-date.js');
-const markdownIt = require('markdown-it');
-const markdownItAnchor = require('markdown-it-anchor');
-const slugify = require('slugify');
 
 const linkAfterHeader = markdownItAnchor.permalink.linkAfterHeader({
   class: "anchor-heading__link",
@@ -80,7 +82,7 @@ async function getImage(src, cls) {
   return stringify(svg);
 }
 
-module.exports = config => {
+export default function (config) {
   config.addFilter('date', dateFilter);
   config.addFilter('w3Date', w3DateFilter);
   config.addPlugin(syntaxHighlight, {

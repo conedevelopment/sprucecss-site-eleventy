@@ -20,7 +20,7 @@
                     <li>
                         <a
                             href="{{ item.url }}"
-                            {{ helpers.getLinkActiveState(item.url, page.url) | safe }}
+                            {{ helper.getLinkActiveState(item.url, page.url) | safe }}
                         >
                             <span>{{ item.caption }}</span>
                         </a>
