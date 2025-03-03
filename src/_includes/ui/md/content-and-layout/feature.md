@@ -9,3 +9,14 @@
 
 - It uses `order` to display the images first on mobile regardless of the variation.
 - For the thumbnail, you can use `aspect-ratio` to customize its dimension.
+
+## Colors
+
+```scss
+$colors: (
+  'feature': (
+    'subtitle-background': hsl(259deg 53% 98%),
+    'subtitle-border': hsl(259deg 53% 93%),
+  ),
+),
+```

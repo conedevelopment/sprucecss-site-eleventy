@@ -375,7 +375,8 @@ template {
   --spruce-base-color-code-tab-background: hsl(222, 100%, 98%);
   --spruce-base-color-primary-dark: hsl(261, 52%, 35%);
   --spruce-base-color-primary-darkest: hsl(272, 100%, 9%);
-  --spruce-base-color-primary-lightest: hsl(259, 53%, 98%);
+  --spruce-base-color-primary-50: hsl(259, 53%, 98%);
+  --spruce-base-color-primary-100: hsl(259, 53%, 93%);
 }
 
 :root {
@@ -481,6 +482,11 @@ template {
 :root {
   --spruce-cookie-color-background: hsl(207, 95%, 8%);
   --spruce-cookie-color-foreground: hsl(0, 0%, 100%);
+}
+
+:root {
+  --spruce-feature-color-subtitle-background: hsl(259, 53%, 98%);
+  --spruce-feature-color-subtitle-border: hsl(259, 53%, 93%);
 }
 
 :root {
@@ -1688,6 +1694,11 @@ legend {
 }
 
 :root[data-theme-mode=dark] {
+  --spruce-feature-color-subtitle-background: hsl(206, 100%, 10%);
+  --spruce-feature-color-subtitle-border: hsl(206, 100%, 16%);
+}
+
+:root[data-theme-mode=dark] {
   --spruce-form-color-background: hsl(206, 100%, 11.65%);
   --spruce-form-color-background-disabled: hsl(206, 100%, 7%);
   --spruce-form-color-border: hsla(0, 0%, 100%, 0.08);
@@ -2768,6 +2779,9 @@ textarea.pagefind-ui__search-input {
   color: var(--spruce-search-color-icon);
   inline-size: var(--size);
 }
+.open-search__btn:hover, .open-search__btn:focus {
+  color: hsl(206, 100%, 7%);
+}
 
 .tags {
   align-items: center;
@@ -3442,6 +3456,9 @@ pre[class*=language-] {
   border-block-start: 1px solid var(--spruce-base-color-border);
   margin-block-start: 3rem;
   padding-block-start: 3rem;
+}
+.ui--feature {
+  padding-inline: 0;
 }
 .ui--gallery {
   --inline-size: 65rem;

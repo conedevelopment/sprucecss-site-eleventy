@@ -37,6 +37,10 @@
     }
   }
 
+  &--feature {
+    padding-inline: 0;
+  }
+
   &--gallery {
     --inline-size: 65rem;
   }

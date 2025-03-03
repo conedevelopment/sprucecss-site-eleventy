@@ -51,6 +51,10 @@ $colors: (
   'container': (
     'background': hsl(207deg 92% 12%),
   ),
+  'feature': (
+    'subtitle-background': hsl(206deg 100% 10%),
+    'subtitle-border': hsl(206deg 100% 16%),
+  ),
   'form': (
     'background': color.scale($dark-color-black, $lightness: 5%),
     'background-disabled': $dark-color-black,

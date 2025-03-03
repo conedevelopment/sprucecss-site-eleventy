@@ -33,7 +33,7 @@
   &__preview {
     align-items: center;
     aspect-ratio: 1;
-    background-color: color('primary-lightest');
+    background-color: color('primary-50');
     background-position: center;
     background-size: cover;
     border-radius: config('border-radius', $form-control);

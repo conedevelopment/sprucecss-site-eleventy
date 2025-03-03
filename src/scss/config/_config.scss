@@ -1,6 +1,7 @@
 @use 'dark-colors' as dark;
 
-$color-primary-lightest: hsl(259deg 53% 98%);
+$color-primary-50: hsl(259deg 53% 98%);
+$color-primary-100: hsl(259deg 53% 93%);
 $color-dark: hsl(260deg 70% 6%);
 
 @use 'sprucecss/scss/spruce' with (
@@ -10,7 +11,8 @@ $color-dark: hsl(260deg 70% 6%);
       'code-tab-background': hsl(222deg 100% 98%),
       'primary-dark': hsl(261deg 52% 35%),
       'primary-darkest': hsl(272deg 100% 9%),
-      'primary-lightest': $color-primary-lightest,
+      'primary-50': $color-primary-50,
+      'primary-100': $color-primary-100,
     ),
     'breadcrumb': (
       'separator': hsl(0deg 0% 0% / 10%),
@@ -48,12 +50,16 @@ $color-dark: hsl(260deg 70% 6%);
       'background': hsl(0deg 0% 95%),
     ),
     'combobox': (
-      'item-background': $color-primary-lightest,
+      'item-background': $color-primary-50,
       'item-foreground': hsl(262deg 71% 49%),
     ),
     'cookie': (
       'background': hsl(207deg 95% 8%),
       'foreground': hsl(0deg 0% 100%),
+    ),
+    'feature': (
+      'subtitle-background': $color-primary-50,
+      'subtitle-border': $color-primary-100,
     ),
     'footer': (
       'background': $color-dark,
@@ -77,7 +83,7 @@ $color-dark: hsl(260deg 70% 6%);
       'icon-foreground-hover': hsl(0deg 0% 100%),
     ),
     'media': (
-      'background': $color-primary-lightest,
+      'background': $color-primary-50,
       'icon': hsl(262deg 71% 49%),
     ),
     'modal': (
