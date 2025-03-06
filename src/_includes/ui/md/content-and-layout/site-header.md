@@ -7,4 +7,5 @@
 
 ## Dependencies
 
+- [Container](/ui/content-and-layout/container)
 - [Site Navigation](/ui/navigation/site-navigation)

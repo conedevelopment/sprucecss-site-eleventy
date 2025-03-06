@@ -15,6 +15,16 @@
 
 ```scss
 $colors: (
+  'btn': (
+    'dark-background': hsl(205deg 100% 2%),
+    'dark-background-hover': hsl(205deg 100% 5%),
+    'dark-foreground': hsl(0deg 0% 100%),
+    'dark-outline-border': hsl(260deg 4% 70%),
+    'dark-outline-foreground': hsl(205deg 100% 2%),
+    'dark-outline-foreground-hover': hsl(0deg 0% 100%),
+    'dark-outline-background-hover': hsl(205deg 100% 2%),
+    'dark-outline-focus-ring': hsl(205deg 100% 2%),
+  ),
   'modal': (
     'background': hsl(210deg 60% 98% / 90%),
   ),

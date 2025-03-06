@@ -50,7 +50,7 @@
     text-decoration: none;
 
     &:hover:not([aria-current='page'], :has(.theme-switcher)) {
-      background-color: color('primary-50');
+      background-color: color('background-hover', 'context');
     }
 
     &[aria-current='page'] {

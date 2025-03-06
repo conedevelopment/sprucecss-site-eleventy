@@ -32,6 +32,14 @@ $colors: (
     'separator': hsl(0deg 0% 100% / 10%),
   ),
   'btn': (
+    'dark-background': hsl(0deg 0% 100%),
+    'dark-background-hover': hsl(0deg 0% 95%),
+    'dark-foreground': hsl(205deg 100% 5%),
+    'dark-outline-border': hsl(0 0% 100% / 15%),
+    'dark-outline-foreground': hsl(0deg 0% 100%),
+    'dark-outline-foreground-hover': hsl(205deg 100% 2%),
+    'dark-outline-background-hover': hsl(0deg 0% 100%),
+    'dark-outline-focus-ring': hsl(0deg 0% 100%),
     'discrete-background-hover': hsl(261deg 52% 59%),
     'discrete-foreground': hsl(0deg 0% 100%),
     'discrete-foreground-hover': hsl(0deg 0% 100%),
@@ -50,6 +58,9 @@ $colors: (
   ),
   'container': (
     'background': hsl(207deg 92% 12%),
+  ),
+  'context': (
+    'background-hover': hsl(207deg 92% 12%),
   ),
   'feature': (
     'subtitle-background': hsl(206deg 100% 10%),

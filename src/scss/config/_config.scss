@@ -18,9 +18,14 @@ $color-dark: hsl(260deg 70% 6%);
       'separator': hsl(0deg 0% 0% / 10%),
     ),
     'btn': (
-      'dark-background': $color-dark,
-      'dark-background-hover': hsl(260deg 70% 12%),
+      'dark-background': hsl(205deg 100% 2%),
+      'dark-background-hover': hsl(205deg 100% 5%),
       'dark-foreground': hsl(0deg 0% 100%),
+      'dark-outline-border': hsl(260deg 4% 70%),
+      'dark-outline-foreground': hsl(205deg 100% 2%),
+      'dark-outline-foreground-hover': hsl(0deg 0% 100%),
+      'dark-outline-background-hover': hsl(205deg 100% 2%),
+      'dark-outline-focus-ring': hsl(205deg 100% 2%),
       'decline-background': hsl(207deg 39% 17%),
       'decline-foreground': hsl(0deg 0% 100%),
       'delete-background': hsl(0deg 71% 94%),
@@ -46,12 +51,15 @@ $color-dark: hsl(260deg 70% 6%);
       'pagination-foreground': hsl(262deg 71% 49%),
       'pagination-foreground-hover': hsl(0deg 0% 100%),
     ),
-    'container': (
-      'background': hsl(0deg 0% 95%),
-    ),
     'combobox': (
       'item-background': $color-primary-50,
       'item-foreground': hsl(262deg 71% 49%),
+    ),
+    'container': (
+      'background': hsl(0deg 0% 95%),
+    ),
+    'context': (
+      'background-hover': $color-primary-50,
     ),
     'cookie': (
       'background': hsl(207deg 95% 8%),

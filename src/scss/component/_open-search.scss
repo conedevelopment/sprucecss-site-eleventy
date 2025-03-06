@@ -16,11 +16,4 @@
     color: color('icon', 'search');
     inline-size: var(--size);
   }
-
-  &__btn {
-    &:hover,
-    &:focus {
-      color: hsl(206deg 100% 7%);
-    }
-  }
 }

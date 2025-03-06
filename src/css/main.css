@@ -388,9 +388,14 @@ template {
   --spruce-btn-color-secondary-background-hover: hsl(227, 92%, 45%);
   --spruce-btn-color-secondary-foreground: hsl(0, 0%, 100%);
   --spruce-btn-color-secondary-shadow: hsl(227, 92%, 90%);
-  --spruce-btn-color-dark-background: hsl(260, 70%, 6%);
-  --spruce-btn-color-dark-background-hover: hsl(260, 70%, 12%);
+  --spruce-btn-color-dark-background: hsl(205, 100%, 2%);
+  --spruce-btn-color-dark-background-hover: hsl(205, 100%, 5%);
   --spruce-btn-color-dark-foreground: hsl(0, 0%, 100%);
+  --spruce-btn-color-dark-outline-border: hsl(260, 4%, 70%);
+  --spruce-btn-color-dark-outline-foreground: hsl(205, 100%, 2%);
+  --spruce-btn-color-dark-outline-foreground-hover: hsl(0, 0%, 100%);
+  --spruce-btn-color-dark-outline-background-hover: hsl(205, 100%, 2%);
+  --spruce-btn-color-dark-outline-focus-ring: hsl(205, 100%, 2%);
   --spruce-btn-color-decline-background: hsl(207, 39%, 17%);
   --spruce-btn-color-decline-foreground: hsl(0, 0%, 100%);
   --spruce-btn-color-delete-background: hsl(0, 71%, 94%);
@@ -471,12 +476,16 @@ template {
 }
 
 :root {
+  --spruce-combobox-color-item-background: hsl(259, 53%, 98%);
+  --spruce-combobox-color-item-foreground: hsl(262, 71%, 49%);
+}
+
+:root {
   --spruce-container-color-background: hsl(0, 0%, 95%);
 }
 
 :root {
-  --spruce-combobox-color-item-background: hsl(259, 53%, 98%);
-  --spruce-combobox-color-item-foreground: hsl(262, 71%, 49%);
+  --spruce-context-color-background-hover: hsl(259, 53%, 98%);
 }
 
 :root {
@@ -1672,6 +1681,14 @@ legend {
 }
 
 :root[data-theme-mode=dark] {
+  --spruce-btn-color-dark-background: hsl(0, 0%, 100%);
+  --spruce-btn-color-dark-background-hover: hsl(0, 0%, 95%);
+  --spruce-btn-color-dark-foreground: hsl(205, 100%, 5%);
+  --spruce-btn-color-dark-outline-border: hsla(0, 0%, 100%, 0.15);
+  --spruce-btn-color-dark-outline-foreground: hsl(0, 0%, 100%);
+  --spruce-btn-color-dark-outline-foreground-hover: hsl(205, 100%, 2%);
+  --spruce-btn-color-dark-outline-background-hover: hsl(0, 0%, 100%);
+  --spruce-btn-color-dark-outline-focus-ring: hsl(0, 0%, 100%);
   --spruce-btn-color-discrete-background-hover: hsl(261, 52%, 59%);
   --spruce-btn-color-discrete-foreground: hsl(0, 0%, 100%);
   --spruce-btn-color-discrete-foreground-hover: hsl(0, 0%, 100%);
@@ -1691,6 +1708,10 @@ legend {
 
 :root[data-theme-mode=dark] {
   --spruce-container-color-background: hsl(207, 92%, 12%);
+}
+
+:root[data-theme-mode=dark] {
+  --spruce-context-color-background-hover: hsl(207, 92%, 12%);
 }
 
 :root[data-theme-mode=dark] {
@@ -1798,9 +1819,6 @@ legend {
 }
 [data-theme-mode=dark] .cta {
   border-block-start: 1px solid var(--spruce-base-color-border);
-}
-[data-theme-mode=dark] .sprucecss-site-header .btn--outline-primary {
-  --spruce-btn-color-primary-background: hsl(261, 54%, 80%);
 }
 
 .skip-link {
@@ -2778,9 +2796,6 @@ textarea.pagefind-ui__search-input {
   block-size: var(--size);
   color: var(--spruce-search-color-icon);
   inline-size: var(--size);
-}
-.open-search__btn:hover, .open-search__btn:focus {
-  color: hsl(206, 100%, 7%);
 }
 
 .tags {
@@ -4406,17 +4421,17 @@ pre[class*=language-] {
 
 .btn--outline-dark {
   background-color: transparent;
-  border-color: var(--spruce-btn-color-dark-background);
-  color: var(--spruce-btn-color-dark-background);
+  border-color: var(--spruce-btn-color-dark-outline-border);
+  color: var(--spruce-btn-color-dark-outline-foreground);
 }
 .btn--outline-dark:focus-visible {
-  outline: 2px solid var(--spruce-btn-color-dark-background);
+  outline: 2px solid var(--spruce-btn-color-dark-outline-focus-ring);
   outline-offset: 2px;
 }
 .btn--outline-dark:hover {
-  background-color: var(--spruce-btn-color-dark-background);
-  border-color: var(--spruce-btn-color-dark-background);
-  color: var(--spruce-btn-color-dark-foreground);
+  background-color: var(--spruce-btn-color-dark-outline-background-hover);
+  border-color: var(--spruce-btn-color-dark-outline-background-hover);
+  color: var(--spruce-btn-color-dark-outline-foreground-hover);
 }
 
 .btn--delete {

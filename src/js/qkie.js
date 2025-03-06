@@ -4,7 +4,6 @@ export default class Cookie
    * Make a new Cookie instance.
    *
    * @param  {string}  namespace
-   * @return {void}
    */
   constructor(namespace = '')
   {
@@ -16,7 +15,7 @@ export default class Cookie
    *
    * @param  {string}  key
    * @param  {string} value
-   * @param  {Date|string|null}  expires
+   * @param  {Date|string|number|null}  expires - Number of days, Date, or string for expiry.
    * @param  {string}  path
    * @param  {object}  options
    * @return {void}
@@ -25,11 +24,18 @@ export default class Cookie
   {
     key = this._qualify(key);
 
+    value = encodeURIComponent(value).replace(
+      /%(2[346BF]|3[AC-F]|40|5[BDE]|60|7[BCD])/g,
+      decodeURIComponent
+    );
+
     if (typeof expires === 'number') {
       const date = new Date();
       date.setDate(date.getDate() + expires);
-      expires = date.toUTCString();
-    } else if (expires instanceof Date) {
+      expires = date;
+    }
+
+    if (expires instanceof Date) {
       expires = expires.toUTCString();
     }
 
@@ -37,13 +43,17 @@ export default class Cookie
       [key]: value,
       expires,
       path,
-      // SameSite: 'Lax',
-      // Secure: true,
+      SameSite: 'Lax',
+      Secure: true,
       ...options,
     };
 
+    /** @type {string[]} */
+    const initialValue = [];
+
     document.cookie = Object.entries(cookie)
-      .reduce((stack, entry) => stack.concat(entry.join('=')), [])
+      .filter((entry) => entry[1] !== null)
+      .reduce((stack, entry) => stack.concat(entry.join('=')), initialValue)
       .join('; ');
   }
 
@@ -51,27 +61,29 @@ export default class Cookie
    * Get the cookie with the given key.
    *
    * @param  {string}  key
-   * @param  {mixed}  value
-   * @return {mixed}
+   * @param  {*}  value
+   * @return {*}
    */
-  get(key, value = null)
+  get(key, value = '')
   {
-    key = this._escape(this._qualify(key));
+    key = this._qualify(key);
 
     const cookie = document.cookie.match(new RegExp('(^| )' + key + '=([^;]+)'));
 
-    return (cookie && cookie[2]) ? cookie[2] : value;
+    value = (cookie && cookie[2]) ? cookie[2] : value;
+
+    return value.toString().replace(/(%[\dA-F]{2})+/gi, decodeURIComponent);
   }
 
   /**
    * Determine if the given cookie exists.
    *
    * @param  {string}  key
-   * @return {bool}
+   * @return {boolean}
    */
   isset(key)
   {
-    key = this._escape(this._qualify(key));
+    key = this._qualify(key);
 
     return document.cookie.match(new RegExp('(^| )' + key + '=([^;]+)')) !== null;
   }
@@ -84,7 +96,7 @@ export default class Cookie
    */
   remove(key)
   {
-    this.set(key, null, 'Thu, 01 Jan 1970 00:00:01 GMT');
+    this.set(key, '', 'Thu, 01 Jan 1970 00:00:01 GMT');
   }
 
   /**
@@ -95,17 +107,8 @@ export default class Cookie
    */
   _qualify(key)
   {
-    return this.namespace + key;
-  }
-
-  /**
-   * Esacpe the given key.
-   *
-   * @param  {string}  key
-   * @return {string}
-   */
-  _escape(key)
-  {
-    return key = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return encodeURIComponent(this.namespace + key)
+      .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+      .replace(/%(2[346B]|5E|60|7C)/g, decodeURIComponent);
   }
 }
