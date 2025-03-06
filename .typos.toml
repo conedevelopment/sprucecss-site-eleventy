@@ -1,6 +1,7 @@
 [files]
 extend-exclude = [
     ".git/",
+    "src/_includes/ui/",
 ]
 ignore-hidden = false
 
