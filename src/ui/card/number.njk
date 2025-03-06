@@ -1,0 +1,36 @@
+---
+title: 'Number'
+extendedTitle: 'Number Card'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--number-card">
+        {% include "ui/html/card/number.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/card/number.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/card/number.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/card/number.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/card/number.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/card/number.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/card/number.js"></script>
+{% endblock %}

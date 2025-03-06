@@ -1,25 +1,25 @@
 {% set previousPost = postNavigation | getPreviousCollectionItem %}
 {% set nextPost = postNavigation | getNextCollectionItem %}
 
-<nav class="post-navigation">
+<nav class="sprucecss-post-navigation">
     {% if previousPost %}
-        <a class="post-navigation-item post-navigation-item--prev" href="{{ previousPost.url }}">
-            <span class="post-navigation-item__icon">
+        <a class="sprucecss-post-navigation-item sprucecss-post-navigation-item--prev" href="{{ previousPost.url }}">
+            <span class="sprucecss-post-navigation-item__icon">
                 {% include "icon/arrow-left.svg" %}
             </span>
-            <span class="post-navigation-item__caption">
+            <span class="sprucecss-post-navigation-item__caption">
                 Previous
-                <span class="post-navigation-item__title">{{ previousPost.data.title }}</span>
+                <span class="sprucecss-post-navigation-item__title">{{ previousPost.data.title }}</span>
             </span>
         </a>
     {% endif %}
     {% if nextPost %}
-        <a class="post-navigation-item post-navigation-item--next" href="{{ nextPost.url }}">
-            <span class="post-navigation-item__caption">
+        <a class="sprucecss-post-navigation-item sprucecss-post-navigation-item--next" href="{{ nextPost.url }}">
+            <span class="sprucecss-post-navigation-item__caption">
                 Next
-                <span class="post-navigation-item__title">{{ nextPost.data.title }}</span>
+                <span class="sprucecss-post-navigation-item__title">{{ nextPost.data.title }}</span>
             </span>
-            <span class="post-navigation-item__icon">
+            <span class="sprucecss-post-navigation-item__icon">
                 {% include "icon/arrow-right.svg" %}
             </span
         ></a>

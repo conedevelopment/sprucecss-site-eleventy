@@ -1,6 +1,6 @@
 @use 'sprucecss/scss/spruce' as *;
 
-.modal-backdrop {
+.spruce-modal-backdrop {
   align-items: start;
   backdrop-filter: blur(0.15rem);
   background-color: color('background', 'modal');
@@ -17,7 +17,7 @@
   }
 }
 
-.modal {
+.spruce-modal {
   background-color: color('background');
   border: 1px solid color('border');
   border-radius: config('border-radius-sm', $display);

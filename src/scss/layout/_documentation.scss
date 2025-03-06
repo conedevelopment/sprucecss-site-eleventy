@@ -22,7 +22,6 @@
   }
 
   &__sidebar {
-    @include layout-stack('m');
     @include scrollbar(
       color('thumb-background', 'scrollbar'),
       color('thumb-background-hover', 'scrollbar'),
@@ -32,6 +31,7 @@
     );
     inset-block-start: 2rem;
     overflow-y: auto;
+    overscroll-behavior: contain;
     padding-inline-end: spacer('m');
 
     @include breakpoint('sm') {
@@ -79,7 +79,7 @@
       grid-column: 1 / 2;
     }
 
-    .post-content {
+    .sprucecss-post-content {
       margin-inline: auto;
       max-inline-size: 45rem;
     }

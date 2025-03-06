@@ -1,0 +1,28 @@
+---
+title: 'Info'
+extendedTitle: 'Info Card'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--info-card">
+        {% include "ui/html/card/info.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/card/info.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/card/info.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/card/info.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/card/info.css">
+{% endblock %}

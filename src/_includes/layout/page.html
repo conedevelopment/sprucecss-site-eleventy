@@ -6,13 +6,13 @@
             <div class="l-post__inner">
                 {% set heading = {
                     "title": title,
-                    "class": "post-heading--center",
+                    "class": "sprucecss-post-heading--center",
                     "showBreadcrumb": false,
                     "showMeta": false,
                     "description": description
                 } %}
                 {% include "partial/post-heading.html" %}
-                <div class="post-content post-content--blog">
+                <div class="sprucecss-post-content sprucecss-post-content--blog">
                     {{ content | safe }}
                 </div>
             </div>

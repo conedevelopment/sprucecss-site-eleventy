@@ -1,0 +1,31 @@
+---
+title: 'Theme Switcher Button'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--center ui--theme-switcher-button">
+        {% include "ui/html/misc/theme-switcher-button.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/misc/theme-switcher-button.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/misc/theme-switcher-button.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/misc/theme-switcher-button.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/misc/theme-switcher-button.css">
+{% endblock %}
+
+{% block script %}
+    <script type="module" src="/_includes/ui/js/misc/theme-switcher-button.js"></script>
+{% endblock %}

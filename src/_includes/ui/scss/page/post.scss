@@ -1,0 +1,8 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.l-post {
+  display: flex;
+  flex-direction: column;
+  gap: spacer-clamp('l', 'xl');
+  margin-block: spacer-clamp('l', 'xl') 0;
+}

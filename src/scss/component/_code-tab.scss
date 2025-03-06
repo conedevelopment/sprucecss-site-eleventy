@@ -33,19 +33,6 @@
     margin-block: 0;
   }
 
-  &__open-new {
-    align-items: center;
-    display: flex;
-    font-size: config('font-size-sm', $typography);
-    gap: spacer('xs');
-    line-height: 1;
-
-    svg {
-      block-size: 0.85em;
-      inline-size: 0.85em;
-    }
-  }
-
   &__group {
     @include clear-list;
     align-items: center;
@@ -73,11 +60,16 @@
   &__body {
     [class^='language-'] {
       margin-block: 0;
-      max-block-size: 40rem;
     }
+  }
 
-    iframe {
-      border: 0;
+  [role='tabpanel'] {
+    max-block-size: 40rem;
+    overflow-y: auto;
+
+    &:not([aria-labelledby='tab-control-preview']) {
+      background: color('background', 'prism');
+      display: grid;
     }
   }
 }

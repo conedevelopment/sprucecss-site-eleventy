@@ -1,0 +1,27 @@
+---
+title: 'Pagination'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--center ui--pagination">
+        {% include "ui/html/navigation/pagination.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/navigation/pagination.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/navigation/pagination.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/navigation/pagination.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/navigation/pagination.css">
+{% endblock %}

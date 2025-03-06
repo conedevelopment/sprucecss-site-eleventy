@@ -1,13 +1,13 @@
-<div class="post-heading {{ heading.class }}">
-    <h1 class="post-heading__title">{{ heading.title }}</h1>
+<div class="sprucecss-post-heading {{ heading.class }}">
+    <h1 class="sprucecss-post-heading__title">{{ heading.title }}</h1>
 
     {% if heading.description %}
-        <p class="post-heading__description">{{ heading.description }}</p>
+        <p class="sprucecss-post-heading__description">{{ heading.description }}</p>
     {% endif %}
 
     {% if heading.showBreadcrumb %}
-        <div class="post-heading__breadcrumb">
-            <ul class="breadcrumb-list">
+        <div class="sprucecss-post-heading__breadcrumb">
+            <ul class="sprucecss-breadcrumb-list">
                 <li><a href="/">Home</a></li>
                 <li><a href="/blog/">Blog</a></li>
                 <li><span aria-current="page">{{ title }}</span></li>
@@ -16,10 +16,10 @@
     {% endif %}
 
     {% if heading.showMeta %}
-        <div class="post-heading__meta">
-            <a class="post-author" href="ttps://twitter.com/_iamadam" rel="noopener noreferrer" target="_blank">
-                <img class="post-author__avatar" src="https://secure.gravatar.com/avatar/fd9479a898c593601efd2fe758a86dba?s=96&d=mm&r=g" alt="" width="40" height="40" />
-                <span class="post-author__name">by Adam Laki</span>
+        <div class="sprucecss-post-heading__meta">
+            <a class="sprucecss-post-author" href="https://adamlaki.com" rel="noopener noreferrer" target="_blank">
+                <img class="sprucecss-post-author__avatar" src="https://secure.gravatar.com/avatar/fd9479a898c593601efd2fe758a86dba?s=96&d=mm&r=g" alt="" width="40" height="40" />
+                <span class="sprucecss-post-author__name">by Adam Laki</span>
             </a>
             {% include "partial/tags.html" %}
             <span>

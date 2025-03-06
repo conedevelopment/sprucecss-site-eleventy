@@ -1,0 +1,44 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.post-content {
+  @include layout-stack;
+
+  @include breakpoint('md') {
+    font-size: 1.0375rem;
+  }
+
+  :is(dd, dl, dl, h1, h2, h3, h4, h5, h6, hr, ul, ol, p, blockquote) {
+    @include layout-center(null, 47.5rem);
+  }
+
+  * + h2,
+  * + h3,
+  > * + img,
+  > * + iframe,
+  > * + figure,
+  > * + .gallery,
+  > iframe + *,
+  > img + *,
+  > figure + *,
+  > .gallery + * {
+    margin-block-start: spacer('l');
+  }
+
+  h2 + *,
+  h3 + *,
+  h4 + *,
+  h5 + *,
+  h6 + * {
+    margin-block-start: spacer('s');
+  }
+
+  img,
+  iframe {
+    border-radius: config('border-radius-sm', $display);
+  }
+
+  iframe {
+    aspect-ratio: 16 / 9;
+    block-size: initial;
+  }
+}

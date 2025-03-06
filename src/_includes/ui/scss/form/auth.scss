@@ -1,0 +1,39 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.form-group-stack {
+  @include layout-stack('s');
+}
+
+.form-label {
+  &--space-between {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.auth-form {
+  @include layout-stack('s');
+  margin-block: auto;
+
+  &__social {
+    @include layout-stack('s');
+  }
+
+  &__separator {
+    align-items: center;
+    display: flex;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('s');
+    margin-block-start: spacer('m');
+    text-transform: uppercase;
+
+    &::before,
+    &::after {
+      background-color: color('border');
+      block-size: 1px;
+      content: '';
+      display: flex;
+      inline-size: 100%;
+    }
+  }
+}

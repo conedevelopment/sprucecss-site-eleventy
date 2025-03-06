@@ -26,19 +26,20 @@ pre[class*='language-'] {
 /* Code blocks */
 pre[class*='language-'] {
   display: grid;
-  overflow: auto;
-  padding: spacer('m');
+  overflow: visible;
+  padding: spacer('m') spacer('m') spacer('s');
 }
 
 pre[class*='language-'] code {
+  @include scrollbar;
   background-color: transparent;
-  padding: 0;
+  overflow-x: auto;
+  padding: 0 0 spacer('s');
 }
 
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
   background: color('background', 'prism');
-  overflow-x: auto;
 }
 
 .token.comment,

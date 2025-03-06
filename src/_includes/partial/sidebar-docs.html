@@ -1,4 +1,4 @@
-<aside class="sidebar l-documentation__sidebar">
+<aside class="sidebar">
     {% for navigation in docsNavigation %}
         <section class="sidebar-section">
             <h3 class="sidebar-section__title">{{ navigation.title }}</h3>
@@ -8,7 +8,7 @@
                     <li>
                         <a
                             href="{{ item.url }}"
-                            {{ helpers.getLinkActiveState(item.url, page.url) | safe }}
+                            {{ helper.getLinkActiveState(item.url, page.url) | safe }}
                         >
                             {{ item.caption }}
                         </a>

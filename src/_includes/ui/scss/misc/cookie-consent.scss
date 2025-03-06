@@ -1,0 +1,70 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.cookie-consent-helper {
+  display: flex;
+  inset: auto spacer('m') spacer('m');
+  justify-content: center;
+  pointer-events: none;
+  position: fixed;
+  z-index: 25;
+}
+
+.cookie-consent {
+  @include set-css-variable((
+    --base-color-text: hsl(0deg 0% 97%),
+    --base-color-link: hsl(261deg 54% 70%),
+    --base-color-link-hover: hsl(261deg 54% 80%),
+  ));
+
+  align-items: center;
+  background-color: hsl(260deg 70% 6%);
+  border-radius: config('border-radius-lg', $display);
+  box-shadow: 0 0 3rem hsl(0deg 0% 0% / 10%);
+  color: color('text');
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: spacer('s') spacer('m');
+  justify-content: center;
+  padding: spacer('s');
+  pointer-events: all;
+  text-align: center;
+  transform: translateY(200%);
+
+  &--slidein {
+    animation: slidein config('duration', $transition) forwards;
+  }
+
+  &--slideout {
+    animation: slideout config('duration', $transition) forwards;
+  }
+
+  &__caption {
+    @include layout-stack('xs');
+  }
+
+  &__btns {
+    display: flex;
+    gap: spacer('s');
+  }
+}
+
+@keyframes slidein {
+  from {
+    transform: translateY(200%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideout {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(200%);
+  }
+}

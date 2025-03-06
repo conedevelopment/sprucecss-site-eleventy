@@ -1,0 +1,27 @@
+---
+title: 'Invoice'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--invoice">
+        {% include "ui/html/ecommerce/invoice.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/ecommerce/invoice.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/ecommerce/invoice.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/ecommerce/invoice.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/ecommerce/invoice.css">
+{% endblock %}

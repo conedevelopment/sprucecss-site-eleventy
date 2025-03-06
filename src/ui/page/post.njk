@@ -1,0 +1,40 @@
+---
+title: 'Post Page'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--post">
+        {% include "ui/html/page/post.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/page/post.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/page/post.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/page/post.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/site-header.css">
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/site-footer.css">
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/post-author.css">
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/post-heading.css">
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/post-content.css">
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/gallery.css">
+    <link rel="stylesheet" href="/_includes/ui/css/navigation/breadcrumb-list.css">
+    <link rel="stylesheet" href="/_includes/ui/css/navigation/site-navigation.css">
+    <link rel="stylesheet" href="/_includes/ui/css/page/post.css">
+    <link rel="stylesheet" href="/_includes/ui/css/misc/theme-switcher-button.css">
+{% endblock %}
+
+{% block script %}
+    <script type="module" src="/_includes/ui/js/misc/theme-switcher-button.js"></script>
+{% endblock %}

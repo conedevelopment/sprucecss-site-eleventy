@@ -3,15 +3,16 @@
 {% block content %}
     <div class="
         l-documentation
-        {% if component.preview %}l-documentation--code{% endif %}
+        {% if preview %}l-documentation--code{% endif %}
     ">
         <div class="container">
-            {% if component.preview %}
+            {% if preview %}
                 <div class="l-documentation__code-tab">
-                    {% include 'partial/code-tab.html' %}
+                    {% include "partial/code-tab.html" %}
                 </div>
                 <div class="l-documentation__navigation-top">
-                    {% include "partial/component-navigation.html" %}
+                    {% set postNavigation = collections.ui %}
+                    {% include "partial/post-navigation.html" %}
                 </div>
             {% endif %}
             <div class="l-documentation__inner">
@@ -21,22 +22,29 @@
                 <div class="l-documentation__body-helper">
                     <div class="l-documentation__body">
                         <div class="l-documentation__title-helper">
-                            <h1 class="l-documentation__title">{{ title }}</h1>
+                            <h1 class="l-documentation__title">
+                                {% if extendedTitle %}
+                                    {{ extendedTitle }}
+                                {% else %}
+                                    {{ title }}
+                                {% endif %}
+                            </h1>
                         </div>
                         <div class="l-documentation__table-of-content-helper">
                             <div class="l-documentation__table-of-content">
-                                {{ component.content | toc | safe }}
+                                {{ description | toc | safe }}
                             </div>
                         </div>
                         <div class="l-documentation__content" data-pagefind-body>
-                            <div class="post-content">
-                                {{ component.content | markdown | safe }}
+                            <div class="sprucecss-post-content">
+                                {{ description | markdown | safe }}
                             </div>
                         </div>
                     </div>
-                    {% if not component.preview %}
+                    {% if not preview %}
                         <div class="l-documentation__navigation-bottom">
-                            {% include "partial/component-navigation.html" %}
+                            {% set postNavigation = collections.ui %}
+                            {% include "partial/post-navigation.html" %}
                         </div>
                     {% endif %}
                 </div>

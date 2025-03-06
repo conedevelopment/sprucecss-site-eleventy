@@ -1,0 +1,28 @@
+---
+title: 'Post Navigation'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--post-navigation">
+        {% include "ui/html/navigation/post.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/navigation/post.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/navigation/post.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/navigation/post.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/navigation/post.css">
+{% endblock %}
+

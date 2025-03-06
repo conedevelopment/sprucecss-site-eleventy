@@ -1,0 +1,46 @@
+@use 'sprucecss/scss/spruce' as *;
+
+@include generate-form-control(
+  '.number-group',
+  false,
+  false,
+  false
+);
+
+.number-group {
+  align-items: center;
+  display: inline-flex;
+  gap: spacer('xxs');
+  inline-size: auto;
+  max-inline-size: 6.5rem;
+  padding: 0.25em;
+  position: relative;
+
+  &:focus-within {
+    @include short-ring('input');
+  }
+
+  &__input {
+    background-color: transparent;
+    border: 0;
+    color: color('text', 'form');
+    font-size: config('font-size', $form-control);
+    font-weight: config('font-weight', $form-control);
+    inline-size: 100%;
+    line-height: config('line-height', $form-control);
+    outline: 0;
+    padding: 0;
+    text-align: center;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      appearance: none;
+      margin: 0;
+    }
+  }
+
+  &__decrement,
+  &__increment {
+    border-radius: config('border-radius', $form-control-sm, false);
+  }
+}

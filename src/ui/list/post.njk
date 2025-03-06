@@ -1,0 +1,29 @@
+---
+title: 'Post List'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--post-list">
+        {% include "ui/html/list/post.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/list/post.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/list/post.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/list/post.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/list/post.css">
+    <link rel="stylesheet" href="/_includes/ui/css/card/post.css">
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/post-author.css">
+{% endblock %}

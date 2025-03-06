@@ -1,0 +1,27 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.payment-card {
+  @include a11y-card-link('.payment-card .form-check', true);
+  align-items: center;
+  background-color: color('background');
+  border: 1px solid color('border');
+  border-radius: config('border-radius-lg', $display);
+  color: color('heading');
+  display: flex;
+  gap: spacer('m');
+  padding: spacer-clamp('s', 'm');
+  text-decoration: none;
+
+  &__caption {
+    @include layout-stack('xs');
+  }
+
+  &__title {
+    font-size: font-size('h4');
+  }
+
+  &__logo {
+    block-size: 1.75rem;
+    inline-size: auto;
+  }
+}

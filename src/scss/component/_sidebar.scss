@@ -1,5 +1,9 @@
 @use 'sprucecss/scss/spruce' as *;
 
+.sidebar {
+  @include layout-stack('m');
+}
+
 .sidebar-section {
   &__title {
     color: color('heading');
@@ -26,7 +30,7 @@
       color: color('text');
       text-decoration: none;
 
-      &[data-state='active'] {
+      &[aria-current='page'] {
         color: color('heading');
         font-weight: 700;
         position: relative;

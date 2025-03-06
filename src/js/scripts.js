@@ -1,8 +1,8 @@
-import {
-  getCookie
-} from './cookie.js';
+import Cookie from './qkie.js';
 
-if (getCookie('spruce-cookie-law-analytics') === 'accepted') {
+const cookie = new Cookie('sprucecss-');
+
+if (cookie.get('spruce-cookie-law-analytics') === 'accepted') {
   function gtag() { // eslint-disable-line
     window.dataLayer.push(arguments); // eslint-disable-line
   }

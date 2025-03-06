@@ -1,0 +1,29 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.post-heading {
+  text-align: center;
+
+  &__inner {
+    display: grid;
+    gap: spacer('s');
+  }
+
+  &__title {
+    font-size: responsive-font-size(4.5rem, 50, '5vw + 1rem');
+    margin-block: 0;
+    text-wrap: balance;
+  }
+
+  &__meta {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs:m');
+    justify-content: center;
+    margin-block-start: spacer-clamp('m', 'l');
+  }
+
+  .breadcrumb-list {
+    justify-self: center;
+  }
+}

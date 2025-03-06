@@ -1,0 +1,19 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.post-author {
+  --avatar-size: 2.5rem;
+  align-items: center;
+  display: flex;
+  gap: spacer('xs');
+  text-decoration: none;
+
+  &__avatar {
+    block-size: var(--avatar-size);
+    border-radius: calc(var(--avatar-size) / 2);
+    inline-size: var(--avatar-size);
+  }
+
+  &__name {
+    color: color('text');
+  }
+}

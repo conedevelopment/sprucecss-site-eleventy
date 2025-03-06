@@ -8,13 +8,13 @@
                     <p class="heading__description">{{ faq.heading.description }}</p>
                 </div>
                 {% endif %}
-                <div class="accordion-list">
+                <div class="sprucecss-accordion-list">
                     {% for card in faq.cards %}
-                        <div class="accordion-card">
-                            <h3 class="accordion-card__title">
+                        <div class="sprucecss-accordion-card">
+                            <h3 class="sprucecss-accordion-card__title">
                                 {{ card.title }}
                             </h3>
-                            <div class="accordion-card__content" aria-hidden="true">
+                            <div class="sprucecss-accordion-card__content" aria-hidden="true">
                                 <div>
                                     {{ card.description | safe }}
                                 </div>

@@ -1,0 +1,27 @@
+---
+title: 'Alert'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--alert">
+        {% include "ui/html/feedback/alert.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/feedback/alert.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/feedback/alert.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/feedback/alert.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/feedback/alert.css">
+{% endblock %}

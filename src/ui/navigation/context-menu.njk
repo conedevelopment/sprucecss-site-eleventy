@@ -1,0 +1,27 @@
+---
+title: 'Context Menu'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--center ui--context-menu">
+        {% include "ui/html/navigation/context-menu.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/navigation/context-menu.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/navigation/context-menu.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/navigation/context-menu.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/navigation/context-menu.css">
+{% endblock %}

@@ -1,0 +1,31 @@
+---
+title: 'Site Navigation'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--site-navigation">
+        {% include "ui/html/navigation/site-navigation.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/navigation/site-navigation.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/navigation/site-navigation.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/navigation/site-navigation.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/navigation/site-navigation.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/navigation/site-navigation.js"></script>
+{% endblock %}

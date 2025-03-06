@@ -1,0 +1,28 @@
+---
+title: 'Number Group'
+order: 28
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--center">
+        {% include "ui/html/form/number-group.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/form/number-group.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/form/number-group.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/form/number-group.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/form/number-group.css">
+{% endblock %}

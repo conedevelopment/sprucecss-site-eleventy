@@ -1,0 +1,29 @@
+---
+title: 'Post'
+extendedTitle: 'Post Card'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--post-card">
+        {% include "ui/html/card/post.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/card/post.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/card/post.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/card/post.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/card/post.css">
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/post-author.css">
+{% endblock %}

@@ -12,7 +12,7 @@ We store this choice of you in the `spruce-cookie-law-analytics` cookie.
 
 If you want to opt-out or accept our cookies, please press the button below.
 
-<button class="btn btn--decline btn--rounded btn--lg" data-action="cookie" data-type="analytics" data-on-text="Decline" data-off-text="Accept">analytics cookies</button>
+<button class="btn btn--decline btn--rounded btn--lg" data-sprucecss-action="cookie" data-type="analytics" data-on-text="Decline" data-off-text="Accept">analytics cookies</button>
 
 ## Embedded content from other websites
 

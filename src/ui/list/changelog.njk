@@ -1,0 +1,27 @@
+---
+title: 'Changelog'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--changelog">
+        {% include "ui/html/list/changelog.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/list/changelog.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/list/changelog.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/list/changelog.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/list/changelog.css">
+{% endblock %}

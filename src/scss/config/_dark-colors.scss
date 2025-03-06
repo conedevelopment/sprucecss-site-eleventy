@@ -32,6 +32,14 @@ $colors: (
     'separator': hsl(0deg 0% 100% / 10%),
   ),
   'btn': (
+    'dark-background': hsl(0deg 0% 100%),
+    'dark-background-hover': hsl(0deg 0% 95%),
+    'dark-foreground': hsl(205deg 100% 5%),
+    'dark-outline-border': hsl(0 0% 100% / 15%),
+    'dark-outline-foreground': hsl(0deg 0% 100%),
+    'dark-outline-foreground-hover': hsl(205deg 100% 2%),
+    'dark-outline-background-hover': hsl(0deg 0% 100%),
+    'dark-outline-focus-ring': hsl(0deg 0% 100%),
     'discrete-background-hover': hsl(261deg 52% 59%),
     'discrete-foreground': hsl(0deg 0% 100%),
     'discrete-foreground-hover': hsl(0deg 0% 100%),
@@ -48,6 +56,16 @@ $colors: (
     'secondary-foreground': $dark-color-white,
     'secondary-shadow': color.adjust($dark-color-secondary, $lightness: -20%),
   ),
+  'container': (
+    'background': hsl(207deg 92% 12%),
+  ),
+  'context': (
+    'background-hover': hsl(207deg 92% 12%),
+  ),
+  'feature': (
+    'subtitle-background': hsl(206deg 100% 10%),
+    'subtitle-border': hsl(206deg 100% 16%),
+  ),
   'form': (
     'background': color.scale($dark-color-black, $lightness: 5%),
     'background-disabled': $dark-color-black,
@@ -61,10 +79,10 @@ $colors: (
     'invalid-focus-ring': color.adjust($dark-color-danger, $alpha: -0.75),
     'label': $dark-color-white,
     'legend': $dark-color-white,
-    'placeholder': hsl(0deg 0% 60%),
+    'placeholder': hsl(0deg 0% 70%),
     'range-thumb-background': $dark-color-primary,
     'range-thumb-focus-ring': $dark-color-primary,
-    'range-track-background': $dark-color-gray-dark,
+    'range-track-background': hsl(206deg 100% 20%),
     'ring-focus': color.adjust($dark-color-primary, $alpha: -0.75),
     'select-foreground': hsl(0deg 0% 100%),
     'text': $dark-color-gray,
@@ -82,6 +100,9 @@ $colors: (
   ),
   'ide': (
     'header-background': hsl(0deg 0% 0%),
+  ),
+  'invoice': (
+    'background': hsl(234deg 49% 6%),
   ),
   'navigation': (
     'icon-background': hsl(207deg 23% 26%),

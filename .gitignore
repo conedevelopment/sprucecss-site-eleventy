@@ -174,3 +174,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Compiled CSS
+src/_includes/ui/css

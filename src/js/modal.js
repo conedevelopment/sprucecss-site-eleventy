@@ -3,20 +3,20 @@
   const siteWrapper = document.querySelector('.site-wrapper');
   const buttons = document.querySelectorAll('[data-action="open-search"]');
   const input = document.querySelector('.pagefind-ui__search-input');
-  const modal = document.querySelector('.modal-backdrop');
+  const modal = document.querySelector('.spruce-modal-backdrop');
 
   if (!buttons || !modal) return;
 
   function openModal () {
     activeElement = document.activeElement;
     siteWrapper.setAttribute('inert', '');
-    modal.classList.add('modal-backdrop--open');
+    modal.classList.add('spruce-modal-backdrop--open');
     input.focus();
   }
 
   function closeModal () {
     siteWrapper.removeAttribute('inert');
-    modal.classList.remove('modal-backdrop--open');
+    modal.classList.remove('spruce-modal-backdrop--open');
     activeElement.focus();
   }
 

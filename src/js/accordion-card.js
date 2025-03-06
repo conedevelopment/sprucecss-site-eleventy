@@ -1,13 +1,13 @@
 (() => {
-  document.querySelectorAll('.accordion-card').forEach((accordion) => {
-    const heading = accordion.querySelector('.accordion-card__title');
+  document.querySelectorAll('.sprucecss-accordion-card').forEach((accordion) => {
+    const heading = accordion.querySelector('.sprucecss-accordion-card__title');
     const button = document.createElement('button');
     const icon = document.createElement('span');
 
-    button.classList.add('accordion-card__toggle');
+    button.classList.add('sprucecss-accordion-card__toggle');
     button.setAttribute('aria-expanded', 'false');
 
-    icon.classList.add('accordion-card__icon');
+    icon.classList.add('sprucecss-accordion-card__icon');
     icon.innerHTML = `
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <line class="vertical-line" x1="12" y1="5" x2="12" y2="19"></line>
@@ -20,9 +20,9 @@
     heading.appendChild(button);
 
     button.addEventListener('click', () => {
-      document.querySelectorAll('.accordion-card').forEach((otherAccordion) => {
+      document.querySelectorAll('.sprucecss-accordion-card').forEach((otherAccordion) => {
         const otherButton = otherAccordion.querySelector('button');
-        const otherContent = otherAccordion.querySelector('.accordion-card__content');
+        const otherContent = otherAccordion.querySelector('.sprucecss-accordion-card__content');
 
         if (otherButton !== button) {
           otherButton.setAttribute('aria-expanded', 'false');

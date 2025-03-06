@@ -11,6 +11,7 @@
         {% include "partial/preload.html" %}
 
         <link rel="stylesheet" href="/css/main.css">
+        {% block style %}{% endblock %}
     </head>
     <body>
         <div class="site-wrapper">
@@ -26,14 +27,17 @@
         </div>
 
         {% include "partial/search-modal.html" %}
+        {% block script %}{% endblock %}
 
         <script defer src="/js/navigation.js"></script>
+        <script defer src="/js/sidebar-navigation.js"></script>
         <script defer src="/js/accordion-card.js"></script>
         <script defer src="/js/theme-switcher.js"></script>
         <script defer src="/js/modal.js"></script>
-        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3/dist/cdn.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"></script>
         <script defer src="/js/toc.js"></script>
-        <script src="/js/cookie-consent.js?{{ assetHash }}" type="module"></script>
-        <script src="/js/scripts.js?{{ assetHash }}" type="module"></script>
+        <script src="/js/cookie-consent.js" type="module"></script>
+        <script src="/js/scripts.js" type="module"></script>
     </body>
 </html>

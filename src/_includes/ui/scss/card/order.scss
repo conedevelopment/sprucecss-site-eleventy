@@ -1,0 +1,40 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.order-card {
+  $this: &;
+
+  align-items: center;
+  background-color: color('background');
+  border: 1px solid color('border');
+  border-radius: config('border-radius-lg', $display);
+  color: color('heading');
+  display: flex;
+  gap: spacer('m');
+  justify-content: space-between;
+  padding: spacer-clamp('s', 'm');
+  text-decoration: none;
+
+  &__title {
+    font-size: font-size('h4');
+  }
+
+  &__link {
+    color: color('heading');
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: color('primary');
+    }
+  }
+
+  &__data {
+    @include layout-stack('xs');
+  }
+
+  &__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s') spacer('m');
+  }
+}

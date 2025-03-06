@@ -1,0 +1,37 @@
+---
+title: 'Combobox'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--combobox">
+        {% include "ui/html/form/combobox.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/form/combobox.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/form/combobox.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/form/combobox.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/form/combobox.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/form/combobox.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/form/combobox.js"></script>
+{% endblock %}
+
+

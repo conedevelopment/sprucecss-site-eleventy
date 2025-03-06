@@ -1,0 +1,27 @@
+---
+title: 'Lang Switcher'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--center ui--lang-switcher">
+        {% include "ui/html/misc/lang-switcher.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/misc/lang-switcher.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/misc/lang-switcher.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/misc/lang-switcher.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/misc/lang-switcher.css">
+{% endblock %}

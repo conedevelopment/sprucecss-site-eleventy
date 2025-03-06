@@ -1,0 +1,54 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.form-size-option {
+  @include layout-stack('xs');
+
+  &__label {
+    font-family: config('font-family', $form-label, false);
+    font-size: config('font-size', $form-label, false);
+    font-weight: config('font-weight', $form-label, false);
+  }
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
+  }
+}
+
+.form-size {
+  $this: &;
+  display: flex;
+
+  &__control {
+    @include visually-hidden;
+
+    &:checked + #{$this}__label {
+      background-color: color('primary-background', 'btn');
+      border-color: color('primary-background', 'btn');
+      box-shadow: none;
+      color: color('primary-foreground', 'btn');
+    }
+
+    &:focus-visible + #{$this}__label {
+      @include short-ring('button', 'primary');
+    }
+
+    &:disabled + #{$this}__label {
+      opacity: 50%;
+    }
+  }
+
+  &__label {
+    background-color: color('background', 'form');
+    border: 1px solid color('border');
+    border-radius: config('border-radius', $btn, false);
+    color: color('label', 'form');
+    display: flex;
+    font-size: config('font-size-sm', $typography, false);
+    font-weight: 700;
+    justify-content: center;
+    min-inline-size: 2.75rem;
+    padding: spacer('xs');
+  }
+}

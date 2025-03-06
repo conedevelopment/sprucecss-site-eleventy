@@ -1,5 +1,7 @@
 @use 'dark-colors' as dark;
 
+$color-primary-50: hsl(259deg 53% 98%);
+$color-primary-100: hsl(259deg 53% 93%);
 $color-dark: hsl(260deg 70% 6%);
 
 @use 'sprucecss/scss/spruce' with (
@@ -9,17 +11,28 @@ $color-dark: hsl(260deg 70% 6%);
       'code-tab-background': hsl(222deg 100% 98%),
       'primary-dark': hsl(261deg 52% 35%),
       'primary-darkest': hsl(272deg 100% 9%),
-      'primary-lightest': hsl(259deg 53% 94%),
+      'primary-50': $color-primary-50,
+      'primary-100': $color-primary-100,
     ),
     'breadcrumb': (
       'separator': hsl(0deg 0% 0% / 10%),
     ),
     'btn': (
-      'dark-background': $color-dark,
-      'dark-background-hover': hsl(260deg 70% 12%),
+      'dark-background': hsl(205deg 100% 2%),
+      'dark-background-hover': hsl(205deg 100% 5%),
       'dark-foreground': hsl(0deg 0% 100%),
+      'dark-outline-border': hsl(260deg 4% 70%),
+      'dark-outline-foreground': hsl(205deg 100% 2%),
+      'dark-outline-foreground-hover': hsl(0deg 0% 100%),
+      'dark-outline-background-hover': hsl(205deg 100% 2%),
+      'dark-outline-focus-ring': hsl(205deg 100% 2%),
       'decline-background': hsl(207deg 39% 17%),
       'decline-foreground': hsl(0deg 0% 100%),
+      'delete-background': hsl(0deg 71% 94%),
+      'delete-background-hover': hsl(0deg 71% 51%),
+      'delete-focus-ring': hsl(0deg 71% 51%),
+      'delete-foreground': hsl(0deg 71% 51%),
+      'delete-foreground-hover': hsl(0deg 0% 100%),
       'discrete-background': hsla(206deg 40% 17% / 10%),
       'discrete-background-hover': hsl(262deg 71% 49%),
       'discrete-foreground': hsl(0deg 0% 10%),
@@ -27,21 +40,43 @@ $color-dark: hsl(260deg 70% 6%);
       'install-background': hsl(0deg 0% 95%),
       'install-background-hover': hsl(0deg 0% 90%),
       'install-foreground': hsl(0deg 0% 10%),
+      'light-background': hsl(259deg 53% 94%),
+      'light-background-hover': hsl(262deg 71% 49%),
+      'light-focus-ring': hsl(262deg 71% 49%),
+      'light-foreground': hsl(262deg 71% 49%),
+      'light-foreground-hover': hsl(0deg 0% 100%),
       'pagination-background': hsl(263deg 40% 96%),
       'pagination-background-hover': hsl(262deg 71% 49%),
       'pagination-focus-ring': hsl(262deg 71% 49%),
       'pagination-foreground': hsl(262deg 71% 49%),
       'pagination-foreground-hover': hsl(0deg 0% 100%),
     ),
+    'combobox': (
+      'item-background': $color-primary-50,
+      'item-foreground': hsl(262deg 71% 49%),
+    ),
+    'container': (
+      'background': hsl(0deg 0% 95%),
+    ),
+    'context': (
+      'background-hover': $color-primary-50,
+    ),
     'cookie': (
       'background': hsl(207deg 95% 8%),
       'foreground': hsl(0deg 0% 100%),
+    ),
+    'feature': (
+      'subtitle-background': $color-primary-50,
+      'subtitle-border': $color-primary-100,
     ),
     'footer': (
       'background': $color-dark,
     ),
     'ide': (
       'header-background': hsl(0deg 0% 100%),
+    ),
+    'invoice': (
+      'background': hsl(234deg 100% 98%),
     ),
     'hero': (
       'gradient-end': hsl(0deg 0% 100%),
@@ -54,6 +89,10 @@ $color-dark: hsl(260deg 70% 6%);
       'icon-background-hover': hsl(262deg 71% 49%),
       'icon-foreground': hsl(262deg 71% 49%),
       'icon-foreground-hover': hsl(0deg 0% 100%),
+    ),
+    'media': (
+      'background': $color-primary-50,
+      'icon': hsl(262deg 71% 49%),
     ),
     'modal': (
       'background': hsl(210deg 60% 98% / 70%),

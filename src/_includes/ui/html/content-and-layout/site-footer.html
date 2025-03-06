@@ -1,0 +1,85 @@
+<footer class="site-footer">
+    <div class="container">
+        <div class="site-footer__top">
+            <div class="site-footer__column">
+                <a class="site-footer__logo" href="#">
+                    <img src="/img/cone-logo.svg" alt="Cone" height="48" width="48"/>
+                </a>
+            </div>
+            <div class="site-footer__column">
+                <h3 class="site-footer__title" id="site-footer-title-01">Getting Started</h3>
+                <ul class="site-footer__navigation" aria-labelledby="site-footer-title-01">
+                    <li>
+                        <a href="#">Introduction</a>
+                    </li>
+                    <li>
+                        <a href="#">Installation</a>
+                    </li>
+                    <li>
+                        <a href="#">Structure and Code</a>
+                    </li>
+                    <li>
+                        <a href="#">Sass</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="site-footer__column">
+                <h3 class="site-footer__title" id="site-footer-title-02">Elements</h3>
+                <ul class="site-footer__navigation" aria-labelledby="site-footer-title-02">
+                    <li>
+                        <a href="#">Typography</a>
+                    </li>
+                    <li>
+                        <a href="#">Tables</a>
+                    </li>
+                    <li>
+                        <a href="#">Buttons</a>
+                    </li>
+                    <li>
+                        <a href="#">Forms</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="site-footer__column">
+                <h3 class="site-footer__title" id="site-footer-title-03">More From Us</h3>
+                <ul class="site-footer__navigation" aria-labelledby="site-footer-title-03">
+                    <li>
+                        <a href="#">Laravel Development</a>
+                    </li>
+                    <li>
+                        <a href="#">WordPress Development</a>
+                    </li>
+                    <li>
+                        <a href="#">Root Laravel Admin Package</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="site-footer__bottom">
+            {% include "../misc/theme-switcher-button.html" %}
+            <p class="site-footer__copyright">© {{ helper.currentYear() }} - Some rights are reserved.</p>
+            <div class="site-footer__social">
+                <a href="#" aria-label="LinkedIn">
+                    <svg aria-hidden="true" focusable="false" role="img" height="24" style="fill-rule:evenodd;clip-rule:evenodd;fill:currentColor;overflow:visible;" viewBox="0 0 24 24" width="24" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5.373,24l-4.977,0l0,-16.023l4.977,-0l0,16.023Zm-2.491,-18.209c-1.591,0 -2.882,-1.318 -2.882,-2.909c-0,-1.581 1.301,-2.882 2.882,-2.882c1.581,-0 2.882,1.301 2.882,2.882c0,1.591 -1.291,2.909 -2.882,2.909Zm21.118,18.209l-4.971,0l-0,-7.8c-0,-1.859 -0.038,-4.243 -2.588,-4.243c-2.587,0 -2.984,2.02 -2.984,4.109l0,7.934l-4.971,0l-0,-16.023l4.773,-0l-0,2.185l0.07,0c0.664,-1.258 2.287,-2.587 4.708,-2.587c5.036,-0 5.963,3.316 5.963,7.623l-0,8.802Z"></path>
+                    </svg>
+                </a>
+                <a href="#" aria-label="X">
+                    <svg aria-hidden="true" focusable="false" role="img" height="24" style="fill-rule:evenodd;clip-rule:evenodd;fill:currentColor;overflow:visible;" viewBox="0 0 24 24" width="24" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.901,1.153l3.681,0l-8.04,9.189l9.458,12.505l-7.406,-0l-5.801,-7.584l-6.637,7.584l-3.682,-0l8.6,-9.829l-9.074,-11.865l7.594,0l5.243,6.932l6.064,-6.932Zm-1.291,19.491l2.039,0l-13.163,-17.404l-2.188,0l13.312,17.404Z"></path>
+                    </svg>
+                </a>
+                <a href="#" aria-label="GitHub">
+                    <svg aria-hidden="true" focusable="false" role="img" height="24" style="fill-rule:evenodd;clip-rule:evenodd;fill:currentColor;overflow:visible;" viewBox="0 0 24 24" width="24" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m12 .5c-6.63 0-12 5.28-12 11.792 0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.335-1.725-1.335-1.725-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.803 2.809 1.282 3.495.981.108-.763.417-1.282.76-1.577-2.665-.295-5.466-1.309-5.466-5.827 0-1.287.465-2.339 1.235-3.164-.135-.298-.54-1.497.105-3.121 0 0 1.005-.316 3.3 1.209.96-.262 1.98-.392 3-.398 1.02.006 2.04.136 3 .398 2.28-1.525 3.285-1.209 3.285-1.209.645 1.624.24 2.823.12 3.121.765.825 1.23 1.877 1.23 3.164 0 4.53-2.805 5.527-5.475 5.817.42.354.81 1.077.81 2.182 0 1.578-.015 2.846-.015 3.229 0 .309.21.678.825.56 4.801-1.548 8.236-5.97 8.236-11.173 0-6.512-5.373-11.792-12-11.792z"></path>
+                    </svg>
+                </a>
+                <a href="#" aria-label="Instagram">
+                    <svg aria-hidden="true" focusable="false" role="img" height="24" style="fill-rule:evenodd;clip-rule:evenodd;fill:currentColor;overflow:visible;" viewBox="0 0 24 24" width="24" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.008,5.843c-3.407,-0 -6.155,2.747 -6.155,6.154c0,3.407 2.748,6.155 6.155,6.155c3.407,-0 6.155,-2.748 6.155,-6.155c-0,-3.407 -2.748,-6.154 -6.155,-6.154Zm0,10.156c-2.201,-0 -4.001,-1.795 -4.001,-4.002c-0,-2.207 1.794,-4.001 4.001,-4.001c2.207,-0 4.001,1.794 4.001,4.001c0,2.207 -1.799,4.002 -4.001,4.002Zm7.842,-10.408c0,0.798 -0.643,1.435 -1.435,1.435c-0.799,0 -1.436,-0.642 -1.436,-1.435c-0,-0.793 0.643,-1.436 1.436,-1.436c0.792,0 1.435,0.643 1.435,1.436Zm4.076,1.457c-0.091,-1.923 -0.53,-3.627 -1.939,-5.03c-1.403,-1.403 -3.106,-1.843 -5.029,-1.939c-1.982,-0.113 -7.923,-0.113 -9.905,-0c-1.917,0.091 -3.621,0.53 -5.03,1.934c-1.408,1.403 -1.842,3.106 -1.939,5.029c-0.112,1.982 -0.112,7.923 0,9.905c0.091,1.923 0.531,3.626 1.939,5.03c1.409,1.403 3.107,1.842 5.03,1.939c1.982,0.112 7.923,0.112 9.905,-0c1.923,-0.091 3.626,-0.531 5.029,-1.939c1.404,-1.404 1.843,-3.107 1.939,-5.03c0.113,-1.982 0.113,-7.917 0,-9.899Zm-2.56,12.025c-0.418,1.05 -1.227,1.859 -2.282,2.282c-1.58,0.627 -5.33,0.482 -7.076,0.482c-1.746,0 -5.501,0.14 -7.076,-0.482c-1.05,-0.418 -1.859,-1.226 -2.282,-2.282c-0.627,-1.58 -0.482,-5.329 -0.482,-7.076c0,-1.746 -0.139,-5.501 0.482,-7.076c0.418,-1.05 1.227,-1.858 2.282,-2.282c1.58,-0.626 5.33,-0.482 7.076,-0.482c1.746,0 5.501,-0.139 7.076,0.482c1.05,0.418 1.859,1.227 2.282,2.282c0.627,1.58 0.482,5.33 0.482,7.076c0,1.747 0.145,5.501 -0.482,7.076Z"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>

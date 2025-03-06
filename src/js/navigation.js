@@ -1,10 +1,10 @@
 /* global getComputedStyle */
 
 (() => {
-  const header = document.querySelector('.site-header');
-  const navigation = document.querySelector('.site-navigation');
-  const button = document.querySelector('[data-action="navigation-toggle"]');
-  const menu = document.querySelector('.navigation-menu');
+  const header = document.querySelector('.sprucecss-site-header');
+  const navigation = header.querySelector('.sprucecss-site-navigation');
+  const button = header.querySelector('[data-action="navigation-toggle"]');
+  const menu = header.querySelector('.navigation-menu');
   const mq = window.matchMedia('(max-width: 80em)');
 
   if (!menu || typeof button === 'undefined') return;

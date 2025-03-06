@@ -1,5 +1,6 @@
 <div x-data="{
     activeTab: 'preview',
+    direction: 'ltr',
     copied: false,
     async copyTextToClipboard() {
         const code = document.querySelector(`#tab-content-${this.activeTab}`).dataset.code;
@@ -23,37 +24,37 @@
 }" x-cloak class="code-tab">
     <div class="code-tab__header">
         <div class="code-tab__group code-tab__group--title">
-            <p class="code-tab__title">{{ title }}</p>
-            {% if component.previewURL %}
-                <a class="code-tab__open-new" href="{{ component.previewURL }}" target="_blank" rel="noreferrer">
-                    {% include "icon/open-in-new.svg" %}
-                    Open in New Window
-                </a>
-            {% endif %}
+            <p class="code-tab__title">
+                {% if extendedTitle %}
+                    {{ extendedTitle }}
+                {% else %}
+                    {{ title }}
+                {% endif %}
+            </p>
         </div>
         <ul class="code-tab__group code-tab__group--tabs">
-            {% if component.preview %}
+            {% if preview %}
                 <li>
                     <button @click="activeTab = 'preview'" :class="{ 'btn--active': activeTab === 'preview', 'btn--primary': activeTab === 'preview', 'btn--discrete': activeTab !== 'preview' }" class="btn btn--sm">
                         Preview
                     </button>
                 </li>
             {% endif %}
-            {% if component.previewSCSS %}
+            {% if scss %}
                 <li>
                     <button @click="activeTab = 'scss'" :class="{ 'btn--active': activeTab === 'scss', 'btn--primary': activeTab === 'scss', 'btn--discrete': activeTab !== 'scss' }" class="btn btn--sm">
                         SCSS
                     </button>
                 </li>
             {% endif %}
-            {% if component.previewHTML %}
+            {% if html %}
                 <li>
                     <button @click="activeTab = 'html'" :class="{ 'btn--active': activeTab === 'html', 'btn--primary': activeTab === 'html', 'btn--discrete': activeTab !== 'html' }" class="btn btn--sm">
                         HTML
                     </button>
                 </li>
             {% endif %}
-            {% if component.previewJS %}
+            {% if js %}
                 <li>
                     <button @click="activeTab = 'js'" :class="{ 'btn--active': activeTab === 'js', 'btn--primary': activeTab === 'js', 'btn--discrete': activeTab !== 'js' }" class="btn btn--sm">
                         JS
@@ -61,38 +62,41 @@
                 </li>
             {% endif %}
         </ul>
+        <button @click="direction = (direction === 'rtl' ? 'ltr' : 'rtl')" :class="{ 'btn--primary': direction === 'rtl', 'btn--discrete' : direction === 'ltr' }" class="btn btn--sm">
+            RTL
+        </button>
         <button @click="copyCode" class="btn btn--primary btn--icon btn--sm copy-btn" aria-label="Copy" :disabled="activeTab === 'preview'">
             <span x-show="!copied">{% include "icon/copy.svg" %}</span>
             <span x-show="copied">{% include "icon/check-copy.svg" %}</span>
         </button>
     </div>
     <div class="code-tab__body">
-        {% if component.preview %}
-            <div id="tab-content-preview" role="tabpanel" aria-labelledby="tab-control-preview" x-show="activeTab === 'preview'">
-                <iframe style="block-size: {{ component.previewHeight }};" srcdoc="{{ component.preview }}"></iframe>
+        {% if preview %}
+            <div id="tab-content-preview" :dir="direction" role="tabpanel" aria-labelledby="tab-control-preview" x-show="activeTab === 'preview'">
+                {{ preview | safe }}
             </div>
         {% endif %}
 
-        {% if component.previewSCSS %}
-            <div id="tab-content-scss" role="tabpanel" aria-labelledby="tab-control-scss" x-show="activeTab === 'scss'" data-code="{{ component.previewSCSS }}">
+        {% if scss %}
+            <div id="tab-content-scss" role="tabpanel" aria-labelledby="tab-control-scss" x-show="activeTab === 'scss'" data-code="{{ scss | removeFirstLine | trim }}">
                 {% highlight "scss" %}
-                    {{ component.previewSCSS | safe }}
+                    {{ scss | removeFirstLine | safe }}
                 {% endhighlight %}
             </div>
         {% endif %}
 
-        {% if component.previewHTML %}
-            <div id="tab-content-html" role="tabpanel" aria-labelledby="tab-control-html" x-show="activeTab === 'html'" data-code="{{ component.previewHTML }}">
+        {% if html %}
+            <div id="tab-content-html" role="tabpanel" aria-labelledby="tab-control-html" x-show="activeTab === 'html'" data-code="{{ html | removeEmptyLines | trim }}">
                 {% highlight "html" %}
-                    {{ component.previewHTML | safe }}
+                    {{ html | removeEmptyLines | safe }}
                 {% endhighlight %}
             </div>
         {% endif %}
 
-        {% if component.previewJS %}
-            <div id="tab-content-js" role="tabpanel" aria-labelledby="tab-control-js" x-show="activeTab === 'js'" data-code="{{ component.previewJS }}">
+        {% if js %}
+            <div id="tab-content-js" role="tabpanel" aria-labelledby="tab-control-js" x-show="activeTab === 'js'" data-code="{{ js | trim }}">
                 {% highlight "js" %}
-                    {{ component.previewJS | safe }}
+                    {{ js | safe }}
                 {% endhighlight %}
             </div>
         {% endif %}

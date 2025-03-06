@@ -1,0 +1,29 @@
+---
+title: 'Order'
+extendedTitle: 'Order Card'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--order-card">
+        {% include "ui/html/card/order.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/card/order.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/card/order.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/card/order.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/card/order.css">
+    <link rel="stylesheet" href="/_includes/ui/css/form/number-group.css">
+{% endblock %}

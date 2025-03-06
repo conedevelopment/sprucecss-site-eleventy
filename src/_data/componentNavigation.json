@@ -45,12 +45,12 @@
     "title": "Content and Layout",
     "items": [
       {
-        "caption": "Container",
-        "url": "/ui/content-and-layout/container"
-      },
-      {
         "caption": "Call to Action",
         "url": "/ui/content-and-layout/call-to-action"
+      },
+      {
+        "caption": "Container",
+        "url": "/ui/content-and-layout/container"
       },
       {
         "caption": "Feature",

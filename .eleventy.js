@@ -1,17 +1,19 @@
-require('dotenv').config();
+import { execSync } from 'child_process';
+import { JSDOM } from 'jsdom';
+import { parse, stringify } from 'himalaya';
+import Image from '@11ty/eleventy-img';
+import syntaxHighlight from '@11ty/eleventy-plugin-syntaxhighlight';
+import markdownIt from 'markdown-it';
+import markdownItAnchor from 'markdown-it-anchor';
+import slugify from 'slugify';
+import dateFilter from './src/filters/date.js';
+import htmlMinTransform from './src/transforms/html-min-transform.js';
+import w3DateFilter from './src/filters/w3-date.js';
+import dotenv from 'dotenv';
 
-const { execSync } = require('child_process');
-const { JSDOM } = require('jsdom');
-const { parse, stringify } = require('himalaya');
-const dateFilter = require('./src/filters/date.js');
-const htmlMinTransform = require('./src/transforms/html-min-transform.js');
-const Image = require('@11ty/eleventy-img');
+dotenv.config();
+
 const isProduction = process.env.NODE_ENV === 'production';
-const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
-const w3DateFilter = require('./src/filters/w3-date.js');
-const markdownIt = require('markdown-it');
-const markdownItAnchor = require('markdown-it-anchor');
-const slugify = require('slugify');
 
 const linkAfterHeader = markdownItAnchor.permalink.linkAfterHeader({
   class: "anchor-heading__link",
@@ -80,7 +82,7 @@ async function getImage(src, cls) {
   return stringify(svg);
 }
 
-module.exports = config => {
+export default function (config) {
   config.addFilter('date', dateFilter);
   config.addFilter('w3Date', w3DateFilter);
   config.addPlugin(syntaxHighlight, {
@@ -93,14 +95,16 @@ module.exports = config => {
   });
 
   config.addFilter('markdown', (content) => {
-    return md.render(content);
+    return md.render(content.trim());
   });
 
   config.setLibrary('md', md);
 
   config.addPassthroughCopy('./src/img/**');
   config.addPassthroughCopy('./src/css/**');
+  config.addPassthroughCopy('./src/_includes/ui/css/**');
   config.addPassthroughCopy('./src/js/**');
+  config.addPassthroughCopy('./src/_includes/ui/js/**');
   config.addPassthroughCopy('./src/font/**');
   config.addPassthroughCopy({ './src/img/favicon/favicon.ico': '/favicon.ico' });
   config.addPassthroughCopy({ './src/robots.txt': '/robots.txt' });
@@ -108,6 +112,36 @@ module.exports = config => {
   config.addCollection('docs', collection => {
     return [...collection.getFilteredByGlob('./src/docs/**/*.md')].sort((a, b) => {
       return a.data.order - b.data.order;
+    });
+  });
+
+  config.addCollection('ui', collection => {
+    return [...collection.getFilteredByGlob('./src/ui/**/*.njk')].sort((a, b) => {
+      const categoryA = a.data.category || '';
+      const categoryB = b.data.category || '';
+      const titleA = a.data.title || '';
+      const titleB = b.data.title || '';
+
+      if (categoryA === 'Getting Started' && categoryB !== 'Getting Started') {
+        return -1;
+      }
+
+      if (categoryB === 'Getting Started' && categoryA !== 'Getting Started') {
+        return 1;
+      }
+
+      if (categoryA === 'Getting Started' && categoryB === 'Getting Started') {
+        if (titleA === 'Introduction') return -1;
+        if (titleB === 'Introduction') return 1;
+      }
+
+      const categoryComparison = categoryA.localeCompare(categoryB);
+
+      if (categoryComparison !== 0) {
+        return categoryComparison;
+      }
+
+      return titleA.localeCompare(titleB);
     });
   });
 
@@ -191,12 +225,49 @@ module.exports = config => {
       }
     });
 
+    if (!toc) {
+      return;
+    }
+
     return `<div class="toc">
               <h3 class="toc__title">On this page</h3>
               <nav class="toc__navigation" aria-label="Table of Contents">
                 <ol>${toc}</ol>
               </nav>
             </div>`;
+  });
+
+  config.addFilter('removeFirstLine', function (input) {
+    const lines = input.split('\n');
+
+    if (lines[1].includes('DELETE')) {
+      return lines.slice(2).join('\n');
+    } else {
+      return input;
+    }
+  });
+
+  config.addFilter('removeEmptyLines', (content) => {
+    return content
+      .split('\n')
+      .filter(line => line.trim() !== '')
+      .join('\n');
+  });
+
+  config.addFilter('groupBy', (array, key) => {
+    const grouped = {};
+
+    array.forEach(item => {
+      const groupKey = item.data[key] || 'Uncategorized';
+
+      if (!grouped[groupKey]) {
+        grouped[groupKey] = [];
+      }
+
+      grouped[groupKey].push(item);
+    });
+
+    return grouped;
   });
 
   config.on('eleventy.after', () => {

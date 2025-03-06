@@ -1,21 +1,23 @@
-<aside class="sidebar l-documentation__sidebar">
-    {% for navigation in componentNavigation %}
-        <section class="sidebar-section">
-            <h3 class="sidebar-section__title">{{ navigation.title }}</h3>
+{% set grouped = collections.ui | groupBy('category') %}
+
+<aside class="sidebar">
+    {% for category, items in grouped %}
+        <div class="sidebar-section">
+            <h3 class="sidebar-section__title">{{ category }}</h3>
             <nav class="sidebar-section__navigation">
                 <ul>
-                    {% for item in navigation.items %}
+                    {% for item in items %}
                     <li>
                         <a
                             href="{{ item.url }}"
-                            {{ helpers.getLinkActiveState(item.url, page.url) | safe }}
+                            {{ helper.getLinkActiveState(item.url, page.url) | safe }}
                         >
-                            {{ item.caption }}
+                            {{ item.data.title }}
                         </a>
                     </li>
                     {% endfor %}
                 </ul>
             </nav>
-        </section>
+        </div>
     {% endfor %}
 </aside>

@@ -1,0 +1,32 @@
+---
+title: 'Site Header'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--site-header">
+        {% include "ui/html/content-and-layout/site-header.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/content-and-layout/site-header.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/content-and-layout/site-header.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/content-and-layout/site-header.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/site-header.css">
+    <link rel="stylesheet" href="/_includes/ui/css/navigation/site-navigation.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/navigation/site-navigation.js"></script>
+{% endblock %}

@@ -1,0 +1,27 @@
+---
+title: 'Color Option'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--center">
+        {% include "ui/html/form/color-option.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/form/color-option.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/form/color-option.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/form/color-option.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/form/color-option.css">
+{% endblock %}
