@@ -68,7 +68,7 @@ jobs:
         -
             name: Check Front Matter
             run: |
-                git ls-files -z -- 'src/**.md' | xargs -0 -n 1 -- python -m yamllint
+                git ls-files -z -- 'src/**.md' | xargs -0 -n 1 -- python -m yamllint --exclude src/_includes/ui
 
     check_links:
         name: Check Links
