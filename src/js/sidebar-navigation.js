@@ -11,4 +11,3 @@
     sidebar.scrollTop = activeItem.offsetTop;
   }
 })();
-
