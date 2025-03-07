@@ -8,8 +8,8 @@ import Cookie from './qkie.js';
   let redirect = false;
 
   if (
-    !cookie.isset(`analytics`) &&
-    !cookie.isset(`denied`)
+    !cookie.isset('analytics') &&
+    !cookie.isset('denied')
   ) {
     caption = `<div class="sprucecss-cookie-consent-helper"><div class="sprucecss-cookie-consent sprucecss-cookie-consent--slidein" tabindex="-1">
         <div class="sprucecss-cookie-consent__caption">This site use cookies. For more information please visit our <a href="/privacy-policy/">privacy policy</a> page.</div>
@@ -37,7 +37,7 @@ import Cookie from './qkie.js';
       e.target &&
       e.target.getAttribute('data-action') === 'cookie-accept'
     ) {
-      cookie.set(`analytics`, 'accepted', 365);
+      cookie.set('analytics', 'accepted', 365);
 
       redirect = true;
       consentModal.classList.add('sprucecss-cookie-consent--slideout');
@@ -48,7 +48,7 @@ import Cookie from './qkie.js';
       e.target &&
       e.target.getAttribute('data-action') === 'cookie-decline'
     ) {
-      cookie.set(`denied`, 'true');
+      cookie.set('denied', 'true');
 
       redirect = false;
       consentModal.classList.add('sprucecss-cookie-consent--slideout');
