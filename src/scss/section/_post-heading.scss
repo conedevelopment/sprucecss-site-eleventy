@@ -19,7 +19,7 @@
   &--center {
     grid-template-columns: minmax(0, 1fr);
     justify-content: center;
-    padding-block: clamp(5rem, 10vw + 1rem, 7rem) spacer('xl');
+    padding-block: clamp(5rem, 10vw + 1rem, 5rem) spacer('xl');
     text-align: center;
 
     #{$this}__breadcrumb {
@@ -70,11 +70,14 @@
 
   &__meta {
     align-items: center;
+    border-block-start: 1px solid color('border');
     column-gap: spacer('m');
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-block-start: spacer('l');
+    justify-self: center;
+    margin-block-start: spacer('m');
+    padding-block-start: spacer('m');
     row-gap: spacer('xs');
   }
 }
