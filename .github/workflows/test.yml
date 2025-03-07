@@ -64,11 +64,11 @@ jobs:
         -
             name: Remove document contents
             run: |
-                git ls-files -z -- 'src/**.md' | xargs -0 -n 1 -- sed -i -e 'N;P;/---\n$/Q;D'
+                git ls-files -z -- 'src/**.md' ':!:src/_includes/ui/md/' | xargs -0 -n 1 -- sed -i -e 'N;P;/---\n$/Q;D'
         -
             name: Check Front Matter
             run: |
-                git ls-files -z -- 'src/**.md' | xargs -0 -n 1 -- python -m yamllint
+                git ls-files -z -- 'src/**.md' ':!:src/_includes/ui/md/' | xargs -0 -n 1 -- python -m yamllint
 
     check_links:
         name: Check Links

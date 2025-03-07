@@ -1,12 +1,10 @@
-export default class Cookie
-{
+export default class Cookie {
   /**
    * Make a new Cookie instance.
    *
    * @param  {string}  namespace
    */
-  constructor(namespace = '')
-  {
+  constructor (namespace = '') {
     this.namespace = namespace;
   }
 
@@ -20,8 +18,7 @@ export default class Cookie
    * @param  {object}  options
    * @return {void}
    */
-  set(key, value, expires = null, path = '/', options = {})
-  {
+  set (key, value, expires = null, path = '/', options = {}) {
     key = this._qualify(key);
 
     value = encodeURIComponent(value).replace(
@@ -45,7 +42,7 @@ export default class Cookie
       path,
       SameSite: 'Lax',
       Secure: true,
-      ...options,
+      ...options
     };
 
     /** @type {string[]} */
@@ -64,8 +61,7 @@ export default class Cookie
    * @param  {*}  value
    * @return {*}
    */
-  get(key, value = '')
-  {
+  get (key, value = '') {
     key = this._qualify(key);
 
     const cookie = document.cookie.match(new RegExp('(^| )' + key + '=([^;]+)'));
@@ -81,8 +77,7 @@ export default class Cookie
    * @param  {string}  key
    * @return {boolean}
    */
-  isset(key)
-  {
+  isset (key) {
     key = this._qualify(key);
 
     return document.cookie.match(new RegExp('(^| )' + key + '=([^;]+)')) !== null;
@@ -94,8 +89,7 @@ export default class Cookie
    * @param  {string}  key
    * @return {void}
    */
-  remove(key)
-  {
+  remove (key) {
     this.set(key, '', 'Thu, 01 Jan 1970 00:00:01 GMT');
   }
 
@@ -105,8 +99,7 @@ export default class Cookie
    * @param  {string}  key
    * @return {string}
    */
-  _qualify(key)
-  {
+  _qualify (key) {
     return encodeURIComponent(this.namespace + key)
       .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
       .replace(/%(2[346B]|5E|60|7C)/g, decodeURIComponent);

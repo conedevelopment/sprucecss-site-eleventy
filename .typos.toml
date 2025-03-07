@@ -6,5 +6,12 @@ ignore-hidden = false
 
 [default]
 extend-ignore-re = [
-    "Morbi fermentum varius arcu",
+    "Khazad-dum",
+    "EIN:",
+    # Lorem ipsum
+    "Lorem ipsum dolor.*",
+    "Morbi fermentum varius arcu.*",
+    "Etiam dictum augue.*",
+    "Nulla facilisi.*",
+    "Pellentesque et sagittis.*",
 ]
