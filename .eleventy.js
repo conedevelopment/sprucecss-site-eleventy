@@ -102,7 +102,7 @@ export default function (config) {
 
   config.addPassthroughCopy('./src/img/**');
   config.addPassthroughCopy('./src/css/**');
-  config.addPassthroughCopy('./src/_includes/ui/css/**');
+  config.addPassthroughCopy({'./src/_includes/ui/css' : './ui/css'});
   config.addPassthroughCopy('./src/js/**');
   config.addPassthroughCopy('./src/_includes/ui/js/**');
   config.addPassthroughCopy('./src/font/**');
