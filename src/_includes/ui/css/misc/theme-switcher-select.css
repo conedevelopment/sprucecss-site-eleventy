@@ -1,0 +1,30 @@
+.no-transition * {
+  transition: none !important;
+}
+
+.theme-switcher {
+  color: var(--spruce-base-color-text);
+  display: inline-flex;
+  position: relative;
+}
+.theme-switcher[data-theme-mode=system] .icon-system, .theme-switcher[data-theme-mode=light] .icon-light, .theme-switcher[data-theme-mode=dark] .icon-dark {
+  display: inline-block;
+}
+.theme-switcher__icon {
+  align-items: center;
+  color: var(--spruce-base-color-heading);
+  display: flex;
+  inline-size: 2em;
+  inset: 0 auto 0 0;
+  justify-content: center;
+  pointer-events: none;
+  position: absolute;
+}
+.theme-switcher__icon svg {
+  block-size: 0.85em;
+  display: none;
+  inline-size: 0.85em;
+}
+.theme-switcher__select {
+  padding-inline-start: 2em;
+}

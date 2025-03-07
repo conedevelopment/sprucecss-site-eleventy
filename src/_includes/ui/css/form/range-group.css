@@ -1,0 +1,27 @@
+.range-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.range-group .form-label {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+.range-group .form-label__value {
+  font-weight: 400;
+}
+.range-group__inner {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+.range-group__inner .form-range {
+  flex-grow: 1;
+  margin-block-start: 0;
+}
+.range-group__inner .form-range-control {
+  flex-shrink: 0;
+}

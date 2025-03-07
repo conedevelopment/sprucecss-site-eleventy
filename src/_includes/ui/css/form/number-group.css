@@ -1,0 +1,88 @@
+.number-group {
+  --webkit-date-line-height: 1.375;
+  appearance: none;
+  background-color: var(--spruce-form-color-background);
+  border: 1px solid var(--spruce-form-color-border);
+  border-radius: 0.425rem;
+  box-sizing: border-box;
+  color: var(--spruce-form-color-text);
+  display: block;
+  font-size: 1rem;
+  inline-size: 100%;
+  line-height: 1.5;
+  padding: 0.5em 0.75em;
+  transition-duration: 0.15s;
+  transition-property: border, box-shadow;
+  transition-timing-function: ease-in-out;
+}
+.number-group::placeholder {
+  color: var(--spruce-form-color-placeholder);
+}
+.number-group::-webkit-datetime-edit {
+  line-height: var(--webkit-date-line-height);
+}
+.number-group:focus {
+  border-color: var(--spruce-form-color-border-focus);
+  box-shadow: 0 0 0 0.25rem var(--spruce-form-color-ring-focus);
+  outline: 2px solid transparent;
+}
+.number-group[type=color] {
+  aspect-ratio: 1;
+  block-size: 100%;
+  inline-size: 2.625rem;
+  padding: 0.5em;
+}
+.number-group[type=color]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+.number-group[type=color]::-moz-color-swatch {
+  border: 0;
+  border-radius: 0.425rem;
+}
+.number-group[type=color]::-webkit-color-swatch {
+  border: 0;
+  border-radius: 0.425rem;
+}
+.number-group[disabled], .number-group[disabled=true] {
+  background-color: var(--spruce-form-color-background-disabled);
+  border-color: var(--spruce-form-color-border-disabled);
+  cursor: not-allowed;
+}
+textarea.number-group {
+  block-size: 6rem;
+  min-block-size: 6rem;
+  resize: vertical;
+}
+
+.number-group {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.25rem;
+  inline-size: auto;
+  max-inline-size: 6.5rem;
+  padding: 0.25em;
+  position: relative;
+}
+.number-group:focus-within {
+  border-color: var(--spruce-form-color-border-focus);
+  box-shadow: 0 0 0 0.25rem var(--spruce-form-color-ring-focus);
+  outline: 2px solid transparent;
+}
+.number-group__input {
+  background-color: transparent;
+  border: 0;
+  color: var(--spruce-form-color-text);
+  font-size: 1rem;
+  inline-size: 100%;
+  line-height: 1.5;
+  outline: 0;
+  padding: 0;
+  text-align: center;
+}
+.number-group__input::-webkit-outer-spin-button, .number-group__input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+.number-group__decrement, .number-group__increment {
+  border-radius: 0.35em;
+}

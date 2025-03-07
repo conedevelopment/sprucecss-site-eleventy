@@ -1,0 +1,6 @@
+.l-post {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 5vw, 4.5rem);
+  margin-block: clamp(3rem, 5vw, 4.5rem) 0;
+}

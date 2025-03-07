@@ -1,0 +1,62 @@
+.cookie-consent-helper {
+  display: flex;
+  inset: auto 1.5rem 1.5rem;
+  justify-content: center;
+  pointer-events: none;
+  position: fixed;
+  z-index: 25;
+}
+
+.cookie-consent {
+  --spruce-base-color-text: hsl(0, 0%, 97%);
+  --spruce-base-color-link: hsl(261, 54%, 70%);
+  --spruce-base-color-link-hover: hsl(261, 54%, 80%);
+  align-items: center;
+  background-color: hsl(260, 70%, 6%);
+  border-radius: 0.925rem;
+  box-shadow: 0 0 3rem hsla(0, 0%, 0%, 0.1);
+  color: var(--spruce-base-color-text);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  justify-content: center;
+  padding: 1rem;
+  pointer-events: all;
+  text-align: center;
+  transform: translateY(200%);
+}
+.cookie-consent--slidein {
+  animation: slidein 0.15s forwards;
+}
+.cookie-consent--slideout {
+  animation: slideout 0.15s forwards;
+}
+.cookie-consent__caption > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.cookie-consent__caption > * + * {
+  margin-block-start: 0.5rem;
+}
+.cookie-consent__btns {
+  display: flex;
+  gap: 1rem;
+}
+
+@keyframes slidein {
+  from {
+    transform: translateY(200%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes slideout {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(200%);
+  }
+}

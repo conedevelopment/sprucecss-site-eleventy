@@ -1,0 +1,51 @@
+.l-checkout__inner {
+  display: grid;
+  gap: clamp(3rem, 5vw, 4.5rem);
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 64em) {
+  .l-checkout__inner {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  }
+}
+.l-checkout__column {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 5vw, 4.5rem);
+}
+.l-checkout__title {
+  margin-block: 0;
+}
+.l-checkout__form > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.l-checkout__form > * + * {
+  margin-block-start: 1.5rem;
+}
+.l-checkout__billing > *, .l-checkout__summary > *, .l-checkout__payment > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.l-checkout__billing > * + *, .l-checkout__summary > * + *, .l-checkout__payment > * + * {
+  margin-block-start: 1.5rem;
+}
+.l-checkout__summary {
+  block-size: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.l-checkout__order {
+  margin-block-start: auto;
+  padding-top: 1.5rem;
+}
+.l-checkout__order > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.l-checkout__order > * + * {
+  margin-block-start: 0.5rem;
+}
+.l-checkout__order .form-group--submit {
+  margin-block-start: 1.5rem;
+}

@@ -1,0 +1,44 @@
+.post-content > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.post-content > * + * {
+  margin-block-start: 1.5rem;
+}
+@media (min-width: 64em) {
+  .post-content {
+    font-size: 1.0375rem;
+  }
+}
+.post-content :is(dd, dl, dl, h1, h2, h3, h4, h5, h6, hr, ul, ol, p, blockquote) {
+  inline-size: 100%;
+  margin-inline: auto;
+  max-inline-size: 47.5rem;
+}
+.post-content * + h2,
+.post-content * + h3,
+.post-content > * + img,
+.post-content > * + iframe,
+.post-content > * + figure,
+.post-content > * + .gallery,
+.post-content > iframe + *,
+.post-content > img + *,
+.post-content > figure + *,
+.post-content > .gallery + * {
+  margin-block-start: 3rem;
+}
+.post-content h2 + *,
+.post-content h3 + *,
+.post-content h4 + *,
+.post-content h5 + *,
+.post-content h6 + * {
+  margin-block-start: 1rem;
+}
+.post-content img,
+.post-content iframe {
+  border-radius: 0.425rem;
+}
+.post-content iframe {
+  aspect-ratio: 16/9;
+  block-size: initial;
+}

@@ -1,0 +1,18 @@
+.open-search {
+  position: relative;
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+.open-search__btn::before {
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.open-search__icon {
+  --size: 1rem;
+  block-size: var(--size);
+  color: var(--spruce-search-color-icon);
+  inline-size: var(--size);
+}

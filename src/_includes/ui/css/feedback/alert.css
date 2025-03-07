@@ -1,0 +1,107 @@
+.alert {
+  align-items: center;
+  border: 1px solid;
+  border-radius: 0.925rem;
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  line-height: 1.5;
+  padding: 1em 1.25em;
+}
+.alert--danger {
+  --spruce-base-color-text: hsl(0, 71%, 25.5%);
+  --spruce-base-color-heading: hsl(0, 71%, 25.5%);
+  --spruce-base-color-link: hsl(0, 71%, 25.5%);
+  --spruce-base-color-link-hover: hsl(0, 71%, 35.7%);
+  --spruce-base-color-strong: hsl(0, 71%, 25.5%);
+  background-color: hsl(0, 71%, 97.55%);
+  border-color: hsl(0, 71%, 92.65%);
+  color: hsl(0, 71%, 25.5%);
+}
+
+.alert--danger .alert__close {
+  background-color: hsl(0, 71%, 35.7%);
+  color: hsl(0, 71%, 95.1%);
+}
+
+.alert--info {
+  --spruce-base-color-text: hsl(195, 100%, 21%);
+  --spruce-base-color-heading: hsl(195, 100%, 21%);
+  --spruce-base-color-link: hsl(195, 100%, 21%);
+  --spruce-base-color-link-hover: hsl(195, 100%, 29.4%);
+  --spruce-base-color-strong: hsl(195, 100%, 21%);
+  background-color: hsl(195, 100%, 97.1%);
+  border-color: hsl(195, 100%, 91.3%);
+  color: hsl(195, 100%, 21%);
+}
+
+.alert--info .alert__close {
+  background-color: hsl(195, 100%, 29.4%);
+  color: hsl(195, 100%, 94.2%);
+}
+
+.alert--success {
+  --spruce-base-color-text: hsl(150, 100%, 16.5%);
+  --spruce-base-color-heading: hsl(150, 100%, 16.5%);
+  --spruce-base-color-link: hsl(150, 100%, 16.5%);
+  --spruce-base-color-link-hover: hsl(150, 100%, 23.1%);
+  --spruce-base-color-strong: hsl(150, 100%, 16.5%);
+  background-color: hsl(150, 100%, 96.65%);
+  border-color: hsl(150, 100%, 89.95%);
+  color: hsl(150, 100%, 16.5%);
+}
+
+.alert--success .alert__close {
+  background-color: hsl(150, 100%, 23.1%);
+  color: hsl(150, 100%, 93.3%);
+}
+
+.alert--warning {
+  --spruce-base-color-text: hsl(48, 89%, 27.5%);
+  --spruce-base-color-heading: hsl(48, 89%, 27.5%);
+  --spruce-base-color-link: hsl(48, 89%, 27.5%);
+  --spruce-base-color-link-hover: hsl(48, 89%, 38.5%);
+  --spruce-base-color-strong: hsl(48, 89%, 27.5%);
+  background-color: hsl(48, 89%, 97.75%);
+  border-color: hsl(48, 89%, 93.25%);
+  color: hsl(48, 89%, 27.5%);
+}
+
+.alert--warning .alert__close {
+  background-color: hsl(48, 89%, 38.5%);
+  color: hsl(48, 89%, 95.5%);
+}
+
+.alert__caption > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.alert__caption > * + * {
+  margin-block-start: 0.25rem;
+}
+.alert__close {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  outline: inherit;
+  padding: 0;
+  transition-duration: 0.15s;
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  align-items: center;
+  border-radius: 0.425rem;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  padding: 0.5em;
+}
+.alert__close:hover, .alert__close:focus {
+  opacity: 0.75;
+}
+.alert__close svg {
+  --size: 0.8rem;
+  block-size: var(--size);
+  inline-size: var(--size);
+}

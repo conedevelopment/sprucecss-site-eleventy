@@ -1,0 +1,32 @@
+.payment-card {
+  position: relative;
+  align-items: center;
+  background-color: var(--spruce-base-color-background);
+  border: 1px solid var(--spruce-base-color-border);
+  border-radius: 0.925rem;
+  color: var(--spruce-base-color-heading);
+  display: flex;
+  gap: 1.5rem;
+  padding: clamp(1rem, 5vw, 1.5rem);
+  text-decoration: none;
+}
+.payment-card .form-check::before {
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.payment-card__caption > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.payment-card__caption > * + * {
+  margin-block-start: 0.5rem;
+}
+.payment-card__title {
+  font-size: clamp(1.0625rem, 2vw + 1rem, 1.25rem);
+}
+.payment-card__logo {
+  block-size: 1.75rem;
+  inline-size: auto;
+}

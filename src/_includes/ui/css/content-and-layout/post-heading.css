@@ -1,0 +1,23 @@
+.post-heading {
+  text-align: center;
+}
+.post-heading__inner {
+  display: grid;
+  gap: 1rem;
+}
+.post-heading__title {
+  font-size: clamp(2.25rem, 5vw + 1rem, 4.5rem);
+  margin-block: 0;
+  text-wrap: balance;
+}
+.post-heading__meta {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  justify-content: center;
+  margin-block-start: clamp(1.5rem, 5vw, 3rem);
+}
+.post-heading .breadcrumb-list {
+  justify-self: center;
+}

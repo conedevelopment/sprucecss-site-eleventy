@@ -1,0 +1,15 @@
+.post-author {
+  --avatar-size: 2.5rem;
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+.post-author__avatar {
+  block-size: var(--avatar-size);
+  border-radius: calc(var(--avatar-size) / 2);
+  inline-size: var(--avatar-size);
+}
+.post-author__name {
+  color: var(--spruce-base-color-text);
+}

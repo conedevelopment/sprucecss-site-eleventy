@@ -1,0 +1,18 @@
+.no-transition * {
+  transition: none !important;
+}
+
+.theme-switcher {
+  color: var(--spruce-base-color-text);
+  display: inline-flex;
+  position: relative;
+}
+.theme-switcher[data-theme-mode=system] .theme-switcher__system-mode, .theme-switcher[data-theme-mode=light] .theme-switcher__light-mode, .theme-switcher[data-theme-mode=dark] .theme-switcher__dark-mode {
+  display: inline-flex;
+}
+.theme-switcher button {
+  display: none;
+}
+.theme-switcher button > * {
+  pointer-events: none;
+}

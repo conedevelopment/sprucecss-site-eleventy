@@ -1,0 +1,32 @@
+.l-changelog > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.l-changelog > * + * {
+  margin-block-start: 3rem;
+}
+.l-changelog__item {
+  --gtc: minmax(0, 1fr);
+  align-items: flex-start;
+  display: grid;
+  gap: 1.5rem 3rem;
+  grid-template-columns: var(--gtc);
+}
+@media (min-width: 64em) {
+  .l-changelog__item {
+    --gtc: minmax(0, 9rem) minmax(0, 1fr);
+  }
+}
+.l-changelog__title {
+  margin-block: 0;
+}
+.l-changelog__date {
+  background-color: var(--spruce-btn-color-primary-background);
+  border-radius: 0.425rem;
+  color: var(--spruce-btn-color-primary-foreground);
+  display: inline-flex;
+  flex-shrink: 0;
+  font-weight: 700;
+  justify-self: start;
+  padding: 0.25rem 1rem;
+}

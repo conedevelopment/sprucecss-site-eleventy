@@ -1,0 +1,45 @@
+.form-group-stack > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.form-group-stack > * + * {
+  margin-block-start: 1rem;
+}
+
+.form-label--space-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.auth-form {
+  margin-block: auto;
+}
+.auth-form > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.auth-form > * + * {
+  margin-block-start: 1rem;
+}
+.auth-form__social > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.auth-form__social > * + * {
+  margin-block-start: 1rem;
+}
+.auth-form__separator {
+  align-items: center;
+  display: flex;
+  font-size: 0.875rem;
+  gap: 1rem;
+  margin-block-start: 1.5rem;
+  text-transform: uppercase;
+}
+.auth-form__separator::before, .auth-form__separator::after {
+  background-color: var(--spruce-base-color-border);
+  block-size: 1px;
+  content: "";
+  display: flex;
+  inline-size: 100%;
+}

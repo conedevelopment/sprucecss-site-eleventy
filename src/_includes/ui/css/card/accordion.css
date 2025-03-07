@@ -1,0 +1,105 @@
+.accordion-list > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.accordion-list > * + * {
+  margin-block-start: 1rem;
+}
+
+.accordion-card {
+  background-color: var(--spruce-base-color-background);
+  border: 1px solid var(--spruce-base-color-border);
+  border-radius: 0.925rem;
+}
+.accordion-card__title {
+  font-size: clamp(1.0625rem, 2vw + 1rem, 1.25rem);
+  margin-block: 0;
+  padding: 1.5rem;
+}
+.accordion-card__title:has(.accordion-card__toggle) {
+  padding: 0;
+}
+.accordion-card__toggle {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  outline: inherit;
+  padding: 0;
+  align-items: center;
+  display: flex;
+  gap: 1.5rem;
+  inline-size: 100%;
+  justify-content: space-between;
+  padding: 1.5rem;
+  text-align: start;
+}
+.accordion-card__toggle:focus-visible .accordion-card__icon {
+  outline: 2px solid var(--spruce-btn-color-primary-background);
+  outline-offset: 2px;
+}
+.accordion-card__toggle[aria-expanded=true] svg {
+  rotate: 90deg;
+}
+.accordion-card__toggle[aria-expanded=true] .horizontal-line {
+  opacity: 0;
+}
+.accordion-card__icon {
+  --size: 1.75rem;
+  align-items: center;
+  background-color: var(--spruce-btn-color-primary-background);
+  block-size: var(--size);
+  border-radius: 0.425rem;
+  color: var(--spruce-btn-color-primary-foreground);
+  display: flex;
+  flex-shrink: 0;
+  inline-size: var(--size);
+  justify-content: center;
+}
+.accordion-card__icon svg {
+  --size: 1.25rem;
+  transition-duration: 0.15s;
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+  block-size: var(--size);
+  inline-size: var(--size);
+}
+.accordion-card__icon .horizontal-line {
+  transition-duration: 0.15s;
+  transition-property: all;
+  transition-timing-function: ease-in-out;
+}
+.accordion-card__content {
+  transition-duration: 0.15s;
+  transition-property: grid-template-rows;
+  transition-timing-function: ease-in-out;
+  display: grid;
+  padding-inline: 1.5rem;
+}
+.accordion-card__content[aria-hidden=true] {
+  grid-template-rows: 0fr;
+}
+.accordion-card__content[aria-hidden=false] {
+  grid-template-rows: 1fr;
+  padding-block-end: 1.5rem;
+}
+.accordion-card__content > div {
+  overflow: hidden;
+}
+.accordion-card__content > div > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.accordion-card__content > div > * + * {
+  margin-block-start: 0.5rem;
+}
+.accordion-card__content > div * + h2,
+.accordion-card__content > div * + h3,
+.accordion-card__content > div * + h4,
+.accordion-card__content > div * + h5 {
+  margin-block-start: 1rem;
+}
+.accordion-card__content a:hover {
+  font-weight: 700;
+}

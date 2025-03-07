@@ -1,0 +1,82 @@
+.l-auth {
+  position: relative;
+}
+.l-auth__inner {
+  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  min-block-size: 100vh;
+  text-align: center;
+}
+@media (min-width: 64em) {
+  .l-auth__inner {
+    align-items: center;
+    flex-direction: row;
+    text-align: start;
+  }
+}
+.l-auth__sidebar {
+  background-image: url("https://conedevel.com/sprucecss/auth-background.png");
+  background-position: center;
+  background-size: cover;
+  border-radius: 2rem;
+  margin-block-end: clamp(1.5rem, 5vw, 3rem);
+  margin-inline: clamp(1.5rem, 5vw, 3rem);
+  min-block-size: 10rem;
+}
+@media (min-width: 64em) {
+  .l-auth__sidebar {
+    block-size: calc(100% - 2 * 3rem);
+    inline-size: calc(50% - 3rem);
+    inset-block: 3rem;
+    inset-inline: 50% 3rem;
+    margin: 0;
+    position: absolute;
+  }
+}
+.l-auth__form {
+  align-items: center;
+  block-size: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: center;
+  padding-block: 3rem;
+  padding-inline: clamp(1.5rem, 5vw, 3rem);
+}
+@media (min-width: 64em) {
+  .l-auth__form {
+    inline-size: 50%;
+    margin-inline-start: 0;
+    min-block-size: 100vh;
+  }
+}
+.l-auth__logo {
+  align-self: center;
+  block-size: 2rem;
+  display: inline-flex;
+}
+@media (min-width: 64em) {
+  .l-auth__logo {
+    align-self: flex-start;
+  }
+}
+.l-auth__logo img {
+  block-size: 100%;
+  inline-size: auto;
+}
+.l-auth__footer {
+  inline-size: 100%;
+}
+.l-auth__footer p {
+  margin-block: 0;
+}
+.l-auth .auth-form {
+  inline-size: 100%;
+  max-inline-size: 25rem;
+}
+@media (min-width: 64em) {
+  .l-auth .auth-form {
+    padding-block-end: 1.5rem;
+  }
+}

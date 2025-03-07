@@ -1,0 +1,11 @@
+.container {
+  --inline-size: 84rem;
+  --gap: clamp(1.5rem, 5vw, 3rem);
+  inline-size: 100%;
+  margin-inline: auto;
+  max-inline-size: var(--inline-size);
+  padding-inline: var(--gap);
+}
+.container--narrow {
+  --inline-size: 50rem;
+}
