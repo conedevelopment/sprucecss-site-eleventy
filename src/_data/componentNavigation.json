@@ -4,11 +4,11 @@
     "items": [
       {
         "caption": "Introduction",
-        "url": "/ui/getting-started/introduction"
+        "url": "/ui/getting-started/introduction/"
       },
       {
         "caption": "Config",
-        "url": "/ui/getting-started/config"
+        "url": "/ui/getting-started/config/"
       }
     ]
   },
@@ -17,27 +17,27 @@
     "items": [
       {
         "caption": "Accordion",
-        "url": "/ui/card/accordion"
+        "url": "/ui/card/accordion/"
       },
       {
         "caption": "Info",
-        "url": "/ui/card/info"
+        "url": "/ui/card/info/"
       },
       {
         "caption": "Number",
-        "url": "/ui/card/number"
+        "url": "/ui/card/number/"
       },
       {
         "caption": "Order",
-        "url": "/ui/card/order"
+        "url": "/ui/card/order/"
       },
       {
         "caption": "Payment",
-        "url": "/ui/card/payment"
+        "url": "/ui/card/payment/"
       },
       {
         "caption": "Post",
-        "url": "/ui/card/post"
+        "url": "/ui/card/post/"
       }
     ]
   },
@@ -46,39 +46,39 @@
     "items": [
       {
         "caption": "Call to Action",
-        "url": "/ui/content-and-layout/call-to-action"
+        "url": "/ui/content-and-layout/call-to-action/"
       },
       {
         "caption": "Container",
-        "url": "/ui/content-and-layout/container"
+        "url": "/ui/content-and-layout/container/"
       },
       {
         "caption": "Feature",
-        "url": "/ui/content-and-layout/feature"
+        "url": "/ui/content-and-layout/feature/"
       },
       {
         "caption": "Gallery",
-        "url": "/ui/content-and-layout/gallery"
+        "url": "/ui/content-and-layout/gallery/"
       },
       {
         "caption": "Modal",
-        "url": "/ui/content-and-layout/modal"
+        "url": "/ui/content-and-layout/modal/"
       },
       {
         "caption": "Post Author",
-        "url": "/ui/content-and-layout/post-author"
+        "url": "/ui/content-and-layout/post-author/"
       },
       {
         "caption": "Post Content",
-        "url": "/ui/content-and-layout/post-content"
+        "url": "/ui/content-and-layout/post-content/"
       },
       {
         "caption": "Site Footer",
-        "url": "/ui/content-and-layout/site-footer"
+        "url": "/ui/content-and-layout/site-footer/"
       },
       {
         "caption": "Site Header",
-        "url": "/ui/content-and-layout/site-header"
+        "url": "/ui/content-and-layout/site-header/"
       }
     ]
   },
@@ -87,11 +87,11 @@
     "items": [
       {
         "caption": "Checkout",
-        "url": "/ui/ecommerce/checkout"
+        "url": "/ui/ecommerce/checkout/"
       },
       {
         "caption": "Invoice",
-        "url": "/ui/ecommerce/invoice"
+        "url": "/ui/ecommerce/invoice/"
       }
     ]
   },
@@ -100,11 +100,11 @@
     "items": [
       {
         "caption": "Alert",
-        "url": "/ui/feedback/alert"
+        "url": "/ui/feedback/alert/"
       },
       {
         "caption": "Preloader",
-        "url": "/ui/feedback/preloader"
+        "url": "/ui/feedback/preloader/"
       }
     ]
   },
@@ -113,35 +113,35 @@
     "items": [
       {
         "caption": "Auth",
-        "url": "/ui/form/auth"
+        "url": "/ui/form/auth/"
       },
       {
         "caption": "Color Option",
-        "url": "/ui/form/color-option"
+        "url": "/ui/form/color-option/"
       },
       {
         "caption": "Combobox",
-        "url": "/ui/form/combobox"
+        "url": "/ui/form/combobox/"
       },
       {
         "caption": "File Group",
-        "url": "/ui/form/file-group"
+        "url": "/ui/form/file-group/"
       },
       {
         "caption": "File List",
-        "url": "/ui/form/file-list"
+        "url": "/ui/form/file-list/"
       },
       {
         "caption": "Number Group",
-        "url": "/ui/form/number-group"
+        "url": "/ui/form/number-group/"
       },
       {
         "caption": "Range Group",
-        "url": "/ui/form/range-group"
+        "url": "/ui/form/range-group/"
       },
       {
         "caption": "Size Option",
-        "url": "/ui/form/size-option"
+        "url": "/ui/form/size-option/"
       }
     ]
   },
@@ -150,15 +150,15 @@
     "items": [
       {
         "caption": "Changelog",
-        "url": "/ui/list/changelog"
+        "url": "/ui/list/changelog/"
       },
       {
         "caption": "Post",
-        "url": "/ui/list/post"
+        "url": "/ui/list/post/"
       },
       {
         "caption": "Timeline",
-        "url": "/ui/list/timeline"
+        "url": "/ui/list/timeline/"
       }
     ]
   },
@@ -167,23 +167,23 @@
     "items": [
       {
         "caption": "Cookie Consent",
-        "url": "/ui/misc/cookie-consent"
+        "url": "/ui/misc/cookie-consent/"
       },
       {
         "caption": "Lang Switcher",
-        "url": "/ui/misc/lang-switcher"
+        "url": "/ui/misc/lang-switcher/"
       },
       {
         "caption": "Skip Link",
-        "url": "/ui/misc/skip-link"
+        "url": "/ui/misc/skip-link/"
       },
       {
         "caption": "Theme Switcher Button",
-        "url": "/ui/misc/theme-switcher-button"
+        "url": "/ui/misc/theme-switcher-button/"
       },
       {
         "caption": "Theme Switcher Select",
-        "url": "/ui/misc/theme-switcher-select"
+        "url": "/ui/misc/theme-switcher-select/"
       }
     ]
   },
@@ -192,27 +192,27 @@
     "items": [
       {
         "caption": "Breadcrumb List",
-        "url": "/ui/navigation/breadcrumb-list"
+        "url": "/ui/navigation/breadcrumb-list/"
       },
       {
         "caption": "Context Menu",
-        "url": "/ui/navigation/context-menu"
+        "url": "/ui/navigation/context-menu/"
       },
       {
         "caption": "Open Search",
-        "url": "/ui/navigation/open-search"
+        "url": "/ui/navigation/open-search/"
       },
       {
         "caption": "Pagination",
-        "url": "/ui/navigation/pagination"
+        "url": "/ui/navigation/pagination/"
       },
       {
         "caption": "Post",
-        "url": "/ui/navigation/post"
+        "url": "/ui/navigation/post/"
       },
       {
         "caption": "Site Navigation",
-        "url": "/ui/navigation/site-navigation"
+        "url": "/ui/navigation/site-navigation/"
       }
     ]
   },
@@ -221,11 +221,11 @@
     "items": [
       {
         "caption": "Auth",
-        "url": "/ui/page/auth"
+        "url": "/ui/page/auth/"
       },
       {
         "caption": "Post",
-        "url": "/ui/page/post"
+        "url": "/ui/page/post/"
       }
     ]
   }

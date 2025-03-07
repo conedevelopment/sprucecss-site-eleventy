@@ -4,39 +4,39 @@
     "items": [
       {
         "caption": "Introduction",
-        "url": "/docs/getting-started/introduction"
+        "url": "/docs/getting-started/introduction/"
       },
       {
         "caption": "Installation",
-        "url": "/docs/getting-started/installation"
+        "url": "/docs/getting-started/installation/"
       },
       {
         "caption": "Structure and Code",
-        "url": "/docs/getting-started/structure-and-code"
+        "url": "/docs/getting-started/structure-and-code/"
       },
       {
         "caption": "Sass",
-        "url": "/docs/getting-started/sass"
+        "url": "/docs/getting-started/sass/"
       },
       {
         "caption": "Accessibility",
-        "url": "/docs/getting-started/accessibility"
+        "url": "/docs/getting-started/accessibility/"
       },
       {
         "caption": "Internationalization",
-        "url": "/docs/getting-started/internationalization"
+        "url": "/docs/getting-started/internationalization/"
       },
       {
         "caption": "Print",
-        "url": "/docs/getting-started/print"
+        "url": "/docs/getting-started/print/"
       },
       {
         "caption": "Contribution",
-        "url": "/docs/getting-started/contribution"
+        "url": "/docs/getting-started/contribution/"
       },
       {
         "caption": "Appendix",
-        "url": "/docs/getting-started/appendix"
+        "url": "/docs/getting-started/appendix/"
       }
     ]
   },
@@ -45,15 +45,15 @@
     "items": [
       {
         "caption": "Variables",
-        "url": "/docs/customization/variables"
+        "url": "/docs/customization/variables/"
       },
       {
         "caption": "Settings",
-        "url": "/docs/customization/settings"
+        "url": "/docs/customization/settings/"
       },
       {
         "caption": "Themes",
-        "url": "/docs/customization/themes"
+        "url": "/docs/customization/themes/"
       }
     ]
   },
@@ -62,19 +62,19 @@
     "items": [
       {
         "caption": "Colors",
-        "url": "/docs/sass/colors"
+        "url": "/docs/sass/colors/"
       },
       {
         "caption": "Variables",
-        "url": "/docs/sass/variables"
+        "url": "/docs/sass/variables/"
       },
       {
         "caption": "Mixins",
-        "url": "/docs/sass/mixins"
+        "url": "/docs/sass/mixins/"
       },
       {
         "caption": "Functions",
-        "url": "/docs/sass/functions"
+        "url": "/docs/sass/functions/"
       }
     ]
   },
@@ -83,27 +83,27 @@
     "items": [
       {
         "caption": "Generators",
-        "url": "/docs/elements/generators"
+        "url": "/docs/elements/generators/"
       },
       {
         "caption": "Typography",
-        "url": "/docs/elements/typography"
+        "url": "/docs/elements/typography/"
       },
       {
         "caption": "Tables",
-        "url": "/docs/elements/tables"
+        "url": "/docs/elements/tables/"
       },
       {
         "caption": "Buttons",
-        "url": "/docs/elements/buttons"
+        "url": "/docs/elements/buttons/"
       },
       {
         "caption": "Forms",
-        "url": "/docs/elements/forms"
+        "url": "/docs/elements/forms/"
       },
       {
         "caption": "Media",
-        "url": "/docs/elements/media"
+        "url": "/docs/elements/media/"
       }
     ]
   }
