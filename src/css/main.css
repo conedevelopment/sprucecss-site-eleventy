@@ -1148,10 +1148,10 @@ strong {
   background-color: var(--spruce-btn-color-primary-background-hover);
 }
 .form-file::file-selector-button {
+  margin-inline-end: 1rem;
   background-color: var(--spruce-btn-color-primary-background);
   border-color: var(--spruce-btn-color-primary-background);
   color: var(--spruce-btn-color-primary-foreground);
-  margin-inline-end: 1rem;
 }
 .form-file::file-selector-button:hover {
   background-color: var(--spruce-btn-color-primary-background-hover);
@@ -1461,12 +1461,12 @@ html[dir=rtl] select.form-control:not([multiple]):not([size]) {
 }
 
 fieldset {
-  --spruce-layout-gap: 1rem;
-  --spruce-legend-font-size: clamp(1rem, 5vw, 1.25rem);
-  --spruce-legend-font-weight: 700;
   border: 0;
   margin: 0;
   padding: 0;
+  --spruce-layout-gap: 1rem;
+  --spruce-legend-font-size: clamp(1rem, 5vw, 1.25rem);
+  --spruce-legend-font-weight: 700;
 }
 fieldset > * {
   margin-block-end: 0;
@@ -2559,10 +2559,10 @@ textarea.pagefind-ui__search-input {
   border-radius: var(--spruce-border-radius-sm);
 }
 .pagefind-ui__results {
+  padding-inline-end: 1.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
-  padding-inline-end: 1.5rem;
 }
 .pagefind-ui__results > * {
   margin-block-end: 0;

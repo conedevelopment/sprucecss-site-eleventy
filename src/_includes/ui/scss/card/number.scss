@@ -1,9 +1,9 @@
 @use 'sprucecss/scss/spruce' as *;
 
 .number-card {
-  @include layout-stack('xs');
   border-bottom: 1px solid color('border');
   padding-block-end: spacer('l');
+  @include layout-stack('xs');
 
   &__data {
     color: color('primary');

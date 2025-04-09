@@ -12,8 +12,8 @@
 }
 
 .auth-form {
-  @include layout-stack('s');
   margin-block: auto;
+  @include layout-stack('s');
 
   &__social {
     @include layout-stack('s');

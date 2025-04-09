@@ -86,8 +86,8 @@
     }
 
     > div {
-      @include layout-stack('xs');
       overflow: hidden;
+      @include layout-stack('xs');
 
       * + h2,
       * + h3,

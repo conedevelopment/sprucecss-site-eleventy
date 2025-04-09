@@ -3,8 +3,8 @@
 .l-timeline {
   --size: 1.25em;
   --offset: calc(#{config('line-height-base', $typography, false) + 0em} / 6);
-  @include layout-stack('l');
   position: relative;
+  @include layout-stack('l');
 
   &::before {
     --inline-size: 0.15em;

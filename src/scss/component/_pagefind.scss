@@ -58,9 +58,9 @@
   }
 
   &__results {
+    padding-inline-end: spacer('m');
     @include clear-list;
     @include layout-stack('s');
-    padding-inline-end: spacer('m');
 
     &:empty {
       display: none;

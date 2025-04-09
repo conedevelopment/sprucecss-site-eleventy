@@ -38,9 +38,9 @@
   }
 
   &__order {
-    @include layout-stack('xs');
     margin-block-start: auto;
     padding-top: spacer('m');
+    @include layout-stack('xs');
 
     .form-group--submit {
       margin-block-start: spacer('m');

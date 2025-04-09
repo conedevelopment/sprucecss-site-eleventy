@@ -48,8 +48,8 @@
   }
 
   &__body {
-    @include layout-stack('s');
     padding: spacer-clamp('s', 'm');
+    @include layout-stack('s');
   }
 
   &__footer {
