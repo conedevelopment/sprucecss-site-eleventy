@@ -80,7 +80,7 @@ jobs:
             uses: actions/checkout@v4
         -
             name: Run Lychee
-            uses: lycheeverse/lychee-action@v1.10.0
+            uses: lycheeverse/lychee-action@v2.4.0
             with:
                 args: >-
                     --verbose
