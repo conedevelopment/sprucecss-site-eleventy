@@ -16,7 +16,7 @@ Now have the `:has` selector, which is basically a parent selector. We can check
 
 Designing for multi-directional content can be a pain. If you have to support both LTR and RTL, you had to do more work in the past.
 
-With the new sets of [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties), no more are left/right or top/bottom; we can declare a direction relatively.
+With the new sets of [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values), no more are left/right or top/bottom; we can declare a direction relatively.
 
 Using logical values helps us to make a layout RTL from LTR easier.
 

@@ -24,7 +24,7 @@ Naming this group is tricky. In my opinion, this is the original CSS framework; 
 - It has almost everything that you need to build any project. Easy to start and hard to master (as usual).
 - You can use it with Sass and decide which module you want to use. For example, I only use the grid and the utilities when developing with it.
 
-You can put [Bulma](https://bulma.io/) and [Spruce CSS](https://sprucecss.com/docs/getting-started/introduction) into this group too.
+You can put [Bulma](https://bulma.io/) and [Spruce CSS](https://sprucecss.com/docs/getting-started/introduction/) into this group too.
 
 {% notification %}
 We can call these kinds of frameworks the traditional ones because these were the first ones.
@@ -62,7 +62,7 @@ The class-free CSS frameworks are pretty popular ones. These tools come without 
 
 One excellent example of this type of solution is [Pico.css](https://picocss.com/). The main goal of it is simpleness. You don’t need tooling, and it has a moderate learning curve.
 
-To get the idea better, see the [compiled CSS on GitHub](https://github.com/picocss/pico/blob/master/css/pico.css). For another example, see [Water.css](https://watercss.kognise.dev/).
+To get the idea better, see the [compiled CSS on GitHub](https://github.com/picocss/pico/blob/main/css/pico.css). For another example, see [Water.css](https://watercss.kognise.dev/).
 
 ## More Categories
 

@@ -32,12 +32,12 @@ To talk about modern Sass, first, we must speak a little about old Sass. Let’s
 
 - One of its popular features of it was variables. Storing anything in a variable and reusing its value is present in a programming language, not a style sheet language. Of course, we use this feature today, but now we have CSS custom properties.
 - Making a grid system with CSS wasn’t viable, so we reached out for mixins and functions to make some generators for them.
-- We used a lot of mixin for hacks. I’m sure you know the [iframe hack](https://www.hacksoft.io/blog/responsive-iframes). Today we can use the new [aspect-ratio](https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio) property.
+- We used a lot of mixin for hacks. I’m sure you know the [iframe hack](https://www.hacksoft.io/blog/responsive-iframes). Today we can use the new [aspect-ratio](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/aspect-ratio) property.
 - We could separate our files by components and merge them at a build process with @import; this is useful today, but now we have @use and @forward.
 - We made mathematical calculations. Don’t get me wrong, we still make calculations with Sass, but now we have [calc()](https://developer.mozilla.org/en-US/docs/Web/CSS/calc).
 
 {% notification %}
-Please note that we can still use the listed things (except [@import](https://sass-lang.com/documentation/at-rules/import), which is deprecated), but today we do not need them as much as we needed some years ago. Also, this is a personal list, nothing more.
+Please note that we can still use the listed things (except [@import](https://sass-lang.com/documentation/at-rules/import/), which is deprecated), but today we do not need them as much as we needed some years ago. Also, this is a personal list, nothing more.
 {% endnotification %}
 
 ## The Modern Sass
@@ -63,4 +63,4 @@ The modern Sass - _for me_ - means that we can use the new CSS features, but we 
 
 ## Way More Easier to Use It
 
-One thing that developed is the build tools. Knowing your console is a generic skill for any developer, but it can be a barrier. You can easily include Sass into any tooling system, but my favorite is [Sass CLI](https://sass-lang.com/documentation/cli), which [we can use from npm scripts](https://sprucecss.com/blog/the-simplest-sass-compile-setup).
+One thing that developed is the build tools. Knowing your console is a generic skill for any developer, but it can be a barrier. You can easily include Sass into any tooling system, but my favorite is [Sass CLI](https://sass-lang.com/documentation/cli/), which [we can use from npm scripts](https://sprucecss.com/blog/the-simplest-sass-compile-setup/).

@@ -8,7 +8,7 @@ tags: ["sass"]
 
 <p class="lead">Sass is an excellent tool to make CSS more dynamic, but it is still a burden for many of us because of the compiling settings. Let's see how we can set up a minimal but well-functioning configuration.</p>
 
-I think the easiest way to compile Sass is through npm scripts. Using npm scripts, we can run any shell command - *preconfigured, installed* - with a simple line. Sass comes with a [command-line interface](https://sass-lang.com/documentation/cli/dart-sass) (CLI), which we can configure widely; this is the one we will run through npm scripts.
+I think the easiest way to compile Sass is through npm scripts. Using npm scripts, we can run any shell command - *preconfigured, installed* - with a simple line. Sass comes with a [command-line interface](https://sass-lang.com/documentation/cli//dart-sass) (CLI), which we can configure widely; this is the one we will run through npm scripts.
 
 The current version of Sass is 1.42.1 and wrote on Dart. We have two deprecated packages named LibSass and Node Sass. In this tutorial, we - *and you should* - use Dart Sass which is the default setting on install when we run the `npm install sass` command.
 
@@ -92,7 +92,7 @@ sass-compile/
 
 We compile our Sass files from the `scss` to the `css` folder. **We don’t have to specify file names explicitly (necessarily);** the script will watch for all translatable files (the ones which don’t have a `_` prefix).
 
-For more information about the flags (the text in the command which stats with —), please visit the [official CLI page](https://sass-lang.com/documentation/cli).
+For more information about the flags (the text in the command which stats with —), please visit the [official CLI page](https://sass-lang.com/documentation/cli/).
 
 {% notification %}
 As you see, the npm scripts work like an alias (right now we only use the Sass CLI). You can run any of the commands directly in your terminal (in any order or parallel), but this example doesn’t show the full potential. Please note that this article is only about about the Sass compile. Based on the different needs, it can be a little bit complicated and more structured.
