@@ -4,7 +4,7 @@ There isn’t much work with the card component because the requirements mainly 
 
 - if you use an image, you must set a [proper](https://adamlaki.com/bite-sized-accessibility/4-write-better-alt-text/) `alt` value.
 - If you list them, using a list with `<ul>` and `<li>` is a good idea.
-- If you have a publication date, use the <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/time">time</a></code> element.
+- If you have a publication date, use the <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/time">time</a></code> element.
 
 ## Variations
 
