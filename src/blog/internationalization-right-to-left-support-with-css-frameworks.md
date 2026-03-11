@@ -24,7 +24,7 @@ The logical properties and values give us control over our layout with logical d
 
 Although this article is mainly about LTR and RTL, you can not just control your layout horizontally but vertically if you wish so.
 
-You can set your writing mode with the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/dir" class="code-link"><code>dir</code></a> attribute or the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode" class="code-link"><code>writing-mode</code></a> CSS property.
+You can set your writing mode with the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/dir" class="code-link"><code>dir</code></a> attribute or the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/writing-mode" class="code-link"><code>writing-mode</code></a> CSS property.
 
 [The support for the logical properties can be mixed](https://caniuse.com/?search=logical%20properties), but with a prefixer, you can easily support the newer browsers.
 
@@ -108,7 +108,7 @@ div {
 }
 ```
 
-At this point, I am sure you get the idea behind the logical concept. It needs a different kind of thinking but is relatively easy to switch. [For the complete list, please visit MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties).
+At this point, I am sure you get the idea behind the logical concept. It needs a different kind of thinking but is relatively easy to switch. [For the complete list, please visit MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_logical_properties_and_values).
 
 ## The Layout Modes
 

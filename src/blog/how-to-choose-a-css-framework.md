@@ -49,10 +49,10 @@ Another Bootstrap-like solution is [Bulma](https://bulma.io/), which is also a m
 
 The most significant advantage of the mentioned ones is that they come with many resources, support, and excellent documentation. One significant disadvantage is that learning them and staying updated is more challenging (but a learning curve is always present).
 
-- If you need a smaller system, you can try [Pure.css](https://purecss.io/
+- If you need a smaller system, you can try [Pure.css](https://pure-css.github.io/
 ) or [Milligram](https://milligram.io/).
 - If you need a system without classes, you can try [Picnic CSS](https://picnicss.com/) or [water.css](https://github.com/kognise/water.css).
-- If you need a modern, low-level Sass-based system, give it a try to [Spruce CSS framework](https://sprucecss.com/docs/getting-started/introduction). It is a newer one but works for us.
+- If you need a modern, low-level Sass-based system, give it a try to [Spruce CSS framework](https://sprucecss.com/docs/getting-started/introduction/). It is a newer one but works for us.
 
 ## The Requirements
 

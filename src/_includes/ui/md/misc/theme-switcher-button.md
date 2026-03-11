@@ -3,7 +3,7 @@
 ## Technical Details
 
 - The script switches the `data-theme-mode` attribute on the `html` (and theme switcher) element to identify the selected theme.
-- You have to set up an [additional color theme](https://sprucecss.com/docs/customization/themes).
+- You have to set up an [additional color theme](https://sprucecss.com/docs/customization/themes/).
 
 ## Theme Detection
 

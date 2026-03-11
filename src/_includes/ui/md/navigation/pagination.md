@@ -32,4 +32,4 @@
 - [generate-btn](https://github.com/conedevelopment/sprucecss/blob/main/scss/form/_button.scss)
 - [btn-variant](/docs/sass/mixins/#btn-variant)
 - [clear-list](/docs/sass/mixins/#clear-list)
-- [aria-current](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current)
+- [aria-current](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-current)

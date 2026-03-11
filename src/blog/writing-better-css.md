@@ -121,7 +121,7 @@ Quality control in CSS is a must. We can easily lint, prefix, and purge our code
 
 We should use the tools of the modern developer. I use Stylelint to lint my stylesheets with the Sass Guidelines and Autoprefixer to prefix some code (and [check browser support](https://github.com/browserslist/browserslist#best-practices)).
 
-I usually write SCSS. I like Sass; it is programmatic CSS which can be handy. It is also a way of processing your code too. On a basic level, you can write fewer lines of code, separate them, and merge them as you wish. On a more intermediate level, you can make your small framework. Compiling Sass is easy with [sass-cli](https://sass-lang.com/documentation/cli/dart-sass); [I wrote a simple guide about it on Pine](https://pineco.de/the-simplest-sass-compile-setup/).
+I usually write SCSS. I like Sass; it is programmatic CSS which can be handy. It is also a way of processing your code too. On a basic level, you can write fewer lines of code, separate them, and merge them as you wish. On a more intermediate level, you can make your small framework. Compiling Sass is easy with [sass-cli](https://sass-lang.com/documentation/cli//dart-sass); [I wrote a simple guide about it on Pine](https://pineco.de/the-simplest-sass-compile-setup/).
 
 If your codebase is vast and you don’t control it from the start, you can use Purge CSS to remove the unnecessary lines. For example, if you use the complete bootstrap grid, you will rarely use all of the utility classes. You can make your CSS 30-50% lighter if you purge it before publishing.
 
