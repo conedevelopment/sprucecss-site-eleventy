@@ -18,7 +18,7 @@
     "@11ty/eleventy-fetch": "^5.1.1",
     "@11ty/eleventy-img": "^6.0.4",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
-    "date-fns": "^4.1.0",
+    "date-fns": "^4.4.0",
     "del-cli": "^7.0.0",
     "dotenv": "^17.3.1",
     "himalaya": "^1.1.1",
