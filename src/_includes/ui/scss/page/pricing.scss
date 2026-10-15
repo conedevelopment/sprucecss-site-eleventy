@@ -1,0 +1,15 @@
+@use 'sprucecss/scss/spruce' as *;
+
+// A page composed only of blocks: every block brings its own spacing.
+.l-page {
+  // One background, one padding: a block that follows a block on the same background drops its top padding,
+  // the bottom padding of the previous one already separates them. `__alt` starts a new background.
+  > :not(.l-page__alt) + :not(.l-page__alt),
+  &__alt > * + * {
+    padding-block-start: 0;
+  }
+
+  &__alt {
+    background-color: color('surface-muted');
+  }
+}

@@ -1,0 +1,266 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.app-shell {
+  --app-shell-sidebar-inline-size: 16rem;
+  --app-shell-block-size: 100dvb;
+  background-color: color('surface-muted');
+  display: grid;
+  min-block-size: var(--app-shell-block-size);
+
+  @include breakpoint('md') {
+    grid-template-columns: var(--app-shell-sidebar-inline-size) minmax(0, 1fr);
+  }
+
+  &__skip-link {
+    @include visually-hidden-focusable;
+    background-color: color('surface');
+    inset-block-start: spacer('xs');
+    inset-inline-start: spacer('xs');
+    padding: spacer('xs') spacer('s');
+    position: fixed;
+    z-index: z-index('toast');
+  }
+
+  &__sidebar {
+    background-color: color('surface');
+    border-inline-end: config('border-width-base', $display) solid color('border');
+    display: flex;
+    flex-direction: column;
+    gap: spacer('m');
+    overflow-y: auto;
+    padding: spacer('m') spacer('s');
+
+    @include breakpoint('md') {
+      block-size: var(--app-shell-block-size);
+      inset-block-start: 0;
+      position: sticky;
+    }
+  }
+
+  &__brand {
+    align-items: center;
+    color: color('heading');
+    display: flex;
+    font-family: config('font-family-heading', $typography);
+    font-weight: 700;
+    gap: spacer('xs');
+    padding-inline: spacer('xs');
+    text-decoration: none;
+
+    svg {
+      block-size: 1.5rem;
+      color: color('primary');
+      inline-size: 1.5rem;
+    }
+  }
+
+  &__navigation {
+    flex-grow: 1;
+    @include layout-stack('xs');
+  }
+
+  &__menu {
+    list-style: none;
+    padding: 0;
+    @include layout-stack('xxs');
+  }
+
+  &__menu-title {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+    margin-block-start: spacer('m');
+    padding-inline: spacer('xs');
+  }
+
+  &__link {
+    align-items: center;
+    border-radius: radius('md');
+    color: color('text');
+    display: flex;
+    font-weight: 500;
+    gap: spacer('xs');
+    padding: spacer('xs');
+    text-decoration: none;
+    @include transition;
+
+    svg {
+      block-size: 1.25rem;
+      color: color('muted');
+      flex-shrink: 0;
+      inline-size: 1.25rem;
+    }
+
+    &:hover {
+      background-color: color('surface-muted');
+      color: color('heading');
+    }
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+      outline-offset: -2px;
+    }
+
+    &[aria-current='page'] {
+      background-color: color-alpha('primary', 0.1);
+      color: color('primary');
+
+      svg {
+        color: currentColor;
+      }
+    }
+  }
+
+  &__count {
+    background-color: color('primary');
+    border-radius: radius('pill');
+    color: color('primary-foreground', 'btn');
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-inline-start: auto;
+    padding: 0.25em 0.6em;
+  }
+
+  &__user {
+    align-items: center;
+    border-block-start: config('border-width-base', $display) solid color('border');
+    display: flex;
+    gap: spacer('xs');
+    padding: spacer('s') spacer('xs') 0;
+  }
+
+  &__avatar {
+    align-items: center;
+    aspect-ratio: 1;
+    background-color: color-alpha('primary', 0.15);
+    border-radius: radius('pill');
+    color: color('primary');
+    display: inline-flex;
+    flex-shrink: 0;
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+    inline-size: 2.5rem;
+    justify-content: center;
+  }
+
+  &__user-info {
+    display: grid;
+    line-height: config('line-height-md', $typography);
+    min-inline-size: 0;
+  }
+
+  &__user-name {
+    color: color('heading');
+    font-weight: 700;
+  }
+
+  &__user-email {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    @include text-ellipsis;
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    min-inline-size: 0;
+  }
+
+  &__topbar {
+    align-items: center;
+    background-color: color('surface');
+    border-block-end: config('border-width-base', $display) solid color('border');
+    display: flex;
+    gap: spacer('s');
+    inset-block-start: 0;
+    padding: spacer('xs') spacer('m');
+    position: sticky;
+    z-index: z-index('sticky');
+  }
+
+  &__toggle {
+    display: none !important;
+  }
+
+  &__search {
+    flex-grow: 1;
+    max-inline-size: 24rem;
+  }
+
+  &__actions {
+    @include layout-cluster('xs');
+    flex-wrap: nowrap;
+    margin-inline-start: auto;
+    white-space: nowrap;
+  }
+
+  &__content {
+    flex-grow: 1;
+    padding: spacer-clamp('m', 'l');
+    @include layout-stack('m');
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__title {
+    font-size: font-size('h3');
+  }
+
+  &__placeholder {
+    background-color: color('surface');
+    border: config('border-width-base', $display) dashed color('border');
+    border-radius: radius('lg');
+    min-block-size: 8rem;
+
+    &--tall {
+      min-block-size: 16rem;
+    }
+  }
+
+  &__backdrop {
+    background-color: color('overlay');
+    inset: 0;
+    position: fixed;
+    z-index: z-index('overlay');
+  }
+
+  // Off-canvas sidebar below the md breakpoint, only when the JavaScript runs.
+  // Without it, the sidebar stays in the flow above the content.
+  &--enhanced {
+    @include breakpoint-down('md') {
+      .app-shell__toggle {
+        display: inline-flex !important;
+      }
+
+      .app-shell__sidebar {
+        box-shadow: shadow('xl');
+        inline-size: min(var(--app-shell-sidebar-inline-size), 85vi);
+        inset-block: 0;
+        inset-inline-start: 0;
+        position: fixed;
+        translate: -100% 0;
+        visibility: hidden;
+        z-index: z-index('modal');
+        @include transition($property: 'translate, visibility');
+      }
+    }
+  }
+
+  &--open {
+    @include breakpoint-down('md') {
+      .app-shell__sidebar {
+        translate: 0 0;
+        visibility: visible;
+      }
+    }
+  }
+}
+
+[dir='rtl'] .app-shell--enhanced:not(.app-shell--open) .app-shell__sidebar {
+  @include breakpoint-down('md') {
+    translate: 100% 0;
+  }
+}

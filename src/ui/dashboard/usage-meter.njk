@@ -1,0 +1,27 @@
+---
+title: 'Usage Meter'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium">
+        {% include "ui/html/dashboard/usage-meter.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/dashboard/usage-meter.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/dashboard/usage-meter.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/dashboard/usage-meter.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/dashboard/usage-meter.css">
+{% endblock %}

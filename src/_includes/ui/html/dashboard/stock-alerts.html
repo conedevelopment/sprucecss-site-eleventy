@@ -1,0 +1,28 @@
+{#- Override with `stockAlerts` ({ title, items: [{ name, sku, stock, status: "out"|"low" }] }). -#}
+{%- set _s = stockAlerts or {
+    "title": "Stock alerts",
+    "items": [
+        { "name": "Linen Overshirt, M", "sku": "LO-SAND-M", "stock": 0, "status": "out" },
+        { "name": "Everyday Backpack, Olive", "sku": "EB-OLV-22", "stock": 3, "status": "low" },
+        { "name": "Ceramic Pour-Over", "sku": "CP-WHT-01", "stock": 5, "status": "low" },
+        { "name": "Sunglasses, Tortoise", "sku": "SG-TRT-01", "stock": 0, "status": "out" }
+    ]
+} %}
+<section class="stock-alerts" aria-labelledby="stock-alerts-title">
+    <header class="stock-alerts__header">
+        <h2 class="stock-alerts__title" id="stock-alerts-title">{{ _s.title }}</h2>
+        <span class="badge badge--danger">{{ _s.items | length }}<span class="sr-only"> products need attention</span></span>
+    </header>
+    <ul class="stock-alerts__list" role="list">
+        {%- for item in _s.items %}
+        <li class="stock-alerts__item stock-alerts__item--{{ item.status }}">
+            <span class="stock-alerts__icon" aria-hidden="true">{% set iconName = "alert" if item.status == "out" else "package" %}{% include "../block/icon.html" %}</span>
+            <div class="stock-alerts__info">
+                <p class="stock-alerts__name">{{ item.name }}</p>
+                <p class="stock-alerts__meta"><span class="stock-alerts__status">{{ "Out of stock" if item.status == "out" else "Low stock: " + item.stock + " left" }}</span> · SKU {{ item.sku }}</p>
+            </div>
+            <a class="btn btn--soft-primary btn--sm" href="#">Restock<span class="sr-only"> {{ item.name }}</span></a>
+        </li>
+        {%- endfor %}
+    </ul>
+</section>

@@ -1,0 +1,31 @@
+{#- Override with `locationsBlock` ({ heading, items: [{ city, label, address, phone, hours, image }] }). -#}
+{%- set _s = locationsBlock or {
+    "heading": { "eyebrow": "Offices", "title": "Come say hello", "text": "We’re remote-first, but our offices are always open for coffee.", "id": "locations-title" },
+    "items": [
+        { "city": "Lisbon", "label": "Headquarters", "address": "Rua da Prata 120, 1100-420 Lisbon, Portugal", "phone": "+351 21 000 0000", "hours": "Mon–Fri, 9:00–18:00", "image": "https://images.unsplash.com/photo-1585208798174-6cedd86e019a?auto=format&fit=crop&w=700&q=70" },
+        { "city": "Berlin", "label": "Engineering hub", "address": "Torstraße 33, 10119 Berlin, Germany", "phone": "+49 30 0000 0000", "hours": "Mon–Fri, 9:00–18:00", "image": "https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=700&q=70" },
+        { "city": "New York", "label": "Sales and support", "address": "120 W 23rd St, New York, NY 10011, USA", "phone": "+1 212 000 0000", "hours": "Mon–Fri, 9:00–17:00", "image": "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=700&q=70" }
+    ]
+} %}
+<section class="locations-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="locations-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            <ul class="locations-block__grid" role="list">
+                {%- for item in _s.items %}
+                <li class="locations-block__card">
+                    <img class="locations-block__image" src="{{ item.image }}" alt="" width="700" height="440" loading="lazy">
+                    <div class="locations-block__body">
+                        <h3 class="locations-block__city">{{ item.city }} <span class="badge">{{ item.label }}</span></h3>
+                        <address class="locations-block__address">{% set iconName = "map-pin" %}{% set iconClass = "locations-block__icon" %}{% include "../block/icon.html" %} {{ item.address }}</address>
+                        <p class="locations-block__line">{% set iconName = "clock" %}{% include "../block/icon.html" %} {{ item.hours }}</p>
+                        <p class="locations-block__line">{% set iconName = "phone" %}{% include "../block/icon.html" %} <a href="tel:{{ item.phone | replace(' ', '') }}">{{ item.phone }}</a></p>
+                        <a class="btn btn--soft-primary btn--sm locations-block__directions" href="https://www.openstreetmap.org/search?query={{ item.address | urlencode }}" target="_blank" rel="noopener">Get directions<span class="sr-only"> to the {{ item.city }} office (opens in a new tab)</span></a>
+                    </div>
+                </li>
+                {%- endfor %}
+            </ul>
+        </div>
+    </div>
+</section>

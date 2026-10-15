@@ -1,0 +1,35 @@
+---
+title: 'Tabs'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium ui--tabs">
+        {% include "ui/html/navigation/tabs.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/navigation/tabs.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/navigation/tabs.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/navigation/tabs.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/navigation/tabs.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/navigation/tabs.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/navigation/tabs.js"></script>
+{% endblock %}

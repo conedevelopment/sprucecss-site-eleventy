@@ -1,0 +1,28 @@
+{#- Override with `videoBlock` ({ heading, poster, alt, embed, duration, points }). -#}
+{%- set _s = videoBlock or {
+    "heading": { "eyebrow": "Watch", "title": "See Spruce in two minutes", "text": "A quick tour of the styles, the components and the blocks.", "id": "video-title" },
+    "poster": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=70", "alt": "A laptop with code on the screen.",
+    "embed": "https://www.youtube-nocookie.com/embed/-6Xl9tBWt54?autoplay=1",
+    "duration": "2:14",
+    "points": [{ "icon": "palette", "text": "Eight design styles" }, { "icon": "layers", "text": "100+ components and blocks" }, { "icon": "zap", "text": "9 KB of core CSS" }]
+} %}
+<section class="video-block" aria-labelledby="{{ _s.heading.id }}" data-video>
+    <div class="container">
+        <div class="video-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            <div class="video-block__player">
+                <img class="video-block__poster" src="{{ _s.poster }}" alt="{{ _s.alt }}" width="1600" height="900" loading="lazy">
+                <button class="video-block__play" type="button" data-video-play data-embed="{{ _s.embed }}">
+                    <span class="video-block__play-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" focusable="false"><path d="M8 5.1v13.8c0 .8.9 1.3 1.6.8l10.6-6.9c.6-.4.6-1.3 0-1.7L9.6 4.3C8.9 3.8 8 4.3 8 5.1z"/></svg></span>
+                    <span>Play video <span class="video-block__duration">({{ _s.duration }})</span></span>
+                </button>
+            </div>
+            <ul class="video-block__points" role="list">
+                {%- for point in _s.points %}
+                <li>{% set iconName = point.icon %}{% include "../block/icon.html" %} {{ point.text }}</li>
+                {%- endfor %}
+            </ul>
+        </div>
+    </div>
+</section>

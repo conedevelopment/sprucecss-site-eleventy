@@ -1,5 +1,5 @@
 .container {
-  --inline-size: 84rem;
+  --inline-size: 94rem;
   --gap: clamp(1.5rem, 5vw, 3rem);
   inline-size: 100%;
   margin-inline: auto;
@@ -8,4 +8,10 @@
 }
 .container--narrow {
   --inline-size: 50rem;
+}
+.container--wide {
+  --inline-size: 110rem;
+}
+.container--full {
+  --inline-size: none;
 }

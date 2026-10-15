@@ -1,0 +1,35 @@
+---
+title: 'Setup Checklist'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium">
+        {% include "ui/html/dashboard/setup-checklist.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/dashboard/setup-checklist.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/dashboard/setup-checklist.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/dashboard/setup-checklist.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/dashboard/setup-checklist.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/dashboard/setup-checklist.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/dashboard/setup-checklist.js"></script>
+{% endblock %}

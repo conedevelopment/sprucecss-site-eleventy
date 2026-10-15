@@ -1,0 +1,117 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.address-book {
+  @include layout-stack('m');
+
+  &__title {
+    font-size: font-size('h4');
+  }
+
+  &__list {
+    display: grid;
+    gap: spacer('m');
+    grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
+    list-style: none;
+    padding: 0;
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__item {
+    display: flex;
+  }
+
+  &__card {
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    display: flex;
+    flex-direction: column;
+    gap: spacer('s');
+    inline-size: 100%;
+    padding: spacer('m');
+  }
+
+  &__item--default &__card {
+    border-color: color('primary');
+    box-shadow: 0 0 0 1px color('primary');
+  }
+
+  &__header {
+    align-items: center;
+    display: flex;
+    gap: spacer('xs');
+    justify-content: space-between;
+  }
+
+  &__label {
+    font-size: font-size('h6');
+  }
+
+  // Only the default address shows the badge and hides the "Set as default" and "Delete" buttons.
+  &__badge,
+  &__item--default &__make-default,
+  &__item--default &__delete {
+    display: none;
+  }
+
+  &__item--default &__badge {
+    display: inline-flex;
+  }
+
+  &__address {
+    color: color('text');
+    flex-grow: 1;
+    font-size: config('font-size-sm', $typography);
+    font-style: normal;
+
+    strong {
+      color: color('heading');
+    }
+  }
+
+  &__phone {
+    color: color('muted');
+    display: inline-block;
+    margin-block-start: spacer('xxs');
+  }
+
+  &__actions {
+    border-block-start: config('border-width-base', $display) solid color('border');
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xxs');
+    margin-inline: calc(#{spacer('xs')} * -1);
+    padding-block-start: spacer('xs');
+  }
+
+  &__add {
+    align-items: center;
+    border: 2px dashed color('border');
+    border-radius: radius('lg');
+    color: color('primary');
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    gap: spacer('xs');
+    inline-size: 100%;
+    justify-content: center;
+    min-block-size: 12rem;
+    padding: spacer('m');
+    text-decoration: none;
+
+    &:hover {
+      background-color: color-alpha('primary', 0.05);
+      border-color: color('primary');
+    }
+
+    svg {
+      block-size: 1.75rem;
+      inline-size: 1.75rem;
+    }
+  }
+}

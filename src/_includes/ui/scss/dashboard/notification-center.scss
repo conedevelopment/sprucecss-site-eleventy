@@ -1,0 +1,151 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.notification-center {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  box-shadow: shadow('md');
+  overflow: hidden;
+
+  &__header {
+    align-items: center;
+    display: flex;
+    gap: spacer('s');
+    justify-content: space-between;
+    padding: spacer('s') spacer('m');
+  }
+
+  &__title {
+    align-items: center;
+    display: flex;
+    font-size: font-size('h5');
+    gap: spacer('xs');
+    margin: 0;
+
+    .badge[hidden] {
+      display: none;
+    }
+  }
+
+  &__filter {
+    display: flex;
+    gap: spacer('xxs');
+    padding: 0 spacer('m') spacer('s');
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__list {
+    border-block-start: config('border-width-base', $display) solid color('border');
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    align-items: flex-start;
+    border-block-end: config('border-width-base', $display) solid color('border');
+    display: grid;
+    gap: spacer('s');
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    margin: 0 !important;
+    padding: spacer('s') spacer('m');
+    position: relative;
+
+    &--unread {
+      background-color: color-alpha('primary', 0.05);
+    }
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__icon {
+    align-items: center;
+    background-color: var(--icon-background);
+    block-size: 2.5rem;
+    border-radius: radius('pill');
+    color: var(--icon-color);
+    display: flex;
+    inline-size: 2.5rem;
+    justify-content: center;
+
+    &--success {
+      --icon-background: #{color-alpha('success', 0.14, 'alert')};
+      --icon-color: #{color('success', 'alert')};
+    }
+
+    &--warning {
+      --icon-background: #{color-alpha('warning', 0.18, 'alert')};
+      --icon-color: #{color('warning', 'alert')};
+    }
+
+    svg {
+      block-size: 1.25rem;
+      inline-size: 1.25rem;
+    }
+  }
+
+  &__body {
+    @include layout-stack('xxs');
+  }
+
+  &__text {
+    font-size: config('font-size-sm', $typography);
+    line-height: config('line-height-md', $typography);
+
+    strong {
+      color: color('heading');
+    }
+  }
+
+  &__meta {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  // The unread dot is the button that marks the item as read.
+  &__read {
+    @include clear-btn;
+    align-items: center;
+    block-size: 1.75rem;
+    border-radius: radius('pill');
+    display: flex;
+    inline-size: 1.75rem;
+    justify-content: center;
+
+    &::before {
+      background-color: color('primary');
+      block-size: 0.6rem;
+      border-radius: radius('pill');
+      content: '';
+      inline-size: 0.6rem;
+    }
+
+    &:hover {
+      background-color: color-alpha('primary', 0.12);
+    }
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 2px;
+    }
+  }
+
+  &__empty {
+    color: color('muted');
+    padding: spacer('l') spacer('m');
+    text-align: center;
+  }
+
+  &__footer {
+    display: flex;
+    font-size: config('font-size-sm', $typography);
+    font-weight: 600;
+    justify-content: space-between;
+    padding: spacer('s') spacer('m');
+  }
+}

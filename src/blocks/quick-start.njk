@@ -1,0 +1,36 @@
+---
+category: 'Features'
+title: 'Quick Start'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--block ui--quick-start">
+        {% include "ui/html/block/quick-start.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/block/quick-start.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/block/quick-start.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/block/quick-start.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/container.css">
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/block-heading.css">
+    <link rel="stylesheet" href="/_includes/ui/css/misc/copy-button.css">
+    <link rel="stylesheet" href="/_includes/ui/css/feedback/callout.css">
+    <link rel="stylesheet" href="/_includes/ui/css/block/quick-start.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/misc/copy-button.js"></script>
+{% endblock %}

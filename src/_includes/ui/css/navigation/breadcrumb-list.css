@@ -1,37 +1,73 @@
+.breadcrumb {
+  max-inline-size: 100%;
+  min-inline-size: 0;
+}
+
 .breadcrumb-list {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+.breadcrumb-list::-webkit-scrollbar {
+  block-size: 0.5rem;
+  inline-size: 0.5rem;
+}
+.breadcrumb-list::-webkit-scrollbar-thumb {
+  background: var(--spruce-scrollbar-color-thumb-background);
+  border-radius: var(--spruce-border-radius-sm);
+}
+.breadcrumb-list::-webkit-scrollbar-thumb:hover {
+  background: var(--spruce-scrollbar-color-thumb-background-hover);
+}
+.breadcrumb-list::-webkit-scrollbar-track {
+  background: var(--spruce-scrollbar-color-track-background);
+  border-radius: var(--spruce-border-radius-sm);
+}
+.breadcrumb-list {
   align-items: center;
   display: flex;
+  font-size: var(--spruce-font-size-sm);
   max-inline-size: 100%;
   overflow-x: auto;
+  padding-block: 0.25rem;
   white-space: nowrap;
 }
 .breadcrumb-list > li {
   align-items: center;
   display: inline-flex;
   margin-block: 0;
+  padding-block: 0;
 }
 .breadcrumb-list > li + li::before {
   block-size: 0.4em;
-  border-block-end: 2px solid var(--spruce-breadcrumb-color-separator);
-  border-inline-end: 2px solid var(--spruce-breadcrumb-color-separator);
+  border-block-end: 2px solid var(--spruce-base-color-muted);
+  border-inline-end: 2px solid var(--spruce-base-color-muted);
   content: "";
   display: inline-flex;
   inline-size: 0.4em;
   margin-inline: 0.75em;
-  transform: rotate(-45deg);
+  opacity: 0.6;
+  rotate: -45deg;
 }
-[dir=rtl] .breadcrumb-list > li + li::before {
-  transform: rotate(45deg);
+.breadcrumb-list a {
+  color: var(--spruce-base-color-text);
+  text-decoration: none;
 }
-
+.breadcrumb-list a:hover {
+  color: var(--spruce-base-color-primary);
+  text-decoration: underline;
+}
 .breadcrumb-list [aria-current=page] {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: var(--spruce-base-color-heading);
   display: inline-block;
-  max-inline-size: 20ch;
+  font-weight: 600;
+  max-inline-size: 24ch;
   text-align: start;
+}
+
+[dir=rtl] .breadcrumb-list > li + li::before {
+  rotate: 45deg;
 }

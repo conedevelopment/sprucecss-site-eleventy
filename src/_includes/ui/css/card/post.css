@@ -1,8 +1,5 @@
 .post-card {
   position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
 }
 .post-card__link::before {
   content: "";
@@ -10,6 +7,11 @@
   position: absolute;
 }
 
+.post-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
 .post-card--horizontal {
   align-items: center;
 }
@@ -26,7 +28,8 @@
 }
 .post-card__thumbnail {
   aspect-ratio: 16/10;
-  border-radius: 0.425rem;
+  border-radius: var(--spruce-border-radius-md);
+  inline-size: 100%;
   object-fit: cover;
 }
 .post-card__body > * {
@@ -36,9 +39,19 @@
 .post-card__body > * + * {
   margin-block-start: 1rem;
 }
+.post-card__tags a,
+.post-card .post-author__name {
+  position: relative;
+  z-index: 1;
+}
+.post-card:focus-within .post-card__title a, .post-card:hover .post-card__title a {
+  color: var(--spruce-base-color-primary);
+}
 .post-card__meta {
+  color: var(--spruce-base-color-muted);
   display: flex;
   flex-wrap: wrap;
+  font-size: var(--spruce-font-size-sm);
   gap: 0.5rem 1.5rem;
   line-height: 1;
 }

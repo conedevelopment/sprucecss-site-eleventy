@@ -1,0 +1,70 @@
+.badge-demo {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+
+.badge {
+  --badge-color: var(--spruce-base-color-text);
+  align-items: center;
+  background-color: color-mix(in srgb, var(--badge-color) 12%, transparent);
+  border: var(--spruce-border-width-base) solid transparent;
+  border-radius: var(--spruce-border-radius-pill);
+  color: var(--badge-color);
+  display: inline-flex;
+  font-size: 0.8em;
+  font-weight: 600;
+  gap: 0.35em;
+  line-height: 1.4;
+  padding: 0.1em 0.65em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.badge--primary {
+  --badge-color: var(--spruce-base-color-primary);
+}
+.badge--success {
+  --badge-color: var(--spruce-alert-color-success);
+}
+.badge--warning {
+  --badge-color: var(--spruce-alert-color-warning);
+}
+.badge--danger {
+  --badge-color: var(--spruce-alert-color-danger);
+}
+.badge--info {
+  --badge-color: var(--spruce-alert-color-info);
+}
+.badge--warning {
+  color: color-mix(in srgb, var(--badge-color) 50%, var(--spruce-base-color-heading));
+}
+.badge--solid {
+  background-color: var(--badge-color);
+  color: hsl(0, 0%, 100%);
+}
+.badge--outline {
+  background-color: transparent;
+  border-color: currentcolor;
+}
+.badge--count {
+  justify-content: center;
+  min-inline-size: 1.5em;
+  padding-inline: 0.4em;
+}
+.badge--interactive {
+  transition-duration: var(--spruce-duration);
+  transition-property: background-color;
+  transition-timing-function: var(--spruce-timing-function);
+}
+.badge--interactive:hover {
+  background-color: color-mix(in srgb, var(--badge-color) 22%, transparent);
+  color: var(--badge-color);
+}
+.badge__dot {
+  background-color: currentcolor;
+  block-size: 0.45em;
+  border-radius: 50%;
+  inline-size: 0.45em;
+}

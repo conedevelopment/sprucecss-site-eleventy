@@ -1,0 +1,172 @@
+<section class="status-monitor" aria-labelledby="status-monitor-title">
+    <header class="status-monitor__header">
+        <h3 class="status-monitor__title" id="status-monitor-title">System status</h3>
+        <p class="status-monitor__overall status-monitor__overall--degraded" role="status">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+            Checkout API is slower than usual. We’re investigating.
+        </p>
+    </header>
+    <ul class="status-monitor__services" role="list">
+        <li class="status-monitor__service">
+            <div class="status-monitor__row">
+                <h4 class="status-monitor__name" id="status-storefront">Storefront</h4>
+                <span class="status-monitor__status status-monitor__status--operational">Operational</span>
+            </div>
+            <ol class="status-monitor__bars" role="list" aria-hidden="true">
+                <li data-status="operational" title="Sep 5: No downtime"></li>
+                <li data-status="operational" title="Sep 6: No downtime"></li>
+                <li data-status="operational" title="Sep 7: No downtime"></li>
+                <li data-status="operational" title="Sep 8: No downtime"></li>
+                <li data-status="operational" title="Sep 9: No downtime"></li>
+                <li data-status="operational" title="Sep 10: No downtime"></li>
+                <li data-status="operational" title="Sep 11: No downtime"></li>
+                <li data-status="operational" title="Sep 12: No downtime"></li>
+                <li data-status="operational" title="Sep 13: No downtime"></li>
+                <li data-status="operational" title="Sep 14: No downtime"></li>
+                <li data-status="operational" title="Sep 15: No downtime"></li>
+                <li data-status="operational" title="Sep 16: No downtime"></li>
+                <li data-status="operational" title="Sep 17: No downtime"></li>
+                <li data-status="operational" title="Sep 18: No downtime"></li>
+                <li data-status="operational" title="Sep 19: No downtime"></li>
+                <li data-status="operational" title="Sep 20: No downtime"></li>
+                <li data-status="operational" title="Sep 21: No downtime"></li>
+                <li data-status="operational" title="Sep 22: No downtime"></li>
+                <li data-status="operational" title="Sep 23: No downtime"></li>
+                <li data-status="operational" title="Sep 24: No downtime"></li>
+                <li data-status="operational" title="Sep 25: No downtime"></li>
+                <li data-status="operational" title="Sep 26: No downtime"></li>
+                <li data-status="operational" title="Sep 27: No downtime"></li>
+                <li data-status="operational" title="Sep 28: No downtime"></li>
+                <li data-status="operational" title="Sep 29: No downtime"></li>
+                <li data-status="operational" title="Sep 30: No downtime"></li>
+                <li data-status="operational" title="Oct 1: No downtime"></li>
+                <li data-status="operational" title="Oct 2: No downtime"></li>
+                <li data-status="operational" title="Oct 3: No downtime"></li>
+                <li data-status="operational" title="Oct 4: No downtime"></li>
+            </ol>
+            <p class="status-monitor__summary"><span><span class="sr-only">Last 30 days: </span>100% uptime</span><span>No incidents</span></p>
+        </li>
+        <li class="status-monitor__service">
+            <div class="status-monitor__row">
+                <h4 class="status-monitor__name" id="status-checkout-api">Checkout API</h4>
+                <span class="status-monitor__status status-monitor__status--degraded">Degraded performance</span>
+            </div>
+            <ol class="status-monitor__bars" role="list" aria-hidden="true">
+                <li data-status="operational" title="Sep 5: No downtime"></li>
+                <li data-status="operational" title="Sep 6: No downtime"></li>
+                <li data-status="operational" title="Sep 7: No downtime"></li>
+                <li data-status="operational" title="Sep 8: No downtime"></li>
+                <li data-status="operational" title="Sep 9: No downtime"></li>
+                <li data-status="operational" title="Sep 10: No downtime"></li>
+                <li data-status="operational" title="Sep 11: No downtime"></li>
+                <li data-status="operational" title="Sep 12: No downtime"></li>
+                <li data-status="operational" title="Sep 13: No downtime"></li>
+                <li data-status="degraded" title="Sep 14: Degraded performance"></li>
+                <li data-status="operational" title="Sep 15: No downtime"></li>
+                <li data-status="operational" title="Sep 16: No downtime"></li>
+                <li data-status="operational" title="Sep 17: No downtime"></li>
+                <li data-status="operational" title="Sep 18: No downtime"></li>
+                <li data-status="operational" title="Sep 19: No downtime"></li>
+                <li data-status="operational" title="Sep 20: No downtime"></li>
+                <li data-status="operational" title="Sep 21: No downtime"></li>
+                <li data-status="operational" title="Sep 22: No downtime"></li>
+                <li data-status="operational" title="Sep 23: No downtime"></li>
+                <li data-status="operational" title="Sep 24: No downtime"></li>
+                <li data-status="operational" title="Sep 25: No downtime"></li>
+                <li data-status="operational" title="Sep 26: No downtime"></li>
+                <li data-status="operational" title="Sep 27: No downtime"></li>
+                <li data-status="operational" title="Sep 28: No downtime"></li>
+                <li data-status="operational" title="Sep 29: No downtime"></li>
+                <li data-status="operational" title="Sep 30: No downtime"></li>
+                <li data-status="operational" title="Oct 1: No downtime"></li>
+                <li data-status="operational" title="Oct 2: No downtime"></li>
+                <li data-status="operational" title="Oct 3: No downtime"></li>
+                <li data-status="degraded" title="Oct 4: Degraded performance"></li>
+            </ol>
+            <p class="status-monitor__summary"><span><span class="sr-only">Last 30 days: </span>99.82% uptime</span><span>2 incidents</span></p>
+        </li>
+        <li class="status-monitor__service">
+            <div class="status-monitor__row">
+                <h4 class="status-monitor__name" id="status-payments">Payments</h4>
+                <span class="status-monitor__status status-monitor__status--operational">Operational</span>
+            </div>
+            <ol class="status-monitor__bars" role="list" aria-hidden="true">
+                <li data-status="operational" title="Sep 5: No downtime"></li>
+                <li data-status="operational" title="Sep 6: No downtime"></li>
+                <li data-status="operational" title="Sep 7: No downtime"></li>
+                <li data-status="operational" title="Sep 8: No downtime"></li>
+                <li data-status="operational" title="Sep 9: No downtime"></li>
+                <li data-status="operational" title="Sep 10: No downtime"></li>
+                <li data-status="operational" title="Sep 11: No downtime"></li>
+                <li data-status="operational" title="Sep 12: No downtime"></li>
+                <li data-status="operational" title="Sep 13: No downtime"></li>
+                <li data-status="operational" title="Sep 14: No downtime"></li>
+                <li data-status="operational" title="Sep 15: No downtime"></li>
+                <li data-status="operational" title="Sep 16: No downtime"></li>
+                <li data-status="operational" title="Sep 17: No downtime"></li>
+                <li data-status="operational" title="Sep 18: No downtime"></li>
+                <li data-status="operational" title="Sep 19: No downtime"></li>
+                <li data-status="operational" title="Sep 20: No downtime"></li>
+                <li data-status="operational" title="Sep 21: No downtime"></li>
+                <li data-status="outage" title="Sep 22: Partial outage"></li>
+                <li data-status="operational" title="Sep 23: No downtime"></li>
+                <li data-status="operational" title="Sep 24: No downtime"></li>
+                <li data-status="operational" title="Sep 25: No downtime"></li>
+                <li data-status="operational" title="Sep 26: No downtime"></li>
+                <li data-status="operational" title="Sep 27: No downtime"></li>
+                <li data-status="operational" title="Sep 28: No downtime"></li>
+                <li data-status="operational" title="Sep 29: No downtime"></li>
+                <li data-status="operational" title="Sep 30: No downtime"></li>
+                <li data-status="operational" title="Oct 1: No downtime"></li>
+                <li data-status="operational" title="Oct 2: No downtime"></li>
+                <li data-status="operational" title="Oct 3: No downtime"></li>
+                <li data-status="operational" title="Oct 4: No downtime"></li>
+            </ol>
+            <p class="status-monitor__summary"><span><span class="sr-only">Last 30 days: </span>99.95% uptime</span><span>1 incident</span></p>
+        </li>
+        <li class="status-monitor__service">
+            <div class="status-monitor__row">
+                <h4 class="status-monitor__name" id="status-webhooks">Webhooks</h4>
+                <span class="status-monitor__status status-monitor__status--operational">Operational</span>
+            </div>
+            <ol class="status-monitor__bars" role="list" aria-hidden="true">
+                <li data-status="operational" title="Sep 5: No downtime"></li>
+                <li data-status="operational" title="Sep 6: No downtime"></li>
+                <li data-status="operational" title="Sep 7: No downtime"></li>
+                <li data-status="operational" title="Sep 8: No downtime"></li>
+                <li data-status="operational" title="Sep 9: No downtime"></li>
+                <li data-status="operational" title="Sep 10: No downtime"></li>
+                <li data-status="operational" title="Sep 11: No downtime"></li>
+                <li data-status="operational" title="Sep 12: No downtime"></li>
+                <li data-status="operational" title="Sep 13: No downtime"></li>
+                <li data-status="operational" title="Sep 14: No downtime"></li>
+                <li data-status="operational" title="Sep 15: No downtime"></li>
+                <li data-status="operational" title="Sep 16: No downtime"></li>
+                <li data-status="operational" title="Sep 17: No downtime"></li>
+                <li data-status="operational" title="Sep 18: No downtime"></li>
+                <li data-status="operational" title="Sep 19: No downtime"></li>
+                <li data-status="operational" title="Sep 20: No downtime"></li>
+                <li data-status="operational" title="Sep 21: No downtime"></li>
+                <li data-status="operational" title="Sep 22: No downtime"></li>
+                <li data-status="operational" title="Sep 23: No downtime"></li>
+                <li data-status="operational" title="Sep 24: No downtime"></li>
+                <li data-status="operational" title="Sep 25: No downtime"></li>
+                <li data-status="operational" title="Sep 26: No downtime"></li>
+                <li data-status="operational" title="Sep 27: No downtime"></li>
+                <li data-status="operational" title="Sep 28: No downtime"></li>
+                <li data-status="operational" title="Sep 29: No downtime"></li>
+                <li data-status="operational" title="Sep 30: No downtime"></li>
+                <li data-status="operational" title="Oct 1: No downtime"></li>
+                <li data-status="operational" title="Oct 2: No downtime"></li>
+                <li data-status="operational" title="Oct 3: No downtime"></li>
+                <li data-status="operational" title="Oct 4: No downtime"></li>
+            </ol>
+            <p class="status-monitor__summary"><span><span class="sr-only">Last 30 days: </span>100% uptime</span><span>No incidents</span></p>
+        </li>
+    </ul>
+    <footer class="status-monitor__footer">
+        <span><span aria-hidden="true">30 days ago</span></span>
+        <span>Updated <time datetime="2026-10-04T09:41">2 minutes ago</time></span>
+        <span><span aria-hidden="true">Today</span></span>
+    </footer>
+</section>

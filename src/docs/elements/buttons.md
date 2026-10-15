@@ -1,25 +1,28 @@
 ---
 title: "Buttons"
-order: 21
+description: "Button variants (solid, outline, soft, ghost, link), sizes, states, groups and custom variants in Spruce CSS."
+order: 23
 github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/elements/buttons.md"
 ---
 
-<p class="lead">Spruce comes with basic button variations like size, width, color, state and can also generate your custom color variants.</p>
+<p class="lead">Spruce comes with button variations for color, emphasis, size, width and state, and it can generate your own color variants.</p>
 
 ## Defaults
 
-You can use two default color variants named: primary and secondary. To overwrite colors, see the [configurable variables](#configurable-variables) section.
+You can use three solid color variants: primary, secondary and danger (new in v3). To overwrite the colors, see the [configurable variables](#configurable-variables) section.
 
 {% preview %}
 <div class="button-grid">
     <button type="button" class="btn btn--primary">Primary</button>
     <a href="https://conedevelopment.com" class="btn btn--secondary">Secondary</a>
+    <button type="button" class="btn btn--danger">Delete</button>
 </div>
 {% endpreview %}
 
 ```html
 <button type="button" class="btn btn--primary">Primary</button>
 <a href="https://conedevelopment.com" class="btn btn--secondary">Secondary</a>
+<button type="button" class="btn btn--danger">Delete</button>
 ```
 
 {% notification "good" %}Use <code>&lt;a&gt;</code> for links and navigation between pages and <code>&lt;button&gt;</code> for actions (in page) like a form sending or modal opening. {% endnotification %}
@@ -57,6 +60,44 @@ To make a custom outline button, you need to use the <a href="/docs/sass/mixins/
 ```html
 <button type="button" class="btn btn--outline-primary">Primary</button>
 <a href="https://conedevelopment.com" class="btn btn--outline-secondary">Secondary</a>
+<button type="button" class="btn btn--outline-danger">Delete</button>
+```
+
+## Soft and Ghost
+
+**New in v3.** Lower-emphasis variants for secondary actions. Soft buttons have a tinted background; ghost buttons are transparent until hovered. Both mix the variant color at runtime with `color-mix()`, so they follow the dark mode and the styles.
+
+{% preview %}
+<div class="button-grid">
+    <button type="button" class="btn btn--soft-primary">Soft primary</button>
+    <button type="button" class="btn btn--soft-secondary">Soft secondary</button>
+    <button type="button" class="btn btn--soft-danger">Soft danger</button>
+</div>
+<div class="button-grid">
+    <button type="button" class="btn btn--ghost-primary">Ghost primary</button>
+    <button type="button" class="btn btn--ghost-secondary">Ghost secondary</button>
+    <button type="button" class="btn btn--ghost-danger">Ghost danger</button>
+</div>
+{% endpreview %}
+
+```html
+<button type="button" class="btn btn--soft-primary">Soft primary</button>
+<button type="button" class="btn btn--ghost-primary">Ghost primary</button>
+```
+
+## Link
+
+**New in v3.** The `btn--link` modifier looks like a link but keeps the button’s size and alignment, so it lines up with other buttons.
+
+{% preview %}
+<div class="button-grid">
+    <button type="button" class="btn btn--primary">Save</button>
+    <button type="button" class="btn btn--link">Cancel</button>
+</div>
+{% endpreview %}
+
+```html
+<button type="button" class="btn btn--link">Cancel</button>
 ```
 
 ## Shadow
@@ -77,7 +118,7 @@ Use the `btn--*-shadow` modifier class to add a shadow to the button. This class
 
 ## Sizes
 
-Spruce came with three different button sizes: small, regular, large. Using the standard size, you don't have to use any modifier. For small use: `btn--sm`, for large use: `btn--lg` class.
+Spruce comes with three button sizes: small, regular and large. For the regular size, you don't need a modifier. Use the `btn--sm` class for small and the `btn--lg` class for large buttons.
 
 {% preview %}
 <div class="button-grid">
@@ -93,11 +134,42 @@ Spruce came with three different button sizes: small, regular, large. Using the 
 <button type="button" class="btn btn--primary btn--lg">Large</button>
 ```
 
-## Disabled state
+## Pill
 
-To disable any button element, use the disabled boolean attribute. The disabled style is a bit dimmer (`opacity: 0.5;`) and has the `pointer-evens: none;` to prevent the user actions.
+**New in v3.** Use the `btn--pill` modifier for fully rounded buttons.
 
-The disabled attribute doesn't work on links, so you have to use the `btn--disabled` modifier class. Also, you should omit the `href` attribute and set the `aria-disabled="true"`.
+{% preview %}
+<div class="button-grid">
+    <button type="button" class="btn btn--primary btn--pill btn--sm">Small pill</button>
+    <button type="button" class="btn btn--primary btn--pill">Pill</button>
+    <button type="button" class="btn btn--outline-primary btn--pill btn--lg">Large pill</button>
+</div>
+{% endpreview %}
+
+```html
+<button type="button" class="btn btn--primary btn--pill">Pill</button>
+```
+
+## Loading State
+
+**New in v3.** Add the `btn--loading` class while an action runs: the label becomes invisible (but keeps the button’s width), a spinner appears in the text color, and the clicks are blocked. Set `aria-busy="true"` too, and announce the result when it finishes.
+
+{% preview %}
+<div class="button-grid">
+    <button type="button" class="btn btn--primary btn--loading" aria-busy="true">Saving</button>
+    <button type="button" class="btn btn--outline-primary btn--loading" aria-busy="true">Saving</button>
+</div>
+{% endpreview %}
+
+```html
+<button type="button" class="btn btn--primary btn--loading" aria-busy="true">Saving</button>
+```
+
+## Disabled State
+
+To disable any button element, use the `disabled` boolean attribute. The disabled style is dimmer (`opacity: 0.5;`, configurable with the `disabled-opacity` key of `$btn`) and has `pointer-events: none;` to prevent user actions.
+
+The `disabled` attribute doesn't work on links, so use the `btn--disabled` modifier class (or `aria-disabled="true"`, which gets the same style). Also, omit the `href` attribute.
 
 {% preview %}
 <div class="button-grid">
@@ -174,14 +246,70 @@ To make an only icon button use the `btn--icon` modifier class. If you create an
 </button>
 ```
 
+## Button Group
+
+**New in v3.** Wrap related buttons in a `.btn-group` to attach them. Use `.btn-group--vertical` to stack them. Give the group a `role="group"` and an `aria-label`; for toggle buttons, use `aria-pressed`.
+
+{% preview %}
+<div class="button-grid">
+    <div class="btn-group" role="group" aria-label="Text alignment">
+        <button type="button" class="btn btn--outline-primary" aria-pressed="true">Left</button>
+        <button type="button" class="btn btn--outline-primary" aria-pressed="false">Center</button>
+        <button type="button" class="btn btn--outline-primary" aria-pressed="false">Right</button>
+    </div>
+    <div class="btn-group btn-group--vertical" role="group" aria-label="Vertical group">
+        <button type="button" class="btn btn--outline-secondary">Top</button>
+        <button type="button" class="btn btn--outline-secondary">Middle</button>
+        <button type="button" class="btn btn--outline-secondary">Bottom</button>
+    </div>
+</div>
+{% endpreview %}
+
+```html
+<div class="btn-group" role="group" aria-label="Text alignment">
+    <button type="button" class="btn btn--outline-primary" aria-pressed="true">Left</button>
+    <button type="button" class="btn btn--outline-primary" aria-pressed="false">Center</button>
+    <button type="button" class="btn btn--outline-primary" aria-pressed="false">Right</button>
+</div>
+```
+
 ## Configurable Variables
 
-There are [default variables](/docs/sass/variables#buttons) that you can configure to customize the button's look.
+There are [default variables](/docs/sass/variables/#buttons) that you can configure to customize the button's look. New in v3: `box-shadow`, `disabled-opacity`, `letter-spacing` and `line-height`.
 
-Also, Spruce manage the colors in a separate Sass map named [$colors](/docs/sass/variables#colors) (under the btn object).
+```scss
+@use 'sprucecss/scss/spruce' with (
+  $btn: (
+    'border-radius': 0.25rem,
+    'font-weight': 700,
+    'letter-spacing': 0.02em,
+  ),
+);
+```
 
-## Add Custom Button Variant
+Spruce manages the colors in a separate Sass map named [$colors](/docs/sass/colors/) (under the `btn` group). In custom property mode, you can also change any button value at runtime through the [style hooks](/docs/customization/styles/#style-hooks), like `--spruce-btn-padding`.
 
-You can create new button color variants using the `btn-variant` mixin. First, you must declare the new button's colors at the `$color` map under the `btn` object. After this, all you have to do is to call the mixin on the preferred selector.
+## Add a Custom Button Variant
 
-More information about the `btn-variant()` please visit the [related mixin page](/docs/sass/mixins#btn-variant).
+You can create new button color variants with the `btn-variant` mixin. First, declare the new button's colors in the `$colors` map under the `btn` group. Then call the mixin on the preferred selector. The `btn-variant-outline`, `btn-variant-soft` and `btn-variant-ghost` mixins create the other variants from the same colors.
+
+```scss
+@use 'sprucecss/scss/spruce' with (
+  $colors: (
+    'btn': (
+      'brand-background': hsl(330deg 80% 50%),
+      'brand-background-hover': hsl(330deg 80% 44%),
+      'brand-foreground': hsl(0deg 0% 100%),
+    ),
+  ),
+);
+```
+
+```scss
+.btn--brand { @include btn-variant('brand'); }
+.btn--outline-brand { @include btn-variant-outline('brand'); }
+.btn--soft-brand { @include btn-variant-soft('brand'); }
+.btn--ghost-brand { @include btn-variant-ghost('brand'); }
+```
+
+For more information, visit the [mixins page](/docs/sass/mixins/#btn-variant).

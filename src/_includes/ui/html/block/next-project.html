@@ -1,0 +1,23 @@
+{#- Override with `nextProjectBlock` ({ eyebrow, client, title, text, image, href }). -#}
+{%- set _s = nextProjectBlock or {
+    "eyebrow": "Next case study",
+    "client": "Lumen",
+    "title": "Analytics that answer questions",
+    "text": "From 40 charts to six answers: a dashboard redesign built around the questions customers ask.",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=70",
+    "href": "#"
+} %}
+<section class="next-project-block" aria-labelledby="next-project-title">
+    <div class="container">
+        <article class="next-project-block__card">
+            <img class="next-project-block__image" src="{{ _s.image }}" alt="" width="1400" height="700" loading="lazy">
+            <div class="next-project-block__content">
+                <h2 class="next-project-block__eyebrow" id="next-project-title">{{ _s.eyebrow }}</h2>
+                <p class="next-project-block__client">{{ _s.client }}</p>
+                <h3 class="next-project-block__title"><a class="next-project-block__link" href="{{ _s.href }}">{{ _s.title }}</a></h3>
+                <p class="next-project-block__text">{{ _s.text }}</p>
+            </div>
+            <span class="next-project-block__arrow" aria-hidden="true">{% set iconName = "arrow-right" %}{% include "../block/icon.html" %}</span>
+        </article>
+    </div>
+</section>

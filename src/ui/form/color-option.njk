@@ -18,10 +18,18 @@ title: 'Color Option'
     {% include "ui/scss/form/color-option.scss" %}
 {% endset %}
 
+{% set js %}
+    {% include "ui/js/form/color-option.js" %}
+{% endset %}
+
 {% set description %}
     {% include "ui/md/form/color-option.md" %}
 {% endset %}
 
 {% block style %}
     <link rel="stylesheet" href="/_includes/ui/css/form/color-option.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/form/color-option.js"></script>
 {% endblock %}

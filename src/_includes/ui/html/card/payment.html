@@ -1,16 +1,26 @@
-<div class="payment-card">
-    <label class="form-check">
-        <input class="form-check__control" type="radio" name="payment-type" value="stripe" checked="checked" aria-label="Stripe"/>
+<fieldset class="payment-card-group">
+    <legend class="payment-card-group__legend">Payment method</legend>
+    <label class="payment-card">
+        <input class="form-check__control payment-card__control" type="radio" name="payment-method" value="stripe" aria-describedby="payment-stripe-description" checked>
+        <span class="payment-card__caption">
+            <span class="payment-card__title">Card payment</span>
+            <span class="payment-card__description" id="payment-stripe-description">You’ll be redirected to Stripe to pay with your card.</span>
+        </span>
+            <img class="payment-card__logo" src="/img/ui/stripe-logo.svg" alt="" height="28" width="80">
     </label>
-    <div class="payment-card__caption"><img class="payment-card__logo" src="/img/ui/stripe-logo.svg" alt="Stripe" height="67" width="28"/>
-        <p class="payment-card__description">You will be redirect to Stripe to complete the payment.</p>
-    </div>
-</div>
-<div class="payment-card">
-    <label class="form-check">
-        <input class="form-check__control" type="radio" name="payment-type" value="paypal" aria-label="PayPal"/>
+    <label class="payment-card">
+        <input class="form-check__control payment-card__control" type="radio" name="payment-method" value="paypal" aria-describedby="payment-paypal-description">
+        <span class="payment-card__caption">
+            <span class="payment-card__title">PayPal</span>
+            <span class="payment-card__description" id="payment-paypal-description">You’ll be redirected to PayPal to complete the payment.</span>
+        </span>
+            <img class="payment-card__logo" src="/img/ui/paypal-logo.svg" alt="" height="28" width="80">
     </label>
-    <div class="payment-card__caption"><img class="payment-card__logo" src="/img/ui/paypal-logo.svg" alt="Stripe" height="104" width="28"/>
-        <p class="payment-card__description">You will be redirect to PayPal to complete the payment.</p>
-    </div>
-</div>
+    <label class="payment-card">
+        <input class="form-check__control payment-card__control" type="radio" name="payment-method" value="transfer" aria-describedby="payment-transfer-description">
+        <span class="payment-card__caption">
+            <span class="payment-card__title">Bank transfer</span>
+            <span class="payment-card__description" id="payment-transfer-description">We’ll email you the bank details. Your order ships after the payment arrives.</span>
+        </span>
+    </label>
+</fieldset>

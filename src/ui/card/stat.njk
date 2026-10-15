@@ -1,0 +1,27 @@
+---
+title: 'Stat'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--wide ui--stat">
+        {% include "ui/html/card/stat.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/card/stat.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/card/stat.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/card/stat.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/card/stat.css">
+{% endblock %}

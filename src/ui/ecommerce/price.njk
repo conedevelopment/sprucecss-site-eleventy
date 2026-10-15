@@ -1,0 +1,27 @@
+---
+title: 'Price'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium">
+        {% include "ui/html/ecommerce/price.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/ecommerce/price.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/ecommerce/price.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/ecommerce/price.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/ecommerce/price.css">
+{% endblock %}

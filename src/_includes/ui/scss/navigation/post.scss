@@ -1,68 +1,83 @@
-@use '../../../../scss/config/config'; // DELETE
 @use 'sprucecss/scss/spruce' as *;
 
 .post-navigation {
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  gap: spacer('m');
-  justify-content: space-between;
+  display: grid;
+  gap: spacer('s') spacer('m');
+
+  @include breakpoint('sm') {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
 }
 
 .post-navigation-item {
   $this: &;
-
+  @include transition($property: 'border-color, background-color');
   align-items: center;
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
   display: flex;
   gap: spacer('s');
+  padding: spacer('s');
   text-decoration: none;
 
   &:hover {
+    border-color: color('primary');
+
     #{$this}__icon {
-      background-color: color('icon-background-hover', 'navigation');
-      color: color('icon-foreground-hover', 'navigation');
+      background-color: color('primary');
+      color: color('primary-foreground', 'btn');
     }
   }
 
+  &:focus-visible {
+    outline: 2px solid color('focus-ring');
+    outline-offset: 2px;
+  }
+
   &--next {
-    margin-inline-start: auto;
+    grid-column: -2;
+    justify-content: end;
     text-align: end;
   }
 
   &__icon {
-    @include transition;
+    @include transition($property: 'background-color, color');
     align-items: center;
-    background-color: color('icon-background', 'navigation');
-    block-size: 3rem;
-    border-radius: config('border-radius', $btn, false);
-    color: color('icon-foreground', 'navigation');
+    background-color: color-alpha('primary', 0.1);
+    block-size: 2.75rem;
+    border-radius: radius('md');
+    color: color('primary');
     display: flex;
     flex-shrink: 0;
-    inline-size: 3rem;
+    inline-size: 2.75rem;
     justify-content: center;
 
     svg {
-      --size: 1rem;
-
-      block-size: var(--size);
-      inline-size: var(--size);
-
-      @at-root {
-        [dir='rtl'] & {
-          transform: rotate(180deg);
-        }
-      }
+      block-size: 1rem;
+      inline-size: 1rem;
     }
   }
 
   &__caption {
-    color: color('text');
+    display: flex;
+    flex-direction: column;
+    gap: spacer('xxs');
     line-height: config('line-height-md', $typography);
+    min-inline-size: 0;
+  }
+
+  &__label {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
   }
 
   &__title {
-    color: color('primary');
-    display: flex;
+    color: color('heading');
     font-weight: 700;
   }
+}
+
+// The arrows point toward the reading direction.
+[dir='rtl'] .post-navigation-item__icon svg {
+  scale: -1 1;
 }

@@ -1,0 +1,35 @@
+---
+title: 'Back to Top'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium ui--back-to-top">
+        {% include "ui/html/misc/back-to-top.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/misc/back-to-top.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/misc/back-to-top.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/misc/back-to-top.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/misc/back-to-top.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/misc/back-to-top.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/misc/back-to-top.js"></script>
+{% endblock %}

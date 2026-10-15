@@ -1,0 +1,87 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.event-cards {
+  @include layout-grid('m', 16rem);
+}
+
+.event-card {
+  @include a11y-card-link('.event-card__link', true);
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  overflow: hidden;
+  @include transition($property: 'box-shadow, translate');
+
+  &:hover {
+    box-shadow: shadow('md');
+    translate: 0 -2px;
+  }
+
+  &:focus-within {
+    outline: 2px solid color('focus-ring');
+    outline-offset: 2px;
+  }
+
+  &__image {
+    aspect-ratio: 16 / 9;
+    inline-size: 100%;
+    object-fit: cover;
+  }
+
+  &__body {
+    display: flex;
+    gap: spacer('s');
+    padding: spacer('m');
+  }
+
+  &__date {
+    align-items: center;
+    background-color: color-alpha('primary', 0.1);
+    border-radius: radius('md');
+    color: color('primary');
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    inline-size: 3.5rem;
+    line-height: 1.1;
+    padding-block: spacer('xs');
+  }
+
+  &__day {
+    font-family: config('font-family-heading', $typography);
+    font-size: font-size('h4');
+    font-weight: 800;
+  }
+
+  &__month {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &__content {
+    @include layout-stack('xxs');
+
+    .badge {
+      justify-self: start;
+    }
+  }
+
+  &__title {
+    font-size: font-size('h5');
+  }
+
+  &__link {
+    color: color('heading');
+    text-decoration: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__meta {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+}

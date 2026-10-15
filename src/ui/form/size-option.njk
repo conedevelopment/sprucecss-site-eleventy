@@ -18,10 +18,18 @@ title: 'Size Option'
     {% include "ui/scss/form/size-option.scss" %}
 {% endset %}
 
+{% set js %}
+    {% include "ui/js/form/size-option.js" %}
+{% endset %}
+
 {% set description %}
     {% include "ui/md/form/size-option.md" %}
 {% endset %}
 
 {% block style %}
     <link rel="stylesheet" href="/_includes/ui/css/form/size-option.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/form/size-option.js"></script>
 {% endblock %}

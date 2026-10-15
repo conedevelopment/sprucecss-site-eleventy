@@ -1,0 +1,39 @@
+{#- Override with `blogBlock` ({ heading, action, posts: [{ image, title, tag, date, datetime }] }). -#}
+{%- set _s = blogBlock or {
+    "heading": { "eyebrow": "Blog", "title": "Latest from the blog", "text": "Notes about CSS, Sass and design systems.", "id": "blog-title", "align": "start" },
+    "action": "View all posts",
+    "posts": [
+        { "image": "/img/blog/about-modern-sass.png", "title": "About Modern Sass", "tag": "sass", "date": "December 3, 2022", "datetime": "2022-12-03" },
+        { "image": "/img/blog/cracking-the-theme-switcher-and-dark-mode.png", "title": "Cracking the Theme Switcher and Dark Mode", "tag": "css", "date": "May 2, 2023", "datetime": "2023-05-02" },
+        { "image": "/img/blog/writing-better-css.png", "title": "Writing Better CSS", "tag": "css", "date": "August 21, 2023", "datetime": "2023-08-21" }
+    ]
+} %}
+<section class="blog-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="blog-block__inner">
+            <div class="blog-block__header">
+                {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+                <a class="btn btn--outline-primary" href="#">{{ _s.action }} <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            </div>
+            <div class="blog-block__grid">
+                {%- for post in _s.posts %}
+                <article class="post-card">
+                    <img class="post-card__thumbnail" src="{{ post.image }}" alt="" loading="lazy">
+                    <div class="post-card__body">
+                        <div class="post-card__meta">
+                            <div class="post-card__tags">
+                                <a href="#">#{{ post.tag }}</a>
+                            </div>
+                            <time datetime="{{ post.datetime }}">{{ post.date }}</time>
+                        </div>
+                        <h3 class="post-card__title">
+                            <a class="post-card__link" href="#">{{ post.title }}</a>
+                        </h3>
+                    </div>
+                </article>
+                {%- endfor %}
+            </div>
+        </div>
+    </div>
+</section>

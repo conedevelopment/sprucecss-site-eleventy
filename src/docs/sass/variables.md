@@ -1,15 +1,15 @@
 ---
 title: "Variables"
-description: "The variables are fundamental for better customisability. Luckily Spruce CSS gives you a lot of them."
-order: 15
+description: "The variables are fundamental for better customizability. Luckily, Spruce CSS gives you a lot of them."
+order: 17
 github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/sass/variables.md"
 ---
 
-<p class="lead">Spruce CSS has several Sass variables that it can generate into CSS custom properties.</p>
+<p class="lead">Spruce CSS has several Sass variables and maps that it can generate into CSS custom properties.</p>
 
-Our central concept is not to expose a CSS custom property that isn’t needed for later customization, but with version 2, you can opt-in to the fully CSS custom property mode.
+Our central concept is not to expose a CSS custom property that isn’t needed for later customization, but you can opt in to the full custom property mode.
 
-By default, Spruce only generates CSS variables for the colors and transition settings. If you turn on the `css-custom-properties` to true, it will also generate additional ones for the buttons, form elements, etc.
+By default, Spruce only generates CSS variables for the colors and the transition settings. If you set `css-custom-properties` to `true`, it also generates them for the typography, display, shadows, buttons, form elements, tables and more, with [style hooks](/docs/customization/styles/#style-hooks).
 
 ```scss
 @use 'sprucecss/scss/spruce' with (
@@ -19,465 +19,322 @@ By default, Spruce only generates CSS variables for the colors and transition se
 );
 ```
 
-More information about the [difference between Sass and CSS variables](https://css-tricks.com/difference-between-types-of-css-variables/).
+## How to Overwrite
 
-[View Source on GitHub](https://github.com/conedevelopment/sprucecss/tree/main/scss/config)
-
-
-## Breakpoints
-
-We store the breakpoints in the `$breakpoints` map, which we use in the <code><a href="/docs/sass/mixins#breakpoint">breakpoint</a></code> mixin.
-
-[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/_breakpoint.scss)
-
-```scss
-@use 'sprucecss/scss/spruce' with (
-  $breakpoints: (
-    'xs': 32em,
-    'sm': 48em,
-    'md': 64em,
-    'lg': 80em,
-    'xl': 90em,
-    'xxl': 110em,
-  ),
-);
-```
-
-## Buttons
+Every map below is merged with your values, so you only pass the keys you change, at the first `@use` of Spruce:
 
 ```scss
 @use 'sprucecss/scss/spruce' with (
   $btn: (
-    'border-radius': map.get($display, 'border-radius-sm'),
-    'border-width': 1px,
-    'focus-ring-box-shadow-type': outside,
-    'focus-ring-offset': 2px,
-    'focus-ring-size': 2px,
-    'focus-ring-type': outline,
-    'font-family': null,
-    'font-size': map.get($typography, 'font-size-base'),
-    'font-style': null,
-    'font-weight': 500,
-    'gap': map.get($spacers, 'xs'),
-    'icon-padding': 0.75em,
-    'icon-size': 1em,
-    'padding': 0.75em 1em,
-    'shadow-size': 0.25rem,
-    'text-transform': null,
+    'border-radius': 0,
+    'font-weight': 700,
   ),
-  $btn-lg: (
-    'font-size': 1.15rem,
-    'gap': map.get($spacers, 'xs'),
-    'icon-padding': 0.9em,
-    'padding': 0.9em 1.15em,
-  ),
-  $btn-sm: (
-    'font-size': 0.8rem,
-    'gap': map.get($spacers, 'xxs'),
-    'icon-padding': 0.5em,
-    'icon-size': 0.8rem,
-    'padding': 0.5em 0.75em,
+  $shadows: (
+    'md': 0 6px 20px hsl(0deg 0% 0% / 12%),
   ),
 );
 ```
 
-## Character escaping
+The code blocks show the source of the installed version, with the default values. Read more about the [difference between Sass and CSS variables](https://css-tricks.com/difference-between-types-of-css-variables/), and see the [colors](/docs/sass/colors/), [settings](/docs/customization/settings/) and [styles](/docs/customization/styles/) on their own pages.
 
-We use the `$escaping-characters` under the <code><a href="/docs/sass/functions/#svg-escape">svg-escape</a></code> function to neutralize the characters when we use inline SVG through `data:image`.
+[View Source on GitHub](https://github.com/conedevelopment/sprucecss/tree/main/scss/config)
+
+## Breakpoints
+
+The breakpoints used by the [breakpoint](/docs/sass/mixins/#breakpoint), `breakpoint-down`, `breakpoint-between` and `container-query` mixins.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/_breakpoint.scss)
+
+```scss
+{{ spruceConfig.breakpoint | safe }}
+```
+
+## Buttons
+
+The button maps. The `$btn-sm` and `$btn-lg` maps only overwrite what differs from `$btn`. New in v3: `box-shadow`, `disabled-opacity`, `letter-spacing`, `line-height`.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/_button.scss)
+
+```scss
+{{ spruceConfig.button | safe }}
+```
+
+## Character Escaping
+
+The characters the [svg-escape()](/docs/sass/functions/#svg-escape) function escapes when an SVG is used as a `data:image`.
 
 [View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/_escaping-characters.scss)
 
 ```scss
-@use 'sprucecss/scss/spruce' with (
-  $escaping-characters: (
-    ('<', '%3c'),
-    ('>', '%3e'),
-    ('#', '%23'),
-    ('(', '%28'),
-    (')', '%29'),
-  ),
-);
+{{ spruceConfig.escaping | safe }}
+```
+
+## Details
+
+**New in v3.** The [details element](/docs/elements/details-and-dialog/) options.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/_details.scss)
+
+```scss
+{{ spruceConfig.details | safe }}
+```
+
+## Dialog
+
+**New in v3.** The [dialog element](/docs/elements/details-and-dialog/#dialog) options.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/_dialog.scss)
+
+```scss
+{{ spruceConfig.dialog | safe }}
 ```
 
 ## Display
 
+Shared shape tokens. New in v3: `border-radius-md`, `border-radius-pill` and `border-width-base`. Get them with [radius()](/docs/sass/functions/#radius) or `config(…, $display)`.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/_display.scss)
+
 ```scss
-@use 'sprucecss/scss/spruce' with (
-  $display: (
-    'border-radius-lg': 0.925rem,
-    'border-radius-sm': 0.425rem,
-  ),
-);
+{{ spruceConfig.display | safe }}
+```
+
+## Divider
+
+**New in v3.** The `hr` element options.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/_divider.scss)
+
+```scss
+{{ spruceConfig.divider | safe }}
 ```
 
 ## Form Check
 
+Checkboxes and radio buttons.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/form/_check.scss)
+
 ```scss
-@use 'sprucecss/scss/spruce' with (
-  $form-check: (
-    'border-radius': map.get($display, border-radius-sm),
-    'border-width': 1px,
-    'focus-ring-box-shadow-type': outside,
-    'focus-ring-offset': 2px,
-    'focus-ring-size': 2px,
-    'focus-ring-type': outline,
-    'font-size': 1.125rem,
-    'font-weight': map.get($form-check, 'font-weight'),
-    'line-height': map.get($typography, 'line-height-heading'),
-    'margin-block': 0.1em,
-    'vertical-alignment': center,
-  ),
-  $form-check-lg: (
-    'font-size': map.get($typography, 'size-lg'),
-  ),
-  $form-check-sm: (
-    'font-size': map.get($typography, 'font-size-base'),
-  ),
-);
+{{ spruceConfig.formCheck | safe }}
 ```
 
 ## Form Control
 
+Inputs, selects and textareas, with the size and color input maps. New in v3: `box-shadow`, `letter-spacing`.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/form/_control.scss)
+
 ```scss
-@use 'sprucecss/scss/spruce' with (
-  $form-control: (
-    'border-radius': map.get($display, 'border-radius-sm'),
-    'border-width': 1px,
-    'focus-ring-box-shadow-type': outside,
-    'focus-ring-offset': 2px,
-    'focus-ring-size': 0.25rem,
-    'focus-ring-type': box-shadow,
-    'font-family': null,
-    'font-size': map.get($typography, 'font-size-base'),
-    'font-weight': null,
-    'line-height': 1.5,
-    'padding': 0.5em 0.75em,
-    'textarea-block-size': 6rem,
-  ),
-  $form-control-lg: (
-    'font-size': map.get($typography, 'size-lg'),
-    'padding': 0.65em 1em,
-  ),
-  $form-control-sm: (
-    'border-radius': 0.35em,
-    'font-size': map.get($typography, 'size-sm'),
-    'padding': 0.25em 0.5em,
-  ),
-  $form-control-color: (
-    'aspect-ratio': 1,
-    'block-size': 100%,
-    'inline-size': 2.625rem,
-    'padding': 0.5em,
-  ),
-  $form-control-color-lg: (
-    'aspect-ratio': 1,
-    'block-size': 100%,
-    'inline-size': 3.204rem,
-    'padding': 0.5em,
-  ),
-  $form-control-color-sm: (
-    'aspect-ratio': 1,
-    'block-size': 100%,
-    'inline-size': 1.925rem,
-    'padding': 0.25em,
-  ),
-);
+{{ spruceConfig.formControl | safe }}
 ```
 
 ## Form Description
 
+The help text under the controls.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/form/_description.scss)
+
 ```scss
-@use 'sprucecss/scss/spruce' with (
-  $form-description: (
-    'font-size': null,
-    'font-style': null,
-    'font-weight': null,
-  ),
-);
+{{ spruceConfig.formDescription | safe }}
 ```
 
 ## Form Fieldset
 
+Fieldsets and legends.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/form/_fieldset.scss)
+
 ```scss
-@use 'sprucecss/scss/spruce' with (
-  $form-fieldset: (
-    'layout-gap': map.get($spacers, 's'),
-    'legend-font-family': null,
-    'legend-font-size': clamp(#{map.get($font-sizes, 'h5')}, 5vw, #{map.get($font-sizes, 'h4')}),
-    'legend-font-weight': 700,
-  ),
-);
+{{ spruceConfig.formFieldset | safe }}
 ```
 
 ## Form File
 
-```scss
-@use 'sprucecss/scss/spruce' with (
-  $form-file: (
-    'background': 'primary',
-  ),
-);
+The file input button (`background` is the name of a button color variant).
 
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/form/_file.scss)
+
+```scss
+{{ spruceConfig.formFile | safe }}
 ```
+
 ## Form Group
 
+The form group layouts.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/form/_group.scss)
+
 ```scss
-@use 'sprucecss/scss/spruce' with (
-  $form-group: (
-    'gap': map.get($spacers, 'xs'),
-  ),
-  $form-group-check: (
-    'gap': map.get($spacers, 's'),
-  ),
-  $form-group-row: (
-    'container-inline-size': 38rem,
-    'gap': map.get($spacers, 'xxs') map.get($spacers, 's'),
-    'label-inline-size': 10rem,
-    'vertical-alignment': center,
-  ),
-);
+{{ spruceConfig.formGroup | safe }}
 ```
 
 ## Form Icon
 
+The SVG icons of the form elements. `#COLOR#` is replaced with the related color.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/form/_icon.scss)
+
 ```scss
-@use 'sprucecss/scss/spruce' with (
-  $form-icon: (
-    'checkbox-indeterminate': '<svg viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M19.5,11.1c-0,-0.331 -0.269,-0.6 -0.6,-0.6l-13.8,0c-0.331,0 -0.6,0.269 -0.6,0.6l0,1.8c0,0.331 0.269,0.6 0.6,0.6l13.8,0c0.331,0 0.6,-0.269 0.6,-0.6l-0,-1.8Z" style="fill:#COLOR#;"/></svg>',
-    'checkbox': '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.525,13.777l-2.411,-2.412c-0.234,-0.233 -0.613,-0.233 -0.846,0l-1.27,1.27c-0.233,0.233 -0.233,0.612 0,0.846l4.104,4.103c0.116,0.117 0.269,0.175 0.422,0.175l0.003,0c0.152,0 0.305,-0.058 0.421,-0.175l9.054,-9.053c0.233,-0.234 0.233,-0.613 -0,-0.846l-1.27,-1.269c-0.233,-0.234 -0.612,-0.234 -0.846,-0l-7.361,7.361Z" style="fill:#COLOR#;"/></svg>',
-    'invalid': '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><path d="M12,2c5.519,0 10,4.481 10,10c0,5.519 -4.481,10 -10,10c-5.519,0 -10,-4.481 -10,-10c0,-5.519 4.481,-10 10,-10Zm0,1.667c4.599,-0 8.333,3.734 8.333,8.333c0,4.599 -3.734,8.333 -8.333,8.333c-4.599,0 -8.333,-3.734 -8.333,-8.333c-0,-4.599 3.734,-8.333 8.333,-8.333Zm0.813,11.649c-0,-0.081 -0.065,-0.146 -0.146,-0.146l-1.334,0c-0.081,0 -0.146,0.065 -0.146,0.146l0,1.169c0,0.08 0.065,0.146 0.146,0.146l1.334,-0c0.081,-0 0.146,-0.066 0.146,-0.146l-0,-1.169Zm-0,-7.784c-0,-0.09 -0.073,-0.163 -0.163,-0.163l-1.3,0c-0.09,0 -0.163,0.073 -0.163,0.163l0,6.351c0,0.09 0.073,0.163 0.163,0.163l1.3,-0c0.09,-0 0.163,-0.073 0.163,-0.163l-0,-6.351Z" style="fill:#COLOR#;"/></svg>',
-    'radio': '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="6" style="fill:#COLOR#;"/></svg>',
-    'select': '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12,12.507l-3.816,-3.815c-0.171,-0.172 -0.45,-0.172 -0.622,-0l-0.933,0.933c-0.172,0.172 -0.172,0.451 0,0.623l5.06,5.06c0.172,0.172 0.45,0.172 0.622,0l5.06,-5.06c0.172,-0.172 0.172,-0.451 -0,-0.623l-0.933,-0.933c-0.172,-0.172 -0.451,-0.172 -0.622,-0l-3.816,3.815Z" style="fill:#COLOR#;"/></svg>',
-    'switch': '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="8.5" style="fill:#COLOR#;"/></svg>',
-    'valid': '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><path d="M12,2c5.519,0 10,4.481 10,10c0,5.519 -4.481,10 -10,10c-5.519,0 -10,-4.481 -10,-10c0,-5.519 4.481,-10 10,-10Zm0,1.667c4.599,-0 8.333,3.734 8.333,8.333c0,4.599 -3.734,8.333 -8.333,8.333c-4.599,0 -8.333,-3.734 -8.333,-8.333c-0,-4.599 3.734,-8.333 8.333,-8.333Zm-1.476,10.182l-2.984,-2.984c-0.065,-0.065 -0.17,-0.065 -0.235,0l-0.943,0.943c-0.065,0.065 -0.065,0.171 -0,0.236l4.043,4.042c0.033,0.033 0.076,0.05 0.119,0.049c0.044,0.001 0.087,-0.016 0.12,-0.049l6.994,-6.994c0.065,-0.065 0.065,-0.17 0,-0.235l-0.943,-0.943c-0.065,-0.065 -0.17,-0.065 -0.235,-0l-5.936,5.935Z" style="fill:#COLOR#;"/></svg>',
-  ),
-);
+{{ spruceConfig.formIcon | safe }}
 ```
 
 ## Form Label
 
+New in v3: `line-height`, `required-content`, `required-gap`.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/form/_label.scss)
+
 ```scss
-@use 'sprucecss/scss/spruce' with (
-  $form-label: (
-    'font-family': null,
-    'font-size': null,
-    'font-style': null,
-    'font-weight': null,
-    'text-align': start,
-    'text-transform': null,
-  ),
-);
+{{ spruceConfig.formLabel | safe }}
 ```
 
 ## Form Range
 
+New in v3: the `$form-range-sm` and `$form-range-lg` maps.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/form/_range.scss)
+
 ```scss
-@use 'sprucecss/scss/spruce' with (
-  $form-range: (
-    'focus-ring-box-shadow-type': outside,
-    'focus-ring-offset': 2px,
-    'focus-ring-size': 2px,
-    'focus-ring-type': outline,
-    'thumb-block-size': 1rem,
-    'thumb-border-radius': 0.5rem,
-    'thumb-inline-size': 1rem,
-    'track-block-size': 0.25rem,
-    'track-border-radius': 0.15rem,
-  ),
-);
+{{ spruceConfig.formRange | safe }}
 ```
 
 ## Form Row
 
+The `.form-row--mixed` layout.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/form/_row.scss)
+
 ```scss
-@use 'sprucecss/scss/spruce' with (
-  $form-row: (
-    'inline-size': 20ch,
-  ),
-);
+{{ spruceConfig.formRow | safe }}
 ```
 
 ## Form Select
 
+The select arrow and the validation icon placement.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/form/_select.scss)
+
 ```scss
-@use 'sprucecss/scss/spruce' with (
-  $form-select: (
-    'icon-inline-size': 1.25em,
-    'icon-right-offset': 0.5em,
-    'padding-inline-end': calc(0.75em + 1.25em),
-  ),
-);
+{{ spruceConfig.formSelect | safe }}
 ```
 
 ## Form Switch
 
+Switches.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/form/_switch.scss)
+
 ```scss
-@use 'sprucecss/scss/spruce' with (
-  $form-switch: (
-    'border-width': 1px,
-    'font-size': 1.125rem,
-    'font-weight': map.get($form-label, 'font-weight'),
-    'line-height': map.get($typography, 'line-height-heading'),
-    'margin-block-start': 0.25em,
-  ),
-  $form-switch-lg: (
-    'font-size': map.get($typography, 'size-lg'),
-  ),
-  $form-switch-sm: (
-    'font-size': map.get($typography, 'font-size-base'),
-  ),
-);
+{{ spruceConfig.formSwitch | safe }}
 ```
 
 ## Generators
 
+Turn the style generation on or off by part. See the [Generators](/docs/elements/generators/) page.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/_generator.scss)
+
 ```scss
-@use 'sprucecss/scss/spruce' with (
-  $generators: (
-    'content': (
-      'accessibility': true,
-      'default': true,
-      'display': true,
-      'divider': true,
-      'layout': true,
-      'media': true,
-      'normalize': true,
-      'print': true,
-      'root': true,
-      'table': true,
-      'typography': true,
-      'utilities': true,
-    ),
-    'form': (
-      'btn': true,
-      'file-btn': true,
-      'form-check': true,
-      'form-control': true,
-      'form-description': true,
-      'form-feedback': true,
-      'form-fieldset': true,
-      'form-group': true,
-      'form-label': true,
-      'form-range': true,
-      'form-row': true,
-      'form-switch': true,
-    ),
-  ),
-);
+{{ spruceConfig.generator | safe }}
 ```
 
 ## Layout
 
-```scss
-@use 'sprucecss/scss/spruce' with (
-  $layout: (
-    'container-inline-size': 84rem,
-  ),
-);
+The default container width.
 
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/_layout.scss)
+
+```scss
+{{ spruceConfig.layout | safe }}
+```
+
+## Media
+
+**New in v3.** Image and figure options.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/_media.scss)
+
+```scss
+{{ spruceConfig.media | safe }}
 ```
 
 ## Print
 
-To learn more about the print option, [please visit the related page](/docs/getting-started/print/).
+The [print styles](/docs/getting-started/print/).
 
 [View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/_print.scss)
 
 ```scss
-@use 'sprucecss/scss/spruce' with (
-  $print: (
-    'page-margin': 2cm,
-    'hidden-elements': 'header, footer, aside, nav, form, iframe, [class^="aspect-ratio"]',
-  ),
-);
+{{ spruceConfig.print | safe }}
 ```
 
+## Progress
+
+**New in v3.** The [progress and meter](/docs/elements/progress-and-meter/) elements.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/_progress.scss)
+
+```scss
+{{ spruceConfig.progress | safe }}
+```
+
+## Shadows
+
+**New in v3.** The shadow scale. Get them with [shadow()](/docs/sass/functions/#shadow); in custom property mode they are output as `--spruce-shadow-*`.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/_shadow.scss)
+
+```scss
+{{ spruceConfig.shadow | safe }}
+```
 
 ## Spacers
 
-Spacers are generated by a predefined $spacer value, and the `$spacers` map with added multiplication.
+The spacers are generated from the `$spacer` value. Get them with [spacer()](/docs/sass/functions/#spacer) and [spacer-clamp()](/docs/sass/functions/#spacer-clamp).
 
-Using the [spacer()](/docs/sass/functions/#spacer) helper function we can get any value by key name from the `$spacers` map.
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/_spacer.scss)
 
 ```scss
-@use 'sprucecss/scss/spruce' with (
-  $spacer: 1rem,
-  $spacers: (
-    'xxs': $spacer * 0.25,
-    'xs': $spacer * 0.5,
-    's': $spacer,
-    'm': $spacer * 1.5,
-    'l': $spacer * 3,
-    'xl': $spacer * 4.5,
-    'xxl': $spacer * 7,
-    'xxxl': $spacer * 10,
-  ),
-);
+{{ spruceConfig.spacer | safe }}
 ```
 
 ## Tables
 
+New in v3: `border-width`, `caption-text-align`, the `heading-*` keys and `vertical-align`.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/_table.scss)
+
 ```scss
-@use 'sprucecss/scss/spruce' with (
-  $table: (
-    'caption-font-size': null,
-    'caption-font-style': null,
-    'caption-font-weight': null,
-    'line-height': map.get($typography, 'line-height-md'),
-    'padding': map.get($spacers, 's'),
-    'responsive-inline-size': 40rem,
-    'stripe': odd,
-  ),
-  $table-sm: (
-    'padding': map.get($spacers, 'xs'),
-  ),
-);
+{{ spruceConfig.table | safe }}
 ```
 
-## Transition and Animation
+## Transition
+
+The default transition settings. In custom property mode, the duration is `0` for users who prefer reduced motion.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/_transition.scss)
 
 ```scss
-@use 'sprucecss/scss/spruce' with (
-  $transition: (
-    'duration': 0.15s,
-    'timing-function': ease-in-out,
-  ),
-);
+{{ spruceConfig.transition | safe }}
 ```
 
 ## Typography
 
-You can access any font size with the [font-size() helper function](/docs/sass/functions#font-size).
+The typography tokens and the heading scale. Get the sizes with [font-size()](/docs/sass/functions/#font-size). New in v3: `blockquote-*`, `font-family-mono`, `font-size-code`, `font-weight-strong`, `letter-spacing-base`, `link-*`, `list-gap`, `pre-*`, `text-transform-heading`, `text-wrap-base`, `text-wrap-heading`.
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/_typography.scss)
 
 ```scss
-@use 'sprucecss/scss/spruce' with (
-  $typography: (
-    'border-radius': map.get($display, 'border-radius-sm'),
-    'font-family-base': #{Seravek, 'Gill Sans Nova', Ubuntu, Calibri, 'DejaVu Sans', source-sans-pro, sans-serif},
-    'font-family-cursive': #{ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace},
-    'font-family-heading': #{Avenir, 'Avenir Next LT Pro', Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif},
-    'font-size-base': 1rem,
-    'font-size-lead': clamp(1.15rem, 2vw, 1.35rem),
-    'font-size-lg': 1.125rem,
-    'font-size-ratio': 1.25,
-    'font-size-sm': 0.875rem,
-    'font-weight-base': null,
-    'font-weight-heading': 700,
-    'inline-padding': 0.1em 0.3em,
-    'letter-spacing-heading': null,
-    'line-height-base': 1.8,
-    'line-height-heading': calc(2px + 2ex + 2px),
-    'line-height-lg': 1.8,
-    'line-height-md': 1.5,
-    'line-height-sm': 1.2,
-  ),
-  $font-sizes: (
-    'h1': math.pow(map.get($typography, 'font-size-ratio'), 4) * map.get($typography, 'font-size-base'),
-    'h2': math.pow(map.get($typography, 'font-size-ratio'), 3) * map.get($typography, 'font-size-base'),
-    'h3': math.pow(map.get($typography, 'font-size-ratio'), 2) * map.get($typography, 'font-size-base'),
-    'h4': math.pow(map.get($typography, 'font-size-ratio'), 1) * map.get($typography, 'font-size-base'),
-    'h5': map.get($typography, 'font-size-base'),
-    'h6': map.get($typography, 'font-size-base'),
-  ),
-);
+{{ spruceConfig.typography | safe }}
+```
+
+## Z-Index
+
+**New in v3.** The layer scale. Get the values with [z-index()](/docs/sass/functions/#z-index).
+
+[View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/_z-index.scss)
+
+```scss
+{{ spruceConfig.zIndex | safe }}
 ```

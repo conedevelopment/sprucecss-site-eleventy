@@ -1,0 +1,40 @@
+{#- Override with `teamBlock` ({ heading, members: [{ name, role, bio, photo }], hiring }). -#}
+{%- set _s = teamBlock or {
+    "heading": { "eyebrow": "Our team", "title": "The people behind the product", "text": "A small, remote team of designers and engineers.", "id": "team-title" },
+    "members": [
+        { "name": "Maya Chen", "role": "Design Lead", "bio": "Designs calm interfaces and accessible color systems.", "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=480&h=560&q=70" },
+        { "name": "Daniel Okafor", "role": "Frontend Engineer", "bio": "Writes Sass and CSS that ages gracefully.", "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=480&h=560&q=70" },
+        { "name": "Ava Martinez", "role": "Product Manager", "bio": "Turns feedback into roadmaps and releases.", "photo": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=480&h=560&q=70" }
+    ],
+    "hiring": { "title": "Join the team", "text": "We’re looking for a developer advocate who loves CSS.", "action": "See open roles" }
+} %}
+<section class="team-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="team-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            <ul class="team-block__grid" role="list">
+                {%- for member in _s.members %}
+                <li class="team-block__member">
+                    <img class="team-block__photo" src="{{ member.photo }}" alt="" width="480" height="560" loading="lazy">
+                    <div class="team-block__body">
+                        <h3 class="team-block__name">{{ member.name }}</h3>
+                        <p class="team-block__role">{{ member.role }}</p>
+                        <p class="team-block__bio">{{ member.bio }}</p>
+                    </div>
+                </li>
+                {%- endfor %}
+                {%- if _s.hiring %}
+                <li class="team-block__member team-block__member--hiring">
+                    <div class="team-block__body">
+                        <span class="badge badge--success"><span class="badge__dot" aria-hidden="true"></span>We’re hiring</span>
+                        <h3 class="team-block__name">{{ _s.hiring.title }}</h3>
+                        <p class="team-block__bio">{{ _s.hiring.text }}</p>
+                        <a class="btn btn--outline-primary btn--sm" href="#">{{ _s.hiring.action }}</a>
+                    </div>
+                </li>
+                {%- endif %}
+            </ul>
+        </div>
+    </div>
+</section>

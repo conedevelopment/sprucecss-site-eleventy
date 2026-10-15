@@ -1,0 +1,47 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.product-grid-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+  }
+
+  &__header {
+    align-items: end;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('m');
+    justify-content: space-between;
+  }
+
+  &__filters {
+    @include layout-cluster('xs');
+  }
+
+  &__grid {
+    @include clear-list;
+    display: grid;
+    gap: spacer('m');
+    // auto-fill keeps the empty tracks, so a filtered list keeps the column count.
+    grid-template-columns: repeat(auto-fill, minmax(min(16rem, 100%), 1fr));
+
+    > li {
+      display: flex;
+      margin: 0 !important;
+      margin-block: 0;
+      padding-block: 0;
+    }
+
+    .product-card {
+      inline-size: 100%;
+    }
+  }
+
+  &__more {
+    margin-block: 0;
+    text-align: center;
+  }
+}

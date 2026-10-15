@@ -1,8 +1,19 @@
 .skip-link {
-  inset: -50vh auto auto 1.5rem;
+  inset-block-start: 1.5rem;
+  inset-inline-start: 1.5rem;
   position: fixed;
-  z-index: 99;
+  translate: 0 calc(-100% - 3rem);
+  z-index: 1070;
 }
 .skip-link:focus {
-  inset-block-start: 1.5rem;
+  translate: 0 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .skip-link {
+    transition: translate 0.15s ease-out;
+  }
+}
+
+.skip-link-demo {
+  color: var(--spruce-base-color-muted);
 }

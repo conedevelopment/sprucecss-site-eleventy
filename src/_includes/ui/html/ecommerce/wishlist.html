@@ -1,0 +1,44 @@
+{#- Override with `wishlist` ({ items: [{ name, variant, price, oldPrice, image, stock: "in"|"low"|"out" }] }). -#}
+{%- set _s = wishlist or {
+    "items": [
+        { "name": "Linen Overshirt", "variant": "Sand · M", "price": "$79", "oldPrice": "$98", "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=400&q=70", "stock": "in" },
+        { "name": "Ceramic Pour-Over", "variant": "Matte white", "price": "$42", "oldPrice": "", "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=400&q=70", "stock": "low" },
+        { "name": "Wireless Headphones", "variant": "Graphite", "price": "$199", "oldPrice": "", "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=400&q=70", "stock": "out" },
+        { "name": "Leather Weekender", "variant": "Cognac", "price": "$249", "oldPrice": "", "image": "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=400&q=70", "stock": "in" }
+    ]
+} %}
+{%- set _stock = { "in": "In stock", "low": "Only 2 left", "out": "Out of stock" } %}
+<section class="wishlist" aria-labelledby="wishlist-title" data-wishlist>
+    <header class="wishlist__header">
+        <h2 class="wishlist__title" id="wishlist-title">Wishlist <span class="wishlist__count" data-wishlist-count>({{ _s.items.length }} items)</span></h2>
+        <button class="btn btn--secondary btn--sm" type="button" data-wishlist-share>Share list</button>
+    </header>
+    <ul class="wishlist__items" role="list" data-wishlist-items>
+        {%- for item in _s.items %}
+        <li class="wishlist__item" data-wishlist-item>
+            <article class="wishlist__card" aria-labelledby="wishlist-item-{{ loop.index }}">
+                <img class="wishlist__image" src="{{ item.image }}" alt="" width="400" height="400" loading="lazy">
+                <div class="wishlist__body">
+                    <h3 class="wishlist__name" id="wishlist-item-{{ loop.index }}"><a href="#">{{ item.name }}</a></h3>
+                    <p class="wishlist__variant">{{ item.variant }}</p>
+                    <p class="wishlist__price">{% if item.oldPrice %}<span class="sr-only">Sale price: </span>{% endif %}{{ item.price }}{% if item.oldPrice %} <del><span class="sr-only">Original price: </span>{{ item.oldPrice }}</del>{% endif %}</p>
+                    <p class="wishlist__stock wishlist__stock--{{ item.stock }}">{{ _stock[item.stock] }}</p>
+                </div>
+                <div class="wishlist__actions">
+                    {%- if item.stock == 'out' %}
+                    <button class="btn btn--outline-primary btn--sm" type="button" aria-pressed="false" data-wishlist-notify>Notify me<span class="sr-only"> when {{ item.name }} is back</span></button>
+                    {%- else %}
+                    <button class="btn btn--primary btn--sm" type="button" data-wishlist-move>Move to cart<span class="sr-only">: {{ item.name }}</span></button>
+                    {%- endif %}
+                    <button class="btn btn--ghost-danger btn--icon btn--sm" type="button" data-wishlist-remove><svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h18"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"/><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><span class="sr-only">Remove {{ item.name }} from the wishlist</span></button>
+                </div>
+            </article>
+        </li>
+        {%- endfor %}
+    </ul>
+    <div class="wishlist__empty" hidden data-wishlist-empty>
+        <p>Your wishlist is empty. Tap the heart on any product to save it for later.</p>
+        <a class="btn btn--primary btn--sm" href="#">Continue shopping</a>
+    </div>
+    <p class="sr-only" aria-live="polite" data-wishlist-status></p>
+</section>

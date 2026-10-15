@@ -1,0 +1,27 @@
+---
+title: 'Funnel Chart'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--wide">
+        {% include "ui/html/dashboard/funnel-chart.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/dashboard/funnel-chart.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/dashboard/funnel-chart.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/dashboard/funnel-chart.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/dashboard/funnel-chart.css">
+{% endblock %}

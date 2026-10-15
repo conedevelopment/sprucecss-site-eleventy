@@ -1,0 +1,53 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.tabs {
+  @include layout-stack('m');
+
+  &__list {
+    border-block-end: config('border-width-base', $display) solid color('border');
+    display: flex;
+    gap: spacer('xs');
+    overflow-x: auto;
+    scrollbar-width: thin;
+  }
+
+  &__tab {
+    @include clear-btn;
+    border-block-end: 2px solid transparent;
+    color: color('muted');
+    font-weight: 600;
+    margin-block-end: calc(#{config('border-width-base', $display)} * -1);
+    padding: spacer('xs') spacer('s');
+    white-space: nowrap;
+    @include transition($property: 'border-color, color');
+
+    &:hover {
+      color: color('heading');
+    }
+
+    &[aria-selected='true'] {
+      border-block-end-color: color('primary');
+      color: color('heading');
+    }
+
+    &:focus-visible {
+      border-radius: radius('sm');
+      outline: 2px solid color('focus-ring');
+      outline-offset: -2px;
+    }
+  }
+
+  &__panel {
+    @include layout-stack('xs');
+
+    h3 {
+      font-size: font-size('h5');
+    }
+
+    &:focus-visible {
+      border-radius: radius('sm');
+      outline: 2px solid color('focus-ring');
+      outline-offset: 4px;
+    }
+  }
+}

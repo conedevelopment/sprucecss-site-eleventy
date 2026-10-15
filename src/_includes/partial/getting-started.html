@@ -8,7 +8,7 @@
                         <h3 class="getting-started-card__title">{{ card.title }}</h3>
                         <p class="getting-started-card__description">{{ card.description }}</p>
                         <div class="getting-started-card__more">
-                            <a href={{ card.link.url }} class="text-btn getting-started-card__link">
+                            <a href={{ card.link.url }} class="text-btn text-btn--sm getting-started-card__link">
                                 {{ card.link.caption }}
                                 <div class="sr-only">{{ card.title }}</div>
                                 {% svgIcon "./src/_includes/icon/play.svg", "text-btn__icon" %}

@@ -1,0 +1,40 @@
+.callout {
+  --callout-color: var(--spruce-alert-color-info);
+  background-color: color-mix(in srgb, var(--callout-color) 8%, transparent);
+  border: var(--spruce-border-width-base) solid color-mix(in srgb, var(--callout-color) 30%, transparent);
+  border-inline-start-width: 4px;
+  border-radius: var(--spruce-border-radius-md);
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+}
+.callout + .callout {
+  margin-block-start: 1rem;
+}
+.callout--tip {
+  --callout-color: var(--spruce-alert-color-success);
+}
+.callout--warning {
+  --callout-color: var(--spruce-alert-color-warning);
+}
+.callout--danger {
+  --callout-color: var(--spruce-alert-color-danger);
+}
+.callout__icon {
+  block-size: 1.25rem;
+  color: var(--callout-color);
+  flex-shrink: 0;
+  inline-size: 1.25rem;
+  margin-block-start: 0.2em;
+}
+.callout__content > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.callout__content > * + * {
+  margin-block-start: 0.25rem;
+}
+.callout__title {
+  color: var(--spruce-base-color-heading);
+  font-weight: 700;
+}

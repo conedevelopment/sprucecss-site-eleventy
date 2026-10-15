@@ -2,23 +2,39 @@
 
 .form-size-option {
   @include layout-stack('xs');
+  border: 0;
+  margin: 0;
+  min-inline-size: 0;
+  padding: 0;
 
   &__label {
+    color: color('label', 'form');
     font-family: config('font-family', $form-label, false);
     font-size: config('font-size', $form-label, false);
     font-weight: config('font-weight', $form-label, false);
+    padding: 0;
+  }
+
+  &__selected {
+    color: color('muted');
+    font-weight: 400;
   }
 
   &__inner {
     display: flex;
     flex-wrap: wrap;
-    gap: spacer('s');
+    gap: spacer('xs');
+  }
+
+  &__guide {
+    font-size: config('font-size-sm', $typography, false);
   }
 }
 
 .form-size {
   $this: &;
   display: flex;
+  position: relative;
 
   &__control {
     @include visually-hidden;
@@ -26,7 +42,6 @@
     &:checked + #{$this}__label {
       background-color: color('primary-background', 'btn');
       border-color: color('primary-background', 'btn');
-      box-shadow: none;
       color: color('primary-foreground', 'btn');
     }
 
@@ -34,21 +49,32 @@
       @include short-ring('button', 'primary');
     }
 
+    // Sold out: crossed out, still readable.
     &:disabled + #{$this}__label {
-      opacity: 50%;
+      background-image: linear-gradient(to top right, transparent calc(50% - 1px), color('border') calc(50% - 1px) calc(50% + 1px), transparent calc(50% + 1px));
+      color: color('muted');
+      cursor: not-allowed;
     }
   }
 
   &__label {
+    @include transition($property: 'background-color, border-color, color');
+    align-items: center;
     background-color: color('background', 'form');
-    border: 1px solid color('border');
+    border: config('border-width-base', $display) solid color('border', 'form');
     border-radius: config('border-radius', $btn, false);
     color: color('label', 'form');
+    cursor: pointer;
     display: flex;
     font-size: config('font-size-sm', $typography, false);
     font-weight: 700;
     justify-content: center;
+    min-block-size: 2.75rem;
     min-inline-size: 2.75rem;
-    padding: spacer('xs');
+    padding-inline: spacer('xs');
+  }
+
+  &:hover &__control:not(:checked, :disabled) + &__label {
+    border-color: color('primary');
   }
 }

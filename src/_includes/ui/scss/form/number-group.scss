@@ -12,7 +12,7 @@
   display: inline-flex;
   gap: spacer('xxs');
   inline-size: auto;
-  max-inline-size: 6.5rem;
+  max-inline-size: 8rem;
   padding: 0.25em;
   position: relative;
 
@@ -21,13 +21,16 @@
   }
 
   &__input {
+    appearance: textfield;
     background-color: transparent;
     border: 0;
     color: color('text', 'form');
     font-size: config('font-size', $form-control);
+    font-variant-numeric: tabular-nums;
     font-weight: config('font-weight', $form-control);
     inline-size: 100%;
     line-height: config('line-height', $form-control);
+    min-inline-size: 2ch;
     outline: 0;
     padding: 0;
     text-align: center;
@@ -42,5 +45,10 @@
   &__decrement,
   &__increment {
     border-radius: config('border-radius', $form-control-sm, false);
+    flex-shrink: 0;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
   }
 }

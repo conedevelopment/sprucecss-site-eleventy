@@ -1,0 +1,35 @@
+---
+title: 'Product Filters'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--narrow">
+        {% include "ui/html/ecommerce/product-filters.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/ecommerce/product-filters.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/ecommerce/product-filters.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/ecommerce/product-filters.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/ecommerce/product-filters.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/ecommerce/product-filters.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/ecommerce/product-filters.js"></script>
+{% endblock %}

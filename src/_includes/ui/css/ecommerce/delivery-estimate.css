@@ -1,0 +1,96 @@
+.delivery-estimate {
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  border-radius: var(--spruce-border-radius-lg);
+  padding: 1.5rem;
+}
+.delivery-estimate > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.delivery-estimate > * + * {
+  margin-block-start: 1rem;
+}
+.delivery-estimate__title {
+  align-items: center;
+  display: flex;
+  font-size: 1rem;
+  gap: 0.5rem;
+}
+.delivery-estimate__title svg {
+  block-size: 1.25rem;
+  color: var(--spruce-base-color-primary);
+  inline-size: 1.25rem;
+}
+.delivery-estimate__cutoff {
+  background-color: color-mix(in srgb, var(--spruce-alert-color-success) 10%, transparent);
+  border-radius: var(--spruce-border-radius-md);
+  color: var(--spruce-base-color-heading);
+  font-size: var(--spruce-font-size-sm);
+  padding: 0.5rem 1rem;
+}
+.delivery-estimate__cutoff strong {
+  color: var(--spruce-alert-color-success);
+}
+.delivery-estimate__cutoff[hidden] {
+  display: none;
+}
+.delivery-estimate__form > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.delivery-estimate__form > * + * {
+  margin-block-start: 0.25rem;
+}
+.delivery-estimate__row {
+  display: flex;
+  gap: 0.5rem;
+}
+.delivery-estimate__row .form-control {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+}
+.delivery-estimate__error {
+  color: var(--spruce-form-color-invalid);
+  font-size: var(--spruce-font-size-sm);
+}
+.delivery-estimate__error[hidden] {
+  display: none;
+}
+.delivery-estimate__options {
+  font-size: var(--spruce-font-size-sm);
+  list-style: none;
+  padding: 0;
+}
+.delivery-estimate__options > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.delivery-estimate__options > * + * {
+  margin-block-start: 0.5rem;
+}
+.delivery-estimate__options[hidden] {
+  display: none;
+}
+.delivery-estimate__options li {
+  align-items: baseline;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+.delivery-estimate__options li > span:first-child {
+  color: var(--spruce-base-color-muted);
+}
+.delivery-estimate__options strong {
+  color: var(--spruce-base-color-heading);
+  display: block;
+}
+.delivery-estimate__options li > span:last-child {
+  color: var(--spruce-base-color-heading);
+  font-weight: 600;
+  text-align: end;
+}
+.delivery-estimate__returns {
+  border-block-start: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  font-size: var(--spruce-font-size-sm);
+  padding-block-start: 1rem;
+}

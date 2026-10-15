@@ -1,0 +1,66 @@
+<div class="data-table" data-data-table>
+    <div class="data-table__toolbar">
+        <label class="sr-only" for="data-table-filter">Filter people</label>
+        <input class="form-control form-control--sm data-table__filter" id="data-table-filter" type="search" placeholder="Filter by name, team or city…" data-table-filter>
+        <p class="data-table__summary" aria-live="polite" data-table-summary>6 people</p>
+    </div>
+    <div class="table-responsive">
+        <table class="table table--hover table--middle">
+            <caption class="sr-only">Team members, sortable by column</caption>
+            <thead>
+                <tr>
+                    <th scope="col" aria-sort="none"><button class="data-table__sort" type="button" data-sort="0" data-type="text">Name<span class="data-table__sort-icon" aria-hidden="true"></span></button></th>
+                    <th scope="col" aria-sort="none"><button class="data-table__sort" type="button" data-sort="1" data-type="text">Team<span class="data-table__sort-icon" aria-hidden="true"></span></button></th>
+                    <th scope="col" aria-sort="none"><button class="data-table__sort" type="button" data-sort="2" data-type="text">City<span class="data-table__sort-icon" aria-hidden="true"></span></button></th>
+                    <th scope="col" aria-sort="none"><button class="data-table__sort" type="button" data-sort="3" data-type="date">Joined<span class="data-table__sort-icon" aria-hidden="true"></span></button></th>
+                    <th scope="col" aria-sort="none"><button class="data-table__sort" type="button" data-sort="4" data-type="text">Status<span class="data-table__sort-icon" aria-hidden="true"></span></button></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Maya Chen</td>
+                    <td>Design</td>
+                    <td>Lisbon</td>
+                    <td><time datetime="2021-03-14">2021-03-14</time></td>
+                    <td><span class="data-table__status data-table__status--active">Active</span></td>
+                </tr>
+                <tr>
+                    <td>Daniel Okafor</td>
+                    <td>Engineering</td>
+                    <td>Lagos</td>
+                    <td><time datetime="2019-11-02">2019-11-02</time></td>
+                    <td><span class="data-table__status data-table__status--active">Active</span></td>
+                </tr>
+                <tr>
+                    <td>Ava Martinez</td>
+                    <td>Product</td>
+                    <td>Madrid</td>
+                    <td><time datetime="2023-06-21">2023-06-21</time></td>
+                    <td><span class="data-table__status data-table__status--away">Away</span></td>
+                </tr>
+                <tr>
+                    <td>Leo Novak</td>
+                    <td>Engineering</td>
+                    <td>Prague</td>
+                    <td><time datetime="2020-01-09">2020-01-09</time></td>
+                    <td><span class="data-table__status data-table__status--offline">Offline</span></td>
+                </tr>
+                <tr>
+                    <td>Sara Kim</td>
+                    <td>Marketing</td>
+                    <td>Seoul</td>
+                    <td><time datetime="2022-08-30">2022-08-30</time></td>
+                    <td><span class="data-table__status data-table__status--active">Active</span></td>
+                </tr>
+                <tr>
+                    <td>Omar Haddad</td>
+                    <td>Design</td>
+                    <td>Amman</td>
+                    <td><time datetime="2024-02-12">2024-02-12</time></td>
+                    <td><span class="data-table__status data-table__status--away">Away</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="data-table__empty" hidden data-table-empty>No people match your filter.</p>
+</div>

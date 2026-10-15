@@ -1,0 +1,19 @@
+.copy-field > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.copy-field > * + * {
+  margin-block-start: 0.5rem;
+}
+.copy-field__input {
+  font-family: var(--spruce-font-family-mono);
+}
+
+.copy-button {
+  flex-shrink: 0;
+  min-inline-size: 6.5rem;
+}
+.copy-button.is-copied {
+  background-color: var(--spruce-alert-color-success);
+  border-color: var(--spruce-alert-color-success);
+}

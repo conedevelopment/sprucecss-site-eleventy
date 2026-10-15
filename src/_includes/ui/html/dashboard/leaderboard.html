@@ -1,0 +1,41 @@
+{#- Override with `leaderboard` ({ title, metric, people: [{ name, team, avatar, value, label, change }] }). `value` is the share of the leader's result in percent; `change` is the rank change (positive is up). -#}
+{%- set _s = leaderboard or {
+    "title": "Top sellers",
+    "metric": "Revenue this month",
+    "people": [
+        { "name": "Amelia Brooks", "team": "Enterprise", "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=96&h=96&q=70", "value": 100, "label": "$84,200", "change": 0 },
+        { "name": "Noah Fischer", "team": "Mid-market", "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=96&h=96&q=70", "value": 86, "label": "$72,450", "change": 2 },
+        { "name": "Priya Raman", "team": "Enterprise", "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=96&h=96&q=70", "value": 79, "label": "$66,900", "change": -1 },
+        { "name": "Lucas Moreau", "team": "SMB", "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=96&h=96&q=70", "value": 64, "label": "$53,800", "change": 1 },
+        { "name": "Hana Sato", "team": "Mid-market", "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=96&h=96&q=70", "value": 58, "label": "$48,700", "change": -2 }
+    ]
+} %}
+<section class="leaderboard" aria-labelledby="leaderboard-title">
+    <header class="leaderboard__header">
+        <h2 class="leaderboard__title" id="leaderboard-title">{{ _s.title }}</h2>
+        <p class="leaderboard__metric">{{ _s.metric }}</p>
+    </header>
+    <ol class="leaderboard__list">
+        {%- for person in _s.people %}
+        <li class="leaderboard__item{% if loop.index <= 3 %} leaderboard__item--top{% endif %}" style="--value: {{ person.value }}%;">
+            <span class="leaderboard__rank" aria-hidden="true">{{ loop.index }}</span>
+            <span class="avatar avatar--sm"><img src="{{ person.avatar }}" alt="" width="40" height="40" loading="lazy"></span>
+            <span class="leaderboard__person">
+                <span class="leaderboard__name">{{ person.name }}</span>
+                <span class="leaderboard__team">{{ person.team }}</span>
+            </span>
+            <span class="leaderboard__result">
+                <strong>{{ person.label }}</strong>
+                {%- if person.change > 0 %}
+                <span class="leaderboard__change leaderboard__change--up">▲ {{ person.change }}<span class="sr-only"> places up</span></span>
+                {%- elif person.change < 0 %}
+                <span class="leaderboard__change leaderboard__change--down">▼ {{ person.change | abs }}<span class="sr-only"> places down</span></span>
+                {%- else %}
+                <span class="leaderboard__change">–<span class="sr-only">No change</span></span>
+                {%- endif %}
+            </span>
+            <span class="leaderboard__bar" aria-hidden="true"></span>
+        </li>
+        {%- endfor %}
+    </ol>
+</section>

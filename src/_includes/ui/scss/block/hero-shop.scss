@@ -1,0 +1,184 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.hero-shop-block {
+  padding-block: spacer('m') spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: grid;
+    gap: spacer('m');
+
+    @include breakpoint('lg') {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    }
+  }
+
+  // The image fills the tile; a shade keeps the white text readable on any photo.
+  &__main,
+  &__tile {
+    @include set-css-variable((
+      --base-color-heading: hsl(0deg 0% 100%),
+      --base-color-text: hsl(0deg 0% 100%),
+    ));
+    background-color: color('heading');
+    border-radius: radius('lg');
+    color: hsl(0deg 0% 100%);
+    display: flex;
+    isolation: isolate;
+    overflow: hidden;
+    position: relative;
+
+    &::after {
+      background-image: linear-gradient(to top, hsl(0deg 0% 0% / 70%), hsl(0deg 0% 0% / 10%) 70%);
+      content: '';
+      inset: 0;
+      position: absolute;
+      z-index: -1;
+    }
+  }
+
+  &__main {
+    align-items: flex-end;
+    min-block-size: clamp(26rem, 60vb, 36rem);
+  }
+
+  &__image {
+    block-size: 100%;
+    inline-size: 100%;
+    inset: 0;
+    object-fit: cover;
+    position: absolute;
+    z-index: -2;
+  }
+
+  &__content {
+    max-inline-size: 36rem;
+    padding: spacer-clamp('m', 'xl');
+    @include layout-stack('s');
+  }
+
+  &__eyebrow {
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font-size: responsive-font-size(4rem, 40, '5vw + 1rem');
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+
+  &__text {
+    font-size: config('font-size-lead', $typography);
+    opacity: 0.9;
+  }
+
+  &__actions {
+    @include layout-cluster('s');
+  }
+
+  &__primary {
+    background-color: hsl(0deg 0% 100%);
+    border-color: hsl(0deg 0% 100%);
+    color: hsl(0deg 0% 10%);
+
+    &:hover {
+      background-color: hsl(0deg 0% 92%);
+      border-color: hsl(0deg 0% 92%);
+      color: hsl(0deg 0% 10%);
+    }
+  }
+
+  &__secondary {
+    background-color: transparent;
+    border-color: hsl(0deg 0% 100% / 70%);
+    color: hsl(0deg 0% 100%);
+
+    &:hover {
+      background-color: hsl(0deg 0% 100% / 15%);
+      border-color: hsl(0deg 0% 100%);
+      color: hsl(0deg 0% 100%);
+    }
+  }
+
+  &__tiles {
+    display: grid;
+    gap: spacer('m');
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include breakpoint('sm') {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include breakpoint('lg') {
+      grid-template-columns: none;
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__tile {
+    @include a11y-card-link('.hero-shop-block__link', true);
+    align-items: flex-end;
+    min-block-size: 14rem;
+  }
+
+  &__tile-content {
+    padding: spacer('m');
+    @include layout-stack('xxs');
+  }
+
+  &__tile-title {
+    font-size: font-size('h3');
+  }
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+
+    &:focus-visible {
+      outline: none;
+    }
+
+    &:focus-visible::before {
+      border-radius: radius('lg');
+      outline: 3px solid color('focus-ring');
+      outline-offset: -3px;
+    }
+  }
+
+  &__more {
+    align-items: center;
+    display: flex;
+    font-weight: 700;
+    gap: spacer('xs');
+
+    .block-icon {
+      block-size: 1rem;
+      inline-size: 1rem;
+    }
+  }
+
+  @include motion-safe {
+    &__image {
+      transition: scale 0.5s ease;
+    }
+
+    &__tile:hover &__image {
+      scale: 1.05;
+    }
+  }
+}
+
+[dir='rtl'] .hero-shop-block__more .block-icon {
+  scale: -1 1;
+}

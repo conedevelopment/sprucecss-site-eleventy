@@ -1,34 +1,86 @@
-<div
-    @click.outside="open = false"
-    @keyup.escape.window="open = false"
-    class="lang-switcher"
-    x-data="{ open: false }"
->
-    <button
-        @click="open = ! open"
-        :aria-expanded="open"
-        aria-label="English"
-        aria-expanded="false"
-        class="lang-switcher__control"
-        type="button"
-    >
-        en
-        <svg aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-            <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-    </button>
-    <ul
-        class="lang-switcher__panel"
-        x-cloak
-        x-trap="open"
-        x-show="open"
-        x-transition.origin.top.leff
-    >
-        <li>
-            <a hreflang="de" href="/de/" aria-label="German">de</a>
-        </li>
-        <li>
-            <a hreflang="fr" href="/fr/" aria-label="French">fr</a>
-        </li>
-    </ul>
+<div class="lang-switcher-demo">
+    <nav class="lang-switcher" aria-label="Language" data-lang-switcher>
+        <button class="lang-switcher__control" type="button" aria-expanded="false" aria-controls="lang-switcher-panel">
+            <svg class="lang-switcher__icon" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span class="lang-switcher__current">en</span>
+            <span class="sr-only">English, change language</span>
+            <svg class="lang-switcher__chevron" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <ul class="lang-switcher__panel" id="lang-switcher-panel" hidden>
+            <li>
+                <a class="lang-switcher__link" href="/" hreflang="en" lang="en" aria-current="true">
+                    <span class="lang-switcher__code" aria-hidden="true">en</span>
+                    English
+                    <svg class="lang-switcher__check" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"/></svg>
+                </a>
+            </li>
+            <li>
+                <a class="lang-switcher__link" href="#" hreflang="de" lang="de">
+                    <span class="lang-switcher__code" aria-hidden="true">de</span>
+                    Deutsch
+                </a>
+            </li>
+            <li>
+                <a class="lang-switcher__link" href="#" hreflang="fr" lang="fr">
+                    <span class="lang-switcher__code" aria-hidden="true">fr</span>
+                    Français
+                </a>
+            </li>
+            <li>
+                <a class="lang-switcher__link" href="#" hreflang="hu" lang="hu">
+                    <span class="lang-switcher__code" aria-hidden="true">hu</span>
+                    Magyar
+                </a>
+            </li>
+            <li>
+                <a class="lang-switcher__link" href="#" hreflang="ar" lang="ar">
+                    <span class="lang-switcher__code" aria-hidden="true">ar</span>
+                    العربية
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- In a footer: open upward -->
+    <nav class="lang-switcher lang-switcher--upward" aria-label="Language" data-lang-switcher>
+        <button class="lang-switcher__control" type="button" aria-expanded="false" aria-controls="lang-switcher-panel-footer">
+            <svg class="lang-switcher__icon" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span class="lang-switcher__current">en</span>
+            <span class="sr-only">English, change language</span>
+            <svg class="lang-switcher__chevron" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <ul class="lang-switcher__panel" id="lang-switcher-panel-footer" hidden>
+            <li>
+                <a class="lang-switcher__link" href="/" hreflang="en" lang="en" aria-current="true">
+                    <span class="lang-switcher__code" aria-hidden="true">en</span>
+                    English
+                    <svg class="lang-switcher__check" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"/></svg>
+                </a>
+            </li>
+            <li>
+                <a class="lang-switcher__link" href="#" hreflang="de" lang="de">
+                    <span class="lang-switcher__code" aria-hidden="true">de</span>
+                    Deutsch
+                </a>
+            </li>
+            <li>
+                <a class="lang-switcher__link" href="#" hreflang="fr" lang="fr">
+                    <span class="lang-switcher__code" aria-hidden="true">fr</span>
+                    Français
+                </a>
+            </li>
+            <li>
+                <a class="lang-switcher__link" href="#" hreflang="hu" lang="hu">
+                    <span class="lang-switcher__code" aria-hidden="true">hu</span>
+                    Magyar
+                </a>
+            </li>
+            <li>
+                <a class="lang-switcher__link" href="#" hreflang="ar" lang="ar">
+                    <span class="lang-switcher__code" aria-hidden="true">ar</span>
+                    العربية
+                </a>
+            </li>
+        </ul>
+    </nav>
 </div>

@@ -1,32 +1,64 @@
-.payment-card {
-  position: relative;
-  align-items: center;
-  background-color: var(--spruce-base-color-background);
-  border: 1px solid var(--spruce-base-color-border);
-  border-radius: 0.925rem;
-  color: var(--spruce-base-color-heading);
-  display: flex;
-  gap: 1.5rem;
-  padding: clamp(1rem, 5vw, 1.5rem);
-  text-decoration: none;
-}
-.payment-card .form-check::before {
-  content: "";
-  inset: 0;
-  position: absolute;
-}
-
-.payment-card__caption > * {
+.payment-card-group > * {
   margin-block-end: 0;
   margin-block-start: 0;
 }
-.payment-card__caption > * + * {
-  margin-block-start: 0.5rem;
+.payment-card-group > * + * {
+  margin-block-start: 1rem;
+}
+.payment-card-group {
+  border: 0;
+  margin: 0;
+  min-inline-size: 0;
+  padding: 0;
+}
+.payment-card-group__legend {
+  color: var(--spruce-base-color-heading);
+  font-size: clamp(1.0625rem, 2vw + 1rem, 1.25rem);
+  font-weight: 700;
+  margin-block-end: 0.5rem;
+  padding: 0;
+}
+
+.payment-card {
+  transition-duration: var(--spruce-duration);
+  transition-property: border-color, background-color, box-shadow;
+  transition-timing-function: var(--spruce-timing-function);
+  align-items: center;
+  background-color: var(--spruce-base-color-surface);
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  border-radius: var(--spruce-border-radius-lg);
+  cursor: pointer;
+  display: flex;
+  gap: 1rem;
+  padding: clamp(1rem, 5vw, 1.5rem);
+}
+.payment-card:hover {
+  border-color: var(--spruce-base-color-primary);
+}
+.payment-card:has(:checked) {
+  background-color: color-mix(in srgb, var(--spruce-base-color-primary) 5%, transparent);
+  border-color: var(--spruce-base-color-primary);
+  box-shadow: inset 0 0 0 1px var(--spruce-base-color-primary);
+}
+.payment-card__control {
+  flex-shrink: 0;
+}
+.payment-card__caption {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 0.25rem;
 }
 .payment-card__title {
-  font-size: clamp(1.0625rem, 2vw + 1rem, 1.25rem);
+  color: var(--spruce-base-color-heading);
+  font-weight: 700;
+}
+.payment-card__description {
+  color: var(--spruce-base-color-muted);
+  font-size: var(--spruce-font-size-sm);
 }
 .payment-card__logo {
   block-size: 1.75rem;
+  flex-shrink: 0;
   inline-size: auto;
 }

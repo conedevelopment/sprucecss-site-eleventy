@@ -1,0 +1,53 @@
+{#- Override with `cartDrawer` ({ freeShipping, items: [{ name, meta, price, quantity, image }] }). Open it with any `data-drawer-open="cart-drawer"` element. -#}
+{%- set _c = cartDrawer or {
+    "freeShipping": 150,
+    "items": [
+        { "name": "Everyday Backpack", "meta": "Charcoal · 22 L", "price": 89, "quantity": 1, "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=160&h=160&q=60" },
+        { "name": "Ceramic Pour-Over", "meta": "White", "price": 42, "quantity": 1, "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=160&h=160&q=60" }
+    ]
+} %}
+{%- if not cartDrawerNoTrigger %}
+<button class="btn btn--primary" type="button" data-drawer-open="cart-drawer" aria-haspopup="dialog">Open the cart</button>
+{%- endif %}
+<dialog class="drawer cart-drawer" id="cart-drawer" aria-labelledby="cart-drawer-title" data-cart-drawer data-free-shipping="{{ _c.freeShipping }}">
+    <div class="drawer__panel">
+        <header class="drawer__header">
+            <h2 class="drawer__title" id="cart-drawer-title">Your cart <span class="cart-drawer__count">(<span data-cart-drawer-count>{{ _c.items | length }}</span>)</span></h2>
+            <button class="btn btn--ghost-secondary btn--icon btn--sm" type="button" data-drawer-close>
+                <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                <span class="sr-only">Close the cart</span>
+            </button>
+        </header>
+        <div class="drawer__body cart-drawer__body">
+            <div class="cart-drawer__shipping">
+                <p class="cart-drawer__shipping-text" data-cart-drawer-shipping>Add <strong>$19.00</strong> more for free shipping.</p>
+                <progress class="cart-drawer__progress" max="{{ _c.freeShipping }}" value="131" data-cart-drawer-progress>131 of {{ _c.freeShipping }}</progress>
+            </div>
+            <ul class="cart-drawer__items" role="list">
+                {%- for item in _c.items %}
+                <li class="cart-drawer__item" data-cart-drawer-item data-price="{{ item.price }}">
+                    <img class="cart-drawer__thumb" src="{{ item.image }}" alt="" width="80" height="80" loading="lazy">
+                    <div class="cart-drawer__info">
+                        <a class="cart-drawer__name" href="#">{{ item.name }}</a>
+                        <p class="cart-drawer__meta">{{ item.meta }}</p>
+                        <div class="cart-drawer__quantity" role="group" aria-label="Quantity of {{ item.name }}">
+                            <button class="cart-drawer__step" type="button" data-cart-drawer-step="-1"><span aria-hidden="true">−</span><span class="sr-only">Decrease</span></button>
+                            <output class="cart-drawer__value" data-cart-drawer-quantity>{{ item.quantity }}</output>
+                            <button class="cart-drawer__step" type="button" data-cart-drawer-step="1"><span aria-hidden="true">+</span><span class="sr-only">Increase</span></button>
+                        </div>
+                    </div>
+                    <p class="cart-drawer__price" data-cart-drawer-line>${{ item.price * item.quantity }}.00</p>
+                </li>
+                {%- endfor %}
+            </ul>
+            <p class="cart-drawer__empty" data-cart-drawer-empty hidden>Your cart is empty.</p>
+        </div>
+        <footer class="cart-drawer__footer">
+            <p class="cart-drawer__subtotal"><span>Subtotal</span> <strong data-cart-drawer-subtotal>$131.00</strong></p>
+            <p class="cart-drawer__note">Taxes calculated at checkout.</p>
+            <a class="btn btn--primary btn--block" href="#">Checkout</a>
+            <button class="btn btn--ghost-primary btn--block" type="button" data-drawer-close>Continue shopping</button>
+        </footer>
+        <p class="sr-only" aria-live="polite" data-cart-drawer-live></p>
+    </div>
+</dialog>

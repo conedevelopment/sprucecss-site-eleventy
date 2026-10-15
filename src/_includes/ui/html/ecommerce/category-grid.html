@@ -1,0 +1,29 @@
+{#- Override with `categoryGrid` ({ title, link, categories: [{ name, count, image }] }). The first category is featured (larger). -#}
+{%- set _s = categoryGrid or {
+    "title": "Shop by category",
+    "link": "All categories",
+    "categories": [
+        { "name": "Home & Living", "count": 248, "image": "https://images.unsplash.com/photo-1484101403633-562f891dc89a?auto=format&fit=crop&w=900&q=70" },
+        { "name": "Bags", "count": 64, "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=70" },
+        { "name": "Audio", "count": 37, "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=70" },
+        { "name": "Coffee", "count": 52, "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=500&q=70" },
+        { "name": "Watches", "count": 29, "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=70" }
+    ]
+} %}
+<section class="category-grid" aria-labelledby="category-grid-title">
+    <header class="category-grid__header">
+        <h2 class="category-grid__title" id="category-grid-title">{{ _s.title }}</h2>
+        <a class="category-grid__all" href="#">{{ _s.link }}</a>
+    </header>
+    <ul class="category-grid__list" role="list">
+        {%- for category in _s.categories %}
+        <li class="category-grid__item{% if loop.first %} category-grid__item--featured{% endif %}">
+            <a class="category-grid__link" href="#">
+                <img src="{{ category.image }}" alt="" loading="lazy">
+                <span class="category-grid__name">{{ category.name }}</span>
+                <span class="category-grid__count">{{ category.count }} products</span>
+            </a>
+        </li>
+        {%- endfor %}
+    </ul>
+</section>

@@ -1,0 +1,35 @@
+{#- Override with `recentlyViewed` ({ title, products: [{ name, price, image }] }). -#}
+{%- set _s = recentlyViewed or {
+    "title": "Recently viewed",
+    "products": [
+        { "name": "Everyday Backpack", "price": "$89", "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=400&q=70" },
+        { "name": "Ceramic Pour-Over", "price": "$42", "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=400&q=70" },
+        { "name": "Wireless Headphones", "price": "$199", "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=400&q=70" },
+        { "name": "Desk Lamp", "price": "$79", "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=400&q=70" },
+        { "name": "Smart Watch", "price": "$299", "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=400&q=70" },
+        { "name": "Leather Weekender", "price": "$249", "image": "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=400&q=70" },
+        { "name": "Sunglasses", "price": "$129", "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=400&q=70" }
+    ]
+} %}
+<section class="recently-viewed" aria-labelledby="recently-viewed-title" data-recently-viewed>
+    <header class="recently-viewed__header">
+        <h2 class="recently-viewed__title" id="recently-viewed-title">{{ _s.title }}</h2>
+        <div class="recently-viewed__controls" hidden data-recently-viewed-controls>
+            <button class="btn btn--secondary btn--icon btn--sm recently-viewed__arrow" type="button" data-direction="-1"><svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6"/></svg><span class="sr-only">Scroll back</span></button>
+            <button class="btn btn--secondary btn--icon btn--sm recently-viewed__arrow" type="button" data-direction="1"><svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg><span class="sr-only">Scroll forward</span></button>
+        </div>
+        <button class="btn btn--ghost-primary btn--sm" type="button" data-recently-viewed-clear>Clear history</button>
+    </header>
+    <ul class="recently-viewed__track" role="list" tabindex="0" aria-labelledby="recently-viewed-title" data-recently-viewed-track>
+        {%- for product in _s.products %}
+        <li class="recently-viewed__item">
+            <a class="recently-viewed__link" href="#">
+                <img src="{{ product.image }}" alt="" width="400" height="400" loading="lazy">
+                <span class="recently-viewed__name">{{ product.name }}</span>
+                <span class="recently-viewed__price">{{ product.price }}</span>
+            </a>
+        </li>
+        {%- endfor %}
+    </ul>
+    <p class="recently-viewed__cleared" tabindex="-1" hidden data-recently-viewed-cleared>Your browsing history is cleared.</p>
+</section>

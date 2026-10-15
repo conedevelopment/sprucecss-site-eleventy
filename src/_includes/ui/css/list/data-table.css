@@ -1,0 +1,93 @@
+.data-table > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.data-table > * + * {
+  margin-block-start: 1rem;
+}
+.data-table__toolbar {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+.data-table__filter {
+  max-inline-size: 20rem;
+}
+.data-table__summary, .data-table__empty {
+  color: var(--spruce-base-color-muted);
+  font-size: var(--spruce-font-size-sm);
+}
+.data-table__summary {
+  margin-block: 0;
+}
+.data-table__empty {
+  padding: 1.5rem;
+  text-align: center;
+}
+.data-table__sort {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  outline: inherit;
+  padding: 0;
+  align-items: center;
+  display: inline-flex;
+  font-weight: inherit;
+  gap: 0.25rem;
+  white-space: nowrap;
+}
+.data-table__sort:focus-visible {
+  border-radius: var(--spruce-border-radius-sm);
+  outline: 2px solid var(--spruce-base-color-focus-ring);
+  outline-offset: 2px;
+}
+.data-table__sort-icon {
+  block-size: 0.75em;
+  inline-size: 0.5em;
+  opacity: 0.35;
+  position: relative;
+}
+.data-table__sort-icon::before, .data-table__sort-icon::after {
+  border-inline: 0.25em solid transparent;
+  content: "";
+  inset-inline-start: 0;
+  position: absolute;
+}
+.data-table__sort-icon::before {
+  border-block-end: 0.3em solid currentcolor;
+  inset-block-start: 0;
+}
+.data-table__sort-icon::after {
+  border-block-start: 0.3em solid currentcolor;
+  inset-block-end: 0;
+}
+th[aria-sort=ascending] .data-table__sort-icon, th[aria-sort=descending] .data-table__sort-icon {
+  opacity: 1;
+}
+th[aria-sort=ascending] .data-table__sort-icon::after, th[aria-sort=descending] .data-table__sort-icon::before {
+  opacity: 0;
+}
+.data-table__status {
+  --status-color: var(--spruce-alert-color-success);
+  align-items: center;
+  display: inline-flex;
+  font-size: var(--spruce-font-size-sm);
+  gap: 0.25rem;
+}
+.data-table__status::before {
+  background-color: var(--status-color);
+  block-size: 0.5rem;
+  border-radius: 50%;
+  content: "";
+  inline-size: 0.5rem;
+}
+.data-table__status--away {
+  --status-color: var(--spruce-alert-color-warning);
+}
+.data-table__status--offline {
+  --status-color: var(--spruce-base-color-border-strong);
+}

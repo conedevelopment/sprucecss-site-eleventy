@@ -1,0 +1,36 @@
+<section class="coupon-form" aria-labelledby="coupon-form-title" data-coupon-form data-subtotal="128.00">
+    <h2 class="coupon-form__title" id="coupon-form-title">Discount code</h2>
+    <form class="coupon-form__form" action="#" method="post" novalidate data-coupon-form-form>
+        <label class="sr-only" for="coupon-code">Discount code</label>
+        <input class="form-control" id="coupon-code" name="code" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Enter a code" aria-describedby="coupon-form-message">
+        <button class="btn btn--secondary" type="submit">Apply</button>
+    </form>
+    <p class="coupon-form__message" id="coupon-form-message" aria-live="polite" data-coupon-form-message>Try <strong>SPRUCE10</strong> or <strong>FREESHIP</strong>.</p>
+    <ul class="coupon-form__applied" role="list" data-coupon-form-applied></ul>
+    <dl class="coupon-form__totals">
+        <div>
+            <dt>Subtotal</dt>
+            <dd>$128.00</dd>
+        </div>
+        <div class="coupon-form__discount" hidden data-coupon-form-discount-row>
+            <dt>Discount</dt>
+            <dd data-coupon-form-discount>−$0.00</dd>
+        </div>
+        <div>
+            <dt>Shipping</dt>
+            <dd data-coupon-form-shipping>$6.90</dd>
+        </div>
+        <div class="coupon-form__total">
+            <dt>Total</dt>
+            <dd data-coupon-form-total>$134.90</dd>
+        </div>
+    </dl>
+    <template data-coupon-form-chip>
+        <li class="coupon-form__chip">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><path d="M7.5 7.5h.01"/></svg>
+            <span class="coupon-form__code"></span>
+            <span class="coupon-form__detail"></span>
+            <button class="coupon-form__remove" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg><span class="sr-only"></span></button>
+        </li>
+    </template>
+</section>

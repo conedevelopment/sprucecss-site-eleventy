@@ -1,0 +1,27 @@
+---
+title: 'Skeleton'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium ui--skeleton">
+        {% include "ui/html/feedback/skeleton.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/feedback/skeleton.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/feedback/skeleton.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/feedback/skeleton.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/feedback/skeleton.css">
+{% endblock %}

@@ -1,0 +1,168 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.product-cards {
+  @include layout-grid('m', 14rem);
+}
+
+.product-card {
+  @include a11y-card-link('.product-card__link', true);
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  @include transition($property: 'box-shadow, translate');
+
+  &:hover {
+    box-shadow: shadow('md');
+    translate: 0 -2px;
+  }
+
+  &:focus-within {
+    outline: 2px solid color('focus-ring');
+    outline-offset: 2px;
+  }
+
+  &__media {
+    aspect-ratio: 1;
+    background-color: color('surface-muted');
+    position: relative;
+
+    img {
+      block-size: 100%;
+      inline-size: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__tag {
+    background-color: color('danger', 'alert');
+    border-radius: radius('pill');
+    color: hsl(0deg 0% 100%);
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+    inset-block-start: spacer('s');
+    inset-inline-start: spacer('s');
+    padding: spacer('xxs') spacer('xs');
+    position: absolute;
+  }
+
+  // A toggle button above the card link overlay (z-index), like the action.
+  &__wishlist {
+    align-items: center;
+    background-color: color('surface');
+    block-size: 2.25rem;
+    border: 0;
+    border-radius: 50%;
+    box-shadow: shadow('sm');
+    color: color('heading');
+    cursor: pointer;
+    display: flex;
+    inline-size: 2.25rem;
+    inset-block-start: spacer('s');
+    inset-inline-end: spacer('s');
+    justify-content: center;
+    position: absolute;
+    z-index: 1;
+
+    svg {
+      block-size: 1.15rem;
+      inline-size: 1.15rem;
+    }
+
+    &:hover {
+      color: color('danger', 'alert');
+    }
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 2px;
+    }
+
+    &[aria-pressed='true'] {
+      color: color('danger', 'alert');
+
+      svg {
+        fill: currentColor;
+      }
+    }
+  }
+
+  &__body {
+    flex-grow: 1;
+    padding: spacer('s') spacer('s') 0;
+    @include layout-stack('xxs');
+  }
+
+  &__title {
+    font-size: font-size('h5');
+    margin-block: 0;
+  }
+
+  &__link {
+    color: color('heading');
+    text-decoration: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__rating {
+    align-items: center;
+    display: flex;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xxs');
+  }
+
+  &__stars {
+    --rating: 0;
+    --star-size: 1rem;
+    color: color('border');
+    display: inline-flex;
+    position: relative;
+
+    svg {
+      block-size: var(--star-size);
+      inline-size: var(--star-size);
+    }
+
+    // The fill: a gradient up to the rating, cut to star shapes by a repeating star mask.
+    &::after {
+      background-image: linear-gradient(var(--star-direction, 90deg), #{color('warning', 'alert')} calc(var(--rating) / 5 * 100%), transparent 0);
+      content: '';
+      inset: 0;
+      mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z'/%3E%3C/svg%3E") 0 0 / var(--star-size) var(--star-size) repeat-x;
+      position: absolute;
+    }
+  }
+
+  &__reviews {
+    color: color('muted');
+  }
+
+  &__price {
+    color: color('heading');
+    font-size: config('font-size-lg', $typography);
+    font-weight: 700;
+  }
+
+  &__old-price {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    font-weight: 400;
+    margin-inline-start: spacer('xxs');
+  }
+
+  &__action {
+    margin: spacer('s');
+    position: relative;
+    z-index: 1;
+  }
+}
+
+// The stars fill from the right in RTL.
+[dir='rtl'] .product-card__stars {
+  --star-direction: 270deg;
+}

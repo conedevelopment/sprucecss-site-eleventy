@@ -1,0 +1,27 @@
+---
+title: 'Sidebar Navigation'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--narrow ui--sidebar-navigation">
+        {% include "ui/html/navigation/sidebar-navigation.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/navigation/sidebar-navigation.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/navigation/sidebar-navigation.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/navigation/sidebar-navigation.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/navigation/sidebar-navigation.css">
+{% endblock %}

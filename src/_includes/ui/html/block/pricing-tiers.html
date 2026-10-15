@@ -1,0 +1,64 @@
+{#- Override with `pricingTiersBlock` ({ heading, deal, features, tiers: [{ name, description, price, oldPrice, period, includes: [true|false per feature], cta, featured, badge }], note }) and the guarantee with `guarantee`. -#}
+{%- set _s = pricingTiersBlock or {
+    "heading": { "eyebrow": "Pricing", "title": "Pick your bundle", "text": "Pay once, keep it forever. Every tier includes free updates.", "id": "pricing-tiers-title" },
+    "deal": "Launch price: 30% off until October 31",
+    "features": ["The ebook (PDF, EPUB, Kindle)", "Code samples and exercises", "64 video lessons (12 hours)", "Source code for every lesson", "Private community", "Team license and invoice"],
+    "tiers": [
+        { "name": "Book", "description": "Read it at your own pace.", "price": "$39", "oldPrice": "$49", "includes": [true, true, false, false, false, false], "cta": "Buy the book" },
+        { "name": "Complete", "description": "The book and the video course.", "price": "$129", "oldPrice": "$198", "includes": [true, true, true, true, true, false], "cta": "Get the bundle", "featured": true, "badge": "Best value" },
+        { "name": "Team", "description": "Everything for up to 10 people.", "price": "$499", "oldPrice": "$690", "includes": [true, true, true, true, true, true], "cta": "Buy for your team" }
+    ],
+    "note": "Prices in USD, VAT included where it applies. Student discount: 40% off with a school email."
+} %}
+<section class="pricing-tiers-block" id="pricing" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="pricing-tiers-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            {%- if _s.deal %}
+            <p class="pricing-tiers-block__deal"><span class="badge badge--danger">Sale</span> {{ _s.deal }}</p>
+            {%- endif %}
+            <ul class="pricing-tiers-block__tiers" role="list">
+                {%- for tier in _s.tiers %}
+                {%- set tierId = "tier-" + (tier.name | lower | replace(" ", "-")) %}
+                <li class="pricing-tiers-block__tier{% if tier.featured %} pricing-tiers-block__tier--featured{% endif %}">
+                    {%- if tier.badge %}
+                    <p class="pricing-tiers-block__badge">{{ tier.badge }}</p>
+                    {%- endif %}
+                    <div class="pricing-tiers-block__header">
+                        <h3 class="pricing-tiers-block__name" id="{{ tierId }}">{{ tier.name }}</h3>
+                        <p class="pricing-tiers-block__description">{{ tier.description }}</p>
+                    </div>
+                    <p class="pricing-tiers-block__price">
+                        <span class="pricing-tiers-block__amount"><span class="sr-only">Price: </span>{{ tier.price }}</span>
+                        {%- if tier.oldPrice %}
+                        <del class="pricing-tiers-block__old"><span class="sr-only">Regular price: </span>{{ tier.oldPrice }}</del>
+                        {%- endif %}
+                        <span class="pricing-tiers-block__period">{{ tier.period or "one-time" }}</span>
+                    </p>
+                    <a class="btn {% if tier.featured %}btn--primary{% else %}btn--outline-primary{% endif %} btn--block" href="#">{{ tier.cta }}<span class="sr-only">: {{ tier.name }}</span></a>
+                    <ul class="pricing-tiers-block__features" role="list">
+                        {%- for feature in _s.features %}
+                        {%- if tier.includes[loop.index0] %}
+                        <li class="pricing-tiers-block__feature">
+                            <svg class="pricing-tiers-block__mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>
+                            {{ feature }}
+                        </li>
+                        {%- else %}
+                        <li class="pricing-tiers-block__feature pricing-tiers-block__feature--excluded">
+                            <svg class="pricing-tiers-block__mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6 12h12"/></svg>
+                            <span class="sr-only">Not included: </span>{{ feature }}
+                        </li>
+                        {%- endif %}
+                        {%- endfor %}
+                    </ul>
+                </li>
+                {%- endfor %}
+            </ul>
+            <div class="pricing-tiers-block__footer">
+                {% include "../misc/guarantee.html" %}
+                <p class="pricing-tiers-block__note">{{ _s.note }}</p>
+            </div>
+        </div>
+    </div>
+</section>

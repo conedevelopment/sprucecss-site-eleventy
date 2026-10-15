@@ -1,0 +1,30 @@
+---
+category: 'Features'
+title: 'Features'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--block ui--features">
+        {% include "ui/html/block/features.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/block/features.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/block/features.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/block/features.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/container.css">
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/block-heading.css">
+    <link rel="stylesheet" href="/_includes/ui/css/block/features.css">
+{% endblock %}

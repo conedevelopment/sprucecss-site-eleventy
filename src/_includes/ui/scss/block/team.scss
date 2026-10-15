@@ -1,0 +1,72 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.team-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+  }
+
+  &__grid {
+    @include clear-list;
+    @include layout-grid('m', 14rem);
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__member {
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    &--hiring {
+      background-color: color('surface-muted');
+      border-style: dashed;
+      justify-content: center;
+    }
+  }
+
+  &__photo {
+    aspect-ratio: 6 / 7;
+    inline-size: 100%;
+    object-fit: cover;
+  }
+
+  &__body {
+    padding: spacer('m');
+    @include layout-stack('xxs');
+
+    .badge,
+    .btn {
+      justify-self: start;
+    }
+
+    .btn {
+      margin-block-start: spacer('s') !important;
+    }
+  }
+
+  &__name {
+    font-size: font-size('h5');
+  }
+
+  &__role {
+    color: color('primary');
+    font-size: config('font-size-sm', $typography);
+    font-weight: 600;
+  }
+
+  &__bio {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+}

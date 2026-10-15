@@ -1,0 +1,71 @@
+{% extends "layout/base.html" %}
+
+{% block content %}
+    <div class="hero-wrapper l-pages__hero">
+        {% include "partial/hero.html" %}
+        <div class="container">
+            <dl class="l-pages__facts">
+                <div class="l-pages__fact">
+                    <dt>Pages</dt>
+                    <dd>{{ collections.pages.length }}</dd>
+                </div>
+                <div class="l-pages__fact">
+                    <dt>Blocks</dt>
+                    <dd>{{ collections.blocks.length - 1 }}</dd>
+                </div>
+                <div class="l-pages__fact">
+                    <dt>Components</dt>
+                    <dd>{{ collections.ui.length }}</dd>
+                </div>
+                <div class="l-pages__fact">
+                    <dt>Design styles</dt>
+                    <dd>{{ styles.length + 1 }}</dd>
+                </div>
+            </dl>
+        </div>
+    </div>
+    <div class="l-pages" id="pages">
+        <div class="container">
+            <h2 class="sr-only">All pages</h2>
+            <ul class="l-pages__grid" role="list">
+                {% for item in collections.pages %}
+                    <li>
+                        <article class="page-card" aria-labelledby="page-card-{{ item.fileSlug }}">
+                            <a class="page-card__media" href="{{ item.url }}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                                <span class="page-card__frame">
+                                    {% image item.data.image, "", [640, 1280], "(min-width: 64em) 45vw, 100vw" %}
+                                </span>
+                            </a>
+                            <div class="page-card__body">
+                                <div class="page-card__heading">
+                                    <p class="page-card__kind">{{ item.data.kind }}</p>
+                                    <h3 class="page-card__title" id="page-card-{{ item.fileSlug }}">{{ item.data.title }}</h3>
+                                    <p class="page-card__description">{{ item.data.description }}</p>
+                                </div>
+                                {% set parts = item.data.pageInclude | pageParts %}
+                                {% if parts.length %}
+                                    <ul class="page-card__parts" role="list" aria-label="Built with">
+                                        {% for part in parts %}<li>{{ part }}</li>{% endfor %}
+                                    </ul>
+                                {% endif %}
+                                <div class="page-card__actions">
+                                    <a class="btn btn--primary btn--sm" href="{{ item.url }}" target="_blank" rel="noopener">
+                                        Open page
+                                        {% include "icon/open-in-new.svg" %}
+                                        <span class="sr-only">{{ item.data.title }} (opens in a new tab)</span>
+                                    </a>
+                                    {% if item.data.previewStyle %}
+                                        <a class="btn btn--link btn--sm" href="{{ item.url }}?style=" target="_blank" rel="noopener">
+                                            Default style
+                                            <span class="sr-only">: {{ item.data.title }} (opens in a new tab)</span>
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}

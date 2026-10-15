@@ -1,0 +1,49 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.guarantee {
+  align-items: center;
+  background-color: color('surface');
+  border: config('border-width-base', $display) dashed color('border-strong');
+  border-radius: radius('lg');
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacer('m');
+  padding: spacer('m');
+
+  &__seal {
+    align-items: center;
+    aspect-ratio: 1;
+    background-color: color-alpha('success', 0.12, 'alert');
+    border: 3px double color('success', 'alert');
+    border-radius: 50%;
+    color: color('success', 'alert');
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+    inline-size: 5rem;
+    justify-content: center;
+    line-height: 1.1;
+    margin: 0;
+    text-transform: uppercase;
+
+    strong {
+      font-family: config('font-family-heading', $typography);
+      font-size: 1.75rem;
+    }
+  }
+
+  &__body {
+    flex: 1 1 16rem;
+    @include layout-stack('xxs'); // title, text
+  }
+
+  &__title {
+    font-size: font-size('h5');
+  }
+
+  &__text {
+    color: color('muted');
+  }
+}

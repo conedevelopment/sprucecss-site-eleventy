@@ -1,0 +1,118 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.category-grid {
+  @include layout-stack('m');
+
+  &__header {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs') spacer('s');
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: font-size('h3');
+  }
+
+  &__all {
+    font-weight: 600;
+  }
+
+  &__list {
+    display: grid;
+    gap: spacer('s');
+    grid-auto-rows: 11rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    list-style: none;
+    padding: 0;
+
+    @include breakpoint('md') {
+      gap: spacer('m');
+      grid-auto-rows: 13rem;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__item {
+    &--featured {
+      grid-column: span 2;
+
+      @include breakpoint('md') {
+        grid-row: span 2;
+      }
+    }
+  }
+
+  &__link {
+    block-size: 100%;
+    border-radius: radius('lg');
+    color: hsl(0deg 0% 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    padding: spacer('m');
+    position: relative;
+    text-decoration: none;
+
+    // A gradient keeps the white text readable on any photo.
+    &::after {
+      background-image: linear-gradient(to top, hsl(0deg 0% 0% / 70%), hsl(0deg 0% 0% / 5%) 60%);
+      content: '';
+      inset: 0;
+      position: absolute;
+    }
+
+    img {
+      block-size: 100%;
+      inline-size: 100%;
+      inset: 0;
+      object-fit: cover;
+      position: absolute;
+      @include transition($property: 'scale');
+    }
+
+    &:hover img {
+      @include motion-safe {
+        scale: 1.05;
+      }
+    }
+
+    &:hover .category-grid__name {
+      text-decoration: underline;
+    }
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 3px;
+    }
+  }
+
+  &__name,
+  &__count {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__name {
+    font-family: config('font-family-heading', $typography);
+    font-size: font-size('h5');
+    font-weight: config('font-weight-heading', $typography);
+  }
+
+  &__item--featured &__name {
+    font-size: font-size('h3');
+  }
+
+  &__count {
+    font-size: config('font-size-sm', $typography);
+    opacity: 0.85;
+  }
+}

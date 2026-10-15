@@ -1,0 +1,50 @@
+.segmented-control {
+  background-color: var(--spruce-base-color-surface-muted);
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  border-radius: var(--spruce-border-radius-md);
+  display: inline-flex;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0.25rem;
+}
+.segmented-control > * + * {
+  margin-block-start: 0;
+}
+.segmented-control__option {
+  border-radius: calc(var(--spruce-border-radius-md) - 0.25rem);
+  color: var(--spruce-base-color-text);
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  transition-duration: var(--spruce-duration);
+  transition-property: background-color, box-shadow, color;
+  transition-timing-function: var(--spruce-timing-function);
+}
+.segmented-control__option:hover {
+  color: var(--spruce-base-color-heading);
+}
+.segmented-control__option:has(:checked) {
+  background-color: var(--spruce-base-color-background);
+  box-shadow: var(--spruce-shadow-sm);
+  color: var(--spruce-base-color-heading);
+}
+.segmented-control__option:has(:focus-visible) {
+  outline: 2px solid var(--spruce-base-color-focus-ring);
+  outline-offset: 2px;
+}
+.segmented-control__input {
+  block-size: 1px !important;
+  border: 0 !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  inline-size: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+}
+.segmented-control__hint {
+  color: var(--spruce-alert-color-success);
+  font-weight: 700;
+}

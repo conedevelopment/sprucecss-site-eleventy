@@ -1,4 +1,3 @@
-@use '../../../../scss/config/config'; // DELETE
 @use 'sprucecss/scss/spruce' as *;
 
 .file-list {
@@ -30,8 +29,8 @@
   &__icon {
     align-items: center;
     aspect-ratio: 1;
-    background-color: color('background', 'media');
-    border-radius: config('border-radius-sm', $display);
+    background-color: color-alpha('primary', 0.08);
+    border-radius: radius('sm');
     display: flex;
     inline-size: 2.5rem;
     justify-content: center;
@@ -39,7 +38,7 @@
     svg {
       --size: 1rem;
       block-size: var(--size);
-      color: color('icon', 'media');
+      color: color('primary');
       inline-size: var(--size);
     }
   }
@@ -52,8 +51,9 @@
 
   &__thumbnail {
     aspect-ratio: 1;
-    border-radius: config('border-radius-sm', $display);
+    border-radius: radius('sm');
     inline-size: 2.5rem;
+    object-fit: cover;
   }
 
   &__name {

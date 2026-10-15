@@ -1,0 +1,47 @@
+.countdown {
+  background-color: var(--spruce-base-color-surface);
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  border-radius: var(--spruce-border-radius-lg);
+  padding: clamp(1.5rem, 5vw, 3rem);
+  text-align: center;
+}
+.countdown > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.countdown > * + * {
+  margin-block-start: 1.5rem;
+}
+.countdown__title {
+  font-size: clamp(1.0625rem, 2vw + 1rem, 1.25rem);
+  margin: 0;
+}
+.countdown__timer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+.countdown__unit {
+  background-color: var(--spruce-base-color-surface-muted);
+  border-radius: var(--spruce-border-radius-md);
+  display: flex;
+  flex-direction: column;
+  min-inline-size: 5rem;
+  padding: 1rem;
+}
+.countdown__value {
+  color: var(--spruce-base-color-heading);
+  font-family: var(--spruce-font-family-heading);
+  font-size: clamp(1.66015625rem, 2vw + 1rem, 1.953125rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.countdown__label {
+  color: var(--spruce-base-color-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}

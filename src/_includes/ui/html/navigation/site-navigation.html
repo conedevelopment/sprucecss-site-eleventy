@@ -1,21 +1,23 @@
-<nav class="site-navigation" aria-label="Site">
-    <button class="btn btn--primary btn--icon site-navigation__btn" data-action="navigation-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Main">
-        <svg class="btn__icon" aria-hidden="true" focusable="false" role="img" height="24" style="fill-rule:evenodd;clip-rule:evenodd;fill:currentColor;overflow:visible;" viewBox="0 0 24 24" width="24" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-            <path d="M24,19.6c0,-0.331 -0.269,-0.6 -0.6,-0.6l-20.8,0c-0.331,0 -0.6,0.269 -0.6,0.6l0,2.8c0,0.331 0.269,0.6 0.6,0.6l20.8,-0c0.331,-0 0.6,-0.269 0.6,-0.6l0,-2.8Zm0,-9c0,-0.331 -0.269,-0.6 -0.6,-0.6l-22.8,-0c-0.331,-0 -0.6,0.269 -0.6,0.6l0,2.8c0,0.331 0.269,0.6 0.6,0.6l22.8,-0c0.331,-0 0.6,-0.269 0.6,-0.6l0,-2.8Zm0,-9c0,-0.331 -0.269,-0.6 -0.6,-0.6l-15.8,-0c-0.331,-0 -0.6,0.269 -0.6,0.6l0,2.8c0,0.331 0.269,0.6 0.6,0.6l15.8,-0c0.331,-0 0.6,-0.269 0.6,-0.6l0,-2.8Z"></path>
-        </svg>
+<nav class="site-navigation" aria-label="Main" data-site-navigation>
+    <button class="btn btn--primary btn--icon site-navigation__btn" type="button" aria-controls="primary-menu" aria-expanded="false">
+        <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path class="site-navigation__line site-navigation__line--top" d="M4 6h16"/><path class="site-navigation__line site-navigation__line--middle" d="M4 12h16"/><path class="site-navigation__line site-navigation__line--bottom" d="M4 18h16"/></svg>
+        <span class="sr-only">Menu</span>
     </button>
-    <ul id="primary-menu" class="navigation-menu">
-        <li>
-            <a href="#">Services</a>
+    <ul class="navigation-menu" id="primary-menu">
+        <li><a href="#">Services</a></li>
+        <li class="site-navigation__item">
+            <button class="site-navigation__toggle" type="button" aria-expanded="false" aria-controls="primary-submenu-products">
+                Products
+                <svg class="site-navigation__chevron" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <ul class="site-navigation__submenu" id="primary-submenu-products">
+                <li><a href="#">Analytics</a></li>
+                <li><a href="#">Automation</a></li>
+                <li><a href="#">Integrations</a></li>
+                <li><a href="#">Security</a></li>
+            </ul>
         </li>
-        <li>
-            <a href="#">Products</a>
-        </li>
-        <li>
-            <a href="#">About</a>
-        </li>
-        <li>
-            <a href="#">Contact</a>
-        </li>
+        <li><a href="#" aria-current="page">About</a></li>
+        <li><a href="#">Contact</a></li>
     </ul>
 </nav>

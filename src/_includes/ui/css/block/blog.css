@@ -1,0 +1,24 @@
+.blog-block {
+  padding-block: clamp(4.5rem, 5vw, 7rem);
+}
+.blog-block__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.blog-block__header {
+  align-items: end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+.blog-block__grid {
+  display: grid;
+  gap: 1.5rem;
+}
+@supports (inline-size: min(18rem, 100%)) {
+  .blog-block__grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
+  }
+}

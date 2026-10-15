@@ -1,0 +1,35 @@
+---
+title: 'Tag Input'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--narrow ui--tag-input">
+        {% include "ui/html/form/tag-input.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/form/tag-input.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/form/tag-input.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/form/tag-input.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/form/tag-input.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/form/tag-input.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/form/tag-input.js"></script>
+{% endblock %}

@@ -25,17 +25,32 @@
 
   &__thumbnail {
     aspect-ratio: 16 / 10;
-    border-radius: config('border-radius-sm', $display);
+    border-radius: radius('md');
+    inline-size: 100%;
     object-fit: cover;
   }
 
   &__body {
-    @include layout-stack(s);
+    @include layout-stack('s');
+  }
+
+  // The tags and the author link sit above the stretched title link, so they stay clickable.
+  &__tags a,
+  .post-author__name {
+    position: relative;
+    z-index: 1;
+  }
+
+  &:focus-within #{$this}__title a,
+  &:hover #{$this}__title a {
+    color: color('primary');
   }
 
   &__meta {
+    color: color('muted');
     display: flex;
     flex-wrap: wrap;
+    font-size: config('font-size-sm', $typography);
     gap: spacer('xs') spacer('m');
     line-height: 1;
   }

@@ -19,10 +19,18 @@ order: 26
     {% include "ui/scss/form/file-group.scss" %}
 {% endset %}
 
+{% set js %}
+    {% include "ui/js/form/file-group.js" %}
+{% endset %}
+
 {% set description %}
     {% include "ui/md/form/file-group.md" %}
 {% endset %}
 
 {% block style %}
     <link rel="stylesheet" href="/_includes/ui/css/form/file-group.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/form/file-group.js"></script>
 {% endblock %}

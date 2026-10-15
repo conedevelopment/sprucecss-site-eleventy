@@ -1,0 +1,49 @@
+{#- Override with `heroProductBlock` ({ badge, eyebrow, title, lead, primary, price, secondary, rating, reviews, points: [{ icon, text }], book: { bookCover }, video: { image, label, duration } }). -#}
+{%- set _s = heroProductBlock or {
+    "badge": "New", "eyebrow": "2nd edition, fully updated for 2026",
+    "title": "Master modern CSS with a book and a video course",
+    "lead": "Fourteen chapters and 64 videos on layouts, design tokens, theming and accessible components. Read it, watch it, build it.",
+    "primary": "Get the bundle", "price": "$129", "secondary": "Read a free chapter",
+    "rating": 4.9, "reviews": "2,100 readers",
+    "points": [{ "icon": "book", "text": "380-page ebook" }, { "icon": "video", "text": "12 hours of video" }, { "icon": "infinity", "text": "Lifetime updates" }],
+    "book": { "edition": "2nd edition", "title": "Modern CSS, Explained", "subtitle": "From the cascade to design systems", "author": "Daniel Okafor" },
+    "video": { "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=70", "label": "Watch the trailer", "duration": "2:14" }
+} %}
+<section class="hero-product-block" aria-labelledby="hero-product-title">
+    <div class="container">
+        <div class="hero-product-block__inner">
+            <div class="hero-product-block__content">
+                <p class="hero-product-block__eyebrow"><span class="hero-product-block__badge">{{ _s.badge }}</span> {{ _s.eyebrow }}</p>
+                <h1 class="hero-product-block__title" id="hero-product-title">{{ _s.title }}</h1>
+                <p class="hero-product-block__lead">{{ _s.lead }}</p>
+                <div class="hero-product-block__actions">
+                    <a class="btn btn--primary btn--lg" href="#pricing">{{ _s.primary }} <span class="hero-product-block__price">{{ _s.price }}</span></a>
+                    <a class="btn btn--outline-primary btn--lg" href="#book-preview">
+                        {% set iconName = "download" %}{% set iconClass = "btn__icon" %}{% include "../block/icon.html" %}{% set iconClass = false %}
+                        {{ _s.secondary }}
+                    </a>
+                </div>
+                <p class="hero-product-block__rating">
+                    <span class="hero-product-block__stars" aria-hidden="true">★★★★★</span>
+                    <span><strong>{{ _s.rating }}</strong><span class="sr-only"> out of 5</span> from {{ _s.reviews }}</span>
+                </p>
+                <ul class="hero-product-block__points" role="list">
+                    {%- for point in _s.points %}
+                    <li>{% set iconName = point.icon %}{% include "../block/icon.html" %} {{ point.text }}</li>
+                    {%- endfor %}
+                </ul>
+            </div>
+            <div class="hero-product-block__media">
+                <a class="hero-product-block__video" href="#video-library">
+                    <img src="{{ _s.video.image }}" alt="" width="900" height="600" fetchpriority="high">
+                    <span class="hero-product-block__play" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7 4v16l13-8z"/></svg></span>
+                    <span class="hero-product-block__video-label">{{ _s.video.label }} <span class="hero-product-block__duration">{{ _s.video.duration }}</span></span>
+                </a>
+                <div class="hero-product-block__book">
+                    {% set bookCover = _s.book %}
+                    {% include "../misc/book-cover.html" %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,176 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.listing-toolbar {
+  @include layout-stack('m');
+
+  &__bar {
+    align-items: center;
+    border-block: config('border-width-base', $display) solid color('border');
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs') spacer('s');
+    padding-block: spacer('xs');
+  }
+
+  &__count {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    margin: 0 auto 0 0;
+
+    strong {
+      color: color('heading');
+    }
+  }
+
+  &__badge {
+    background-color: color('primary');
+    border-radius: radius('pill');
+    color: color('primary-foreground', 'btn');
+    font-size: 0.6875rem;
+    line-height: 1;
+    padding: 0.25em 0.5em;
+  }
+
+  &__sort {
+    align-items: center;
+    display: flex;
+    gap: spacer('xs');
+
+    .form-control {
+      inline-size: auto;
+    }
+  }
+
+  &__label {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    white-space: nowrap;
+  }
+
+  &__view {
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('md');
+    display: flex;
+    padding: 2px;
+  }
+
+  &__view-button {
+    @include clear-btn;
+    border-radius: radius('sm');
+    color: color('muted');
+    display: inline-flex;
+    padding: spacer('xxs');
+    @include transition;
+
+    svg {
+      block-size: 1.125rem;
+      inline-size: 1.125rem;
+    }
+
+    &:hover {
+      color: color('heading');
+    }
+
+    &[aria-pressed='true'] {
+      background-color: color('surface-muted');
+      color: color('heading');
+    }
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+    }
+  }
+
+  // The demo listing.
+  &__results {
+    // The parent's layout-stack sets the margins.
+    list-style: none;
+    padding: 0;
+    // Two columns even on phones.
+    @include layout-grid('s', 9rem);
+
+    &--list {
+      display: grid;
+      grid-template-columns: 1fr;
+
+      .listing-toolbar__product {
+        align-items: center;
+        gap: spacer('s');
+        grid-template-columns: 6rem minmax(0, 1fr);
+
+        img {
+          border-radius: radius('md');
+        }
+      }
+
+      .listing-toolbar__product-text {
+        display: block;
+      }
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__product {
+    align-content: start;
+    display: grid;
+    gap: spacer('xs');
+    @include a11y-card-link('.listing-toolbar__product-title a');
+
+    img {
+      aspect-ratio: 1;
+      background-color: color('surface-muted');
+      border-radius: radius('lg');
+      inline-size: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__product-body {
+    @include layout-stack('xxs');
+  }
+
+  &__product-title {
+    font-family: inherit;
+    font-size: config('font-size-base', $typography);
+    margin: 0;
+
+    a {
+      color: color('heading');
+      text-decoration: none;
+    }
+  }
+
+  &__product:hover &__product-title a {
+    text-decoration: underline;
+  }
+
+  &__product-text {
+    color: color('muted');
+    display: none;
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__product-meta {
+    display: flex;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xs');
+    justify-content: space-between;
+
+    strong {
+      color: color('heading');
+    }
+
+    span {
+      color: color('muted');
+    }
+  }
+}
+
+[dir='rtl'] .listing-toolbar__count {
+  margin: 0 0 0 auto;
+}

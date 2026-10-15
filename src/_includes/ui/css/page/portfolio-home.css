@@ -1,0 +1,10 @@
+.l-home > :not(.l-home__alt) + :not(.l-home__alt), .l-home__alt > * + * {
+  padding-block-start: 0;
+}
+.l-home__alt {
+  background-color: var(--spruce-base-color-surface-muted);
+}
+
+html:has(.l-home) {
+  scroll-padding-block-start: 5rem;
+}

@@ -1,0 +1,67 @@
+{#- Override with `storyBlock` ({ title, navLabel, chapters: [{ id, eyebrow, title, paragraphs, list, figure: { image, alt, caption }, quote: { text, cite } }] }). -#}
+{%- set _s = storyBlock or {
+    "title": "The story",
+    "navLabel": "In this case study",
+    "chapters": [
+        { "id": "challenge", "eyebrow": "01", "title": "The challenge",
+          "paragraphs": ["Fjord Bank’s app had 140 screens and five navigation patterns. Every team had added its feature where it fit at the time, and after ten years nobody could find anything.", "The support team answered 4,200 questions a month, and most of them were the same: where is my card, how do I pay a bill, why can’t I see my savings?"] },
+        { "id": "approach", "eyebrow": "02", "title": "The approach",
+          "paragraphs": ["We started with the people, not the screens. In two weeks we talked to 24 customers and listened to 60 support calls."],
+          "list": ["Mapped every task to its screen, and every screen to its traffic", "Tested the navigation with paper prototypes in three branches", "Agreed on one principle: one screen, one job"],
+          "quote": { "text": "We didn’t need more features. We needed fewer, in the right place.", "cite": "Jonas Berg, CPO" } },
+        { "id": "solution", "eyebrow": "03", "title": "The solution",
+          "paragraphs": ["The new app has four tabs instead of eleven menus. The home screen shows the balance, the next payment and one clear action, and everything else is one tap away."],
+          "figure": { "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=70", "alt": "The spending overview with a chart of the monthly expenses.", "caption": "The spending overview replaced three separate reports." } },
+        { "id": "system", "eyebrow": "04", "title": "The design system",
+          "paragraphs": ["To keep the app calm after we left, we built a small design system with the engineers: tokens, 32 components and the rules for using them, in Figma and in code.", "Every component was tested with VoiceOver and TalkBack before it shipped, which is why the screen reader issues stayed at zero."] }
+    ]
+} %}
+<section class="story-block" aria-labelledby="story-title" data-story>
+    <div class="container">
+        <div class="story-block__inner">
+            <h2 class="sr-only" id="story-title">{{ _s.title }}</h2>
+            <nav class="story-block__nav" aria-labelledby="story-nav-title">
+                <p class="story-block__nav-title" id="story-nav-title">{{ _s.navLabel }}</p>
+                <ol class="story-block__toc" role="list">
+                    {%- for chapter in _s.chapters %}
+                    <li><a class="story-block__toc-link" href="#{{ chapter.id }}" data-story-link><span class="story-block__toc-number" aria-hidden="true">{{ chapter.eyebrow }}</span>{{ chapter.title }}</a></li>
+                    {%- endfor %}
+                </ol>
+            </nav>
+            <div class="story-block__content">
+                {%- for chapter in _s.chapters %}
+                <article class="story-block__chapter" id="{{ chapter.id }}" aria-labelledby="{{ chapter.id }}-title" data-story-chapter>
+                    <div class="story-block__heading">
+                        <p class="story-block__eyebrow" aria-hidden="true">{{ chapter.eyebrow }}</p>
+                        <h3 class="story-block__title" id="{{ chapter.id }}-title">{{ chapter.title }}</h3>
+                    </div>
+                    {%- for paragraph in chapter.paragraphs %}
+                    <p>{{ paragraph }}</p>
+                    {%- endfor %}
+                    {%- if chapter.list %}
+                    <ul class="story-block__list">
+                        {%- for item in chapter.list %}
+                        <li>{{ item }}</li>
+                        {%- endfor %}
+                    </ul>
+                    {%- endif %}
+                    {%- if chapter.quote %}
+                    <figure class="story-block__quote">
+                        <blockquote>
+                            <p>{{ chapter.quote.text }}</p>
+                        </blockquote>
+                        <figcaption>{{ chapter.quote.cite }}</figcaption>
+                    </figure>
+                    {%- endif %}
+                    {%- if chapter.figure %}
+                    <figure class="story-block__figure">
+                        <img src="{{ chapter.figure.image }}" alt="{{ chapter.figure.alt }}" width="1400" height="900" loading="lazy">
+                        <figcaption>{{ chapter.figure.caption }}</figcaption>
+                    </figure>
+                    {%- endif %}
+                </article>
+                {%- endfor %}
+            </div>
+        </div>
+    </div>
+</section>

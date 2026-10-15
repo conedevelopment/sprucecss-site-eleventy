@@ -1,0 +1,36 @@
+@use 'sass:list';
+@use 'sass:map';
+
+// Extend the Spruce CSS style presets with the site's own color groups (hero, footer, code tab),
+// so the landing pages follow the selected design style too.
+// name: (light background, dark background, footer background)
+$site-style-surfaces: (
+  'minimal': (hsl(0deg 0% 100%), hsl(220deg 9% 7%), hsl(220deg 13% 9%)),
+  'brutalist': (hsl(48deg 100% 96%), hsl(0deg 0% 8%), hsl(0deg 0% 0%)),
+  'soft': (hsl(240deg 40% 98%), hsl(245deg 25% 11%), hsl(245deg 35% 16%)),
+  'glass': (transparent, transparent, hsl(240deg 30% 10% / 60%)),
+  'corporate': (hsl(0deg 0% 100%), hsl(0deg 0% 9%), hsl(0deg 0% 9%)),
+  'playful': (hsl(45deg 100% 98%), hsl(275deg 40% 10%), hsl(275deg 60% 18%)),
+  'editorial': (hsl(40deg 33% 97%), hsl(30deg 8% 9%), hsl(0deg 0% 8%)),
+  'terminal': (hsl(120deg 15% 5%), hsl(120deg 15% 5%), hsl(120deg 20% 3%)),
+);
+
+$styles: ();
+
+@each $name, $surfaces in $site-style-surfaces {
+  $light: list.nth($surfaces, 1);
+  $dark: list.nth($surfaces, 2);
+  $footer: list.nth($surfaces, 3);
+
+  $styles: map.set($styles, $name, (
+    'colors': (
+      'base': ('code-tab-background': hsl(0deg 0% 0% / 3%)),
+      'footer': ('background': $footer),
+      'hero': ('gradient-end': $light, 'gradient-start': $light),
+    ),
+    'dark-colors': (
+      'base': ('code-tab-background': hsl(0deg 0% 100% / 4%)),
+      'hero': ('gradient-end': $dark, 'gradient-start': $dark),
+    ),
+  ));
+}

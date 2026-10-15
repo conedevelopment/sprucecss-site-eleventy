@@ -1,0 +1,38 @@
+<article class="quick-view-trigger">
+    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=480&h=480&q=60" alt="" width="240" height="240" loading="lazy">
+    <h3 class="quick-view-trigger__title">Wireless Headphones</h3>
+    <a class="btn btn--outline-primary btn--sm" href="#" data-quick-view-open="quick-view-headphones">Quick view<span class="sr-only">: Wireless Headphones</span></a>
+</article>
+
+<dialog class="quick-view" id="quick-view-headphones" aria-labelledby="quick-view-title">
+    <div class="quick-view__inner">
+        <button class="btn btn--ghost-secondary btn--icon btn--sm quick-view__close" type="button" data-quick-view-close>
+            <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            <span class="sr-only">Close</span>
+        </button>
+        <img class="quick-view__media" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&h=800&q=70" alt="Wireless Headphones in black, side view." width="800" height="800" loading="lazy">
+        <form class="quick-view__body" action="#" method="post" data-quick-view-form>
+            <div class="quick-view__heading">
+                <h2 class="quick-view__title" id="quick-view-title">Wireless Headphones</h2>
+                <p class="quick-view__rating"><span aria-hidden="true">★★★★★</span> <span class="sr-only">Rated 4.8 out of 5,</span> 412 reviews</p>
+            </div>
+            <p class="quick-view__price">$199.00</p>
+            <p class="quick-view__text">Active noise cancelling, 40 hours of battery life and a foldable design that fits in every bag.</p>
+            <fieldset class="quick-view__option">
+                <legend class="quick-view__legend">Color</legend>
+                <div class="quick-view__swatches">
+                    <label class="quick-view__swatch" style="--swatch: hsl(0deg 0% 12%);"><input type="radio" name="color" value="black" checked><span class="sr-only">Black</span></label>
+                    <label class="quick-view__swatch" style="--swatch: hsl(35deg 25% 85%);"><input type="radio" name="color" value="sand"><span class="sr-only">Sand</span></label>
+                    <label class="quick-view__swatch" style="--swatch: hsl(215deg 35% 35%);"><input type="radio" name="color" value="navy"><span class="sr-only">Navy</span></label>
+                </div>
+            </fieldset>
+            <div class="quick-view__buy">
+                <label class="sr-only" for="quick-view-quantity">Quantity</label>
+                <input class="form-control" id="quick-view-quantity" name="quantity" type="number" min="1" value="1" inputmode="numeric">
+                <button class="btn btn--primary" type="submit" data-quick-view-add>Add to cart</button>
+            </div>
+            <p class="quick-view__status" role="status" data-quick-view-status></p>
+            <a class="quick-view__link" href="#">View full details</a>
+        </form>
+    </div>
+</dialog>

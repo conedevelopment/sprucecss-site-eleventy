@@ -1,0 +1,69 @@
+<form class="bulk-actions" action="#" method="post" data-bulk-actions>
+    <div class="bulk-actions__header">
+        <h3 class="bulk-actions__title" id="bulk-actions-title">Orders</h3>
+        <div class="bulk-actions__bar" role="toolbar" aria-label="Bulk actions" data-bulk-bar>
+            <p class="bulk-actions__count" data-bulk-count>Select orders to apply an action</p>
+            <button class="btn btn--sm btn--outline-secondary" type="submit" name="action" value="fulfill">Mark as fulfilled</button>
+            <button class="btn btn--sm btn--outline-secondary" type="submit" name="action" value="export">Export</button>
+            <button class="btn btn--sm btn--outline-danger" type="submit" name="action" value="archive">Archive</button>
+            <button class="btn btn--sm btn--ghost-secondary" type="button" data-bulk-clear hidden>Clear</button>
+        </div>
+    </div>
+    <p class="sr-only" aria-live="polite" data-bulk-live></p>
+    <div class="table-responsive">
+        <table class="table table--hover table--middle bulk-actions__table" aria-labelledby="bulk-actions-title">
+            <thead>
+                <tr>
+                    <th class="bulk-actions__check" scope="col"><span class="form-check"><input class="form-check__control" type="checkbox" aria-label="Select all orders" data-bulk-all hidden></span></th>
+                    <th scope="col">Order</th>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Date</th>
+                    <th class="bulk-actions__number" scope="col">Total</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="bulk-actions__check"><span class="form-check"><input class="form-check__control" type="checkbox" name="orders[]" value="10482" aria-label="Select order #10482" data-bulk-item></span></td>
+                    <th scope="row"><a href="#">#10482</a></th>
+                    <td>Anna Smith</td>
+                    <td><time datetime="2026-10-03">Oct 3</time></td>
+                    <td class="bulk-actions__number">$186.84</td>
+                    <td><span class="bulk-actions__status bulk-actions__status--warning">Unfulfilled</span></td>
+                </tr>
+                <tr>
+                    <td class="bulk-actions__check"><span class="form-check"><input class="form-check__control" type="checkbox" name="orders[]" value="10481" aria-label="Select order #10481" data-bulk-item></span></td>
+                    <th scope="row"><a href="#">#10481</a></th>
+                    <td>Ben King</td>
+                    <td><time datetime="2026-10-03">Oct 3</time></td>
+                    <td class="bulk-actions__number">$89.00</td>
+                    <td><span class="bulk-actions__status bulk-actions__status--warning">Unfulfilled</span></td>
+                </tr>
+                <tr>
+                    <td class="bulk-actions__check"><span class="form-check"><input class="form-check__control" type="checkbox" name="orders[]" value="10480" aria-label="Select order #10480" data-bulk-item></span></td>
+                    <th scope="row"><a href="#">#10480</a></th>
+                    <td>Lea Moreau</td>
+                    <td><time datetime="2026-10-02">Oct 2</time></td>
+                    <td class="bulk-actions__number">$342.10</td>
+                    <td><span class="bulk-actions__status bulk-actions__status--success">Fulfilled</span></td>
+                </tr>
+                <tr>
+                    <td class="bulk-actions__check"><span class="form-check"><input class="form-check__control" type="checkbox" name="orders[]" value="10479" aria-label="Select order #10479" data-bulk-item></span></td>
+                    <th scope="row"><a href="#">#10479</a></th>
+                    <td>Jon Diaz</td>
+                    <td><time datetime="2026-10-02">Oct 2</time></td>
+                    <td class="bulk-actions__number">$54.50</td>
+                    <td><span class="bulk-actions__status bulk-actions__status--warning">Unfulfilled</span></td>
+                </tr>
+                <tr>
+                    <td class="bulk-actions__check"><span class="form-check"><input class="form-check__control" type="checkbox" name="orders[]" value="10478" aria-label="Select order #10478" data-bulk-item></span></td>
+                    <th scope="row"><a href="#">#10478</a></th>
+                    <td>Mia Chen</td>
+                    <td><time datetime="2026-10-01">Oct 1</time></td>
+                    <td class="bulk-actions__number">$129.00</td>
+                    <td><span class="bulk-actions__status bulk-actions__status--muted">Refunded</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</form>

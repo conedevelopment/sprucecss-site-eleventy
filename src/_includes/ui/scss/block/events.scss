@@ -1,0 +1,90 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.events-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+  }
+
+  &__header {
+    align-items: end;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('m');
+    justify-content: space-between;
+  }
+
+  &__featured {
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    display: grid;
+    overflow: hidden;
+
+    @include breakpoint('md') {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+  }
+
+  &__image {
+    block-size: 100%;
+    inline-size: 100%;
+    min-block-size: 16rem;
+    object-fit: cover;
+  }
+
+  &__details {
+    align-content: center;
+    display: grid;
+    gap: spacer('s');
+    justify-items: start;
+    padding: spacer-clamp('m', 'l');
+
+    > * {
+      margin: 0;
+    }
+  }
+
+  &__title {
+    font-size: font-size('h3');
+  }
+
+  &__meta {
+    color: color('muted');
+    font-weight: 600;
+  }
+
+  // The countdown component without its box.
+  &__countdown {
+    background: none;
+    border: 0;
+    padding: 0;
+
+    .countdown__timer {
+      justify-content: flex-start;
+    }
+
+    .countdown__unit {
+      min-inline-size: 4rem;
+      padding: spacer('xs');
+      text-align: center;
+    }
+
+    .countdown__value {
+      font-size: font-size('h4');
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs');
+  }
+
+  &__list {
+    grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+  }
+}

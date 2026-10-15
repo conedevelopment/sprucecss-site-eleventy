@@ -1,0 +1,30 @@
+{% highlight "scss" %}
+// A custom design style: tokens, colors and a few rules.
+$style: (
+  'label': 'Brand',
+  'description': 'Rounded, warm and a little bold.',
+  'tokens': (
+    'radius-sm': 0.5rem,
+    'radius-lg': 1.5rem,
+    'btn-padding': 0.8em 1.5em,
+    'shadow-md': 0 10px 30px hsl(262deg 60% 30% / 15%),
+  ),
+  'colors': (
+    'base': (
+      'background': hsl(40deg 60% 98%),
+      'primary': hsl(14deg 90% 52%),
+    ),
+  ),
+  'dark-colors': (
+    'base': (
+      'background': hsl(20deg 15% 9%),
+      'primary': hsl(14deg 95% 64%),
+    ),
+  ),
+  'rules': (
+    'h1, h2': (
+      'letter-spacing': -0.03em,
+    ),
+  ),
+);
+{% endhighlight %}

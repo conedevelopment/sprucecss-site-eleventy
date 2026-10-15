@@ -1,0 +1,44 @@
+{#- Override with `projectsBlock` ({ heading, projects: [{ client, year, title, text, tags, metric: { value, label }, image, alt }], action }). -#}
+{%- set _s = projectsBlock or {
+    "heading": { "eyebrow": "Selected work", "title": "Products I’ve helped ship", "id": "projects-title", "align": "start" },
+    "projects": [
+        { "client": "Fjord Bank", "year": "2025", "title": "A banking app people actually enjoy", "text": "A ten-year-old product, simplified: new navigation, a calmer visual language and an accessible component library.", "tags": ["Research", "Product design", "Design system"], "metric": { "value": "−33%", "label": "support tickets" }, "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=70", "alt": "The Fjord Bank app on a phone." },
+        { "client": "Lumen", "year": "2024", "title": "Analytics that answer questions", "text": "From 40 charts to six answers: a dashboard redesign built around the questions customers really ask.", "tags": ["Product design", "Prototyping"], "metric": { "value": "2.4×", "label": "weekly active users" }, "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=70", "alt": "The Lumen dashboard with charts on a laptop." },
+        { "client": "Hearth", "year": "2023", "title": "Booking a home in three taps", "text": "A new booking flow for a holiday rental startup, tested with 60 guests in four countries.", "tags": ["Research", "Mobile"], "metric": { "value": "+18%", "label": "completed bookings" }, "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=70", "alt": "The Hearth booking app on a phone." }
+    ],
+    "action": "See the full archive"
+} %}
+<section class="projects-block" id="work" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="projects-block__inner">
+            <div class="projects-block__header">
+                {% set heading = _s.heading %}
+                {% include "../content-and-layout/block-heading.html" %}
+                <a class="btn btn--outline-primary" href="#">{{ _s.action }}</a>
+            </div>
+            <ol class="projects-block__list" role="list">
+                {%- for project in _s.projects %}
+                <li>
+                    <article class="projects-block__project" aria-labelledby="project-{{ loop.index }}-title">
+                        <div class="projects-block__media">
+                            <img src="{{ project.image }}" alt="{{ project.alt }}" loading="lazy" width="1200" height="800">
+                        </div>
+                        <div class="projects-block__content">
+                            <p class="projects-block__meta"><span>{{ project.client }}</span> <span aria-hidden="true">·</span> <time datetime="{{ project.year }}">{{ project.year }}</time></p>
+                            <h3 class="projects-block__title" id="project-{{ loop.index }}-title"><a class="projects-block__link" href="#">{{ project.title }}</a></h3>
+                            <p class="projects-block__text">{{ project.text }}</p>
+                            <ul class="projects-block__tags" role="list" aria-label="My role">
+                                {%- for tag in project.tags %}
+                                <li class="badge">{{ tag }}</li>
+                                {%- endfor %}
+                            </ul>
+                            <p class="projects-block__metric"><strong>{{ project.metric.value }}</strong> {{ project.metric.label }}</p>
+                            <p class="projects-block__more" aria-hidden="true">Read the case study {% set iconName = "arrow-right" %}{% include "../block/icon.html" %}</p>
+                        </div>
+                    </article>
+                </li>
+                {%- endfor %}
+            </ol>
+        </div>
+    </div>
+</section>

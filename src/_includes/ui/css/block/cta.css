@@ -1,0 +1,94 @@
+.cta-block {
+  padding-block: clamp(4.5rem, 5vw, 7rem);
+}
+.cta-block__box {
+  --spruce-base-color-heading: var(--spruce-btn-color-primary-foreground);
+  --spruce-base-color-text: var(--spruce-btn-color-primary-foreground);
+}
+.cta-block__box ::selection {
+  background-color: var(--spruce-btn-color-secondary-background);
+  color: var(--spruce-btn-color-secondary-foreground);
+}
+.cta-block__box {
+  align-items: center;
+  background-color: var(--spruce-btn-color-primary-background);
+  background-image: radial-gradient(circle at 0% 0%, color-mix(in srgb, var(--spruce-btn-color-primary-foreground) 18%, transparent), transparent 45%), radial-gradient(circle at 100% 100%, color-mix(in srgb, var(--spruce-btn-color-secondary-background) 50%, transparent), transparent 50%);
+  border-radius: var(--spruce-border-radius-lg);
+  box-shadow: var(--spruce-shadow-xl);
+  color: var(--spruce-btn-color-primary-foreground);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: clamp(3rem, 5vw, 4.5rem) clamp(1.5rem, 5vw, 4.5rem);
+  text-align: center;
+}
+.cta-block__title {
+  font-size: clamp(1.7875rem, 3vw + 1rem, 2.75rem);
+  margin-block: 0;
+  max-inline-size: 36rem;
+}
+.cta-block__text {
+  margin-block: 0;
+  max-inline-size: 34rem;
+  opacity: 0.9;
+}
+.cta-block__form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  inline-size: 100%;
+  max-inline-size: 30rem;
+}
+.cta-block__form .form-control {
+  flex: 1 1 14rem;
+}
+.cta-block__form .btn {
+  flex: 0 0 auto;
+}
+.cta-block__consent {
+  flex-basis: 100%;
+  font-size: var(--spruce-font-size-sm);
+  justify-content: center;
+  text-align: start;
+}
+.cta-block__consent .form-check__label,
+.cta-block__consent a {
+  color: var(--spruce-btn-color-primary-foreground);
+}
+.cta-block__consent .form-check__control:focus-visible {
+  outline-color: var(--spruce-btn-color-primary-foreground);
+}
+.cta-block__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.cta-block__primary {
+  background-color: var(--spruce-btn-color-primary-foreground);
+  border-color: var(--spruce-btn-color-primary-foreground);
+  color: var(--spruce-btn-color-primary-background);
+}
+.cta-block__primary:hover {
+  background-color: color-mix(in srgb, var(--spruce-btn-color-primary-foreground) 90%, transparent);
+  color: var(--spruce-btn-color-primary-background);
+}
+.cta-block__secondary {
+  background-color: transparent;
+  border-color: color-mix(in srgb, var(--spruce-btn-color-primary-foreground) 60%, transparent);
+  color: var(--spruce-btn-color-primary-foreground);
+}
+.cta-block__secondary:hover {
+  background-color: color-mix(in srgb, var(--spruce-btn-color-primary-foreground) 12%, transparent);
+  border-color: var(--spruce-btn-color-primary-foreground);
+  color: var(--spruce-btn-color-primary-foreground);
+}
+.cta-block__proof {
+  align-items: center;
+  display: flex;
+  font-size: var(--spruce-font-size-sm);
+  gap: 0.5rem;
+}
+.cta-block__proof .avatar {
+  box-shadow: 0 0 0 2px var(--spruce-btn-color-primary-background);
+}

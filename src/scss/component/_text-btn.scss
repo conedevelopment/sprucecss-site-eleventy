@@ -1,14 +1,26 @@
 @use 'sprucecss/scss/spruce' as *;
 
+// A text-only button: bold, uppercase, no underline until hover.
 .text-btn {
   align-items: center;
   display: inline-flex;
+  font-weight: 700;
   gap: spacer('xxs');
   line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &:hover {
+    text-decoration: underline;
+  }
 
   &__icon {
     --dimension: 0.65em;
     block-size: var(--dimension);
     inline-size: var(--dimension);
+  }
+
+  &--sm {
+    font-size: config('font-size-sm', $typography);
   }
 }

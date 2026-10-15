@@ -1,0 +1,133 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.hero-intro-block {
+  padding-block: spacer-clamp('l', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer-clamp('l', 'xl');
+  }
+
+  &__person {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s') spacer('m');
+  }
+
+  &__photo {
+    block-size: 3.5rem;
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px color('background'), 0 0 0 5px color('primary');
+    inline-size: 3.5rem;
+    object-fit: cover;
+  }
+
+  &__who {
+    @include layout-stack('xxs'); // name, role
+  }
+
+  &__name {
+    color: color('heading');
+    font-weight: 700;
+  }
+
+  &__role {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__status {
+    align-items: center;
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('pill');
+    display: inline-flex;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xs');
+    margin-block: 0;
+    padding: spacer('xxs') spacer('s');
+
+    @include breakpoint('md') {
+      margin-inline-start: auto;
+    }
+  }
+
+  &__dot {
+    background-color: color('success', 'alert');
+    block-size: 0.6rem;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0.2rem color-alpha('success', 0.25, 'alert');
+    inline-size: 0.6rem;
+  }
+
+  &__title {
+    font-size: responsive-font-size(6rem, 35, '5vw + 1rem');
+    hyphens: manual;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+    margin-block: 0;
+    max-inline-size: 18ch;
+    text-wrap: balance;
+  }
+
+  &__highlight {
+    background-image: linear-gradient(transparent 70%, #{color-alpha('primary', 0.25)} 70% 92%, transparent 92%);
+    color: color('primary');
+  }
+
+  &__footer {
+    align-items: end;
+    border-block-start: config('border-width-base', $display) solid color('border');
+    display: grid;
+    gap: spacer('l');
+    padding-block-start: spacer('l');
+
+    @include breakpoint('lg') {
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    }
+  }
+
+  &__text {
+    @include layout-stack('m');
+  }
+
+  &__lead {
+    font-size: config('font-size-lead', $typography);
+    max-inline-size: 36rem;
+  }
+
+  &__actions {
+    @include layout-cluster('s');
+  }
+
+  &__facts {
+    display: grid;
+    gap: spacer('m');
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-block: 0;
+  }
+
+  &__fact {
+    border-inline-start: config('border-width-base', $display) solid color('border');
+    display: flex;
+    flex-direction: column-reverse;
+    gap: spacer('xxs');
+    padding-inline-start: spacer('s');
+
+    dt {
+      color: color('muted');
+      font-size: config('font-size-sm', $typography);
+      font-weight: 400;
+    }
+
+    dd {
+      color: color('heading');
+      font-family: config('font-family-heading', $typography);
+      font-size: font-size('h2');
+      font-weight: config('font-weight-heading', $typography);
+      line-height: 1;
+      margin: 0;
+    }
+  }
+}

@@ -1,13 +1,13 @@
 ---
 title: "Internationalization"
 description: "With core internationalization support through modern CSS and its logical properties, you can handle RTL layouts more easily with Spruce CSS."
-order: 6
+order: 7
 github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/getting-started/internationalization.md"
 ---
 
 <p class="lead">Internationalization (i18n) means preparing the code and design to handle different languages and writing modes.</p>
 
-Thanks for the logical properties and values; we can do more with i18n, just with CSS.
+Thanks to the logical properties and values, we can do more for i18n just with CSS.
 
 The simplest example is the right-to-left (RTL) writing mode used by Arabic and Hebrew languages, among others. When you write RTL, you should mirror your site: your logo in the header moves to the right side, and your layout and text alignment similarly change place.
 
@@ -19,9 +19,9 @@ For more information, check out this excellent introductory video from [Moriel S
 
 CSS Logical Properties and Values is a newer CSS module to control the layout logically. Instead of physical left or right (top and bottom) values, we have logical left or right, depending on the writing mode.
 
-Spruce uses these logical properties and values, but this is also a new feature for us.
+Spruce uses logical properties and values everywhere: in the elements, the layout mixins, the [style presets](/docs/customization/styles/) and the [Spruce UI](/ui/getting-started/introduction/) components. Interactive components (like tabs, carousels and drawers) also mirror their keyboard and motion behavior in RTL.
 
-It has relatively [good support](https://caniuse.com/css-logical-props), but we must still test our code well.
+The [support is excellent](https://caniuse.com/css-logical-props) in every modern browser. Test your layouts with `dir="rtl"`: the [preview of every component](/ui/getting-started/introduction/) has an RTL toggle.
 
 **For more information, please visit the following pages:**
 

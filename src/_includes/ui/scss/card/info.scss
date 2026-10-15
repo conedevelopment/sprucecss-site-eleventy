@@ -1,48 +1,90 @@
 @use 'sprucecss/scss/spruce' as *;
 
+.info-card-list {
+  @include clear-list;
+  display: grid;
+  gap: spacer('m');
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+
+  > li {
+    margin-block: 0;
+  }
+}
+
 .info-card {
   $this: &;
-
   @include a11y-card-link('.info-card__link', true);
-  @include transition;
-  border: 1px solid color('border');
-  border-radius: config('border-radius-lg', $display);
+  @include transition($property: 'background-color, border-color, color, translate');
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
   color: color('text');
   display: flex;
   flex-direction: column;
   gap: spacer('m');
   padding: spacer-clamp('m', 'l');
 
-  &:hover {
-    @include set-css-variable((
-      --base-color-heading: hsl(0deg 0% 100%),
-      --base-color-link: hsl(0deg 0% 100%),
-      --base-color-link-hover: hsl(0deg 0% 100%),
-      --base-color-text: hsl(0deg 0% 100%),
-    ));
+  // A high-contrast inverted state on hover and keyboard focus.
+  &:hover,
+  &:focus-within {
     background-color: color('primary');
-    transform: translateY(-0.5rem);
-  }
+    border-color: color('primary');
+    color: color('primary-foreground', 'btn');
 
-  > * {
-    margin-block: 0;
-  }
+    #{$this}__title,
+    #{$this}__link,
+    #{$this}__icon {
+      color: inherit;
+    }
 
-  &__caption {
-    @include layout-stack('s');
-  }
-
-  &__title {
-    @include transition;
-    font-weight: 400;
-
-    a {
-      color: color('heading');
-      text-decoration: none;
+    #{$this}__icon {
+      background-color: hsl(0deg 0% 100% / 15%);
     }
   }
 
+  @include motion-safe {
+    &:hover {
+      translate: 0 -0.5rem;
+    }
+  }
+
+  &:focus-within {
+    outline: 2px solid color('focus-ring');
+    outline-offset: 3px;
+  }
+
+  &__icon {
+    @include transition($property: 'background-color, color');
+    align-items: center;
+    background-color: color-alpha('primary', 0.1);
+    block-size: 3rem;
+    border-radius: radius('md');
+    color: color('primary');
+    display: flex;
+    inline-size: 3rem;
+    justify-content: center;
+
+    svg {
+      block-size: 1.5rem;
+      inline-size: 1.5rem;
+    }
+  }
+
+  &__caption {
+    @include layout-stack('xs');
+  }
+
+  &__title {
+    font-size: font-size('h4');
+    margin-block: 0;
+  }
+
   &__link {
+    font-weight: 700;
     margin-block-start: auto;
+
+    &:focus {
+      outline: none;
+    }
   }
 }

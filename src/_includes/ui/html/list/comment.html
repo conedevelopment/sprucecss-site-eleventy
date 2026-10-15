@@ -1,0 +1,60 @@
+<section class="comment-thread" aria-labelledby="comments-title">
+    <h2 class="comment-thread__title" id="comments-title">Comments (3)</h2>
+    <ol class="comment-thread__list" role="list">
+    <li class="comment">
+        <article class="comment__body" aria-label="Comment by Maya Chen">
+            <img class="comment__avatar" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=96&h=96&q=70" alt="" width="40" height="40" loading="lazy">
+            <div class="comment__main">
+                <header class="comment__header">
+                    <span class="comment__author">Maya Chen</span>
+                    <time class="comment__time" datetime="2026-10-03T09:00">2 hours ago</time>
+                </header>
+                <p class="comment__text">The brutalist style is so much fun. I love that the markup did not change at all.</p>
+                <div class="comment__actions">
+                    <button class="btn btn--ghost-secondary btn--sm" type="button" aria-pressed="false">Like</button>
+                    <button class="btn btn--ghost-secondary btn--sm" type="button">Reply</button>
+                </div>
+            </div>
+        </article>
+        <ol class="comment-thread__replies" role="list">
+    <li class="comment">
+        <article class="comment__body" aria-label="Comment by Daniel Okafor">
+            <img class="comment__avatar" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=96&h=96&q=70" alt="" width="40" height="40" loading="lazy">
+            <div class="comment__main">
+                <header class="comment__header">
+                    <span class="comment__author">Daniel Okafor</span>
+                    <time class="comment__time" datetime="2026-10-03T10:00">1 hour ago</time>
+                </header>
+                <p class="comment__text">Agreed! The hooks make it painless to tweak one component without touching the rest.</p>
+                <div class="comment__actions">
+                    <button class="btn btn--ghost-secondary btn--sm" type="button" aria-pressed="false">Like</button>
+                    <button class="btn btn--ghost-secondary btn--sm" type="button">Reply</button>
+                </div>
+            </div>
+        </article>
+    </li>
+        </ol>
+    </li>
+    <li class="comment">
+        <article class="comment__body" aria-label="Comment by Ava Martinez">
+            <img class="comment__avatar" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=96&h=96&q=70" alt="" width="40" height="40" loading="lazy">
+            <div class="comment__main">
+                <header class="comment__header">
+                    <span class="comment__author">Ava Martinez</span>
+                    <time class="comment__time" datetime="2026-10-02T16:30">Yesterday</time>
+                </header>
+                <p class="comment__text">Could the glass style get a fallback for browsers without backdrop-filter?</p>
+                <div class="comment__actions">
+                    <button class="btn btn--ghost-secondary btn--sm" type="button" aria-pressed="false">Like</button>
+                    <button class="btn btn--ghost-secondary btn--sm" type="button">Reply</button>
+                </div>
+            </div>
+        </article>
+    </li>
+    </ol>
+    <form class="comment-thread__form" onsubmit="return false;">
+        <label class="form-label" for="new-comment">Add a comment</label>
+        <textarea class="form-control" id="new-comment" rows="3" placeholder="Be kind and constructive…"></textarea>
+        <button class="btn btn--primary" type="submit">Post comment</button>
+    </form>
+</section>

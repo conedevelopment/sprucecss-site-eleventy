@@ -1,0 +1,35 @@
+---
+title: 'Product Bundle'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium">
+        {% include "ui/html/ecommerce/product-bundle.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/ecommerce/product-bundle.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/ecommerce/product-bundle.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/ecommerce/product-bundle.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/ecommerce/product-bundle.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/ecommerce/product-bundle.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/ecommerce/product-bundle.js"></script>
+{% endblock %}

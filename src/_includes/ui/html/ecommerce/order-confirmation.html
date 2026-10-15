@@ -1,0 +1,71 @@
+<section class="order-confirmation" aria-labelledby="order-confirmation-title">
+    <header class="order-confirmation__header">
+        <span class="order-confirmation__icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>
+        </span>
+        <p class="order-confirmation__eyebrow">Order #10482 confirmed</p>
+        <h2 class="order-confirmation__title" id="order-confirmation-title" tabindex="-1">Thank you, Anna!</h2>
+        <p class="order-confirmation__text">We’ve sent the receipt to <strong>anna@example.com</strong>. You’ll get another email when your order ships.</p>
+    </header>
+    <ol class="order-confirmation__next" role="list" aria-label="What happens next">
+        <li class="order-confirmation__step order-confirmation__step--done"><span><span class="sr-only">Done: </span>Order placed</span></li>
+        <li class="order-confirmation__step"><span>Packed within 24 hours</span></li>
+        <li class="order-confirmation__step"><span>Delivered by <time datetime="2026-10-08">Thu, Oct 8</time></span></li>
+    </ol>
+    <div class="order-confirmation__grid">
+        <section class="order-confirmation__card" aria-labelledby="order-confirmation-items">
+            <h3 class="order-confirmation__card-title" id="order-confirmation-items">Order summary</h3>
+            <ul class="order-confirmation__items" role="list">
+                <li>
+                    <img src="https://images.unsplash.com/photo-1577733966973-d680bffd2e80?auto=format&fit=crop&w=112&h=112&q=60" alt="" width="56" height="56" loading="lazy">
+                    <span class="order-confirmation__item-name">Heritage Backpack <span>Forest green · 26 L · Qty 1</span></span>
+                    <span class="order-confirmation__item-price">$189.00</span>
+                </li>
+                <li>
+                    <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=112&h=112&q=60" alt="" width="56" height="56" loading="lazy">
+                    <span class="order-confirmation__item-name">Steel Water Bottle <span>Qty 2</span></span>
+                    <span class="order-confirmation__item-price">$48.00</span>
+                </li>
+            </ul>
+            <dl class="order-confirmation__totals">
+                <div><dt>Subtotal</dt><dd>$237.00</dd></div>
+                <div><dt>Discount <code>AUTUMN10</code></dt><dd>−$23.70</dd></div>
+                <div><dt>Shipping</dt><dd>Free</dd></div>
+                <div><dt>Tax</dt><dd>$17.06</dd></div>
+                <div class="order-confirmation__total"><dt>Total paid</dt><dd>$230.36</dd></div>
+            </dl>
+        </section>
+        <section class="order-confirmation__card" aria-labelledby="order-confirmation-details">
+            <h3 class="order-confirmation__card-title" id="order-confirmation-details">Delivery and payment</h3>
+            <dl class="order-confirmation__details">
+                <div>
+                    <dt>Shipping address</dt>
+                    <dd><address>Anna Smith<br>Andrássy út 12<br>1061 Budapest<br>Hungary</address></dd>
+                </div>
+                <div>
+                    <dt>Shipping method</dt>
+                    <dd>Standard (3–5 business days)</dd>
+                </div>
+                <div>
+                    <dt>Payment</dt>
+                    <dd>Visa ending in 4242</dd>
+                </div>
+            </dl>
+        </section>
+    </div>
+    <form class="order-confirmation__account" action="#" method="post">
+        <div class="order-confirmation__account-text">
+            <h3 class="order-confirmation__card-title" id="order-confirmation-account">Save your details for next time</h3>
+            <p>Create an account with <strong>anna@example.com</strong> to track this order and check out faster.</p>
+        </div>
+        <div class="order-confirmation__account-fields">
+            <label class="sr-only" for="order-confirmation-password">Choose a password</label>
+            <input class="form-control" id="order-confirmation-password" name="password" type="password" autocomplete="new-password" minlength="8" placeholder="Choose a password" required>
+            <button class="btn btn--primary" type="submit">Create account</button>
+        </div>
+    </form>
+    <div class="order-confirmation__actions">
+        <a class="btn btn--primary btn--lg" href="#">Continue shopping</a>
+        <a class="btn btn--outline-secondary btn--lg" href="#">View order</a>
+    </div>
+</section>

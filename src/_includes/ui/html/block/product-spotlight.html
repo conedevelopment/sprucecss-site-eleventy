@@ -1,0 +1,46 @@
+{#- Override with `productSpotlightBlock` ({ eyebrow, title, text, rating, reviews, price, oldPrice, image, alt, features: [] }). -#}
+{%- set _s = productSpotlightBlock or {
+    "eyebrow": "Product of the month",
+    "title": "The Linen Overshirt",
+    "text": "Washed European linen that gets softer with every wear. Cut a little loose, with a real collar and corozo buttons.",
+    "rating": 4.8,
+    "reviews": 312,
+    "price": "$79",
+    "oldPrice": "$98",
+    "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=1000&q=75",
+    "alt": "The sand-colored linen overshirt on a hanger.",
+    "features": ["100% European linen", "Garment-washed, pre-shrunk", "Made in Portugal"]
+} %}
+<section class="product-spotlight-block" aria-labelledby="product-spotlight-title">
+    <div class="container">
+        <div class="product-spotlight-block__inner">
+            <div class="product-spotlight-block__media">
+                <img src="{{ _s.image }}" alt="{{ _s.alt }}" width="1000" height="1000" loading="lazy">
+                {%- if _s.oldPrice %}
+                <span class="product-spotlight-block__tag">Sale</span>
+                {%- endif %}
+            </div>
+            <div class="product-spotlight-block__content">
+                <p class="product-spotlight-block__eyebrow">{{ _s.eyebrow }}</p>
+                <h2 class="product-spotlight-block__title" id="product-spotlight-title">{{ _s.title }}</h2>
+                <p class="product-spotlight-block__rating">
+                    <span class="product-spotlight-block__stars" style="--rating: {{ _s.rating }};" aria-hidden="true"></span>
+                    <a href="#">{{ _s.rating }} out of 5 · {{ _s.reviews }} reviews</a>
+                </p>
+                <p class="product-spotlight-block__price">{% if _s.oldPrice %}<span class="sr-only">Sale price: </span>{% endif %}{{ _s.price }}{% if _s.oldPrice %} <del><span class="sr-only">Original price: </span>{{ _s.oldPrice }}</del>{% endif %}</p>
+                <p class="product-spotlight-block__text">{{ _s.text }}</p>
+                <ul class="product-spotlight-block__features" role="list">
+                    {%- for feature in _s.features %}
+                    <li>{{ feature }}</li>
+                    {%- endfor %}
+                </ul>
+                {% include "../ecommerce/stock-indicator.html" %}
+                <div class="product-spotlight-block__buy">
+                    <button class="btn btn--primary btn--lg" type="button">Add to cart</button>
+                    <a class="btn btn--secondary btn--lg" href="#">View details</a>
+                </div>
+                {% include "../ecommerce/delivery-estimate.html" %}
+            </div>
+        </div>
+    </div>
+</section>

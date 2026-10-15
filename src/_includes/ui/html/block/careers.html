@@ -1,0 +1,45 @@
+{#- Override with `careersBlock` ({ heading, teams, jobs: [{ title, team, location, type }] }). -#}
+{%- set _s = careersBlock or {
+    "heading": { "eyebrow": "Careers", "title": "Join our team", "text": "We’re a small, remote-first team. Come build the tools you’d love to use.", "id": "careers-title" },
+    "teams": ["Engineering", "Design", "Marketing", "Support"],
+    "jobs": [
+        { "title": "Senior Frontend Engineer", "team": "Engineering", "location": "Remote (EU)", "type": "Full-time" },
+        { "title": "Developer Advocate", "team": "Engineering", "location": "Remote", "type": "Full-time" },
+        { "title": "Product Designer", "team": "Design", "location": "Lisbon", "type": "Full-time" },
+        { "title": "Design Systems Intern", "team": "Design", "location": "Remote", "type": "Internship" },
+        { "title": "Content Marketer", "team": "Marketing", "location": "Remote (US)", "type": "Part-time" },
+        { "title": "Customer Success Manager", "team": "Support", "location": "Berlin", "type": "Full-time" }
+    ]
+} %}
+<section class="careers-block" aria-labelledby="{{ _s.heading.id }}" data-careers>
+    <div class="container">
+        <div class="careers-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            <div class="careers-block__filter">
+                <label class="form-label" for="careers-team">Team</label>
+                <select class="form-control" id="careers-team" data-careers-filter>
+                    <option value="">All teams</option>
+                    {%- for team in _s.teams %}
+                    <option value="{{ team }}">{{ team }}</option>
+                    {%- endfor %}
+                </select>
+                <p class="careers-block__count" aria-live="polite" data-careers-count>{{ _s.jobs.length }} open positions</p>
+            </div>
+            <ul class="careers-block__list" role="list">
+                {%- for job in _s.jobs %}
+                <li class="careers-block__job" data-team="{{ job.team }}">
+                    <div class="careers-block__info">
+                        <h3 class="careers-block__title"><a href="#">{{ job.title }}</a></h3>
+                        <p class="careers-block__meta">
+                            <span>{{ job.team }}</span>
+                            <span>{% set iconName = "map-pin" %}{% set iconClass = "careers-block__icon" %}{% include "../block/icon.html" %} {{ job.location }}</span>
+                        </p>
+                    </div>
+                    <span class="badge{% if job.type == 'Full-time' %} badge--primary{% endif %}">{{ job.type }}</span>
+                </li>
+                {%- endfor %}
+            </ul>
+        </div>
+    </div>
+</section>

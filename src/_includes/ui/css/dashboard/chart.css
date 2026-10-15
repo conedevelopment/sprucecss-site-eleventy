@@ -1,0 +1,122 @@
+@charset "UTF-8";
+.chart-cards {
+  display: grid;
+  gap: 1.5rem;
+}
+@supports (inline-size: min(22rem, 100%)) {
+  .chart-cards {
+    grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
+  }
+}
+
+.chart-card {
+  background-color: var(--spruce-base-color-surface);
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  border-radius: var(--spruce-border-radius-lg);
+  min-inline-size: 0;
+  padding: 1.5rem;
+}
+.chart-card > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.chart-card > * + * {
+  margin-block-start: 1rem;
+}
+.chart-card__header {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  justify-content: space-between;
+}
+.chart-card__heading > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.chart-card__heading > * + * {
+  margin-block-start: 0.25rem;
+}
+.chart-card__title {
+  color: var(--spruce-base-color-muted);
+  font-family: inherit;
+  font-size: var(--spruce-font-size-sm);
+  font-weight: 600;
+  margin: 0;
+}
+.chart-card__value {
+  align-items: baseline;
+  color: var(--spruce-base-color-heading);
+  display: flex;
+  flex-wrap: wrap;
+  font-family: var(--spruce-font-family-heading);
+  font-size: clamp(1.328125rem, 2vw + 1rem, 1.5625rem);
+  font-weight: 700;
+  gap: 0.5rem;
+  line-height: 1.2;
+}
+.chart-card__change {
+  font-family: var(--spruce-font-family-base);
+  font-size: var(--spruce-font-size-sm);
+}
+.chart-card__change--up {
+  color: var(--spruce-alert-color-success);
+}
+.chart-card__change--up::before {
+  content: "↑ ";
+}
+.chart-card__change--down {
+  color: var(--spruce-alert-color-danger);
+}
+.chart-card__change--down::before {
+  content: "↓ ";
+}
+.chart-card__legend {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+  color: var(--spruce-base-color-muted);
+  font-size: var(--spruce-font-size-sm);
+}
+.chart-card__legend li {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.25rem;
+  margin: 0;
+}
+.chart-card__legend > li {
+  margin-block: 0;
+  padding-block: 0;
+}
+.chart-card__swatch {
+  background-color: var(--spruce-base-color-primary);
+  block-size: 0.75rem;
+  border-radius: var(--spruce-border-radius-sm);
+  display: inline-block;
+  inline-size: 0.75rem;
+}
+.chart-card__swatch--muted {
+  background-color: color-mix(in srgb, var(--spruce-base-color-muted) 50%, transparent);
+}
+.chart-card__canvas {
+  block-size: 16rem;
+  position: relative;
+}
+.chart-card__canvas:not(:has(canvas[data-chart-ready])) {
+  display: none;
+}
+.chart-card__data {
+  font-size: var(--spruce-font-size-sm);
+}
+.chart-card__data summary {
+  color: var(--spruce-base-color-muted);
+  cursor: pointer;
+}
+.chart-card__data .table {
+  margin-block-start: 0.5rem;
+}

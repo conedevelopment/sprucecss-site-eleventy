@@ -1,0 +1,185 @@
+@use 'sprucecss/scss/spruce' as *;
+
+// The /pages/ listing: the site hero with the numbers, then a two-column grid of page template cards.
+.l-pages {
+  padding-block: get-css-variable(--section-gap-half) get-css-variable(--section-gap);
+
+  &__hero {
+    padding-block-end: get-css-variable(--section-gap-half);
+  }
+
+  &__facts {
+    border-block: 1px solid color('border');
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-block: 0;
+    margin-inline: auto;
+    max-inline-size: 52rem;
+
+    @include breakpoint('md') {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  &__fact {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: spacer('xxs');
+    padding: spacer('m');
+    text-align: center;
+
+    + .l-pages__fact {
+      border-inline-start: 1px solid color('border');
+    }
+
+    // In two columns, the third one starts a new row.
+    @include breakpoint-down('md') {
+      &:nth-child(3) {
+        border-inline-start: 0;
+      }
+
+      &:nth-child(n + 3) {
+        border-block-start: 1px solid color('border');
+      }
+    }
+
+    dt {
+      color: color('text');
+      font-size: config('font-size-sm', $typography);
+      font-weight: 400;
+    }
+
+    dd {
+      color: color('heading');
+      font-family: config('font-family-heading', $typography);
+      font-size: responsive-font-size(2.5rem, 30, '2vw + 1rem');
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin: 0;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: spacer-clamp('m', 'l');
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include breakpoint('md') {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    > li {
+      display: flex;
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+}
+
+.page-card {
+  background-color: color('background');
+  border: 1px solid color('border');
+  border-radius: config('border-radius-lg', $display);
+  display: flex;
+  flex-direction: column;
+  inline-size: 100%;
+  overflow: hidden;
+
+  // The screenshot sits in a frame on a muted surface, cut at the bottom like a window.
+  &__media {
+    background-color: color('surface-muted');
+    border-block-end: 1px solid color('border');
+    display: block;
+    padding: spacer-clamp('m', 'l') spacer-clamp('m', 'l') 0;
+  }
+
+  &__frame {
+    aspect-ratio: 16 / 9;
+    border: 1px solid color('border');
+    border-block-end: 0;
+    border-start-end-radius: config('border-radius-md', $display);
+    border-start-start-radius: config('border-radius-md', $display);
+    box-shadow: 0 -0.5rem 2rem hsl(220deg 40% 20% / 8%);
+    display: block;
+    overflow: hidden;
+
+    img,
+    picture {
+      block-size: 100%;
+      display: block;
+      inline-size: 100%;
+    }
+
+    img {
+      object-fit: cover;
+      object-position: top;
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: spacer('m');
+    padding: spacer-clamp('m', 'l');
+  }
+
+  &__heading {
+    @include layout-stack('xs'); // kind, title, description
+  }
+
+  &__kind {
+    color: color('primary');
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font-size: font-size('h3');
+  }
+
+  &__description {
+    color: color('text');
+  }
+
+  &__parts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xxs');
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      background-color: color('surface-muted');
+      border-radius: config('border-radius-sm', $display);
+      color: color('text');
+      font-size: 0.8rem;
+      padding: 0.15em 0.6em;
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s') spacer('m');
+    margin-block-start: auto;
+
+    .btn svg {
+      block-size: 1em;
+      inline-size: 1em;
+    }
+  }
+}

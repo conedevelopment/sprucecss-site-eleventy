@@ -1,9 +1,11 @@
 ---
 title: "Mixins"
 description: "You can do more with less code with the mixins in Spruce CSS micro-framework."
-order: 16
+order: 18
 github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/sass/mixins.md"
 ---
+
+<p class="lead">Mixins output reusable declarations: layouts, breakpoints, button variants, focus rings and accessibility helpers. They help you write less, more consistent code.</p>
 
 ## a11y-card-link
 
@@ -74,9 +76,54 @@ $breakpoints: (
 }
 ```
 
+## breakpoint-between
+
+**New in v3.** A media query between two breakpoints (the lower one inclusive, the upper one exclusive), with the range syntax.
+
+### Argument(s)
+
+| Name   | Description                       |
+|--------|-----------------------------------|
+| `$min` | The name of the lower breakpoint. |
+| `$max` | The name of the upper breakpoint. |
+
+[View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/mixin/_breakpoint.scss)
+
+### Example(s)
+
+```scss
+.sidebar {
+  @include breakpoint-between('md', 'xl') { // @media (64em <= width < 90em)
+    inline-size: 14rem;
+  }
+}
+```
+
+## breakpoint-down
+
+**New in v3.** A `max-width` based (desktop-first) media query: the content applies **below** the breakpoint.
+
+### Argument(s)
+
+| Name          | Description                                      |
+|---------------|--------------------------------------------------|
+| `$breakpoint` | The name of the key from the `$breakpoints` map. |
+
+[View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/mixin/_breakpoint.scss)
+
+### Example(s)
+
+```scss
+.navigation {
+  @include breakpoint-down('md') { // @media (width < 64em)
+    display: none;
+  }
+}
+```
+
 ## btn-variant
 
-Using the `btn-variant` mixin, you can create a new button variant. First, you must declare the colors of the new button (background, foreground is required) in the `$colors` map at the very first `@use` of
+Using the `btn-variant` mixin, you can create a new button variant. First, you must declare the colors of the new button (the background and the foreground are required) under `btn` in the `$colors` map, at the first `@use` of Spruce.
 
 ### Argument(s)
 
@@ -130,7 +177,7 @@ In many cases, declaring just the background and foreground color is enough. Spr
 
 ## btn-variant-outline
 
-Using the `btn-variant-outline` mixin, you can create a new outlined button variant. First, you must declare the colors of the new button (background, foreground is required) in the `$colors` map at the very first `@use` of
+Using the `btn-variant-outline` mixin, you can create a new outlined button variant. First, you must declare the colors of the new button (the background and the foreground are required) under `btn` in the `$colors` map, at the first `@use` of Spruce.
 
 ### Argument(s)
 
@@ -146,6 +193,56 @@ Using the `btn-variant-outline` mixin, you can create a new outlined button vari
 ```scss
 .btn--outline-primary { @include btn-variant-outline('primary'); }
 .btn--outline-secondary { @include btn-variant-outline('secondary'); }
+```
+
+## btn-variant-ghost
+
+**New in v3.** A transparent button that gets a translucent background (a `color-mix()` of the variant color) on hover. Set the `*-ghost-foreground` and `*-ghost-background-hover` colors for full control.
+
+### Argument(s)
+
+| Name     | Default Value | Description                                                |
+|----------|---------------|------------------------------------------------------------|
+| `$type`  | `'primary'`   | The name/prefix of the related colors under the `btn` map. |
+| `$focus` | `true`        | Whether to output the focus ring.                          |
+
+[View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/mixin/_button.scss)
+
+### Example(s)
+
+```scss
+.btn--ghost-brand { @include btn-variant-ghost('brand'); }
+```
+
+## btn-variant-link
+
+**New in v3.** A button that looks like a link but keeps the button sizing. It uses the `link` and `link-hover` colors.
+
+[View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/mixin/_button.scss)
+
+### Example(s)
+
+```scss
+.btn--link { @include btn-variant-link; }
+```
+
+## btn-variant-soft
+
+**New in v3.** A tinted button: a light mix of the variant color as the background and the variant color as the text. Set the `*-soft-background`, `*-soft-background-hover` and `*-soft-foreground` colors for full control.
+
+### Argument(s)
+
+| Name     | Default Value | Description                                                |
+|----------|---------------|------------------------------------------------------------|
+| `$type`  | `'primary'`   | The name/prefix of the related colors under the `btn` map. |
+| `$focus` | `true`        | Whether to output the focus ring.                          |
+
+[View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/mixin/_button.scss)
+
+### Example(s)
+
+```scss
+.btn--soft-brand { @include btn-variant-soft('brand'); }
 ```
 
 ## clear-btn
@@ -174,6 +271,84 @@ Remove the `list-style`, `margin`, and `padding` stylings from the element.
 ```scss
 ul {
   @include clear-list;
+}
+```
+
+## container-query
+
+**New in v3.** A container query (`inline-size >`) with a breakpoint name or any size. The parent needs `container-type: inline-size`.
+
+### Argument(s)
+
+| Name    | Default Value | Description                           |
+|---------|---------------|---------------------------------------|
+| `$size` |               | A breakpoint name or a size value.    |
+| `$name` | `null`        | The name of the container (optional). |
+
+[View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/mixin/_breakpoint.scss)
+
+### Example(s)
+
+```scss
+.card-wrapper {
+  container-type: inline-size;
+}
+
+.card {
+  display: grid;
+
+  @include container-query(30rem) {
+    grid-template-columns: 10rem 1fr;
+  }
+}
+```
+
+## cover
+
+**New in v3.** Make an element fill its positioned parent (`inset: 0`).
+
+### Argument(s)
+
+| Name        | Default Value | Description         |
+|-------------|---------------|---------------------|
+| `$position` | `absolute`    | The position value. |
+
+[View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/mixin/_utilities.scss)
+
+### Example(s)
+
+```scss
+.hero__overlay {
+  @include cover;
+  background-color: color-alpha('heading', 0.5);
+}
+```
+
+## dark-mode
+
+**New in v3.** Output styles for the dark mode, based on the `dark-mode` [settings](/docs/customization/settings/#dark-mode) (the selector and the optional `prefers-color-scheme` media query). Use it at the root level with rules, or inside a rule with declarations.
+
+### Argument(s)
+
+| Name     | Default Value | Description                                                       |
+|----------|---------------|-------------------------------------------------------------------|
+| `$scope` | `null`        | An optional scope selector inside the dark mode (used by styles). |
+
+[View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/mixin/_theme.scss)
+
+### Example(s)
+
+```scss
+.logo {
+  filter: none;
+
+  @include dark-mode {
+    filter: invert(1);
+  }
+}
+
+@include dark-mode {
+  .illustration { opacity: 0.85; }
 }
 ```
 
@@ -298,9 +473,9 @@ The `font-face` mixin is a helper to generate a `@font-face` declaration. This i
 
 ## form-check
 
-The `form-check()` mixin is a helper to create custom checkboxes. It accepts three selectors and generates radio and checkbox styles.
+The checkbox and radio styles come from the `generate-form-check()` generator mixin. It accepts three selectors, so you can apply the Spruce look to markup you can’t change.
 
-{% notification %}There are scenarios (unfortunately) where it is easier to modify the CSS code than the HTML markup. In our case, we usually style the checkboxes and radios in the <a href="https://hu.wordpress.org/plugins/contact-form-7/">Custom Form 7</a> plugin.{% endnotification %}
+{% notification %}There are scenarios (unfortunately) where it is easier to modify the CSS code than the HTML markup. For example, we usually style the checkboxes and radios of the <a href="https://wordpress.org/plugins/contact-form-7/">Contact Form 7</a> plugin this way.{% endnotification %}
 
 ### Argument(s)
 
@@ -311,17 +486,21 @@ The `form-check()` mixin is a helper to create custom checkboxes. It accepts thr
 | `$label`                     |                          | The selector of the label element.             |
 | `$has-sizes`                 | `false`                  | Turn on the sizes variants (`*--sm`, `*--lg`). |
 
-[View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/mixin/_form.scss#L34)
+[View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/form/_check.scss)
 
 ### Example(s)
 
 ```scss
-@include form-check('.form-check', '.form-check__control', '.form-check__label', true);
+@include generate-form-check(
+  '.wpcf7-list-item label',
+  '.wpcf7-list-item input',
+  '.wpcf7-list-item .wpcf7-list-item-label'
+);
 ```
 
 ## form-group-stacked
 
-Using the `form-group-stacked` mixin, you can create a stacked form group with a breakpoint. Under the breaking point the layout will be stack vertically.
+Using the `form-group-stacked` mixin, you can create a stacked form group with a breakpoint. Under the breakpoint, the items stack vertically.
 
 ### Argument(s)
 
@@ -359,6 +538,28 @@ With the help of the `layout-center` mixin, you can center any element.  It is m
       spacer-clamp('m', 'l')
     );
   }
+}
+```
+
+## layout-cluster
+
+**New in v3.** Inline items that wrap, with a gap: tags, buttons, navigation links.
+
+### Argument(s)
+
+| Name       | Default Value | Description                                                |
+|------------|---------------|------------------------------------------------------------|
+| `$gap`     | `'s'`         | The gap (a spacer key, a `'m:l'` shorthand or any value). |
+| `$justify` | `flex-start`  | The `justify-content` value.                               |
+| `$align`   | `center`      | The `align-items` value.                                   |
+
+[View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/mixin/_layout.scss)
+
+### Example(s)
+
+```scss
+.tag-list {
+  @include layout-cluster('xs');
 }
 ```
 
@@ -428,6 +629,27 @@ For the `$gap` you can also use a shorthand like in the <code><a href="/docs/sas
 }
 ```
 
+## layout-reel
+
+**New in v3.** A horizontally scrollable row with scroll snapping.
+
+### Argument(s)
+
+| Name                | Default Value | Description                |
+|---------------------|---------------|----------------------------|
+| `$item-inline-size` | `18rem`       | The width of the items.    |
+| `$gap`              | `'m'`         | The gap between the items. |
+
+[View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/mixin/_layout.scss)
+
+### Example(s)
+
+```scss
+.product-row {
+  @include layout-reel(16rem, 's');
+}
+```
+
 ## layout-sidebar
 
 Using the `layout-sidebar` mixin, you can create a two-column sidebar layout declaring the sidebar width explicitly.
@@ -478,6 +700,64 @@ Using the help of the `layout-stack` mixin, you can classical stack layout where
 ```scss
 ul {
   @include layout-stack('xs');
+}
+```
+
+## layout-switcher
+
+**New in v3.** A row of equal columns that switches to a column under a container width, without media queries. Over the `$limit` number of items, it is always stacked.
+
+### Argument(s)
+
+| Name         | Default Value | Description                                    |
+|--------------|---------------|------------------------------------------------|
+| `$threshold` | `30rem`       | The container width where the layout switches. |
+| `$gap`       | `'m'`         | The gap between the items.                     |
+| `$limit`     | `4`           | The maximum number of items in a row.          |
+
+[View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/mixin/_layout.scss)
+
+### Example(s)
+
+```scss
+.features {
+  @include layout-switcher(40rem, 'l');
+}
+```
+
+## motion-reduce
+
+**New in v3.** Output the content only when the user prefers reduced motion.
+
+[View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/mixin/_utilities.scss)
+
+### Example(s)
+
+```scss
+.spinner {
+  @include motion-reduce {
+    animation-duration: 3s;
+  }
+}
+```
+
+## motion-safe
+
+**New in v3.** Output the content only when the user doesn't prefer reduced motion. Wrap every non-essential animation in it.
+
+[View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/mixin/_utilities.scss)
+
+### Example(s)
+
+```scss
+.card {
+  @include motion-safe {
+    transition: translate 0.2s ease;
+
+    &:hover {
+      translate: 0 -2px;
+    }
+  }
 }
 ```
 
@@ -611,7 +891,7 @@ Crop text and display an ellipsis with multiline support where possible.
 
 ## transition
 
-This mixin aims to query the [transition variables](/docs/sass/variables#transition-and-animation) easier. Usually, you only need the global values (e.g., for anything with a custom hover animation), but you can also overwrite the three basic arguments.
+This mixin aims to query the [transition variables](/docs/sass/variables/#transition) easier. Usually, you only need the global values (e.g., for anything with a custom hover animation), but you can also overwrite the three basic arguments.
 
 ### Argument(s)
 
@@ -646,6 +926,20 @@ Hide something from the screen but keep it visible for assistive technology.
 ```scss
 .sr-only {
   @include visually-hidden;
+}
+```
+
+## visually-hidden-focusable
+
+**New in v3.** Visually hide an element until it, or an element inside it, gets the focus. Use it for skip links.
+
+[View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/mixin/_utilities.scss)
+
+### Example(s)
+
+```scss
+.skip-link {
+  @include visually-hidden-focusable;
 }
 ```
 

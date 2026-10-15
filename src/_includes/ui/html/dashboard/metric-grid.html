@@ -1,0 +1,33 @@
+{#- Override with `metricGrid` ({ title, period, metrics: [{ label, value, delta, trend: "up"|"down", good: true|false, points }] }). `points` is a list of 0–100 values for the sparkline. -#}
+{%- set _s = metricGrid or {
+    "title": "Overview",
+    "period": "Last 30 days",
+    "metrics": [
+        { "label": "Revenue", "value": "$48,290", "delta": "12.4%", "trend": "up", "good": true, "points": [32, 40, 36, 48, 44, 56, 52, 64, 60, 72, 70, 84] },
+        { "label": "Orders", "value": "1,284", "delta": "8.1%", "trend": "up", "good": true, "points": [40, 44, 38, 50, 46, 52, 58, 54, 62, 60, 66, 70] },
+        { "label": "Conversion rate", "value": "3.2%", "delta": "0.4 pt", "trend": "down", "good": false, "points": [70, 66, 68, 60, 62, 58, 54, 56, 50, 52, 48, 46] },
+        { "label": "Refunds", "value": "23", "delta": "18%", "trend": "down", "good": true, "points": [64, 60, 66, 52, 56, 48, 50, 42, 46, 38, 36, 30] }
+    ]
+} %}
+<section class="metric-grid" aria-labelledby="metric-grid-title">
+    <header class="metric-grid__header">
+        <h2 class="metric-grid__title" id="metric-grid-title">{{ _s.title }}</h2>
+        <p class="metric-grid__period">{{ _s.period }}</p>
+    </header>
+    <ul class="metric-grid__list" role="list">
+        {%- for metric in _s.metrics %}
+        <li class="metric-grid__item metric-grid__item--{{ 'good' if metric.good else 'bad' }}">
+            <p class="metric-grid__label">{{ metric.label }}</p>
+            <p class="metric-grid__value">{{ metric.value }}</p>
+            <p class="metric-grid__delta">
+                <svg class="metric-grid__arrow metric-grid__arrow--{{ metric.trend }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+                <span><span class="sr-only">{{ 'Up' if metric.trend == 'up' else 'Down' }} </span>{{ metric.delta }}</span>
+                <span class="metric-grid__compare">vs. previous period</span>
+            </p>
+            <svg class="metric-grid__sparkline" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                <polyline points="{% for point in metric.points %}{{ (loop.index0 * 100 / (metric.points.length - 1)) | round(2) }},{{ 100 - point }}{{ ' ' if not loop.last }}{% endfor %}"/>
+            </svg>
+        </li>
+        {%- endfor %}
+    </ul>
+</section>

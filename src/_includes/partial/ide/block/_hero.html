@@ -1,0 +1,44 @@
+{% highlight "scss" %}
+@use 'sprucecss/scss/spruce' as *;
+
+// .hero-block > .container > .hero-block__inner
+.hero-block {
+  background-image: radial-gradient(
+    circle at 50% 0,
+    color-alpha('primary', 0.15),
+    transparent 60%
+  );
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    @include layout-stack('m');
+    align-items: center;
+    margin-inline: auto;
+    max-inline-size: 48rem;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: responsive-font-size(4rem, 40);
+    margin-block: 0;
+  }
+
+  &__lead {
+    color: color('muted');
+    font-size: font-size('h5');
+  }
+
+  &__actions {
+    @include layout-cluster('s');
+    justify-content: center;
+  }
+
+  @include dark-mode {
+    background-image: radial-gradient(
+      circle at 50% 0,
+      color-alpha('primary', 0.3),
+      transparent 60%
+    );
+  }
+}
+{% endhighlight %}

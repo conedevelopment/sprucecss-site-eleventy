@@ -1,0 +1,73 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.tooltip-demo {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacer('m');
+  padding-block: spacer('xl');
+}
+
+.tooltip {
+  display: inline-flex;
+  position: relative;
+
+  &__content {
+    background-color: color('heading');
+    border-radius: radius('sm');
+    box-shadow: shadow('md');
+    color: color('background');
+    font-size: config('font-size-sm', $typography);
+    inline-size: max-content;
+    inset-block-end: calc(100% + #{spacer('xs')});
+    inset-inline-start: 50%;
+    line-height: config('line-height-md', $typography);
+    max-inline-size: 16rem;
+    opacity: 0;
+    padding: spacer('xxs') spacer('xs');
+    pointer-events: none;
+    position: absolute;
+    translate: -50% 0.25rem;
+    visibility: hidden;
+    z-index: z-index('tooltip');
+    @include transition($property: 'opacity, translate, visibility');
+
+    &::after {
+      border: 0.375rem solid transparent;
+      border-block-start-color: color('heading');
+      content: '';
+      inset-block-start: 100%;
+      inset-inline-start: 50%;
+      position: absolute;
+      translate: -50% 0;
+    }
+  }
+
+  &:hover &__content,
+  &:focus-within &__content,
+  &.is-open &__content {
+    opacity: 1;
+    translate: -50% 0;
+    visibility: visible;
+  }
+
+  &.is-dismissed &__content {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &--bottom &__content {
+    inset-block: calc(100% + #{spacer('xs')}) auto;
+    translate: -50% -0.25rem;
+
+    &::after {
+      border-block-end-color: color('heading');
+      border-block-start-color: transparent;
+      inset-block: auto 100%;
+    }
+  }
+}
+
+[dir='rtl'] .tooltip__content {
+  translate: 50% 0.25rem;
+}

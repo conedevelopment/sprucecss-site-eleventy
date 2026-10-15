@@ -1,0 +1,54 @@
+{#- Override with `recentOrders` ({ title, text, orders: [{ id, customer, email, avatar, date, datetime, items, status: "paid"|"pending"|"refunded"|"shipped", total }] }). -#}
+{%- set _s = recentOrders or {
+    "title": "Recent orders", "text": "The last orders from your store.",
+    "orders": [
+        { "id": "10492", "customer": "Anna Smith", "email": "anna@example.com", "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=96&h=96&q=70", "date": "Oct 5, 10:42", "datetime": "2026-10-05T10:42", "items": 3, "status": "paid", "total": "$219.00" },
+        { "id": "10491", "customer": "Leo Novak", "email": "leo@example.com", "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=96&h=96&q=70", "date": "Oct 5, 09:15", "datetime": "2026-10-05T09:15", "items": 1, "status": "pending", "total": "$89.00" },
+        { "id": "10490", "customer": "Sara Kim", "email": "sara@example.com", "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=96&h=96&q=70", "date": "Oct 4, 18:03", "datetime": "2026-10-04T18:03", "items": 2, "status": "shipped", "total": "$341.00" },
+        { "id": "10489", "customer": "Omar Haddad", "email": "omar@example.com", "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=96&h=96&q=70", "date": "Oct 4, 14:27", "datetime": "2026-10-04T14:27", "items": 1, "status": "refunded", "total": "$42.00" },
+        { "id": "10488", "customer": "Hana Sato", "email": "hana@example.com", "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=96&h=96&q=70", "date": "Oct 4, 11:50", "datetime": "2026-10-04T11:50", "items": 4, "status": "shipped", "total": "$508.00" }
+    ]
+} %}
+{%- set _status = { "paid": ["Paid", "success"], "pending": ["Pending", "warning"], "shipped": ["Shipped", "info"], "refunded": ["Refunded", "danger"] } %}
+<section class="recent-orders" aria-labelledby="recent-orders-title">
+    <header class="recent-orders__header">
+        <div class="recent-orders__heading">
+            <h2 class="recent-orders__title" id="recent-orders-title">{{ _s.title }}</h2>
+            <p class="recent-orders__text">{{ _s.text }}</p>
+        </div>
+        <a class="btn btn--outline-primary btn--sm" href="#">View all orders</a>
+    </header>
+    <div class="table-responsive">
+        <table class="table recent-orders__table">
+            <caption class="sr-only">{{ _s.title }}</caption>
+            <thead>
+                <tr>
+                    <th scope="col">Order</th>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" class="recent-orders__number">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%- for order in _s.orders %}
+                <tr>
+                    <th scope="row"><a href="#">#{{ order.id }}</a></th>
+                    <td>
+                        <div class="recent-orders__customer">
+                            <img class="recent-orders__avatar" src="{{ order.avatar }}" alt="" width="32" height="32" loading="lazy">
+                            <div class="recent-orders__who">
+                                <p class="recent-orders__name">{{ order.customer }}</p>
+                                <p class="recent-orders__email">{{ order.email }}</p>
+                            </div>
+                        </div>
+                    </td>
+                    <td><time datetime="{{ order.datetime }}">{{ order.date }}</time></td>
+                    <td><span class="badge badge--{{ _status[order.status][1] }}"><span class="badge__dot" aria-hidden="true"></span>{{ _status[order.status][0] }}</span></td>
+                    <td class="recent-orders__number">{{ order.total }} <span class="recent-orders__items">{{ order.items }} {{ "item" if order.items == 1 else "items" }}</span></td>
+                </tr>
+                {%- endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>

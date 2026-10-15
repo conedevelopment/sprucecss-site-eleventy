@@ -1,0 +1,35 @@
+---
+title: 'Returns Form'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium">
+        {% include "ui/html/ecommerce/returns-form.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/ecommerce/returns-form.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/ecommerce/returns-form.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/ecommerce/returns-form.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/ecommerce/returns-form.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/ecommerce/returns-form.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/ecommerce/returns-form.js"></script>
+{% endblock %}

@@ -1,0 +1,33 @@
+{#- Override with `featuresBlock` ({ heading, items: [{ icon, title, text }] }). -#}
+{%- set _s = featuresBlock or {
+    "heading": { "eyebrow": "Features", "title": "Everything you need to ship faster", "text": "Spruce gives you the foundation, so you can focus on the product.", "id": "features-title" },
+    "items": [
+        { "icon": "palette", "title": "Design styles", "text": "Switch the whole look with one attribute: from minimal to brutalist." },
+        { "icon": "layers", "title": "Design tokens", "text": "Colors, spacing, radii and shadows as Sass variables and custom properties." },
+        { "icon": "zap", "title": "Tiny footprint", "text": "Around 9 KB gzipped. Every bigger feature is opt-in." },
+        { "icon": "shield", "title": "Accessible", "text": "Visible focus states, reduced motion support and semantic markup." },
+        { "icon": "globe", "title": "RTL ready", "text": "Logical properties everywhere, so every layout mirrors correctly." },
+        { "icon": "code", "title": "Sass helpers", "text": "Mixins and functions for layouts, breakpoints and components." },
+        { "icon": "sparkles", "title": "Dark mode", "text": "A complete dark palette that can follow the system preference." },
+        { "icon": "book", "title": "Documented", "text": "Every token, mixin and element explained with live examples." }
+    ]
+} %}
+<section class="features-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="features-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            {#- Three columns when the items fill rows of three but not rows of four (like 6 or 9), four otherwise. -#}
+            {%- set _columns = 3 if (_s.items.length % 4 != 0 and _s.items.length % 3 == 0) else 4 %}
+            <ul class="features-block__grid features-block__grid--{{ _columns }}" role="list">
+                {%- for item in _s.items %}
+                <li class="features-block__item">
+                    <span class="features-block__icon">{% set iconName = item.icon %}{% include "../block/icon.html" %}</span>
+                    <h3 class="features-block__title">{{ item.title }}</h3>
+                    <p class="features-block__text">{{ item.text }}</p>
+                </li>
+                {%- endfor %}
+            </ul>
+        </div>
+    </div>
+</section>

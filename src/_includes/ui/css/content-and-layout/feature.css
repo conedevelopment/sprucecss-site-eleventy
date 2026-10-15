@@ -1,13 +1,11 @@
-.l-feature__inner > * {
-  margin-block-end: 0;
-  margin-block-start: 0;
-}
-.l-feature__inner > * + * {
-  margin-block-start: clamp(4.5rem, 5vw, 7rem);
+.l-feature__inner {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4.5rem, 5vw, 7rem);
 }
 @media (min-width: 64em) {
-  .l-feature__inner > * + * {
-    margin-block-start: 0;
+  .l-feature__inner {
+    gap: 0;
   }
 }
 
@@ -37,7 +35,9 @@
   }
 }
 .feature__thumbnail {
+  aspect-ratio: 4/3;
   block-size: 100%;
+  border-radius: var(--spruce-border-radius-lg);
   object-fit: cover;
   object-position: center;
 }
@@ -48,6 +48,10 @@
 .feature__caption > * + * {
   margin-block-start: 1rem;
 }
+.feature__caption {
+  align-content: start;
+  display: grid;
+}
 @media (min-width: 64em) {
   .feature__caption {
     padding-block: clamp(4.5rem, 7.5vw, 8rem);
@@ -55,12 +59,13 @@
 }
 .feature__subtitle {
   align-items: center;
-  background-color: var(--spruce-feature-color-subtitle-background);
-  border: 1px solid var(--spruce-feature-color-subtitle-border);
-  border-radius: var(--spruce-border-radius-lg);
+  background-color: color-mix(in srgb, var(--spruce-base-color-primary) 6%, transparent);
+  border: var(--spruce-border-width-base) solid color-mix(in srgb, var(--spruce-base-color-primary) 15%, transparent);
+  border-radius: var(--spruce-border-radius-pill);
   color: var(--spruce-base-color-primary);
   display: inline-flex;
   font-size: 0.9375rem;
+  font-weight: 600;
   gap: 0.65rem;
   padding: 0.15em 1rem;
   text-align: start;
@@ -68,6 +73,45 @@
 .feature__title {
   font-size: clamp(2.25rem, 4vw + 1rem, 3rem);
 }
+.feature__text {
+  color: var(--spruce-base-color-muted);
+  font-size: var(--spruce-font-size-lead);
+}
+.feature__list {
+  list-style: none;
+  padding: 0;
+}
+.feature__list > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.feature__list > * + * {
+  margin-block-start: 0.5rem;
+}
+.feature__list li {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  /* stylelint-disable property-disallowed-list */
+}
+.feature__list li::before {
+  block-size: 0.35em;
+  border-block-end: 2px solid var(--spruce-base-color-primary);
+  border-left: 2px solid var(--spruce-base-color-primary);
+  content: "";
+  flex-shrink: 0;
+  inline-size: 0.7em;
+  margin-block-end: 0.2em;
+  rotate: -45deg;
+}
+.feature__list li {
+  /* stylelint-enable property-disallowed-list */
+}
 .feature__btn {
-  margin-block-start: 1.5rem;
+  justify-self: start;
+  margin-block-start: 1rem;
+}
+
+[dir=rtl] .feature__btn .btn__icon {
+  scale: -1 1;
 }

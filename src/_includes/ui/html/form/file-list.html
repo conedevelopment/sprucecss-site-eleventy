@@ -1,25 +1,25 @@
 <div class="form-group">
-    <span class="form-label">Gallery</span>
-    <div class="file-list">
-        <button class="btn btn--primary btn--block">Choose file(s)</button>
-        <ul class="file-list__items">
+    <span class="form-label" id="gallery-label">Gallery</span>
+    <div class="file-list" data-file-list>
+        <button type="button" class="btn btn--primary btn--block">Choose images</button>
+        <ul class="file-list__items" aria-labelledby="gallery-label">
             <li class="file-list-item">
                 <div class="file-list-item__column">
                     <img class="file-list-item__thumbnail" src="https://picsum.photos/80/80" alt=""/>
                     <span class="file-list-item__name" id="list-item-1">pic1234.jpg</span>
                 </div>
                 <div class="file-list-item__actions">
-                    <button class="btn btn--light btn--sm btn--icon" aria-describedby="list-item-1" aria-label="Move one up" disabled="disabled">
+                    <button type="button" class="btn btn--light btn--sm btn--icon" aria-describedby="list-item-1" aria-label="Move up" data-file-list-move="-1" disabled>
                         <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                             <polyline points="18 15 12 9 6 15"></polyline>
                         </svg>
                     </button>
-                    <button class="btn btn--light btn--sm btn--icon" aria-describedby="list-item-1" aria-label="Move one down">
+                    <button type="button" class="btn btn--light btn--sm btn--icon" aria-describedby="list-item-1" aria-label="Move down" data-file-list-move="1">
                         <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
-                    <button class="btn btn--delete btn--sm btn--icon" aria-describedby="list-item-1" aria-label="Remove">
+                    <button type="button" class="btn btn--soft-danger btn--sm btn--icon" aria-describedby="list-item-1" aria-label="Remove" data-file-list-remove>
                         <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -41,17 +41,17 @@
                     <span class="file-list-item__name" id="list-item-2">document5678.pdf</span>
                 </div>
                 <div class="file-list-item__actions">
-                    <button class="btn btn--light btn--sm btn--icon" aria-describedby="list-item-2" aria-label="Move one up">
+                    <button type="button" class="btn btn--light btn--sm btn--icon" aria-describedby="list-item-2" aria-label="Move up" data-file-list-move="-1">
                         <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                             <polyline points="18 15 12 9 6 15"></polyline>
                         </svg>
                     </button>
-                    <button class="btn btn--light btn--sm btn--icon" aria-describedby="list-item-2" aria-label="Move one down">
+                    <button type="button" class="btn btn--light btn--sm btn--icon" aria-describedby="list-item-2" aria-label="Move down" data-file-list-move="1">
                         <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
-                    <button class="btn btn--delete btn--sm btn--icon" aria-describedby="list-item-2" aria-label="Remove">
+                    <button type="button" class="btn btn--soft-danger btn--sm btn--icon" aria-describedby="list-item-2" aria-label="Remove" data-file-list-remove>
                         <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -65,17 +65,17 @@
                     <span class="file-list-item__name" id="list-item-3">image5678.png</span>
                 </div>
                 <div class="file-list-item__actions">
-                    <button class="btn btn--light btn--sm btn--icon" aria-describedby="list-item-3" aria-label="Move one up">
+                    <button type="button" class="btn btn--light btn--sm btn--icon" aria-describedby="list-item-3" aria-label="Move up" data-file-list-move="-1">
                         <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                             <polyline points="18 15 12 9 6 15"></polyline>
                         </svg>
                     </button>
-                    <button class="btn btn--light btn--sm btn--icon" aria-describedby="list-item-3" aria-label="Move one down" disabled="disabled">
+                    <button type="button" class="btn btn--light btn--sm btn--icon" aria-describedby="list-item-3" aria-label="Move down" data-file-list-move="1" disabled>
                         <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </button>
-                    <button class="btn btn--delete btn--sm btn--icon" aria-describedby="list-item-3" aria-label="Remove">
+                    <button type="button" class="btn btn--soft-danger btn--sm btn--icon" aria-describedby="list-item-3" aria-label="Remove" data-file-list-remove>
                         <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -84,5 +84,6 @@
                 </div>
             </li>
         </ul>
+        <p class="sr-only" aria-live="polite" data-file-list-status></p>
     </div>
 </div>

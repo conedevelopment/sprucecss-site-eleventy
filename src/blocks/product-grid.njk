@@ -1,0 +1,39 @@
+---
+category: 'Commerce'
+title: 'Product Grid'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--block ui--product-grid">
+        {% include "ui/html/block/product-grid.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/block/product-grid.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/block/product-grid.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/block/product-grid.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/block/product-grid.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/container.css">
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/block-heading.css">
+    <link rel="stylesheet" href="/_includes/ui/css/card/product.css">
+    <link rel="stylesheet" href="/_includes/ui/css/block/product-grid.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/block/product-grid.js"></script>
+{% endblock %}

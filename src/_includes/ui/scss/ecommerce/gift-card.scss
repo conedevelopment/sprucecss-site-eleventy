@@ -1,0 +1,147 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.gift-card {
+  align-items: start;
+  display: grid;
+  gap: spacer-clamp('m', 'l');
+
+  @include breakpoint('md') {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  &__preview {
+    @include breakpoint('md') {
+      inset-block-start: spacer('m');
+      position: sticky;
+    }
+  }
+
+  // A credit card ratio, with the brand colors.
+  &__card {
+    aspect-ratio: 1.586;
+    background-color: color('primary');
+    background-image:
+      radial-gradient(circle at 100% 0%, #{color-alpha('secondary', 0.85)}, transparent 55%),
+      radial-gradient(circle at 0% 100%, hsl(0deg 0% 100% / 18%), transparent 50%);
+    border-radius: radius('lg');
+    box-shadow: shadow('lg');
+    color: hsl(0deg 0% 100%);
+    display: grid;
+    grid-template-rows: auto 1fr auto auto;
+    padding: spacer-clamp('m', 'l');
+  }
+
+  &__brand {
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  &__amount {
+    align-self: center;
+    font-family: config('font-family-heading', $typography);
+    font-size: clamp(2.25rem, 6vw, 3.5rem);
+    font-variant-numeric: tabular-nums;
+    font-weight: 800;
+  }
+
+  &__to {
+    font-weight: 600;
+  }
+
+  &__message {
+    font-size: config('font-size-sm', $typography);
+    opacity: 0.85;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__form {
+    @include layout-stack('m');
+  }
+
+  &__title {
+    font-size: font-size('h4');
+  }
+
+  &__amounts {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    @include layout-stack('s');
+
+    legend {
+      font-size: config('font-size-base', $typography);
+    }
+  }
+
+  &__options {
+    display: grid;
+    gap: spacer('xs');
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  &__option {
+    cursor: pointer;
+    position: relative;
+
+    input {
+      inset: 0;
+      opacity: 0;
+      position: absolute;
+    }
+
+    span {
+      align-items: center;
+      border: config('border-width-base', $display) solid color('border', 'form');
+      border-radius: radius('md');
+      color: color('heading');
+      display: flex;
+      font-weight: 700;
+      justify-content: center;
+      min-block-size: 3rem;
+    }
+
+    input:checked + span {
+      background-color: color-alpha('primary', 0.1);
+      border-color: color('primary');
+      box-shadow: 0 0 0 1px color('primary');
+      color: color('primary');
+    }
+
+    input:focus-visible + span {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 2px;
+    }
+  }
+
+  &__custom {
+    @include layout-stack('xxs');
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__currency {
+    align-items: center;
+    display: flex;
+    position: relative;
+
+    span {
+      color: color('muted');
+      inset-inline-start: spacer('s');
+      pointer-events: none;
+      position: absolute;
+    }
+
+    .form-control {
+      padding-inline-start: spacer('l');
+    }
+  }
+
+  &__row {
+    @include layout-switcher(28rem, 'm');
+  }
+}

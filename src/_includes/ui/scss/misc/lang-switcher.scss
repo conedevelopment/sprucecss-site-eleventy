@@ -1,69 +1,136 @@
-@use 'sass:color';
 @use 'sprucecss/scss/spruce' as *;
+
+.lang-switcher-demo {
+  align-items: start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacer('l');
+  justify-content: space-between;
+  min-block-size: 18rem;
+
+  .lang-switcher--upward {
+    align-self: end;
+  }
+}
 
 .lang-switcher {
   $this: &;
-  min-inline-size: 2.875rem;
+  display: inline-block;
   position: relative;
-  text-transform: uppercase;
-
-  &--upward {
-    #{$this}__panel {
-      inset: auto 0 120% auto;
-    }
-
-    svg {
-      rotate: 180deg;
-    }
-  }
 
   &__control {
     @include clear-btn;
+    @include transition($property: 'background-color, color');
     align-items: center;
     border-radius: config('border-radius', $btn);
     color: color('heading');
-    display: flex;
+    display: inline-flex;
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
     gap: spacer('xxs');
+    padding: spacer('xxs') spacer('xs');
     text-transform: uppercase;
+
+    &:hover,
+    &[aria-expanded='true'] {
+      background-color: color-alpha('primary', 0.1);
+    }
 
     &:focus-visible {
       @include short-ring('button');
     }
+
+    &[aria-expanded='true'] #{$this}__chevron {
+      rotate: 180deg;
+    }
+  }
+
+  &__icon,
+  &__chevron {
+    block-size: 1em;
+    color: color('primary');
+    flex-shrink: 0;
+    inline-size: 1em;
+  }
+
+  &__chevron {
+    @include transition($property: 'rotate');
+    block-size: 0.85em;
+    inline-size: 0.85em;
   }
 
   &__panel {
     @include clear-list;
-    background-color: hsl(0deg 0% 0%);
-    border-radius: config('border-radius-sm', $display);
-    inset: 120% 0 auto auto;
-    padding-block: spacer('xxs');
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('md');
+    box-shadow: shadow('lg');
+    inset-block-start: calc(100% + #{spacer('xxs')});
+    inset-inline-start: 0;
+    min-inline-size: 11rem;
+    padding: spacer('xxs');
     position: absolute;
+    z-index: z-index('dropdown');
 
-    > * + * {
-      margin-block-start: 0;
+    &[hidden] {
+      display: none;
     }
 
-    li {
-      line-height: 1;
-    }
-
-    a {
-      color: hsl(0deg 0% 100%);
-      display: flex;
-      padding-block: spacer('xxs');
-      padding-inline: spacer('s');
-      text-decoration: none;
-
-      &:hover {
-        color: color.adjust(color('primary', $only-color: true), $lightness: 40%);
-      }
+    > li {
+      margin: 0 !important;
     }
   }
 
-  svg {
-    --size: 1em;
-    block-size: var(--size);
+  &__link {
+    align-items: center;
+    border-radius: radius('sm');
+    color: color('heading');
+    display: flex;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xs');
+    padding: spacer('xs') spacer('s');
+    text-decoration: none;
+
+    &:hover,
+    &:focus-visible {
+      background-color: color-alpha('primary', 0.1);
+      color: color('primary');
+      outline: none;
+    }
+
+    &[aria-current='true'] {
+      font-weight: 700;
+    }
+  }
+
+  &__code {
+    color: color('muted');
+    font-size: 0.75rem;
+    font-weight: 700;
+    inline-size: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  &__check {
+    block-size: 1rem;
     color: color('primary');
-    inline-size: var(--size);
+    inline-size: 1rem;
+    margin-inline-start: auto;
+  }
+
+  // In a footer (or near the bottom of the viewport): open upward and toward the start.
+  &--upward {
+    #{$this}__panel {
+      inset-block: auto calc(100% + #{spacer('xxs')});
+      inset-inline: auto 0;
+    }
+
+    #{$this}__chevron {
+      rotate: 180deg;
+    }
+
+    #{$this}__control[aria-expanded='true'] #{$this}__chevron {
+      rotate: 0deg;
+    }
   }
 }

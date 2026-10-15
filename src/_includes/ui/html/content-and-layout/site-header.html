@@ -1,40 +1,60 @@
-<header class="site-header">
+{#- Override with `siteHeader` ({ links: [{ label, href, current, children: [{ label, href, current }] }], email, action: { label, icon } }); a link with `children` becomes a dropdown, `icon: false` drops the user icon. -#}
+{%- set _h = siteHeader or {
+    "links": [
+        { "label": "Services", "children": [{ "label": "Web design" }, { "label": "Development" }, { "label": "Branding" }, { "label": "Consulting" }] },
+        { "label": "Products" },
+        { "label": "About", "current": true },
+        { "label": "Contact" }
+    ],
+    "email": "hello@conedevelopment.com",
+    "action": { "label": "Log in" }
+} %}
+<a class="skip-link sr-only-focusable" href="#content">Skip to content</a>
+<header class="site-header site-header--sticky">
     <div class="container">
         <div class="site-header__inner">
             <div class="site-header__column">
                 <a class="site-header__logo" href="#">
-                    <img src="/img/cone-logo.svg" alt="Cone" width="48" height="48"/>
+                    <img src="/img/cone-logo.svg" alt="Cone home" width="48" height="48">
                 </a>
-                <nav class="site-navigation site-header__navigation" aria-label="Site">
-                    <button class="btn btn--primary btn--icon site-navigation__btn" data-action="navigation-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Main">
-                        <svg class="btn__icon" aria-hidden="true" focusable="false" role="img" height="24" style="fill-rule:evenodd;clip-rule:evenodd;fill:currentColor;overflow:visible;" viewBox="0 0 24 24" width="24" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M24,19.6c0,-0.331 -0.269,-0.6 -0.6,-0.6l-20.8,0c-0.331,0 -0.6,0.269 -0.6,0.6l0,2.8c0,0.331 0.269,0.6 0.6,0.6l20.8,-0c0.331,-0 0.6,-0.269 0.6,-0.6l0,-2.8Zm0,-9c0,-0.331 -0.269,-0.6 -0.6,-0.6l-22.8,-0c-0.331,-0 -0.6,0.269 -0.6,0.6l0,2.8c0,0.331 0.269,0.6 0.6,0.6l22.8,-0c0.331,-0 0.6,-0.269 0.6,-0.6l0,-2.8Zm0,-9c0,-0.331 -0.269,-0.6 -0.6,-0.6l-15.8,-0c-0.331,-0 -0.6,0.269 -0.6,0.6l0,2.8c0,0.331 0.269,0.6 0.6,0.6l15.8,-0c0.331,-0 0.6,-0.269 0.6,-0.6l0,-2.8Z"></path>
-                        </svg>
+                <nav class="site-navigation site-header__navigation" aria-label="Main" data-site-navigation>
+                    <button class="btn btn--primary btn--icon site-navigation__btn" type="button" aria-controls="primary-menu" aria-expanded="false">
+                        <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path class="site-navigation__line site-navigation__line--top" d="M4 6h16"/><path class="site-navigation__line site-navigation__line--middle" d="M4 12h16"/><path class="site-navigation__line site-navigation__line--bottom" d="M4 18h16"/></svg>
+                        <span class="sr-only">Menu</span>
                     </button>
-                    <ul id="primary-menu" class="navigation-menu">
-                        <li>
-                            <a href="#">Services</a>
+                    <ul class="navigation-menu" id="primary-menu">
+                        {%- for link in _h.links %}
+                        {%- if link.children %}
+                        <li class="site-navigation__item">
+                            <button class="site-navigation__toggle" type="button" aria-expanded="false" aria-controls="primary-submenu-{{ loop.index }}">
+                                {{ link.label }}
+                                <svg class="site-navigation__chevron" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"/></svg>
+                            </button>
+                            <ul class="site-navigation__submenu" id="primary-submenu-{{ loop.index }}">
+                                {%- for child in link.children %}
+                                <li><a href="{{ child.href or '#' }}"{% if child.current %} aria-current="page"{% endif %}>{{ child.label }}</a></li>
+                                {%- endfor %}
+                            </ul>
                         </li>
-                        <li>
-                            <a href="#">Products</a>
-                        </li>
-                        <li>
-                            <a href="#">About</a>
-                        </li>
-                        <li>
-                            <a href="#">Contact</a>
-                        </li>
+                        {%- else %}
+                        <li><a href="{{ link.href or '#' }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.label }}</a></li>
+                        {%- endif %}
+                        {%- endfor %}
                     </ul>
                 </nav>
             </div>
             <div class="site-header__actions">
-                <a class="site-header__email" href="mailto:hello@conedevelopment.com">hello@conedevelopment.com</a>
-                <a class="btn btn--primary" href="#">
-                    <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                {%- if _h.email %}
+                <a class="site-header__email" href="mailto:{{ _h.email }}">{{ _h.email }}</a>
+                {%- endif %}
+                <a class="btn btn--primary btn--sm" href="{{ _h.action.href or '#' }}">
+                    {%- if _h.action.icon != false %}
+                    <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                         <circle cx="12" cy="7" r="4"></circle>
                     </svg>
-                    Log in
+                    {%- endif %}
+                    {{ _h.action.label }}
                 </a>
             </div>
         </div>

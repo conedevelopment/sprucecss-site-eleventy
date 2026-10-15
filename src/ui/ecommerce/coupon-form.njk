@@ -1,0 +1,35 @@
+---
+title: 'Coupon Form'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--narrow">
+        {% include "ui/html/ecommerce/coupon-form.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/ecommerce/coupon-form.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/ecommerce/coupon-form.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/ecommerce/coupon-form.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/ecommerce/coupon-form.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/ecommerce/coupon-form.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/ecommerce/coupon-form.js"></script>
+{% endblock %}

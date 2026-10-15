@@ -1,0 +1,99 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.results-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+  }
+
+  &__list {
+    display: grid;
+    gap: spacer('m');
+    grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+    }
+  }
+
+  &__item {
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    padding: spacer('m');
+    @include layout-stack('xs');
+  }
+
+  &__label {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    font-weight: 600;
+  }
+
+  &__values {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs');
+  }
+
+  &__before {
+    color: color('muted');
+    font-size: font-size('h5');
+    text-decoration: line-through;
+    text-decoration-color: color('border-strong');
+  }
+
+  &__arrow {
+    color: color('muted');
+  }
+
+  &__after {
+    color: color('heading');
+    font-family: config('font-family-heading', $typography);
+    font-size: font-size('h1');
+    line-height: 1;
+  }
+
+  // Both directions are good news here: the arrow shows the direction, the color says it's an improvement.
+  &__change {
+    align-items: center;
+    color: color('success', 'alert');
+    display: inline-flex;
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+    gap: spacer('xxs');
+
+    svg {
+      block-size: 1rem;
+      inline-size: 1rem;
+    }
+
+    &--down svg {
+      rotate: 180deg;
+    }
+  }
+
+  &__text {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__note {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    margin-block: 0;
+  }
+}
+
+[dir='rtl'] .results-block__arrow {
+  display: inline-block;
+  scale: -1 1;
+}

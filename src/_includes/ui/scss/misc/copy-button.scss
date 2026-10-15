@@ -1,0 +1,19 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.copy-field {
+  @include layout-stack('xs');
+
+  &__input {
+    font-family: config('font-family-mono', $typography);
+  }
+}
+
+.copy-button {
+  flex-shrink: 0;
+  min-inline-size: 6.5rem;
+
+  &.is-copied {
+    background-color: color('success', 'alert');
+    border-color: color('success', 'alert');
+  }
+}

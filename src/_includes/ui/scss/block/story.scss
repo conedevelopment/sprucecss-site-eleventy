@@ -1,0 +1,138 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.story-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    align-items: start;
+    display: grid;
+    gap: spacer-clamp('l', 'xxl');
+
+    @include breakpoint('lg') {
+      grid-template-columns: minmax(0, 15rem) minmax(0, 44rem);
+    }
+  }
+
+  // The chapter list follows the reader on wide screens.
+  &__nav {
+    @include layout-stack('s');
+
+    @include breakpoint('lg') {
+      inset-block-start: spacer('l');
+      position: sticky;
+    }
+  }
+
+  &__nav-title {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  &__toc {
+    border-inline-start: config('border-width-base', $display) solid color('border');
+    list-style: none;
+    padding: 0;
+    @include layout-stack('xxs');
+  }
+
+  &__toc-link {
+    align-items: baseline;
+    border-inline-start: 2px solid transparent;
+    color: color('text');
+    display: flex;
+    gap: spacer('xs');
+    margin-inline-start: calc(#{config('border-width-base', $display)} * -1);
+    padding: spacer('xxs') spacer('s');
+    text-decoration: none;
+
+    &:hover {
+      color: color('primary');
+    }
+
+    &[aria-current='true'] {
+      border-inline-start-color: color('primary');
+      color: color('heading');
+      font-weight: 700;
+    }
+  }
+
+  &__toc-number {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: spacer-clamp('l', 'xl');
+  }
+
+  &__chapter {
+    font-size: config('font-size-lead', $typography);
+    scroll-margin-block-start: spacer('l');
+    @include layout-stack('m');
+  }
+
+  &__eyebrow {
+    color: color('primary');
+    font-family: config('font-family-heading', $typography);
+    font-size: font-size('h4');
+    font-weight: config('font-weight-heading', $typography);
+  }
+
+  &__heading {
+    @include layout-stack('xxs'); // number, title
+  }
+
+  &__title {
+    font-size: responsive-font-size(2.25rem, 30, '2vw + 1rem');
+  }
+
+  &__list {
+    @include layout-stack('xs');
+  }
+
+  &__quote {
+    border-inline-start: 4px solid color('primary');
+    margin-inline: 0;
+    padding-inline-start: spacer('m');
+    @include layout-stack('xs');
+
+    blockquote {
+      border: 0;
+      color: color('heading');
+      font-family: config('font-family-heading', $typography);
+      font-size: font-size('h3');
+      font-style: normal;
+      line-height: 1.35;
+      margin-inline: 0;
+      padding: 0;
+    }
+
+    figcaption {
+      color: color('muted');
+      font-size: config('font-size-sm', $typography);
+      text-align: start;
+    }
+  }
+
+  &__figure {
+    margin-inline: 0;
+    @include layout-stack('xs');
+
+    img {
+      background-color: color('surface-muted');
+      border-radius: radius('lg');
+      inline-size: 100%;
+    }
+
+    figcaption {
+      color: color('muted');
+      font-size: config('font-size-sm', $typography);
+    }
+  }
+}

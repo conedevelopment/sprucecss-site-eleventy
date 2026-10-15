@@ -1,0 +1,104 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.careers-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+  }
+
+  &__filter {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs') spacer('s');
+    inline-size: 100%;
+    margin-inline: auto;
+    max-inline-size: 48rem;
+
+    .form-control {
+      inline-size: auto;
+      min-inline-size: 12rem;
+    }
+  }
+
+  &__count {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    margin-block: 0;
+    margin-inline-start: auto;
+  }
+
+  &__list {
+    @include clear-list;
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    inline-size: 100%;
+    margin-inline: auto;
+    max-inline-size: 48rem;
+    overflow: hidden;
+  }
+
+  &__job {
+    align-items: center;
+    background-color: color('surface');
+    display: flex;
+    gap: spacer('m');
+    justify-content: space-between;
+    margin: 0 !important;
+    padding: spacer('m');
+    position: relative;
+    @include a11y-card-link('.careers-block__title a');
+
+    & + & {
+      border-block-start: config('border-width-base', $display) solid color('border');
+    }
+
+    &:hover {
+      background-color: color('surface-muted');
+    }
+  }
+
+  &__info {
+    @include layout-stack('xxs');
+  }
+
+  &__title {
+    font-size: font-size('h5');
+
+    a {
+      color: color('heading');
+      text-decoration: none;
+
+      &:focus-visible {
+        outline: none;
+
+        &::before {
+          outline: 2px solid color('focus-ring');
+          outline-offset: -2px;
+        }
+      }
+    }
+  }
+
+  &__meta {
+    color: color('muted');
+    display: flex;
+    flex-wrap: wrap;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xxs') spacer('m');
+
+    span {
+      align-items: center;
+      display: inline-flex;
+      gap: spacer('xxs');
+    }
+  }
+
+  &__icon {
+    block-size: 1em;
+    inline-size: 1em;
+  }
+}

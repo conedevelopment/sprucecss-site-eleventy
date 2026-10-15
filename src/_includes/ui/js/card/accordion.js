@@ -1,39 +1,44 @@
 (() => {
-  document.querySelectorAll('.accordion-card').forEach((accordion) => {
-    const heading = accordion.querySelector('.accordion-card__title');
-    const button = document.createElement('button');
-    const icon = document.createElement('span');
+  let count = 0;
 
-    button.classList.add('accordion-card__toggle');
-    button.setAttribute('aria-expanded', 'false');
+  document.querySelectorAll('[data-accordion]').forEach((list) => {
+    // data-accordion="multiple" lets more than one card stay open.
+    const multiple = list.dataset.accordion === 'multiple';
+    const cards = [...list.querySelectorAll('.accordion-card')];
 
-    icon.classList.add('accordion-card__icon');
-    icon.innerHTML = `
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <line class="vertical-line" x1="12" y1="5" x2="12" y2="19"></line>
-        <line class="horizontal-line" x1="5" y1="12" x2="19" y2="12"></line>
-      </svg>
-    `;
+    const toggle = (card, open) => {
+      card.querySelector('.accordion-card__toggle').setAttribute('aria-expanded', String(open));
+      card.querySelector('.accordion-card__content').inert = !open;
+    };
 
-    button.innerHTML = `${heading.textContent} ${icon.outerHTML}`;
-    heading.innerHTML = '';
-    heading.appendChild(button);
+    cards.forEach((card) => {
+      const heading = card.querySelector('.accordion-card__title');
+      const content = card.querySelector('.accordion-card__content');
+      const button = document.createElement('button');
 
-    button.addEventListener('click', () => {
-      document.querySelectorAll('.accordion-card').forEach((otherAccordion) => {
-        const otherButton = otherAccordion.querySelector('button');
-        const otherContent = otherAccordion.querySelector('.accordion-card__content');
+      count += 1;
+      content.id ||= `accordion-content-${count}`;
 
-        if (otherButton !== button) {
-          otherButton.setAttribute('aria-expanded', 'false');
-          otherContent.setAttribute('aria-hidden', 'true');
+      // The heading keeps its level; the button inside it gets the text and the state.
+      button.className = 'accordion-card__toggle';
+      button.type = 'button';
+      button.setAttribute('aria-controls', content.id);
+      button.innerHTML = '<span class="accordion-card__label"></span><span class="accordion-card__icon" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line class="vertical-line" x1="12" y1="5" x2="12" y2="19"></line><line class="horizontal-line" x1="5" y1="12" x2="19" y2="12"></line></svg></span>';
+      button.querySelector('.accordion-card__label').textContent = heading.textContent.trim();
+      heading.replaceChildren(button);
+
+      // Open the card that's linked from the URL (#id of the content).
+      toggle(card, window.location.hash === `#${content.id}`);
+
+      button.addEventListener('click', () => {
+        const open = button.getAttribute('aria-expanded') !== 'true';
+
+        if (open && !multiple) {
+          cards.filter((other) => other !== card).forEach((other) => toggle(other, false));
         }
+
+        toggle(card, open);
       });
-
-      const expanded = button.getAttribute('aria-expanded') === 'true';
-
-      button.setAttribute('aria-expanded', !expanded);
-      heading.nextElementSibling.setAttribute('aria-hidden', expanded);
     });
   });
 })();

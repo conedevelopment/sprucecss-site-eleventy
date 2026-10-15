@@ -1,0 +1,35 @@
+---
+title: 'Kanban Board'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--wide">
+        {% include "ui/html/dashboard/kanban-board.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/dashboard/kanban-board.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/dashboard/kanban-board.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/dashboard/kanban-board.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/dashboard/kanban-board.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/dashboard/kanban-board.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/dashboard/kanban-board.js"></script>
+{% endblock %}

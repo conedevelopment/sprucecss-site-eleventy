@@ -1,0 +1,15 @@
+<section class="newsletter" aria-labelledby="newsletter-title">
+    <div class="newsletter__content">
+        <h2 class="newsletter__title" id="newsletter-title">Stay in the loop</h2>
+        <p class="newsletter__text">Monthly notes about CSS, Sass and design systems. No spam, unsubscribe anytime.</p>
+    </div>
+    <form class="newsletter__form" onsubmit="return false;">
+        <label class="sr-only" for="newsletter-email">Email address</label>
+        <input class="form-control" id="newsletter-email" type="email" placeholder="you@example.com" autocomplete="email" required>
+        <button class="btn btn--primary" type="submit">Subscribe</button>
+        <label class="form-check newsletter__consent" for="newsletter-consent">
+            <input class="form-check__control" id="newsletter-consent" name="consent" type="checkbox" required>
+            <span class="form-label form-check__label">I agree to receive the newsletter and accept the <a href="#">privacy policy</a>. Unsubscribe anytime.</span>
+        </label>
+    </form>
+</section>

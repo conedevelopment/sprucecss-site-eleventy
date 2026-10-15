@@ -1,0 +1,178 @@
+.hero-shop-block {
+  padding-block: 1.5rem clamp(4.5rem, 5vw, 7rem);
+}
+.hero-shop-block__inner {
+  display: grid;
+  gap: 1.5rem;
+}
+@media (min-width: 80em) {
+  .hero-shop-block__inner {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  }
+}
+.hero-shop-block__main, .hero-shop-block__tile {
+  --spruce-base-color-heading: hsl(0, 0%, 100%);
+  --spruce-base-color-text: hsl(0, 0%, 100%);
+  background-color: var(--spruce-base-color-heading);
+  border-radius: var(--spruce-border-radius-lg);
+  color: hsl(0, 0%, 100%);
+  display: flex;
+  isolation: isolate;
+  overflow: hidden;
+  position: relative;
+}
+.hero-shop-block__main::after, .hero-shop-block__tile::after {
+  background-image: linear-gradient(to top, hsla(0, 0%, 0%, 0.7), hsla(0, 0%, 0%, 0.1) 70%);
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: -1;
+}
+.hero-shop-block__main {
+  align-items: flex-end;
+  min-block-size: clamp(26rem, 60vb, 36rem);
+}
+.hero-shop-block__image {
+  block-size: 100%;
+  inline-size: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  z-index: -2;
+}
+.hero-shop-block__content {
+  max-inline-size: 36rem;
+  padding: clamp(1.5rem, 5vw, 4.5rem);
+}
+.hero-shop-block__content > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.hero-shop-block__content > * + * {
+  margin-block-start: 1rem;
+}
+.hero-shop-block__eyebrow {
+  font-size: var(--spruce-font-size-sm);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.hero-shop-block__title {
+  font-size: clamp(2.4rem, 5vw + 1rem, 4rem);
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  text-wrap: balance;
+}
+.hero-shop-block__text {
+  font-size: var(--spruce-font-size-lead);
+  opacity: 0.9;
+}
+.hero-shop-block__actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+.hero-shop-block__primary {
+  background-color: hsl(0, 0%, 100%);
+  border-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 10%);
+}
+.hero-shop-block__primary:hover {
+  background-color: hsl(0, 0%, 92%);
+  border-color: hsl(0, 0%, 92%);
+  color: hsl(0, 0%, 10%);
+}
+.hero-shop-block__secondary {
+  background-color: transparent;
+  border-color: hsla(0, 0%, 100%, 0.7);
+  color: hsl(0, 0%, 100%);
+}
+.hero-shop-block__secondary:hover {
+  background-color: hsla(0, 0%, 100%, 0.15);
+  border-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 100%);
+}
+.hero-shop-block__tiles {
+  display: grid;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+@media (min-width: 48em) {
+  .hero-shop-block__tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (min-width: 80em) {
+  .hero-shop-block__tiles {
+    grid-template-columns: none;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+  }
+}
+.hero-shop-block__tiles > li {
+  margin-block: 0;
+  padding-block: 0;
+}
+.hero-shop-block__tile {
+  position: relative;
+}
+.hero-shop-block__link::before {
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+
+.hero-shop-block__tile {
+  align-items: flex-end;
+  min-block-size: 14rem;
+}
+.hero-shop-block__tile-content {
+  padding: 1.5rem;
+}
+.hero-shop-block__tile-content > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.hero-shop-block__tile-content > * + * {
+  margin-block-start: 0.25rem;
+}
+.hero-shop-block__tile-title {
+  font-size: clamp(1.328125rem, 2vw + 1rem, 1.5625rem);
+}
+.hero-shop-block__link {
+  color: inherit;
+  text-decoration: none;
+}
+.hero-shop-block__link:focus-visible {
+  outline: none;
+}
+.hero-shop-block__link:focus-visible::before {
+  border-radius: var(--spruce-border-radius-lg);
+  outline: 3px solid var(--spruce-base-color-focus-ring);
+  outline-offset: -3px;
+}
+.hero-shop-block__more {
+  align-items: center;
+  display: flex;
+  font-weight: 700;
+  gap: 0.5rem;
+}
+.hero-shop-block__more .block-icon {
+  block-size: 1rem;
+  inline-size: 1rem;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-shop-block__image {
+    transition: scale 0.5s ease;
+  }
+  .hero-shop-block__tile:hover .hero-shop-block__image {
+    scale: 1.05;
+  }
+}
+
+[dir=rtl] .hero-shop-block__more .block-icon {
+  scale: -1 1;
+}

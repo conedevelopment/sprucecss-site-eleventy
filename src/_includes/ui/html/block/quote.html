@@ -1,0 +1,27 @@
+{#- Override with `quoteBlock` ({ title, quote, name, role, photo }). -#}
+{%- set _s = quoteBlock or {
+    "title": "What the client says",
+    "quote": "Nora simplified a product that had grown over ten years. Our support tickets dropped by a third, and for the first time our customers write to us to say thank you.",
+    "name": "Jonas Berg", "role": "Chief Product Officer, Fjord Bank",
+    "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&h=160&q=70"
+} %}
+<section class="quote-block" aria-labelledby="quote-block-title">
+    <div class="container">
+        <div class="quote-block__inner">
+            <h2 class="sr-only" id="quote-block-title">{{ _s.title }}</h2>
+            <figure class="quote-block__figure">
+                <svg class="quote-block__mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M3 21c3 0 7-1 7-8V5H3v8h4c0 4-2 5-4 5zm11 0c3 0 7-1 7-8V5h-7v8h4c0 4-2 5-4 5z"/></svg>
+                <blockquote class="quote-block__quote">
+                    <p>{{ _s.quote }}</p>
+                </blockquote>
+                <figcaption class="quote-block__author">
+                    <img class="quote-block__photo" src="{{ _s.photo }}" alt="" width="80" height="80" loading="lazy">
+                    <span class="quote-block__who">
+                        <span class="quote-block__name">{{ _s.name }}</span>
+                        <span class="quote-block__role">{{ _s.role }}</span>
+                    </span>
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+</section>

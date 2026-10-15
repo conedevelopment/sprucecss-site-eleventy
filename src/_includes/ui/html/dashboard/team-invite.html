@@ -1,0 +1,45 @@
+<section class="team-invite" aria-labelledby="team-invite-title" data-team-invite>
+    <header class="team-invite__header">
+        <h2 class="team-invite__title" id="team-invite-title">Invite your team</h2>
+        <p class="team-invite__text">Invitations expire after 7 days. You have <strong data-team-invite-seats>4</strong> free seats.</p>
+    </header>
+    <form class="team-invite__form" action="#" method="post" novalidate data-team-invite-form>
+        <div class="form-group team-invite__email">
+            <label class="form-label" for="team-invite-email">Email address</label>
+            <input class="form-control" id="team-invite-email" name="email" type="email" autocomplete="off" placeholder="name@company.com" required aria-describedby="team-invite-error">
+        </div>
+        <div class="form-group team-invite__role">
+            <label class="form-label" for="team-invite-role">Role</label>
+            <select class="form-control" id="team-invite-role" name="role">
+                <option>Member</option>
+                <option>Admin</option>
+                <option>Viewer</option>
+            </select>
+        </div>
+        <button class="btn btn--primary" type="submit">Send invite</button>
+        <p class="form-description team-invite__error" id="team-invite-error" hidden data-team-invite-error></p>
+    </form>
+    <div class="team-invite__pending">
+        <h3 class="team-invite__subtitle">Pending invitations</h3>
+        <ul class="team-invite__list" role="list" data-team-invite-list>
+            <li class="team-invite__item" data-team-invite-item>
+                <span class="team-invite__initial" aria-hidden="true">M</span>
+                <span class="team-invite__person"><span class="team-invite__address">maria@acme.com</span> <span class="team-invite__meta">Admin · Sent 2 days ago</span></span>
+                <span class="team-invite__actions">
+                    <button class="btn btn--ghost-primary btn--sm" type="button" data-team-invite-resend>Resend<span class="sr-only"> to maria@acme.com</span></button>
+                    <button class="btn btn--ghost-danger btn--sm" type="button" data-team-invite-cancel>Cancel<span class="sr-only"> the invitation of maria@acme.com</span></button>
+                </span>
+            </li>
+            <li class="team-invite__item" data-team-invite-item>
+                <span class="team-invite__initial" aria-hidden="true">J</span>
+                <span class="team-invite__person"><span class="team-invite__address">jonas@acme.com</span> <span class="team-invite__meta">Member · Sent 5 days ago</span></span>
+                <span class="team-invite__actions">
+                    <button class="btn btn--ghost-primary btn--sm" type="button" data-team-invite-resend>Resend<span class="sr-only"> to jonas@acme.com</span></button>
+                    <button class="btn btn--ghost-danger btn--sm" type="button" data-team-invite-cancel>Cancel<span class="sr-only"> the invitation of jonas@acme.com</span></button>
+                </span>
+            </li>
+        </ul>
+        <p class="team-invite__empty" hidden data-team-invite-empty>No pending invitations.</p>
+    </div>
+    <p class="sr-only" aria-live="polite" data-team-invite-status></p>
+</section>

@@ -1,0 +1,125 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.quick-start-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+    margin-inline: auto;
+    max-inline-size: 52rem;
+
+    > * {
+      margin: 0 !important;
+    }
+  }
+
+  // The markers are joined by a line, like a timeline.
+  &__steps {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__step {
+    display: grid;
+    gap: spacer('m');
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+    margin: 0 !important;
+    padding-block-end: spacer('l');
+    position: relative;
+
+    &:not(:last-child)::before {
+      background-color: color('border');
+      content: '';
+      inline-size: 2px;
+      inset-block: 2.75rem 0.25rem;
+      inset-inline-start: calc(1.25rem - 1px);
+      position: absolute;
+    }
+
+    &:last-child {
+      padding-block-end: 0;
+    }
+  }
+
+  &__marker {
+    align-items: center;
+    background-color: color('primary');
+    block-size: 2.5rem;
+    border-radius: radius('pill');
+    color: color('primary-foreground', 'btn');
+    display: flex;
+    font-weight: 700;
+    justify-content: center;
+  }
+
+  &__body {
+    @include layout-stack('xs');
+
+    .copy-field {
+      margin-block-start: spacer('s');
+    }
+
+    .copy-field__input {
+      font-family: config('font-family-mono', $typography);
+      font-size: config('font-size-sm', $typography);
+    }
+  }
+
+  &__title {
+    font-size: font-size('h5');
+    padding-block-start: 0.4rem;
+  }
+
+  &__text {
+    color: color('muted');
+  }
+
+  &__links {
+    display: grid;
+    gap: spacer('s');
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    list-style: none;
+    padding: 0;
+
+    li {
+      display: flex;
+      margin: 0;
+    }
+
+    a {
+      background-color: color('surface');
+      border: config('border-width-base', $display) solid color('border');
+      border-radius: radius('lg');
+      color: color('muted');
+      display: block;
+      font-size: config('font-size-sm', $typography);
+      inline-size: 100%;
+      padding: spacer('s') spacer('m');
+      text-decoration: none;
+      @include transition($property: 'border-color');
+
+      &:hover {
+        border-color: color('primary');
+
+        strong {
+          color: color('primary');
+        }
+      }
+    }
+
+    strong {
+      color: color('heading');
+      display: block;
+      font-size: config('font-size-base', $typography);
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+}

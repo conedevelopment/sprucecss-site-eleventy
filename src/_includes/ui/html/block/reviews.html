@@ -1,0 +1,53 @@
+{#- Override with `reviewsBlock` ({ heading, average, total, distribution: [5..1 percentages], items: [{ title, text, name, role, rating, source }] }). -#}
+{%- set _s = reviewsBlock or {
+    "heading": { "eyebrow": "Reviews", "title": "What our customers say", "id": "reviews-title", "align": "start" },
+    "average": 4.8, "total": "1,284",
+    "distribution": [82, 12, 4, 1, 1],
+    "items": [
+        { "title": "Finally, CSS that scales", "text": "We moved three products to Spruce. The tokens keep everything consistent.", "name": "Leo Novak", "role": "Frontend Lead", "rating": 5, "source": "G2" },
+        { "title": "Beautiful defaults", "text": "The design styles saved us weeks of theming work for our white-label clients.", "name": "Sara Kim", "role": "Agency Owner", "rating": 5, "source": "Capterra" },
+        { "title": "Great docs", "text": "The documentation answers every question. The AI skills are a nice touch.", "name": "Omar Haddad", "role": "Developer", "rating": 4, "source": "Product Hunt" },
+        { "title": "Accessible out of the box", "text": "Focus states, RTL and reduced motion are handled. Our audit was a breeze.", "name": "Ava Martinez", "role": "Accessibility Specialist", "rating": 5, "source": "G2" },
+        { "title": "Small and fast", "text": "Our CSS bundle got smaller after the migration, not bigger.", "name": "Daniel Okafor", "role": "Engineer", "rating": 5, "source": "Capterra" },
+        { "title": "Lovely components", "text": "The blocks are a great starting point for landing pages.", "name": "Maya Chen", "role": "Designer", "rating": 4, "source": "Product Hunt" }
+    ]
+} %}
+<section class="reviews-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="reviews-block__inner">
+            <div class="reviews-block__summary">
+                {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+                <p class="reviews-block__average">
+                    <strong>{{ _s.average }}</strong>
+                    <span class="reviews-block__stars" style="--rating: {{ _s.average }};" aria-hidden="true"></span>
+                    <span>{{ _s.average }} out of 5, based on {{ _s.total }} reviews</span>
+                </p>
+                <ul class="reviews-block__distribution" role="list" aria-label="Rating distribution">
+                    {%- for percent in _s.distribution %}
+                    <li>
+                        <span>{{ 6 - loop.index }} stars</span>
+                        <meter min="0" max="100" value="{{ percent }}" aria-label="{{ 6 - loop.index }} stars: {{ percent }}%">{{ percent }}%</meter>
+                        <span>{{ percent }}%</span>
+                    </li>
+                    {%- endfor %}
+                </ul>
+            </div>
+            <ul class="reviews-block__grid" role="list">
+                {%- for item in _s.items %}
+                <li class="reviews-block__card">
+                    <article>
+                        <p class="reviews-block__rating"><span class="reviews-block__stars" style="--rating: {{ item.rating }};" aria-hidden="true"></span><span class="sr-only">Rated {{ item.rating }} out of 5</span></p>
+                        <h3 class="reviews-block__title">{{ item.title }}</h3>
+                        <p class="reviews-block__text">{{ item.text }}</p>
+                        <footer class="reviews-block__footer">
+                            <span><strong>{{ item.name }}</strong> · {{ item.role }}</span>
+                            <span class="badge badge--success">Verified on {{ item.source }}</span>
+                        </footer>
+                    </article>
+                </li>
+                {%- endfor %}
+            </ul>
+        </div>
+    </div>
+</section>

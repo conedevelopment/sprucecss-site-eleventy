@@ -1,0 +1,50 @@
+<form class="shipping-options" action="#" method="post" data-shipping-options data-subtotal="173">
+    <fieldset class="shipping-options__fieldset">
+        <legend class="shipping-options__legend">Shipping method</legend>
+        <div class="shipping-options__list">
+            <label class="form-check shipping-options__option">
+                <input class="form-check__control" type="radio" name="shipping" value="standard" data-price="0" aria-describedby="shipping-standard-eta" checked>
+                <svg class="shipping-options__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62L18.3 9.38a1 1 0 0 0-.78-.38H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+                <span class="shipping-options__body">
+                    <span class="shipping-options__name">Standard</span>
+                    <span class="shipping-options__eta" id="shipping-standard-eta">3–5 business days, arrives <time datetime="2026-10-08">Oct 8</time>–<time datetime="2026-10-10">10</time></span>
+                </span>
+                <span class="shipping-options__price">Free</span>
+            </label>
+            <label class="form-check shipping-options__option">
+                <input class="form-check__control" type="radio" name="shipping" value="express" data-price="12" aria-describedby="shipping-express-eta">
+                <svg class="shipping-options__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                <span class="shipping-options__body">
+                    <span class="shipping-options__name">Express</span>
+                    <span class="shipping-options__eta" id="shipping-express-eta">Order in the next 3 hours, arrives <time datetime="2026-10-05">tomorrow</time></span>
+                </span>
+                <span class="shipping-options__price">$12.00</span>
+            </label>
+            <label class="form-check shipping-options__option">
+                <input class="form-check__control" type="radio" name="shipping" value="pickup" data-price="0" aria-describedby="shipping-pickup-eta">
+                <svg class="shipping-options__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"/><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><path d="M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"/><path d="M2 7h20"/></svg>
+                <span class="shipping-options__body">
+                    <span class="shipping-options__name">Store pickup</span>
+                    <span class="shipping-options__eta" id="shipping-pickup-eta">Free · Ready in 2 hours at Andrássy út 12, Budapest</span>
+                </span>
+                <span class="shipping-options__price">Free</span>
+            </label>
+            <label class="form-check shipping-options__option">
+                <input class="form-check__control" type="radio" name="shipping" value="same-day" data-price="19" aria-describedby="shipping-same-day-eta" disabled>
+                <svg class="shipping-options__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                <span class="shipping-options__body">
+                    <span class="shipping-options__name">Same-day delivery</span>
+                    <span class="shipping-options__eta" id="shipping-same-day-eta">Not available for this address</span>
+                </span>
+                <span class="shipping-options__price">$19.00</span>
+            </label>
+        </div>
+    </fieldset>
+    <dl class="shipping-options__summary">
+        <div><dt>Subtotal</dt><dd>$173.00</dd></div>
+        <div><dt>Shipping</dt><dd data-shipping-cost>Free</dd></div>
+        <div class="shipping-options__total"><dt>Total</dt><dd data-shipping-total>$173.00</dd></div>
+    </dl>
+    <p class="sr-only" aria-live="polite" data-shipping-live></p>
+    <button class="btn btn--primary btn--block" type="submit">Continue to payment</button>
+</form>

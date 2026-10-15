@@ -1,0 +1,163 @@
+.member-list {
+  background-color: var(--spruce-base-color-surface);
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  border-radius: var(--spruce-border-radius-lg);
+  padding: 1.5rem;
+}
+.member-list > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.member-list > * + * {
+  margin-block-start: 1.5rem;
+}
+.member-list__header > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.member-list__header > * + * {
+  margin-block-start: 0.25rem;
+}
+.member-list__title {
+  align-items: center;
+  display: flex;
+  font-size: 1rem;
+  gap: 0.5rem;
+  margin: 0;
+}
+.member-list__count {
+  background-color: var(--spruce-base-color-surface-muted);
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  border-radius: var(--spruce-border-radius-pill);
+  color: var(--spruce-base-color-muted);
+  font-family: var(--spruce-font-family-base);
+  font-size: 0.75rem;
+  line-height: 1;
+  padding: 0.25em 0.6em;
+}
+.member-list__description {
+  color: var(--spruce-base-color-muted);
+  font-size: var(--spruce-font-size-sm);
+}
+.member-list__invite {
+  align-items: end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.member-list__invite-email > *, .member-list__invite-role > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.member-list__invite-email > * + *, .member-list__invite-role > * + * {
+  margin-block-start: 0.25rem;
+}
+.member-list__invite-email {
+  flex: 1 1 14rem;
+}
+.member-list__invite-role {
+  flex: 0 1 9rem;
+}
+.member-list__items {
+  border-block-start: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  list-style: none;
+  padding: 0;
+}
+.member-list__item {
+  align-items: center;
+  border-block-end: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  display: grid;
+  gap: 0.5rem 1rem;
+  grid-template-areas: "person person" "role actions";
+  grid-template-columns: minmax(0, 9rem) 1fr;
+  margin: 0 !important;
+  padding-block: 1rem;
+}
+@media (min-width: 48em) {
+  .member-list__item {
+    grid-template-areas: "person role actions";
+    grid-template-columns: minmax(0, 1fr) 8rem 10rem;
+  }
+}
+.member-list__item:last-child {
+  border-block-end: 0;
+  padding-block-end: 0;
+}
+.member-list__person {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  grid-area: person;
+  min-inline-size: 0;
+}
+.member-list__avatar {
+  align-items: center;
+  aspect-ratio: 1;
+  background-color: color-mix(in srgb, var(--spruce-base-color-primary) 15%, transparent);
+  border-radius: var(--spruce-border-radius-pill);
+  color: var(--spruce-base-color-primary);
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: var(--spruce-font-size-sm);
+  font-weight: 700;
+  inline-size: 2.5rem;
+  justify-content: center;
+}
+.member-list__avatar svg {
+  block-size: 1.125rem;
+  inline-size: 1.125rem;
+}
+.member-list__avatar--pending {
+  background-color: transparent;
+  border: 1px dashed var(--spruce-base-color-border-strong);
+  color: var(--spruce-base-color-muted);
+}
+.member-list__info {
+  display: grid;
+  line-height: var(--spruce-line-height-md);
+  min-inline-size: 0;
+}
+.member-list__name {
+  align-items: center;
+  color: var(--spruce-base-color-heading);
+  display: flex;
+  font-weight: 700;
+  gap: 0.5rem;
+  hyphens: auto;
+  overflow-wrap: break-word;
+  word-break: break-all;
+  word-break: break-word;
+  word-wrap: break-word;
+}
+.member-list__badge {
+  background-color: color-mix(in srgb, var(--spruce-base-color-primary) 12%, transparent);
+  border-radius: var(--spruce-border-radius-pill);
+  color: var(--spruce-base-color-primary);
+  font-size: 0.6875rem;
+  padding: 0.15em 0.6em;
+}
+.member-list__email {
+  color: var(--spruce-base-color-muted);
+  font-size: var(--spruce-font-size-sm);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.member-list__role {
+  grid-area: role;
+}
+.member-list__actions {
+  display: flex;
+  gap: 0.25rem;
+  grid-area: actions;
+  justify-content: flex-end;
+}
+.member-list__note {
+  color: var(--spruce-base-color-muted);
+  font-size: 0.75rem;
+  hyphens: manual;
+  text-align: end;
+}
+.member-list__item--pending .member-list__name {
+  font-weight: 500;
+}

@@ -1,0 +1,147 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.product-gallery {
+  @include layout-stack('s');
+
+  &__stage {
+    position: relative;
+  }
+
+  &__main {
+    aspect-ratio: 1;
+    background-color: color('surface-muted');
+    border-radius: radius('lg');
+    overflow: hidden;
+  }
+
+  &__image {
+    block-size: 100%;
+    inline-size: 100%;
+    object-fit: cover;
+    transform-origin: var(--zoom-x, 50%) var(--zoom-y, 50%);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    &__main {
+      cursor: zoom-in;
+    }
+
+    @include motion-safe {
+      &__image {
+        transition: scale 0.3s ease-out;
+      }
+    }
+
+    &__main:hover &__image {
+      scale: 1.75;
+    }
+  }
+
+  &__arrow {
+    @include clear-btn;
+    align-items: center;
+    aspect-ratio: 1;
+    background-color: color-alpha('surface', 0.9);
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('pill');
+    box-shadow: shadow('sm');
+    color: color('heading');
+    display: inline-flex;
+    inline-size: 2.5rem;
+    inset-block-start: 50%;
+    justify-content: center;
+    position: absolute;
+    translate: 0 -50%;
+    @include transition;
+
+    svg {
+      block-size: 1.25rem;
+      inline-size: 1.25rem;
+    }
+
+    &:hover {
+      background-color: color('surface');
+    }
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 2px;
+    }
+
+    &--previous {
+      inset-inline-start: spacer('s');
+    }
+
+    &--next {
+      inset-inline-end: spacer('s');
+    }
+  }
+
+  &__counter {
+    background-color: color-alpha('surface', 0.9);
+    border-radius: radius('pill');
+    color: color('heading');
+    font-size: 0.75rem;
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    inset-block-end: spacer('s');
+    inset-inline-end: spacer('s');
+    margin: 0;
+    padding: 0.25em 0.75em;
+    position: absolute;
+  }
+
+  &__thumbs {
+    display: grid;
+    gap: spacer('xs');
+    grid-template-columns: repeat(auto-fill, minmax(4rem, 1fr));
+    // The parent's layout-stack sets the margins.
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin: 0;
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__thumb {
+    border-radius: radius('md');
+    display: block;
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    overflow: hidden;
+    @include transition($property: 'opacity, outline-color');
+
+    img {
+      aspect-ratio: 1;
+      inline-size: 100%;
+      object-fit: cover;
+    }
+
+    &:not([aria-current]) {
+      opacity: 0.7;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &[aria-current] {
+      outline-color: color('primary');
+    }
+
+    &:focus-visible {
+      outline-color: color('focus-ring');
+    }
+  }
+}
+
+[dir='rtl'] .product-gallery__arrow svg {
+  scale: -1 1;
+}

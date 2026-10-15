@@ -1,0 +1,168 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.app-block {
+  overflow: hidden;
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    align-items: center;
+    background-color: color('surface-muted');
+    border-radius: radius('lg');
+    display: grid;
+    gap: spacer-clamp('l', 'xl');
+    padding: spacer-clamp('m', 'xl');
+
+    @include breakpoint('md') {
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    }
+  }
+
+  &__content {
+    @include layout-stack('m');
+  }
+
+  &__eyebrow {
+    color: color('primary');
+    font-weight: 700;
+  }
+
+  &__title {
+    font-size: responsive-font-size(2.75rem, 35, '3vw + 1rem');
+  }
+
+  &__text {
+    color: color('muted');
+    font-size: config('font-size-lead', $typography);
+  }
+
+  &__points {
+    list-style: none;
+    padding: 0;
+    @include layout-cluster('xs');
+
+    li {
+      background-color: color('surface');
+      border: config('border-width-base', $display) solid color('border');
+      border-radius: radius('pill');
+      font-size: config('font-size-sm', $typography);
+      margin: 0 !important;
+      padding-block: spacer('xxs');
+      padding-inline: spacer('s');
+    }
+  }
+
+  &__stores {
+    @include layout-cluster('s');
+  }
+
+  &__store {
+    align-items: center;
+    background-color: color('heading');
+    border-radius: radius('md');
+    color: color('background');
+    display: inline-flex;
+    font-weight: 700;
+    gap: spacer('xs');
+    line-height: 1.2;
+    padding-block: spacer('xs');
+    padding-inline: spacer('s') spacer('m');
+    text-decoration: none;
+    @include transition($property: 'opacity');
+
+    &:hover {
+      color: color('background');
+      opacity: 0.85;
+    }
+
+    svg {
+      block-size: 1.5rem;
+      inline-size: 1.5rem;
+    }
+
+    small {
+      display: block;
+      font-size: 0.7rem;
+      font-weight: 400;
+    }
+  }
+
+  &__rating {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__device {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__phone {
+    aspect-ratio: 9 / 19;
+    background-color: color('heading');
+    border-radius: 2.5rem;
+    box-shadow: shadow('xl');
+    inline-size: min(17rem, 80%);
+    padding: 0.6rem;
+    rotate: -4deg;
+
+    img,
+    svg {
+      block-size: 100%;
+      border-radius: 2rem;
+      display: block;
+      inline-size: 100%;
+      object-fit: cover;
+    }
+  }
+
+  // The illustrated screen follows the color tokens (and so the dark mode and the styles).
+  &__screen-bg {
+    fill: color('background');
+  }
+
+  &__screen-card {
+    fill: color('surface');
+    stroke: color('border');
+  }
+
+  &__screen-ink {
+    fill: color('heading');
+  }
+
+  &__screen-muted {
+    fill: color('border');
+  }
+
+  &__screen-accent {
+    fill: color('primary');
+  }
+
+  &__screen-accent-soft {
+    fill: color-alpha('primary', 0.2);
+  }
+
+  &__screen-track {
+    fill: none;
+    stroke: color('border');
+    stroke-width: 10;
+  }
+
+  &__screen-arc {
+    fill: none;
+    stroke: color('primary');
+    stroke-linecap: round;
+    stroke-width: 10;
+  }
+
+  &__screen-check {
+    fill: none;
+    stroke: color('background');
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 2.5;
+  }
+}
+
+[dir='rtl'] .app-block__phone {
+  rotate: 4deg;
+}

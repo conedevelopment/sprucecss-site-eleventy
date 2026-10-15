@@ -1,0 +1,27 @@
+---
+title: 'Comment Thread'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium ui--comment">
+        {% include "ui/html/list/comment.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/list/comment.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/list/comment.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/list/comment.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/list/comment.css">
+{% endblock %}

@@ -1,0 +1,72 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.profile-card {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  overflow: hidden;
+  text-align: center;
+
+  &__cover {
+    background-image: linear-gradient(135deg, #{color('primary')}, #{color('secondary')});
+    block-size: 6rem;
+  }
+
+  &__avatar {
+    block-size: 6rem;
+    border: 4px solid color('surface');
+    border-radius: 50%;
+    inline-size: 6rem;
+    margin-block-start: -3rem;
+    margin-inline: auto;
+    object-fit: cover;
+    position: relative;
+  }
+
+  &__body {
+    padding: spacer('s') spacer-clamp('m', 'l') spacer-clamp('m', 'l');
+    @include layout-stack('xs');
+  }
+
+  &__name {
+    font-size: font-size('h4');
+  }
+
+  &__role {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__stats {
+    border-block: config('border-width-base', $display) solid color('border');
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-block-start: spacer('m') !important;
+    padding-block: spacer('s');
+
+    div {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    dt {
+      color: color('muted');
+      font-size: config('font-size-sm', $typography);
+      font-weight: 400;
+    }
+
+    dd {
+      color: color('heading');
+      font-size: font-size('h4');
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: spacer('xs');
+    justify-content: center;
+    padding-block-start: spacer('xs');
+  }
+}

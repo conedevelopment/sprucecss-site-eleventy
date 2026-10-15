@@ -1,0 +1,107 @@
+<section class="member-list" aria-labelledby="member-list-title" data-member-list>
+    <header class="member-list__header">
+        <h3 class="member-list__title" id="member-list-title">Team members <span class="member-list__count" data-member-count>4</span></h3>
+        <p class="member-list__description">Invite your colleagues and choose what they can access.</p>
+    </header>
+    <form class="member-list__invite" action="#" method="post" data-member-invite>
+        <div class="member-list__invite-email">
+            <label class="form-label" for="member-invite-email">Email address</label>
+            <input class="form-control" id="member-invite-email" name="email" type="email" placeholder="name@company.com" autocomplete="off" required>
+        </div>
+        <div class="member-list__invite-role">
+            <label class="form-label" for="member-invite-role">Role</label>
+            <select class="form-control" id="member-invite-role" name="role">
+                <option value="admin">Admin</option>
+                <option value="editor" selected>Editor</option>
+                <option value="viewer">Viewer</option>
+            </select>
+        </div>
+        <button class="btn btn--primary" type="submit">Send invite</button>
+    </form>
+    <ul class="member-list__items" role="list" data-member-items>
+        <li class="member-list__item" data-member>
+            <div class="member-list__person">
+                <span class="member-list__avatar" aria-hidden="true">AS</span>
+                <span class="member-list__info">
+                    <span class="member-list__name">Anna Smith <span class="member-list__badge">You</span></span>
+                    <span class="member-list__email">anna@acme.com</span>
+                </span>
+            </div>
+            <div class="member-list__role">
+                <label class="sr-only" for="member-role-anna">Role of Anna Smith</label>
+                <select class="form-control form-control--sm" id="member-role-anna" name="role" disabled><option value="owner" selected>Owner</option><option value="admin">Admin</option><option value="editor">Editor</option><option value="viewer">Viewer</option></select>
+            </div>
+            <div class="member-list__actions">
+                <span class="member-list__note">Owners can’t remove themselves</span>
+            </div>
+        </li>
+        <li class="member-list__item" data-member>
+            <div class="member-list__person">
+                <span class="member-list__avatar" aria-hidden="true">BK</span>
+                <span class="member-list__info">
+                    <span class="member-list__name">Ben King</span>
+                    <span class="member-list__email">ben@acme.com</span>
+                </span>
+            </div>
+            <div class="member-list__role">
+                <label class="sr-only" for="member-role-ben">Role of Ben King</label>
+                <select class="form-control form-control--sm" id="member-role-ben" name="role"><option value="owner">Owner</option><option value="admin" selected>Admin</option><option value="editor">Editor</option><option value="viewer">Viewer</option></select>
+            </div>
+            <div class="member-list__actions">
+                <button class="btn btn--ghost-danger btn--sm" type="button" data-member-remove>Remove<span class="sr-only"> Ben King</span></button>
+            </div>
+        </li>
+        <li class="member-list__item" data-member>
+            <div class="member-list__person">
+                <span class="member-list__avatar" aria-hidden="true">LM</span>
+                <span class="member-list__info">
+                    <span class="member-list__name">Lea Moreau</span>
+                    <span class="member-list__email">lea@acme.com</span>
+                </span>
+            </div>
+            <div class="member-list__role">
+                <label class="sr-only" for="member-role-lea">Role of Lea Moreau</label>
+                <select class="form-control form-control--sm" id="member-role-lea" name="role"><option value="owner">Owner</option><option value="admin">Admin</option><option value="editor" selected>Editor</option><option value="viewer">Viewer</option></select>
+            </div>
+            <div class="member-list__actions">
+                <button class="btn btn--ghost-danger btn--sm" type="button" data-member-remove>Remove<span class="sr-only"> Lea Moreau</span></button>
+            </div>
+        </li>
+        <li class="member-list__item member-list__item--pending" data-member>
+            <div class="member-list__person">
+                <span class="member-list__avatar member-list__avatar--pending" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></span>
+                <span class="member-list__info">
+                    <span class="member-list__name">jon.diaz@example.com</span>
+                    <span class="member-list__email">Invitation sent <time datetime="2026-10-02">2 days ago</time></span>
+                </span>
+            </div>
+            <div class="member-list__role">
+                <label class="sr-only" for="member-role-jon-diaz">Role of jon.diaz@example.com</label>
+                <select class="form-control form-control--sm" id="member-role-jon-diaz" name="role"><option value="owner">Owner</option><option value="admin">Admin</option><option value="editor">Editor</option><option value="viewer" selected>Viewer</option></select>
+            </div>
+            <div class="member-list__actions">
+                <button class="btn btn--ghost-secondary btn--sm" type="button">Resend<span class="sr-only"> the invitation to jon.diaz@example.com</span></button>
+                <button class="btn btn--ghost-danger btn--sm" type="button" data-member-remove>Revoke<span class="sr-only"> the invitation of jon.diaz@example.com</span></button>
+            </div>
+        </li>
+    </ul>
+    <template data-member-template>
+        <li class="member-list__item member-list__item--pending" data-member>
+            <div class="member-list__person">
+                <span class="member-list__avatar member-list__avatar--pending" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></span>
+                <span class="member-list__info">
+                    <span class="member-list__name" data-member-email></span>
+                    <span class="member-list__email">Invitation sent just now</span>
+                </span>
+            </div>
+            <div class="member-list__role">
+                <label class="sr-only" data-member-role-label>Role</label>
+                <select class="form-control form-control--sm" name="role" data-member-role><option value="admin">Admin</option><option value="editor">Editor</option><option value="viewer">Viewer</option></select>
+            </div>
+            <div class="member-list__actions">
+                <button class="btn btn--ghost-danger btn--sm" type="button" data-member-remove>Revoke<span class="sr-only" data-member-remove-label></span></button>
+            </div>
+        </li>
+    </template>
+    <p class="sr-only" aria-live="polite" data-member-live></p>
+</section>

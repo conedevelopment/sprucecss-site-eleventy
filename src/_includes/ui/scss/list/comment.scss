@@ -1,0 +1,78 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.comment-thread {
+  @include layout-stack('m');
+
+  &__title {
+    font-size: font-size('h4');
+  }
+
+  &__list,
+  &__replies {
+    list-style: none;
+    padding: 0;
+    @include layout-stack('m');
+  }
+
+  &__replies {
+    border-inline-start: 2px solid color('border');
+    margin-block-start: spacer('m');
+    margin-inline-start: 1.25rem;
+    padding-inline-start: spacer('m');
+  }
+
+  &__form {
+    @include layout-stack('xs');
+
+    .btn {
+      justify-self: start;
+    }
+  }
+}
+
+.comment {
+  &__body {
+    display: flex;
+    gap: spacer('s');
+  }
+
+  &__avatar {
+    block-size: 2.5rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+    inline-size: 2.5rem;
+    object-fit: cover;
+  }
+
+  &__main {
+    flex-grow: 1;
+    @include layout-stack('xxs');
+  }
+
+  &__header {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs');
+  }
+
+  &__author {
+    color: color('heading');
+    font-weight: 700;
+  }
+
+  &__time {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__actions {
+    display: flex;
+    gap: spacer('xxs');
+    margin-inline-start: calc(#{spacer('s')} * -1);
+
+    [aria-pressed='true'] {
+      color: color('primary');
+    }
+  }
+}

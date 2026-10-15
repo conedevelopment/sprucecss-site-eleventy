@@ -1,0 +1,92 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.avatar-demo {
+  @include layout-stack('m');
+
+  &__row {
+    @include layout-cluster('s');
+  }
+}
+
+.avatar {
+  --avatar-size: 3rem;
+  align-items: center;
+  background-color: color-alpha('primary', 0.15);
+  block-size: var(--avatar-size);
+  border-radius: 50%;
+  color: color('primary');
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: calc(var(--avatar-size) * 0.38);
+  font-weight: 700;
+  inline-size: var(--avatar-size);
+  justify-content: center;
+  position: relative;
+
+  img {
+    block-size: 100%;
+    border-radius: inherit;
+    inline-size: 100%;
+    object-fit: cover;
+  }
+
+  &--sm {
+    --avatar-size: 2rem;
+  }
+
+  &--lg {
+    --avatar-size: 4rem;
+  }
+
+  &--square {
+    border-radius: radius('md');
+  }
+
+  &--more {
+    background-color: color('surface-muted');
+    color: color('text');
+  }
+
+  &__status {
+    --status-color: #{color('success', 'alert')};
+    background-color: var(--status-color);
+    block-size: 28%;
+    border: 2px solid color('background');
+    border-radius: 50%;
+    inline-size: 28%;
+    inset-block-end: 0;
+    inset-inline-end: 0;
+    position: absolute;
+
+    &--away {
+      --status-color: #{color('warning', 'alert')};
+    }
+
+    &--offline {
+      --status-color: #{color('border-strong')};
+    }
+  }
+}
+
+.avatar-group {
+  @include clear-list;
+  display: flex;
+
+  li {
+    margin: 0 !important;
+
+    + li {
+      margin-inline-start: -0.75rem !important;
+    }
+  }
+
+  .avatar {
+    box-shadow: 0 0 0 3px color('background');
+  }
+
+  // The items sit side by side: clear the stack margins of the base list style.
+  > li {
+    margin-block: 0;
+    padding-block: 0;
+  }
+}

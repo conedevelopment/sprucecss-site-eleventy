@@ -1,24 +1,25 @@
 <div class="invoice">
     <div class="invoice__header">
-        <a href="#">
-            <img class="invoice__logo" src="/img/cone-logo.svg" alt="Cone" height="48" width="48"/>
-        </a>
+        <img class="invoice__logo" src="/img/cone-logo.svg" alt="Cone" height="48" width="48">
         <h1 class="invoice__title">
             Invoice
             <span class="invoice__serial-number">SN: 123456789</span>
         </h1>
     </div>
-    <ul class="invoice__highlighted">
-        <li>
-            Payment type: <strong>Transfer</strong>
-        </li>
-        <li>
-            Created: <strong>January 13, 2023</strong>
-        </li>
-        <li>
-            Due: <strong>January 20, 2023</strong>
-        </li>
-    </ul>
+    <dl class="invoice__highlighted">
+        <div>
+            <dt>Payment</dt>
+            <dd>Bank transfer</dd>
+        </div>
+        <div>
+            <dt>Issued</dt>
+            <dd><time datetime="2026-09-13">September 13, 2026</time></dd>
+        </div>
+        <div>
+            <dt>Due</dt>
+            <dd><time datetime="2026-09-27">September 27, 2026</time></dd>
+        </div>
+    </dl>
     <div class="invoice__meta">
         <div class="invoice__meta-block">
             <h2>Invoiced to</h2>
@@ -43,47 +44,53 @@
     </div>
     <div class="table-responsive">
         <table class="table table--rounded table--striped table--clear-border invoice__table">
+            <caption class="sr-only">Invoiced items and totals</caption>
             <thead>
                 <tr>
                     <th scope="col">Item</th>
-                    <th scope="col">Qty</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Total</th>
+                    <th class="invoice__number" scope="col">Qty</th>
+                    <th class="invoice__number" scope="col">Unit price</th>
+                    <th class="invoice__number" scope="col">Amount</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Product #1234</td>
-                    <td>1</td>
-                    <td>$500.00</td>
-                    <td>$500.00</td>
+                    <td>Website design (landing page)</td>
+                    <td class="invoice__number">1</td>
+                    <td class="invoice__number">$500.00</td>
+                    <td class="invoice__number">$500.00</td>
                 </tr>
                 <tr>
-                    <td>Product #1235</td>
-                    <td>2</td>
-                    <td>$250.00</td>
-                    <td>$500.00</td>
+                    <td>Component development</td>
+                    <td class="invoice__number">2</td>
+                    <td class="invoice__number">$250.00</td>
+                    <td class="invoice__number">$500.00</td>
                 </tr>
                 <tr>
-                    <td>Product #1236</td>
-                    <td>4</td>
-                    <td>$100.00</td>
-                    <td>$400.00</td>
-                </tr>
-                <tr class="summary-row">
-                    <th colspan="3" scope="row">Sub Total:</th>
-                    <td>$1400.00</td>
-                </tr>
-                <tr class="summary-row">
-                    <th colspan="3" scope="row">Tax:</th>
-                    <td>27%</td>
-                </tr>
-                <tr class="summary-row">
-                    <th colspan="3" scope="row">Total:</th>
-                    <td>$1778.00</td>
+                    <td>Accessibility audit (hours)</td>
+                    <td class="invoice__number">4</td>
+                    <td class="invoice__number">$100.00</td>
+                    <td class="invoice__number">$400.00</td>
                 </tr>
             </tbody>
+            <tfoot>
+                <tr class="summary-row">
+                    <th colspan="3" scope="row">Subtotal</th>
+                    <td class="invoice__number">$1,400.00</td>
+                </tr>
+                <tr class="summary-row">
+                    <th colspan="3" scope="row">Tax (27%)</th>
+                    <td class="invoice__number">$378.00</td>
+                </tr>
+                <tr class="summary-row summary-row--total">
+                    <th colspan="3" scope="row">Total due</th>
+                    <td class="invoice__number">$1,778.00</td>
+                </tr>
+            </tfoot>
         </table>
+    </div>
+    <div class="invoice__actions">
+        <button class="btn btn--primary btn--sm" type="button" data-invoice-print>Print or save as PDF</button>
     </div>
     <div class="invoice__footer">
         <img class="invoice__footer-logo" src="/img/cone-logo.svg" alt="Cone" height="48" width="48"/>

@@ -1,0 +1,29 @@
+{#- Override with `changelogBlock` ({ heading, rss }). The releases come from the Changelog component. -#}
+{%- set _s = changelogBlock or {
+    "heading": { "eyebrow": "Changelog", "title": "What’s new", "text": "Every release, with the new features, the changes and the fixes.", "id": "changelog-block-title", "align": "start" },
+    "rss": "/changelog/feed.xml"
+} %}
+<section class="changelog-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="changelog-block__inner">
+            <div class="changelog-block__main">
+                {% set heading = _s.heading %}
+                {% include "../content-and-layout/block-heading.html" %}
+                {% include "../list/changelog.html" %}
+            </div>
+            <aside class="changelog-block__aside" aria-label="Follow the updates">
+                {% include "../form/newsletter.html" %}
+                <ul class="changelog-block__links" role="list">
+                    <li><a href="{{ _s.rss }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg>
+                        RSS feed
+                    </a></li>
+                    <li><a href="#">
+                        {% set brandName = "github" %}{% set brandClass = "changelog-block__brand" %}{% include "../block/brand-icon.html" %}
+                        Releases on GitHub
+                    </a></li>
+                </ul>
+            </aside>
+        </div>
+    </div>
+</section>

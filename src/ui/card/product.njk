@@ -1,0 +1,27 @@
+---
+title: 'Product'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--wide ui--product">
+        {% include "ui/html/card/product.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/card/product.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/card/product.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/card/product.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/card/product.css">
+{% endblock %}

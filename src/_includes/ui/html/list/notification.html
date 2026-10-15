@@ -1,0 +1,40 @@
+<section class="notification-list" aria-labelledby="notifications-title">
+    <header class="notification-list__header">
+        <h2 class="notification-list__title" id="notifications-title">Notifications <span class="notification-list__count">2 new</span></h2>
+        <button class="btn btn--ghost-primary btn--sm" type="button" data-mark-read>Mark all as read</button>
+    </header>
+    <ul class="notification-list__items" role="list">
+        <li class="notification-list__item notification-list__item--unread">
+            <span class="notification-list__icon notification-list__icon--success" aria-hidden="true"></span>
+            <div class="notification-list__content">
+                <a class="notification-list__link" href="#"><span class="sr-only">Unread: </span>Deployment finished</a>
+                <p class="notification-list__text">spruce-docs was deployed to production.</p>
+            </div>
+            <time class="notification-list__time">5m</time>
+        </li>
+        <li class="notification-list__item notification-list__item--unread">
+            <span class="notification-list__icon notification-list__icon--info" aria-hidden="true"></span>
+            <div class="notification-list__content">
+                <a class="notification-list__link" href="#"><span class="sr-only">Unread: </span>New comment</a>
+                <p class="notification-list__text">Maya replied to “Design styles in v3”.</p>
+            </div>
+            <time class="notification-list__time">1h</time>
+        </li>
+        <li class="notification-list__item">
+            <span class="notification-list__icon notification-list__icon--warning" aria-hidden="true"></span>
+            <div class="notification-list__content">
+                <a class="notification-list__link" href="#">Usage at 80%</a>
+                <p class="notification-list__text">Your team used 8 of 10 GB storage.</p>
+            </div>
+            <time class="notification-list__time">3h</time>
+        </li>
+        <li class="notification-list__item">
+            <span class="notification-list__icon notification-list__icon--danger" aria-hidden="true"></span>
+            <div class="notification-list__content">
+                <a class="notification-list__link" href="#">Build failed</a>
+                <p class="notification-list__text">The preview build of #241 failed.</p>
+            </div>
+            <time class="notification-list__time">1d</time>
+        </li>
+    </ul>
+</section>

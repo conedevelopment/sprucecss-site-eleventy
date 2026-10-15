@@ -1,0 +1,135 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.notification-list {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  overflow: hidden;
+
+  &__header {
+    align-items: center;
+    border-block-end: config('border-width-base', $display) solid color('border');
+    display: flex;
+    gap: spacer('s');
+    justify-content: space-between;
+    padding: spacer('s') spacer('m');
+  }
+
+  &__title {
+    align-items: center;
+    display: flex;
+    font-size: font-size('h5');
+    gap: spacer('xs');
+    margin: 0;
+  }
+
+  &__count {
+    background-color: color('primary');
+    border-radius: radius('pill');
+    color: color('primary-foreground', 'btn');
+    font-family: config('font-family-base', $typography);
+    font-size: config('font-size-sm', $typography);
+    padding: 0 spacer('xs');
+  }
+
+  &__items {
+    @include clear-list;
+  }
+
+  &__item {
+    align-items: flex-start;
+    display: flex;
+    gap: spacer('s');
+    margin: 0 !important;
+    padding: spacer('s') spacer('m');
+    position: relative;
+    @include a11y-card-link('.notification-list__link');
+
+    & + & {
+      border-block-start: config('border-width-base', $display) solid color('border');
+    }
+
+    &:hover {
+      background-color: color('surface-muted');
+    }
+
+    &--unread {
+      background-color: color-alpha('primary', 0.06);
+
+      .notification-list__link {
+        font-weight: 700;
+      }
+
+      .notification-list__time::after {
+        background-color: color('primary');
+        block-size: 0.5rem;
+        border-radius: 50%;
+        content: '';
+        display: inline-block;
+        inline-size: 0.5rem;
+        margin-inline-start: spacer('xs');
+      }
+    }
+  }
+
+  &__icon {
+    --icon-color: #{color('info', 'alert')};
+    background-color: color-mix(in srgb, var(--icon-color) 15%, transparent);
+    block-size: 2.25rem;
+    border-radius: radius('md');
+    flex-shrink: 0;
+    inline-size: 2.25rem;
+    position: relative;
+
+    &::after {
+      background-color: var(--icon-color);
+      block-size: 0.75rem;
+      border-radius: 50%;
+      content: '';
+      inline-size: 0.75rem;
+      inset: 0;
+      margin: auto;
+      position: absolute;
+    }
+
+    @each $type in ('success', 'warning', 'danger', 'info') {
+      &--#{$type} {
+        --icon-color: #{color($type, 'alert')};
+      }
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+    min-inline-size: 0;
+  }
+
+  &__link {
+    color: color('heading');
+    font-weight: 600;
+    text-decoration: none;
+
+    &:focus-visible {
+      outline: none;
+
+      &::before {
+        outline: 2px solid color('focus-ring');
+        outline-offset: -2px;
+      }
+    }
+  }
+
+  &__text {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    margin: 0;
+  }
+
+  &__time {
+    align-items: center;
+    color: color('muted');
+    display: flex;
+    flex-shrink: 0;
+    font-size: config('font-size-sm', $typography);
+  }
+}

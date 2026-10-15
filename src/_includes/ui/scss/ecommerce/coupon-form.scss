@@ -1,0 +1,153 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.coupon-form {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  padding: spacer('m');
+  @include layout-stack('s');
+
+  &__title {
+    font-size: font-size('h5');
+  }
+
+  &__form {
+    display: flex;
+    gap: spacer('xs');
+
+    .form-control {
+      flex: 1 1 auto;
+      min-inline-size: 0;
+      text-transform: uppercase;
+
+      &::placeholder {
+        text-transform: none;
+      }
+    }
+  }
+
+  &__message {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+
+    &--error {
+      color: color('invalid', 'form');
+    }
+
+    &--success {
+      color: color('success', 'alert');
+    }
+  }
+
+  &__applied {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs');
+    list-style: none;
+    padding: 0;
+
+    &:empty {
+      display: none;
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__chip {
+    align-items: center;
+    background-color: color-alpha('success', 0.12, 'alert');
+    border-radius: radius('pill');
+    color: color('heading');
+    display: inline-flex;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xxs');
+    margin: 0 !important;
+    padding-block: spacer('xxs');
+    padding-inline: spacer('s') spacer('xxs');
+
+    > svg {
+      block-size: 1rem;
+      color: color('success', 'alert');
+      inline-size: 1rem;
+    }
+  }
+
+  &__code {
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+
+  &__detail {
+    color: color('muted');
+  }
+
+  &__remove {
+    @include clear-btn;
+    align-items: center;
+    block-size: 1.5rem;
+    border-radius: radius('pill');
+    color: color('muted');
+    display: inline-flex;
+    inline-size: 1.5rem;
+    justify-content: center;
+
+    &:hover {
+      background-color: color-alpha('danger', 0.12, 'alert');
+      color: color('danger', 'alert');
+    }
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 1px;
+    }
+
+    svg {
+      block-size: 0.9rem;
+      inline-size: 0.9rem;
+    }
+  }
+
+  &__totals {
+    border-block-start: config('border-width-base', $display) solid color('border');
+    margin: 0;
+    padding-block-start: spacer('s');
+    @include layout-stack('xxs');
+
+    div {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    dt {
+      font-weight: 400;
+    }
+
+    dd {
+      font-variant-numeric: tabular-nums;
+      margin: 0;
+    }
+
+    [hidden] {
+      display: none;
+    }
+  }
+
+  &__discount dd {
+    color: color('success', 'alert');
+    font-weight: 600;
+  }
+
+  &__total {
+    color: color('heading');
+    font-size: config('font-size-lg', $typography);
+    font-weight: 700;
+
+    dt {
+      font-weight: 700;
+    }
+  }
+}

@@ -1,0 +1,93 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.price {
+  align-items: baseline;
+  color: color('text');
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacer('xxs') spacer('xs');
+  margin: 0;
+
+  &__amount {
+    color: color('heading');
+    font-family: config('font-family-heading', $typography);
+    font-size: font-size('h4');
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  &__prefix,
+  &__suffix {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__compare {
+    color: color('muted');
+    text-decoration-thickness: 1px;
+  }
+
+  &__badge {
+    align-self: center;
+    background-color: color-alpha('danger', 0.12, 'alert');
+    border-radius: radius('pill');
+    color: color('heading');
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0.35em 0.65em;
+  }
+
+  &__unit {
+    color: color('muted');
+    flex-basis: 100%;
+    font-size: config('font-size-sm', $typography);
+
+    abbr {
+      border: 0;
+      cursor: default;
+      text-decoration: none;
+    }
+  }
+
+  &__cents {
+    font-size: 0.55em;
+    vertical-align: super;
+  }
+
+  &--sale &__amount {
+    color: color('danger', 'alert');
+  }
+
+  &--member &__badge {
+    background-color: color-alpha('primary', 0.12);
+    color: color('primary');
+  }
+
+  &--lg &__amount {
+    font-size: font-size('h1');
+  }
+}
+
+.price-demo {
+  display: grid;
+  gap: spacer('m');
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+
+  &__item {
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('md');
+    padding: spacer('s');
+    @include layout-stack('xs');
+  }
+
+  &__label {
+    color: color('muted');
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin: 0;
+    text-transform: uppercase;
+  }
+}

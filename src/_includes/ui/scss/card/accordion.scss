@@ -6,9 +6,9 @@
 
 .accordion-card {
   $this: &;
-  background-color: color('background');
-  border: 1px solid color('border');
-  border-radius: config('border-radius-lg', $display);
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
 
   &__title {
     font-size: font-size('h4');
@@ -30,7 +30,13 @@
     padding: spacer('m');
     text-align: start;
 
+    &:hover {
+      color: color('primary');
+    }
+
     &:focus-visible {
+      outline: none;
+
       #{$this}__icon {
         @include short-ring('button', 'primary');
       }
@@ -52,7 +58,7 @@
     align-items: center;
     background-color: color('primary-background', 'btn');
     block-size: var(--size);
-    border-radius: config('border-radius-sm', $display);
+    border-radius: radius('sm');
     color: color('primary-foreground', 'btn');
     display: flex;
     flex-shrink: 0;
@@ -72,17 +78,17 @@
   }
 
   &__content {
-    @include transition($property: grid-template-rows);
+    @include transition($property: 'grid-template-rows, padding-block-end');
     display: grid;
+
+    // Without JavaScript, the content stays open; the script collapses it with [inert].
+    grid-template-rows: 1fr;
+    padding-block-end: spacer('m');
     padding-inline: spacer('m');
 
-    &[aria-hidden='true'] {
+    &[inert] {
       grid-template-rows: 0fr;
-    }
-
-    &[aria-hidden='false'] {
-      grid-template-rows: 1fr;
-      padding-block-end: spacer('m');
+      padding-block-end: 0;
     }
 
     > div {
@@ -97,8 +103,12 @@
       }
     }
 
-    a:hover {
-      font-weight: 700;
-    }
+  }
+}
+
+@include motion-reduce {
+  .accordion-card__content,
+  .accordion-card__icon svg {
+    transition: none;
   }
 }

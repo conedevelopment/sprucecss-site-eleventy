@@ -1,0 +1,49 @@
+<section class="notification-center" aria-labelledby="notification-center-title" data-notification-center>
+    <header class="notification-center__header">
+        <h2 class="notification-center__title" id="notification-center-title">Notifications <span class="badge badge--primary badge--count" data-notification-count>3<span class="sr-only"> unread</span></span></h2>
+        <button class="btn btn--ghost-primary btn--sm" type="button" data-notification-read-all>Mark all as read</button>
+    </header>
+    <div class="notification-center__filter" role="group" aria-label="Show" hidden data-notification-filter>
+        <button class="btn btn--sm btn--soft-primary" type="button" aria-pressed="true" data-filter="all">All</button>
+        <button class="btn btn--sm btn--ghost-primary" type="button" aria-pressed="false" data-filter="unread">Unread</button>
+    </div>
+    <ul class="notification-center__list" role="list">
+        <li class="notification-center__item notification-center__item--unread" data-notification>
+            <span class="notification-center__icon notification-center__icon--success" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M20 6 9 17l-5-5"/></svg></span>
+            <div class="notification-center__body">
+                <p class="notification-center__text"><strong>Deployment succeeded.</strong> <a href="#">spruce-docs</a> is live on production.</p>
+                <p class="notification-center__meta"><time datetime="2026-10-04T09:12">12 minutes ago</time> · Deployments</p>
+            </div>
+            <button class="notification-center__read" type="button" data-notification-read><span class="sr-only">Mark as read: Deployment succeeded</span></button>
+        </li>
+        <li class="notification-center__item notification-center__item--unread" data-notification>
+            <span class="avatar avatar--sm"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=96&h=96&q=70" alt="" width="40" height="40" loading="lazy"></span>
+            <div class="notification-center__body">
+                <p class="notification-center__text"><strong>Priya Raman</strong> mentioned you in <a href="#">Pricing page copy</a>: “Can you check the plan names?”</p>
+                <p class="notification-center__meta"><time datetime="2026-10-04T08:40">44 minutes ago</time> · Comments</p>
+            </div>
+            <button class="notification-center__read" type="button" data-notification-read><span class="sr-only">Mark as read: Priya Raman mentioned you</span></button>
+        </li>
+        <li class="notification-center__item notification-center__item--unread" data-notification>
+            <span class="notification-center__icon notification-center__icon--warning" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M12 9v4"/><path d="M12 17h.01"/><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></span>
+            <div class="notification-center__body">
+                <p class="notification-center__text"><strong>API usage at 90%.</strong> You’ll reach the limit in about 3 days. <a href="#">Review the plan</a></p>
+                <p class="notification-center__meta"><time datetime="2026-10-04T07:05">2 hours ago</time> · Billing</p>
+            </div>
+            <button class="notification-center__read" type="button" data-notification-read><span class="sr-only">Mark as read: API usage at 90%</span></button>
+        </li>
+        <li class="notification-center__item" data-notification>
+            <span class="avatar avatar--sm"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=96&h=96&q=70" alt="" width="40" height="40" loading="lazy"></span>
+            <div class="notification-center__body">
+                <p class="notification-center__text"><strong>Noah Fischer</strong> accepted your invitation to <a href="#">Marketing site</a>.</p>
+                <p class="notification-center__meta"><time datetime="2026-10-03T16:20">Yesterday</time> · Team</p>
+            </div>
+        </li>
+    </ul>
+    <p class="notification-center__empty" hidden data-notification-empty>You’re all caught up.</p>
+    <p class="sr-only" aria-live="polite" data-notification-status></p>
+    <footer class="notification-center__footer">
+        <a href="#">View all notifications</a>
+        <a href="#">Settings</a>
+    </footer>
+</section>

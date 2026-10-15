@@ -1,0 +1,83 @@
+<form class="settings-panel" action="#" method="post" data-settings-panel>
+    <section class="settings-panel__section" aria-labelledby="settings-general">
+        <div class="settings-panel__intro">
+            <h3 class="settings-panel__title" id="settings-general">General</h3>
+            <p class="settings-panel__description">The basic information about your store, shown to your customers.</p>
+        </div>
+        <div class="settings-panel__fields">
+            <div class="form-group">
+                <label class="form-label form-label--required" for="settings-name">Store name</label>
+                <input class="form-control" id="settings-name" name="name" type="text" value="Acme Outdoor" autocomplete="organization" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="settings-subdomain">Store address</label>
+                <div class="form-group--stacked">
+                    <span class="form-group-label" aria-hidden="true">https://</span>
+                    <input class="form-control" id="settings-subdomain" name="subdomain" type="text" value="acme-outdoor" aria-describedby="settings-subdomain-help" spellcheck="false">
+                    <span class="form-group-label" aria-hidden="true">.shop</span>
+                </div>
+                <p class="form-description" id="settings-subdomain-help">Your store is available at https://acme-outdoor.shop.</p>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="settings-timezone">Time zone</label>
+                <select class="form-control" id="settings-timezone" name="timezone">
+                    <option value="Europe/Budapest" selected>(GMT+02:00) Budapest</option>
+                    <option value="Europe/London">(GMT+01:00) London</option>
+                    <option value="America/New_York">(GMT−04:00) New York</option>
+                    <option value="America/Los_Angeles">(GMT−07:00) Los Angeles</option>
+                </select>
+            </div>
+        </div>
+    </section>
+    <section class="settings-panel__section" aria-labelledby="settings-notifications">
+        <div class="settings-panel__intro">
+            <h3 class="settings-panel__title" id="settings-notifications">Notifications</h3>
+            <p class="settings-panel__description">Choose which emails you get. Security emails are always sent.</p>
+        </div>
+        <div class="settings-panel__fields">
+            <div class="settings-panel__switch">
+                <label class="form-switch">
+                    <input class="form-switch__control" type="checkbox" role="switch" name="notify_orders" aria-describedby="settings-orders-help" checked>
+                    <span class="form-label form-switch__label">New orders</span>
+                </label>
+                <p class="form-description" id="settings-orders-help">An email for every order, with the items and the shipping address.</p>
+            </div>
+            <div class="settings-panel__switch">
+                <label class="form-switch">
+                    <input class="form-switch__control" type="checkbox" role="switch" name="notify_stock" aria-describedby="settings-stock-help" checked>
+                    <span class="form-label form-switch__label">Low stock</span>
+                </label>
+                <p class="form-description" id="settings-stock-help">When a product has fewer than 5 items left.</p>
+            </div>
+            <div class="settings-panel__switch">
+                <label class="form-switch">
+                    <input class="form-switch__control" type="checkbox" role="switch" name="notify_digest" aria-describedby="settings-digest-help">
+                    <span class="form-label form-switch__label">Weekly summary</span>
+                </label>
+                <p class="form-description" id="settings-digest-help">Sales, visitors and top products, every Monday morning.</p>
+            </div>
+        </div>
+    </section>
+    <section class="settings-panel__section settings-panel__section--danger" aria-labelledby="settings-danger">
+        <div class="settings-panel__intro">
+            <h3 class="settings-panel__title" id="settings-danger">Danger zone</h3>
+            <p class="settings-panel__description">These actions can’t be undone.</p>
+        </div>
+        <div class="settings-panel__fields">
+            <div class="settings-panel__danger-row">
+                <div class="settings-panel__danger-text">
+                    <p class="settings-panel__danger-title">Close the store</p>
+                    <p class="form-description">Delete the store, its products and its order history permanently.</p>
+                </div>
+                <a class="btn btn--outline-danger btn--sm" href="#">Close store</a>
+            </div>
+        </div>
+    </section>
+    <footer class="settings-panel__footer" data-settings-footer>
+        <p class="settings-panel__status" role="status" data-settings-status></p>
+        <div class="settings-panel__buttons">
+            <button class="btn btn--ghost-secondary" type="reset" data-settings-discard>Discard</button>
+            <button class="btn btn--primary" type="submit">Save changes</button>
+        </div>
+    </footer>
+</form>

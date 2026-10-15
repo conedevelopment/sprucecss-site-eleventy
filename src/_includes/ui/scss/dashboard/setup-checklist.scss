@@ -1,0 +1,136 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.setup-checklist {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  padding: spacer('m');
+  @include layout-stack('s');
+
+  &__header {
+    align-items: flex-start;
+    display: flex;
+    gap: spacer('s');
+    justify-content: space-between;
+  }
+
+  &__heading {
+    @include layout-stack('xxs');
+  }
+
+  &__title {
+    font-size: font-size('h4');
+    margin: 0;
+  }
+
+  &__progress-text {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__progress {
+    block-size: 0.375rem;
+  }
+
+  &__steps {
+    list-style: none;
+    margin-block-start: spacer('s') !important;
+    padding: 0;
+  }
+
+  &__step {
+    border-block-start: config('border-width-base', $display) solid color('border');
+    margin: 0 !important;
+
+    details {
+      border: 0;
+      padding: 0;
+    }
+  }
+
+  &__summary {
+    align-items: center;
+    border-radius: radius('md');
+    cursor: pointer;
+    display: flex;
+    gap: spacer('s');
+    list-style: none;
+    padding: spacer('s') spacer('xxs');
+
+    &::-webkit-details-marker,
+    &::marker {
+      display: none;
+    }
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+      outline-offset: -2px;
+    }
+  }
+
+  &__marker {
+    align-items: center;
+    aspect-ratio: 1;
+    border: 2px dashed color('border-strong');
+    border-radius: 50%;
+    display: inline-flex;
+    flex-shrink: 0;
+    inline-size: 1.5rem;
+    justify-content: center;
+    @include transition($property: 'background-color, border-color');
+
+    [data-done] & {
+      background-color: color('success', 'alert');
+      border-color: color('success', 'alert');
+      border-style: solid;
+
+      &::before {
+        block-size: 0.6rem;
+        // A check mark is not mirrored in right-to-left languages, so it uses physical borders.
+        border-bottom: 2px solid hsl(0deg 0% 100%);
+        border-right: 2px solid hsl(0deg 0% 100%);
+        content: '';
+        inline-size: 0.35rem;
+        margin-block-start: -0.15rem;
+        rotate: 45deg;
+      }
+    }
+  }
+
+  &__step-title {
+    color: color('heading');
+    flex-grow: 1;
+    font-weight: 600;
+
+    [data-done] & {
+      color: color('muted');
+      text-decoration: line-through;
+    }
+  }
+
+  &__state {
+    @include visually-hidden;
+  }
+
+  &__content {
+    padding: 0 spacer('xxs') spacer('s') calc(1.5rem + #{spacer('s')} + #{spacer('xxs')});
+    @include layout-stack('s');
+
+    p {
+      color: color('text');
+      margin: 0;
+    }
+  }
+
+  &__actions {
+    @include layout-cluster('xs');
+  }
+
+  &--complete &__progress {
+    accent-color: color('success', 'alert');
+  }
+}
+
+[dir='rtl'] .setup-checklist__content {
+  padding: 0 calc(1.5rem + #{spacer('s')} + #{spacer('xxs')}) spacer('s') spacer('xxs');
+}

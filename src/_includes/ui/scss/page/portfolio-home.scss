@@ -1,0 +1,19 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.l-home {
+  // One background, one padding: a block that follows a block on the same background drops its top padding,
+  // the bottom padding of the previous one already separates them. `__alt` starts a new background.
+  > :not(.l-home__alt) + :not(.l-home__alt),
+  &__alt > * + * {
+    padding-block-start: 0;
+  }
+
+  &__alt {
+    background-color: color('surface-muted');
+  }
+}
+
+// The in-page links (#work, #services) land below the sticky header.
+html:has(.l-home) {
+  scroll-padding-block-start: 5rem;
+}

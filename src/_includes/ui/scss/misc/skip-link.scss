@@ -1,11 +1,22 @@
 @use 'sprucecss/scss/spruce' as *;
 
+// Hidden above the viewport until it gets keyboard focus.
 .skip-link {
-  inset: -50vh auto auto spacer('m');
+  inset-block-start: spacer('m');
+  inset-inline-start: spacer('m');
   position: fixed;
-  z-index: 99;
+  translate: 0 calc(-100% - #{spacer('l')});
+  z-index: z-index('toast');
 
   &:focus {
-    inset-block-start: spacer('m');
+    translate: 0 0;
   }
+
+  @include motion-safe {
+    transition: translate 0.15s ease-out;
+  }
+}
+
+.skip-link-demo {
+  color: color('muted');
 }

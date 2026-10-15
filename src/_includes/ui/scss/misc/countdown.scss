@@ -1,0 +1,48 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.countdown {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  padding: spacer-clamp('m', 'l');
+  text-align: center;
+  @include layout-stack('m');
+
+  &__title {
+    font-size: font-size('h4');
+    margin: 0;
+  }
+
+  &__timer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
+    justify-content: center;
+  }
+
+  &__unit {
+    background-color: color('surface-muted');
+    border-radius: radius('md');
+    display: flex;
+    flex-direction: column;
+    min-inline-size: 5rem;
+    padding: spacer('s');
+  }
+
+  &__value {
+    color: color('heading');
+    font-family: config('font-family-heading', $typography);
+    font-size: font-size('h2');
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  &__label {
+    color: color('muted');
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+}

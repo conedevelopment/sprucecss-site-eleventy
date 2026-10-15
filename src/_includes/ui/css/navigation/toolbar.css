@@ -1,0 +1,67 @@
+.toolbar {
+  align-items: center;
+  background-color: var(--spruce-base-color-surface);
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  border-start-end-radius: var(--spruce-border-radius-md);
+  border-start-start-radius: var(--spruce-border-radius-md);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding: 0.25rem;
+}
+.toolbar__group {
+  display: flex;
+  gap: 2px;
+}
+.toolbar__group + .toolbar__group {
+  border-inline-start: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  padding-inline-start: 0.25rem;
+}
+.toolbar__button {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  outline: inherit;
+  padding: 0;
+  align-items: center;
+  block-size: 2.25rem;
+  border-radius: var(--spruce-border-radius-sm);
+  color: var(--spruce-base-color-text);
+  display: inline-flex;
+  inline-size: 2.25rem;
+  justify-content: center;
+  transition-duration: var(--spruce-duration);
+  transition-property: background-color, color;
+  transition-timing-function: var(--spruce-timing-function);
+}
+.toolbar__button svg {
+  block-size: 1.1rem;
+  inline-size: 1.1rem;
+}
+.toolbar__button:hover {
+  background-color: var(--spruce-base-color-surface-muted);
+  color: var(--spruce-base-color-heading);
+}
+.toolbar__button[aria-pressed=true] {
+  background-color: color-mix(in srgb, var(--spruce-base-color-primary) 12%, transparent);
+  color: var(--spruce-base-color-primary);
+}
+.toolbar__button:focus-visible {
+  outline: 2px solid var(--spruce-base-color-focus-ring);
+  outline-offset: -2px;
+}
+
+.toolbar-editor {
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  border-block-start: 0;
+  border-end-end-radius: var(--spruce-border-radius-md);
+  border-end-start-radius: var(--spruce-border-radius-md);
+  min-block-size: 8rem;
+  padding: 1rem;
+}
+.toolbar-editor:focus-visible {
+  outline: 2px solid var(--spruce-base-color-focus-ring);
+  outline-offset: -2px;
+}

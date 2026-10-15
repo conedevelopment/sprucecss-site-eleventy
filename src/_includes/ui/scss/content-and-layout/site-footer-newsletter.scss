@@ -1,0 +1,177 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.site-footer-newsletter {
+  background-color: color('surface-muted');
+  border-block-start: config('border-width-base', $display) solid color('border');
+  padding-block: spacer-clamp('l', 'xl') spacer('l');
+
+  &__signup {
+    align-items: center;
+    border-block-end: config('border-width-base', $display) solid color('border');
+    display: grid;
+    gap: spacer('m');
+    padding-block-end: spacer-clamp('l', 'xl');
+
+    @include breakpoint('md') {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+  }
+
+  &__intro {
+    @include layout-stack('xs');
+
+    p {
+      color: color('muted');
+    }
+  }
+
+  &__heading {
+    font-size: font-size('h3');
+  }
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs');
+
+    .form-control {
+      flex: 1 1 14rem;
+    }
+  }
+
+  // The GDPR consent takes its own row under the field and the button.
+  &__consent {
+    flex-basis: 100%;
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__columns {
+    display: grid;
+    gap: spacer('l');
+    grid-template-columns: repeat(auto-fit, minmax(min(10rem, 100%), 1fr));
+    padding-block: spacer-clamp('l', 'xl');
+
+    @include breakpoint('lg') {
+      grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  &__brand {
+    @include layout-stack('s');
+
+    p {
+      color: color('muted');
+      font-size: config('font-size-sm', $typography);
+      max-inline-size: 20rem;
+    }
+  }
+
+  &__logo {
+    align-items: center;
+    color: color('heading');
+    display: inline-flex;
+    font-family: config('font-family-heading', $typography);
+    font-size: font-size('h5');
+    font-weight: config('font-weight-heading', $typography);
+    gap: spacer('xs');
+    text-decoration: none;
+
+    img {
+      block-size: 2rem;
+      inline-size: 2rem;
+    }
+  }
+
+  &__column {
+    @include layout-stack('s');
+  }
+
+  &__title {
+    font-family: inherit;
+    font-size: config('font-size-sm', $typography);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  &__links {
+    list-style: none;
+    padding: 0;
+    @include layout-stack('xs');
+
+    a {
+      color: color('text');
+      text-decoration: none;
+
+      &:hover {
+        color: color('primary');
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__bottom {
+    align-items: center;
+    border-block-start: config('border-width-base', $display) solid color('border');
+    display: flex;
+    flex-wrap: wrap;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('s') spacer('m');
+    padding-block-start: spacer('l');
+  }
+
+  &__copyright {
+    color: color('muted');
+    margin: 0;
+  }
+
+  &__legal {
+    display: flex;
+    gap: spacer('m');
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0;
+    }
+
+    a {
+      color: color('muted');
+
+      &:hover {
+        color: color('primary');
+      }
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: spacer('xxs');
+    margin-inline-start: auto;
+
+    a {
+      align-items: center;
+      border-radius: radius('sm');
+      color: color('heading');
+      display: inline-flex;
+      justify-content: center;
+      min-block-size: 2.75rem;
+      min-inline-size: 2.75rem;
+
+      &:hover {
+        color: color('primary');
+      }
+    }
+
+    svg {
+      block-size: 1.25rem;
+      inline-size: 1.25rem;
+    }
+  }
+}

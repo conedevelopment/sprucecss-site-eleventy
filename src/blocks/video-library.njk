@@ -1,0 +1,39 @@
+---
+category: 'Content'
+title: 'Video Library'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--block ui--video-library">
+        {% include "ui/html/block/video-library.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/block/video-library.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/block/video-library.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/block/video-library.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/block/video-library.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/container.css">
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/block-heading.css">
+    <link rel="stylesheet" href="/_includes/ui/css/card/lesson.css">
+    <link rel="stylesheet" href="/_includes/ui/css/block/video-library.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/block/video-library.js"></script>
+{% endblock %}

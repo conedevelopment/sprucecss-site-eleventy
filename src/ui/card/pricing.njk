@@ -1,0 +1,27 @@
+---
+title: 'Pricing'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--wide ui--pricing">
+        {% include "ui/html/card/pricing.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/card/pricing.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/card/pricing.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/card/pricing.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/card/pricing.css">
+{% endblock %}

@@ -1,0 +1,52 @@
+{#- Override with `returnsForm` ({ order, items: [{ name, variant, price, image }] }). -#}
+{%- set _s = returnsForm or {
+    "order": "#10482",
+    "items": [
+        { "name": "Linen Overshirt", "variant": "Sand · M", "price": 79, "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=160&q=70" },
+        { "name": "Everyday Backpack", "variant": "Navy", "price": 89, "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=160&q=70" },
+        { "name": "Ceramic Pour-Over", "variant": "Matte white", "price": 42, "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=160&q=70" }
+    ]
+} %}
+<form class="returns-form" action="#" method="post" aria-labelledby="returns-form-title" data-returns-form>
+    <header class="returns-form__header">
+        <h2 class="returns-form__title" id="returns-form-title">Return items</h2>
+        <p class="returns-form__text">Order {{ _s.order }} · Free returns until <time datetime="2026-11-03">November 3</time></p>
+    </header>
+    <fieldset class="returns-form__items">
+        <legend class="returns-form__legend">1. What would you like to return?</legend>
+        {%- for item in _s.items %}
+        <div class="form-check returns-form__item" data-returns-item data-price="{{ item.price }}">
+            <input class="form-check__control returns-form__check" id="return-item-{{ loop.index }}" name="items[]" type="checkbox" value="{{ loop.index }}" aria-describedby="return-item-{{ loop.index }}-meta">
+            <img src="{{ item.image }}" alt="" width="64" height="64" loading="lazy">
+            <label class="returns-form__name" for="return-item-{{ loop.index }}">{{ item.name }}</label>
+            <span class="returns-form__meta" id="return-item-{{ loop.index }}-meta">{{ item.variant }} · ${{ item.price }}</span>
+            <div class="returns-form__reason" data-returns-reason>
+                <label class="form-label" for="return-reason-{{ loop.index }}">Reason <span class="sr-only">for returning {{ item.name }}</span></label>
+                <select class="form-control form-control--sm" id="return-reason-{{ loop.index }}" name="reason[{{ loop.index }}]">
+                    <option value="">Choose a reason</option>
+                    <option>Too small</option>
+                    <option>Too big</option>
+                    <option>Not as described</option>
+                    <option>Arrived damaged</option>
+                    <option>Changed my mind</option>
+                </select>
+            </div>
+        </div>
+        {%- endfor %}
+    </fieldset>
+    <fieldset class="returns-form__methods">
+        <legend class="returns-form__legend">2. How would you like your refund?</legend>
+        <label class="form-check returns-form__method">
+            <input class="form-check__control" type="radio" name="refund" value="original" checked data-bonus="0">
+            <span><strong>Original payment method</strong> 3–5 business days after we receive the items</span>
+        </label>
+        <label class="form-check returns-form__method">
+            <input class="form-check__control" type="radio" name="refund" value="credit" data-bonus="10">
+            <span><strong>Store credit + 10% bonus</strong> Instantly, once the return is scanned</span>
+        </label>
+    </fieldset>
+    <footer class="returns-form__footer">
+        <p class="returns-form__summary" aria-live="polite" data-returns-summary>Select the items to return.</p>
+        <button class="btn btn--primary" type="submit">Continue to shipping label</button>
+    </footer>
+</form>

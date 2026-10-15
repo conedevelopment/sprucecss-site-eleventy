@@ -1,63 +1,99 @@
 @use 'sprucecss/scss/spruce' as *;
 
-.preloader--circle {
-  --color: currentColor;
-  --border-width: 0.25em;
+.preloader-demo {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacer('l');
+}
+
+.preloader {
+  --color: currentcolor;
   --size: 1.5rem;
   --animation-duration: 1s;
+  block-size: var(--size);
+  display: inline-flex;
+  flex-shrink: 0;
+  inline-size: var(--size);
 
+  &--sm {
+    --size: 1rem;
+  }
+
+  &--lg {
+    --size: 2.5rem;
+  }
+}
+
+.preloader--circle {
+  --border-width: calc(var(--size) / 6);
+  --size: 1.5rem;
+  --animation-duration: 1s;
   block-size: var(--size);
   inline-size: var(--size);
 
   &::after {
-    animation: rotation var(--animation-duration) linear infinite;
+    animation: preloader-rotation var(--animation-duration) linear infinite;
     block-size: var(--size);
-    border: var(--border-width) solid var(--color);
-    border-color: var(--color) transparent var(--color) transparent;
+    border: var(--border-width) solid var(--color, currentcolor);
+    border-block-end-color: transparent;
+    border-inline-start-color: transparent;
     border-radius: 50%;
+    box-sizing: border-box;
     content: '';
     display: flex;
     inline-size: var(--size);
   }
 }
 
-@keyframes rotation {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 .preloader--bars {
-  --color: currentColor;
   --size: 1.5rem;
   --animation-duration: 1s;
-
   align-items: center;
   block-size: var(--size);
-  display: flex;
+  display: inline-flex;
   inline-size: var(--size);
   justify-content: space-between;
-  position: relative;
 
-  span {
-    animation: resize var(--animation-duration) infinite ease-in-out;
-    background: var(--color);
-    block-size: var(--size);
+  span:not(.sr-only) {
+    animation: preloader-resize var(--animation-duration) infinite ease-in-out;
+    background: var(--color, currentcolor);
+    block-size: 70%;
     border-radius: 1px;
     inline-size: calc(var(--size) / 6);
 
-    &:nth-child(1) { animation-delay: -0.3s; }
-    &:nth-child(2) { animation-delay: -0.15s; }
+    &:nth-of-type(2) { animation-delay: -0.3s; }
+    &:nth-of-type(3) { animation-delay: -0.15s; }
   }
 }
 
-@keyframes resize {
+// Keep a slow, gentle motion with reduced motion: a loader that stops looks like a frozen page.
+@include motion-reduce {
+  .preloader--circle::after {
+    animation-duration: 3s;
+  }
+
+  .preloader--bars span:not(.sr-only) {
+    animation: preloader-fade 2s infinite ease-in-out;
+  }
+}
+
+@keyframes preloader-rotation {
+  to { rotate: 360deg; }
+}
+
+@keyframes preloader-resize {
   0%,
   80%,
   100% {
-    transform: scaleY(1);
+    scale: 1 0.6;
   }
 
   40% {
-    transform: scaleY(1.25);
+    scale: 1 1.2;
   }
+}
+
+@keyframes preloader-fade {
+  50% { opacity: 0.4; }
 }

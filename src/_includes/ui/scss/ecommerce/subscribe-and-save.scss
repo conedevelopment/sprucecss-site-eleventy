@@ -1,0 +1,119 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.subscribe-save {
+  @include layout-stack('m');
+
+  &__options {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    @include layout-stack('xs');
+  }
+
+  &__legend {
+    color: color('heading');
+    font-size: config('font-size-base', $typography);
+    font-weight: 700;
+    margin-block-end: spacer('xs');
+    padding: 0;
+  }
+
+  &__option {
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('md');
+
+    &:has(> input:checked, > label > input:checked) {
+      background-color: color-alpha('primary', 0.04);
+      border-color: color('primary');
+      box-shadow: 0 0 0 1px color('primary');
+    }
+  }
+
+  // The first option is the label itself; the subscription wraps a label and the details.
+  > fieldset > label.subscribe-save__option,
+  &__label {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    gap: spacer('s');
+    padding: spacer('s');
+  }
+
+  &__text {
+    align-items: center;
+    display: flex;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    gap: spacer('xxs') spacer('xs');
+
+    strong {
+      color: color('heading');
+    }
+  }
+
+  &__price {
+    color: color('heading');
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    text-align: end;
+
+    del {
+      color: color('muted');
+      display: block;
+      font-size: config('font-size-sm', $typography);
+      font-weight: 400;
+    }
+  }
+
+  &__details {
+    border-block-start: config('border-width-base', $display) dashed color('border');
+    display: grid;
+    gap: spacer('xxs');
+    margin-inline: spacer('s');
+    padding-block: spacer('s');
+
+    .form-control {
+      max-inline-size: 16rem;
+    }
+  }
+
+  // Hide the details while the one-time option is chosen (where :has() works).
+  @supports selector(:has(*)) {
+    &__option--subscribe:not(:has(> label > input:checked)) &__details {
+      display: none;
+    }
+  }
+
+  &__perks {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    list-style: none;
+    margin-block-start: spacer('xs');
+    padding: 0;
+
+    li {
+      align-items: center;
+      display: flex;
+      gap: spacer('xxs');
+      margin: 0;
+
+      &::before {
+        color: color('success', 'alert');
+        content: '✓';
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__buy {
+    align-items: end;
+    display: grid;
+    gap: spacer('s');
+    grid-template-columns: 6rem minmax(0, 1fr);
+  }
+
+  &__quantity {
+    display: grid;
+    gap: spacer('xxs');
+  }
+}

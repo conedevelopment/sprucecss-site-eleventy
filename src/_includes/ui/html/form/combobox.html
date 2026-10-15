@@ -1,102 +1,82 @@
 <div class="form-group">
-    <label class="form-label" for="colors">Choose colors</label>
-    <div
-        class="combobox"
-        x-cloak
-        x-data="combobox"
-        x-id="['dropdown', 'list-item']"
-        x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
-        x-on:keydown.escape.prevent.stop="close($refs.input)"
-    >
-        <div
-            class="combobox__selected-items"
-            x-show="selectedItems().length > 0"
-        >
-            <template x-for="(item, index) in selectedItems" :key="item.id">
-                <span
-                    class="combobox-item"
-                    x-show="item.selected"
-                >
-                    <span x-text="item.label"></span>
-                    <button
-                    :aria-label="`Remove ${item.label}`"
-                        @click="unselectItemById(item.id)"
-                        class="btn btn--primary btn--sm btn--icon"
-                    >
-                        <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                    </button>
-                </span>
-            </template>
-        </div>
-        <div
-            class="combobox__inner"
-            @click.outside="close($refs.input)"
-            x-ref="panel"
-        >
+    <label class="form-label" id="colors-label" for="colors">Colors</label>
+    <div class="combobox" data-combobox data-name="colors[]">
+        <ul class="combobox__selected" aria-label="Selected colors" data-combobox-selected></ul>
+        <div class="combobox__inner">
             <input
-                :aria-activedescendant="highlightedItemId()"
-                :aria-controls="$id('dropdown')"
-                :aria-expanded="open"
-                @click="toggle()"
-                aria-autocomplete="list"
                 class="form-control combobox__control"
                 id="colors"
-                placeholder="Search for a color"
-                role="combobox"
                 type="text"
-                x-model="search"
-                x-on:keyup.down.prevent="highlightNextItem"
-                x-on:keyup.enter.prevent="toggleFromKeyboard"
-                x-on:keyup.up.prevent="highlightPreviousItem"
-                x-on:keyup="if ($event.key !== 'Escape' && $event.key !== 'Tab' && $event.key !== 'Shift') { open = true }"
-                x-ref="input"
+                role="combobox"
+                autocomplete="off"
+                aria-autocomplete="list"
+                aria-expanded="false"
+                aria-controls="colors-listbox"
+                aria-describedby="colors-help"
+                placeholder="Search for a color"
             >
-            <div
-                class="combobox__dropdown"
-                x-show="open || search.length > 0"
-            >
-                <ul
-                    :id="$id('dropdown')"
-                    aria-label="Colors"
-                    aria-multiselectable="true"
-                    role="listbox"
-                    tabindex="-1"
-                    x-ref="listbox"
-                >
-                    <template x-for="(item, index) in filteredItems" :key="item.id">
-                        <li
-                            :aria-selected="item.selected"
-                            :class="{'highlighted': index === highlightedItemIndex}"
-                            :id="$id('list-item', item.id)"
-                            @click.prevent="item.selected = ! item.selected; highlightedItemIndex = null;"
-                            role="option"
-                        >
-                            <span x-text="item.label"></span>
-                            <span x-show="item.selected">
-                                <svg aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                    <polyline points="20 6 9 17 4 12"></polyline>
-                                </svg>
-                            </span>
-                        </li>
-                    </template>
-                    <li
-                        class="combobox__no-results"
-                        x-show="search !== '' && filteredItems().length === 0"
-                    >
-                        No results found.
-                    </li>
-                </ul>
-            </div>
+            <svg class="combobox__chevron" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"/></svg>
+            <ul class="combobox__listbox" id="colors-listbox" role="listbox" aria-labelledby="colors-label" aria-multiselectable="true" hidden>
+            <li class="combobox__option" id="colors-option-red" role="option" aria-selected="false" data-value="red">
+                <span class="combobox__swatch" style="--swatch: hsl(0deg 80% 55%);" aria-hidden="true"></span>
+                Red
+                <svg class="combobox__check" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"/></svg>
+            </li>
+            <li class="combobox__option" id="colors-option-orange" role="option" aria-selected="false" data-value="orange">
+                <span class="combobox__swatch" style="--swatch: hsl(28deg 95% 55%);" aria-hidden="true"></span>
+                Orange
+                <svg class="combobox__check" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"/></svg>
+            </li>
+            <li class="combobox__option" id="colors-option-yellow" role="option" aria-selected="false" data-value="yellow">
+                <span class="combobox__swatch" style="--swatch: hsl(48deg 95% 55%);" aria-hidden="true"></span>
+                Yellow
+                <svg class="combobox__check" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"/></svg>
+            </li>
+            <li class="combobox__option" id="colors-option-green" role="option" aria-selected="false" data-value="green">
+                <span class="combobox__swatch" style="--swatch: hsl(140deg 55% 42%);" aria-hidden="true"></span>
+                Green
+                <svg class="combobox__check" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"/></svg>
+            </li>
+            <li class="combobox__option" id="colors-option-teal" role="option" aria-selected="false" data-value="teal">
+                <span class="combobox__swatch" style="--swatch: hsl(180deg 60% 35%);" aria-hidden="true"></span>
+                Teal
+                <svg class="combobox__check" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"/></svg>
+            </li>
+            <li class="combobox__option" id="colors-option-blue" role="option" aria-selected="true" data-value="blue">
+                <span class="combobox__swatch" style="--swatch: hsl(215deg 85% 55%);" aria-hidden="true"></span>
+                Blue
+                <svg class="combobox__check" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"/></svg>
+            </li>
+            <li class="combobox__option" id="colors-option-purple" role="option" aria-selected="false" data-value="purple">
+                <span class="combobox__swatch" style="--swatch: hsl(270deg 60% 55%);" aria-hidden="true"></span>
+                Purple
+                <svg class="combobox__check" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"/></svg>
+            </li>
+            <li class="combobox__option" id="colors-option-pink" role="option" aria-selected="false" data-value="pink">
+                <span class="combobox__swatch" style="--swatch: hsl(330deg 80% 70%);" aria-hidden="true"></span>
+                Pink
+                <svg class="combobox__check" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"/></svg>
+            </li>
+            <li class="combobox__option" id="colors-option-brown" role="option" aria-selected="false" data-value="brown">
+                <span class="combobox__swatch" style="--swatch: hsl(25deg 45% 35%);" aria-hidden="true"></span>
+                Brown
+                <svg class="combobox__check" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"/></svg>
+            </li>
+            <li class="combobox__option" id="colors-option-white" role="option" aria-selected="false" data-value="white">
+                <span class="combobox__swatch" style="--swatch: hsl(0deg 0% 100%);" aria-hidden="true"></span>
+                White
+                <svg class="combobox__check" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"/></svg>
+            </li>
+            <li class="combobox__option" id="colors-option-black" role="option" aria-selected="false" data-value="black">
+                <span class="combobox__swatch" style="--swatch: hsl(0deg 0% 8%);" aria-hidden="true"></span>
+                Black
+                <svg class="combobox__check" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"/></svg>
+            </li>
+            </ul>
+            <p class="combobox__empty" hidden data-combobox-empty>No colors found.</p>
         </div>
-        <button
-            @click="deselectAllItems"
-            class="btn btn--outline-primary btn--sm combobox__reset"
-            x-show="selectedItems().length > 0"
-        >
-            Deselect all colors
-        </button>
+        <p class="form-description" id="colors-help">Pick as many as you like. Backspace removes the last one.</p>
+        <button class="btn btn--outline-primary btn--sm combobox__reset" type="button" hidden data-combobox-reset>Clear all colors</button>
+        <p class="sr-only" aria-live="polite" data-combobox-status></p>
     </div>
 </div>

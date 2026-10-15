@@ -1,15 +1,17 @@
 ---
 title: "Typography"
 description: "Spruce CSS comes with fluid typography; it scales automatically depending on the viewport."
-order: 19
+order: 21
 github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/elements/typography.md"
 ---
 
 <p class="lead">Typography is an essential part of any system. With Spruce, you get basic styles for the most related HTML elements.</p>
 
 - The type scale is REM (root-relative EM) based. The base size is set to 1rem by default through `config('font-size-base', $typography)`, which will usually be 16px (depending on the browser's defaults). You can also change the ratio with the `config('font-size-ratio', $typography)` variable.
-- You can use four different font sizing variables: `config('font-size-base', $typography)` (1rem), `$font-size-sm` (0.875rem), `config('font-size-lg', $typography)` (1.125rem) and `config('font-size-lead', $typography)` (clamp(1.15rem, 2vw, 1.35rem)).
+- You can use four different font sizes: `config('font-size-base', $typography)` (1rem), `config('font-size-sm', $typography)` (0.875rem), `config('font-size-lg', $typography)` (1.125rem) and `config('font-size-lead', $typography)` (`clamp(1.15rem, 2vw, 1.35rem)`).
 - You can access the heading font sizes under the `$font-sizes` with the [font-size()](/docs/sass/functions#font-size) function.
+
+- Headings are balanced (`text-wrap: balance`) by default, so a long title doesn't leave a single word on its last line.
 
 [View on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/_typography.scss)
 
@@ -106,11 +108,29 @@ or without citation:
 </blockquote>
 ```
 
-## Inline Text elements
+## Links
+
+The link style is configurable through the `$typography` map (new in v3):
+
+```scss
+@use 'sprucecss/scss/spruce' with (
+  $typography: (
+    'link-font-weight': 600,
+    'link-text-decoration': underline,
+    'link-text-decoration-hover': none,
+    'link-text-decoration-thickness': 1px,
+    'link-text-underline-offset': 0.2em,
+  ),
+);
+```
+
+## Inline Text Elements
 
 {% preview %}
 <ul class="inline-text-element-list">
     <li><code>code element</code> <code>code</code></li>
+    <li><kbd>Ctrl</kbd> + <kbd>K</kbd> <code>kbd</code></li>
+    <li><samp>Build finished</samp> <code>samp</code></li>
     <li><abbr title="Accessibility">A11Y</abbr> <code>abbr</code></li>
     <li><mark>mark element</mark> <code>mark</code></li>
     <li><del>del element</del> <code>del</code></li>
@@ -128,6 +148,8 @@ or without citation:
 
 ```html
 <code>code element</code>
+<kbd>Ctrl</kbd> + <kbd>K</kbd>
+<samp>Build finished</samp>
 <abbr title="Accessibility">A11Y</abbr>
 <mark>mark element</mark>
 <del>del element</del>
@@ -141,6 +163,26 @@ or without citation:
 sup <sup>element</sup>
 sub <sub>element</sub>
 ```
+
+## Code Blocks
+
+Use `pre` with a `code` element inside. New in v3: code blocks get a background, padding, radius and horizontal scrolling, and the inner `code` loses the inline code style.
+
+{% preview %}
+<pre><code>.card {
+  border-radius: radius('lg');
+  box-shadow: shadow('md');
+  padding: spacer('m');
+}</code></pre>
+{% endpreview %}
+
+```html
+<pre><code>.card {
+  border-radius: radius('lg');
+}</code></pre>
+```
+
+Customize them with the `pre-background` and `pre-foreground` colors and the `pre-padding`, `pre-border-radius`, `font-family-mono` and `font-size-code` typography keys.
 
 ## Lists
 
@@ -207,6 +249,25 @@ sub <sub>element</sub>
 </dl>
 
 ```
+
+## Configuration
+
+The typographic elements are configurable through the [`$typography` map](/docs/sass/variables/#typography). The keys added in v3:
+
+| Key | Default | Description |
+|---|---|---|
+| `blockquote-border-width` | `0.5rem` | The border of `blockquote` and `.quote`. |
+| `blockquote-font-size`, `blockquote-font-style` | `null` | The size and style of the quote text. |
+| `font-family-mono` | System monospace stack | `code`, `kbd`, `samp`, `pre`. |
+| `font-size-code` | `null` | The font size of the code elements. |
+| `font-weight-strong` | `null` | The weight of `strong` and `b`. |
+| `letter-spacing-base` | `null` | The letter spacing of the `body`. |
+| `link-*` | — | See [Links](#links). |
+| `list-gap` | `spacer('xxs')` | The gap between list items. |
+| `pre-border-radius`, `pre-padding` | `0.425rem`, `1rem` | The code block shape. |
+| `text-transform-heading` | `null` | Like `uppercase` for every heading. |
+| `text-wrap-base` | `null` | Like `pretty` for paragraphs. |
+| `text-wrap-heading` | `balance` | The heading wrapping. |
 
 ## Variables, Helpers
 

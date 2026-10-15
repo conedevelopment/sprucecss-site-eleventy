@@ -1,0 +1,77 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.hero-signup-block {
+  background-color: color('surface-muted');
+  padding-block: spacer-clamp('l', 'xxl');
+
+  &__inner {
+    align-items: center;
+    display: grid;
+    gap: spacer-clamp('l', 'xl');
+
+    @include breakpoint('lg') {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    }
+  }
+
+  &__content {
+    @include layout-stack('m');
+  }
+
+  &__eyebrow {
+    color: color('primary');
+    font-weight: 700;
+  }
+
+  &__title {
+    font-size: responsive-font-size(3.5rem, 40, '4vw + 1rem');
+    letter-spacing: -0.02em;
+  }
+
+  &__lead {
+    color: color('muted');
+    font-size: config('font-size-lead', $typography);
+  }
+
+  &__points {
+    list-style: none;
+    padding: 0;
+    @include layout-stack('xs');
+
+    li {
+      align-items: center;
+      color: color('heading');
+      display: flex;
+      gap: spacer('xs');
+    }
+  }
+
+  &__check {
+    background-color: color-alpha('success', 0.15, 'alert');
+    block-size: 1.5rem;
+    border-radius: 50%;
+    color: color('success', 'alert');
+    flex-shrink: 0;
+    inline-size: 1.5rem;
+    padding: 0.3rem;
+  }
+
+  &__form {
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    box-shadow: shadow('lg');
+    padding: spacer-clamp('m', 'l');
+    @include layout-stack('s');
+  }
+
+  &__form-title {
+    font-size: font-size('h4');
+  }
+
+  &__note {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    text-align: center;
+  }
+}

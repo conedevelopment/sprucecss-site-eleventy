@@ -1,0 +1,119 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.services-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+  }
+
+  &__list {
+    border-block-start: config('border-width-base', $display) solid color('heading');
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__service {
+    border-block-end: config('border-width-base', $display) solid color('border');
+    display: grid;
+    gap: spacer('s') spacer('l');
+    grid-template-columns: auto minmax(0, 1fr);
+    padding-block: spacer('l');
+
+    @include breakpoint('lg') {
+      align-items: start;
+      grid-template-columns: 4rem minmax(0, 2fr) minmax(0, 1.2fr) minmax(0, 1fr);
+    }
+  }
+
+  &__number {
+    color: color('primary');
+    font-family: config('font-family-heading', $typography);
+    font-size: font-size('h4');
+    font-variant-numeric: tabular-nums;
+    font-weight: config('font-weight-heading', $typography);
+    line-height: 1.3;
+  }
+
+  &__body {
+    @include layout-stack('xs'); // title, text
+  }
+
+  &__title {
+    font-size: font-size('h3');
+  }
+
+  &__text {
+    color: color('muted');
+  }
+
+  &__deliverables,
+  &__terms {
+    grid-column: 2;
+
+    @include breakpoint('lg') {
+      grid-column: auto;
+    }
+  }
+
+  &__deliverables {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    @include layout-stack('xxs');
+
+    li {
+      align-items: center;
+      display: flex;
+      gap: spacer('xs');
+
+      &::before {
+        background-color: color('primary');
+        block-size: 0.35rem;
+        border-radius: 50%;
+        content: '';
+        flex-shrink: 0;
+        inline-size: 0.35rem;
+      }
+    }
+  }
+
+  &__terms {
+    display: grid;
+    gap: spacer('xs');
+    margin-block: 0;
+  }
+
+  &__term {
+    display: flex;
+    gap: spacer('xs');
+    justify-content: space-between;
+
+    @include breakpoint('lg') {
+      flex-direction: column;
+      gap: 0;
+      justify-content: flex-start;
+    }
+
+    dt {
+      color: color('muted');
+      font-size: config('font-size-sm', $typography);
+      font-weight: 400;
+    }
+
+    dd {
+      color: color('heading');
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+
+  &__note {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    margin-block: 0;
+  }
+}

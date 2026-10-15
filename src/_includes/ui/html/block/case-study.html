@@ -1,0 +1,37 @@
+{#- Override with `caseStudyBlock` ({ eyebrow, company, quote, author, role, photo, image, alt, metrics: [{ value, label }], link }). -#}
+{%- set _s = caseStudyBlock or {
+    "eyebrow": "Case study", "company": "Northwind",
+    "quote": "We rebuilt our marketing site on Spruce in three weeks. Switching to a new brand style later took one afternoon.",
+    "author": "Maya Chen", "role": "Head of Design, Northwind", "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=96&q=70&h=96",
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=70", "alt": "The Northwind team working together in their office.",
+    "metrics": [{ "value": "3×", "label": "faster page builds" }, { "value": "−42%", "label": "CSS shipped" }, { "value": "100", "label": "Lighthouse accessibility" }],
+    "link": "Read the full story"
+} %}
+<section class="case-study-block" aria-labelledby="case-study-title">
+    <div class="container">
+        <div class="case-study-block__inner">
+            <img class="case-study-block__image" src="{{ _s.image }}" alt="{{ _s.alt }}" width="900" height="1100" loading="lazy">
+            <div class="case-study-block__content">
+                <p class="case-study-block__eyebrow">{{ _s.eyebrow }} · <span class="case-study-block__company" id="case-study-title">{{ _s.company }}</span></p>
+                <figure class="case-study-block__figure">
+                    <blockquote class="case-study-block__quote">
+                        <p>{{ _s.quote }}</p>
+                    </blockquote>
+                    <figcaption class="case-study-block__author">
+                        <img src="{{ _s.photo }}" alt="" width="48" height="48" loading="lazy">
+                        <span><strong>{{ _s.author }}</strong><span>{{ _s.role }}</span></span>
+                    </figcaption>
+                </figure>
+                <dl class="case-study-block__metrics">
+                    {%- for metric in _s.metrics %}
+                    <div>
+                        <dt>{{ metric.label }}</dt>
+                        <dd>{{ metric.value }}</dd>
+                    </div>
+                    {%- endfor %}
+                </dl>
+                <a class="btn btn--outline-primary case-study-block__link" href="#">{{ _s.link }}</a>
+            </div>
+        </div>
+    </div>
+</section>

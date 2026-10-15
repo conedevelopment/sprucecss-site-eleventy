@@ -1,0 +1,123 @@
+<form class="product-filters" action="#" method="get" data-product-filters>
+    <header class="product-filters__header">
+        <h2 class="product-filters__title">Filters</h2>
+        <a class="product-filters__clear" href="?" data-filter-clear>Clear all</a>
+    </header>
+    <ul class="product-filters__active" role="list" aria-label="Active filters" data-filter-active hidden></ul>
+    <details class="product-filters__group" open>
+        <summary>Category</summary>
+        <fieldset>
+            <legend class="sr-only">Category</legend>
+            <div class="product-filters__checks">
+                    <label class="form-check product-filters__check">
+                        <input class="form-check__control" type="checkbox" name="category" value="backpacks" data-filter-label="Backpacks" data-count="32" checked>
+                        <span class="form-label form-check__label">Backpacks</span>
+                        <span class="product-filters__count">32<span class="sr-only"> products</span></span>
+                    </label>
+                    <label class="form-check product-filters__check">
+                        <input class="form-check__control" type="checkbox" name="category" value="travel-bags" data-filter-label="Travel bags" data-count="18">
+                        <span class="form-label form-check__label">Travel bags</span>
+                        <span class="product-filters__count">18<span class="sr-only"> products</span></span>
+                    </label>
+                    <label class="form-check product-filters__check">
+                        <input class="form-check__control" type="checkbox" name="category" value="bottles" data-filter-label="Bottles" data-count="14">
+                        <span class="form-label form-check__label">Bottles</span>
+                        <span class="product-filters__count">14<span class="sr-only"> products</span></span>
+                    </label>
+                    <label class="form-check product-filters__check">
+                        <input class="form-check__control" type="checkbox" name="category" value="accessories" data-filter-label="Accessories" data-count="22">
+                        <span class="form-label form-check__label">Accessories</span>
+                        <span class="product-filters__count">22<span class="sr-only"> products</span></span>
+                    </label>
+            </div>
+        </fieldset>
+    </details>
+    <details class="product-filters__group" open>
+        <summary>Price</summary>
+        <fieldset class="product-filters__price" data-price-range style="--min: 0; --max: 400;">
+            <legend class="sr-only">Price range, in US dollars</legend>
+            <div class="product-filters__range" aria-hidden="true" hidden>
+                <input type="range" min="0" max="400" step="10" value="20" tabindex="-1" data-range-min>
+                <input type="range" min="0" max="400" step="10" value="250" tabindex="-1" data-range-max>
+            </div>
+            <div class="product-filters__price-inputs">
+                <div class="form-group">
+                    <label class="form-label" for="filter-price-min">Min</label>
+                    <div class="form-group--stacked">
+                        <span class="form-group-label" aria-hidden="true">$</span>
+                        <input class="form-control" id="filter-price-min" name="price_min" type="number" min="0" max="400" step="10" value="20" inputmode="numeric" data-input-min>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="filter-price-max">Max</label>
+                    <div class="form-group--stacked">
+                        <span class="form-group-label" aria-hidden="true">$</span>
+                        <input class="form-control" id="filter-price-max" name="price_max" type="number" min="0" max="400" step="10" value="250" inputmode="numeric" data-input-max>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </details>
+    <details class="product-filters__group" open>
+        <summary>Color</summary>
+        <fieldset>
+            <legend class="sr-only">Color</legend>
+            <div class="product-filters__colors">
+                    <label class="product-filters__color" style="--swatch: hsl(0deg 0% 12%);">
+                        <input type="checkbox" name="color" value="black" data-filter-label="Black">
+                        <span class="sr-only">Black</span>
+                    </label>
+                    <label class="product-filters__color" style="--swatch: hsl(150deg 30% 32%);">
+                        <input type="checkbox" name="color" value="green" data-filter-label="Green" checked>
+                        <span class="sr-only">Green</span>
+                    </label>
+                    <label class="product-filters__color" style="--swatch: hsl(25deg 55% 38%);">
+                        <input type="checkbox" name="color" value="brown" data-filter-label="Brown">
+                        <span class="sr-only">Brown</span>
+                    </label>
+                    <label class="product-filters__color" style="--swatch: hsl(215deg 50% 40%);">
+                        <input type="checkbox" name="color" value="blue" data-filter-label="Blue">
+                        <span class="sr-only">Blue</span>
+                    </label>
+                    <label class="product-filters__color" style="--swatch: hsl(210deg 8% 62%);">
+                        <input type="checkbox" name="color" value="grey" data-filter-label="Grey">
+                        <span class="sr-only">Grey</span>
+                    </label>
+            </div>
+        </fieldset>
+    </details>
+    <details class="product-filters__group">
+        <summary>Size</summary>
+        <fieldset>
+            <legend class="sr-only">Size</legend>
+            <div class="product-filters__sizes">
+                    <label class="product-filters__size">
+                        <input type="checkbox" name="size" value="s" data-filter-label="Size S">
+                        <span>S</span>
+                    </label>
+                    <label class="product-filters__size">
+                        <input type="checkbox" name="size" value="m" data-filter-label="Size M">
+                        <span>M</span>
+                    </label>
+                    <label class="product-filters__size">
+                        <input type="checkbox" name="size" value="l" data-filter-label="Size L">
+                        <span>L</span>
+                    </label>
+                    <label class="product-filters__size">
+                        <input type="checkbox" name="size" value="xl" data-filter-label="Size XL">
+                        <span>XL</span>
+                    </label>
+            </div>
+        </fieldset>
+    </details>
+    <div class="product-filters__group product-filters__group--plain">
+        <label class="form-switch">
+            <input class="form-switch__control" type="checkbox" role="switch" name="in_stock" value="1" data-filter-label="In stock only">
+            <span class="form-label form-switch__label">In stock only</span>
+        </label>
+    </div>
+    <footer class="product-filters__footer">
+        <button class="btn btn--primary btn--block" type="submit" data-filter-submit>Show results</button>
+    </footer>
+    <p class="sr-only" aria-live="polite" data-filter-live></p>
+</form>

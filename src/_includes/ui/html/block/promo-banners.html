@@ -1,0 +1,28 @@
+{#- Override with `promoBannersBlock` ({ title, banners: [{ eyebrow, title, text, action, image, brand }] }). `brand: true` puts a banner on the brand color. -#}
+{%- set _s = promoBannersBlock or {
+    "title": "Offers",
+    "banners": [
+        { "eyebrow": "Gift guide", "title": "Thoughtful gifts under $50", "text": "Hand-picked by our team, wrapped for free.", "action": "Shop gifts", "image": "https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=600&q=70" },
+        { "eyebrow": "Members", "title": "10% off every order", "text": "Join for free and get early access to every sale.", "action": "Join now", "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=70", "brand": true }
+    ]
+} %}
+<section class="promo-banners-block" aria-labelledby="promo-banners-title">
+    <div class="container">
+        <div class="promo-banners-block__inner">
+            <h2 class="sr-only" id="promo-banners-title">{{ _s.title }}</h2>
+            <ul class="promo-banners-block__list" role="list">
+                {%- for banner in _s.banners %}
+                <li class="promo-banners-block__banner{% if banner.brand %} promo-banners-block__banner--brand{% endif %}">
+                    <div class="promo-banners-block__content">
+                        <p class="promo-banners-block__eyebrow">{{ banner.eyebrow }}</p>
+                        <h3 class="promo-banners-block__title">{{ banner.title }}</h3>
+                        <p class="promo-banners-block__text">{{ banner.text }}</p>
+                        <a class="btn btn--sm promo-banners-block__action" href="#">{{ banner.action }}<span class="sr-only">: {{ banner.title }}</span></a>
+                    </div>
+                    <img class="promo-banners-block__image" src="{{ banner.image }}" alt="" width="600" height="600" loading="lazy">
+                </li>
+                {%- endfor %}
+            </ul>
+        </div>
+    </div>
+</section>

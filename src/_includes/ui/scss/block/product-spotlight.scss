@@ -1,0 +1,132 @@
+@use 'sprucecss/scss/spruce' as *;
+
+$product-spotlight-star: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>';
+
+.product-spotlight-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    align-items: start;
+    display: grid;
+    gap: spacer-clamp('l', 'xl');
+
+    @include breakpoint('md') {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+  }
+
+  &__media {
+    border-radius: radius('lg');
+    overflow: hidden;
+    position: relative;
+
+    @include breakpoint('md') {
+      inset-block-start: spacer('l');
+      position: sticky;
+    }
+
+    img {
+      aspect-ratio: 1;
+      background-color: color('surface-muted');
+      inline-size: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__tag {
+    background-color: color('danger', 'alert');
+    border-radius: radius('pill');
+    color: hsl(0deg 0% 100%);
+    font-weight: 700;
+    inset-block-start: spacer('s');
+    inset-inline-start: spacer('s');
+    padding: spacer('xxs') spacer('s');
+    position: absolute;
+  }
+
+  &__content {
+    @include layout-stack('m');
+  }
+
+  &__eyebrow {
+    color: color('primary');
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  // The heading follows the eyebrow closely.
+  &__eyebrow + &__title {
+    margin-block-start: spacer('xxs');
+  }
+
+  &__title {
+    font-size: responsive-font-size(2.75rem, 35, '3vw + 1rem');
+  }
+
+  &__rating {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xs');
+  }
+
+  // A star mask over a two-color fill, so partial ratings work.
+  &__stars {
+    --size: 1.1rem;
+    background-image: linear-gradient(to right, #{color('warning', 'alert')} calc(var(--rating) / 5 * 100%), #{color('border-strong')} 0);
+    block-size: var(--size);
+    display: inline-block;
+    inline-size: calc(var(--size) * 5);
+    mask: url('#{svg-escape($product-spotlight-star)}') 0 0 / var(--size) var(--size) repeat-x;
+  }
+
+  &__price {
+    color: color('heading');
+    font-size: font-size('h3');
+    font-weight: 700;
+
+    del {
+      color: color('muted');
+      font-size: config('font-size-lg', $typography);
+      font-weight: 400;
+    }
+  }
+
+  &__text {
+    font-size: config('font-size-lg', $typography);
+  }
+
+  &__features {
+    list-style: none;
+    padding: 0;
+    @include layout-stack('xxs');
+
+    li {
+      align-items: center;
+      display: flex;
+      gap: spacer('xs');
+
+      &::before {
+        color: color('success', 'alert');
+        content: '✓';
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__buy {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs');
+
+    .btn:first-child {
+      flex: 1 1 12rem;
+    }
+  }
+}
+
+[dir='rtl'] .product-spotlight-block__stars {
+  background-image: linear-gradient(to left, #{color('warning', 'alert')} calc(var(--rating) / 5 * 100%), #{color('border-strong')} 0);
+}

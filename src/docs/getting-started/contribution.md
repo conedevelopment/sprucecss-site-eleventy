@@ -7,30 +7,31 @@ github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/sr
 
 <p class="lead">First, thank you for considering contributing to Spruce. We appreciate your time and effort in making this CSS system better. We want to make contributing to this project as easy and transparent as possible, whether it's:</p>
 
-- reporting a bug.
-- Discuss the current state of the code.
-- Submitting a fix.
-- Proposing new features.
-- Becoming a maintainer.
+- reporting a bug,
+- discussing the current state of the code,
+- submitting a fix,
+- proposing new features,
+- creating a new style preset or component,
+- becoming a maintainer.
 
 Following these guidelines helps communicate that you respect the developers' time managing and developing this open-source project. In return, they should reciprocate that respect by addressing your issue, assessing changes, and helping you finalize your pull requests.
 
 ## Ground Rules
 
-Responsibilities
-* Create issues for any significant changes and enhancements you wish to make. Discuss things transparently, and get community feedback.
-* Keep feature versions as small as possible, preferably one new feature per commit.
+- Create issues for any significant changes and enhancements you wish to make. Discuss things transparently, and get community feedback.
+- Keep feature versions as small as possible, preferably one new feature per commit.
 
 ### All Code Changes Happen Through Pull Requests
 
 Pull requests are the best way to propose changes to the codebase. We actively welcome your pull requests:
 
 1. Fork the repo and create your branch from `main`.
-2. Add tests if you've added code that should be tested.
-3. If you've changed APIs, update the documentation.
+2. Add tests if you've added code that should be tested (`npm test`).
+3. If you've changed APIs, update the documentation and the changelog.
 4. Ensure the test suite passes.
-5. Make sure you lint your code.
-6. Open a pull request!
+5. Make sure you lint your code (`npm run sass:lint`).
+6. Check your change in the preview (`npm start`) with different styles, in dark mode and in RTL.
+7. Open a pull request!
 
 ## Your First Contribution
 

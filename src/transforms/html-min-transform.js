@@ -1,8 +1,8 @@
-import htmlmin from 'html-minifier';
+import { minify } from 'html-minifier-terser';
 
-export default function htmlMinTransform(value, outputPath) {
+export default async function htmlMinTransform(value, outputPath) {
   if (outputPath && outputPath.includes('.html')) {
-    return htmlmin.minify(value, {
+    return await minify(value, {
       useShortDoctype: true,
       removeComments: true,
       collapseWhitespace: true,

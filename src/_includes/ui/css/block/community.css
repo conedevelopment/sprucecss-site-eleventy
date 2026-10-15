@@ -1,0 +1,89 @@
+.community-block {
+  padding-block: clamp(4.5rem, 5vw, 7rem);
+}
+.community-block__inner {
+  align-items: center;
+  display: grid;
+  gap: clamp(3rem, 5vw, 4.5rem);
+}
+@media (min-width: 80em) {
+  .community-block__inner {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  }
+}
+.community-block__inner > * {
+  margin: 0 !important;
+}
+.community-block__content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.community-block__stats {
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+}
+.community-block__stats .number-card__data {
+  font-size: clamp(2.1rem, 2vw + 1rem, 3rem);
+}
+.community-block__channels {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.community-block__channels li {
+  display: flex;
+  margin: 0;
+}
+.community-block__channels > li {
+  margin-block: 0;
+  padding-block: 0;
+}
+.community-block__channel {
+  --brand: #5865f2;
+  align-items: center;
+  background-color: var(--spruce-base-color-surface);
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  border-radius: var(--spruce-border-radius-lg);
+  color: var(--spruce-base-color-muted);
+  display: flex;
+  font-size: var(--spruce-font-size-sm);
+  gap: 1rem;
+  inline-size: 100%;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  transition-duration: var(--spruce-duration);
+  transition-property: border-color, box-shadow;
+  transition-timing-function: var(--spruce-timing-function);
+}
+.community-block__channel--github {
+  --brand: var(--spruce-base-color-heading);
+}
+.community-block__channel:hover {
+  border-color: var(--brand);
+  box-shadow: 0 0 0 1px var(--brand);
+}
+.community-block__channel strong {
+  color: var(--spruce-base-color-heading);
+  display: block;
+  font-size: var(--spruce-font-size-base);
+}
+.community-block__brand {
+  block-size: 2rem;
+  color: var(--brand);
+  flex-shrink: 0;
+  inline-size: 2rem;
+}
+.community-block__members {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.community-block__members p {
+  color: var(--spruce-base-color-muted);
+  margin: 0;
+}

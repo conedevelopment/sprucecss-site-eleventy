@@ -19,6 +19,10 @@
         "url": "/docs/getting-started/sass/"
       },
       {
+        "caption": "Upgrade to v3",
+        "url": "/docs/getting-started/upgrade/"
+      },
+      {
         "caption": "Accessibility",
         "url": "/docs/getting-started/accessibility/"
       },
@@ -52,8 +56,12 @@
         "url": "/docs/customization/settings/"
       },
       {
-        "caption": "Themes",
+        "caption": "Themes and Dark Mode",
         "url": "/docs/customization/themes/"
+      },
+      {
+        "caption": "Styles",
+        "url": "/docs/customization/styles/"
       }
     ]
   },
@@ -104,6 +112,60 @@
       {
         "caption": "Media",
         "url": "/docs/elements/media/"
+      },
+      {
+        "caption": "Details and Dialog",
+        "url": "/docs/elements/details-and-dialog/"
+      },
+      {
+        "caption": "Progress and Meter",
+        "url": "/docs/elements/progress-and-meter/"
+      },
+      {
+        "caption": "Layout",
+        "url": "/docs/elements/layout/"
+      },
+      {
+        "caption": "Utilities",
+        "url": "/docs/elements/utilities/"
+      }
+    ]
+  },
+  {
+    "title": "Guides",
+    "items": [
+      {
+        "caption": "Compile Sass",
+        "url": "/docs/guides/compile-sass/"
+      },
+      {
+        "caption": "Configure Your Project",
+        "url": "/docs/guides/configure-your-project/"
+      },
+      {
+        "caption": "Create a Button Variant",
+        "url": "/docs/guides/create-a-button-variant/"
+      },
+      {
+        "caption": "Reduce the CSS Size",
+        "url": "/docs/guides/reduce-the-css-size/"
+      },
+      {
+        "caption": "Set Up a Dark Theme",
+        "url": "/docs/guides/set-up-a-dark-theme/"
+      },
+      {
+        "caption": "Build a Theme Switcher",
+        "url": "/docs/guides/build-a-theme-switcher/"
+      }
+    ]
+  },
+  {
+    "title": "AI",
+    "items": [
+      {
+        "caption": "AI Skills",
+        "url": "/docs/ai/skills/"
       }
     ]
   }

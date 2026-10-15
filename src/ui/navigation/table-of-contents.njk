@@ -1,0 +1,35 @@
+---
+title: 'Table of Contents'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium ui--table-of-contents">
+        {% include "ui/html/navigation/table-of-contents.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/navigation/table-of-contents.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/navigation/table-of-contents.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/navigation/table-of-contents.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/navigation/table-of-contents.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/navigation/table-of-contents.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/navigation/table-of-contents.js"></script>
+{% endblock %}

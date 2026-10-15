@@ -1,0 +1,113 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.settings-panel {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+
+  &__section {
+    display: grid;
+    gap: spacer('s') spacer('l');
+    padding: spacer-clamp('m', 'l');
+
+    @include breakpoint('md') {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    }
+
+    & + & {
+      border-block-start: config('border-width-base', $display) solid color('border');
+    }
+  }
+
+  &__intro {
+    @include layout-stack('xxs');
+  }
+
+  &__title {
+    font-size: font-size('h5');
+    margin: 0;
+  }
+
+  &__description {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__fields {
+    max-inline-size: 36rem;
+    @include layout-stack('m');
+  }
+
+  &__switch {
+    @include layout-stack('xxs');
+
+    .form-description {
+      margin: 0;
+      padding-inline-start: 2.75rem;
+    }
+  }
+
+  &__section--danger &__title {
+    color: color('danger', 'alert');
+  }
+
+  &__danger-row {
+    align-items: center;
+    border: config('border-width-base', $display) solid color-alpha('danger', 0.4, 'alert');
+    border-radius: radius('md');
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
+    justify-content: space-between;
+    padding: spacer('s');
+  }
+
+  &__danger-text {
+    @include layout-stack('xxs');
+  }
+
+  &__danger-title {
+    color: color('heading');
+    font-weight: 700;
+  }
+
+  &__footer {
+    align-items: center;
+    background-color: color('surface');
+    border-block-start: config('border-width-base', $display) solid color('border');
+    border-end-end-radius: inherit;
+    border-end-start-radius: inherit;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
+    inset-block-end: 0;
+    justify-content: flex-end;
+    padding: spacer('s') spacer-clamp('m', 'l');
+    position: sticky;
+    @include transition($property: 'background-color, box-shadow');
+
+    &--dirty {
+      background-color: color-tint('surface', 6%, $with: color('primary'));
+      box-shadow: shadow('lg');
+    }
+  }
+
+  &__status {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    margin: 0 auto 0 0;
+
+    .settings-panel__footer--dirty & {
+      color: color('heading');
+      font-weight: 700;
+    }
+  }
+
+  &__buttons {
+    @include layout-cluster('xs');
+  }
+}
+
+[dir='rtl'] .settings-panel__status {
+  margin: 0 0 0 auto;
+}

@@ -1,0 +1,58 @@
+{#- Override with `productGridBlock` ({ heading, categories: [{ value, label }], products: [{ name, category, price, oldPrice, rating, reviews, image, tag }], action }). `rating` and `oldPrice` are optional. -#}
+{%- set _s = productGridBlock or {
+    "heading": { "eyebrow": "Shop", "title": "New arrivals", "id": "product-grid-title", "align": "start" },
+    "categories": [{ "value": "all", "label": "All" }, { "value": "bags", "label": "Bags" }, { "value": "home", "label": "Home" }, { "value": "tech", "label": "Tech" }],
+    "products": [
+        { "name": "Everyday Backpack", "category": "bags", "price": "$89", "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=70", "tag": "New" },
+        { "name": "Ceramic Pour-Over", "category": "home", "price": "$42", "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=70", "tag": "" },
+        { "name": "Wireless Headphones", "category": "tech", "price": "$199", "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=70", "tag": "" },
+        { "name": "Leather Weekender", "category": "bags", "price": "$249", "image": "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=600&q=70", "tag": "-20%" },
+        { "name": "Desk Lamp", "category": "home", "price": "$79", "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=70", "tag": "" },
+        { "name": "Smart Watch", "category": "tech", "price": "$299", "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=70", "tag": "New" }
+    ]
+} %}
+<section class="product-grid-block" aria-labelledby="{{ _s.heading.id }}" data-product-grid>
+    <div class="container">
+        <div class="product-grid-block__inner">
+            <div class="product-grid-block__header">
+                {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+                <div class="product-grid-block__filters" role="group" aria-label="Filter by category">
+                    {%- for category in _s.categories %}
+                    <button class="btn btn--sm btn--pill {% if loop.first %}btn--primary{% else %}btn--soft-primary{% endif %}" type="button" data-filter="{{ category.value }}" aria-pressed="{{ 'true' if loop.first else 'false' }}">{{ category.label }}</button>
+                    {%- endfor %}
+                </div>
+            </div>
+            <ul class="product-grid-block__grid" role="list">
+                {%- for product in _s.products %}
+                <li data-category="{{ product.category }}">
+                    <article class="product-card">
+                        <div class="product-card__media">
+                            <img src="{{ product.image }}" alt="" loading="lazy" width="600" height="600">
+                            {%- if product.tag %}
+                            <span class="product-card__tag">{{ product.tag }}</span>
+                            {%- endif %}
+                            <button class="product-card__wishlist" type="button" aria-pressed="false" data-wishlist>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/></svg>
+                                <span class="sr-only">Save {{ product.name }} to the wishlist</span>
+                            </button>
+                        </div>
+                        <div class="product-card__body">
+                            <h3 class="product-card__title"><a class="product-card__link" href="#">{{ product.name }}</a></h3>
+                            {%- if product.rating %}
+                            <p class="product-card__rating"><span class="product-card__stars" style="--rating: {{ product.rating }};" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></span><span class="sr-only">Rated {{ product.rating }} out of 5</span> <span class="product-card__reviews">({{ product.reviews }})</span></p>
+                            {%- endif %}
+                            <p class="product-card__price"><span class="sr-only">Price: </span>{{ product.price }}{% if product.oldPrice %} <del class="product-card__old-price"><span class="sr-only">Original price: </span>{{ product.oldPrice }}</del>{% endif %}</p>
+                        </div>
+                        <button class="btn btn--primary btn--sm product-card__action" type="button">Add to cart<span class="sr-only">: {{ product.name }}</span></button>
+                    </article>
+                </li>
+                {%- endfor %}
+            </ul>
+            <p class="sr-only" aria-live="polite" data-product-grid-status></p>
+            {%- if _s.action %}
+            <p class="product-grid-block__more"><a class="btn btn--outline-primary" href="#">{{ _s.action }}</a></p>
+            {%- endif %}
+        </div>
+    </div>
+</section>

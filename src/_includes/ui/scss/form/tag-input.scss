@@ -1,0 +1,70 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.tag-input {
+  @include layout-stack('xs');
+
+  &__box {
+    align-items: center;
+    background-color: color('background', 'form');
+    border: config('border-width', $form-control, false) solid color('border', 'form');
+    border-radius: config('border-radius', $form-control, false);
+    cursor: text;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xxs');
+    padding: spacer('xxs');
+    @include transition($property: 'border-color, box-shadow');
+
+    &:focus-within {
+      @include short-ring('input');
+    }
+  }
+
+  &__list {
+    @include clear-list;
+    display: contents;
+  }
+
+  &__tag {
+    align-items: center;
+    background-color: color-alpha('primary', 0.12);
+    border-radius: radius('sm');
+    color: color('heading');
+    display: inline-flex;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xxs');
+    margin: 0 !important;
+    padding: 0.2em 0.25em 0.2em 0.6em;
+  }
+
+  &__remove {
+    @include clear-btn;
+    border-radius: radius('sm');
+    font-size: 1.15em;
+    line-height: 1;
+    padding: 0 0.3em;
+
+    &:hover,
+    &:focus-visible {
+      background-color: color-alpha('primary', 0.2);
+      color: color('primary');
+    }
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+    }
+  }
+
+  &__field {
+    background: transparent;
+    border: 0;
+    color: color('text', 'form');
+    flex: 1 0 8rem;
+    font: inherit;
+    padding: 0.25em 0.5em;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

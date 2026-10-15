@@ -1,0 +1,71 @@
+.team-block {
+  padding-block: clamp(4.5rem, 5vw, 7rem);
+}
+.team-block__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.team-block__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1.5rem;
+}
+@supports (inline-size: min(14rem, 100%)) {
+  .team-block__grid {
+    grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
+  }
+}
+.team-block__grid > li {
+  margin-block: 0;
+  padding-block: 0;
+}
+.team-block__member {
+  background-color: var(--spruce-base-color-surface);
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  border-radius: var(--spruce-border-radius-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.team-block__member--hiring {
+  background-color: var(--spruce-base-color-surface-muted);
+  border-style: dashed;
+  justify-content: center;
+}
+.team-block__photo {
+  aspect-ratio: 6/7;
+  inline-size: 100%;
+  object-fit: cover;
+}
+.team-block__body {
+  padding: 1.5rem;
+}
+.team-block__body > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.team-block__body > * + * {
+  margin-block-start: 0.25rem;
+}
+.team-block__body .badge,
+.team-block__body .btn {
+  justify-self: start;
+}
+.team-block__body .btn {
+  margin-block-start: 1rem !important;
+}
+.team-block__name {
+  font-size: 1rem;
+}
+.team-block__role {
+  color: var(--spruce-base-color-primary);
+  font-size: var(--spruce-font-size-sm);
+  font-weight: 600;
+}
+.team-block__bio {
+  color: var(--spruce-base-color-muted);
+  font-size: var(--spruce-font-size-sm);
+}

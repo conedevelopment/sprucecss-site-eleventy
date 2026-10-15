@@ -5,7 +5,7 @@ order: 2
 github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/getting-started/installation.md"
 ---
 
-<p class="lead">Spruce CSS is built on Sass; to get its full potential, you should use with it. If you want, you can load the compiled CSS too, but you will lose many features.</p>
+<p class="lead">Spruce CSS is built on Sass; to get its full potential, you should use it with Sass. You can load the compiled CSS too, but you will lose the configuration and the helpers.</p>
 
 ## Install with NPM
 
@@ -19,14 +19,24 @@ npm install sprucecss --save
 yarn add sprucecss
 ```
 
-## Install Manually
+## Use the Compiled CSS
 
-[Download the latest release](https://github.com/conedevelopment/sprucecss/archive/refs/heads/main.zip), find the dist folder at the root (the compiled files), and use the preferred CSS file (minified, regular).
+The package contains two compiled bundles in the `css` folder, each in a regular and a minified version:
+
+| File | What’s inside |
+|---|---|
+| `spruce.css`, `spruce.min.css` | The default styles in custom property mode. |
+| `spruce.complete.css`, `spruce.complete.min.css` | Everything: the dark mode, every [style preset](/docs/customization/styles/), the layout and text utilities. |
+
+Load them from a CDN:
 
 ```html
-<link href="spruce.min.css" rel="stylesheet">
-<link href="spruce.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sprucecss@3/css/spruce.min.css">
+<!-- or, with dark mode and the styles: -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sprucecss@3/css/spruce.complete.min.css">
 ```
+
+Or [download the latest release](https://github.com/conedevelopment/sprucecss/releases/latest) and use the files from the `css` folder.
 
 ## Using Spruce CSS with Sass
 
@@ -36,7 +46,7 @@ With the help of the [mixins](/docs/sass/mixins) and [functions](/docs/sass/func
 
 ### Import It With @use
 
-To import it into your project, you must use Sass’s `@use`, a newer type of `@import` similar to the JavaScript modules. Unlike using `@import`, you must import (use it) it in every file where you want to use Spruce, its variables, functions, or mixins.
+To import it into your project, use Sass’s `@use` rule, the module-based successor of `@import`. Unlike `@import`, you must `@use` Spruce in every file where you want to access its variables, functions or mixins.
 
 ``` scss
 @use 'sprucecss/scss/spruce' as *;
@@ -64,7 +74,42 @@ If you prefer the namespaces, leave the `as *` part out and use the following:
 }
 ```
 
-{% notification %}Based on your compile configuration you may need the tilde <code>~</code> character (at start of the @use statement). This is a shorthand to the <code>node_modules</code> folder in a Webpack configuration, so you don’t have to use a relative path.{% endnotification %}
+### Resolve the Package
+
+Tell Sass where to find the package. The simplest is the load path:
+
+```terminal
+sass --load-path=node_modules src/scss:dist/css
+```
+
+With Sass’s Node package importer (`--pkg-importer=node`), you can use the `pkg:` URL, which reads the `sass` entry point of the package:
+
+```scss
+@use 'pkg:sprucecss' as *;
+```
+
+{% notification %}Based on your build tool, you may need the tilde <code>~</code> character at the start of the path (an old Webpack shorthand for <code>node_modules</code>). Vite and most modern setups don’t need it.{% endnotification %}
+
+### Configure Once
+
+Sass lets you configure a module only once, at its first `@use`. Keep the configuration in one file and load it first:
+
+```scss
+// config/_config.scss
+@use 'sprucecss/scss/spruce' with (
+  $settings: (
+    'css-custom-properties': true,
+  ),
+);
+```
+
+```scss
+// main.scss
+@use 'config/config';
+@use 'sprucecss/scss/spruce' as *;
+
+@include generate-styles;
+```
 
 ### Load Styles
 
@@ -82,4 +127,9 @@ You can control the flow of the style generation in a lot of ways (for more info
 
 ## Compiling Sass
 
-Depending on your development setup, using Sass could be a burden. We think that Sass is a handy tool and easy to use. Compiling is one of the more significant barriers; for this reason, we wrote an article about [a simple Sass compile setup](https://pineco.de/the-simplest-sass-compile-setup/).
+Depending on your development setup, using Sass could be a burden. We think that Sass is a handy tool and easy to use. Compiling is one of the more significant barriers; for this reason, we wrote a guide about [a simple Sass compile setup](/docs/guides/compile-sass/).
+
+## Starter Templates
+
+- [Spruce CSS Eleventy Starter](https://github.com/conedevelopment/sprucecss-eleventy-starter): a boilerplate with the compile setup ready.
+- [AI skills](/docs/ai/skills/): let your coding assistant set up and write Spruce CSS for you.

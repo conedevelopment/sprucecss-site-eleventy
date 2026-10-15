@@ -1,0 +1,39 @@
+{#- Override with `resultsBlock` ({ heading, items: [{ label, before, after, change, trend: "up"|"down", text }], note }). -#}
+{%- set _s = resultsBlock or {
+    "heading": { "eyebrow": "Results", "title": "Three months after the launch", "id": "results-title", "align": "start" },
+    "items": [
+        { "label": "Support tickets per month", "before": "4,200", "after": "2,800", "change": "33%", "trend": "down", "text": "Fewer “where is my…” questions after the new navigation." },
+        { "label": "App store rating", "before": "3.6", "after": "4.8", "change": "1.2", "trend": "up", "text": "The best rated banking app in the country." },
+        { "label": "Monthly active users", "before": "310k", "after": "402k", "change": "30%", "trend": "up", "text": "People open the app instead of calling the branch." },
+        { "label": "Screen reader issues", "before": "86", "after": "0", "change": "86", "trend": "down", "text": "Audited and fixed, then kept at zero with tests." }
+    ],
+    "note": "Measured by Fjord Bank, comparing Q1 2025 with Q2 2025."
+} %}
+<section class="results-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="results-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            <ul class="results-block__list" role="list">
+                {%- for item in _s.items %}
+                <li class="results-block__item">
+                    <p class="results-block__label">{{ item.label }}</p>
+                    <p class="results-block__values">
+                        <span class="results-block__before"><span class="sr-only">Before: </span>{{ item.before }}</span>
+                        <span class="results-block__arrow" aria-hidden="true">→</span>
+                        <strong class="results-block__after"><span class="sr-only">After: </span>{{ item.after }}</strong>
+                    </p>
+                    <p class="results-block__change results-block__change--{{ item.trend }}">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+                        <span><span class="sr-only">{{ "Up" if item.trend == "up" else "Down" }} </span>{{ item.change }}</span>
+                    </p>
+                    <p class="results-block__text">{{ item.text }}</p>
+                </li>
+                {%- endfor %}
+            </ul>
+            {%- if _s.note %}
+            <p class="results-block__note">{{ _s.note }}</p>
+            {%- endif %}
+        </div>
+    </div>
+</section>

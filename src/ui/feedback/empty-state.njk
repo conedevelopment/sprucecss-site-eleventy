@@ -1,0 +1,27 @@
+---
+title: 'Empty State'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium ui--empty-state">
+        {% include "ui/html/feedback/empty-state.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/feedback/empty-state.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/feedback/empty-state.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/feedback/empty-state.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/feedback/empty-state.css">
+{% endblock %}

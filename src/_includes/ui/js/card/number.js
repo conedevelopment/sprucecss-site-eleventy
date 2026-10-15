@@ -1,39 +1,39 @@
 (() => {
-  const counters = document.querySelectorAll('[data-action="countup"]');
-  const duration = 3500;
+  const counters = document.querySelectorAll('[data-countup]');
+  const duration = 2000;
+  const format = new Intl.NumberFormat(document.documentElement.lang || undefined);
 
-  const countUp = (element, target) => {
-    let current = 0;
-    let startTime = null;
+  // With reduced motion, keep the final numbers that are already in the HTML.
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    const updateCounter = (timestamp) => {
-      if (!startTime) startTime = timestamp;
-      const progress = timestamp - startTime;
-      const easing = 1 - (1 - progress / duration) ** 3;
-      current = Math.min(target, target * easing);
+  const countUp = (element) => {
+    const target = Number(element.dataset.countup);
+    let start = null;
 
-      element.textContent = Math.floor(current);
+    const step = (timestamp) => {
+      start ??= timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      const eased = 1 - (1 - progress) ** 3;
 
-      if (progress < duration) {
-        requestAnimationFrame(updateCounter);
-      } else {
-        element.textContent = target;
-      }
+      element.textContent = format.format(Math.round(target * eased));
+
+      if (progress < 1) requestAnimationFrame(step);
     };
 
-    requestAnimationFrame(updateCounter);
+    requestAnimationFrame(step);
   };
 
-  const observerInit = new IntersectionObserver((entries, observer) => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        const counter = entry.target;
-        const target = Number(counter.getAttribute('data-target'));
-        countUp(counter, target);
-        observer.unobserve(counter);
+        countUp(entry.target);
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.5 });
 
-  counters.forEach((counter) => observerInit.observe(counter));
+  counters.forEach((counter) => {
+    counter.textContent = format.format(0);
+    observer.observe(counter);
+  });
 })();

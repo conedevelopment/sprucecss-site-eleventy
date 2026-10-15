@@ -1,0 +1,71 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.progress-ring-demo {
+  @include layout-cluster('l', center);
+}
+
+.progress-ring {
+  --value: 0;
+  --size: 8rem;
+  --stroke: 3;
+  --color: #{color('primary')};
+  align-items: center;
+  display: grid;
+  gap: spacer('xs');
+  justify-items: center;
+  margin: 0;
+
+  svg {
+    block-size: var(--size);
+    grid-area: 1 / 1;
+    inline-size: var(--size);
+    rotate: -90deg;
+  }
+
+  circle {
+    fill: none;
+    stroke-width: var(--stroke);
+  }
+
+  &__track {
+    stroke: color('progress-background', 'form');
+  }
+
+  &__bar {
+    stroke: var(--color);
+    stroke-dasharray: var(--value) 100;
+    stroke-linecap: round;
+    @include transition($property: 'stroke-dasharray');
+  }
+
+  &__value {
+    color: color('heading');
+    font-family: config('font-family-heading', $typography);
+    font-size: calc(var(--size) / 4.5);
+    font-weight: 700;
+    grid-area: 1 / 1;
+  }
+
+  &__label {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    text-align: center;
+  }
+
+  &--sm {
+    --size: 5rem;
+    --stroke: 4;
+  }
+
+  &--success {
+    --color: #{color('success', 'alert')};
+  }
+
+  &--warning {
+    --color: #{color('warning', 'alert')};
+  }
+}
+
+[dir='rtl'] .progress-ring svg {
+  scale: -1 1;
+}

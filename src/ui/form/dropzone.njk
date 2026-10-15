@@ -1,0 +1,35 @@
+---
+title: 'Dropzone'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--narrow ui--dropzone">
+        {% include "ui/html/form/dropzone.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/form/dropzone.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/form/dropzone.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/form/dropzone.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/form/dropzone.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/form/dropzone.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/form/dropzone.js"></script>
+{% endblock %}

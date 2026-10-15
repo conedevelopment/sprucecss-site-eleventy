@@ -1,136 +1,158 @@
-document.addEventListener('alpine:init', () => {
-  window.Alpine.data('combobox', () => ({
-    items: [{
-      id: 'red',
-      label: 'Red',
-      selected: false,
-    },
-    {
-      id: 'orange',
-      label: 'Orange',
-      selected: false,
-    },
-    {
-      id: 'yellow',
-      label: 'Yellow',
-      selected: false,
-    },
-    {
-      id: 'green',
-      label: 'Green',
-      selected: false,
-    },
-    {
-      id: 'blue',
-      label: 'Blue',
-      selected: false,
-    },
-    {
-      id: 'purple',
-      label: 'Purple',
-      selected: false,
-    },
-    {
-      id: 'hot-pink',
-      label: 'Hot pink',
-      selected: false,
-    },
-    {
-      id: 'light-pink',
-      label: 'Light pink',
-      selected: false,
-    },
-    {
-      id: 'white',
-      label: 'White',
-      selected: false,
-    },
-    {
-      id: 'black',
-      label: 'Black',
-      selected: false,
-    },
-    {
-      id: 'brown',
-      label: 'Brown',
-      selected: false,
-    },
-    ],
-    open: false,
-    search: '',
-    highlightedItemIndex: null,
-    selectedItems() {
-      return this.items.filter((item) => item.selected);
-    },
-    unselectItemById(id) {
-      this.items.find((item) => item.id === id).selected = false;
-    },
-    filteredItems() {
-      return this.items.filter((item) => item.label.toLowerCase().includes(this.search.toLowerCase()));
-    },
-    toggle() {
-      if (this.open) {
-        return this.close();
-      }
+document.querySelectorAll('[data-combobox]').forEach((combobox) => {
+  const input = combobox.querySelector('[role="combobox"]');
+  const listbox = combobox.querySelector('[role="listbox"]');
+  const options = [...listbox.querySelectorAll('[role="option"]')];
+  const selectedList = combobox.querySelector('[data-combobox-selected]');
+  const empty = combobox.querySelector('[data-combobox-empty]');
+  const reset = combobox.querySelector('[data-combobox-reset]');
+  const status = combobox.querySelector('[data-combobox-status]');
+  const label = (option) => option.textContent.trim();
+  const visible = () => options.filter((option) => !option.hidden);
+  let active = null;
 
-      this.$refs.input.focus();
-      this.open = true;
-      this.highlightedItemIndex = null;
-    },
-    close(focusAfter) {
-      if (!this.open) return;
+  const setActive = (option) => {
+    options.forEach((item) => item.classList.toggle('is-active', item === option));
+    active = option;
 
-      this.open = false;
-      this.search = '';
-      this.highlightedItemIndex = null;
+    if (option) {
+      input.setAttribute('aria-activedescendant', option.id);
+      option.scrollIntoView({ block: 'nearest' });
+    } else {
+      input.removeAttribute('aria-activedescendant');
+    }
+  };
 
-      focusAfter && focusAfter.focus();
-    },
-    highlightNextItem() {
-      this.open = true;
+  const open = () => {
+    const results = visible().length;
 
-      if (this.highlightedItemIndex === null) {
-        this.highlightedItemIndex = 0;
-        return;
-      }
+    listbox.hidden = results === 0;
+    empty.hidden = results > 0;
+    input.setAttribute('aria-expanded', String(results > 0));
+  };
 
-      this.highlightedItemIndex++;
+  const close = () => {
+    listbox.hidden = true;
+    empty.hidden = true;
+    input.setAttribute('aria-expanded', 'false');
+    setActive(null);
+  };
 
-      if (this.highlightedItemIndex >= this.filteredItems().length) {
-        this.highlightedItemIndex = 0;
-      }
+  // Render the chips and the hidden inputs from the selected options.
+  const render = () => {
+    const selected = options.filter((option) => option.getAttribute('aria-selected') === 'true');
 
-      this.$refs.listbox.children[this.highlightedItemIndex + 1].scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
+    selectedList.replaceChildren(...selected.map((option) => {
+      const item = document.createElement('li');
+
+      item.className = 'combobox-item';
+      item.innerHTML = '<span></span><button class="combobox-item__remove" type="button"><span class="sr-only"></span><svg aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 6 6 18M6 6l12 12"/></svg></button><input type="hidden">';
+      item.querySelector('span').textContent = label(option);
+      item.querySelector('.sr-only').textContent = `Remove ${label(option)}`;
+      item.querySelector('input').name = combobox.dataset.name;
+      item.querySelector('input').value = option.dataset.value;
+      item.querySelector('button').addEventListener('click', () => {
+        toggle(option);
+        input.focus();
       });
-    },
-    highlightPreviousItem() {
-      this.open = true;
-      this.highlightedItemIndex--;
 
-      if (this.highlightedItemIndex < 0) {
-        this.highlightedItemIndex = this.filteredItems().length - 1;
+      return item;
+    }));
+
+    reset.hidden = selected.length === 0;
+  };
+
+  const toggle = (option) => {
+    const selected = option.getAttribute('aria-selected') !== 'true';
+
+    option.setAttribute('aria-selected', String(selected));
+    status.textContent = `${label(option)} ${selected ? 'selected' : 'removed'}.`;
+    render();
+    combobox.dispatchEvent(new CustomEvent('combobox:change', {
+      bubbles: true,
+      detail: options.filter((item) => item.getAttribute('aria-selected') === 'true').map((item) => item.dataset.value)
+    }));
+  };
+
+  const filter = () => {
+    const query = input.value.trim().toLowerCase();
+
+    options.forEach((option) => { option.hidden = !label(option).toLowerCase().includes(query); });
+    setActive(null);
+    open();
+
+    const results = visible().length;
+    status.textContent = query ? `${results} ${results === 1 ? 'result' : 'results'} available.` : '';
+  };
+
+  const move = (step) => {
+    const items = visible();
+
+    if (listbox.hidden) open();
+    if (!items.length) return;
+
+    const index = items.indexOf(active);
+    setActive(items[index === -1 ? (step > 0 ? 0 : items.length - 1) : (index + step + items.length) % items.length]);
+  };
+
+  input.addEventListener('input', filter);
+  input.addEventListener('click', () => (listbox.hidden ? open() : close()));
+
+  input.addEventListener('keydown', (event) => {
+    switch (event.key) {
+      case 'ArrowDown':
+        event.preventDefault();
+        if (event.altKey) { open(); } else { move(1); }
+        break;
+      case 'ArrowUp':
+        event.preventDefault();
+        move(-1);
+        break;
+      case 'Enter':
+        if (active) {
+          event.preventDefault();
+          toggle(active);
+        }
+        break;
+      case 'Escape':
+        if (!listbox.hidden || !empty.hidden) {
+          close();
+        } else if (input.value) {
+          input.value = '';
+          filter();
+          close();
+        }
+        break;
+      case 'Backspace': {
+        // An empty input: remove the last selected item.
+        const last = options.filter((option) => option.getAttribute('aria-selected') === 'true').pop();
+        if (!input.value && last) toggle(last);
+        break;
       }
+      case 'Tab':
+        close();
+        break;
+    }
+  });
 
-      this.$refs.listbox.children[this.highlightedItemIndex + 1].scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-      });
-    },
-    highlightedItemId() {
-      const highlightedItem = this.filteredItems()[this.highlightedItemIndex];
-      return highlightedItem ? this.$id('list-item', highlightedItem.id) : null;
-    },
-    toggleFromKeyboard() {
-      if (this.highlightedItemIndex === null) {
-        return;
-      }
+  options.forEach((option) => {
+    // Keep the focus in the input while clicking an option.
+    option.addEventListener('mousedown', (event) => event.preventDefault());
+    option.addEventListener('click', () => {
+      toggle(option);
+      setActive(option);
+    });
+  });
 
-      this.filteredItems()[this.highlightedItemIndex].selected = !this.filteredItems()[this.highlightedItemIndex].selected;
-    },
-    deselectAllItems() {
-      this.items.forEach((item) => item.selected = false);
-    },
-  }));
+  reset.addEventListener('click', () => {
+    options.forEach((option) => option.setAttribute('aria-selected', 'false'));
+    render();
+    status.textContent = 'All colors removed.';
+    input.focus();
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!combobox.contains(event.target)) close();
+  });
+
+  render();
 });

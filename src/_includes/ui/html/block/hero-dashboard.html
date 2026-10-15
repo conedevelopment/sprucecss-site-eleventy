@@ -1,0 +1,37 @@
+{#- Override with `heroDashboardBlock` ({ eyebrow, title, text, primary, secondary, note, url }). The preview uses the Metric Grid and Funnel Chart components. -#}
+{%- set _s = heroDashboardBlock or {
+    "eyebrow": "Analytics for growing stores",
+    "title": "See what sells, and why",
+    "text": "Revenue, conversion and the whole funnel in one calm dashboard. Connect your store in two minutes.",
+    "primary": "Start free trial",
+    "secondary": "Book a demo",
+    "note": "14 days free · No credit card",
+    "url": "app.example.com/overview"
+} %}
+<section class="hero-dashboard-block" aria-labelledby="hero-dashboard-title">
+    <div class="container">
+        <div class="hero-dashboard-block__inner">
+            <div class="hero-dashboard-block__content">
+                <p class="hero-dashboard-block__eyebrow">{{ _s.eyebrow }}</p>
+                <h1 class="hero-dashboard-block__title" id="hero-dashboard-title">{{ _s.title }}</h1>
+                <p class="hero-dashboard-block__lead">{{ _s.text }}</p>
+                <div class="hero-dashboard-block__actions">
+                    <a class="btn btn--primary btn--lg" href="#">{{ _s.primary }}</a>
+                    <a class="btn btn--secondary btn--lg" href="#">{{ _s.secondary }}</a>
+                </div>
+                <p class="hero-dashboard-block__note">{{ _s.note }}</p>
+            </div>
+            {#- The preview is a picture of the product: hidden from assistive technology and not focusable. -#}
+            <div class="hero-dashboard-block__frame" aria-hidden="true" inert>
+                <div class="hero-dashboard-block__bar">
+                    <span class="hero-dashboard-block__dots"><span></span><span></span><span></span></span>
+                    <span class="hero-dashboard-block__url">{{ _s.url }}</span>
+                </div>
+                <div class="hero-dashboard-block__screen">
+                    {% include "../dashboard/metric-grid.html" %}
+                    {% include "../dashboard/funnel-chart.html" %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,85 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.site-header-centered {
+  background-color: color('background');
+  border-block-end: config('border-width-base', $display) solid color('border');
+  position: relative;
+
+  // Three columns: the side columns are equal, so the logo stays in the exact center.
+  &__top {
+    align-items: center;
+    display: grid;
+    gap: spacer('s');
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    min-block-size: 4.5rem;
+  }
+
+  &__logo {
+    align-items: center;
+    color: color('heading');
+    display: inline-flex;
+    font-family: config('font-family-heading', $typography);
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: config('font-weight-heading', $typography);
+    gap: spacer('xs');
+    letter-spacing: -0.02em;
+    text-decoration: none;
+
+    img {
+      block-size: 2rem;
+      inline-size: 2rem;
+    }
+
+    span {
+      white-space: nowrap;
+    }
+  }
+
+  &__search {
+    justify-self: start;
+  }
+
+  &__actions {
+    align-items: center;
+    display: flex;
+    gap: spacer('xs');
+    justify-content: flex-end;
+  }
+
+  &__subscribe {
+    display: none;
+
+    @include breakpoint('sm') {
+      display: inline-flex;
+    }
+  }
+
+  // On small screens, the menu button sits under the logo; from md, the links are centered in a row.
+  &__navigation {
+    display: flex;
+    justify-content: center;
+    padding-block: spacer('xs') spacer('s');
+
+    @include breakpoint('md') {
+      border-block-start: config('border-width-base', $display) solid color('border');
+      padding-block: spacer('s');
+    }
+
+    > ul {
+      justify-content: center;
+    }
+
+    a,
+    .site-navigation__toggle {
+      font-size: config('font-size-sm', $typography);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    // The dropdown links are regular text.
+    .site-navigation__submenu a {
+      letter-spacing: normal;
+      text-transform: none;
+    }
+  }
+}

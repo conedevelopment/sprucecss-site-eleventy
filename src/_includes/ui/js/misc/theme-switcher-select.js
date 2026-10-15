@@ -1,29 +1,32 @@
 (() => {
-  const themeSwitcher = document.querySelector('#theme-switcher');
-  const preferredTheme = localStorage.getItem('preferred-theme') || 'system';
+  const switchers = document.querySelectorAll('[data-theme-switcher-select]');
+  const media = window.matchMedia('(prefers-color-scheme: dark)');
+  const stored = () => {
+    try { return localStorage.getItem('preferred-theme') ?? 'system'; } catch { return 'system'; }
+  };
 
-  if (!themeSwitcher) {
-    return;
-  }
-
-  function updateTheme(theme) {
-    const systemMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-
+  const apply = (theme) => {
     document.documentElement.classList.add('no-transition');
+    document.documentElement.setAttribute('data-theme-mode', theme === 'system' ? (media.matches ? 'dark' : 'light') : theme);
 
-    localStorage.setItem('preferred-theme', theme);
-    document.documentElement.setAttribute('data-theme-mode', theme === 'system' ? systemMode : theme);
+    switchers.forEach((switcher) => {
+      switcher.setAttribute('data-theme-mode', theme);
+      switcher.querySelector('select').value = theme;
+    });
 
-    themeSwitcher.setAttribute('data-theme-mode', theme);
-    themeSwitcher.querySelector(`option[value="${theme}"]`).selected = true;
+    requestAnimationFrame(() => document.documentElement.classList.remove('no-transition'));
+  };
 
-    document.documentElement.classList.remove('no-transition');
-  }
-
-  themeSwitcher.addEventListener('input', (e) => {
-    const selectedTheme = e.target.value;
-    updateTheme(selectedTheme);
+  switchers.forEach((switcher) => {
+    switcher.querySelector('select').addEventListener('change', (event) => {
+      try { localStorage.setItem('preferred-theme', event.target.value); } catch {}
+      apply(event.target.value);
+    });
   });
 
-  updateTheme(preferredTheme);
+  media.addEventListener('change', () => {
+    if (stored() === 'system') apply('system');
+  });
+
+  apply(stored());
 })();

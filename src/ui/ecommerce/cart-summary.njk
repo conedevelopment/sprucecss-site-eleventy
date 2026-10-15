@@ -1,0 +1,27 @@
+---
+title: 'Cart Summary'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--narrow ui--cart-summary">
+        {% include "ui/html/ecommerce/cart-summary.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/ecommerce/cart-summary.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/ecommerce/cart-summary.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/ecommerce/cart-summary.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/ecommerce/cart-summary.css">
+{% endblock %}

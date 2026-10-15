@@ -1,0 +1,78 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.locations-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+  }
+
+  &__grid {
+    @include clear-list;
+    @include layout-grid('m', 17rem);
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__card {
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  &__image {
+    aspect-ratio: 16 / 10;
+    inline-size: 100%;
+    object-fit: cover;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: spacer('xs');
+    padding: spacer('m');
+  }
+
+  &__city {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: font-size('h4');
+    gap: spacer('xs');
+    justify-content: space-between;
+    margin-block: 0;
+  }
+
+  &__address,
+  &__line {
+    align-items: flex-start;
+    color: color('text');
+    display: flex;
+    font-style: normal;
+    gap: spacer('xs');
+    margin: 0;
+
+    svg {
+      block-size: 1.1rem;
+      color: color('primary');
+      flex-shrink: 0;
+      inline-size: 1.1rem;
+      margin-block-start: 0.3em;
+    }
+  }
+
+  &__directions {
+    align-self: flex-start;
+    margin-block-start: auto;
+  }
+}

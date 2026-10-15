@@ -1,60 +1,67 @@
-<div class="order-card">
-    <div class="order-card__data">
-        <h3 class="order-card__title">
-            <a class="order-card__link" href="#">WooCommerce SimplePay integration for 3 websites</a>
-        </h3>
-        <div class="order-card__meta">
-            50 €
-        </div>
-        <div class="number-group" x-cloak x-data="{ quantity: 2, min: 1, max: 99 }" x-init="$watch('quantity', (value) => { quantity = value < min ? min : (value > max ? max : value) })">
-            <button class="btn btn--primary btn--sm btn--icon number-group__decrement" type="button" data-action="decrement" aria-label="Decrement quantity" @click="quantity = Math.max(min, --quantity)">
-                <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                </svg>
-            </button>
-            <input class="number-group__input" x-model="quantity" type="number" :min="min" :max="max"/>
-            <button class="btn btn--primary btn--sm btn--icon number-group__increment" type="button" data-action="increment" aria-label="Increment quantity" @click="quantity = Math.min(max, ++quantity)">
-                <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                    <line class="vertical-line" x1="12" y1="5" x2="12" y2="19"></line>
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                </svg>
-            </button>
-        </div>
+<article class="order-card" data-order-card data-unit-price="50">
+    <div class="order-card__thumb" aria-hidden="true">
+        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 22v-5M9 8V2M15 8V2M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg>
     </div>
-    <button class="btn btn--primary btn--sm btn--icon order-card__remove" type="button" aria-label="Delete product">
-        <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-    </button>
-</div>
-<div class="order-card">
     <div class="order-card__data">
-        <h3 class="order-card__title">
-            <a class="order-card__link" href="#">Root SEO extension for 1 website</a>
+        <h3 class="order-card__title" id="order-item-1">
+            <a class="order-card__link" href="#">WooCommerce SimplePay integration</a>
         </h3>
-        <div class="order-card__meta">
-            100 €
-        </div>
-        <div class="number-group" x-cloak x-data="{ quantity: 1, min: 1, max: 99 }" x-init="$watch('quantity', (value) => { quantity = value < min ? min : (value > max ? max : value) })">
-            <button class="btn btn--primary btn--sm btn--icon number-group__decrement" type="button" data-action="decrement" aria-label="Decrement quantity" @click="quantity = Math.max(min, --quantity)">
-                <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                </svg>
-            </button>
-            <input class="number-group__input" x-model="quantity" type="number" :min="min" :max="max"/>
-            <button class="btn btn--primary btn--sm btn--icon number-group__increment" type="button" data-action="increment" aria-label="Increment quantity" @click="quantity = Math.min(max, ++quantity)">
-                <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                    <line class="vertical-line" x1="12" y1="5" x2="12" y2="19"></line>
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                </svg>
-            </button>
-        </div>
+        <dl class="order-card__meta">
+            <div><dt>License</dt><dd>3 websites</dd></div>
+            <div><dt>Unit price</dt><dd>€50</dd></div>
+        </dl>
     </div>
-    <button class="btn btn--primary btn--sm btn--icon order-card__remove" type="button" aria-label="Delete product">
-        <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-            <line x1="18" y1="6" x2="6" y2="18"></line>
-            <line x1="6" y1="6" x2="18" y2="18"></line>
-        </svg>
-    </button>
-</div>
+    <div class="order-card__actions">
+        <div class="number-group" data-number-group>
+            <button class="btn btn--primary btn--sm btn--icon number-group__decrement" type="button" aria-controls="order-quantity-1" data-step="-1">
+                <span class="sr-only">Decrease quantity</span>
+                <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/></svg>
+            </button>
+            <input class="number-group__input" id="order-quantity-1" type="number" inputmode="numeric" name="quantity[1]" value="2" min="1" max="20" aria-labelledby="order-quantity-label-1 order-item-1">
+            <button class="btn btn--primary btn--sm btn--icon number-group__increment" type="button" aria-controls="order-quantity-1" data-step="1">
+                <span class="sr-only">Increase quantity</span>
+                <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+        </div>
+        <span class="sr-only" id="order-quantity-label-1">Quantity of</span>
+        <p class="order-card__total" aria-live="polite"><span class="sr-only">Line total: </span><span data-order-total>€100</span></p>
+        <button class="btn btn--outline-danger btn--sm btn--icon order-card__remove" type="button" aria-describedby="order-item-1" data-order-remove>
+            <span class="sr-only">Remove</span>
+            <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+        </button>
+    </div>
+</article>
+<article class="order-card" data-order-card data-unit-price="100">
+    <div class="order-card__thumb" aria-hidden="true">
+        <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+    </div>
+    <div class="order-card__data">
+        <h3 class="order-card__title" id="order-item-2">
+            <a class="order-card__link" href="#">Root SEO extension</a>
+        </h3>
+        <dl class="order-card__meta">
+            <div><dt>License</dt><dd>1 website</dd></div>
+            <div><dt>Unit price</dt><dd>€100</dd></div>
+        </dl>
+    </div>
+    <div class="order-card__actions">
+        <div class="number-group" data-number-group>
+            <button class="btn btn--primary btn--sm btn--icon number-group__decrement" type="button" aria-controls="order-quantity-2" data-step="-1">
+                <span class="sr-only">Decrease quantity</span>
+                <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"/></svg>
+            </button>
+            <input class="number-group__input" id="order-quantity-2" type="number" inputmode="numeric" name="quantity[2]" value="1" min="1" max="20" aria-labelledby="order-quantity-label-2 order-item-2">
+            <button class="btn btn--primary btn--sm btn--icon number-group__increment" type="button" aria-controls="order-quantity-2" data-step="1">
+                <span class="sr-only">Increase quantity</span>
+                <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+        </div>
+        <span class="sr-only" id="order-quantity-label-2">Quantity of</span>
+        <p class="order-card__total" aria-live="polite"><span class="sr-only">Line total: </span><span data-order-total>€100</span></p>
+        <button class="btn btn--outline-danger btn--sm btn--icon order-card__remove" type="button" aria-describedby="order-item-2" data-order-remove>
+            <span class="sr-only">Remove</span>
+            <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+        </button>
+    </div>
+</article>
+<p class="sr-only" aria-live="polite" data-order-status></p>

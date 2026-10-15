@@ -1,0 +1,54 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.sidebar-navigation {
+  font-size: config('font-size-sm', $typography);
+  max-inline-size: 16rem;
+
+  ul {
+    @include clear-list;
+    @include layout-stack('xxs');
+  }
+
+  &__group {
+    border: 0;
+
+    > summary {
+      border-radius: radius('sm');
+      color: color('heading');
+      font-weight: 700;
+      padding: spacer('xs') spacer('s');
+
+      &:hover {
+        background-color: color('surface-muted');
+      }
+    }
+
+    > ul {
+      border-inline-start: config('border-width-base', $display) solid color('border');
+      margin-block-start: spacer('xxs');
+      margin-inline-start: spacer('s');
+      padding: 0 !important;
+      padding-inline-start: spacer('xs') !important;
+    }
+  }
+
+  &__link {
+    border-radius: radius('sm');
+    color: color('text');
+    display: block;
+    padding: spacer('xs') spacer('s');
+    text-decoration: none;
+    @include transition($property: 'background-color, color');
+
+    &:hover {
+      background-color: color('surface-muted');
+      color: color('heading');
+    }
+
+    &[aria-current='page'] {
+      background-color: color-alpha('primary', 0.1);
+      color: color('primary');
+      font-weight: 700;
+    }
+  }
+}

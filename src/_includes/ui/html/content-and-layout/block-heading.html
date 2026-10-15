@@ -1,0 +1,11 @@
+{#- Set a `heading` object ({ eyebrow, title, text, id, align }) before the include. -#}
+{%- set _heading = heading or { "eyebrow": "Features", "title": "Everything you need to ship faster", "text": "A short, friendly sentence that explains what this block is about.", "id": "block-heading-title" } %}
+<header class="block-heading{% if _heading.align == 'start' %} block-heading--start{% endif %}">
+    {%- if _heading.eyebrow %}
+    <p class="block-heading__eyebrow">{{ _heading.eyebrow }}</p>
+    {%- endif %}
+    <h2 class="block-heading__title" id="{{ _heading.id }}">{{ _heading.title }}</h2>
+    {%- if _heading.text %}
+    <p class="block-heading__text">{{ _heading.text }}</p>
+    {%- endif %}
+</header>

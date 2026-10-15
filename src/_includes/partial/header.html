@@ -2,8 +2,10 @@
     <div class="container">
         <div class="sprucecss-site-header__inner">
             <div class="sprucecss-site-header__column">
-                <a class="sprucecss-site-header__logo {% if page.url.includes('/ui/') %}sprucecss-site-header__logo--ui{% endif %}" href="/" aria-label="Spruce CSS">
-                    {% if page.url.includes('/ui/') %}
+                {#- The Spruce UI sections (components, blocks and pages) show the Spruce UI logo. -#}
+                {%- set isSpruceUi = page.url.includes('/ui/') or page.url.includes('/blocks/') or page.url.includes('/pages/') %}
+                <a class="sprucecss-site-header__logo {% if isSpruceUi %}sprucecss-site-header__logo--ui{% endif %}" href="/" aria-label="Spruce CSS">
+                    {% if isSpruceUi %}
                         {% svgIcon "./src/img/spruce-ui-logo.svg" %}
                     {% else %}
                         {% svgIcon "./src/img/spruce-logo.svg" %}
@@ -29,9 +31,11 @@
                         <li>
                             <a
                                 href="{{ item.url }}"
+                                {% if item.external %}target="_blank" rel="noopener noreferrer"{% endif %}
                                 {{ helper.getLinkActiveState(item.url, page.url) | safe }}
                             >
                                 {{ item.caption }}
+                                {%- if item.external %}<span class="sr-only"> (opens in a new tab)</span>{% endif %}
                             </a>
                         </li>
                         {% endfor %}

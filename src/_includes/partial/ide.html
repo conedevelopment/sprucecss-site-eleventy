@@ -1,189 +1,169 @@
-<div x-data="{
-        activeTab: 'config/_config.scss',
-        sidebarVisible: false,
-        handleMenuClick() {
-            this.sidebarVisible = !this.sidebarVisible;
-        },
-        handleButtonClick(tab) {
-            this.sidebarVisible = false;
-            this.activeTab = tab;
-        }
-    }"
-    class="ide-wrapper">
+{%- set ideFiles = [
+    {
+        "path": "main.scss",
+        "include": "main",
+        "description": "The entry point: configure Spruce first, then generate the base and load your own code.",
+        "link": "/docs/getting-started/installation/",
+        "linkText": "Installation"
+    },
+    {
+        "path": "index.html",
+        "include": "index",
+        "description": "Pick the style and the color mode with two attributes, on the page or on any element.",
+        "link": "/docs/customization/styles/",
+        "linkText": "Styles"
+    },
+    {
+        "folder": "config",
+        "path": "config/_config.scss",
+        "include": "config/_config",
+        "description": "One configuration for the whole project: custom properties, dark mode that follows the system, the style presets and the brand colors.",
+        "link": "/docs/customization/settings/",
+        "linkText": "Settings"
+    },
+    {
+        "folder": "config",
+        "path": "config/_brand-style.scss",
+        "include": "config/_brand-style",
+        "description": "Your own design style: override the tokens, the light and dark colors and add a few rules.",
+        "link": "/docs/customization/styles/#create-your-own-style",
+        "linkText": "Create a style"
+    },
+    {
+        "folder": "config",
+        "path": "config/_fonts.scss",
+        "include": "config/_fonts",
+        "description": "Self-hosted fonts with the font-face mixin (woff2, font-display: swap).",
+        "link": "/docs/sass/mixins/#font-face",
+        "linkText": "font-face()"
+    },
+    {
+        "folder": "config",
+        "path": "config/_styles.scss",
+        "include": "config/_styles",
+        "description": "A single mixin outputs the base styles, the dark mode and the style presets you turned on.",
+        "link": "/docs/elements/generators/",
+        "linkText": "Generators"
+    },
+    {
+        "folder": "component",
+        "path": "component/_index.scss",
+        "include": "component/_index",
+        "description": "Forward your components from one index file.",
+        "link": "/docs/getting-started/structure-and-code/",
+        "linkText": "Structure and code"
+    },
+    {
+        "folder": "component",
+        "path": "component/_card.scss",
+        "include": "component/_card",
+        "description": "A component built from tokens: colors, radii, shadows and spacers follow every style and the dark mode.",
+        "link": "/docs/sass/functions/",
+        "linkText": "Functions"
+    },
+    {
+        "folder": "component",
+        "path": "component/_header.scss",
+        "include": "component/_header",
+        "description": "Layout mixins, breakpoints, the z-index scale and logical properties for RTL-ready code.",
+        "link": "/docs/sass/mixins/",
+        "linkText": "Mixins"
+    },
+    {
+        "folder": "block",
+        "path": "block/_index.scss",
+        "include": "block/_index",
+        "description": "Blocks are full page sections, kept in their own folder.",
+        "link": "/blocks/",
+        "linkText": "Blocks"
+    },
+    {
+        "folder": "block",
+        "path": "block/_hero.scss",
+        "include": "block/_hero",
+        "description": "Every block follows the same anatomy: .block > .container > .block__inner. The dark-mode mixin adjusts what the colors can't.",
+        "link": "/blocks/",
+        "linkText": "Block anatomy"
+    }
+] -%}
+{%- set ideFolders = ["config", "component", "block"] -%}
+
+<div class="ide-wrapper">
     <div class="container">
-        <div class="ide">
+        <div class="ide" data-ide>
             <div class="ide__header">
-                <div class="ide__controls">
-                    <div class="ide__control" style="background-color: #ff5f56;"></div>
-                    <div class="ide__control" style="background-color: #ffbd2e;"></div>
-                    <div class="ide__control" style="background-color: #27c93f;"></div>
+                <div class="ide__controls" aria-hidden="true">
+                    <div class="ide__control"></div>
+                    <div class="ide__control"></div>
+                    <div class="ide__control"></div>
                 </div>
-                <div class="ide__title" x-text="activeTab"></div>
+                <p class="ide__title" data-ide-title>{{ ideFiles[0].path }}</p>
+                <button class="ide__copy" type="button" data-ide-copy>
+                    {% svgIcon "./src/_includes/icon/copy.svg" %}
+                    <span data-ide-copy-label>Copy</span>
+                </button>
             </div>
             <div class="ide__inner">
-                <aside class="ide__sidebar">
+                <nav class="ide__sidebar" aria-label="Project files" data-ide-sidebar>
                     <button
-                        @click="handleMenuClick"
-                        :aria-expanded="sidebarVisible.toString()"
-                        :aria-label="sidebarVisible ? 'Close sidebar' : 'Open sidebar'"
                         class="btn btn--primary btn--icon btn--rounded ide__toggle"
+                        type="button"
+                        aria-expanded="false"
+                        aria-controls="ide-files"
+                        aria-label="Show the project files"
+                        data-ide-toggle
                     >
                         {% svgIcon "./src/_includes/icon/menu.svg", "btn__icon" %}
                     </button>
-                    <div class="ide__sidebar-helper" x-show="sidebarVisible" x-cloak>
-                        <div class="ide-section">
-                            <h3 class="ide-section__title">
-                                {% svgIcon "./src/_includes/icon/folder.svg"%}
-                                component
-                            </h3>
-                            <ul class="ide-section__list ide-section__list--border">
-                                <li>
-                                    <button
-                                        :class="activeTab === 'component/_index.scss' ? 'active' : ''"
-                                        @click="handleButtonClick('component/_index.scss')"
-                                    >
-                                        {% svgIcon "./src/_includes/icon/sass.svg"%}
-                                        _index.scss
-                                    </button>
-                                </li>
-                                <li>
-                                    <button
-                                        :class="activeTab === 'component/_footer.scss' ? 'active' : ''"
-                                        @click="handleButtonClick('component/_footer.scss')"
-                                    >
-                                        {% svgIcon "./src/_includes/icon/sass.svg"%}
-                                        _footer.scss
-                                    </button>
-                                </li>
-                                <li>
-                                    <button
-                                        :class="activeTab === 'component/_header.scss' ? 'active' : ''"
-                                        @click="handleButtonClick('component/_header.scss')"
-                                    >
-                                        {% svgIcon "./src/_includes/icon/sass.svg"%}
-                                        _header.scss
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="ide-section">
-                            <h3 class="ide-section__title">
-                                <IconFolder />
-                                config
-                            </h3>
-                            <ul class="ide-section__list ide-section__list--border">
-                                <li>
-                                    <button
-                                        :class="activeTab === 'config/_config.scss' ? 'active' : ''"
-                                        @click="handleButtonClick('config/_config.scss')"
-                                    >
-                                        {% svgIcon "./src/_includes/icon/sass.svg"%}
-                                        _config.scss
-                                    </button>
-                                </li>
-                                <li>
-                                    <button
-                                        :class="activeTab === 'config/_dark-colors.scss' ? 'active' : ''"
-                                        @click="handleButtonClick('config/_dark-colors.scss')"
-                                    >
-                                        {% svgIcon "./src/_includes/icon/sass.svg"%}
-                                        _dark-colors.scss
-                                    </button>
-                                </li>
-                                <li>
-                                    <button
-                                        :class="activeTab === 'config/_dark-mode.scss' ? 'active' : ''"
-                                        @click="handleButtonClick('config/_dark-mode.scss')"
-                                    >
-                                        {% svgIcon "./src/_includes/icon/sass.svg"%}
-                                        _dark-mode.scss
-                                    </button>
-                                </li>
-                                <li>
-                                    <button
-                                        :class="activeTab === 'config/_fonts.scss' ? 'active' : ''"
-                                        @click="handleButtonClick('config/_fonts.scss')"
-                                    >
-                                        {% svgIcon "./src/_includes/icon/sass.svg"%}
-                                        _fonts.scss
-                                    </button>
-                                </li>
-                                <li>
-                                    <button
-                                        :class="activeTab === 'config/_index.scss' ? 'active' : ''"
-                                        @click="handleButtonClick('config/_index.scss')"
-                                    >
-                                        {% svgIcon "./src/_includes/icon/sass.svg"%}
-                                        _index.scss
-                                    </button>
-                                </li>
-                                <li>
-                                    <button
-                                        :class="activeTab === 'config/_styles.scss' ? 'active' : ''"
-                                        @click="handleButtonClick('config/_styles.scss')"
-                                    >
-                                        {% svgIcon "./src/_includes/icon/sass.svg"%}
-                                        _styles.scss
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="ide__sidebar-helper" id="ide-files">
+                        <p class="ide__project">acme-site</p>
+                        {% asyncEach folder in ideFolders %}
+                            <div class="ide-section">
+                                <p class="ide-section__title">
+                                    {% svgIcon "./src/_includes/icon/folder.svg" %}
+                                    {{ folder }}
+                                </p>
+                                <ul class="ide-section__list ide-section__list--border">
+                                    {% asyncEach file in ideFiles %}
+                                        {% if file.folder == folder %}{% set active = false %}{% include "partial/ide-file.html" %}{% endif %}
+                                    {% endeach %}
+                                </ul>
+                            </div>
+                        {% endeach %}
                         <div class="ide-section">
                             <ul class="ide-section__list">
-                                <li>
-                                    <button
-                                        :class="activeTab === 'main.scss' ? 'active' : ''"
-                                        @click="handleButtonClick('main.scss')"
-                                    >
-                                        {% svgIcon "./src/_includes/icon/sass.svg"%}
-                                        main.scss
-                                    </button>
-                                </li>
+                                {% asyncEach file in ideFiles %}
+                                    {% if not file.folder %}{% set active = loop.first %}{% include "partial/ide-file.html" %}{% endif %}
+                                {% endeach %}
                             </ul>
                         </div>
                     </div>
-                </aside>
+                </nav>
                 <div class="ide__body">
-                    <div class="ide__editor" x-show="activeTab === 'component/_index.scss'">
-                        {% include "partial/ide/component/_index.html" %}
-                    </div>
-
-                    <div class="ide__editor" x-show="activeTab === 'component/_footer.scss'">
-                        {% include "partial/ide/component/_footer.html" %}
-                    </div>
-
-                    <div class="ide__editor" x-show="activeTab === 'component/_header.scss'">
-                        {% include "partial/ide/component/_header.html" %}
-                    </div>
-
-                    <div class="ide__editor" x-show="activeTab === 'config/_config.scss'">
-                        {% include "partial/ide/config/_config.html" %}
-                    </div>
-
-                    <div class="ide__editor" x-show="activeTab === 'config/_dark-colors.scss'">
-                        {% include "partial/ide/config/_dark-colors.html" %}
-                    </div>
-
-                    <div class="ide__editor" x-show="activeTab === 'config/_dark-mode.scss'">
-                        {% include "partial/ide/config/_dark-mode.html" %}
-                    </div>
-
-                    <div class="ide__editor" x-show="activeTab === 'config/_fonts.scss'">
-                        {% include "partial/ide/config/_fonts.html" %}
-                    </div>
-
-                    <div class="ide__editor" x-show="activeTab === 'config/_index.scss'">
-                        {% include "partial/ide/config/_index.html" %}
-                    </div>
-
-                    <div class="ide__editor" x-show="activeTab === 'config/_styles.scss'">
-                        {% include "partial/ide/config/_styles.html" %}
-                    </div>
-
-                    <div class="ide__editor" x-show="activeTab === 'main.scss'">
-                        {% include "partial/ide/main.html" %}
-                    </div>
+                    {% for file in ideFiles %}
+                        <div
+                            class="ide__editor"
+                            id="ide-panel-{{ file.path | slugify }}"
+                            role="region"
+                            aria-label="{{ file.path }}"
+                            data-ide-panel="{{ file.path }}"
+                            data-description="{{ file.description }}"
+                            data-link="{{ file.link }}"
+                            data-link-text="{{ file.linkText }}"
+                            {% if not loop.first %}hidden{% endif %}
+                        >
+                            {% include "partial/ide/" + file.include + ".html" %}
+                        </div>
+                    {% endfor %}
                 </div>
+            </div>
+            <div class="ide__status">
+                {% svgIcon "./src/_includes/icon/info.svg" %}
+                <p class="ide__status-text" aria-live="polite" data-ide-description>{{ ideFiles[0].description }}</p>
+                <a class="ide__status-link" href="{{ ideFiles[0].link }}" data-ide-link>
+                    <span data-ide-link-text>{{ ideFiles[0].linkText }}</span>
+                    {% svgIcon "./src/_includes/icon/arrow-right.svg" %}
+                </a>
             </div>
         </div>
     </div>

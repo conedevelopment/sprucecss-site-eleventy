@@ -1,0 +1,30 @@
+---
+category: 'Features'
+title: 'Steps'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--block ui--steps">
+        {% include "ui/html/block/steps.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/block/steps.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/block/steps.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/block/steps.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/container.css">
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/block-heading.css">
+    <link rel="stylesheet" href="/_includes/ui/css/block/steps.css">
+{% endblock %}

@@ -2,61 +2,32 @@
 @use 'sprucecss/scss/spruce' as *;
 
 .site-header {
-  position: relative;
+  backdrop-filter: blur(12px);
+  background-color: color-alpha('background', 0.85);
+  border-block-end: config('border-width-base', $display) solid color('border');
+  inset-block-start: 0;
+  position: sticky;
+  z-index: z-index('sticky');
 
   &__inner {
-    --block-size: 6rem;
-    align-items: center;
-    block-size: var(--block-size);
-    display: flex;
-    flex-wrap: wrap;
-    gap: spacer-clamp('s', 'l');
+    @include layout-cluster('m');
     justify-content: space-between;
+    min-block-size: 4.5rem;
   }
 
-  &__column {
-    align-items: center;
-    display: flex;
-    flex-grow: 1;
-    gap: spacer-clamp('s', 'l');
-  }
-
-  &__actions {
-    align-items: center;
-    display: flex;
-    gap: spacer-clamp('s', 'm');
-  }
-
-  &__logo {
-    --dimension: 4rem;
-    block-size: var(--dimension);
-    display: inline-flex;
-    inline-size: var(--dimension);
-  }
-
-  &__email {
+  &__menu {
+    @include clear-list;
     display: none;
-    text-decoration: none;
-
-    @include breakpoint('sm') {
-      display: inline-block;
-    }
-  }
-
-  &__navigation {
-    margin-inline-start: auto;
+    gap: spacer('m');
 
     @include breakpoint('md') {
-      margin-inline-start: 0;
+      display: flex;
     }
+  }
 
-    ul {
-      border-block-start: 1px solid color('border');
-
-      @include breakpoint('sm') {
-        border-block: none;
-      }
-    }
+  &__link[aria-current='page'] {
+    color: color('primary');
+    font-weight: 700;
   }
 }
 {% endhighlight %}

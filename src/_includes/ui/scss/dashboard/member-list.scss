@@ -1,0 +1,171 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.member-list {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  padding: spacer('m');
+  @include layout-stack('m');
+
+  &__header {
+    @include layout-stack('xxs');
+  }
+
+  &__title {
+    align-items: center;
+    display: flex;
+    font-size: font-size('h5');
+    gap: spacer('xs');
+    margin: 0;
+  }
+
+  &__count {
+    background-color: color('surface-muted');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('pill');
+    color: color('muted');
+    font-family: config('font-family-base', $typography);
+    font-size: 0.75rem;
+    line-height: 1;
+    padding: 0.25em 0.6em;
+  }
+
+  &__description {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__invite {
+    align-items: end;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
+  }
+
+  &__invite-email,
+  &__invite-role {
+    @include layout-stack('xxs');
+  }
+
+  &__invite-email {
+    flex: 1 1 14rem;
+  }
+
+  &__invite-role {
+    flex: 0 1 9rem;
+  }
+
+  &__items {
+    border-block-start: config('border-width-base', $display) solid color('border');
+    // The parent's layout-stack sets the margins.
+    list-style: none;
+    padding: 0;
+  }
+
+  &__item {
+    align-items: center;
+    border-block-end: config('border-width-base', $display) solid color('border');
+    display: grid;
+    gap: spacer('xs') spacer('s');
+    grid-template-areas:
+      'person person'
+      'role actions';
+    grid-template-columns: minmax(0, 9rem) 1fr;
+    margin: 0 !important;
+    padding-block: spacer('s');
+
+    @include breakpoint('sm') {
+      grid-template-areas: 'person role actions';
+      grid-template-columns: minmax(0, 1fr) 8rem 10rem;
+    }
+
+    &:last-child {
+      border-block-end: 0;
+      padding-block-end: 0;
+    }
+  }
+
+  &__person {
+    align-items: center;
+    display: flex;
+    gap: spacer('s');
+    grid-area: person;
+    min-inline-size: 0;
+  }
+
+  &__avatar {
+    align-items: center;
+    aspect-ratio: 1;
+    background-color: color-alpha('primary', 0.15);
+    border-radius: radius('pill');
+    color: color('primary');
+    display: inline-flex;
+    flex-shrink: 0;
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+    inline-size: 2.5rem;
+    justify-content: center;
+
+    svg {
+      block-size: 1.125rem;
+      inline-size: 1.125rem;
+    }
+
+    &--pending {
+      background-color: transparent;
+      border: 1px dashed color('border-strong');
+      color: color('muted');
+    }
+  }
+
+  &__info {
+    display: grid;
+    line-height: config('line-height-md', $typography);
+    min-inline-size: 0;
+  }
+
+  &__name {
+    align-items: center;
+    color: color('heading');
+    display: flex;
+    font-weight: 700;
+    gap: spacer('xs');
+    @include word-wrap;
+  }
+
+  &__badge {
+    background-color: color-alpha('primary', 0.12);
+    border-radius: radius('pill');
+    color: color('primary');
+    font-size: 0.6875rem;
+    padding: 0.15em 0.6em;
+  }
+
+  &__email {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    @include text-ellipsis;
+  }
+
+  &__role {
+    grid-area: role;
+  }
+
+  &__actions {
+    display: flex;
+    gap: spacer('xxs');
+    grid-area: actions;
+    justify-content: flex-end;
+  }
+
+  &__note {
+    color: color('muted');
+    font-size: 0.75rem;
+    hyphens: manual;
+    text-align: end;
+  }
+
+  &__item--pending &__name {
+    font-weight: 500;
+  }
+}

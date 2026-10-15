@@ -1,0 +1,13 @@
+.l-page > :not(.l-page__alt, .l-page__band) + :not(.l-page__alt, .l-page__band), .l-page__alt > * + * {
+  padding-block-start: 0;
+}
+.l-page__band {
+  border-block-end: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  padding-block: 1rem;
+}
+.l-page__alt {
+  background-color: var(--spruce-base-color-surface-muted);
+}
+.l-page__section {
+  padding-block: clamp(4.5rem, 5vw, 7rem);
+}

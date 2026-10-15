@@ -1,0 +1,59 @@
+.rating > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.rating > * + * {
+  margin-block-start: 0.5rem;
+}
+.rating__legend {
+  font-size: 1rem;
+}
+.rating__stars {
+  display: inline-flex;
+  gap: 0.25rem;
+}
+.rating__control {
+  block-size: 1px !important;
+  border: 0 !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  inline-size: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+}
+.rating__star {
+  color: var(--spruce-base-color-border-strong);
+  cursor: pointer;
+  display: inline-flex;
+  transition-duration: var(--spruce-duration);
+  transition-property: color, scale;
+  transition-timing-function: var(--spruce-timing-function);
+}
+.rating__star svg {
+  block-size: 2rem;
+  fill: currentcolor;
+  inline-size: 2rem;
+}
+.rating__stars:has(.rating__control:checked) .rating__star {
+  color: var(--spruce-alert-color-warning);
+}
+.rating__control:checked + .rating__star ~ .rating__star {
+  color: var(--spruce-base-color-border-strong);
+}
+.rating__stars:hover .rating__star {
+  color: var(--spruce-alert-color-warning);
+}
+.rating__star:hover ~ .rating__star {
+  color: var(--spruce-base-color-border-strong);
+}
+.rating__star:hover {
+  scale: 1.1;
+}
+.rating__control:focus-visible + .rating__star {
+  border-radius: var(--spruce-border-radius-sm);
+  outline: 2px solid var(--spruce-base-color-focus-ring);
+  outline-offset: 2px;
+}

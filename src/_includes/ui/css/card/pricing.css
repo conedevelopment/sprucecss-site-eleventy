@@ -1,0 +1,100 @@
+.pricing-cards {
+  display: grid;
+  gap: 1.5rem;
+}
+@supports (inline-size: min(16rem, 100%)) {
+  .pricing-cards {
+    grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+  }
+}
+.pricing-cards {
+  align-items: start;
+}
+
+.pricing-card {
+  background-color: var(--spruce-base-color-surface);
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  border-radius: var(--spruce-border-radius-lg);
+  box-shadow: var(--spruce-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: clamp(1.5rem, 5vw, 3rem);
+  position: relative;
+}
+.pricing-card--featured {
+  border-color: var(--spruce-base-color-primary);
+  box-shadow: var(--spruce-shadow-lg);
+}
+@media (min-width: 64em) {
+  .pricing-card--featured {
+    margin-block-start: calc(1rem * -1);
+  }
+}
+.pricing-card__header > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.pricing-card__header > * + * {
+  margin-block-start: 0.25rem;
+}
+.pricing-card__badge {
+  background-color: var(--spruce-base-color-primary);
+  border-radius: var(--spruce-border-radius-pill);
+  color: var(--spruce-btn-color-primary-foreground);
+  font-size: var(--spruce-font-size-sm);
+  font-weight: 700;
+  inset-block-start: 0;
+  inset-inline-end: 1.5rem;
+  padding: 0.25rem 1rem;
+  position: absolute;
+  translate: 0 -50%;
+}
+.pricing-card__title {
+  font-size: clamp(1.0625rem, 2vw + 1rem, 1.25rem);
+}
+.pricing-card__description {
+  color: var(--spruce-base-color-muted);
+}
+.pricing-card__price {
+  align-items: baseline;
+  display: flex;
+  gap: 0.25rem;
+  margin-block: 0;
+}
+.pricing-card__amount {
+  color: var(--spruce-base-color-heading);
+  font-family: var(--spruce-font-family-heading);
+  font-size: clamp(2.0751953125rem, 2vw + 1rem, 2.44140625rem);
+  font-weight: var(--spruce-font-weight-heading);
+  line-height: 1;
+}
+.pricing-card__period {
+  color: var(--spruce-base-color-muted);
+}
+.pricing-card__features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.pricing-card__features > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.pricing-card__features > * + * {
+  margin-block-start: 0.5rem;
+}
+.pricing-card__features {
+  flex-grow: 1;
+}
+.pricing-card__features li {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+}
+.pricing-card__check {
+  block-size: 1rem;
+  color: var(--spruce-base-color-primary);
+  flex-shrink: 0;
+  inline-size: 1rem;
+}

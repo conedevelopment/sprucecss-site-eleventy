@@ -1,0 +1,99 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.delivery-estimate {
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  padding: spacer('m');
+  @include layout-stack('s');
+
+  &__title {
+    align-items: center;
+    display: flex;
+    font-size: font-size('h6');
+    gap: spacer('xs');
+
+    svg {
+      block-size: 1.25rem;
+      color: color('primary');
+      inline-size: 1.25rem;
+    }
+  }
+
+  &__cutoff {
+    background-color: color-alpha('success', 0.1, 'alert');
+    border-radius: radius('md');
+    color: color('heading');
+    font-size: config('font-size-sm', $typography);
+    padding: spacer('xs') spacer('s');
+
+    strong {
+      color: color('success', 'alert');
+    }
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__form {
+    @include layout-stack('xxs');
+  }
+
+  &__row {
+    display: flex;
+    gap: spacer('xs');
+
+    .form-control {
+      flex: 1 1 auto;
+      min-inline-size: 0;
+    }
+  }
+
+  &__error {
+    color: color('invalid', 'form');
+    font-size: config('font-size-sm', $typography);
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__options {
+    font-size: config('font-size-sm', $typography);
+    list-style: none;
+    padding: 0;
+    @include layout-stack('xs');
+
+    &[hidden] {
+      display: none;
+    }
+
+    li {
+      align-items: baseline;
+      display: flex;
+      gap: spacer('s');
+      justify-content: space-between;
+    }
+
+    li > span:first-child {
+      color: color('muted');
+    }
+
+    strong {
+      color: color('heading');
+      display: block;
+    }
+
+    li > span:last-child {
+      color: color('heading');
+      font-weight: 600;
+      text-align: end;
+    }
+  }
+
+  &__returns {
+    border-block-start: config('border-width-base', $display) solid color('border');
+    font-size: config('font-size-sm', $typography);
+    padding-block-start: spacer('s');
+  }
+}

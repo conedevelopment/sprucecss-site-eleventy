@@ -1,0 +1,36 @@
+---
+permalink: /llms.txt
+eleventyExcludeFromCollections: true
+---
+# Spruce CSS
+
+> Spruce CSS is a Sass-based, minimalistic CSS framework. It styles native elements with a few classes and gives you variables, mixins and functions for your own components. Version 3 adds design style presets (data-spruce-style), a built-in dark mode, design tokens and AI skills.
+
+- npm: https://www.npmjs.com/package/sprucecss
+- Source: https://github.com/conedevelopment/sprucecss
+- AI skills: https://github.com/conedevelopment/sprucecss/tree/main/skills
+- Spruce UI index (JSON): {{ site.url }}/library.json
+
+## Spruce UI
+
+Spruce UI is the component library built on Spruce CSS: components, blocks (full-width page sections) and complete pages. It isn't in the npm package; every item has a Markdown endpoint with its rendered HTML, its SCSS, its JavaScript and its dependencies in loading order. The links below point to these endpoints (the same URL without `.md` is the preview page).
+
+## Docs
+{% for item in collections.docs %}
+- [{{ item.data.title | safe }}]({{ site.url }}{{ item.url }}){% if item.data.description %}: {{ item.data.description | safe }}{% endif %}
+{%- endfor %}
+
+## Components
+{% for item in spruceUi.components %}
+- [{{ item.title | safe }} ({{ item.category }})]({{ site.url }}{{ item.url }}): {{ item.lead | safe }}
+{%- endfor %}
+
+## Blocks
+{% for item in spruceUi.blocks %}
+- [{{ item.title | safe }} ({{ item.category }})]({{ site.url }}{{ item.url }}): {{ item.lead | safe }}
+{%- endfor %}
+
+## Pages
+{% for item in spruceUi.pages %}
+- [{{ item.title | safe }} ({{ item.category }})]({{ site.url }}{{ item.url }}): {{ item.lead | safe }}
+{%- endfor %}

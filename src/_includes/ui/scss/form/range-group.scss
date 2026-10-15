@@ -5,16 +5,22 @@
   flex-direction: column;
   gap: spacer('xs');
 
-  .form-label {
-    align-items: center;
+  + .range-group {
+    margin-block-start: spacer('l');
+  }
+
+  &__label {
+    align-items: baseline;
     display: flex;
     flex-wrap: wrap;
     gap: spacer('xs');
     justify-content: space-between;
+  }
 
-    &__value {
-      font-weight: 400;
-    }
+  &__value {
+    color: color('primary');
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
   }
 
   &__inner {
@@ -27,7 +33,7 @@
       margin-block-start: 0;
     }
 
-    .form-range-control {
+    .btn {
       flex-shrink: 0;
     }
   }

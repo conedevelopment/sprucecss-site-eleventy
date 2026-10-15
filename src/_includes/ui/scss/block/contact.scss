@@ -1,0 +1,77 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.contact-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: grid;
+    gap: spacer-clamp('l', 'xl');
+
+    @include breakpoint('lg') {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+  }
+
+  &__methods {
+    @include clear-list;
+    @include layout-stack('m');
+
+    li {
+      align-items: center;
+      display: flex;
+      gap: spacer('s');
+    }
+
+    a {
+      color: color('heading');
+      font-weight: 600;
+    }
+  }
+
+  &__icon {
+    align-items: center;
+    background-color: color-alpha('primary', 0.12);
+    block-size: 2.75rem;
+    border-radius: radius('md');
+    color: color('primary');
+    display: inline-flex;
+    flex-shrink: 0;
+    inline-size: 2.75rem;
+    justify-content: center;
+
+    svg {
+      block-size: 1.25rem;
+      inline-size: 1.25rem;
+    }
+  }
+
+  &__label {
+    color: color('muted');
+    display: block;
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__form {
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    box-shadow: shadow('sm');
+    padding: spacer-clamp('m', 'l');
+    @include layout-stack('m');
+
+    // The submit sits in its own .form-group (a flex column); keep its natural width.
+    .btn {
+      align-self: start;
+    }
+  }
+
+  &__row {
+    @include layout-switcher(30rem, 'm');
+  }
+}

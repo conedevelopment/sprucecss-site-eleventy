@@ -1,0 +1,110 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.image-compare {
+  --position: 50%;
+  margin: 0;
+  position: relative;
+  @include layout-stack('xs');
+
+  &__frame {
+    border-radius: radius('lg');
+    display: grid;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__image {
+    block-size: 100%;
+    grid-area: 1 / 1;
+    inline-size: 100%;
+    object-fit: cover;
+    user-select: none;
+
+    &--after {
+      clip-path: inset(0 0 0 var(--position));
+    }
+  }
+
+  &__handle {
+    background-color: hsl(0deg 0% 100%);
+    box-shadow: 0 0 0 1px hsl(0deg 0% 0% / 20%);
+    inline-size: 3px;
+    inset-block: 0;
+    inset-inline-start: var(--position);
+    pointer-events: none;
+    position: absolute;
+    translate: -50% 0;
+
+    &::after {
+      background-color: hsl(0deg 0% 100%);
+      block-size: 2.5rem;
+      border-radius: 50%;
+      box-shadow: shadow('md');
+      color: hsl(0deg 0% 10%);
+      content: '↔';
+      display: grid;
+      font-weight: 700;
+      inline-size: 2.5rem;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      place-content: center;
+      position: absolute;
+      translate: -50% -50%;
+    }
+  }
+
+  &__tag {
+    background-color: hsl(0deg 0% 0% / 55%);
+    border-radius: radius('pill');
+    color: hsl(0deg 0% 100%);
+    font-size: config('font-size-sm', $typography);
+    inset-block-start: spacer('s');
+    padding-block: spacer('xxs');
+    padding-inline: spacer('s');
+    position: absolute;
+
+    &--before {
+      inset-inline-start: spacer('s');
+    }
+
+    &--after {
+      inset-inline-end: spacer('s');
+    }
+  }
+
+  &__range {
+    appearance: none;
+    background: transparent;
+    block-size: calc(100% - 2rem);
+    cursor: ew-resize;
+    inline-size: 100%;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+
+    &:focus-visible {
+      opacity: 0;
+    }
+  }
+
+  &:has(&__range:focus-visible) &__frame {
+    outline: 2px solid color('focus-ring');
+    outline-offset: 3px;
+  }
+
+  &__caption {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    text-align: center;
+  }
+}
+
+[dir='rtl'] .image-compare__image--after {
+  clip-path: inset(0 var(--position) 0 0);
+}
+
+[dir='rtl'] .image-compare__handle {
+  translate: 50% 0;
+}

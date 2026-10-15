@@ -1,0 +1,29 @@
+{#- Override with `pricingBlock` ({ heading, note, toggle }) and the plans with `pricingPlans`. -#}
+{%- set _s = pricingBlock or {
+    "heading": { "eyebrow": "Pricing", "title": "Simple pricing that grows with you", "text": "Start for free. Upgrade when your team is ready.", "id": "pricing-title" },
+    "note": "Prices in USD. Cancel anytime."
+} %}
+<section class="pricing-block" aria-labelledby="{{ _s.heading.id }}" data-pricing-block>
+    <div class="container">
+        <div class="pricing-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            {%- if _s.toggle != false %}
+            <fieldset class="segmented-control pricing-block__toggle">
+                <legend class="sr-only">Billing period</legend>
+                <label class="segmented-control__option">
+                    <input class="segmented-control__input" type="radio" name="pricing-billing" value="monthly" checked>
+                    <span>Monthly</span>
+                </label>
+                <label class="segmented-control__option">
+                    <input class="segmented-control__input" type="radio" name="pricing-billing" value="yearly">
+                    <span>Yearly <small class="segmented-control__hint">−20%</small></span>
+                </label>
+            </fieldset>
+            {%- endif %}
+            {% include "../card/pricing.html" %}
+            <p class="pricing-block__note">{{ _s.note }}</p>
+            <p class="sr-only" aria-live="polite" data-pricing-status></p>
+        </div>
+    </div>
+</section>

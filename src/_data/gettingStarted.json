@@ -10,7 +10,7 @@
   },
   {
     "title": "Components",
-    "description": "Explore our extensive UI library built with Spruce CSS.",
+    "description": "Explore our UI library of accessible components built with Spruce CSS.",
     "thumbnail": "./src/img/getting-started/components.png",
     "link": {
       "caption": "Read more",
@@ -18,12 +18,12 @@
     }
   },
   {
-    "title": "Blog",
-    "description": "Read about front-end development and concepts of Spruce CSS.",
-    "thumbnail": "./src/img/getting-started/blog.png",
+    "title": "Blocks and Pages",
+    "description": "Full-width page blocks and complete page templates, ready to copy.",
+    "thumbnail": "./src/img/getting-started/blocks.png",
     "link": {
-      "caption": "Read more",
-      "url": "/blog"
+      "caption": "Explore",
+      "url": "/blocks/"
     }
   }
 ]

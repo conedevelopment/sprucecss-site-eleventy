@@ -1,0 +1,61 @@
+.filter-chips {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+.filter-chips__list {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+
+.filter-chip {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  outline: inherit;
+  padding: 0;
+  align-items: center;
+  background-color: var(--spruce-base-color-surface);
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border-strong);
+  border-radius: var(--spruce-border-radius-pill);
+  color: var(--spruce-base-color-text);
+  display: inline-flex;
+  font-size: var(--spruce-font-size-sm);
+  font-weight: 600;
+  gap: 0.25rem;
+  padding-block: 0.25rem;
+  padding-inline: 1rem;
+  transition-duration: var(--spruce-duration);
+  transition-property: background-color, border-color, color;
+  transition-timing-function: var(--spruce-timing-function);
+}
+.filter-chip::before {
+  background-color: currentcolor;
+  block-size: 0.9em;
+  content: "";
+  display: none;
+  inline-size: 0.9em;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+.filter-chip:hover {
+  border-color: var(--spruce-base-color-primary);
+  color: var(--spruce-base-color-heading);
+}
+.filter-chip[aria-pressed=true] {
+  background-color: color-mix(in srgb, var(--spruce-base-color-primary) 12%, transparent);
+  border-color: var(--spruce-base-color-primary);
+  color: var(--spruce-base-color-primary);
+}
+.filter-chip[aria-pressed=true]::before {
+  display: block;
+}
+.filter-chip:focus-visible {
+  outline: 2px solid var(--spruce-base-color-focus-ring);
+  outline-offset: 2px;
+}

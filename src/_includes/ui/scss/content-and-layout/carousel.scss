@@ -1,0 +1,83 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.carousel {
+  display: grid;
+  gap: spacer('s');
+
+  &__controls {
+    display: flex;
+    gap: spacer('xs');
+    justify-content: flex-end;
+  }
+
+  &__track {
+    @include clear-list;
+    @include layout-reel(85%, 's');
+    border-radius: radius('lg');
+    scrollbar-width: none;
+
+    @include motion-safe {
+      scroll-behavior: smooth;
+    }
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 2px;
+    }
+
+    > * + * {
+      margin-block-start: 0;
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__slide {
+    figure {
+      margin: 0;
+      position: relative;
+    }
+
+    img {
+      aspect-ratio: 3 / 2;
+      border-radius: radius('lg');
+      inline-size: 100%;
+      object-fit: cover;
+    }
+
+    figcaption {
+      background-color: color-alpha('background', 0.85);
+      border-radius: radius('sm');
+      color: color('heading');
+      font-weight: 700;
+      inset-block-end: spacer('s');
+      inset-inline-start: spacer('s');
+      margin: 0;
+      padding: spacer('xxs') spacer('xs');
+      position: absolute;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    gap: spacer('xs');
+    justify-content: center;
+  }
+
+  &__dot {
+    background-color: color('border');
+    block-size: 0.625rem;
+    border-radius: radius('pill');
+    inline-size: 0.625rem;
+    @include transition($property: 'background-color, inline-size');
+
+    &[aria-current='true'] {
+      background-color: color('primary');
+      inline-size: 1.5rem;
+    }
+  }
+}

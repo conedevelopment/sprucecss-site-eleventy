@@ -9,12 +9,12 @@
       "url": "/ui/getting-started/introduction/"
     },
     {
-      "caption": "Templates",
-      "url": "/templates/"
+      "caption": "Blocks",
+      "url": "/blocks/"
     },
     {
-      "caption": "Blog",
-      "url": "/blog/"
+      "caption": "Pages",
+      "url": "/pages/"
     },
     {
       "caption": "Releases",
@@ -41,12 +41,20 @@
         {
           "caption": "Sass",
           "url": "/docs/getting-started/sass/"
+        },
+        {
+          "caption": "Upgrade to v3",
+          "url": "/docs/getting-started/upgrade/"
         }
       ]
     },
     {
       "title": "Elements",
       "items": [
+        {
+          "caption": "Styles",
+          "url": "/docs/customization/styles/"
+        },
         {
           "caption": "Typography",
           "url": "/docs/elements/typography/"

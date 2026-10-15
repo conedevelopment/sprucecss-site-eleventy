@@ -1,0 +1,19 @@
+<div class="toast-demo">
+    <button class="btn btn--primary" type="button" data-toast="Your changes were saved." data-toast-type="success">Show success toast</button>
+    <button class="btn btn--outline-danger" type="button" data-toast="We couldn’t reach the server. Try again." data-toast-type="danger">Show error toast</button>
+    <button class="btn btn--ghost-primary" type="button" data-toast="A new version is available." data-toast-type="info">Show info toast</button>
+</div>
+
+<div class="toast-region" role="region" aria-label="Notifications">
+    <ol class="toast-list" aria-live="polite" aria-relevant="additions"></ol>
+</div>
+
+<template id="toast-template">
+    <li class="toast">
+        <span class="toast__indicator" aria-hidden="true"></span>
+        <p class="toast__message"></p>
+        <button class="btn btn--ghost-secondary btn--icon btn--sm toast__close" type="button" aria-label="Dismiss notification">
+            <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+    </li>
+</template>

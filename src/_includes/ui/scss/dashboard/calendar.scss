@@ -1,0 +1,205 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.calendar {
+  --calendar-event-color: #{color('primary')};
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  overflow: hidden;
+
+  &__header {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
+    padding: spacer('s') spacer('m');
+  }
+
+  &__title {
+    font-size: font-size('h4');
+    margin: 0 auto 0 0;
+  }
+
+  &__navigation {
+    display: flex;
+    gap: spacer('xxs');
+  }
+
+  &__weekdays,
+  &__days {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+    }
+  }
+
+  &__weekdays {
+    border-block-start: config('border-width-base', $display) solid color('border');
+    color: color('muted');
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding-block: spacer('xs');
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__days {
+    @include clear-list;
+    background-color: color('border');
+    border-block-start: config('border-width-base', $display) solid color('border');
+    gap: config('border-width-base', $display);
+  }
+
+  &__day {
+    background-color: color('surface');
+    display: flex;
+    flex-direction: column;
+    gap: spacer('xxs');
+    min-block-size: 6.5rem;
+    min-inline-size: 0;
+    padding: spacer('xxs');
+
+    &--outside {
+      background-color: color('surface-muted');
+
+      .calendar__date {
+        color: color('muted');
+      }
+    }
+  }
+
+  &__date {
+    align-items: center;
+    aspect-ratio: 1;
+    border-radius: radius('pill');
+    color: color('heading');
+    display: inline-flex;
+    font-size: config('font-size-sm', $typography);
+    font-weight: 600;
+    inline-size: 1.75rem;
+    justify-content: center;
+
+    &[aria-current='date'] {
+      background-color: color('primary');
+      color: color('primary-foreground', 'btn');
+    }
+  }
+
+  &__events {
+    @include clear-list;
+    display: grid;
+    gap: 2px;
+
+    li {
+      margin: 0;
+      min-inline-size: 0;
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__event {
+    background-color: color-alpha('primary', 0.1);
+    border-inline-start: 3px solid var(--calendar-event-color);
+    border-radius: radius('sm');
+    color: color('heading');
+    display: block;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    overflow: hidden;
+    padding: 0.15rem 0.35rem;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    @include transition;
+
+    time {
+      color: color('muted');
+    }
+
+    &:hover {
+      background-color: color-alpha('primary', 0.18);
+    }
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 1px;
+    }
+
+    &--all-day {
+      background-color: var(--calendar-event-color);
+      border-inline-start: 0;
+      color: hsl(0deg 0% 100%);
+      font-weight: 600;
+
+      &:hover {
+        background-color: var(--calendar-event-color);
+        opacity: 0.85;
+      }
+    }
+
+    &--success {
+      --calendar-event-color: #{color('success', 'alert')};
+    }
+
+    &--warning {
+      --calendar-event-color: #{color('warning', 'alert')};
+      color: hsl(0deg 0% 0%);
+    }
+
+    &--info {
+      --calendar-event-color: #{color('info', 'alert')};
+    }
+  }
+
+  // Below the sm breakpoint, the month grid becomes an agenda: only the days with events, in a list.
+  @include breakpoint-down('sm') {
+    &__weekdays {
+      display: none;
+    }
+
+    &__days {
+      grid-template-columns: 1fr;
+    }
+
+    &__day {
+      align-items: flex-start;
+      flex-direction: row;
+      gap: spacer('s');
+      min-block-size: 0;
+      padding: spacer('xs') spacer('m');
+
+      &:not([data-has-events], .calendar__day--today) {
+        display: none;
+      }
+    }
+
+    &__events {
+      flex-grow: 1;
+      gap: spacer('xxs');
+    }
+
+    &__event {
+      font-size: config('font-size-sm', $typography);
+      padding: spacer('xxs') spacer('xs');
+      white-space: normal;
+    }
+  }
+}
+
+[dir='rtl'] {
+  .calendar__title {
+    margin: 0 0 0 auto;
+  }
+
+  .calendar__chevron {
+    scale: -1 1;
+  }
+}

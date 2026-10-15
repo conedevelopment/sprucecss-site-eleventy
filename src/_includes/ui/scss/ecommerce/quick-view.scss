@@ -1,0 +1,184 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.quick-view-trigger {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  inline-size: 15rem;
+  padding: spacer('s');
+  @include layout-stack('xs');
+
+  img {
+    aspect-ratio: 1;
+    border-radius: radius('md');
+    inline-size: 100%;
+    object-fit: cover;
+  }
+
+  &__title {
+    font-family: inherit;
+    font-size: config('font-size-base', $typography);
+  }
+}
+
+.quick-view {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  box-shadow: shadow('xl');
+  inline-size: min(56rem, calc(100vi - #{spacer('m')} * 2));
+  max-block-size: calc(100dvb - #{spacer('m')} * 2);
+  max-inline-size: none;
+  overflow-y: auto;
+  padding: 0;
+
+  &::backdrop {
+    background-color: color('overlay');
+  }
+
+  @include motion-safe {
+    &[open] {
+      animation: quick-view-in 0.2s ease-out;
+    }
+  }
+
+  &__inner {
+    display: grid;
+    position: relative;
+
+    @include breakpoint('sm') {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__close {
+    background-color: color-alpha('surface', 0.85) !important;
+    inset-block-start: spacer('xs');
+    inset-inline-end: spacer('xs');
+    position: absolute;
+    z-index: 1;
+  }
+
+  &__media {
+    aspect-ratio: 4 / 3;
+    background-color: color('surface-muted');
+    block-size: 100%;
+    inline-size: 100%;
+    object-fit: cover;
+
+    @include breakpoint('sm') {
+      aspect-ratio: auto;
+    }
+  }
+
+  &__body {
+    padding: spacer-clamp('m', 'l');
+    @include layout-stack('s');
+  }
+
+  &__heading {
+    @include layout-stack('xxs');
+  }
+
+  &__title {
+    font-size: font-size('h3');
+    margin: 0;
+    padding-inline-end: spacer('l');
+  }
+
+  &__rating {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+
+    span[aria-hidden] {
+      color: color('warning', 'alert');
+      letter-spacing: 0.1em;
+    }
+  }
+
+  &__price {
+    color: color('heading');
+    font-size: font-size('h4');
+    font-weight: 700;
+  }
+
+  &__option {
+    border: 0;
+    margin-inline: 0;
+    padding: 0;
+  }
+
+  &__legend {
+    color: color('heading');
+    font-size: config('font-size-base', $typography);
+    font-weight: 700;
+    margin-block-end: spacer('xs');
+    padding: 0;
+  }
+
+  &__swatches {
+    display: flex;
+    gap: spacer('xs');
+  }
+
+  &__swatch {
+    aspect-ratio: 1;
+    background-color: var(--swatch);
+    border: 2px solid color('surface');
+    border-radius: radius('pill');
+    box-shadow: 0 0 0 1px color('border');
+    cursor: pointer;
+    inline-size: 2rem;
+    position: relative;
+
+    input {
+      appearance: none;
+      border-radius: inherit;
+      cursor: pointer;
+      inset: 0;
+      margin: 0;
+      // Invisible but focusable and clickable; the label shows the state.
+      opacity: 0;
+      position: absolute;
+    }
+
+    &:has(:checked) {
+      box-shadow: 0 0 0 2px color('heading');
+    }
+
+    &:has(:focus-visible) {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 3px;
+    }
+  }
+
+  &__buy {
+    display: grid;
+    gap: spacer('xs');
+    grid-template-columns: 5rem 1fr;
+  }
+
+  &__status {
+    color: color('heading');
+    font-size: config('font-size-sm', $typography);
+
+    &:not(:empty) {
+      background-color: color-alpha('success', 0.12, 'alert');
+      border-radius: radius('md');
+      padding: spacer('xs') spacer('s');
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: config('font-size-sm', $typography);
+    font-weight: 600;
+  }
+}
+
+@keyframes quick-view-in {
+  from {
+    opacity: 0;
+    scale: 0.96;
+  }
+}

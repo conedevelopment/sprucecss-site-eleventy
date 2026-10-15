@@ -1,0 +1,29 @@
+.testimonials-block {
+  padding-block: clamp(4.5rem, 5vw, 7rem);
+}
+.testimonials-block__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.testimonials-block__rating {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-block: 0;
+  margin-block-start: 1rem !important;
+}
+.testimonials-block__stars {
+  color: var(--spruce-alert-color-warning);
+  display: inline-flex;
+}
+.testimonials-block__stars svg {
+  block-size: 1.25rem;
+  inline-size: 1.25rem;
+}
+.testimonials-block .logo-cloud {
+  border-block-start: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  padding-block-start: 3rem;
+}

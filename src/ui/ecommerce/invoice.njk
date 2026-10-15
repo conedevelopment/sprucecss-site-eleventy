@@ -18,10 +18,18 @@ title: 'Invoice'
     {% include "ui/scss/ecommerce/invoice.scss" %}
 {% endset %}
 
+{% set js %}
+    {% include "ui/js/ecommerce/invoice.js" %}
+{% endset %}
+
 {% set description %}
     {% include "ui/md/ecommerce/invoice.md" %}
 {% endset %}
 
 {% block style %}
     <link rel="stylesheet" href="/_includes/ui/css/ecommerce/invoice.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/ecommerce/invoice.js"></script>
 {% endblock %}

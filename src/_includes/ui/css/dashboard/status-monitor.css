@@ -1,0 +1,141 @@
+.status-monitor {
+  --status-monitor-operational: var(--spruce-alert-color-success);
+  --status-monitor-degraded: var(--spruce-alert-color-warning);
+  --status-monitor-outage: var(--spruce-alert-color-danger);
+  background-color: var(--spruce-base-color-surface);
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  border-radius: var(--spruce-border-radius-lg);
+  padding: 1.5rem;
+}
+.status-monitor > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.status-monitor > * + * {
+  margin-block-start: 1.5rem;
+}
+.status-monitor__header > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.status-monitor__header > * + * {
+  margin-block-start: 1rem;
+}
+.status-monitor__title {
+  font-size: 1rem;
+  margin: 0;
+}
+.status-monitor__overall {
+  align-items: center;
+  background-color: color-mix(in srgb, var(--spruce-alert-color-success) 12%, transparent);
+  border-radius: var(--spruce-border-radius-md);
+  color: var(--spruce-base-color-heading);
+  display: flex;
+  font-weight: 600;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+.status-monitor__overall svg {
+  block-size: 1.25rem;
+  flex-shrink: 0;
+  inline-size: 1.25rem;
+}
+.status-monitor__overall--degraded {
+  background-color: color-mix(in srgb, var(--spruce-alert-color-warning) 20%, transparent);
+}
+.status-monitor__overall--outage {
+  background-color: color-mix(in srgb, var(--spruce-alert-color-danger) 15%, transparent);
+}
+.status-monitor__services {
+  display: grid;
+  list-style: none;
+  padding: 0;
+}
+.status-monitor__services > li {
+  margin-block: 0;
+}
+.status-monitor__service {
+  border-block-start: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  padding-block: 1rem;
+}
+.status-monitor__service > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.status-monitor__service > * + * {
+  margin-block-start: 0.5rem;
+}
+.status-monitor__row {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  justify-content: space-between;
+}
+.status-monitor__name {
+  font-family: inherit;
+  font-size: var(--spruce-font-size-base);
+  margin: 0;
+}
+.status-monitor__status {
+  align-items: center;
+  display: inline-flex;
+  font-size: var(--spruce-font-size-sm);
+  font-weight: 600;
+  gap: 0.25rem;
+}
+.status-monitor__status::before {
+  aspect-ratio: 1;
+  background-color: var(--status-monitor-operational);
+  border-radius: 50%;
+  content: "";
+  inline-size: 0.5rem;
+}
+.status-monitor__status--degraded::before {
+  background-color: var(--status-monitor-degraded);
+}
+.status-monitor__status--outage::before {
+  background-color: var(--status-monitor-outage);
+}
+.status-monitor__bars {
+  block-size: 2rem;
+  display: grid;
+  gap: 2px;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
+  list-style: none;
+  padding: 0;
+}
+.status-monitor__bars li {
+  background-color: var(--status-monitor-operational);
+  border-radius: 2px;
+  margin: 0;
+  transition-duration: var(--spruce-duration);
+  transition-property: opacity;
+  transition-timing-function: var(--spruce-timing-function);
+}
+.status-monitor__bars li:hover {
+  opacity: 0.7;
+}
+.status-monitor__bars [data-status=degraded] {
+  background-color: var(--status-monitor-degraded);
+}
+.status-monitor__bars [data-status=outage] {
+  background-color: var(--status-monitor-outage);
+}
+.status-monitor__bars > li {
+  margin-block: 0;
+  padding-block: 0;
+}
+.status-monitor__summary, .status-monitor__footer {
+  color: var(--spruce-base-color-muted);
+  display: flex;
+  font-size: var(--spruce-font-size-sm);
+  gap: 1rem;
+  justify-content: space-between;
+}
+.status-monitor__footer {
+  border-block-start: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  font-size: 0.75rem;
+  padding-block-start: 1rem;
+}

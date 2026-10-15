@@ -1,20 +1,30 @@
 @use 'sprucecss/scss/spruce' as *;
 
 .call-to-action {
-  border-block-start: 1px solid color('border');
-  display: flex;
-  flex-direction: column;
-  gap: spacer('s') spacer-clamp('m', 'l');
+  border-block-start: config('border-width-base', $display) solid color('border');
+  display: grid;
+  gap: spacer('s') spacer-clamp('m', 'xl');
   padding-block: spacer-clamp('l', 'xl');
 
   @include breakpoint('md') {
-    flex-direction: row;
+    align-items: start;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  &__heading {
+    @include layout-stack('xs');
+  }
+
+  &__eyebrow {
+    color: color('primary');
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 
   &__title {
     font-size: font-size('h1');
-    font-weight: 400;
-    margin-block: 0;
   }
 
   &__caption {
@@ -22,12 +32,35 @@
   }
 
   &__description {
+    color: color('muted');
     font-size: config('font-size-lead', $typography);
   }
 
   &__btns {
     display: flex;
     flex-wrap: wrap;
-    gap: spacer('m');
+    gap: spacer('s');
+  }
+
+  // A highlighted card version, for the end of a page or between sections.
+  &--boxed {
+    align-items: center;
+    background-color: color-alpha('primary', 0.06);
+    border: config('border-width-base', $display) solid color-alpha('primary', 0.2);
+    border-radius: radius('lg');
+    margin-block-start: spacer('l');
+    padding: spacer-clamp('m', 'l');
+
+    .call-to-action__btns {
+      @include breakpoint('md') {
+        justify-content: end;
+      }
+    }
+
+    .call-to-action__caption {
+      @include breakpoint('md') {
+        text-align: end;
+      }
+    }
   }
 }

@@ -1,0 +1,35 @@
+---
+title: 'Shipping Options'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--narrow">
+        {% include "ui/html/ecommerce/shipping-options.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/ecommerce/shipping-options.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/ecommerce/shipping-options.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/ecommerce/shipping-options.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/ecommerce/shipping-options.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/ecommerce/shipping-options.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/ecommerce/shipping-options.js"></script>
+{% endblock %}

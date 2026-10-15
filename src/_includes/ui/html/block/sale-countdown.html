@@ -1,0 +1,55 @@
+{#- Override with `saleCountdownBlock` ({ eyebrow, title, text, days, action, products: [{ name, price, oldPrice, discount, image }] }). `days` sets the end of the sale (or set a `data-countdown-end` date). -#}
+{%- set _s = saleCountdownBlock or {
+    "eyebrow": "Autumn sale",
+    "title": "Up to 40% off the bestsellers",
+    "text": "Our biggest sale of the year, on the pieces you love most. While stocks last.",
+    "days": 3,
+    "action": "Shop the sale",
+    "products": [
+        { "name": "Everyday Backpack", "price": "$62", "oldPrice": "$89", "discount": "-30%", "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=70" },
+        { "name": "Wireless Headphones", "price": "$139", "oldPrice": "$199", "discount": "-30%", "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=70" },
+        { "name": "Smart Watch", "price": "$179", "oldPrice": "$299", "discount": "-40%", "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=70" },
+        { "name": "Desk Lamp", "price": "$55", "oldPrice": "$79", "discount": "-30%", "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=70" }
+    ]
+} %}
+<section class="sale-countdown-block" aria-labelledby="sale-countdown-title">
+    <div class="container">
+        <div class="sale-countdown-block__inner">
+            <div class="countdown sale-countdown-block__banner" data-countdown data-countdown-days="{{ _s.days }}">
+                <div class="sale-countdown-block__copy">
+                    <p class="sale-countdown-block__eyebrow">{{ _s.eyebrow }}</p>
+                    <h2 class="sale-countdown-block__title" id="sale-countdown-title">{{ _s.title }}</h2>
+                    <p class="sale-countdown-block__text">{{ _s.text }}</p>
+                </div>
+                <div class="sale-countdown-block__timer">
+                    <p class="countdown__title" id="sale-countdown-label">Ends in</p>
+                    <p class="countdown__timer" role="timer" aria-live="off" aria-labelledby="sale-countdown-label" data-countdown-timer>
+                        <span class="countdown__unit"><span class="countdown__value" data-unit="days">{{ _s.days if _s.days >= 10 else '0' ~ _s.days }}</span><span class="countdown__label">Days</span></span>
+                        <span class="countdown__unit"><span class="countdown__value" data-unit="hours">00</span><span class="countdown__label">Hours</span></span>
+                        <span class="countdown__unit"><span class="countdown__value" data-unit="minutes">00</span><span class="countdown__label">Min</span></span>
+                        <span class="countdown__unit"><span class="countdown__value" data-unit="seconds">00</span><span class="countdown__label">Sec</span></span>
+                    </p>
+                    <p class="sr-only" data-countdown-text></p>
+                    <a class="btn btn--lg sale-countdown-block__action" href="#">{{ _s.action }}</a>
+                </div>
+            </div>
+            <ul class="sale-countdown-block__grid" role="list">
+                {%- for product in _s.products %}
+                <li>
+                    <article class="product-card">
+                        <div class="product-card__media">
+                            <img src="{{ product.image }}" alt="" loading="lazy" width="600" height="600">
+                            <span class="product-card__tag">{{ product.discount }}</span>
+                        </div>
+                        <div class="product-card__body">
+                            <h3 class="product-card__title"><a class="product-card__link" href="#">{{ product.name }}</a></h3>
+                            <p class="product-card__price"><span class="sr-only">Sale price: </span>{{ product.price }} <del><span class="sr-only">Original price: </span>{{ product.oldPrice }}</del></p>
+                        </div>
+                        <button class="btn btn--primary btn--sm product-card__action" type="button">Add to cart<span class="sr-only">: {{ product.name }}</span></button>
+                    </article>
+                </li>
+                {%- endfor %}
+            </ul>
+        </div>
+    </div>
+</section>

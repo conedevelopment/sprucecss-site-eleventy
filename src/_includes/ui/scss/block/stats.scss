@@ -1,0 +1,61 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.stats-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+  }
+
+  &--brand {
+    @include set-css-variable((
+      --base-color-heading: color('primary-foreground', 'btn'),
+      --base-color-muted: color-alpha('primary-foreground', 0.8, 'btn'),
+      --base-color-primary: color('primary-foreground', 'btn'),
+      --base-color-text: color('primary-foreground', 'btn'),
+    ));
+    @include selection(color('secondary-background', 'btn'), color('secondary-foreground', 'btn'));
+    background-color: color('primary-background', 'btn');
+    background-image: radial-gradient(circle at 15% 0%, #{color-alpha('primary-foreground', 0.15, 'btn')}, transparent 50%);
+    color: color('primary-foreground', 'btn');
+  }
+
+  &__grid {
+    display: grid;
+    gap: spacer('m');
+    grid-template-columns: repeat(auto-fit, minmax(min(12rem, 100%), 1fr));
+    // A child of the flex __inner: the gap spaces it, so drop the browser margins.
+    margin-block: 0;
+  }
+
+  &__item {
+    border-inline-start: 2px solid color-alpha('primary', 0.4);
+    display: flex;
+    flex-direction: column;
+    padding-inline-start: spacer('m');
+  }
+
+  &__label {
+    color: color('heading');
+    font-weight: 700;
+    order: 2;
+  }
+
+  &__value {
+    color: color('heading');
+    font-family: config('font-family-heading', $typography);
+    font-size: responsive-font-size(3rem, 30, '3vw + 1rem');
+    font-weight: config('font-weight-heading', $typography);
+    line-height: 1.1;
+    margin: 0;
+    order: 1;
+  }
+
+  &__text {
+    color: color('muted');
+    margin: 0;
+    order: 3;
+  }
+}

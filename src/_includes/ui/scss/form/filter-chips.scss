@@ -1,0 +1,57 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.filter-chips {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacer('xs') spacer('s');
+
+  &__list {
+    @include layout-cluster('xs');
+  }
+}
+
+.filter-chip {
+  @include clear-btn;
+  align-items: center;
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border-strong');
+  border-radius: radius('pill');
+  color: color('text');
+  display: inline-flex;
+  font-size: config('font-size-sm', $typography);
+  font-weight: 600;
+  gap: spacer('xxs');
+  padding-block: spacer('xxs');
+  padding-inline: spacer('s');
+  @include transition($property: 'background-color, border-color, color');
+
+  &::before {
+    background-color: currentcolor;
+    block-size: 0.9em;
+    content: '';
+    display: none;
+    inline-size: 0.9em;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  &:hover {
+    border-color: color('primary');
+    color: color('heading');
+  }
+
+  &[aria-pressed='true'] {
+    background-color: color-alpha('primary', 0.12);
+    border-color: color('primary');
+    color: color('primary');
+
+    &::before {
+      display: block;
+    }
+  }
+
+  &:focus-visible {
+    outline: 2px solid color('focus-ring');
+    outline-offset: 2px;
+  }
+}

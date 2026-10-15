@@ -1,0 +1,65 @@
+.tooltip-demo {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-block: 4.5rem;
+}
+
+.tooltip {
+  display: inline-flex;
+  position: relative;
+}
+.tooltip__content {
+  background-color: var(--spruce-base-color-heading);
+  border-radius: var(--spruce-border-radius-sm);
+  box-shadow: var(--spruce-shadow-md);
+  color: var(--spruce-base-color-background);
+  font-size: var(--spruce-font-size-sm);
+  inline-size: max-content;
+  inset-block-end: calc(100% + 0.5rem);
+  inset-inline-start: 50%;
+  line-height: var(--spruce-line-height-md);
+  max-inline-size: 16rem;
+  opacity: 0;
+  padding: 0.25rem 0.5rem;
+  pointer-events: none;
+  position: absolute;
+  translate: -50% 0.25rem;
+  visibility: hidden;
+  z-index: 1080;
+  transition-duration: var(--spruce-duration);
+  transition-property: opacity, translate, visibility;
+  transition-timing-function: var(--spruce-timing-function);
+}
+.tooltip__content::after {
+  border: 0.375rem solid transparent;
+  border-block-start-color: var(--spruce-base-color-heading);
+  content: "";
+  inset-block-start: 100%;
+  inset-inline-start: 50%;
+  position: absolute;
+  translate: -50% 0;
+}
+.tooltip:hover .tooltip__content, .tooltip:focus-within .tooltip__content, .tooltip.is-open .tooltip__content {
+  opacity: 1;
+  translate: -50% 0;
+  visibility: visible;
+}
+.tooltip.is-dismissed .tooltip__content {
+  opacity: 0;
+  visibility: hidden;
+}
+.tooltip--bottom .tooltip__content {
+  inset-block: calc(100% + 0.5rem) auto;
+  translate: -50% -0.25rem;
+}
+.tooltip--bottom .tooltip__content::after {
+  border-block-end-color: var(--spruce-base-color-heading);
+  border-block-start-color: transparent;
+  inset-block: auto 100%;
+}
+
+[dir=rtl] .tooltip__content {
+  translate: 50% 0.25rem;
+}

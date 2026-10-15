@@ -1,0 +1,6 @@
+<li>
+    <button class="ide-file" type="button" data-ide-file="{{ file.path }}" aria-controls="ide-panel-{{ file.path | slugify }}"{% if active %} aria-current="true"{% endif %}>
+        {% include "icon/html.svg" if file.path.endsWith('.html') else "icon/sass.svg" %}
+        {{ file.path.split('/') | last }}
+    </button>
+</li>

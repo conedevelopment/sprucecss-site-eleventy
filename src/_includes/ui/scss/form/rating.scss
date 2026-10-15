@@ -1,0 +1,58 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.rating {
+  @include layout-stack('xs');
+
+  &__legend {
+    font-size: font-size('h5');
+  }
+
+  &__stars {
+    display: inline-flex;
+    gap: spacer('xxs');
+  }
+
+  &__control {
+    @include visually-hidden;
+  }
+
+  &__star {
+    color: color('border-strong');
+    cursor: pointer;
+    display: inline-flex;
+    @include transition($property: 'color, scale');
+
+    svg {
+      block-size: 2rem;
+      fill: currentcolor;
+      inline-size: 2rem;
+    }
+  }
+
+  // Color every star up to the checked one, and up to the hovered one.
+  &__stars:has(&__control:checked) &__star {
+    color: color('warning', 'alert');
+  }
+
+  &__control:checked + &__star ~ &__star {
+    color: color('border-strong');
+  }
+
+  &__stars:hover &__star {
+    color: color('warning', 'alert');
+  }
+
+  &__star:hover ~ &__star {
+    color: color('border-strong');
+  }
+
+  &__star:hover {
+    scale: 1.1;
+  }
+
+  &__control:focus-visible + &__star {
+    border-radius: radius('sm');
+    outline: 2px solid color('focus-ring');
+    outline-offset: 2px;
+  }
+}

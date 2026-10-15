@@ -1,0 +1,39 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.otp-input {
+  @include layout-stack('m');
+  text-align: center;
+
+  &__legend {
+    font-size: font-size('h4');
+    margin-inline: auto;
+  }
+
+  &__hint,
+  &__resend {
+    color: color('muted');
+  }
+
+  &__digits {
+    display: flex;
+    gap: spacer('xs');
+    justify-content: center;
+  }
+
+  &__digit {
+    aspect-ratio: 1;
+    font-family: config('font-family-mono', $typography);
+    font-size: font-size('h3');
+    font-weight: 700;
+    inline-size: 3.25rem;
+    padding: 0;
+    text-align: center;
+  }
+
+  &__resend {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

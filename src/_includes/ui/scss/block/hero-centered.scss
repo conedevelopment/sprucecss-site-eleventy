@@ -1,0 +1,98 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.hero-centered-block {
+  background-image: radial-gradient(ellipse 60% 50% at 50% 0%, #{color-alpha('primary', 0.12)}, transparent);
+  overflow: hidden;
+  padding-block: spacer-clamp('l', 'xxl') spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: spacer('m');
+    text-align: center;
+  }
+
+  &__eyebrow {
+    align-items: center;
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('pill');
+    color: color('heading');
+    display: inline-flex;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xs');
+    margin: 0;
+    padding-block: spacer('xxs');
+    padding-inline: spacer('xxs') spacer('s');
+  }
+
+  &__badge {
+    background-color: color('primary');
+    border-radius: radius('pill');
+    color: color('primary-foreground', 'btn');
+    font-weight: 700;
+    padding-inline: spacer('xs');
+  }
+
+  &__title {
+    font-size: responsive-font-size(4.25rem, 45, '5vw + 1rem');
+    letter-spacing: -0.03em;
+    margin: 0;
+    max-inline-size: 18ch;
+  }
+
+  &__lead {
+    color: color('muted');
+    font-size: config('font-size-lead', $typography);
+    margin: 0;
+    max-inline-size: 40rem;
+  }
+
+  &__actions {
+    @include layout-cluster('s', center);
+  }
+
+  &__proof {
+    align-items: center;
+    color: color('muted');
+    display: flex;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xs');
+
+    .avatar {
+      box-shadow: 0 0 0 2px color('background');
+    }
+  }
+
+  &__media {
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    box-shadow: shadow('xl');
+    inline-size: 100%;
+    margin: spacer('l') 0 0;
+    max-inline-size: 64rem;
+    overflow: hidden;
+
+    img {
+      aspect-ratio: 16 / 10;
+      inline-size: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__frame {
+    border-block-end: config('border-width-base', $display) solid color('border');
+    display: flex;
+    gap: spacer('xxs');
+    padding: spacer('xs') spacer('s');
+
+    i {
+      background-color: color('border-strong');
+      block-size: 0.625rem;
+      border-radius: 50%;
+      inline-size: 0.625rem;
+    }
+  }
+}

@@ -1,19 +1,25 @@
 .number-group {
   --webkit-date-line-height: 1.375;
+  --spruce-border-radius: var(--spruce-form-control-border-radius, 0.425rem);
+  --spruce-border-width: var(--spruce-form-control-border-width, 1px);
+  --spruce-font-size: var(--spruce-form-control-font-size, 1rem);
+  --spruce-line-height: var(--spruce-form-control-line-height, 1.5);
+  --spruce-padding: var(--spruce-form-control-padding, 0.5em 0.75em);
+  --spruce-textarea-block-size: var(--spruce-form-control-textarea-block-size, 6rem);
   appearance: none;
   background-color: var(--spruce-form-color-background);
-  border: 1px solid var(--spruce-form-color-border);
-  border-radius: 0.425rem;
+  border: var(--spruce-border-width) solid var(--spruce-form-color-border);
+  border-radius: var(--spruce-border-radius);
   box-sizing: border-box;
   color: var(--spruce-form-color-text);
   display: block;
-  font-size: 1rem;
+  font-size: var(--spruce-font-size);
   inline-size: 100%;
-  line-height: 1.5;
-  padding: 0.5em 0.75em;
-  transition-duration: 0.15s;
+  line-height: var(--spruce-line-height);
+  padding: var(--spruce-padding);
+  transition-duration: var(--spruce-duration);
   transition-property: border, box-shadow;
-  transition-timing-function: ease-in-out;
+  transition-timing-function: var(--spruce-timing-function);
 }
 .number-group::placeholder {
   color: var(--spruce-form-color-placeholder);
@@ -27,21 +33,25 @@
   outline: 2px solid transparent;
 }
 .number-group[type=color] {
-  aspect-ratio: 1;
-  block-size: 100%;
-  inline-size: 2.625rem;
-  padding: 0.5em;
+  --spruce-aspect-ratio: var(--spruce-form-control-color-aspect-ratio, 1);
+  --spruce-block-size: var(--spruce-form-control-color-block-size, 100%);
+  --spruce-inline-size: var(--spruce-form-control-color-inline-size, 2.625rem);
+  --spruce-padding: var(--spruce-form-control-color-padding, 0.5em);
+  aspect-ratio: var(--spruce-aspect-ratio);
+  block-size: var(--spruce-block-size);
+  inline-size: var(--spruce-inline-size);
+  padding: var(--spruce-padding);
 }
 .number-group[type=color]::-webkit-color-swatch-wrapper {
   padding: 0;
 }
 .number-group[type=color]::-moz-color-swatch {
   border: 0;
-  border-radius: 0.425rem;
+  border-radius: var(--spruce-border-radius);
 }
 .number-group[type=color]::-webkit-color-swatch {
   border: 0;
-  border-radius: 0.425rem;
+  border-radius: var(--spruce-border-radius);
 }
 .number-group[disabled], .number-group[disabled=true] {
   background-color: var(--spruce-form-color-background-disabled);
@@ -49,8 +59,8 @@
   cursor: not-allowed;
 }
 textarea.number-group {
-  block-size: 6rem;
-  min-block-size: 6rem;
+  block-size: var(--spruce-textarea-block-size);
+  min-block-size: var(--spruce-textarea-block-size);
   resize: vertical;
 }
 
@@ -59,7 +69,7 @@ textarea.number-group {
   display: inline-flex;
   gap: 0.25rem;
   inline-size: auto;
-  max-inline-size: 6.5rem;
+  max-inline-size: 8rem;
   padding: 0.25em;
   position: relative;
 }
@@ -69,12 +79,15 @@ textarea.number-group {
   outline: 2px solid transparent;
 }
 .number-group__input {
+  appearance: textfield;
   background-color: transparent;
   border: 0;
   color: var(--spruce-form-color-text);
-  font-size: 1rem;
+  font-size: var(--spruce-font-size);
+  font-variant-numeric: tabular-nums;
   inline-size: 100%;
-  line-height: 1.5;
+  line-height: var(--spruce-line-height);
+  min-inline-size: 2ch;
   outline: 0;
   padding: 0;
   text-align: center;
@@ -85,4 +98,8 @@ textarea.number-group {
 }
 .number-group__decrement, .number-group__increment {
   border-radius: 0.35em;
+  flex-shrink: 0;
+}
+.number-group__decrement:disabled, .number-group__increment:disabled {
+  cursor: not-allowed;
 }

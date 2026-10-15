@@ -18,12 +18,18 @@ title: 'Modal'
     {% include "ui/scss/content-and-layout/modal.scss" %}
 {% endset %}
 
+{% set js %}
+    {% include "ui/js/content-and-layout/modal.js" %}
+{% endset %}
+
 {% set description %}
     {% include "ui/md/content-and-layout/modal.md" %}
 {% endset %}
 
 {% block style %}
     <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/modal.css">
-    <link rel="stylesheet" href="/_includes/ui/css/form/auth.css">
 {% endblock %}
 
+{% block script %}
+    <script defer src="/_includes/ui/js/content-and-layout/modal.js"></script>
+{% endblock %}

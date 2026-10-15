@@ -1,0 +1,161 @@
+@use 'sprucecss/scss/spruce' as *;
+
+// Built on the Drawer component: load its stylesheet first.
+.cart-drawer {
+  --drawer-inline-size: 26rem;
+
+  &__count {
+    color: color('muted');
+    font-weight: 400;
+  }
+
+  &__shipping {
+    background-color: color('surface-muted');
+    border-radius: radius('md');
+    padding: spacer('s');
+    @include layout-stack('xs');
+  }
+
+  &__shipping-text {
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__progress {
+    appearance: none;
+    background-color: color('border');
+    block-size: 0.5rem;
+    border: 0;
+    border-radius: radius('pill');
+    display: block;
+    inline-size: 100%;
+    overflow: hidden;
+
+    &::-webkit-progress-bar {
+      background-color: color('border');
+    }
+
+    &::-webkit-progress-value {
+      background-color: color('success', 'alert');
+      border-radius: radius('pill');
+    }
+
+    &::-moz-progress-bar {
+      background-color: color('success', 'alert');
+      border-radius: radius('pill');
+    }
+  }
+
+  &__items {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__item {
+    align-items: start;
+    border-block-end: config('border-width-base', $display) solid color('border');
+    display: grid;
+    gap: spacer('s');
+    grid-template-columns: 5rem minmax(0, 1fr) auto;
+    padding-block: spacer('s');
+  }
+
+  &__thumb {
+    aspect-ratio: 1;
+    background-color: color('surface-muted');
+    border-radius: radius('md');
+    inline-size: 100%;
+    object-fit: cover;
+  }
+
+  &__info {
+    @include layout-stack('xxs');
+  }
+
+  &__name {
+    color: color('heading');
+    display: block;
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__meta {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__quantity {
+    align-items: center;
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('pill');
+    display: inline-flex;
+  }
+
+  &__step {
+    align-items: center;
+    background: none;
+    block-size: 2rem;
+    border: 0;
+    border-radius: 50%;
+    color: color('heading');
+    cursor: pointer;
+    display: flex;
+    font-size: 1.1rem;
+    inline-size: 2rem;
+    justify-content: center;
+
+    &:hover {
+      background-color: color('surface-muted');
+    }
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 1px;
+    }
+  }
+
+  &__value {
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    min-inline-size: 2ch;
+    text-align: center;
+  }
+
+  &__price {
+    color: color('heading');
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    margin-block: 0;
+  }
+
+  &__empty {
+    color: color('muted');
+    padding-block: spacer('l');
+    text-align: center;
+  }
+
+  &__footer {
+    border-block-start: config('border-width-base', $display) solid color('border');
+    display: flex;
+    flex-direction: column;
+    gap: spacer('xs');
+    padding: spacer('m');
+  }
+
+  &__subtotal {
+    color: color('heading');
+    display: flex;
+    font-size: font-size('h5');
+    justify-content: space-between;
+    margin-block: 0;
+  }
+
+  &__note {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    margin-block: 0 spacer('xs');
+  }
+}

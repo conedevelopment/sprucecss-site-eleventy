@@ -2,14 +2,36 @@
 
 .gallery {
   $this: &;
+  @include clear-list;
+
+  + .gallery {
+    margin-block-start: spacer-clamp('l', 'xl');
+  }
 
   img {
-    border-radius: config('border-radius-sm', $display);
+    @include transition($property: 'scale');
+    block-size: 100%;
+    inline-size: 100%;
     object-fit: cover;
   }
 
-  &-item {
-    margin-block: 0;
+  &-item__link {
+    block-size: 100%;
+    border-radius: radius('md');
+    display: block;
+    overflow: hidden;
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 3px;
+    }
+  }
+
+  @include motion-safe {
+    &-item__link:hover img,
+    &-item__link:focus-visible img {
+      scale: 1.04;
+    }
   }
 
   &--even {
@@ -17,6 +39,12 @@
 
     img {
       aspect-ratio: 1;
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
     }
   }
 
@@ -80,8 +108,22 @@
 
     img {
       aspect-ratio: 3 / 2;
-      block-size: 100%;
-      inline-size: 100%;
+    }
+
+    // On phones, the uneven layout falls back to two columns.
+    @include breakpoint-down('sm') {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      #{$this}-item {
+        grid-column: auto;
+        grid-row: auto;
+      }
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
     }
   }
 }

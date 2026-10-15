@@ -1,0 +1,19 @@
+.pricing-block {
+  padding-block: clamp(4.5rem, 5vw, 7rem);
+}
+.pricing-block__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.pricing-block__toggle {
+  display: flex;
+  margin-inline: auto;
+  max-inline-size: max-content;
+}
+.pricing-block__note {
+  color: var(--spruce-base-color-muted);
+  font-size: var(--spruce-font-size-sm);
+  margin-block: 0;
+  text-align: center;
+}

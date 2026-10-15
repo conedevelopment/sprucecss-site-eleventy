@@ -4,16 +4,31 @@
   @include layout-stack('s');
 }
 
-.form-label {
-  &--space-between {
-    display: flex;
-    justify-content: space-between;
-  }
+.form-label--space-between {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacer('xs');
+  justify-content: space-between;
 }
 
 .auth-form {
-  margin-block: auto;
-  @include layout-stack('s');
+  @include layout-stack('m');
+  margin-inline: auto;
+  max-inline-size: 26rem;
+
+  &__heading {
+    @include layout-stack('xxs');
+  }
+
+  &__title {
+    font-size: font-size('h2');
+    margin-block: 0;
+  }
+
+  &__subtitle {
+    color: color('muted');
+  }
 
   &__social {
     @include layout-stack('s');
@@ -21,19 +36,28 @@
 
   &__separator {
     align-items: center;
+    color: color('muted');
     display: flex;
     font-size: config('font-size-sm', $typography);
     gap: spacer('s');
-    margin-block-start: spacer('m');
-    text-transform: uppercase;
+    white-space: nowrap;
 
     &::before,
     &::after {
       background-color: color('border');
-      block-size: 1px;
+      block-size: config('border-width-base', $display);
       content: '';
-      display: flex;
-      inline-size: 100%;
+      flex-grow: 1;
     }
+  }
+
+  &__forgot {
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__legal {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    text-align: center;
   }
 }

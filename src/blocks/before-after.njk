@@ -1,0 +1,35 @@
+---
+category: 'Features'
+title: 'Before and After'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--block ui--before-after">
+        {% include "ui/html/block/before-after.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/block/before-after.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/block/before-after.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/block/before-after.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/container.css">
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/block-heading.css">
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/image-compare.css">
+    <link rel="stylesheet" href="/_includes/ui/css/block/before-after.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/content-and-layout/image-compare.js"></script>
+{% endblock %}

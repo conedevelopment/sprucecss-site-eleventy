@@ -1,0 +1,35 @@
+---
+title: 'Copy Button'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--narrow ui--copy-button">
+        {% include "ui/html/misc/copy-button.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/misc/copy-button.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/misc/copy-button.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/misc/copy-button.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/misc/copy-button.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/misc/copy-button.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/misc/copy-button.js"></script>
+{% endblock %}

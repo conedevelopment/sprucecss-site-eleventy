@@ -1,0 +1,123 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.chart-cards {
+  @include layout-grid('m', 22rem);
+}
+
+.chart-card {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  min-inline-size: 0;
+  padding: spacer('m');
+  @include layout-stack('s');
+
+  &__header {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs') spacer('m');
+    justify-content: space-between;
+  }
+
+  &__heading {
+    @include layout-stack('xxs');
+  }
+
+  &__title {
+    color: color('muted');
+    font-family: inherit;
+    font-size: config('font-size-sm', $typography);
+    font-weight: 600;
+    margin: 0;
+  }
+
+  &__value {
+    align-items: baseline;
+    color: color('heading');
+    display: flex;
+    flex-wrap: wrap;
+    font-family: config('font-family-heading', $typography);
+    font-size: font-size('h3');
+    font-weight: 700;
+    gap: spacer('xs');
+    line-height: 1.2;
+  }
+
+  &__change {
+    font-family: config('font-family-base', $typography);
+    font-size: config('font-size-sm', $typography);
+
+    &--up {
+      color: color('success', 'alert');
+
+      &::before {
+        content: '↑ ';
+      }
+    }
+
+    &--down {
+      color: color('danger', 'alert');
+
+      &::before {
+        content: '↓ ';
+      }
+    }
+  }
+
+  &__legend {
+    @include clear-list;
+    @include layout-cluster('s');
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+
+    li {
+      align-items: center;
+      display: inline-flex;
+      gap: spacer('xxs');
+      margin: 0;
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  // The chart script reads the colors of the swatches, so the legend and the chart always match.
+  &__swatch {
+    background-color: color('primary');
+    block-size: 0.75rem;
+    border-radius: radius('sm');
+    display: inline-block;
+    inline-size: 0.75rem;
+
+    &--muted {
+      background-color: color-alpha('muted', 0.5);
+    }
+  }
+
+  &__canvas {
+    block-size: 16rem;
+    position: relative;
+
+    // Without JavaScript (or if Chart.js fails to load), the canvas stays empty: hide it, the open data table stays visible.
+    &:not(:has(canvas[data-chart-ready])) {
+      display: none;
+    }
+  }
+
+  &__data {
+    font-size: config('font-size-sm', $typography);
+
+    summary {
+      color: color('muted');
+      cursor: pointer;
+    }
+
+    .table {
+      margin-block-start: spacer('xs');
+    }
+  }
+}

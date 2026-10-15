@@ -18,10 +18,18 @@ title: 'Alert'
     {% include "ui/scss/feedback/alert.scss" %}
 {% endset %}
 
+{% set js %}
+    {% include "ui/js/feedback/alert.js" %}
+{% endset %}
+
 {% set description %}
     {% include "ui/md/feedback/alert.md" %}
 {% endset %}
 
 {% block style %}
     <link rel="stylesheet" href="/_includes/ui/css/feedback/alert.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/feedback/alert.js"></script>
 {% endblock %}

@@ -1,0 +1,27 @@
+---
+title: 'Bar Chart'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--wide">
+        {% include "ui/html/dashboard/bar-chart.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/dashboard/bar-chart.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/dashboard/bar-chart.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/dashboard/bar-chart.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/dashboard/bar-chart.css">
+{% endblock %}

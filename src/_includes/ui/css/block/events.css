@@ -1,0 +1,74 @@
+.events-block {
+  padding-block: clamp(4.5rem, 5vw, 7rem);
+}
+.events-block__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.events-block__header {
+  align-items: end;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+}
+.events-block__featured {
+  background-color: var(--spruce-base-color-surface);
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  border-radius: var(--spruce-border-radius-lg);
+  display: grid;
+  overflow: hidden;
+}
+@media (min-width: 64em) {
+  .events-block__featured {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+.events-block__image {
+  block-size: 100%;
+  inline-size: 100%;
+  min-block-size: 16rem;
+  object-fit: cover;
+}
+.events-block__details {
+  align-content: center;
+  display: grid;
+  gap: 1rem;
+  justify-items: start;
+  padding: clamp(1.5rem, 5vw, 3rem);
+}
+.events-block__details > * {
+  margin: 0;
+}
+.events-block__title {
+  font-size: clamp(1.328125rem, 2vw + 1rem, 1.5625rem);
+}
+.events-block__meta {
+  color: var(--spruce-base-color-muted);
+  font-weight: 600;
+}
+.events-block__countdown {
+  background: none;
+  border: 0;
+  padding: 0;
+}
+.events-block__countdown .countdown__timer {
+  justify-content: flex-start;
+}
+.events-block__countdown .countdown__unit {
+  min-inline-size: 4rem;
+  padding: 0.5rem;
+  text-align: center;
+}
+.events-block__countdown .countdown__value {
+  font-size: clamp(1.0625rem, 2vw + 1rem, 1.25rem);
+}
+.events-block__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.events-block__list {
+  grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
+}

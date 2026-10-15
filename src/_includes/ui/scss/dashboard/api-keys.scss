@@ -1,0 +1,74 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.api-keys {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  padding: spacer('m');
+  @include layout-stack('m');
+
+  &__header {
+    align-items: flex-start;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
+    justify-content: space-between;
+  }
+
+  &__heading {
+    @include layout-stack('xxs');
+  }
+
+  &__title {
+    font-size: font-size('h5');
+  }
+
+  &__text {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    max-inline-size: 36rem;
+  }
+
+  &__table {
+    font-size: config('font-size-sm', $typography);
+
+    th,
+    td {
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    th[scope='row'] {
+      font-weight: 400;
+    }
+
+    td:last-child {
+      text-align: end;
+    }
+
+    tr[data-revoked] {
+      opacity: 0.6;
+    }
+  }
+
+  &__name {
+    color: color('heading');
+    font-weight: 600;
+    margin-inline-end: spacer('xxs');
+  }
+
+  &__key {
+    align-items: center;
+    display: flex;
+    gap: spacer('xxs');
+
+    code {
+      font-variant-numeric: tabular-nums;
+      min-inline-size: 18ch;
+    }
+
+    .btn[hidden] {
+      display: none;
+    }
+  }
+}

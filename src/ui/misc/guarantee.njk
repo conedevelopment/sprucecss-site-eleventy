@@ -1,0 +1,27 @@
+---
+title: 'Guarantee'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--narrow">
+        {% include "ui/html/misc/guarantee.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/misc/guarantee.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/misc/guarantee.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/misc/guarantee.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/misc/guarantee.css">
+{% endblock %}

@@ -1,7 +1,35 @@
 <div x-data="{
     activeTab: 'preview',
     direction: 'ltr',
+    style: '{{ previewStyle or '' }}',
     copied: false,
+    fullscreen: false,
+    init() {
+        // Keep the chosen preview style across pages; ignore a stored style that no longer exists.
+        try {
+            const stored = localStorage.getItem('spruce-code-tab-style');
+            if (stored !== null && (stored === '' || this.$root.querySelector(`.code-tab__style option[value='${CSS.escape(stored)}']`))) {
+                this.style = stored;
+            }
+        } catch {}
+        this.$watch('style', (value) => {
+            try { localStorage.setItem('spruce-code-tab-style', value); } catch {}
+        });
+    },
+    toggleFullscreen() {
+        // Use the Fullscreen API when it is available; otherwise (like iOS Safari) cover the viewport with CSS.
+        if (document.fullscreenEnabled) {
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+            } else {
+                this.activeTab = 'preview';
+                this.$root.requestFullscreen();
+            }
+        } else {
+            this.fullscreen = !this.fullscreen;
+            document.documentElement.classList.toggle('has-code-tab-fullscreen', this.fullscreen);
+        }
+    },
     async copyTextToClipboard() {
         const code = document.querySelector(`#tab-content-${this.activeTab}`).dataset.code;
 
@@ -21,7 +49,13 @@
             console.log(err);
         });
     }
-}" x-cloak class="code-tab">
+}"
+    x-cloak
+    class="code-tab"
+    :class="{ 'code-tab--fullscreen': fullscreen }"
+    @fullscreenchange="fullscreen = document.fullscreenElement === $root"
+    @keydown.escape.window="if (fullscreen && !document.fullscreenElement) toggleFullscreen()"
+>
     <div class="code-tab__header">
         <div class="code-tab__group code-tab__group--title">
             <p class="code-tab__title">
@@ -62,17 +96,42 @@
                 </li>
             {% endif %}
         </ul>
-        <button @click="direction = (direction === 'rtl' ? 'ltr' : 'rtl')" :class="{ 'btn--primary': direction === 'rtl', 'btn--discrete' : direction === 'ltr' }" class="btn btn--sm">
-            RTL
-        </button>
-        <button @click="copyCode" class="btn btn--primary btn--icon btn--sm copy-btn" aria-label="Copy" :disabled="activeTab === 'preview'">
-            <span x-show="!copied">{% include "icon/copy.svg" %}</span>
-            <span x-show="copied">{% include "icon/check-copy.svg" %}</span>
-        </button>
+        <div class="code-tab__group code-tab__group--tabs">
+            {% if preview %}
+                <label class="sr-only" for="code-tab-style">Preview style</label>
+                <select id="code-tab-style" class="form-control form-control--sm code-tab__style" x-model="style">
+                    <option value="">Page style</option>
+                    {% for item in styles %}
+                        <option value="{{ item.name }}">{{ item.label }}</option>
+                    {% endfor %}
+                </select>
+            {% endif %}
+            <button @click="direction = (direction === 'rtl' ? 'ltr' : 'rtl')" :class="{ 'btn--primary': direction === 'rtl', 'btn--discrete' : direction === 'ltr' }" class="btn btn--sm">
+                RTL
+            </button>
+            {% if preview %}
+                <button
+                    @click="toggleFullscreen"
+                    class="btn btn--icon btn--sm code-tab__fullscreen"
+                    :class="{ 'btn--primary': fullscreen, 'btn--discrete': !fullscreen }"
+                    :aria-label="fullscreen ? 'Exit full screen' : 'Full screen'"
+                    :aria-pressed="fullscreen.toString()"
+                    aria-label="Full screen"
+                    aria-pressed="false"
+                >
+                    <span x-show="!fullscreen">{% include "icon/fullscreen.svg" %}</span>
+                    <span x-show="fullscreen">{% include "icon/fullscreen-exit.svg" %}</span>
+                </button>
+            {% endif %}
+            <button @click="copyCode" class="btn btn--primary btn--icon btn--sm copy-btn" aria-label="Copy" :disabled="activeTab === 'preview'">
+                <span x-show="!copied">{% include "icon/copy.svg" %}</span>
+                <span x-show="copied">{% include "icon/check-copy.svg" %}</span>
+            </button>
+        </div>
     </div>
     <div class="code-tab__body">
         {% if preview %}
-            <div id="tab-content-preview" :dir="direction" role="tabpanel" aria-labelledby="tab-control-preview" x-show="activeTab === 'preview'">
+            <div id="tab-content-preview" :dir="direction" :data-spruce-style="style || null" role="tabpanel" aria-labelledby="tab-control-preview" x-show="activeTab === 'preview'">
                 {{ preview | safe }}
             </div>
         {% endif %}

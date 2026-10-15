@@ -1,0 +1,27 @@
+---
+title: 'Page Header'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--wide">
+        {% include "ui/html/dashboard/page-header.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/dashboard/page-header.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/dashboard/page-header.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/dashboard/page-header.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/dashboard/page-header.css">
+{% endblock %}

@@ -1,0 +1,146 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.wishlist {
+  @include layout-stack('m');
+
+  &__header {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: font-size('h4');
+  }
+
+  &__count {
+    color: color('muted');
+    font-family: config('font-family-base', $typography);
+    font-size: config('font-size-base', $typography);
+    font-weight: 400;
+  }
+
+  &__items {
+    display: grid;
+    gap: spacer('m');
+    grid-template-columns: repeat(auto-fill, minmax(min(13rem, 100%), 1fr));
+    list-style: none;
+    padding: 0;
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__item {
+    display: flex;
+  }
+
+  &__card {
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    display: flex;
+    flex-direction: column;
+    inline-size: 100%;
+    overflow: hidden;
+  }
+
+  &__image {
+    aspect-ratio: 1;
+    background-color: color('surface-muted');
+    inline-size: 100%;
+    object-fit: cover;
+  }
+
+  &__body {
+    flex-grow: 1;
+    padding: spacer('s') spacer('s') 0;
+    @include layout-stack('xxs');
+  }
+
+  &__name {
+    font-family: inherit;
+    font-size: config('font-size-base', $typography);
+    font-weight: 600;
+
+    a {
+      color: color('heading');
+      text-decoration: none;
+
+      &:hover {
+        color: color('primary');
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__variant {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__price {
+    color: color('heading');
+    font-weight: 700;
+
+    del {
+      color: color('muted');
+      font-size: config('font-size-sm', $typography);
+      font-weight: 400;
+    }
+  }
+
+  &__stock {
+    align-items: center;
+    display: flex;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xxs');
+
+    &::before {
+      background-color: currentcolor;
+      block-size: 0.5rem;
+      border-radius: radius('pill');
+      content: '';
+      inline-size: 0.5rem;
+    }
+
+    &--in {
+      color: color('success', 'alert');
+    }
+
+    &--low {
+      color: color('warning', 'alert');
+    }
+
+    &--out {
+      color: color('muted');
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: spacer('xs');
+    padding: spacer('s');
+
+    .btn:first-child {
+      flex-grow: 1;
+    }
+  }
+
+  &__empty {
+    border: config('border-width-base', $display) dashed color('border');
+    border-radius: radius('lg');
+    padding: spacer('l') spacer('m');
+    text-align: center;
+    @include layout-stack('s');
+
+    &[hidden] {
+      display: none;
+    }
+  }
+}

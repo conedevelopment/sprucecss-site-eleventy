@@ -1,0 +1,52 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.logo-cloud {
+  text-align: center;
+  @include layout-stack('m');
+
+  &__title {
+    color: color('muted');
+    font-family: inherit;
+    font-size: config('font-size-sm', $typography);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    @include layout-cluster('m:l', center);
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  // The brand icon and the name make a monochrome lockup (currentColor).
+  &__logo {
+    align-items: center;
+    color: color('muted');
+    display: inline-flex;
+    font-family: config('font-family-heading', $typography);
+    font-size: font-size('h3');
+    font-weight: 800;
+    gap: 0.4em;
+    letter-spacing: -0.03em;
+    opacity: 0.8;
+    @include transition($property: 'color, opacity');
+
+    &:hover {
+      color: color('heading');
+      opacity: 1;
+    }
+  }
+
+  &__icon {
+    block-size: 1.1em;
+    flex-shrink: 0;
+    inline-size: 1.1em;
+  }
+}

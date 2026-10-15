@@ -1,0 +1,44 @@
+<section class="cart-summary" aria-labelledby="cart-summary-title">
+    <h2 class="cart-summary__title" id="cart-summary-title">Order summary</h2>
+    <ul class="cart-summary__items" role="list">
+        <li class="cart-summary__item">
+            <img class="cart-summary__thumb" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=128&h=128&q=70" alt="" width="64" height="64" loading="lazy">
+            <div class="cart-summary__info">
+                <span class="cart-summary__name">Everyday Backpack</span>
+                <span class="cart-summary__meta">Charcoal · 22L</span>
+            </div>
+            <div class="cart-summary__qty">
+                <label class="sr-only" for="qty-everyday">Quantity of Everyday Backpack</label>
+                <input class="form-control form-control--sm" id="qty-everyday" type="number" min="1" value="1" inputmode="numeric">
+            </div>
+            <span class="cart-summary__price">$89.00</span>
+        </li>
+        <li class="cart-summary__item">
+            <img class="cart-summary__thumb" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=128&h=128&q=70" alt="" width="64" height="64" loading="lazy">
+            <div class="cart-summary__info">
+                <span class="cart-summary__name">Ceramic Pour-Over</span>
+                <span class="cart-summary__meta">White</span>
+            </div>
+            <div class="cart-summary__qty">
+                <label class="sr-only" for="qty-ceramic">Quantity of Ceramic Pour-Over</label>
+                <input class="form-control form-control--sm" id="qty-ceramic" type="number" min="1" value="2" inputmode="numeric">
+            </div>
+            <span class="cart-summary__price">$84.00</span>
+        </li>
+    </ul>
+    <form class="cart-summary__coupon" onsubmit="return false;">
+        <label class="sr-only" for="coupon-code">Discount code</label>
+        <div class="form-group--stacked">
+            <input class="form-control" id="coupon-code" type="text" placeholder="Discount code" autocomplete="off">
+            <button class="btn btn--outline-primary" type="submit">Apply</button>
+        </div>
+    </form>
+    <dl class="cart-summary__totals">
+        <div><dt>Subtotal</dt><dd>$173.00</dd></div>
+        <div><dt>Shipping</dt><dd>Free</dd></div>
+        <div><dt>Tax</dt><dd>$13.84</dd></div>
+        <div class="cart-summary__total"><dt>Total</dt><dd>$186.84</dd></div>
+    </dl>
+    <a class="btn btn--primary btn--lg btn--block" href="#">Checkout</a>
+    <p class="cart-summary__note">Free returns within 30 days.</p>
+</section>

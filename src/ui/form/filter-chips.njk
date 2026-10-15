@@ -1,0 +1,35 @@
+---
+title: 'Filter Chips'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--narrow ui--filter-chips">
+        {% include "ui/html/form/filter-chips.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/form/filter-chips.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/form/filter-chips.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/form/filter-chips.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/form/filter-chips.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/form/filter-chips.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/form/filter-chips.js"></script>
+{% endblock %}

@@ -1,0 +1,40 @@
+{#- Override with `deploymentList` ({ title, deployments: [{ status: "ready"|"building"|"failed"|"canceled", environment, branch, commit, message, author, time, duration }] }). -#}
+{%- set _s = deploymentList or {
+    "title": "Deployments",
+    "deployments": [
+        { "status": "building", "environment": "Preview", "branch": "feat/checkout-v2", "commit": "a1f9c3e", "message": "Add the express checkout buttons", "author": "Priya Raman", "time": "Just now", "datetime": "2026-10-04T10:02", "duration": "" },
+        { "status": "ready", "environment": "Production", "branch": "main", "commit": "7d04b21", "message": "Merge pull request #412 from fix/cart-rounding", "author": "Noah Fischer", "time": "18 minutes ago", "datetime": "2026-10-04T09:44", "duration": "1m 42s" },
+        { "status": "failed", "environment": "Preview", "branch": "chore/upgrade-deps", "commit": "e3b8a90", "message": "Upgrade the build tooling", "author": "Lucas Moreau", "time": "1 hour ago", "datetime": "2026-10-04T09:01", "duration": "38s" },
+        { "status": "ready", "environment": "Preview", "branch": "fix/cart-rounding", "commit": "c52e6d7", "message": "Round the cart total after the discounts", "author": "Noah Fischer", "time": "2 hours ago", "datetime": "2026-10-04T08:10", "duration": "1m 37s" },
+        { "status": "canceled", "environment": "Preview", "branch": "fix/cart-rounding", "commit": "9be1f04", "message": "WIP", "author": "Noah Fischer", "time": "2 hours ago", "datetime": "2026-10-04T08:02", "duration": "12s" }
+    ]
+} %}
+{%- set _labels = { "ready": "Ready", "building": "Building", "failed": "Failed", "canceled": "Canceled" } %}
+<section class="deployment-list" aria-labelledby="deployment-list-title">
+    <header class="deployment-list__header">
+        <h2 class="deployment-list__title" id="deployment-list-title">{{ _s.title }}</h2>
+        <a class="btn btn--secondary btn--sm" href="#">Redeploy</a>
+    </header>
+    <ul class="deployment-list__list" role="list">
+        {%- for deploy in _s.deployments %}
+        <li class="deployment-list__item deployment-list__item--{{ deploy.status }}">
+            <span class="deployment-list__status">
+                <span class="deployment-list__dot" aria-hidden="true"></span>
+                {{ _labels[deploy.status] }}
+            </span>
+            <div class="deployment-list__main">
+                <a class="deployment-list__message" href="#">{{ deploy.message }}</a>
+                <p class="deployment-list__meta">
+                    <span class="deployment-list__env{% if deploy.environment == 'Production' %} deployment-list__env--production{% endif %}">{{ deploy.environment }}</span>
+                    <span class="deployment-list__branch"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="8" r="2.5"/><path d="M6 8.5v7"/><path d="M18 10.5c0 4-6 3-11 5.5"/></svg><span class="sr-only">Branch: </span>{{ deploy.branch }}</span>
+                    <code><span class="sr-only">Commit: </span>{{ deploy.commit }}</code>
+                </p>
+            </div>
+            <p class="deployment-list__time">
+                <time datetime="{{ deploy.datetime }}">{{ deploy.time }}</time>
+                <span>{% if deploy.duration %}<span class="sr-only">Duration: </span>{{ deploy.duration }}{% else %}In progress{% endif %} · {{ deploy.author }}</span>
+            </p>
+        </li>
+        {%- endfor %}
+    </ul>
+</section>

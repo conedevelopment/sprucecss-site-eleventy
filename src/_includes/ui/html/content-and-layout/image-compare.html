@@ -1,0 +1,19 @@
+{#- Override with `imageCompare` ({ before, beforeAlt, after, afterAlt, beforeLabel, afterLabel, caption }). -#}
+{%- set _c = imageCompare or {
+    "before": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=70&sat=-100", "beforeAlt": "The mountains in black and white (before).",
+    "after": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1200&q=70", "afterAlt": "The mountains in color (after).",
+    "beforeLabel": "Before", "afterLabel": "After",
+    "caption": "Drag the handle (or use the arrow keys) to compare the photos."
+} %}
+<figure class="image-compare" style="--position: 50%;" data-image-compare>
+    <div class="image-compare__frame">
+        <img class="image-compare__image" src="{{ _c.before }}" alt="{{ _c.beforeAlt }}" width="1200" height="800">
+        <img class="image-compare__image image-compare__image--after" src="{{ _c.after }}" alt="{{ _c.afterAlt }}" width="1200" height="800">
+        <span class="image-compare__handle" aria-hidden="true"></span>
+        <span class="image-compare__tag image-compare__tag--before" aria-hidden="true">{{ _c.beforeLabel }}</span>
+        <span class="image-compare__tag image-compare__tag--after" aria-hidden="true">{{ _c.afterLabel }}</span>
+    </div>
+    <label class="sr-only" for="image-compare-range">Comparison position</label>
+    <input class="image-compare__range" id="image-compare-range" type="range" min="0" max="100" value="50" data-image-compare-range>
+    <figcaption class="image-compare__caption">{{ _c.caption }}</figcaption>
+</figure>

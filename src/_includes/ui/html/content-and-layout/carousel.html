@@ -1,0 +1,42 @@
+<section class="carousel" aria-roledescription="carousel" aria-label="Landscapes">
+    <div class="carousel__controls">
+        <button class="btn btn--outline-primary btn--icon btn--sm" type="button" data-carousel-prev aria-label="Previous slide">
+            <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6"/></svg>
+        </button>
+        <button class="btn btn--outline-primary btn--icon btn--sm" type="button" data-carousel-next aria-label="Next slide">
+            <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg>
+        </button>
+    </div>
+    <ul class="carousel__track" role="list" tabindex="0" aria-label="Slides">
+        <li class="carousel__slide" id="carousel-slide-1" aria-roledescription="slide" aria-label="1 of 4">
+            <figure>
+                <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=70" alt="Snowy peaks at sunrise." width="900" height="600" loading="lazy">
+                <figcaption>Mountains</figcaption>
+            </figure>
+        </li>
+        <li class="carousel__slide" id="carousel-slide-2" aria-roledescription="slide" aria-label="2 of 4">
+            <figure>
+                <img src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=900&q=70" alt="Sunlight through tall trees." width="900" height="600" loading="lazy">
+                <figcaption>Forest</figcaption>
+            </figure>
+        </li>
+        <li class="carousel__slide" id="carousel-slide-3" aria-roledescription="slide" aria-label="3 of 4">
+            <figure>
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=70" alt="Turquoise water on a quiet beach." width="900" height="600" loading="lazy">
+                <figcaption>Coast</figcaption>
+            </figure>
+        </li>
+        <li class="carousel__slide" id="carousel-slide-4" aria-roledescription="slide" aria-label="4 of 4">
+            <figure>
+                <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?auto=format&fit=crop&w=900&q=70" alt="Dunes under a clear sky." width="900" height="600" loading="lazy">
+                <figcaption>Desert</figcaption>
+            </figure>
+        </li>
+    </ul>
+    <nav class="carousel__dots" aria-label="Choose a slide">
+        <a class="carousel__dot" href="#carousel-slide-1" aria-label="Go to slide 1"></a>
+        <a class="carousel__dot" href="#carousel-slide-2" aria-label="Go to slide 2"></a>
+        <a class="carousel__dot" href="#carousel-slide-3" aria-label="Go to slide 3"></a>
+        <a class="carousel__dot" href="#carousel-slide-4" aria-label="Go to slide 4"></a>
+    </nav>
+</section>

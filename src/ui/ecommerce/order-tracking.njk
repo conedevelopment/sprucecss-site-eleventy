@@ -1,0 +1,27 @@
+---
+title: 'Order Tracking'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium">
+        {% include "ui/html/ecommerce/order-tracking.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/ecommerce/order-tracking.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/ecommerce/order-tracking.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/ecommerce/order-tracking.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/ecommerce/order-tracking.css">
+{% endblock %}

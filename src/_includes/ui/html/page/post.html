@@ -1,6 +1,8 @@
-{% include "../content-and-layout/site-header.html" %}
-<div class="l-post">
+{% include "../content-and-layout/site-header-centered.html" %}
+<main class="l-post" id="content" tabindex="-1">
     {% include "../content-and-layout/post-heading.html" %}
-    {% include "../content-and-layout/post-content.html" %}
-</div>
-{% include "../content-and-layout/site-footer.html" %}
+    <div class="container">
+        {% include "../content-and-layout/post-content.html" %}
+    </div>
+</main>
+{% include "../content-and-layout/site-footer-newsletter.html" %}

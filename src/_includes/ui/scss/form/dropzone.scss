@@ -1,0 +1,86 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.dropzone {
+  @include layout-stack('s');
+
+  &__input {
+    @include visually-hidden;
+  }
+
+  &__area {
+    align-items: center;
+    background-color: color('surface-muted');
+    border: 2px dashed color('border-strong');
+    border-radius: radius('lg');
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: spacer('xs');
+    padding: spacer('l') spacer('m');
+    text-align: center;
+    @include transition($property: 'background-color, border-color');
+
+    &:hover,
+    &.is-dragging {
+      background-color: color-alpha('primary', 0.06);
+      border-color: color('primary');
+    }
+  }
+
+  &__input:focus-visible + &__area {
+    outline: 2px solid color('focus-ring');
+    outline-offset: 2px;
+  }
+
+  &__icon {
+    block-size: 2.5rem;
+    color: color('primary');
+    inline-size: 2.5rem;
+  }
+
+  &__title {
+    color: color('heading');
+
+    strong {
+      color: color('primary');
+    }
+  }
+
+  &__hint {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__files {
+    list-style: none;
+    padding: 0;
+    @include layout-stack('xs');
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__file {
+    align-items: center;
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('md');
+    display: flex;
+    gap: spacer('s');
+    padding: spacer('xs') spacer('xs') spacer('xs') spacer('s');
+  }
+
+  &__name {
+    color: color('heading');
+    flex-grow: 1;
+    min-inline-size: 0;
+    @include text-ellipsis;
+  }
+
+  &__size {
+    color: color('muted');
+    flex-shrink: 0;
+    font-size: config('font-size-sm', $typography);
+  }
+}

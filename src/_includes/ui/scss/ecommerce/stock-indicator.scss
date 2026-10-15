@@ -1,0 +1,178 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.stock-indicator {
+  --stock-in: #{color('success', 'alert')};
+  --stock-low: #{color('warning', 'alert')};
+  --stock-out: #{color('danger', 'alert')};
+  @include layout-stack('m');
+
+  &__sizes {
+    border: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs');
+    margin: 0;
+    padding: 0;
+  }
+
+  &__legend {
+    color: color('heading');
+    font-size: config('font-size-base', $typography);
+    font-weight: 600;
+    margin-block-end: spacer('xs');
+    padding: 0;
+  }
+
+  &__size {
+    cursor: pointer;
+    position: relative;
+
+    input {
+      inset: 0;
+      opacity: 0;
+      position: absolute;
+    }
+
+    span {
+      align-items: center;
+      border: config('border-width-base', $display) solid color('border', 'form');
+      border-radius: radius('md');
+      color: color('heading');
+      display: flex;
+      font-weight: 600;
+      justify-content: center;
+      min-block-size: 2.75rem;
+      min-inline-size: 3.25rem;
+      padding-inline: spacer('s');
+    }
+
+    input:checked + span {
+      background-color: color('heading');
+      border-color: color('heading');
+      color: color('background');
+    }
+
+    input:focus-visible + span {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 2px;
+    }
+
+    // A sold-out size stays selectable (to ask for a notification), but looks crossed out.
+    input[data-stock='0'] + span {
+      background-image: linear-gradient(to top right, transparent calc(50% - 1px), color('border-strong') 50%, transparent calc(50% + 1px));
+      color: color('muted');
+    }
+
+    input[data-stock='0']:checked + span {
+      background-color: color('surface-muted');
+      border-color: color('heading');
+      color: color('heading');
+    }
+  }
+
+  &__status {
+    --stock-color: var(--stock-in);
+    align-items: center;
+    display: flex;
+    gap: spacer('s');
+
+    p {
+      margin: 0;
+    }
+
+    strong {
+      color: var(--stock-color);
+      margin-inline-end: spacer('xxs');
+    }
+
+    span {
+      color: color('muted');
+    }
+
+    &--low {
+      --stock-color: var(--stock-low);
+    }
+
+    &--out {
+      --stock-color: var(--stock-out);
+    }
+  }
+
+  // Three bars: full, low (one) or out (none).
+  &__level {
+    display: flex;
+    flex-shrink: 0;
+    gap: 3px;
+
+    span {
+      background-color: var(--stock-color);
+      block-size: 0.75rem;
+      border-radius: 2px;
+      inline-size: 0.4rem;
+    }
+  }
+
+  &__status--low &__level span:nth-child(n + 2),
+  &__status--out &__level span {
+    background-color: color('border');
+  }
+
+  &__notify {
+    background-color: color('surface-muted');
+    border-radius: radius('md');
+    padding: spacer('s');
+    @include layout-stack('xs');
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__notify-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs');
+
+    .form-control {
+      flex: 1 1 12rem;
+    }
+  }
+
+  &__stores {
+    border-block-start: config('border-width-base', $display) solid color('border');
+    font-size: config('font-size-sm', $typography);
+    list-style: none;
+    padding: spacer('s') 0 0;
+    @include layout-stack('xs');
+
+    li {
+      align-items: baseline;
+      display: flex;
+      gap: spacer('xs');
+    }
+
+    strong {
+      color: color('heading');
+      display: block;
+    }
+  }
+
+  &__dot {
+    block-size: 0.55rem;
+    border-radius: radius('pill');
+    flex-shrink: 0;
+    inline-size: 0.55rem;
+
+    &--in {
+      background-color: var(--stock-in);
+    }
+
+    &--low {
+      background-color: var(--stock-low);
+    }
+
+    &--out {
+      background-color: var(--stock-out);
+    }
+  }
+}

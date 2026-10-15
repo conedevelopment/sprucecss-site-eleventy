@@ -1,0 +1,51 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.video-library-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+  }
+
+  &__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s') spacer('xl');
+    justify-content: center;
+    margin-block: 0;
+  }
+
+  &__stat {
+    align-items: baseline;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: spacer('xs');
+
+    dt {
+      color: color('muted');
+      font-weight: 400;
+    }
+
+    dd {
+      color: color('heading');
+      font-family: config('font-family-heading', $typography);
+      font-size: font-size('h3');
+      font-weight: config('font-weight-heading', $typography);
+      margin: 0;
+    }
+  }
+
+  &__filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs');
+    justify-content: center;
+  }
+
+  &__more {
+    margin-block: 0;
+    text-align: center;
+  }
+}

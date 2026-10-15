@@ -1,0 +1,33 @@
+{#- Override with `topProducts` ({ title, period, products: [{ name, category, image, units, revenue, share }] }). `share` is the percentage of the revenue. -#}
+{%- set _s = topProducts or {
+    "title": "Top products", "period": "Last 30 days",
+    "products": [
+        { "name": "Everyday Backpack", "category": "Bags", "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=96&h=96&q=70", "units": 412, "revenue": "$36,668", "share": 28 },
+        { "name": "Wireless Headphones", "category": "Tech", "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=96&h=96&q=70", "units": 189, "revenue": "$30,051", "share": 23 },
+        { "name": "Leather Weekender", "category": "Bags", "image": "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=96&h=96&q=70", "units": 98, "revenue": "$24,402", "share": 19 },
+        { "name": "Ceramic Pour-Over", "category": "Home", "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=96&h=96&q=70", "units": 238, "revenue": "$9,996", "share": 8 },
+        { "name": "Desk Lamp", "category": "Home", "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=96&h=96&q=70", "units": 77, "revenue": "$6,083", "share": 5 }
+    ]
+} %}
+<section class="top-products" aria-labelledby="top-products-title">
+    <header class="top-products__header">
+        <h2 class="top-products__title" id="top-products-title">{{ _s.title }}</h2>
+        <p class="top-products__period">{{ _s.period }}</p>
+    </header>
+    <ol class="top-products__list" role="list">
+        {%- for product in _s.products %}
+        <li class="top-products__item">
+            <img class="top-products__thumb" src="{{ product.image }}" alt="" width="48" height="48" loading="lazy">
+            <div class="top-products__info">
+                <p class="top-products__name"><a href="#">{{ product.name }}</a></p>
+                <p class="top-products__meta">{{ product.category }} · {{ product.units }} sold</p>
+            </div>
+            <div class="top-products__numbers">
+                <p class="top-products__revenue">{{ product.revenue }}</p>
+                <p class="top-products__share">{{ product.share }}%<span class="sr-only"> of the revenue</span></p>
+            </div>
+            <span class="top-products__bar" style="--share: {{ product.share }};" aria-hidden="true"></span>
+        </li>
+        {%- endfor %}
+    </ol>
+</section>

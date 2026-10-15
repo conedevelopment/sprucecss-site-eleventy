@@ -1,0 +1,21 @@
+.l-home > :not(.l-home__alt, .l-home__band) + :not(.l-home__alt, .l-home__band), .l-home__alt > * + * {
+  padding-block-start: 0;
+}
+.l-home__hero {
+  inline-size: 100%;
+  margin-inline: auto;
+  max-inline-size: 72rem;
+  padding-inline: 1.5rem;
+  padding-block: clamp(3rem, 5vw, 7rem);
+}
+.l-home__band {
+  inline-size: 100%;
+  margin-inline: auto;
+  max-inline-size: 72rem;
+  padding-inline: 1.5rem;
+  border-block: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  padding-block: 3rem;
+}
+.l-home__alt {
+  background-color: var(--spruce-base-color-surface-muted);
+}

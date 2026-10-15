@@ -1,4 +1,5 @@
 import { execSync } from 'child_process';
+import { readFileSync } from 'fs';
 import { JSDOM } from 'jsdom';
 import { parse, stringify } from 'himalaya';
 import Image from '@11ty/eleventy-img';
@@ -115,8 +116,8 @@ export default function (config) {
     });
   });
 
-  config.addCollection('ui', collection => {
-    return [...collection.getFilteredByGlob('./src/ui/**/*.njk')].sort((a, b) => {
+  // Components and blocks share the same ordering: "Getting Started" first, then the categories and titles alphabetically.
+  const sortLibrary = (a, b) => {
       const categoryA = a.data.category || '';
       const categoryB = b.data.category || '';
       const titleA = a.data.title || '';
@@ -142,15 +143,18 @@ export default function (config) {
       }
 
       return titleA.localeCompare(titleB);
-    });
+  };
+
+  config.addCollection('ui', collection => {
+    return [...collection.getFilteredByGlob('./src/ui/**/*.njk')].sort(sortLibrary);
   });
 
-  config.addCollection('templates', collection => {
-    return [...collection.getFilteredByGlob('./src/templates/*.md')];
+  config.addCollection('blocks', collection => {
+    return [...collection.getFilteredByGlob('./src/blocks/**/*.njk')].sort(sortLibrary);
   });
 
-  config.addCollection('blog', collection => {
-    return [...collection.getFilteredByGlob('./src/blog/*.md')];
+  config.addCollection('pages', collection => {
+    return [...collection.getFilteredByGlob('./src/pages/*.njk')].sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99));
   });
 
   config.addShortcode('svgIcon', getImage);
@@ -252,6 +256,20 @@ export default function (config) {
       .split('\n')
       .filter(line => line.trim() !== '')
       .join('\n');
+  });
+
+  /**
+   * List the blocks and the layout components a page template includes, in page order ("built with" labels).
+   */
+  config.addFilter('pageParts', (pageInclude) => {
+    const skip = ['site-header', 'site-footer', 'block-heading', 'app-shell'];
+    const title = (name) => name.split('-').map((word) => ({ faq: 'FAQ', cta: 'CTA' })[word] ?? word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    const source = readFileSync(`./src/_includes/${pageInclude}`, 'utf8');
+
+    return [...source.matchAll(/include "\.\.\/(block|content-and-layout|dashboard|ecommerce)\/([a-z-]+)\.html"/g)]
+      .filter(([, , name]) => !skip.includes(name))
+      .map(([, group, name]) => (group === 'block' ? `${title(name)} block` : title(name)))
+      .filter((label, index, labels) => labels.indexOf(label) === index);
   });
 
   config.addFilter('groupBy', (array, key) => {

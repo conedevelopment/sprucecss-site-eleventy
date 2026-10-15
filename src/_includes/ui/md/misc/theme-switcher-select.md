@@ -1,31 +1,33 @@
-<p class="lead">The theme switcher is a customized <strong>select</strong> element with a small script to control your theme modes.</p>
+<p class="lead">A theme switcher built on a native select: it lists the system, light and dark modes, shows the icon of the current one and saves the choice.</p>
+
+## Anatomy
+
+- **`.theme-switcher`** with `data-theme-switcher-select` wraps an icon (`__icon`) and the select (`__select`).
+- The icon of the current mode is shown based on the switcher's `data-theme-mode` attribute.
+
+## Accessibility
+
+- A native `select` is the most robust control here: every option is named, the current one is announced, and it works the same with a keyboard, a screen reader and on touch screens.
+- The select has a (visually hidden) `label` ("Color mode"); the icon is decorative.
 
 ## Technical Details
 
-- The script switches the `data-theme-mode` attribute on the `html` (and theme switcher) element to identify the selected theme.
-- You have to set up an [additional color theme](https://sprucecss.com/docs/customization/themes/).
+- The script listens to `change` (not `input`), sets `data-theme-mode` on the `html` element and stores the choice in `localStorage` (`preferred-theme`). Several switchers on one page stay in sync, and "System" follows the operating system live.
+- The icon is positioned with `inset-inline-start`, so it moves to the right side in RTL along with the padding of the select.
 
 ## Theme Detection
 
-The JS code above only handles the switch and its states. You also have to detect a default or chosen theme. For this, you can use `matchMedia` with `prefers-color-scheme: dark;`. You **MUST** embed this script inline in your header as early ahead as possible.
+The switcher only changes the mode. To avoid a flash of the wrong colors, set the mode before the page renders with an inline script in the `head`:
 
-```javascript
-(() => {
-  const systemMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  const preferredTheme = localStorage.getItem('preferred-theme');
+```html
+<script>
+  (() => {
+    const preferred = localStorage.getItem('preferred-theme') ?? 'system';
+    const system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 
-  function setTheme(theme) {
-    document.documentElement.setAttribute('data-theme-mode', theme === 'system' ? systemMode : theme);
-  }
-
-  window
-    .matchMedia('(prefers-color-scheme: dark)')
-    .addEventListener('change', (e) => {
-      if (localStorage.getItem('preferred-theme') === 'system' || localStorage.getItem('preferred-theme') === null) {
-        setTheme(e.matches ? 'dark' : 'light');
-      }
-    });
-
-  setTheme(preferredTheme || systemMode);
-})();
+    document.documentElement.setAttribute('data-theme-mode', preferred === 'system' ? system : preferred);
+  })();
+</script>
 ```
+
+With Spruce's `dark-mode` settings, `prefers-color-scheme: true` can follow the system without JavaScript; the switcher then stores an explicit choice. See [Themes and Dark Mode](/docs/customization/themes/).

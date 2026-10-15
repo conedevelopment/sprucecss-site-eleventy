@@ -1,0 +1,135 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.bento-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+  }
+
+  &__grid {
+    @include clear-list;
+    display: grid;
+    gap: spacer('m');
+    grid-auto-flow: dense;
+
+    @include breakpoint('md') {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+    }
+  }
+
+  &__tile {
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    // Flex, not layout-stack: the visual grows to fill the tall and large tiles.
+    display: flex;
+    flex-direction: column;
+    gap: spacer('xs');
+    overflow: hidden;
+    padding: spacer-clamp('m', 'l');
+
+    @include breakpoint('md') {
+      &--wide {
+        grid-column: span 2;
+      }
+
+      &--tall {
+        grid-row: span 2;
+      }
+
+      &--large {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+    }
+  }
+
+  &__visual {
+    align-items: flex-end;
+    background-color: color('surface-muted');
+    border-radius: radius('md');
+    display: flex;
+    flex-grow: 1;
+    gap: spacer('xs');
+    justify-content: center;
+    margin-block-end: spacer('xs');
+    min-block-size: 8rem;
+    padding: spacer('m');
+
+    &--chart span {
+      background-image: linear-gradient(to top, #{color('primary')}, #{color-alpha('primary', 0.4)});
+      block-size: var(--h);
+      border-radius: radius('sm') radius('sm') 0 0;
+      flex: 1;
+      max-inline-size: 3rem;
+    }
+
+    &--stat {
+      align-items: center;
+
+      strong {
+        color: color('primary');
+        font-family: config('font-family-heading', $typography);
+        font-size: responsive-font-size(3rem, 30, '3vw + 1rem');
+      }
+    }
+
+    &--swatches {
+      align-items: center;
+
+      span {
+        block-size: 2.5rem;
+        border-radius: 50%;
+        box-shadow: 0 0 0 3px color('surface');
+        inline-size: 2.5rem;
+        margin-inline-start: -0.75rem;
+
+        &:nth-child(1) { background-color: color('primary'); }
+        &:nth-child(2) { background-color: color('secondary'); }
+        &:nth-child(3) { background-color: color('success', 'alert'); }
+        &:nth-child(4) { background-color: color('warning', 'alert'); }
+      }
+    }
+
+    &--code {
+      align-items: flex-start;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &--people {
+      align-items: center;
+
+      span {
+        background-color: color-alpha('primary', 0.25);
+        block-size: 3rem;
+        border: 3px solid color('surface');
+        border-radius: 50%;
+        inline-size: 3rem;
+        margin-inline-start: -0.75rem;
+
+        &:nth-child(2) { background-color: color-alpha('secondary', 0.35); }
+        &:nth-child(3) { background-color: color-alpha('primary', 0.5); }
+      }
+    }
+  }
+
+  // The tile is a flex column, so its text children drop the browser margins.
+  &__title {
+    font-size: font-size('h4');
+    margin-block: 0;
+  }
+
+  &__text {
+    color: color('muted');
+    margin-block: 0;
+  }
+}

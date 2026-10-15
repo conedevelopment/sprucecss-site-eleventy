@@ -1,0 +1,10 @@
+.l-page > :not(.l-page__alt) + :not(.l-page__alt), .l-page__alt > * + * {
+  padding-block-start: 0;
+}
+.l-page__alt {
+  background-color: var(--spruce-base-color-surface-muted);
+}
+
+html:has(.story-block) {
+  scroll-padding-block-start: 5rem;
+}

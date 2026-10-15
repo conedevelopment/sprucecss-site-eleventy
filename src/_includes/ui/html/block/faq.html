@@ -1,0 +1,35 @@
+{#- Override with `faqBlock` ({ heading, items: [{ question, answer }], help }). -#}
+{%- set _s = faqBlock or {
+    "heading": { "eyebrow": "FAQ", "title": "Frequently asked questions", "text": "Everything you need to know about the product and billing.", "id": "faq-title", "align": "start" },
+    "items": [
+        { "question": "Is there a free plan?", "answer": "Yes. The Starter plan is free forever for personal projects, with no credit card required." },
+        { "question": "Can I change my plan later?", "answer": "Of course. You can upgrade, downgrade or cancel at any time from your account settings." },
+        { "question": "Do you offer discounts for nonprofits?", "answer": "We offer a 50% discount for registered nonprofits and educational institutions. Contact us to apply." },
+        { "question": "How does the yearly billing work?", "answer": "You pay for twelve months upfront and save 20% compared to the monthly price." },
+        { "question": "Is my data secure?", "answer": "All data is encrypted in transit and at rest, and we never sell your data." }
+    ],
+    "help": { "title": "Still have questions?", "text": "Can’t find the answer you’re looking for? Our team is happy to help.", "action": "Contact support" }
+} %}
+<section class="faq-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="faq-block__inner">
+            <div class="faq-block__aside">
+                {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+                <div class="faq-block__help">
+                    <h3 class="faq-block__help-title">{{ _s.help.title }}</h3>
+                    <p>{{ _s.help.text }}</p>
+                    <a class="btn btn--primary btn--sm" href="#">{{ _s.help.action }}</a>
+                </div>
+            </div>
+            <div class="faq-block__list">
+                {%- for item in _s.items %}
+                <details name="faq-block"{% if loop.first %} open{% endif %}>
+                    <summary>{{ item.question }}</summary>
+                    <p>{{ item.answer }}</p>
+                </details>
+                {%- endfor %}
+            </div>
+        </div>
+    </div>
+</section>

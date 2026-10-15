@@ -1,0 +1,140 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.activity-heatmap {
+  --activity-heatmap-cell: 1.125rem;
+  --activity-heatmap-gap: 3px;
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  margin: 0;
+  padding: spacer('m');
+  @include layout-stack('s');
+
+  &__caption {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xxs') spacer('xs');
+    justify-content: space-between;
+  }
+
+  &__title {
+    color: color('heading');
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__scroll {
+    overflow-x: auto;
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 2px;
+    }
+  }
+
+  &__grid {
+    border-collapse: separate;
+    border-spacing: var(--activity-heatmap-gap);
+    color: color('muted');
+    font-size: 0.75rem;
+    inline-size: auto;
+    margin: 0;
+    table-layout: fixed;
+
+    th,
+    td {
+      border: 0;
+      line-height: 1;
+      padding: 0;
+    }
+
+    thead th {
+      block-size: 1.25em;
+      font-weight: 400;
+      inline-size: var(--activity-heatmap-cell);
+      position: relative;
+      text-align: start;
+    }
+
+    abbr {
+      border: 0;
+      cursor: default;
+      text-decoration: none;
+    }
+
+    td[data-level] {
+      block-size: var(--activity-heatmap-cell);
+    }
+  }
+
+  // The month label overflows its column, so it doesn't widen it.
+  &__month {
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    position: absolute;
+    white-space: nowrap;
+  }
+
+  &__day {
+    font-weight: 400;
+    padding-inline-end: spacer('xxs') !important;
+    text-align: start;
+
+    &--hidden abbr {
+      @include visually-hidden;
+    }
+  }
+
+  &__cell,
+  &__grid td[data-level] {
+    background-color: color('surface-muted');
+    border-radius: radius('sm');
+    box-shadow: inset 0 0 0 1px color-alpha('border', 0.8);
+    inline-size: var(--activity-heatmap-cell);
+  }
+
+  &__cell,
+  &__grid td {
+    &[data-level='1'] {
+      background-color: color-alpha('primary', 0.25);
+    }
+
+    &[data-level='2'] {
+      background-color: color-alpha('primary', 0.5);
+    }
+
+    &[data-level='3'] {
+      background-color: color-alpha('primary', 0.75);
+    }
+
+    &[data-level='4'] {
+      background-color: color('primary');
+    }
+  }
+
+  &__legend {
+    align-items: center;
+    color: color('muted');
+    display: flex;
+    font-size: 0.75rem;
+    gap: var(--activity-heatmap-gap);
+    justify-content: flex-end;
+
+    span:first-child {
+      margin-inline-end: spacer('xxs');
+    }
+
+    span:last-child {
+      margin-inline-start: spacer('xxs');
+    }
+  }
+
+  &__cell {
+    block-size: var(--activity-heatmap-cell);
+    display: inline-block;
+  }
+}

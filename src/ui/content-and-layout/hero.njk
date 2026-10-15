@@ -1,0 +1,27 @@
+---
+title: 'Hero'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--full ui--hero">
+        {% include "ui/html/content-and-layout/hero.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/content-and-layout/hero.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/content-and-layout/hero.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/content-and-layout/hero.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/hero.css">
+{% endblock %}

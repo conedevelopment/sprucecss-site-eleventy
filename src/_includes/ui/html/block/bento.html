@@ -1,0 +1,34 @@
+{#- Override with `bentoBlock` ({ heading, items: [{ title, text, size, visual }] }); size: wide, tall, large. -#}
+{%- set _s = bentoBlock or {
+    "heading": { "eyebrow": "Platform", "title": "Everything in one place", "text": "A flexible toolkit that grows with your product.", "id": "bento-title" },
+    "items": [
+        { "title": "Analytics", "text": "Understand your visitors with privacy-friendly analytics.", "size": "large", "visual": "chart" },
+        { "title": "99.99% uptime", "text": "Global edge network with automatic failover.", "visual": "stat", "stat": "99.99%" },
+        { "title": "Design styles", "text": "Eight looks, one markup.", "visual": "swatches" },
+        { "title": "Developer friendly", "text": "Sass helpers, tokens and a clean API for your own components.", "size": "wide", "visual": "code" },
+        { "title": "Team roles", "text": "Invite editors, reviewers and admins.", "visual": "people" }
+    ]
+} %}
+<section class="bento-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="bento-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            <ul class="bento-block__grid" role="list">
+                {%- for item in _s.items %}
+                <li class="bento-block__tile{% if item.size %} bento-block__tile--{{ item.size }}{% endif %}">
+                    <div class="bento-block__visual bento-block__visual--{{ item.visual }}" aria-hidden="true">
+                        {%- if item.visual == "chart" %}<span style="--h: 40%"></span><span style="--h: 65%"></span><span style="--h: 50%"></span><span style="--h: 80%"></span><span style="--h: 70%"></span><span style="--h: 95%"></span>
+                        {%- elif item.visual == "stat" %}<strong>{{ item.stat }}</strong>
+                        {%- elif item.visual == "swatches" %}<span></span><span></span><span></span><span></span>
+                        {%- elif item.visual == "code" %}<code>@include layout-grid('m', 16rem);</code><code>border-radius: radius('lg');</code>
+                        {%- else %}<span></span><span></span><span></span>{% endif %}
+                    </div>
+                    <h3 class="bento-block__title">{{ item.title }}</h3>
+                    <p class="bento-block__text">{{ item.text }}</p>
+                </li>
+                {%- endfor %}
+            </ul>
+        </div>
+    </div>
+</section>

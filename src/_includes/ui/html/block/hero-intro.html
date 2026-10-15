@@ -1,0 +1,42 @@
+{#- Override with `heroIntroBlock` ({ status, name, role, title, highlight, lead, photo, primary, secondary, facts: [{ value, label }] }). The `highlight` words of the title get an underline. -#}
+{%- set _s = heroIntroBlock or {
+    "status": "Available for new projects from June",
+    "name": "Nora Lind", "role": "Independent product designer",
+    "title": "I design calm, accessible products for", "highlight": "ambitious teams.",
+    "lead": "For twelve years I’ve helped startups and studios turn complex ideas into simple interfaces, from the first research to the design system.",
+    "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=240&h=240&q=70",
+    "primary": "See selected work", "secondary": "Book an intro call",
+    "facts": [{ "value": "12", "label": "years in product design" }, { "value": "140+", "label": "launched projects" }, { "value": "9", "label": "design awards" }]
+} %}
+<section class="hero-intro-block" aria-labelledby="hero-intro-title">
+    <div class="container">
+        <div class="hero-intro-block__inner">
+            <div class="hero-intro-block__person">
+                <img class="hero-intro-block__photo" src="{{ _s.photo }}" alt="" width="120" height="120" fetchpriority="high">
+                <div class="hero-intro-block__who">
+                    <p class="hero-intro-block__name">{{ _s.name }}</p>
+                    <p class="hero-intro-block__role">{{ _s.role }}</p>
+                </div>
+                <p class="hero-intro-block__status"><span class="hero-intro-block__dot" aria-hidden="true"></span>{{ _s.status }}</p>
+            </div>
+            <h1 class="hero-intro-block__title" id="hero-intro-title">{{ _s.title }} <em class="hero-intro-block__highlight">{{ _s.highlight }}</em></h1>
+            <div class="hero-intro-block__footer">
+                <div class="hero-intro-block__text">
+                    <p class="hero-intro-block__lead">{{ _s.lead }}</p>
+                    <div class="hero-intro-block__actions">
+                        <a class="btn btn--primary btn--lg" href="#work">{{ _s.primary }}</a>
+                        <a class="btn btn--ghost-primary btn--lg" href="#contact">{{ _s.secondary }}</a>
+                    </div>
+                </div>
+                <dl class="hero-intro-block__facts">
+                    {%- for fact in _s.facts %}
+                    <div class="hero-intro-block__fact">
+                        <dt>{{ fact.label }}</dt>
+                        <dd>{{ fact.value }}</dd>
+                    </div>
+                    {%- endfor %}
+                </dl>
+            </div>
+        </div>
+    </div>
+</section>

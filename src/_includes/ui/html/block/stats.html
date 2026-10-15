@@ -1,0 +1,28 @@
+{#- Override with `statsBlock` ({ heading, brand, items: [{ value, prefix, suffix, label, text }] }). -#}
+{%- set _s = statsBlock or {
+    "heading": { "eyebrow": "By the numbers", "title": "Trusted by teams around the world", "id": "stats-title" },
+    "brand": true,
+    "items": [
+        { "value": 12000, "suffix": "+", "label": "Developers", "text": "use Spruce every month" },
+        { "value": 99.9, "suffix": "%", "label": "Uptime", "text": "for the hosted docs and CDN" },
+        { "value": 9, "suffix": " KB", "label": "Core size", "text": "gzipped, with everything you need" },
+        { "value": 8, "label": "Design styles", "text": "built in, and you can add more" }
+    ]
+} %}
+<section class="stats-block{% if _s.brand %} stats-block--brand{% endif %}" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="stats-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            <dl class="stats-block__grid">
+                {%- for item in _s.items %}
+                <div class="stats-block__item">
+                    <dt class="stats-block__label">{{ item.label }}</dt>
+                    <dd class="stats-block__value"><span data-count-to="{{ item.value }}">{{ item.prefix }}{{ item.value }}</span>{{ item.suffix }}</dd>
+                    <dd class="stats-block__text">{{ item.text }}</dd>
+                </div>
+                {%- endfor %}
+            </dl>
+        </div>
+    </div>
+</section>

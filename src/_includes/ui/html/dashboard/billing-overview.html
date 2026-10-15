@@ -1,0 +1,66 @@
+<section class="billing-overview" aria-labelledby="billing-overview-title">
+    <h2 class="billing-overview__title" id="billing-overview-title">Billing</h2>
+    <div class="billing-overview__cards">
+        <article class="billing-overview__card billing-overview__card--plan" aria-labelledby="billing-plan-title">
+            <p class="billing-overview__label" id="billing-plan-title">Current plan</p>
+            <p class="billing-overview__plan">Team <span class="badge badge--primary">Annual</span></p>
+            <p class="billing-overview__price"><strong>$490</strong> per year · 10 seats</p>
+            <p class="billing-overview__note">Renews on <time datetime="2027-03-14">March 14, 2027</time></p>
+            <div class="billing-overview__actions">
+                <a class="btn btn--primary btn--sm" href="#">Change plan</a>
+                <a class="btn btn--ghost-primary btn--sm" href="#">Cancel subscription</a>
+            </div>
+        </article>
+        <article class="billing-overview__card" aria-labelledby="billing-payment-title">
+            <p class="billing-overview__label" id="billing-payment-title">Payment method</p>
+            <div class="billing-overview__method">
+                <span class="billing-overview__brand" aria-hidden="true">VISA</span>
+                <p><span class="billing-overview__number">Visa ending in 4242</span> <span class="billing-overview__note">Expires 08/2028</span></p>
+            </div>
+            <p class="billing-overview__note">Invoices go to <strong>billing@acme.com</strong></p>
+            <div class="billing-overview__actions">
+                <a class="btn btn--secondary btn--sm" href="#">Update card</a>
+                <a class="btn btn--ghost-primary btn--sm" href="#">Edit billing details</a>
+            </div>
+        </article>
+    </div>
+    <div class="billing-overview__history">
+        <h3 class="billing-overview__subtitle">Invoices</h3>
+        <div class="table-responsive">
+            <table class="table billing-overview__table">
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Amount</th>
+                        <th scope="col">Status</th>
+                        <th scope="col"><span class="sr-only">Download</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><time datetime="2026-03-14">Mar 14, 2026</time></td>
+                        <td>Team plan, annual (10 seats)</td>
+                        <td>$490.00</td>
+                        <td><span class="badge badge--success">Paid</span></td>
+                        <td><a href="#">PDF<span class="sr-only">, invoice from March 14, 2026</span></a></td>
+                    </tr>
+                    <tr>
+                        <td><time datetime="2025-11-02">Nov 2, 2025</time></td>
+                        <td>3 additional seats (prorated)</td>
+                        <td>$61.25</td>
+                        <td><span class="badge badge--success">Paid</span></td>
+                        <td><a href="#">PDF<span class="sr-only">, invoice from November 2, 2025</span></a></td>
+                    </tr>
+                    <tr>
+                        <td><time datetime="2025-03-14">Mar 14, 2025</time></td>
+                        <td>Team plan, annual (7 seats)</td>
+                        <td>$343.00</td>
+                        <td><span class="badge badge--warning">Refunded</span></td>
+                        <td><a href="#">PDF<span class="sr-only">, invoice from March 14, 2025</span></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

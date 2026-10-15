@@ -18,10 +18,18 @@ title: 'Open Search Button'
     {% include "ui/scss/navigation/open-search.scss" %}
 {% endset %}
 
+{% set js %}
+    {% include "ui/js/navigation/open-search.js" %}
+{% endset %}
+
 {% set description %}
     {% include "ui/md/navigation/open-search.md" %}
 {% endset %}
 
 {% block style %}
     <link rel="stylesheet" href="/_includes/ui/css/navigation/open-search.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/navigation/open-search.js"></script>
 {% endblock %}

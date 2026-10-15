@@ -1,0 +1,87 @@
+.results-block {
+  padding-block: clamp(4.5rem, 5vw, 7rem);
+}
+.results-block__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.results-block__list {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(14rem, 100%), 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.results-block__list > li {
+  margin-block: 0;
+}
+.results-block__item {
+  background-color: var(--spruce-base-color-surface);
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  border-radius: var(--spruce-border-radius-lg);
+  padding: 1.5rem;
+}
+.results-block__item > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.results-block__item > * + * {
+  margin-block-start: 0.5rem;
+}
+.results-block__label {
+  color: var(--spruce-base-color-muted);
+  font-size: var(--spruce-font-size-sm);
+  font-weight: 600;
+}
+.results-block__values {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.results-block__before {
+  color: var(--spruce-base-color-muted);
+  font-size: 1rem;
+  text-decoration: line-through;
+  text-decoration-color: var(--spruce-base-color-border-strong);
+}
+.results-block__arrow {
+  color: var(--spruce-base-color-muted);
+}
+.results-block__after {
+  color: var(--spruce-base-color-heading);
+  font-family: var(--spruce-font-family-heading);
+  font-size: clamp(2.0751953125rem, 2vw + 1rem, 2.44140625rem);
+  line-height: 1;
+}
+.results-block__change {
+  align-items: center;
+  color: var(--spruce-alert-color-success);
+  display: inline-flex;
+  font-size: var(--spruce-font-size-sm);
+  font-weight: 700;
+  gap: 0.25rem;
+}
+.results-block__change svg {
+  block-size: 1rem;
+  inline-size: 1rem;
+}
+.results-block__change--down svg {
+  rotate: 180deg;
+}
+.results-block__text {
+  color: var(--spruce-base-color-muted);
+  font-size: var(--spruce-font-size-sm);
+}
+.results-block__note {
+  color: var(--spruce-base-color-muted);
+  font-size: var(--spruce-font-size-sm);
+  margin-block: 0;
+}
+
+[dir=rtl] .results-block__arrow {
+  display: inline-block;
+  scale: -1 1;
+}

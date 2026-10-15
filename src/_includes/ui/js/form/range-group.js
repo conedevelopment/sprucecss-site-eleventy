@@ -1,47 +1,32 @@
-(() => {
-  const initializeRangeGroup = (rangeGroup) => {
-    const decrement = rangeGroup.querySelector('[data-action="decrement"]');
-    const increment = rangeGroup.querySelector('[data-action="increment"]');
-    const label = rangeGroup.querySelector('.form-label__value');
-    const suffix = label.getAttribute('data-suffix') || '';
-    const control = rangeGroup.querySelector('.range-group__control');
-    const step = parseInt(control.getAttribute('step'), 10) || 1;
-    const min = parseInt(control.getAttribute('min'), 10) || 0;
-    const max = parseInt(control.getAttribute('max'), 10) || 100;
+document.querySelectorAll('[data-range-group]').forEach((group) => {
+  const control = group.querySelector('input[type="range"]');
+  const output = group.querySelector('output');
+  const buttons = group.querySelectorAll('[data-step]');
+  const min = Number(control.min || 0);
+  const max = Number(control.max || 100);
+  const plural = new Intl.PluralRules(document.documentElement.lang || 'en');
 
-    const checkDisabledState = (value) => {
-      decrement.disabled = min === value;
-      increment.disabled = max === value;
-    };
+  const update = () => {
+    const value = Number(control.value);
+    const unit = plural.select(value) === 'one' ? group.dataset.unitOne : group.dataset.unitMany;
+    const text = `${value} ${unit}`;
 
-    const updateValues = (value) => {
-      control.value = value;
-      label.textContent = `${value} ${suffix}`;
-      checkDisabledState(value);
-    };
-
-    control.addEventListener('input', (e) => {
-      updateValues(parseInt(e.target.value, 10));
+    // The visible output is for sighted users; aria-valuetext gives the same text to screen readers.
+    output.textContent = text;
+    control.setAttribute('aria-valuetext', text);
+    buttons.forEach((button) => {
+      button.disabled = Number(button.dataset.step) < 0 ? value <= min : value >= max;
     });
-
-    decrement.addEventListener('click', () => {
-      if (control.value > min) {
-        updateValues(parseInt(control.value, 10) - step);
-      }
-    });
-
-    increment.addEventListener('click', () => {
-      if (control.value < max) {
-        updateValues(parseInt(control.value, 10) + step);
-      }
-    });
-
-    updateValues(parseInt(control.value, 10));
   };
 
-  const rangeGroups = document.querySelectorAll('.range-group');
+  buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+      Number(button.dataset.step) < 0 ? control.stepDown() : control.stepUp();
+      update();
+      control.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+  });
 
-  if (rangeGroups.length) {
-    rangeGroups.forEach(initializeRangeGroup);
-  }
-})();
+  control.addEventListener('input', update);
+  update();
+});

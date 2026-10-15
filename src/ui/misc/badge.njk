@@ -1,0 +1,27 @@
+---
+title: 'Badge'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium ui--badge">
+        {% include "ui/html/misc/badge.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/misc/badge.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/misc/badge.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/misc/badge.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/misc/badge.css">
+{% endblock %}

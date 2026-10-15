@@ -1,0 +1,80 @@
+---
+pagination:
+    data: spruceUi.items
+    size: 1
+    alias: entry
+permalink: "{{ entry.url }}"
+eleventyExcludeFromCollections: true
+---
+{%- set typeLabel = { "component": "Component", "block": "Block", "page": "Page" }[entry.type] -%}
+{%- set rendered %}{% for file in entry.html %}{% include file %}{% endfor %}{% endset -%}
+# {{ entry.title | safe }} ({{ typeLabel }}{% if entry.category %}, {{ entry.category | safe }}{% endif %})
+
+> {{ entry.lead | safe }}
+
+- Type: {{ entry.type }}
+- Preview: {{ spruceUi.siteUrl }}{{ entry.page }}
+- Markdown: {{ spruceUi.siteUrl }}{{ entry.url }}
+- Framework: Spruce CSS v3 (`npm install sprucecss`). Every SCSS file below starts with `@use 'sprucecss/scss/spruce' as *;`, so compile it with `node_modules` as a Sass load path (`sass --load-path=node_modules`).
+{%- if entry.type == 'page' and entry.previewStyle %}
+- Design style: the preview uses `data-spruce-style="{{ entry.previewStyle }}"` on the `html` element; the page works in every style.
+{%- endif %}
+
+## How to use it
+
+1. Copy the SCSS of this {{ entry.type }} and of every stylesheet dependency into your project, in the order listed under Dependencies, and compile them with your Spruce CSS setup.
+2. Copy the HTML{% if entry.jsCode or entry.dependencies.scripts.length %}, and load the scripts with `defer` at the end of the `body`{% endif %}.
+3. Replace the demo content (text, links, image URLs) in the HTML; keep the classes, the structure and the accessibility attributes.
+{%- if entry.dataNote %}
+
+The HTML below is rendered with the default content. In the Spruce UI source (Nunjucks) the content comes from a data object: {{ entry.dataNote | safe }}
+{%- endif %}
+
+## Dependencies
+
+{% if entry.dependencies.styles.length -%}
+Stylesheets, in this order (each one is `{name}.scss` in the library; its endpoint has the code):
+{% for dependency in entry.dependencies.styles %}
+{{ loop.index }}. `{{ dependency.name }}`{% if dependency.url == entry.url or (entry.type == 'page' and dependency.name == 'page/' + entry.page | replace('/pages/', '') | replace('/', '')) %} (this {{ entry.type }}, below){% elif dependency.url %}: {{ spruceUi.siteUrl }}{{ dependency.url }}{% endif %}
+{%- endfor %}
+{%- else -%}
+No other stylesheets.
+{%- endif %}
+{%- if entry.dependencies.external.length or entry.dependencies.scripts.length %}
+
+Scripts, in this order:
+{% for script in entry.dependencies.external %}
+- {{ script }} (external library, load it first)
+{%- endfor %}
+{%- for dependency in entry.dependencies.scripts %}
+- `{{ dependency.name }}.js`{% if dependency.url == entry.url %} (this {{ entry.type }}, below){% elif dependency.url %}: {{ spruceUi.siteUrl }}{{ dependency.url }}{% endif %}
+{%- endfor %}
+{%- endif %}
+
+## HTML
+
+```html
+{{ rendered | removeEmptyLines | trim | safe }}
+```
+{%- if entry.scssCode %}
+
+## SCSS
+
+```scss
+{{ entry.scssCode | safe }}
+```
+{%- endif %}
+{%- if entry.jsCode %}
+
+## JavaScript
+
+```js
+{{ entry.jsCode | safe }}
+```
+{%- endif %}
+{%- if entry.notes %}
+
+## Notes
+
+{{ entry.notes | safe }}
+{%- endif %}

@@ -1,0 +1,126 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.goal-tracker {
+  @include layout-stack('m');
+
+  &__header {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xxs') spacer('s');
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: font-size('h4');
+  }
+
+  &__quarter {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__goal {
+    --goal-color: #{color('success', 'alert')};
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    padding: spacer('m');
+    @include layout-stack('s');
+
+    &--at-risk {
+      --goal-color: #{color('warning', 'alert')};
+    }
+
+    &--behind {
+      --goal-color: #{color('danger', 'alert')};
+    }
+  }
+
+  &__goal-header {
+    align-items: flex-start;
+    display: flex;
+    gap: spacer('s');
+    justify-content: space-between;
+  }
+
+  &__goal-title {
+    font-size: font-size('h5');
+  }
+
+  &__summary {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xxs') spacer('s');
+  }
+
+  &__progress {
+    accent-color: var(--goal-color);
+    block-size: 0.6rem;
+    flex: 1 1 12rem;
+  }
+
+  &__percent {
+    color: color('heading');
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+  }
+
+  &__owner {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__results {
+    border-block-start: config('border-width-base', $display) solid color('border');
+    list-style: none;
+    padding: spacer('s') 0 0;
+    @include layout-stack('s');
+  }
+
+  &__result {
+    align-items: baseline;
+    display: grid;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xxs') spacer('s');
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  &__result-value {
+    color: color('heading');
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+
+    span {
+      color: color('muted');
+      font-weight: 400;
+    }
+  }
+
+  &__bar {
+    background-color: color('surface-muted');
+    block-size: 0.3rem;
+    border-radius: radius('pill');
+    grid-column: 1 / -1;
+    overflow: hidden;
+
+    &::before {
+      background-color: var(--goal-color);
+      block-size: 100%;
+      border-radius: inherit;
+      content: '';
+      display: block;
+      inline-size: var(--value);
+    }
+  }
+}
+
+// The progress element follows the goal color in every browser.
+.goal-tracker__progress::-webkit-progress-value {
+  background-color: var(--goal-color);
+}
+
+.goal-tracker__progress::-moz-progress-bar {
+  background-color: var(--goal-color);
+}

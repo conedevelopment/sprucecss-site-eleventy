@@ -1,0 +1,60 @@
+<div class="listing-toolbar" data-listing-toolbar>
+    <form class="listing-toolbar__bar" action="#" method="get">
+        <p class="listing-toolbar__count"><strong>4</strong> of 86 products</p>
+        <a class="btn btn--outline-secondary btn--sm listing-toolbar__filters" href="#filters">
+            <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h18M7 12h10M10 18h4"/></svg>
+            Filters
+            <span class="listing-toolbar__badge">2<span class="sr-only"> active</span></span>
+        </a>
+        <div class="listing-toolbar__sort">
+            <label class="listing-toolbar__label" for="listing-sort">Sort by</label>
+            <select class="form-control form-control--sm" id="listing-sort" name="sort" data-listing-sort>
+                <option value="featured">Featured</option>
+                <option value="newest">Newest</option>
+                <option value="price-asc">Price: low to high</option>
+                <option value="price-desc">Price: high to low</option>
+                <option value="rating">Best rated</option>
+            </select>
+            <button class="btn btn--outline-secondary btn--sm" type="submit" data-listing-submit>Apply</button>
+        </div>
+        <div class="listing-toolbar__view" role="group" aria-label="View" data-listing-view hidden>
+            <button class="listing-toolbar__view-button" type="button" aria-pressed="true" data-view="grid"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span class="sr-only">Grid</span></button>
+            <button class="listing-toolbar__view-button" type="button" aria-pressed="false" data-view="list"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg><span class="sr-only">List</span></button>
+        </div>
+    </form>
+    <p class="sr-only" aria-live="polite" data-listing-live></p>
+    <ul class="listing-toolbar__results" role="list" data-listing-results>
+        <li class="listing-toolbar__product" data-price="89" data-rating="4.7" data-date="2026-09-12" data-order="1">
+            <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=400&h=400&q=60" alt="" width="400" height="400" loading="lazy">
+            <div class="listing-toolbar__product-body">
+                <h3 class="listing-toolbar__product-title"><a href="#">Everyday Backpack</a></h3>
+                <p class="listing-toolbar__product-text">Charcoal canvas, 22 L, padded laptop sleeve.</p>
+                <p class="listing-toolbar__product-meta"><strong>$89</strong> <span>★ 4.7<span class="sr-only"> out of 5</span></span></p>
+            </div>
+        </li>
+        <li class="listing-toolbar__product" data-price="189" data-rating="4.6" data-date="2026-09-28" data-order="2">
+            <img src="https://images.unsplash.com/photo-1577733966973-d680bffd2e80?auto=format&fit=crop&w=400&h=400&q=60" alt="" width="400" height="400" loading="lazy">
+            <div class="listing-toolbar__product-body">
+                <h3 class="listing-toolbar__product-title"><a href="#">Heritage Backpack</a></h3>
+                <p class="listing-toolbar__product-text">Waxed cotton with leather straps.</p>
+                <p class="listing-toolbar__product-meta"><strong>$189</strong> <span>★ 4.6<span class="sr-only"> out of 5</span></span></p>
+            </div>
+        </li>
+        <li class="listing-toolbar__product" data-price="129" data-rating="4.4" data-date="2026-08-30" data-order="3">
+            <img src="https://images.unsplash.com/photo-1585916420730-d7f95e942d43?auto=format&fit=crop&w=400&h=400&q=60" alt="" width="400" height="400" loading="lazy">
+            <div class="listing-toolbar__product-body">
+                <h3 class="listing-toolbar__product-title"><a href="#">Commuter Pack</a></h3>
+                <p class="listing-toolbar__product-text">Water-resistant, roll-top, 24 L.</p>
+                <p class="listing-toolbar__product-meta"><strong>$129</strong> <span>★ 4.4<span class="sr-only"> out of 5</span></span></p>
+            </div>
+        </li>
+        <li class="listing-toolbar__product" data-price="69" data-rating="4.2" data-date="2026-10-01" data-order="4">
+            <img src="https://images.unsplash.com/photo-1546938576-6e6a64f317cc?auto=format&fit=crop&w=400&h=400&q=60" alt="" width="400" height="400" loading="lazy">
+            <div class="listing-toolbar__product-body">
+                <h3 class="listing-toolbar__product-title"><a href="#">Canvas Daypack</a></h3>
+                <p class="listing-toolbar__product-text">Lightweight everyday daypack, 16 L.</p>
+                <p class="listing-toolbar__product-meta"><strong>$69</strong> <span>★ 4.2<span class="sr-only"> out of 5</span></span></p>
+            </div>
+        </li>
+    </ul>
+</div>

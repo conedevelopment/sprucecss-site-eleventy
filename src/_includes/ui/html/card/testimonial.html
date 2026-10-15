@@ -1,0 +1,22 @@
+{#- Override with `testimonials` ([{ quote, name, role, photo }]) set before the include. -#}
+{%- set _testimonials = testimonials or [
+    { "quote": "Spruce gave our design system a backbone. We switched the whole marketing site to a new style in an afternoon.", "name": "Maya Chen", "role": "Design Lead, Northwind", "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=96&h=96&q=70" },
+    { "quote": "The Sass helpers are a joy. Our components finally use the same spacing, colors and radii everywhere.", "name": "Daniel Okafor", "role": "Frontend Engineer, Lumen", "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=96&h=96&q=70" }
+] %}
+<div class="testimonial-cards">
+    {%- for item in _testimonials %}
+    <figure class="testimonial-card">
+        <svg class="testimonial-card__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M9.6 5C6 6.4 3.5 9.7 3.5 13.7V19h6.6v-6.4H6.8c0-2.3 1.4-4.5 3.6-5.4zm10 0c-3.6 1.4-6.1 4.7-6.1 8.7V19h6.6v-6.4h-3.3c0-2.3 1.4-4.5 3.6-5.4z"/></svg>
+        <blockquote class="testimonial-card__quote">
+            <p>{{ item.quote }}</p>
+        </blockquote>
+        <figcaption class="testimonial-card__author">
+            <img class="testimonial-card__avatar" src="{{ item.photo }}" alt="" width="48" height="48" loading="lazy">
+            <span>
+                <span class="testimonial-card__name">{{ item.name }}</span>
+                <span class="testimonial-card__role">{{ item.role }}</span>
+            </span>
+        </figcaption>
+    </figure>
+    {%- endfor %}
+</div>

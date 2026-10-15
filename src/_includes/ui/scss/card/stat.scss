@@ -1,0 +1,57 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.stat-cards {
+  @include layout-grid('m', 14rem);
+}
+
+.stat-card {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  overflow: hidden;
+  padding: spacer('m') spacer('m') 0;
+  @include layout-stack('xxs');
+
+  &__label {
+    color: color('muted');
+    font-family: inherit;
+    font-size: config('font-size-sm', $typography);
+    font-weight: 600;
+    margin: 0;
+  }
+
+  &__value {
+    color: color('heading');
+    font-family: config('font-family-heading', $typography);
+    font-size: font-size('h2');
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  &__change {
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+
+    &--up {
+      color: color('success', 'alert');
+    }
+
+    &--down {
+      color: color('danger', 'alert');
+    }
+  }
+
+  &__period {
+    color: color('muted');
+    font-weight: 400;
+  }
+
+  &__chart {
+    block-size: 3rem;
+    inline-size: calc(100% + #{spacer('m')} * 2);
+    margin-block-start: spacer('xs');
+    margin-inline: calc(#{spacer('m')} * -1);
+    stroke: color('primary');
+    stroke-width: 2;
+  }
+}

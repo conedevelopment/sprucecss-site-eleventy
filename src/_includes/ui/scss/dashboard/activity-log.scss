@@ -1,0 +1,126 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.activity-log {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  padding: spacer('m');
+  @include layout-stack('m');
+
+  &__header {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: font-size('h5');
+    margin: 0;
+  }
+
+  &__filter {
+    @include layout-cluster('xs');
+  }
+
+  &__days {
+    @include layout-stack('m');
+  }
+
+  &__date {
+    color: color('muted');
+    font-family: inherit;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  &__items {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__item {
+    display: grid;
+    gap: spacer('s');
+    grid-template-columns: 2rem minmax(0, 1fr);
+    margin: 0 !important;
+    padding-block-end: spacer('s');
+    position: relative;
+
+    // The line that connects the icons.
+    &:not(:last-child)::before {
+      background-color: color('border');
+      content: '';
+      inline-size: 1px;
+      inset-block: 2.25rem 0.25rem;
+      inset-inline-start: calc(1rem - 0.5px);
+      position: absolute;
+    }
+  }
+
+  &__icon {
+    align-items: center;
+    aspect-ratio: 1;
+    background-color: color('surface-muted');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('pill');
+    color: color('muted');
+    display: inline-flex;
+    inline-size: 2rem;
+    justify-content: center;
+
+    svg {
+      block-size: 1rem;
+      inline-size: 1rem;
+    }
+
+    &--order {
+      color: color('primary');
+    }
+
+    &--security {
+      color: color('danger', 'alert');
+    }
+  }
+
+  &__day {
+    @include layout-stack('xs');
+  }
+
+  &__body {
+    padding-block-start: 0.2rem;
+    @include layout-stack('xxs');
+  }
+
+  &__text {
+    line-height: config('line-height-md', $typography);
+
+    strong {
+      color: color('heading');
+    }
+  }
+
+  &__meta {
+    color: color('muted');
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0.8125rem;
+    gap: 0 spacer('xs');
+
+    time + span::before {
+      content: '·';
+      margin-inline-end: spacer('xs');
+    }
+  }
+
+  &__empty {
+    background-color: color('surface-muted');
+    border-radius: radius('md');
+    color: color('muted');
+    padding: spacer('m');
+    text-align: center;
+  }
+}

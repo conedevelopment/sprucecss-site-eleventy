@@ -1,0 +1,101 @@
+.sale-countdown-block {
+  padding-block: clamp(4.5rem, 5vw, 7rem);
+}
+.sale-countdown-block__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.sale-countdown-block__banner {
+  --spruce-base-color-heading: var(--spruce-btn-color-primary-foreground);
+  --spruce-base-color-muted: color-mix(in srgb, var(--spruce-btn-color-primary-foreground) 80%, transparent);
+  --spruce-base-color-text: var(--spruce-btn-color-primary-foreground);
+}
+.sale-countdown-block__banner ::selection {
+  background-color: var(--spruce-btn-color-secondary-background);
+  color: var(--spruce-btn-color-secondary-foreground);
+}
+.sale-countdown-block__banner {
+  align-items: center;
+  background-color: var(--spruce-btn-color-primary-background);
+  background-image: radial-gradient(circle at 0% 100%, color-mix(in srgb, var(--spruce-btn-color-secondary-background) 60%, transparent), transparent 55%);
+  border: 0;
+  color: var(--spruce-btn-color-primary-foreground);
+  display: grid;
+  gap: 3rem;
+  text-align: start;
+}
+@media (min-width: 80em) {
+  .sale-countdown-block__banner {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+.sale-countdown-block__banner > * {
+  margin: 0 !important;
+}
+.sale-countdown-block__banner .countdown__unit {
+  background-color: hsla(0, 0%, 100%, 0.14);
+  min-inline-size: 4.5rem;
+}
+.sale-countdown-block__copy > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.sale-countdown-block__copy > * + * {
+  margin-block-start: 0.5rem;
+}
+.sale-countdown-block__eyebrow {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.sale-countdown-block__title {
+  font-size: clamp(1.7875rem, 3vw + 1rem, 2.75rem);
+}
+.sale-countdown-block__text {
+  font-size: var(--spruce-font-size-lead);
+  max-inline-size: 34rem;
+  opacity: 0.9;
+}
+.sale-countdown-block__timer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.sale-countdown-block__timer .countdown__title {
+  font-size: var(--spruce-font-size-base);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.sale-countdown-block__action {
+  background-color: var(--spruce-btn-color-primary-foreground);
+  border-color: var(--spruce-btn-color-primary-foreground);
+  color: var(--spruce-btn-color-primary-background);
+}
+.sale-countdown-block__action:hover {
+  background-color: color-mix(in srgb, var(--spruce-btn-color-primary-foreground) 90%, transparent);
+  color: var(--spruce-btn-color-primary-background);
+}
+.sale-countdown-block__grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(min(13rem, 100%), 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sale-countdown-block__grid > li {
+  display: flex;
+  margin: 0 !important;
+  margin-block: 0;
+  padding-block: 0;
+}
+.sale-countdown-block__grid .product-card {
+  inline-size: 100%;
+}
+.sale-countdown-block__grid del {
+  color: var(--spruce-base-color-muted);
+  font-size: var(--spruce-font-size-sm);
+  font-weight: 400;
+}

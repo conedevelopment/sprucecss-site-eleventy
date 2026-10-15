@@ -1,0 +1,94 @@
+<section class="setup-checklist" aria-labelledby="setup-checklist-title" data-setup-checklist>
+    <header class="setup-checklist__header">
+        <div class="setup-checklist__heading">
+            <h3 class="setup-checklist__title" id="setup-checklist-title">Get your store ready</h3>
+            <p class="setup-checklist__progress-text" id="setup-checklist-progress" data-setup-text>2 of 5 steps completed</p>
+        </div>
+        <button class="btn btn--ghost-secondary btn--icon btn--sm" type="button" data-setup-dismiss hidden>
+            <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            <span class="sr-only">Dismiss the setup guide</span>
+        </button>
+    </header>
+    <progress class="setup-checklist__progress" max="5" value="2" aria-labelledby="setup-checklist-progress" data-setup-progress>2 of 5</progress>
+    <ol class="setup-checklist__steps" role="list">
+        <li class="setup-checklist__step" data-setup-step data-done>
+            <details name="setup-checklist">
+                <summary class="setup-checklist__summary">
+                    <span class="setup-checklist__marker" aria-hidden="true"></span>
+                    <span class="setup-checklist__step-title">Create your store</span>
+                    <span class="setup-checklist__state" data-setup-state>Completed</span>
+                </summary>
+                <div class="setup-checklist__content">
+                    <p>Your store name, address and currency are set.</p>
+                    <div class="setup-checklist__actions">
+                        <button class="btn btn--ghost-secondary btn--sm" type="button" data-setup-toggle hidden>Mark as not done</button>
+                    </div>
+                </div>
+            </details>
+        </li>
+        <li class="setup-checklist__step" data-setup-step data-done>
+            <details name="setup-checklist">
+                <summary class="setup-checklist__summary">
+                    <span class="setup-checklist__marker" aria-hidden="true"></span>
+                    <span class="setup-checklist__step-title">Add your first product</span>
+                    <span class="setup-checklist__state" data-setup-state>Completed</span>
+                </summary>
+                <div class="setup-checklist__content">
+                    <p>Add a title, a price and at least one photo.</p>
+                    <div class="setup-checklist__actions">
+                        <button class="btn btn--ghost-secondary btn--sm" type="button" data-setup-toggle hidden>Mark as not done</button>
+                    </div>
+                </div>
+            </details>
+        </li>
+        <li class="setup-checklist__step" data-setup-step>
+            <details name="setup-checklist" open>
+                <summary class="setup-checklist__summary">
+                    <span class="setup-checklist__marker" aria-hidden="true"></span>
+                    <span class="setup-checklist__step-title">Set up payments</span>
+                    <span class="setup-checklist__state" data-setup-state>Not completed</span>
+                </summary>
+                <div class="setup-checklist__content">
+                    <p>Connect a payment provider to accept cards, wallets and bank transfers. It takes about five minutes.</p>
+                    <div class="setup-checklist__actions">
+                        <a class="btn btn--primary btn--sm" href="#">Connect payments</a>
+                        <button class="btn btn--ghost-secondary btn--sm" type="button" data-setup-toggle hidden>Mark as done</button>
+                    </div>
+                </div>
+            </details>
+        </li>
+        <li class="setup-checklist__step" data-setup-step>
+            <details name="setup-checklist">
+                <summary class="setup-checklist__summary">
+                    <span class="setup-checklist__marker" aria-hidden="true"></span>
+                    <span class="setup-checklist__step-title">Choose your shipping rates</span>
+                    <span class="setup-checklist__state" data-setup-state>Not completed</span>
+                </summary>
+                <div class="setup-checklist__content">
+                    <p>Set flat rates, free shipping thresholds or carrier-calculated rates for your zones.</p>
+                    <div class="setup-checklist__actions">
+                        <a class="btn btn--primary btn--sm" href="#">Set up shipping</a>
+                        <button class="btn btn--ghost-secondary btn--sm" type="button" data-setup-toggle hidden>Mark as done</button>
+                    </div>
+                </div>
+            </details>
+        </li>
+        <li class="setup-checklist__step" data-setup-step>
+            <details name="setup-checklist">
+                <summary class="setup-checklist__summary">
+                    <span class="setup-checklist__marker" aria-hidden="true"></span>
+                    <span class="setup-checklist__step-title">Connect a domain</span>
+                    <span class="setup-checklist__state" data-setup-state>Not completed</span>
+                </summary>
+                <div class="setup-checklist__content">
+                    <p>Use your own domain name instead of the default store address.</p>
+                    <div class="setup-checklist__actions">
+                        <a class="btn btn--primary btn--sm" href="#">Add domain</a>
+                        <button class="btn btn--ghost-secondary btn--sm" type="button" data-setup-toggle hidden>Mark as done</button>
+                    </div>
+                </div>
+            </details>
+        </li>
+    </ol>
+    <p class="sr-only" aria-live="polite" data-setup-live></p>
+</section>

@@ -1,0 +1,64 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.changelog-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    align-items: start;
+    display: grid;
+    gap: spacer-clamp('l', 'xl');
+
+    @include breakpoint('lg') {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    }
+  }
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+  }
+
+  &__aside {
+    @include layout-stack('m');
+
+    @include breakpoint('lg') {
+      inset-block-start: spacer('l');
+      position: sticky;
+    }
+
+    // The sidebar is narrow, so the newsletter stays one column.
+    .newsletter {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .newsletter__title {
+      font-size: font-size('h4');
+    }
+  }
+
+  &__links {
+    list-style: none;
+    padding: 0;
+    @include layout-stack('xs');
+
+    a {
+      align-items: center;
+      color: color('heading');
+      display: inline-flex;
+      font-weight: 600;
+      gap: spacer('xs');
+      text-decoration: none;
+
+      &:hover {
+        color: color('primary');
+        text-decoration: underline;
+      }
+    }
+
+    svg {
+      block-size: 1.15rem;
+      inline-size: 1.15rem;
+    }
+  }
+}

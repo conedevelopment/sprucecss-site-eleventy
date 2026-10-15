@@ -1,0 +1,48 @@
+{#- An about page, composed only of Spruce UI blocks. -#}
+{% set heroCenteredBlock = {
+    "badge": "About", "eyebrow": "A small team with a big mission",
+    "title": "We make the web calmer, one stylesheet at a time",
+    "lead": "Spruce started as the CSS we kept copying from project to project. Today, thousands of teams build on it.",
+    "primary": "Meet the team", "secondary": "Open positions",
+    "proof": "Remote-first since 2021",
+    "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=70", "alt": "The team working together around a table."
+} %}
+{% set statsBlock = {
+    "heading": { "eyebrow": "In numbers", "title": "Small team, wide reach", "id": "stats-title" },
+    "brand": false,
+    "items": [
+        { "value": 14, "label": "People", "text": "in nine countries" },
+        { "value": 12000, "suffix": "+", "label": "Developers", "text": "build with Spruce" },
+        { "value": 5, "label": "Years", "text": "of open source" },
+        { "value": 100, "suffix": "%", "label": "Remote", "text": "with three offices" }
+    ]
+} %}
+{% set teamBlock = {
+    "heading": { "eyebrow": "Team", "title": "The people behind Spruce", "text": "Designers and engineers who care about the details.", "id": "team-title" },
+    "members": [
+        { "name": "Maya Chen", "role": "Design Lead", "bio": "Calm interfaces and accessible color.", "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=480&q=70&h=560" },
+        { "name": "Daniel Okafor", "role": "Frontend Engineer", "bio": "Sass and CSS that ages gracefully.", "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=480&q=70&h=560" },
+        { "name": "Ava Martinez", "role": "Accessibility", "bio": "Screen reader user and advocate.", "photo": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=480&q=70&h=560" }
+    ],
+    "hiring": { "title": "Your face here?", "text": "We’re hiring a developer advocate and a product designer.", "action": "See open roles" }
+} %}
+{% set siteHeaderCentered = { "name": "Spruce", "action": "Contact us" } %}
+{% include "../content-and-layout/site-header-centered.html" %}
+<main class="l-page" id="content" tabindex="-1">
+    {% include "../block/hero-centered.html" %}
+    {% include "../block/stats.html" %}
+    <div class="l-page__alt">
+        {% include "../block/timeline.html" %}
+    </div>
+    {% include "../block/team.html" %}
+    <div class="l-page__alt">
+        {% include "../block/community.html" %}
+    </div>
+    {% include "../block/gallery.html" %}
+    {% include "../block/events.html" %}
+    <div class="l-page__alt">
+        {% include "../block/careers.html" %}
+    </div>
+    {% include "../block/locations.html" %}
+</main>
+{% include "../content-and-layout/site-footer-centered.html" %}

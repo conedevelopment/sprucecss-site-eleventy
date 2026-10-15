@@ -1,0 +1,206 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.hero-product-block {
+  background-image: radial-gradient(ellipse 60% 60% at 85% 20%, #{color-alpha('primary', 0.12)}, transparent);
+  overflow: hidden;
+  padding-block: spacer-clamp('l', 'xxl');
+
+  &__inner {
+    align-items: center;
+    display: grid;
+    gap: spacer-clamp('l', 'xl');
+
+    @include breakpoint('lg') {
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    }
+  }
+
+  &__content {
+    @include layout-stack('m');
+  }
+
+  &__eyebrow {
+    align-items: center;
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('pill');
+    color: color('heading');
+    display: inline-flex;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xs');
+    padding: spacer('xxs') spacer('s') spacer('xxs') spacer('xxs');
+  }
+
+  &__badge {
+    background-color: color('primary');
+    border-radius: radius('pill');
+    color: color('primary-foreground', 'btn');
+    font-weight: 700;
+    padding: 0 spacer('xs');
+  }
+
+  &__title {
+    font-size: responsive-font-size(4rem, 40, '5vw + 1rem');
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  &__lead {
+    font-size: config('font-size-lead', $typography);
+    max-inline-size: 36rem;
+  }
+
+  &__actions {
+    @include layout-cluster('s');
+  }
+
+  &__price {
+    border-inline-start: config('border-width-base', $display) solid color-alpha('primary-foreground', 0.4, 'btn');
+    margin-inline-start: spacer('xs');
+    padding-inline-start: spacer('s');
+  }
+
+  &__rating {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs');
+  }
+
+  &__stars {
+    color: color('warning', 'alert');
+    letter-spacing: 0.1em;
+  }
+
+  &__points {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs') spacer('m');
+    list-style: none;
+    padding: 0;
+
+    li {
+      align-items: center;
+      color: color('muted');
+      display: flex;
+      font-size: config('font-size-sm', $typography);
+      gap: spacer('xs');
+    }
+
+    .block-icon {
+      block-size: 1.1rem;
+      color: color('primary');
+      inline-size: 1.1rem;
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  // The video and the book overlap: the book sits on the bottom start corner of the video.
+  &__media {
+    display: grid;
+    grid-template-areas: 'stack';
+    padding-block-end: spacer-clamp('l', 'xl');
+    padding-inline-start: spacer-clamp('l', 'xl');
+  }
+
+  &__video {
+    aspect-ratio: 4 / 3;
+    border-radius: radius('lg');
+    box-shadow: shadow('xl');
+    color: hsl(0deg 0% 100%);
+    display: block;
+    grid-area: stack;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+
+    img {
+      block-size: 100%;
+      inline-size: 100%;
+      object-fit: cover;
+    }
+
+    &::after {
+      background-image: linear-gradient(to bottom, hsl(0deg 0% 0% / 55%), transparent 45%);
+      content: '';
+      inset: 0;
+      position: absolute;
+    }
+
+    &:focus-visible {
+      outline: 3px solid color('focus-ring');
+      outline-offset: 3px;
+    }
+  }
+
+  &__play {
+    align-items: center;
+    background-color: color('surface');
+    block-size: 4.5rem;
+    border-radius: 50%;
+    box-shadow: shadow('lg');
+    color: color('primary');
+    display: flex;
+    inline-size: 4.5rem;
+    inset: 0;
+    justify-content: center;
+    margin: auto;
+    position: absolute;
+    z-index: 1;
+
+    svg {
+      block-size: 1.75rem;
+      inline-size: 1.75rem;
+      margin-inline-start: 0.2rem;
+    }
+  }
+
+  &__video-label {
+    align-items: center;
+    display: flex;
+    font-weight: 700;
+    gap: spacer('xs');
+    // Top end: the book covers the bottom start corner.
+    inset-block-start: spacer('m');
+    inset-inline-end: spacer('m');
+    position: absolute;
+    z-index: 1;
+  }
+
+  &__duration {
+    background-color: hsl(0deg 0% 0% / 60%);
+    border-radius: radius('sm');
+    font-size: config('font-size-sm', $typography);
+    font-variant-numeric: tabular-nums;
+    padding: 0 spacer('xxs');
+  }
+
+  &__book {
+    align-self: end;
+    grid-area: stack;
+    inline-size: clamp(8rem, 38%, 13rem);
+    justify-self: start;
+    margin-block-end: calc(#{spacer-clamp('l', 'xl')} * -1);
+    margin-inline-start: calc(#{spacer-clamp('l', 'xl')} * -1);
+    position: relative;
+    z-index: 2;
+
+    .book-cover {
+      --book-cover-inline-size: 100%;
+    }
+  }
+
+  @include motion-safe {
+    &__play {
+      transition: scale 0.2s ease;
+    }
+
+    &__video:hover &__play {
+      scale: 1.08;
+    }
+  }
+}

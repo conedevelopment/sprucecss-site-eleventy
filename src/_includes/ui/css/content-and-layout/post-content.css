@@ -10,21 +10,15 @@
     font-size: 1.0375rem;
   }
 }
-.post-content :is(dd, dl, dl, h1, h2, h3, h4, h5, h6, hr, ul, ol, p, blockquote) {
+.post-content > :is(dd, dl, h1, h2, h3, h4, h5, h6, hr, ul, ol, p, blockquote, details, pre) {
   inline-size: 100%;
   margin-inline: auto;
   max-inline-size: 47.5rem;
 }
 .post-content * + h2,
 .post-content * + h3,
-.post-content > * + img,
-.post-content > * + iframe,
-.post-content > * + figure,
-.post-content > * + .gallery,
-.post-content > iframe + *,
-.post-content > img + *,
-.post-content > figure + *,
-.post-content > .gallery + * {
+.post-content > * + :is(img, iframe, figure, .gallery, .table-responsive),
+.post-content > :is(img, iframe, figure, .gallery, .table-responsive) + * {
   margin-block-start: 3rem;
 }
 .post-content h2 + *,
@@ -36,9 +30,20 @@
 }
 .post-content img,
 .post-content iframe {
-  border-radius: 0.425rem;
+  border-radius: var(--spruce-border-radius-md);
+}
+.post-content > img,
+.post-content > figure img {
+  block-size: auto;
+  inline-size: 100%;
 }
 .post-content iframe {
   aspect-ratio: 16/9;
-  block-size: initial;
+  block-size: auto;
+  border: 0;
+  inline-size: 100%;
+}
+.post-content h2,
+.post-content h3 {
+  scroll-margin-block-start: 3rem;
 }

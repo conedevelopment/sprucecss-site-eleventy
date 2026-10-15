@@ -1,0 +1,144 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.page-header {
+  border-block-end: config('border-width-base', $display) solid color('border');
+  @include layout-stack('s');
+
+  &__breadcrumb {
+    font-size: config('font-size-sm', $typography);
+
+    ol {
+      @include clear-list;
+      @include layout-cluster('xxs');
+    }
+
+    li {
+      align-items: center;
+      display: inline-flex;
+      gap: spacer('xxs');
+      margin: 0;
+    }
+
+    li + li::before {
+      color: color('muted');
+      content: '/';
+    }
+
+    a {
+      color: color('muted');
+      text-decoration: none;
+
+      &:hover {
+        color: color('primary');
+        text-decoration: underline;
+      }
+    }
+
+    [aria-current='page'] {
+      color: color('heading');
+      font-weight: 500;
+    }
+  }
+
+  &__main {
+    align-items: flex-end;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
+    justify-content: space-between;
+  }
+
+  &__heading {
+    @include layout-stack('xxs');
+  }
+
+  &__title-row {
+    @include layout-cluster('xs');
+  }
+
+  &__title {
+    font-size: font-size('h3');
+    margin: 0;
+  }
+
+  &__status {
+    background-color: color-alpha('muted', 0.15);
+    border-radius: radius('pill');
+    color: color('heading');
+    font-size: 0.8125rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0.4em 0.75em;
+
+    &--success {
+      background-color: color-alpha('success', 0.15, 'alert');
+    }
+
+    &--warning {
+      background-color: color-alpha('warning', 0.25, 'alert');
+    }
+  }
+
+  &__meta {
+    color: color('muted');
+    display: flex;
+    flex-wrap: wrap;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xxs') spacer('xs');
+
+    span + span::before {
+      content: '·';
+      margin-inline-end: spacer('xs');
+    }
+  }
+
+  &__actions {
+    @include layout-cluster('xs');
+  }
+
+  &__tabs {
+    margin-block-end: calc(#{config('border-width-base', $display)} * -1);
+    overflow-x: auto;
+
+    ul {
+      @include clear-list;
+      display: flex;
+      gap: spacer('m');
+    }
+
+    li {
+      margin: 0;
+    }
+
+    a {
+      align-items: center;
+      border-block-end: 2px solid transparent;
+      color: color('muted');
+      display: inline-flex;
+      font-weight: 500;
+      gap: spacer('xxs');
+      padding-block: spacer('xs');
+      text-decoration: none;
+      white-space: nowrap;
+      @include transition;
+
+      &:hover {
+        color: color('heading');
+      }
+
+      &[aria-current='page'] {
+        border-color: color('primary');
+        color: color('primary');
+      }
+    }
+  }
+
+  &__tab-count {
+    background-color: color('surface-muted');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('pill');
+    font-size: 0.75rem;
+    line-height: 1;
+    padding: 0.2em 0.5em;
+  }
+}

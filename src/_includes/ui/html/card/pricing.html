@@ -1,0 +1,27 @@
+{#- Override with `pricingPlans` set before the include (`period` defaults to "/ month"). The prices are monthly; data-yearly is used by the Pricing Section toggle. -#}
+{%- set _plans = pricingPlans or [
+    { "name": "Starter", "price": 0, "yearly": 0, "description": "For side projects and trying things out.", "features": ["1 project", "Community support", "Basic analytics"], "cta": "Get started" },
+    { "name": "Team", "price": 29, "yearly": 23, "description": "For growing teams that ship every week.", "features": ["Unlimited projects", "Priority support", "Advanced analytics", "Custom domains"], "cta": "Start free trial", "featured": true },
+    { "name": "Enterprise", "price": 99, "yearly": 79, "description": "For organizations with advanced needs.", "features": ["Everything in Team", "SSO and audit logs", "Dedicated manager"], "cta": "Contact sales" }
+] %}
+<div class="pricing-cards">
+    {%- for plan in _plans %}
+    {%- set planId = "plan-" + (plan.name | lower | replace(" ", "-")) %}
+    <article class="pricing-card{% if plan.featured %} pricing-card--featured{% endif %}" aria-labelledby="{{ planId }}">
+        <header class="pricing-card__header">
+            {%- if plan.featured %}
+            <span class="pricing-card__badge">Most popular</span>
+            {%- endif %}
+            <h3 class="pricing-card__title" id="{{ planId }}">{{ plan.name }}</h3>
+            <p class="pricing-card__description">{{ plan.description }}</p>
+        </header>
+        <p class="pricing-card__price"><span class="pricing-card__amount" data-monthly="{{ plan.price }}" data-yearly="{{ plan.yearly }}">${{ plan.price }}</span> <span class="pricing-card__period">{{ plan.period or "/ month" }}</span></p>
+        <ul class="pricing-card__features" role="list">
+            {%- for feature in plan.features %}
+            <li><svg class="pricing-card__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg> {{ feature }}</li>
+            {%- endfor %}
+        </ul>
+        <a class="btn {% if plan.featured %}btn--primary{% else %}btn--outline-primary{% endif %} btn--block pricing-card__action" href="#">{{ plan.cta }}</a>
+    </article>
+    {%- endfor %}
+</div>

@@ -1,0 +1,27 @@
+---
+title: 'Deployment List'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--wide">
+        {% include "ui/html/dashboard/deployment-list.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/dashboard/deployment-list.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/dashboard/deployment-list.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/dashboard/deployment-list.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/dashboard/deployment-list.css">
+{% endblock %}

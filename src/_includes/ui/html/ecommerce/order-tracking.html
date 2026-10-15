@@ -1,0 +1,66 @@
+<section class="order-tracking" aria-labelledby="order-tracking-title">
+    <header class="order-tracking__header">
+        <div class="order-tracking__heading">
+            <p class="order-tracking__eyebrow">Order #10482</p>
+            <h3 class="order-tracking__title" id="order-tracking-title">Arriving <time datetime="2026-10-08">Thursday, October 8</time></h3>
+        </div>
+        <a class="btn btn--outline-secondary btn--sm" href="#">Track on UPS<span class="sr-only"> (opens the carrier’s website)</span></a>
+    </header>
+    <ol class="order-tracking__steps" role="list" style="--progress: 50%;">
+            <li class="order-tracking__step order-tracking__step--done">
+                <span class="order-tracking__dot" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span class="order-tracking__step-label"><span class="sr-only">Completed: </span>Ordered</span>
+                <span class="order-tracking__step-date"><time datetime="2026-10-03">Oct 3</time></span>
+            </li>
+            <li class="order-tracking__step order-tracking__step--done">
+                <span class="order-tracking__dot" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg></span>
+                <span class="order-tracking__step-label"><span class="sr-only">Completed: </span>Shipped</span>
+                <span class="order-tracking__step-date"><time datetime="2026-10-04">Oct 4</time></span>
+            </li>
+            <li class="order-tracking__step order-tracking__step--current" aria-current="step">
+                <span class="order-tracking__dot" aria-hidden="true"></span>
+                <span class="order-tracking__step-label"><span class="sr-only">Current step: </span>In transit</span>
+                <span class="order-tracking__step-date">Today</span>
+            </li>
+            <li class="order-tracking__step order-tracking__step--todo">
+                <span class="order-tracking__dot" aria-hidden="true"></span>
+                <span class="order-tracking__step-label"><span class="sr-only">Upcoming: </span>Out for delivery</span>
+            </li>
+            <li class="order-tracking__step order-tracking__step--todo">
+                <span class="order-tracking__dot" aria-hidden="true"></span>
+                <span class="order-tracking__step-label"><span class="sr-only">Upcoming: </span>Delivered</span>
+                <span class="order-tracking__step-date">Expected <time datetime="2026-10-08">Oct 8</time></span>
+            </li>
+    </ol>
+    <dl class="order-tracking__details">
+        <div><dt>Carrier</dt><dd>UPS Standard</dd></div>
+        <div><dt>Tracking number</dt><dd><code>1Z999AA10123456784</code></dd></div>
+        <div><dt>Shipping to</dt><dd>Anna Smith, Budapest</dd></div>
+    </dl>
+    <details class="order-tracking__history">
+        <summary>Shipment history</summary>
+        <ol class="order-tracking__events" role="list">
+                <li class="order-tracking__event">
+                    <time class="order-tracking__event-time" datetime="2026-10-04T18:42">Oct 4, 6:42 PM</time>
+                    <span class="order-tracking__event-text">Departed facility</span>
+                    <span class="order-tracking__event-place">Budapest, HU</span>
+                </li>
+                <li class="order-tracking__event">
+                    <time class="order-tracking__event-time" datetime="2026-10-04T14:05">Oct 4, 2:05 PM</time>
+                    <span class="order-tracking__event-text">Arrived at the sorting center</span>
+                    <span class="order-tracking__event-place">Budapest, HU</span>
+                </li>
+                <li class="order-tracking__event">
+                    <time class="order-tracking__event-time" datetime="2026-10-04T09:30">Oct 4, 9:30 AM</time>
+                    <span class="order-tracking__event-text">Picked up by the carrier</span>
+                    <span class="order-tracking__event-place">Győr, HU</span>
+                </li>
+                <li class="order-tracking__event">
+                    <time class="order-tracking__event-time" datetime="2026-10-03T16:12">Oct 3, 4:12 PM</time>
+                    <span class="order-tracking__event-text">Shipping label created</span>
+                    <span class="order-tracking__event-place">Győr, HU</span>
+                </li>
+        </ol>
+    </details>
+    <p class="order-tracking__help">Something wrong with the delivery? <a href="#">Contact support</a></p>
+</section>

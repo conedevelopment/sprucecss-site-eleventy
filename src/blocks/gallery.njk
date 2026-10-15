@@ -1,0 +1,38 @@
+---
+category: 'Content'
+title: 'Gallery'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--block ui--gallery">
+        {% include "ui/html/block/gallery.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/block/gallery.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/block/gallery.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/block/gallery.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/block/gallery.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/container.css">
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/block-heading.css">
+    <link rel="stylesheet" href="/_includes/ui/css/block/gallery.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/block/gallery.js"></script>
+{% endblock %}

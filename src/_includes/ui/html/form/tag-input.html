@@ -1,0 +1,13 @@
+<div class="tag-input" data-tag-input>
+    <label class="form-label" for="tag-input-field">Skills</label>
+    <div class="tag-input__box">
+        <ul class="tag-input__list" role="list" aria-label="Selected skills">
+            <li class="tag-input__tag"><span>CSS</span><button class="tag-input__remove" type="button" aria-label="Remove CSS">×</button></li>
+            <li class="tag-input__tag"><span>Sass</span><button class="tag-input__remove" type="button" aria-label="Remove Sass">×</button></li>
+        </ul>
+        <input class="tag-input__field" id="tag-input-field" type="text" aria-describedby="tag-input-help" autocomplete="off">
+    </div>
+    <p class="form-description" id="tag-input-help">Press Enter or comma to add a skill, Backspace to remove the last one.</p>
+    <p class="sr-only" aria-live="polite" data-tag-status></p>
+    <input type="hidden" name="skills" value="CSS,Sass" data-tag-value>
+</div>

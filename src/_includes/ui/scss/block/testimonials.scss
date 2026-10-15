@@ -1,0 +1,37 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.testimonials-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+  }
+
+  &__rating {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs');
+    justify-content: center;
+    // A child of the flex __inner: the gap spaces it, so drop the browser margins.
+    margin-block: 0;
+    margin-block-start: spacer('s') !important;
+  }
+
+  &__stars {
+    color: color('warning', 'alert');
+    display: inline-flex;
+
+    svg {
+      block-size: 1.25rem;
+      inline-size: 1.25rem;
+    }
+  }
+
+  .logo-cloud {
+    border-block-start: config('border-width-base', $display) solid color('border');
+    padding-block-start: spacer('l');
+  }
+}

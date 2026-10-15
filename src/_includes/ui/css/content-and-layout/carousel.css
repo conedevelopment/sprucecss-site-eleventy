@@ -1,0 +1,82 @@
+.carousel {
+  display: grid;
+  gap: 1rem;
+}
+.carousel__controls {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+.carousel__track {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline mandatory;
+}
+.carousel__track > * {
+  flex: 0 0 85%;
+  scroll-snap-align: start;
+}
+.carousel__track {
+  border-radius: var(--spruce-border-radius-lg);
+  scrollbar-width: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .carousel__track {
+    scroll-behavior: smooth;
+  }
+}
+.carousel__track:focus-visible {
+  outline: 2px solid var(--spruce-base-color-focus-ring);
+  outline-offset: 2px;
+}
+.carousel__track > * + * {
+  margin-block-start: 0;
+}
+.carousel__track > li {
+  margin-block: 0;
+  padding-block: 0;
+}
+.carousel__slide figure {
+  margin: 0;
+  position: relative;
+}
+.carousel__slide img {
+  aspect-ratio: 3/2;
+  border-radius: var(--spruce-border-radius-lg);
+  inline-size: 100%;
+  object-fit: cover;
+}
+.carousel__slide figcaption {
+  background-color: color-mix(in srgb, var(--spruce-base-color-background) 85%, transparent);
+  border-radius: var(--spruce-border-radius-sm);
+  color: var(--spruce-base-color-heading);
+  font-weight: 700;
+  inset-block-end: 1rem;
+  inset-inline-start: 1rem;
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+  position: absolute;
+}
+.carousel__dots {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+.carousel__dot {
+  background-color: var(--spruce-base-color-border);
+  block-size: 0.625rem;
+  border-radius: var(--spruce-border-radius-pill);
+  inline-size: 0.625rem;
+  transition-duration: var(--spruce-duration);
+  transition-property: background-color, inline-size;
+  transition-timing-function: var(--spruce-timing-function);
+}
+.carousel__dot[aria-current=true] {
+  background-color: var(--spruce-base-color-primary);
+  inline-size: 1.5rem;
+}

@@ -1,0 +1,114 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.cta-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__box {
+    @include set-css-variable((
+      --base-color-heading: color('primary-foreground', 'btn'),
+      --base-color-text: color('primary-foreground', 'btn'),
+    ));
+    @include selection(color('secondary-background', 'btn'), color('secondary-foreground', 'btn'));
+    align-items: center;
+    background-color: color('primary-background', 'btn');
+    background-image:
+      radial-gradient(circle at 0% 0%, #{color-alpha('primary-foreground', 0.18, 'btn')}, transparent 45%),
+      radial-gradient(circle at 100% 100%, #{color-alpha('secondary-background', 0.5, 'btn')}, transparent 50%);
+    border-radius: radius('lg');
+    box-shadow: shadow('xl');
+    color: color('primary-foreground', 'btn');
+    display: flex;
+    flex-direction: column;
+    gap: spacer('m');
+    padding: spacer-clamp('l', 'xl') spacer-clamp('m', 'xl');
+    text-align: center;
+  }
+
+  // The box is a flex column (it centers the form), so its text children drop the browser margins.
+  &__title {
+    font-size: responsive-font-size(2.75rem, 35, '3vw + 1rem');
+    margin-block: 0;
+    max-inline-size: 36rem;
+  }
+
+  &__text {
+    margin-block: 0;
+    max-inline-size: 34rem;
+    opacity: 0.9;
+  }
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs');
+    inline-size: 100%;
+    max-inline-size: 30rem;
+
+    .form-control {
+      flex: 1 1 14rem;
+    }
+
+    .btn {
+      flex: 0 0 auto;
+    }
+  }
+
+  // The GDPR consent under the form, in the text color of the brand background.
+  &__consent {
+    flex-basis: 100%;
+    font-size: config('font-size-sm', $typography);
+    justify-content: center;
+    text-align: start;
+
+    .form-check__label,
+    a {
+      color: color('primary-foreground', 'btn');
+    }
+
+    .form-check__control:focus-visible {
+      outline-color: color('primary-foreground', 'btn');
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs');
+    justify-content: center;
+  }
+
+  // Inverted buttons on the brand background.
+  &__primary {
+    background-color: color('primary-foreground', 'btn');
+    border-color: color('primary-foreground', 'btn');
+    color: color('primary-background', 'btn');
+
+    &:hover {
+      background-color: color-alpha('primary-foreground', 0.9, 'btn');
+      color: color('primary-background', 'btn');
+    }
+  }
+
+  &__secondary {
+    background-color: transparent;
+    border-color: color-alpha('primary-foreground', 0.6, 'btn');
+    color: color('primary-foreground', 'btn');
+
+    &:hover {
+      background-color: color-alpha('primary-foreground', 0.12, 'btn');
+      border-color: color('primary-foreground', 'btn');
+      color: color('primary-foreground', 'btn');
+    }
+  }
+
+  &__proof {
+    align-items: center;
+    display: flex;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xs');
+
+    .avatar {
+      box-shadow: 0 0 0 2px color('primary-background', 'btn');
+    }
+  }
+}

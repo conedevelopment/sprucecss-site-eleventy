@@ -1,0 +1,111 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.bulk-actions {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  overflow: hidden;
+
+  &__header {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs') spacer('m');
+    justify-content: space-between;
+    min-block-size: 3.75rem;
+    padding: spacer('xs') spacer('m');
+  }
+
+  &__title {
+    font-size: font-size('h5');
+    margin: 0;
+  }
+
+  &__bar {
+    @include layout-cluster('xs');
+    border-radius: radius('md');
+    margin-inline-start: auto;
+    @include transition($property: 'background-color, padding');
+
+    &--active {
+      background-color: color-alpha('primary', 0.08);
+      padding: spacer('xxs') spacer('xxs') spacer('xxs') spacer('s');
+    }
+  }
+
+  &__count {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    margin: 0;
+
+    .bulk-actions__bar--active & {
+      color: color('heading');
+      font-weight: 700;
+      margin-inline-end: spacer('xs');
+    }
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  &__table {
+    margin: 0;
+
+    tr:has(.form-check__control:checked) {
+      background-color: color-alpha('primary', 0.06);
+    }
+
+    th[scope='row'] a {
+      font-weight: 700;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__check {
+    inline-size: 3.5rem;
+    min-inline-size: 0 !important;
+    padding-inline-start: spacer('m') !important;
+
+    .form-check__control {
+      display: block;
+    }
+  }
+
+  &__number {
+    font-variant-numeric: tabular-nums;
+    text-align: end;
+  }
+
+  &__status {
+    align-items: center;
+    display: inline-flex;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xxs');
+    white-space: nowrap;
+
+    &::before {
+      aspect-ratio: 1;
+      background-color: color('muted');
+      border-radius: 50%;
+      content: '';
+      inline-size: 0.5rem;
+    }
+
+    &--success::before {
+      background-color: color('success', 'alert');
+    }
+
+    &--warning::before {
+      background-color: color('warning', 'alert');
+    }
+  }
+}
+
+[dir='rtl'] .bulk-actions__bar--active {
+  padding: spacer('xxs') spacer('s') spacer('xxs') spacer('xxs');
+}

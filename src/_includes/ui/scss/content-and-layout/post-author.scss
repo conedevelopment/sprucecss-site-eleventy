@@ -1,19 +1,49 @@
 @use 'sprucecss/scss/spruce' as *;
 
 .post-author {
-  --avatar-size: 2.5rem;
+  --avatar-size: 3rem;
   align-items: center;
   display: flex;
   gap: spacer('xs');
-  text-decoration: none;
+
+  + .post-author {
+    margin-block-start: spacer('m');
+  }
+
+  &--sm {
+    --avatar-size: 2rem;
+    font-size: config('font-size-sm', $typography);
+  }
 
   &__avatar {
+    aspect-ratio: 1;
     block-size: var(--avatar-size);
-    border-radius: calc(var(--avatar-size) / 2);
+    border-radius: 50%;
+    flex-shrink: 0;
     inline-size: var(--avatar-size);
+    object-fit: cover;
+  }
+
+  &__caption {
+    display: flex;
+    flex-direction: column;
+    line-height: config('line-height-md', $typography);
   }
 
   &__name {
-    color: color('text');
+    color: color('heading');
+    font-weight: 700;
+    text-decoration: none;
+
+    &:hover {
+      color: color('primary');
+      text-decoration: underline;
+    }
+  }
+
+  &__meta {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    margin-block: 0;
   }
 }

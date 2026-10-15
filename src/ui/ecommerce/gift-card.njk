@@ -1,0 +1,35 @@
+---
+title: 'Gift Card'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--wide">
+        {% include "ui/html/ecommerce/gift-card.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/ecommerce/gift-card.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/ecommerce/gift-card.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/ecommerce/gift-card.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/ecommerce/gift-card.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/ecommerce/gift-card.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/ecommerce/gift-card.js"></script>
+{% endblock %}

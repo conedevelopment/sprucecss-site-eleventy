@@ -1,0 +1,51 @@
+<section class="usage-meter" aria-labelledby="usage-meter-title">
+    <header class="usage-meter__header">
+        <div class="usage-meter__heading">
+            <h3 class="usage-meter__title" id="usage-meter-title">Plan usage</h3>
+            <p class="usage-meter__plan">Pro plan · Resets on <time datetime="2026-11-01">November 1</time></p>
+        </div>
+        <a class="btn btn--primary btn--sm" href="#">Upgrade</a>
+    </header>
+    <ul class="usage-meter__list" role="list">
+        <li class="usage-meter__item">
+            <div class="usage-meter__row">
+                <label class="usage-meter__label" for="usage-orders">Orders</label>
+                <span class="usage-meter__amount">8,420 <span>/ 10,000</span></span>
+            </div>
+            <meter class="usage-meter__meter" id="usage-orders" min="0" max="10000" low="7500" high="9000" optimum="0" value="8420">8,420 of 10,000</meter>
+            <p class="usage-meter__note usage-meter__note--warning">84% used. Consider upgrading before the end of the month.</p>
+        </li>
+        <li class="usage-meter__item">
+            <div class="usage-meter__row">
+                <label class="usage-meter__label" for="usage-api">API requests</label>
+                <span class="usage-meter__amount">98,100 <span>/ 100,000</span></span>
+            </div>
+            <meter class="usage-meter__meter" id="usage-api" min="0" max="100000" low="75000" high="90000" optimum="0" value="98100">98,100 of 100,000</meter>
+            <p class="usage-meter__note usage-meter__note--danger">98% used. At this rate, you’ll reach the limit in 2 days.</p>
+        </li>
+        <li class="usage-meter__item">
+            <div class="usage-meter__row">
+                <label class="usage-meter__label" for="usage-staff">Staff accounts</label>
+                <span class="usage-meter__amount">3 <span>/ 5</span></span>
+            </div>
+            <meter class="usage-meter__meter" id="usage-staff" min="0" max="5" low="4" high="5" optimum="0" value="3">3 of 5</meter>
+        </li>
+    </ul>
+    <div class="usage-meter__storage">
+        <div class="usage-meter__row">
+            <h4 class="usage-meter__label">Storage</h4>
+            <span class="usage-meter__amount">7.2 GB <span>/ 10 GB</span></span>
+        </div>
+        <div class="usage-meter__stack" aria-hidden="true">
+            <span style="--share: 41%;"></span>
+            <span style="--share: 23%;"></span>
+            <span style="--share: 8%;"></span>
+        </div>
+        <ul class="usage-meter__legend" role="list">
+            <li>Images <strong>4.1 GB</strong></li>
+            <li>Videos <strong>2.3 GB</strong></li>
+            <li>Documents <strong>0.8 GB</strong></li>
+            <li>Free <strong>2.8 GB</strong></li>
+        </ul>
+    </div>
+</section>

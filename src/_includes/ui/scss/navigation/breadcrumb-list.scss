@@ -1,41 +1,61 @@
-@use '../../../../scss/config/config'; // DELETE
 @use 'sprucecss/scss/spruce' as *;
+
+.breadcrumb {
+  max-inline-size: 100%;
+  min-inline-size: 0;
+}
 
 .breadcrumb-list {
   @include clear-list;
+  @include scrollbar;
   align-items: center;
   display: flex;
+  font-size: config('font-size-sm', $typography);
   max-inline-size: 100%;
   overflow-x: auto;
+  padding-block: spacer('xxs');
   white-space: nowrap;
 
   > li {
     align-items: center;
     display: inline-flex;
     margin-block: 0;
+    padding-block: 0;
 
+    // The separator is a rotated border: decorative, and it points the other way in RTL.
     + li::before {
       block-size: 0.4em;
-      border-block-end: 2px solid color('separator', 'breadcrumb');
-      border-inline-end: 2px solid color('separator', 'breadcrumb');
+      border-block-end: 2px solid color('muted');
+      border-inline-end: 2px solid color('muted');
       content: '';
       display: inline-flex;
       inline-size: 0.4em;
       margin-inline: 0.75em;
-      transform: rotate(-45deg);
+      opacity: 0.6;
+      rotate: -45deg;
+    }
+  }
 
-      @at-root {
-        [dir='rtl'] & {
-          transform: rotate(45deg);
-        }
-      }
+  a {
+    color: color('text');
+    text-decoration: none;
+
+    &:hover {
+      color: color('primary');
+      text-decoration: underline;
     }
   }
 
   [aria-current='page'] {
     @include text-ellipsis(1);
+    color: color('heading');
     display: inline-block;
-    max-inline-size: 20ch;
+    font-weight: 600;
+    max-inline-size: 24ch;
     text-align: start;
   }
+}
+
+[dir='rtl'] .breadcrumb-list > li + li::before {
+  rotate: 45deg;
 }

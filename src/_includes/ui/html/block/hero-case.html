@@ -1,0 +1,45 @@
+{#- Override with `heroCaseBlock` ({ back: { label, href }, client, year, title, summary, tags, facts: [{ label, value }], image, alt, caption }). -#}
+{%- set _s = heroCaseBlock or {
+    "back": { "label": "All work", "href": "#" },
+    "client": "Fjord Bank", "year": "2025",
+    "title": "A banking app people actually enjoy",
+    "summary": "Fjord Bank’s app had grown for ten years, one feature at a time. In six weeks we turned it into a calm, accessible product, and cut the support tickets by a third.",
+    "tags": ["Research", "Product design", "Design system"],
+    "facts": [{ "label": "Client", "value": "Fjord Bank" }, { "label": "Industry", "value": "Fintech" }, { "label": "Timeline", "value": "6 weeks" }, { "label": "Team", "value": "2 designers, 4 engineers" }],
+    "image": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1800&q=70",
+    "alt": "The new Fjord Bank app on a phone, held over a desk.",
+    "caption": "The new home screen: the balance, the next payment and one clear action."
+} %}
+<section class="hero-case-block" aria-labelledby="hero-case-title">
+    <div class="container">
+        <div class="hero-case-block__inner">
+            <p class="hero-case-block__back">
+                <a href="{{ _s.back.href }}">{% set iconName = "arrow-right" %}{% set iconClass = "hero-case-block__back-icon" %}{% include "../block/icon.html" %}{% set iconClass = false %}{{ _s.back.label }}</a>
+            </p>
+            <div class="hero-case-block__intro">
+                <div class="hero-case-block__heading">
+                    <p class="hero-case-block__eyebrow">Case study · {{ _s.client }} · <time datetime="{{ _s.year }}">{{ _s.year }}</time></p>
+                    <h1 class="hero-case-block__title" id="hero-case-title">{{ _s.title }}</h1>
+                    <p class="hero-case-block__summary">{{ _s.summary }}</p>
+                    <ul class="hero-case-block__tags" role="list" aria-label="Services">
+                        {%- for tag in _s.tags %}
+                        <li class="badge">{{ tag }}</li>
+                        {%- endfor %}
+                    </ul>
+                </div>
+                <dl class="hero-case-block__facts">
+                    {%- for fact in _s.facts %}
+                    <div class="hero-case-block__fact">
+                        <dt>{{ fact.label }}</dt>
+                        <dd>{{ fact.value }}</dd>
+                    </div>
+                    {%- endfor %}
+                </dl>
+            </div>
+            <figure class="hero-case-block__cover">
+                <img src="{{ _s.image }}" alt="{{ _s.alt }}" width="1800" height="900" fetchpriority="high">
+                <figcaption>{{ _s.caption }}</figcaption>
+            </figure>
+        </div>
+    </div>
+</section>

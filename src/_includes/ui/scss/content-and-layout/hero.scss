@@ -1,0 +1,63 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.hero {
+  align-items: center;
+  display: grid;
+  gap: spacer-clamp('l', 'xl');
+
+  @include breakpoint('lg') {
+    grid-template-columns: 1.1fr 1fr;
+  }
+
+  &__content {
+    @include layout-stack('m');
+  }
+
+  &__eyebrow {
+    align-items: center;
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('pill');
+    color: color('heading');
+    display: inline-flex;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xs');
+    padding: spacer('xxs') spacer('s') spacer('xxs') spacer('xxs');
+  }
+
+  &__badge {
+    background-color: color('primary');
+    border-radius: radius('pill');
+    color: color('primary-foreground', 'btn');
+    font-weight: 700;
+    padding: 0 spacer('xs');
+  }
+
+  &__title {
+    font-size: responsive-font-size(4rem, 40, '5vw + 1rem');
+    letter-spacing: -0.02em;
+  }
+
+  &__lead {
+    font-size: config('font-size-lead', $typography);
+    max-inline-size: 38rem;
+  }
+
+  &__actions {
+    @include layout-cluster('s');
+  }
+
+  &__note {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__media {
+    img {
+      aspect-ratio: 4 / 3;
+      border-radius: radius('lg');
+      box-shadow: shadow('xl');
+      inline-size: 100%;
+      object-fit: cover;
+    }
+  }
+}

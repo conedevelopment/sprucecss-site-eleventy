@@ -1,0 +1,136 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.donut-chart {
+  --donut-chart-size: 11rem;
+  --donut-chart-thickness: 1.5rem;
+  --donut-chart-color-1: #{color('primary')};
+  --donut-chart-color-2: #{color('info', 'alert')};
+  --donut-chart-color-3: #{color('warning', 'alert')};
+  --donut-chart-color-4: #{color('success', 'alert')};
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  margin: 0;
+  padding: spacer('m');
+  @include layout-stack('m');
+
+  &__caption {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xxs') spacer('xs');
+    justify-content: space-between;
+  }
+
+  &__title {
+    color: color('heading');
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__body {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('m') spacer('l');
+    justify-content: center;
+  }
+
+  &__ring {
+    align-items: center;
+    aspect-ratio: 1;
+    display: grid;
+    flex-shrink: 0;
+    inline-size: var(--donut-chart-size);
+    justify-items: center;
+    position: relative;
+
+    // The ring is a conic gradient with a hole cut out by a radial mask.
+    &::before {
+      background: conic-gradient(
+        var(--donut-chart-color-1) 0 var(--segment-1),
+        var(--donut-chart-color-2) 0 var(--segment-2),
+        var(--donut-chart-color-3) 0 var(--segment-3),
+        var(--donut-chart-color-4) 0
+      );
+      border-radius: 50%;
+      content: '';
+      inset: 0;
+      mask: radial-gradient(farthest-side, transparent calc(100% - var(--donut-chart-thickness)), #000 calc(100% - var(--donut-chart-thickness) + 1px));
+      position: absolute;
+
+      @include motion-safe {
+        animation: donut-chart-in 0.8s ease-out;
+      }
+    }
+  }
+
+  &__total {
+    color: color('muted');
+    display: grid;
+    font-size: config('font-size-sm', $typography);
+    line-height: 1.3;
+    margin: 0;
+    text-align: center;
+
+    strong {
+      color: color('heading');
+      font-family: config('font-family-heading', $typography);
+      font-size: font-size('h3');
+    }
+  }
+
+  &__legend {
+    @include clear-list;
+    display: grid;
+    flex-grow: 1;
+    gap: spacer('xs');
+    max-inline-size: 18rem;
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__key {
+    align-items: center;
+    display: flex;
+    gap: spacer('xs');
+
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        --donut-chart-key-color: var(--donut-chart-color-#{$i});
+      }
+    }
+  }
+
+  &__swatch {
+    background-color: var(--donut-chart-key-color);
+    block-size: 0.75rem;
+    border-radius: radius('sm');
+    flex-shrink: 0;
+    inline-size: 0.75rem;
+  }
+
+  &__label {
+    flex-grow: 1;
+  }
+
+  &__value {
+    color: color('heading');
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+  }
+}
+
+@keyframes donut-chart-in {
+  from {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.8);
+  }
+}

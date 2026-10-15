@@ -1,0 +1,113 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.case-study-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    align-items: center;
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    display: grid;
+    overflow: hidden;
+
+    @include breakpoint('lg') {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    }
+  }
+
+  &__image {
+    block-size: 100%;
+    inline-size: 100%;
+    max-block-size: 28rem;
+    object-fit: cover;
+
+    @include breakpoint('lg') {
+      max-block-size: none;
+    }
+  }
+
+  &__content {
+    padding: spacer-clamp('m', 'xl');
+    @include layout-stack('m');
+  }
+
+  &__eyebrow {
+    color: color('primary');
+    font-weight: 700;
+  }
+
+  &__company {
+    color: color('heading');
+  }
+
+  &__figure {
+    margin-inline: 0;
+    @include layout-stack('m');
+  }
+
+  &__quote {
+    border: 0;
+    color: color('heading');
+    font-family: config('font-family-heading', $typography);
+    font-size: responsive-font-size(1.75rem, 25, '2vw + 1rem');
+    line-height: 1.35;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__author {
+    align-items: center;
+    display: flex;
+    gap: spacer('s');
+    text-align: start;
+
+    img {
+      block-size: 3rem;
+      border-radius: 50%;
+      inline-size: 3rem;
+      object-fit: cover;
+    }
+
+    strong,
+    span span {
+      display: block;
+    }
+
+    span span {
+      color: color('muted');
+      font-size: config('font-size-sm', $typography);
+    }
+  }
+
+  &__metrics {
+    border-block-start: config('border-width-base', $display) solid color('border');
+    display: grid;
+    gap: spacer('s');
+    grid-template-columns: repeat(auto-fit, minmax(min(9rem, 100%), 1fr));
+    padding-block-start: spacer('m');
+
+    div {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    dt {
+      color: color('muted');
+      font-size: config('font-size-sm', $typography);
+      font-weight: 400;
+    }
+
+    dd {
+      color: color('heading');
+      font-family: config('font-family-heading', $typography);
+      font-size: font-size('h2');
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+
+  &__link {
+    justify-self: start;
+  }
+}

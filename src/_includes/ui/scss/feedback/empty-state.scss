@@ -1,0 +1,41 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.empty-state {
+  border: config('border-width-base', $display) dashed color('border-strong');
+  border-radius: radius('lg');
+  padding: spacer-clamp('l', 'xl') spacer('m');
+  text-align: center;
+  @include layout-stack('s');
+
+  &__icon {
+    align-items: center;
+    background-color: color-alpha('primary', 0.1);
+    block-size: 4rem;
+    border-radius: 50%;
+    color: color('primary');
+    display: flex;
+    inline-size: 4rem;
+    justify-content: center;
+    margin-inline: auto;
+
+    svg {
+      block-size: 2rem;
+      inline-size: 2rem;
+    }
+  }
+
+  &__title {
+    font-size: font-size('h4');
+  }
+
+  &__text {
+    color: color('muted');
+    margin-inline: auto;
+    max-inline-size: 30rem;
+  }
+
+  &__actions {
+    @include layout-cluster('s', center);
+    margin-block-start: spacer('xs');
+  }
+}

@@ -1,16 +1,50 @@
-@use '../../../../scss/config/config'; // DELETE
 @use 'sprucecss/scss/spruce' as *;
 
-.open-search {
-  @include a11y-card-link('.open-search__btn', true);
+.search-trigger {
+  @include clear-btn;
+  @include transition($property: 'border-color, box-shadow');
   align-items: center;
-  display: flex;
+  background-color: color('background', 'form');
+  border: config('border-width-base', $display) solid color('border', 'form');
+  border-radius: config('border-radius', $form-control);
+  color: color('muted');
+  display: inline-flex;
   gap: spacer('xs');
+  min-inline-size: 14rem;
+  padding: spacer('xxs') spacer('xxs') spacer('xxs') spacer('s');
+
+  &:hover {
+    border-color: color('primary');
+  }
+
+  &:focus-visible {
+    @include short-ring('input');
+  }
 
   &__icon {
-    --size: 1rem;
-    block-size: var(--size);
-    color: color('icon', 'search');
-    inline-size: var(--size);
+    block-size: 1rem;
+    flex-shrink: 0;
+    inline-size: 1rem;
   }
+
+  &__caption {
+    flex-grow: 1;
+    text-align: start;
+  }
+
+  &__shortcut {
+    background-color: color-alpha('primary', 0.08);
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('sm');
+    box-shadow: none;
+    color: color('text');
+    font-size: 0.75rem;
+    padding: 0.2em 0.5em;
+  }
+}
+
+.search-trigger-status {
+  color: color('muted');
+  font-size: config('font-size-sm', $typography);
+  margin-block-start: spacer('s');
 }

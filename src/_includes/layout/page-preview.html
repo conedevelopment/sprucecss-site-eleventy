@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en"{% if previewStyle %} data-spruce-style="{{ previewStyle }}"{% endif %}>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="noindex">
+        <title>{{ title }} - Spruce UI Pages</title>
+        <meta name="description" content="{{ description }}">
+        <link rel="icon" href="/favicon.ico">
+        <script src="/js/theme-detection.js"></script>
+        <script>
+            // The page opens in its own default style; ?style=name (or ?style= for the default) overrides it.
+            (() => {
+                const params = new URLSearchParams(window.location.search);
+                const style = params.has('style') ? params.get('style') : '{{ previewStyle }}';
+
+                // ?capture hides the options bar (used for the preview images).
+                if (params.has('capture')) {
+                    document.documentElement.classList.add('is-capture');
+                }
+
+                if (style) {
+                    document.documentElement.setAttribute('data-spruce-style', style);
+                } else {
+                    document.documentElement.removeAttribute('data-spruce-style');
+                }
+            })();
+        </script>
+        <link rel="stylesheet" href="/css/main.css">
+        {% for style in pageStyles %}
+        <link rel="stylesheet" href="/_includes/ui/css/{{ style }}.css">
+        {% endfor %}
+    </head>
+    <body class="page-preview" data-pagefind-ignore>
+        {% include pageInclude %}
+
+        <div class="page-preview-bar" role="region" aria-label="Preview options">
+            <a class="btn btn--sm btn--ghost-secondary page-preview-bar__back" href="/pages/">
+                {% include "icon/arrow-left.svg" %}
+                <span>Pages</span>
+            </a>
+            <label class="sr-only" for="page-preview-style">Design style</label>
+            <select class="form-control form-control--sm" id="page-preview-style" data-page-preview-style>
+                <option value="">Default style</option>
+                {% for item in styles %}
+                    <option value="{{ item.name }}">{{ item.label }}</option>
+                {% endfor %}
+            </select>
+            <label class="sr-only" for="page-preview-theme">Theme mode</label>
+            <select class="form-control form-control--sm" id="page-preview-theme" data-page-preview-theme>
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </div>
+
+        <script src="/js/page-preview.js"></script>
+        {% for script in pageExternalScripts %}
+        <script defer src="{{ script }}"></script>
+        {% endfor %}
+        {% for script in pageScripts %}
+        <script defer src="/_includes/ui/js/{{ script }}.js"></script>
+        {% endfor %}
+    </body>
+</html>

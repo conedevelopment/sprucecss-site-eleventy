@@ -1,0 +1,110 @@
+.gallery-block {
+  padding-block: clamp(4.5rem, 5vw, 7rem);
+}
+.gallery-block__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.gallery-block__grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  columns: 3 16rem;
+  gap: 1.5rem;
+}
+.gallery-block__grid li {
+  break-inside: avoid;
+  margin: 0 0 1.5rem !important;
+}
+.gallery-block__item {
+  border-radius: var(--spruce-border-radius-lg);
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+.gallery-block__item img {
+  inline-size: 100%;
+  transition-duration: var(--spruce-duration);
+  transition-property: scale;
+  transition-timing-function: var(--spruce-timing-function);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .gallery-block__item:hover img {
+    scale: 1.04;
+  }
+}
+.gallery-block__item:focus-visible {
+  outline: 2px solid var(--spruce-base-color-focus-ring);
+  outline-offset: 3px;
+}
+.gallery-block__caption {
+  background-image: linear-gradient(to top, hsla(0, 0%, 0%, 0.65), transparent);
+  color: hsl(0, 0%, 100%);
+  font-weight: 700;
+  inset-block-end: 0;
+  inset-inline: 0;
+  padding: 3rem 1rem 1rem;
+  position: absolute;
+}
+.gallery-block__lightbox {
+  background: transparent;
+  block-size: 100dvb;
+  border: 0;
+  box-shadow: none;
+  inline-size: 100vi;
+  max-block-size: none;
+  max-inline-size: none;
+  padding: 1rem;
+}
+.gallery-block__lightbox[open] {
+  align-items: center;
+  display: grid;
+  gap: 0.5rem clamp(0.5rem, 5vw, 1.5rem);
+  grid-template-areas: ". . close" "prev figure next" ". counter .";
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+.gallery-block__lightbox::backdrop {
+  background-color: hsla(0, 0%, 0%, 0.85);
+}
+.gallery-block__close {
+  grid-area: close;
+}
+.gallery-block__nav--prev {
+  grid-area: prev;
+}
+.gallery-block__nav--next {
+  grid-area: next;
+}
+.gallery-block__figure {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  grid-area: figure;
+  justify-content: center;
+  margin: 0;
+  min-block-size: 0;
+}
+.gallery-block__figure img {
+  border-radius: var(--spruce-border-radius-md);
+  margin-inline: auto;
+  max-block-size: 100%;
+  min-block-size: 0;
+  object-fit: contain;
+}
+.gallery-block__figure figcaption {
+  color: hsl(0, 0%, 100%);
+  margin-block-start: 0.5rem;
+  text-align: center;
+}
+.gallery-block__counter {
+  color: hsl(0, 0%, 100%);
+  font-size: var(--spruce-font-size-sm);
+  grid-area: counter;
+  text-align: center;
+}
+
+[dir=rtl] .gallery-block__nav svg {
+  scale: -1 1;
+}

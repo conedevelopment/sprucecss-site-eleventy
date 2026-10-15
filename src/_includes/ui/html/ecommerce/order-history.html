@@ -1,0 +1,95 @@
+<section class="order-history" aria-labelledby="order-history-title">
+    <header class="order-history__top">
+        <h2 class="order-history__title" id="order-history-title">Your orders</h2>
+        <form class="order-history__filter" action="#" method="get">
+            <label class="order-history__label" for="order-history-period">Show orders from</label>
+            <select class="form-control form-control--sm" id="order-history-period" name="period">
+                <option value="3m">The last 3 months</option>
+                <option value="2026">2026</option>
+                <option value="2025">2025</option>
+            </select>
+            <button class="btn btn--outline-secondary btn--sm" type="submit">Show</button>
+        </form>
+    </header>
+    <ol class="order-history__list" role="list">
+    <li>
+        <article class="order-history__order" aria-labelledby="order-10482">
+            <header class="order-history__header">
+                <dl class="order-history__facts">
+                    <div><dt>Order</dt><dd id="order-10482">#10482</dd></div>
+                    <div><dt>Placed</dt><dd><time datetime="2026-10-03">October 3, 2026</time></dd></div>
+                    <div><dt>Total</dt><dd>$186.84</dd></div>
+                </dl>
+                <a class="order-history__invoice" href="#">Invoice<span class="sr-only"> for order #10482</span> <span aria-hidden="true">(PDF)</span></a>
+            </header>
+            <div class="order-history__body">
+                <div class="order-history__status">
+                    <p class="order-history__badge order-history__badge--shipped">On the way</p>
+                    <p class="order-history__note">Arriving Thursday, October 8</p>
+                    <p class="order-history__count">3 items</p>
+                </div>
+                <ul class="order-history__items" role="list" aria-label="Products">
+                <li><img src="https://images.unsplash.com/photo-1577733966973-d680bffd2e80?auto=format&fit=crop&w=128&h=128&q=60" alt="" width="64" height="64" loading="lazy"></li>
+                <li><img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=128&h=128&q=60" alt="" width="64" height="64" loading="lazy"></li>
+                </ul>
+                <div class="order-history__actions">
+                <a class="btn btn--primary btn--sm" href="#">Track package<span class="sr-only">, order #10482</span></a>
+                <a class="btn btn--outline-secondary btn--sm" href="#">View order<span class="sr-only">, order #10482</span></a>
+                </div>
+            </div>
+        </article>
+    </li>
+    <li>
+        <article class="order-history__order" aria-labelledby="order-10215">
+            <header class="order-history__header">
+                <dl class="order-history__facts">
+                    <div><dt>Order</dt><dd id="order-10215">#10215</dd></div>
+                    <div><dt>Placed</dt><dd><time datetime="2026-09-12">September 12, 2026</time></dd></div>
+                    <div><dt>Total</dt><dd>$89.00</dd></div>
+                </dl>
+                <a class="order-history__invoice" href="#">Invoice<span class="sr-only"> for order #10215</span> <span aria-hidden="true">(PDF)</span></a>
+            </header>
+            <div class="order-history__body">
+                <div class="order-history__status">
+                    <p class="order-history__badge order-history__badge--delivered">Delivered</p>
+                    <p class="order-history__note">Delivered on September 15</p>
+                    <p class="order-history__count">1 item</p>
+                </div>
+                <ul class="order-history__items" role="list" aria-label="Products">
+                <li><img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=128&h=128&q=60" alt="" width="64" height="64" loading="lazy"></li>
+                </ul>
+                <div class="order-history__actions">
+                <a class="btn btn--outline-secondary btn--sm" href="#">Buy again<span class="sr-only">, order #10215</span></a>
+                <a class="btn btn--outline-secondary btn--sm" href="#">View order<span class="sr-only">, order #10215</span></a>
+                </div>
+            </div>
+        </article>
+    </li>
+    <li>
+        <article class="order-history__order" aria-labelledby="order-9874">
+            <header class="order-history__header">
+                <dl class="order-history__facts">
+                    <div><dt>Order</dt><dd id="order-9874">#9874</dd></div>
+                    <div><dt>Placed</dt><dd><time datetime="2026-08-20">August 20, 2026</time></dd></div>
+                    <div><dt>Total</dt><dd>$241.00</dd></div>
+                </dl>
+                <a class="order-history__invoice" href="#">Invoice<span class="sr-only"> for order #9874</span> <span aria-hidden="true">(PDF)</span></a>
+            </header>
+            <div class="order-history__body">
+                <div class="order-history__status">
+                    <p class="order-history__badge order-history__badge--returned">Refunded</p>
+                    <p class="order-history__note">Refund of $42.00 issued on August 29</p>
+                    <p class="order-history__count">2 items</p>
+                </div>
+                <ul class="order-history__items" role="list" aria-label="Products">
+                <li><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=128&h=128&q=60" alt="" width="64" height="64" loading="lazy"></li>
+                <li><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=128&h=128&q=60" alt="" width="64" height="64" loading="lazy"></li>
+                </ul>
+                <div class="order-history__actions">
+                <a class="btn btn--outline-secondary btn--sm" href="#">View order<span class="sr-only">, order #9874</span></a>
+                </div>
+            </div>
+        </article>
+    </li>
+    </ol>
+</section>

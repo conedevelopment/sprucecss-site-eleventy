@@ -7,7 +7,7 @@
 
 .invoice {
   background-color: color('background');
-  border-radius: config('border-radius-lg', $display);
+  border-radius: radius('lg');
   box-shadow: 0 0 2.5rem hsl(0deg 0% 0% / 2.5%);
   display: flex;
   flex-direction: column;
@@ -19,7 +19,7 @@
     box-shadow: none;
     inline-size: 21cm;
     padding: 1.25cm;
-    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   &__header {
@@ -41,13 +41,12 @@
     display: flex;
     flex-direction: column;
     gap: spacer('xs');
-    line-height: 1;
     margin-block: 0;
   }
 
   &__serial-number {
     background-color: color('secondary');
-    border-radius: config('border-radius-sm', $display);
+    border-radius: radius('sm');
     color: hsl(0deg 0% 100%);
     font-size: config('font-size-base', $typography);
     padding-block: spacer('xxs');
@@ -56,20 +55,28 @@
   }
 
   &__highlighted {
-    @include clear-list;
     background-color: color('stripe', 'table');
-    border-radius: config('border-radius-sm', $display);
+    border-radius: radius('sm');
     display: flex;
     flex-wrap: wrap;
-    gap: spacer('xs') spacer('m');
+    gap: spacer('xs') spacer('l');
     justify-content: flex-end;
-    padding-block: spacer('s');
-    padding-inline: spacer('m');
+    margin: 0;
+    padding: spacer('s') spacer('m');
 
-    > li {
-      + li {
-        margin-block-start: 0;
-      }
+    div {
+      display: flex;
+      gap: spacer('xxs');
+    }
+
+    dt::after {
+      content: ':';
+    }
+
+    dd {
+      color: color('heading');
+      font-weight: 700;
+      margin: 0;
     }
   }
 
@@ -150,6 +157,31 @@
       th {
         text-align: end;
       }
+    }
+
+    .summary-row--total {
+      font-size: font-size('h4');
+
+      th,
+      td {
+        color: color('heading');
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__number {
+    font-variant-numeric: tabular-nums;
+    text-align: end;
+    white-space: nowrap;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: end;
+
+    @media print {
+      display: none;
     }
   }
 }

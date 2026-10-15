@@ -1,15 +1,17 @@
 ---
 title: "Functions"
 description: "The functions are an essential part of the Spruce CSS framework. You can get values, set up your fluid typography, and more."
-order: 17
+order: 19
 github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/sass/functions.md"
 ---
+
+<p class="lead">Functions return values: colors, spacers, sizes and tokens. Use them instead of hardcoded values, and your code follows the configuration, the dark mode and the design styles.</p>
 
 ## color
 
 Get color value by key and type name from the `$colors` map. The `$colors` map is nested, so you can access the color values by multiple levels, separated into groups.
 
-**The function returns a CSS custom property** with a fallback color, but you can also access just the color value setting the `$only-color` value to `true`.
+**The function returns a CSS custom property** (with a fallback color when the `color-fallback` setting is on), but you can also get the raw color value by setting `$only-color` to `true`.
 
 {% notification %}The <code>color</code> function also handles <code>null</code> values, which means in Sass that your declaration block won’t render if the value you access is null.{% endnotification %}
 
@@ -18,7 +20,7 @@ Get color value by key and type name from the `$colors` map. The `$colors` map i
 | Name              | Default Value | Description                                                       |
 |-------------------|---------------|-------------------------------------------------------------------|
 | `$key`            |               | The name of the color.                                            |
-| `$type`           | `'base'`        | The group of the color.                                         |
+| `$type`           | `'base'`      | The group of the color.                                           |
 | `$only-color`     | `false`       | Whether to get just the color value or the CSS custom property.   |
 | `$map`            | `$colors`     | The name of the map from which the function will get the values.  |
 
@@ -65,7 +67,7 @@ a {
 
 ## color-contrast
 
-Get a contrast color (black or white) based on the given one. Spruce use this function internally at [selection](/docs/sass/mixins#selection) mixin.
+Get a contrast color (black or white) based on the given one. Spruce uses this function internally in the [selection](/docs/sass/mixins#selection) mixin.
 
 ### Argument(s)
 
@@ -80,15 +82,62 @@ Get a contrast color (black or white) based on the given one. Spruce use this fu
 
 ```scss
 a {
-  color: color-contrast('blue'); // return white (hsl(0 0% 100%))
+  color: color-contrast(blue); // returns white (hsl(0 0% 100%))
+}
+```
+
+## color-alpha
+
+**New in v3.** Get a transparent version of a color with `color-mix()`. Unlike Sass color functions, it works at runtime, so the result follows the dark mode and the design styles.
+
+### Argument(s)
+
+| Name     | Default Value | Description                                      |
+|----------|---------------|--------------------------------------------------|
+| `$key`   |               | The name of the color.                           |
+| `$alpha` | `0.5`         | The opacity, between 0 and 1.                    |
+| `$type`  | `'base'`      | The group of the color.                          |
+
+[View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/function/_token.scss)
+
+### Example(s)
+
+```scss
+.highlight {
+  background-color: color-alpha('primary', 0.1);
+  // color-mix(in srgb, var(--spruce-base-color-primary) 10%, transparent)
+}
+```
+
+## color-tint
+
+**New in v3.** Mix a color with white (or any color) with `color-mix()`, at runtime.
+
+### Argument(s)
+
+| Name      | Default Value          | Description                                         |
+|-----------|------------------------|-----------------------------------------------------|
+| `$key`    |                        | The name of the color.                              |
+| `$amount` | `10%`                  | The amount of the mixed in color.                   |
+| `$type`   | `'base'`               | The group of the color.                             |
+| `$with`   | `hsl(0deg 0% 100%)`    | The color to mix with (white tints, black shades).  |
+
+[View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/function/_token.scss)
+
+### Example(s)
+
+```scss
+.banner {
+  background-color: color-tint('primary', 90%);
+  border-color: color-tint('primary', 30%, $with: black);
 }
 ```
 
 ## config
 
-Using the `config()` function, you can get any key value from any map. It is a wrapper function for `map.get`.
+Using the `config()` function, you can get any key value from any map. It is a wrapper for `map.get` with a helpful error message.
 
-If you use the CSS custom property mode, you should always use this function because this will return you the proper custom property.
+If you use the CSS custom property mode, always use this function: it returns the proper custom property (like `var(--spruce-border-radius-lg)`), so your code follows the runtime changes and the styles.
 
 ### Argument(s)
 
@@ -96,7 +145,7 @@ If you use the CSS custom property mode, you should always use this function bec
 |--------------------|-------------------|-----------------------------------------------------|
 | `$key`             |                   | The name of the key.                                |
 | `$map`             |                   | The name of the map.                                |
-| `$custom-property` | `true`            | Whether if you want CSS custom property or not.     |
+| `$custom-property` | `true`            | Whether you want the CSS custom property (in custom property mode) or the raw value. |
 
 [View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/function/_config.scss#L29)
 
@@ -140,24 +189,47 @@ Get a value from the `$font-sizes` map by key name. By default, the function giv
 
 ## get-css-variable
 
-Add the prefix value to a CSS custom properties. To set any CSS variable with prefix use the <code><a href="/docs/sass/mixins#set-css-variable">set-css-variable</a></code> function.
+Add the prefix to a CSS custom property name and return it in a `var()`. To set a prefixed CSS variable, use the <code><a href="/docs/sass/mixins#set-css-variable">set-css-variable</a></code> mixin.
 
-
-#### Argument(s)
+### Argument(s)
 
 | Name       | Description                                        |
 |------------|----------------------------------------------------|
-| `$var`     | The name of the variable without the prefix value. |
+| `$var`     | The name of the variable (starting with `--`) without the prefix. |
 
 [View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/function/_css-variable.scss#L6)
 
-#### Example(s)
+### Example(s)
 
 ```scss
 .container {
   @include layout-center(
     get-css-variable(--container-gap)
   );
+}
+```
+
+## radius
+
+**New in v3.** Get a border radius from the `$display` map: `sm`, `md`, `lg` or `pill`. Returns the custom property in custom property mode, so it follows the styles.
+
+### Argument(s)
+
+| Name    | Default Value | Description                          |
+|---------|---------------|--------------------------------------|
+| `$key`  | `'sm'`        | The size of the radius.              |
+
+[View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/function/_token.scss)
+
+### Example(s)
+
+```scss
+.card {
+  border-radius: radius('lg');
+}
+
+.tag {
+  border-radius: radius('pill');
 }
 ```
 
@@ -171,7 +243,7 @@ It is hard to get generic font sizes that we can use throughout a whole project.
 | --------------- | -------------------------------------- | ---------------------------------------------------------------------------- |
 | `$size`         |                                        | The size of the font with a preferred unit.                                   |
 | `$scaler`       | `15`                                   | How much smaller font size do you want for the smaller screen in percentage. |
-| `$optimal-size` | `2vw + 1rem` from the `$settings` map. | The optimal font-size value if `$fluid` is set to `true`.                    |
+| `$optimal-size` | `2vw + 1rem` from the `$settings` map. | The optimal (middle) value of the `clamp()`.                                 |
 
 [View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/function/_font-size.scss#L34)
 
@@ -185,13 +257,14 @@ It is hard to get generic font sizes that we can use throughout a whole project.
 
 ## setting
 
-Get a value by key name from the `$settings` map.
+Get a value by key name from the `$settings` map. Use the `$group` argument for the nested settings.
 
 ### Argument(s)
 
-| Name          | Description              |
-|---------------|--------------------------|
-| `$key`        | The name of the setting. |
+| Name          | Default Value | Description                                                 |
+|---------------|---------------|-------------------------------------------------------------|
+| `$key`        |               | The name of the setting.                                    |
+| `$group`      | `null`        | The name of the group for nested settings (like `'utilities'`). |
 
 [View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/function/_setting.scss#L5)
 
@@ -209,6 +282,34 @@ Get a value by key name from the `$settings` map.
   h6 {
     hyphens: auto;
     overflow-wrap: break-word;
+  }
+}
+
+@if setting('text', 'utilities') {
+  // …
+}
+```
+
+## shadow
+
+**New in v3.** Get a shadow from the `$shadows` map: `xs`, `sm`, `md`, `lg`, `xl` or `inner`. Returns the custom property in custom property mode, so the design styles can change it (the brutalist style turns them into hard offset shadows).
+
+### Argument(s)
+
+| Name    | Description             |
+|---------|-------------------------|
+| `$key`  | The size of the shadow. |
+
+[View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/function/_token.scss)
+
+### Example(s)
+
+```scss
+.card {
+  box-shadow: shadow('sm');
+
+  &:hover {
+    box-shadow: shadow('lg');
   }
 }
 ```
@@ -237,7 +338,7 @@ Get one or two (separated with a colon) values by key name from the `$spacers` m
 }
 ```
 
-The shorthand syntax is useful when you want a separate value for block and inline. It only supports two value.
+The shorthand syntax is useful when you want separate values for block and inline. It supports two values.
 
 ## spacer-clamp
 
@@ -316,5 +417,26 @@ Escape the special characters in SVG when used as a `data:image`. The characters
   $color
 ) {
   background-image: url('#{svg-escape(str-replace($icon, "#COLOR#", $color))}');
+}
+```
+
+## z-index
+
+**New in v3.** Get a layer value from the `$z-indexes` map, so overlapping components stack in a predictable order: `dropdown`, `sticky`, `fixed`, `overlay`, `modal`, `popover`, `toast`, `tooltip`.
+
+### Argument(s)
+
+| Name    | Description            |
+|---------|------------------------|
+| `$key`  | The name of the layer. |
+
+[View Source on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/function/_token.scss)
+
+### Example(s)
+
+```scss
+.site-header {
+  position: sticky;
+  z-index: z-index('sticky');
 }
 ```

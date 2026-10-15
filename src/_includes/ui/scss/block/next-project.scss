@@ -1,0 +1,126 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.next-project-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  // A photo card: the image fills it, a shade keeps the white text readable.
+  &__card {
+    @include a11y-card-link('.next-project-block__link', true);
+    @include set-css-variable((
+      --base-color-heading: hsl(0deg 0% 100%),
+      --base-color-text: hsl(0deg 0% 100%),
+    ));
+    align-items: flex-end;
+    background-color: color('heading');
+    border-radius: radius('lg');
+    color: hsl(0deg 0% 100%);
+    display: flex;
+    gap: spacer('m');
+    isolation: isolate;
+    justify-content: space-between;
+    min-block-size: clamp(18rem, 40vb, 26rem);
+    overflow: hidden;
+    padding: spacer-clamp('m', 'xl');
+
+    &::after {
+      background-image: linear-gradient(to top, hsl(0deg 0% 0% / 75%), hsl(0deg 0% 0% / 15%));
+      content: '';
+      inset: 0;
+      position: absolute;
+      z-index: -1;
+    }
+
+    &:focus-within {
+      outline: 3px solid color('focus-ring');
+      outline-offset: 3px;
+    }
+  }
+
+  &__image {
+    block-size: 100%;
+    inline-size: 100%;
+    inset: 0;
+    object-fit: cover;
+    position: absolute;
+    z-index: -2;
+  }
+
+  &__content {
+    max-inline-size: 40rem;
+    @include layout-stack('xs');
+  }
+
+  &__eyebrow {
+    font-family: inherit;
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    opacity: 0.85;
+    text-transform: uppercase;
+  }
+
+  &__client {
+    font-weight: 700;
+  }
+
+  &__title {
+    font-size: responsive-font-size(3rem, 30, '3vw + 1rem');
+    line-height: 1.1;
+    text-wrap: balance;
+  }
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__text {
+    opacity: 0.9;
+  }
+
+  &__arrow {
+    align-items: center;
+    background-color: hsl(0deg 0% 100%);
+    block-size: 3.5rem;
+    border-radius: 50%;
+    color: hsl(0deg 0% 10%);
+    display: flex;
+    flex-shrink: 0;
+    inline-size: 3.5rem;
+    justify-content: center;
+
+    .block-icon {
+      block-size: 1.5rem;
+      inline-size: 1.5rem;
+    }
+  }
+
+  @include motion-safe {
+    &__image,
+    &__arrow {
+      transition: scale 0.4s ease, translate 0.2s ease;
+    }
+
+    &__card:hover &__image {
+      scale: 1.04;
+    }
+
+    &__card:hover &__arrow {
+      translate: 0.25rem 0;
+    }
+  }
+}
+
+[dir='rtl'] .next-project-block__arrow .block-icon {
+  scale: -1 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [dir='rtl'] .next-project-block__card:hover .next-project-block__arrow {
+    translate: -0.25rem 0;
+  }
+}

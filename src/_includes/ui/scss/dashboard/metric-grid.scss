@@ -1,0 +1,113 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.metric-grid {
+  @include layout-stack('m');
+
+  &__header {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xxs') spacer('s');
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: font-size('h4');
+  }
+
+  &__period {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    margin-block: 0;
+  }
+
+  &__list {
+    display: grid;
+    gap: spacer('m');
+    grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr));
+    list-style: none;
+    padding: 0;
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+    }
+  }
+
+  &__item {
+    --metric-color: #{color('success', 'alert')};
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    display: grid;
+    gap: spacer('xxs');
+    padding: spacer('m');
+
+    &--bad {
+      --metric-color: #{color('danger', 'alert')};
+    }
+
+    > p {
+      margin: 0;
+    }
+  }
+
+  &__label {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    font-weight: 600;
+  }
+
+  &__value {
+    color: color('heading');
+    font-family: config('font-family-heading', $typography);
+    font-size: font-size('h3');
+    font-variant-numeric: tabular-nums;
+    font-weight: config('font-weight-heading', $typography);
+  }
+
+  &__delta {
+    align-items: center;
+    color: var(--metric-color);
+    display: flex;
+    flex-wrap: wrap;
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+    gap: 0 spacer('xxs');
+  }
+
+  &__arrow {
+    block-size: 1em;
+    inline-size: 1em;
+
+    &--down {
+      rotate: 180deg;
+    }
+  }
+
+  &__compare {
+    color: color('muted');
+    font-weight: 400;
+  }
+
+  &__sparkline {
+    block-size: 2.5rem;
+    inline-size: 100%;
+    margin-block-start: spacer('xs');
+    overflow: visible;
+
+    polyline {
+      fill: none;
+      stroke: var(--metric-color);
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-width: 2.5;
+      vector-effect: non-scaling-stroke;
+    }
+  }
+}
+
+// The sparkline reads in the time direction (left to right), also in RTL.
+[dir='rtl'] .metric-grid__sparkline {
+  scale: -1 1;
+}

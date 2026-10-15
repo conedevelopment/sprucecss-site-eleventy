@@ -1,0 +1,141 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.product-compare {
+  @include layout-stack('m');
+
+  &__header {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: font-size('h4');
+    margin: 0;
+  }
+
+  &__scroll {
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    overflow-x: auto;
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 2px;
+    }
+  }
+
+  &__table {
+    margin: 0;
+    min-inline-size: 40rem;
+    // Equal product columns.
+    table-layout: fixed;
+
+    th,
+    td {
+      padding: spacer('s');
+      vertical-align: top;
+    }
+
+    tbody th {
+      color: color('muted');
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: color('surface-muted');
+    }
+
+    // Keep the row labels visible while scrolling.
+    tr > :first-child {
+      background-color: color('surface');
+      inset-inline-start: 0;
+      position: sticky;
+      z-index: 1;
+    }
+
+    tbody tr:nth-child(odd) > :first-child {
+      background-color: color('surface-muted');
+    }
+
+    tr[data-same] td {
+      color: color('muted');
+    }
+  }
+
+  &__corner {
+    inline-size: 10rem;
+  }
+
+  &__product {
+    position: relative;
+    text-align: start;
+
+    img {
+      aspect-ratio: 1;
+      border-radius: radius('md');
+      inline-size: 7.5rem;
+      margin-block-end: spacer('xs');
+      object-fit: cover;
+    }
+
+    .btn {
+      margin-block-start: spacer('xs');
+    }
+  }
+
+  &__name {
+    color: color('heading');
+    display: block;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__price {
+    color: color('heading');
+    display: block;
+    font-weight: 400;
+  }
+
+  &__remove {
+    @include clear-btn;
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('pill');
+    color: color('muted');
+    display: inline-flex;
+    inset-block-start: spacer('s');
+    inset-inline-end: spacer('s');
+    padding: spacer('xxs');
+    position: absolute;
+
+    svg {
+      block-size: 0.875rem;
+      inline-size: 0.875rem;
+    }
+
+    &:hover {
+      color: color('danger', 'alert');
+    }
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+    }
+  }
+
+  &__icon {
+    block-size: 1.25rem;
+    color: color('muted');
+    inline-size: 1.25rem;
+
+    &--yes {
+      color: color('success', 'alert');
+    }
+  }
+}

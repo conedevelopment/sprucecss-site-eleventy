@@ -1,6 +1,7 @@
 @use 'sprucecss/scss/spruce' as *;
 
 .sprucecss-post-content {
+  line-height: config('line-height-lg', $typography);
   @include layout-stack;
 
   @include breakpoint('md') {
@@ -65,5 +66,9 @@
       object-fit: cover;
       object-position: center;
     }
+  }
+
+  code {
+    font-size: 0.85em;
   }
 }

@@ -24,6 +24,51 @@
     }
   }
 
+  &__fullscreen {
+    > span {
+      display: inline-flex;
+    }
+  }
+
+  // Full screen: the Fullscreen API (:fullscreen) or the CSS fallback class.
+  &:fullscreen,
+  &--fullscreen {
+    background-color: color('background');
+    border: 0;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    inset: 0;
+    overflow: hidden;
+
+    .code-tab__header {
+      border-radius: 0;
+      flex-shrink: 0;
+    }
+
+    .code-tab__body {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      min-block-size: 0;
+    }
+
+    .code-tab__body > [role='tabpanel'] {
+      flex: 1 1 auto;
+      max-block-size: none;
+      min-block-size: 0;
+    }
+  }
+
+  &--fullscreen {
+    position: fixed;
+    z-index: z-index('modal');
+  }
+
+  &__style {
+    inline-size: auto;
+  }
+
   &__title {
     color: color('heading');
     font-family: config('font-family-heading', $typography);
@@ -54,6 +99,12 @@
       li {
         display: inline-flex;
       }
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
     }
   }
 

@@ -1,60 +1,253 @@
-@use '../../../../scss/config/config'; // DELETE
 @use 'sprucecss/scss/spruce' as *;
 
+.context-menu-demo {
+  align-items: start;
+  display: grid;
+  gap: spacer('l');
+
+  @include breakpoint('md') {
+    grid-template-columns: auto 1fr;
+  }
+}
+
+// The wrapper of a menu button: it positions the menu.
+.btn-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
 .context-menu {
-  --inset-block-start: calc(100% + 1rem);
-  --inline-size: 10rem;
-
+  --menu-inline-size: 15rem;
+  --menu-offset: #{spacer('xxs')};
   @include clear-list;
-  @include transition;
-  background-color: color('background');
-  border: 1px solid color('border');
-  border-radius: config('border-radius-sm', $display);
-  box-shadow: 0 0 spacer('xxs') hsl(200deg 72% 33% / 5%);
-  font-size: 0.938rem;
-  inline-size: var(--inline-size);
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('md');
+  box-shadow: shadow('lg');
+  color: color('text');
+  font-size: config('font-size-sm', $typography);
+  inline-size: var(--menu-inline-size);
+  inset-block-start: calc(100% + var(--menu-offset));
+  max-inline-size: calc(100vi - #{spacer('m')});
+  padding: spacer('xxs');
   position: absolute;
-  z-index: 10;
+  z-index: z-index('dropdown');
 
+  &[hidden] {
+    display: none;
+  }
+
+  @include motion-safe {
+    animation: context-menu-in 0.12s ease-out;
+  }
+
+  // Placement modifiers. The script adds --block-start (and --inline-end) when there is no room.
   &--inline-start {
-    inset: var(--inset-block-start) auto auto 0;
+    inset-inline-start: 0;
   }
 
   &--inline-end {
-    inset: var(--inset-block-start) 0 auto auto;
+    inset-inline-end: 0;
   }
 
-  > li {
-    display: flex;
-    flex-direction: column;
+  &--block-start {
+    inset-block: auto calc(100% + var(--menu-offset));
   }
 
-  > li + li {
-    border-block-start: 1px solid color('border');
-    margin-block-start: 0;
+  // A menu opened at the pointer (right-click) or at the focused element.
+  &--fixed {
+    inset-block-start: var(--menu-block, 0);
+    inset-inline-start: var(--menu-inline, 0);
+    position: fixed;
+  }
+
+  &--submenu {
+    inset-block-start: calc(#{spacer('xxs')} * -1);
+    inset-inline-start: calc(100% + #{spacer('xxs')});
+
+    &.context-menu--flip {
+      inset-inline: auto calc(100% + #{spacer('xxs')});
+    }
+  }
+
+  > li,
+  &__group > li {
+    margin: 0 !important;
+  }
+
+  &__group {
+    @include clear-list;
+  }
+
+  &__submenu-wrapper {
+    position: relative;
+  }
+
+  &__label {
+    color: color('muted');
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    padding: spacer('xs') spacer('s') spacer('xxs');
+    text-transform: uppercase;
+  }
+
+  &__separator {
+    border-block-start: config('border-width-base', $display) solid color('border');
+    margin-block: spacer('xxs') !important;
   }
 
   &__item {
+    @include clear-btn;
     align-items: center;
-    background: none;
-    block-size: 2.25rem;
-    border: 0;
-    border-radius: config('border-radius-sm', $display);
-    color: color('text');
+    border-radius: radius('sm');
+    color: color('heading');
     display: flex;
-    justify-content: space-between;
-    line-height: config('line-height-md', $typography);
-    margin: 0.15em;
-    padding-block: 0.25em;
-    padding-inline: 0.6em;
-    text-decoration: none;
+    gap: spacer('xs');
+    inline-size: 100%;
+    padding: spacer('xs') spacer('s');
+    text-align: start;
 
-    &:hover:not([aria-current='page'], :has(.theme-switcher)) {
-      background-color: color('background-hover', 'context');
-    }
-
-    &[aria-current='page'] {
+    &:hover,
+    &:focus {
+      background-color: color-alpha('primary', 0.1);
       color: color('primary');
+      outline: none;
     }
+
+    &:focus-visible {
+      box-shadow: 0 0 0 2px color('focus-ring') inset;
+    }
+
+    &[aria-expanded='true'] {
+      background-color: color-alpha('primary', 0.1);
+    }
+
+    &[aria-disabled='true'] {
+      color: color('muted');
+      cursor: not-allowed;
+      opacity: 0.6;
+
+      &:hover,
+      &:focus {
+        background-color: transparent;
+      }
+    }
+
+    // Checkable items draw their mark in the icon column (no image to load).
+    &[role='menuitemcheckbox'],
+    &[role='menuitemradio'] {
+      &::before {
+        content: '';
+        flex-shrink: 0;
+        visibility: hidden;
+      }
+
+      &[aria-checked='true']::before {
+        visibility: visible;
+      }
+    }
+
+    // A check mark is not directional, so it keeps its physical sides in RTL too.
+    /* stylelint-disable property-disallowed-list */
+    &[role='menuitemcheckbox']::before {
+      block-size: 0.35rem;
+      border-block-end: 2px solid currentcolor;
+      border-left: 2px solid currentcolor;
+      inline-size: 0.7rem;
+      margin: 0 0.15rem 0.2rem;
+      rotate: -45deg;
+    }
+    /* stylelint-enable property-disallowed-list */
+
+    &[role='menuitemradio']::before {
+      background-color: currentcolor;
+      block-size: 0.5rem;
+      border-radius: 50%;
+      inline-size: 0.5rem;
+      margin: 0.25rem;
+    }
+
+    &--danger {
+      color: color('danger', 'alert');
+
+      &:hover,
+      &:focus {
+        background-color: color-alpha('danger', 0.1, 'alert');
+        color: color('danger', 'alert');
+      }
+    }
+  }
+
+  &__icon {
+    block-size: 1rem;
+    color: color('muted');
+    flex-shrink: 0;
+    inline-size: 1rem;
+  }
+
+  &__item:hover &__icon,
+  &__item:focus &__icon,
+  &__item--danger &__icon {
+    color: currentcolor;
+  }
+
+  &__text {
+    flex-grow: 1;
+  }
+
+  &__shortcut {
+    background-color: transparent;
+    border: 0;
+    box-shadow: none;
+    color: color('muted');
+    font-size: 0.75rem;
+    padding: 0;
+  }
+
+  &__chevron {
+    block-size: 0.9rem;
+    color: color('muted');
+    inline-size: 0.9rem;
+  }
+}
+
+[dir='rtl'] .context-menu__chevron {
+  scale: -1 1;
+}
+
+.context-menu-area {
+  align-content: center;
+  border: 2px dashed color('border-strong');
+  border-radius: radius('lg');
+  display: grid;
+  gap: spacer('xxs');
+  min-block-size: 12rem;
+  padding: spacer('m');
+  text-align: center;
+
+  &:focus-visible {
+    border-color: color('primary');
+    outline: 2px solid color('focus-ring');
+    outline-offset: 2px;
+  }
+
+  &__title {
+    color: color('heading');
+    font-weight: 700;
+    margin-block: 0;
+  }
+
+  &__help {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    margin-block: 0;
+  }
+}
+
+@keyframes context-menu-in {
+  from {
+    opacity: 0;
+    translate: 0 -0.25rem;
   }
 }

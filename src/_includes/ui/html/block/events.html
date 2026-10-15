@@ -1,0 +1,58 @@
+{#- Override with `eventsBlock` ({ heading, featured: { type, title, text, date, day, month, place, days, image }, events: [{ type, title, date, day, month, meta, image }] }). `featured.days` sets the countdown. -#}
+{%- set _s = eventsBlock or {
+    "heading": { "eyebrow": "Events", "title": "Meet us in person and online", "id": "events-title", "align": "start" },
+    "featured": { "type": "Conference", "title": "Spruce Summit 2026", "text": "A day of talks and workshops about design systems, CSS and accessible interfaces. 400 seats, free livestream.", "date": "2026-11-20T09:00", "day": "20", "month": "Nov", "place": "Lisbon & online · 09:00–18:00", "days": 47, "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1000&q=70" },
+    "events": [
+        { "type": "Meetup", "title": "Design Systems Meetup", "date": "2026-10-14T18:00", "day": "14", "month": "Oct", "meta": "Berlin · 18:00", "image": "https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&w=640&q=70" },
+        { "type": "Workshop", "title": "Sass for Component Libraries", "date": "2026-10-29T10:00", "day": "29", "month": "Oct", "meta": "Online · 10:00 CET", "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=640&q=70" },
+        { "type": "Webinar", "title": "Accessible Forms in Practice", "date": "2026-11-05T16:00", "day": "05", "month": "Nov", "meta": "Online · 16:00 CET", "image": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=640&q=70" }
+    ]
+} %}
+<section class="events-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="events-block__inner">
+            <div class="events-block__header">
+                {% set heading = _s.heading %}
+                {% include "../content-and-layout/block-heading.html" %}
+                <a class="btn btn--secondary btn--sm" href="#">All events</a>
+            </div>
+            <article class="events-block__featured" aria-labelledby="events-featured-title">
+                <img class="events-block__image" src="{{ _s.featured.image }}" alt="" width="1000" height="667" loading="lazy">
+                <div class="events-block__details">
+                    <span class="badge badge--primary">{{ _s.featured.type }}</span>
+                    <h3 class="events-block__title" id="events-featured-title">{{ _s.featured.title }}</h3>
+                    <p class="events-block__meta"><time datetime="{{ _s.featured.date }}">{{ _s.featured.month }} {{ _s.featured.day }}</time> · {{ _s.featured.place }}</p>
+                    <p>{{ _s.featured.text }}</p>
+                    <div class="countdown events-block__countdown" data-countdown data-countdown-days="{{ _s.featured.days }}">
+                        <p class="countdown__timer" role="timer" aria-live="off" aria-label="Time until {{ _s.featured.title }}" data-countdown-timer>
+                            <span class="countdown__unit"><span class="countdown__value" data-unit="days">{{ _s.featured.days }}</span><span class="countdown__label">Days</span></span>
+                            <span class="countdown__unit"><span class="countdown__value" data-unit="hours">00</span><span class="countdown__label">Hours</span></span>
+                            <span class="countdown__unit"><span class="countdown__value" data-unit="minutes">00</span><span class="countdown__label">Min</span></span>
+                            <span class="countdown__unit"><span class="countdown__value" data-unit="seconds">00</span><span class="countdown__label">Sec</span></span>
+                        </p>
+                        <p class="sr-only" data-countdown-text></p>
+                    </div>
+                    <div class="events-block__actions">
+                        <a class="btn btn--primary" href="#">Get a free ticket</a>
+                        <a class="btn btn--ghost-primary" href="#">Add to calendar</a>
+                    </div>
+                </div>
+            </article>
+            <div class="event-cards events-block__list">
+                {%- for event in _s.events %}
+                <article class="event-card">
+                    <img class="event-card__image" src="{{ event.image }}" alt="" width="640" height="360" loading="lazy">
+                    <div class="event-card__body">
+                        <time class="event-card__date" datetime="{{ event.date }}"><span class="event-card__day">{{ event.day }}</span><span class="event-card__month">{{ event.month }}</span></time>
+                        <div class="event-card__content">
+                            <span class="badge badge--primary">{{ event.type }}</span>
+                            <h3 class="event-card__title"><a class="event-card__link" href="#">{{ event.title }}</a></h3>
+                            <p class="event-card__meta">{{ event.meta }}</p>
+                        </div>
+                    </div>
+                </article>
+                {%- endfor %}
+            </div>
+        </div>
+    </div>
+</section>

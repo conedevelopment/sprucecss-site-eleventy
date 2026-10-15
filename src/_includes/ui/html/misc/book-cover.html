@@ -1,0 +1,17 @@
+{#- Override with `bookCover` ({ title, subtitle, author, edition, size: "sm"|"lg" }). -#}
+{%- set _b = bookCover or {
+    "edition": "2nd edition",
+    "title": "Modern CSS, Explained",
+    "subtitle": "From the cascade to design systems",
+    "author": "Daniel Okafor"
+} %}
+<div class="book-cover{% if _b.size %} book-cover--{{ _b.size }}{% endif %}" role="img" aria-label="The cover of {{ _b.title }} by {{ _b.author }}">
+    <div class="book-cover__front">
+        <p class="book-cover__edition">{{ _b.edition }}</p>
+        <div class="book-cover__heading">
+            <p class="book-cover__title">{{ _b.title }}</p>
+            <p class="book-cover__subtitle">{{ _b.subtitle }}</p>
+        </div>
+        <p class="book-cover__author">{{ _b.author }}</p>
+    </div>
+</div>

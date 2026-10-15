@@ -1,0 +1,23 @@
+{#- Override with `logoCloud` ({ title, logos: [{ name, icon }] }) set before the include. `icon` is a name from block/brand-icon.html; a plain string logo shows the text only. -#}
+{%- set _logoCloud = logoCloud or { "title": "Trusted by teams at", "logos": [
+    { "name": "Spotify", "icon": "spotify" },
+    { "name": "Airbnb", "icon": "airbnb" },
+    { "name": "Dropbox", "icon": "dropbox" },
+    { "name": "Vercel", "icon": "vercel" },
+    { "name": "Atlassian", "icon": "atlassian" },
+    { "name": "Duolingo", "icon": "duolingo" }
+] } %}
+<section class="logo-cloud" aria-labelledby="logo-cloud-title">
+    <h2 class="logo-cloud__title" id="logo-cloud-title">{{ _logoCloud.title }}</h2>
+    <ul class="logo-cloud__list" role="list">
+        {%- for logo in _logoCloud.logos %}
+        <li class="logo-cloud__item">
+            {%- if logo.icon %}
+            <span class="logo-cloud__logo">{% set brandName = logo.icon %}{% set brandClass = "logo-cloud__icon" %}{% include "../block/brand-icon.html" %}{{ logo.name }}</span>
+            {%- else %}
+            <span class="logo-cloud__logo">{{ logo.name or logo }}</span>
+            {%- endif %}
+        </li>
+        {%- endfor %}
+    </ul>
+</section>

@@ -1,0 +1,49 @@
+<footer class="site-footer-cta">
+    <div class="container">
+        <section class="site-footer-cta__band" aria-labelledby="footer-cta-title">
+            <div class="site-footer-cta__content">
+                <h2 class="site-footer-cta__heading" id="footer-cta-title">Ready to build something great?</h2>
+                <p class="site-footer-cta__text">Start for free, no credit card needed. Upgrade when your team grows.</p>
+            </div>
+            <div class="site-footer-cta__buttons">
+                <a class="btn btn--lg site-footer-cta__primary" href="#">Start for free</a>
+                <a class="btn btn--lg site-footer-cta__secondary" href="#">Talk to sales</a>
+            </div>
+        </section>
+        <nav class="site-footer-cta__columns" aria-label="Footer">
+            {%- set _columns = [
+                { "title": "Product", "links": ["Overview", "Integrations", "Pricing", "Security"] },
+                { "title": "Developers", "links": ["Documentation", "API reference", "Status", "Open source"] },
+                { "title": "Company", "links": ["About", "Customers", "Careers", "Press"] },
+                { "title": "Support", "links": ["Help center", "Community", "Contact", "Partners"] }
+            ] %}
+            {%- for column in _columns %}
+            <div class="site-footer-cta__column">
+                <h2 class="site-footer-cta__title" id="footer-cta-column-{{ loop.index }}">{{ column.title }}</h2>
+                <ul class="site-footer-cta__links" aria-labelledby="footer-cta-column-{{ loop.index }}">
+                    {%- for link in column.links %}
+                    <li><a href="#">{{ link }}</a></li>
+                    {%- endfor %}
+                </ul>
+            </div>
+            {%- endfor %}
+        </nav>
+        <div class="site-footer-cta__bottom">
+            <a class="site-footer-cta__logo" href="#">
+                <img src="/img/cone-logo.svg" alt="" width="40" height="40">
+                <span>Cone</span>
+            </a>
+            <p class="site-footer-cta__copyright">© {{ helper.currentYear() }} Cone, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+            <form class="site-footer-cta__language" action="#" method="get">
+                <label class="sr-only" for="footer-cta-language">Language</label>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15 15 0 0 1 0 20 15 15 0 0 1 0-20z"/></svg>
+                <select class="form-control form-control--sm" id="footer-cta-language" name="lang">
+                    <option lang="en" value="en" selected>English</option>
+                    <option lang="de" value="de">Deutsch</option>
+                    <option lang="fr" value="fr">Français</option>
+                    <option lang="hu" value="hu">Magyar</option>
+                </select>
+            </form>
+        </div>
+    </div>
+</footer>

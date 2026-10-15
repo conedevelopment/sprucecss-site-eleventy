@@ -1,0 +1,31 @@
+{#- Override with `funnelChart` ({ title, period, steps: [{ label, value, count }] }). `value` is the share of the first step in percent. -#}
+{%- set _s = funnelChart or {
+    "title": "Checkout funnel",
+    "period": "This week",
+    "steps": [
+        { "label": "Visited the store", "value": 100, "count": "24,810" },
+        { "label": "Viewed a product", "value": 62, "count": "15,382" },
+        { "label": "Added to cart", "value": 24, "count": "5,954" },
+        { "label": "Started checkout", "value": 11, "count": "2,729" },
+        { "label": "Purchased", "value": 5.2, "count": "1,290" }
+    ]
+} %}
+<figure class="funnel-chart" aria-labelledby="funnel-chart-title">
+    <figcaption class="funnel-chart__header">
+        <span class="funnel-chart__title" id="funnel-chart-title">{{ _s.title }}</span>
+        <span class="funnel-chart__period">{{ _s.period }}</span>
+    </figcaption>
+    <ol class="funnel-chart__steps">
+        {%- for step in _s.steps %}
+        <li class="funnel-chart__step" style="--value: {{ step.value }}%;">
+            <span class="funnel-chart__label">{{ step.label }}</span>
+            <span class="funnel-chart__bar" aria-hidden="true"></span>
+            <span class="funnel-chart__numbers"><strong>{{ step.count }}</strong> <span>{{ step.value }}%</span></span>
+            {%- if not loop.first %}
+            {%- set previous = _s.steps[loop.index0 - 1].value %}
+            <span class="funnel-chart__drop">{{ ((1 - step.value / previous) * 100) | round(0) }}% drop-off from the previous step</span>
+            {%- endif %}
+        </li>
+        {%- endfor %}
+    </ol>
+</figure>

@@ -1,0 +1,106 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.funnel-chart {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  margin: 0;
+  padding: spacer('m');
+  @include layout-stack('m');
+
+  &__header {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xxs') spacer('s');
+    justify-content: space-between;
+  }
+
+  &__title {
+    color: color('heading');
+    font-family: config('font-family-heading', $typography);
+    font-size: font-size('h5');
+    font-weight: config('font-weight-heading', $typography);
+  }
+
+  &__period {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__steps {
+    list-style: none;
+    padding: 0;
+    @include layout-stack('s');
+  }
+
+  &__step {
+    align-items: center;
+    display: grid;
+    gap: spacer('xxs') spacer('s');
+    grid-template-areas:
+      'label numbers'
+      'bar bar'
+      'drop drop';
+    grid-template-columns: minmax(0, 1fr) auto;
+
+    @include breakpoint('sm') {
+      grid-template-areas:
+        'label bar numbers'
+        '. drop .';
+      grid-template-columns: 10rem minmax(0, 1fr) 7.5rem;
+    }
+  }
+
+  &__label {
+    color: color('heading');
+    font-size: config('font-size-sm', $typography);
+    font-weight: 600;
+    grid-area: label;
+  }
+
+  // The bar is centered, so the steps narrow like a funnel.
+  &__bar {
+    background-color: color('surface-muted');
+    block-size: 2rem;
+    border-radius: radius('sm');
+    grid-area: bar;
+    position: relative;
+
+    &::before {
+      background-color: color('primary');
+      border-radius: inherit;
+      content: '';
+      inline-size: max(var(--value), 0.25rem);
+      inset-block: 0;
+      inset-inline-start: 50%;
+      position: absolute;
+      translate: -50% 0;
+    }
+  }
+
+  &__numbers {
+    font-size: config('font-size-sm', $typography);
+    font-variant-numeric: tabular-nums;
+    grid-area: numbers;
+    text-align: end;
+
+    strong {
+      color: color('heading');
+    }
+
+    span {
+      color: color('muted');
+    }
+  }
+
+  &__drop {
+    color: color('danger', 'alert');
+    font-size: config('font-size-sm', $typography);
+    grid-area: drop;
+  }
+}
+
+[dir='rtl'] .funnel-chart__bar::before {
+  translate: 50% 0;
+}

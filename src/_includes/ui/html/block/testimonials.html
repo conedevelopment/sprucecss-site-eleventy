@@ -1,0 +1,20 @@
+{#- Override with `testimonialsBlock` ({ heading, rating, reviews }) and the logos with `logoCloud`. -#}
+{%- set _s = testimonialsBlock or {
+    "heading": { "eyebrow": "Testimonials", "title": "Loved by designers and developers", "text": "Teams of every size build their products on Spruce.", "id": "testimonials-title" },
+    "rating": "4.9",
+    "reviews": "2,000+ reviews"
+} %}
+<section class="testimonials-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="testimonials-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            <p class="testimonials-block__rating">
+                <span class="testimonials-block__stars" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg></span>
+                <span><strong>{{ _s.rating }}</strong> out of 5 from {{ _s.reviews }}</span>
+            </p>
+            {% include "../card/testimonial.html" %}
+            {% include "../content-and-layout/logo-cloud.html" %}
+        </div>
+    </div>
+</section>

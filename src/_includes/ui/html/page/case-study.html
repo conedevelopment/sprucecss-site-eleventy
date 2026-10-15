@@ -1,0 +1,54 @@
+{#- A portfolio case study: the project, the results, the story, the before and after, the process and the client's words, composed from Spruce UI blocks. -#}
+{% set siteHeader = {
+    "links": [{ "label": "Work", "href": "#", "current": true }, { "label": "Services", "href": "#" }, { "label": "About", "href": "#" }, { "label": "Writing", "href": "#" }],
+    "email": "hello@noralind.design",
+    "action": { "label": "Book a call", "href": "#", "icon": false }
+} %}
+{% set beforeAfterBlock = {
+    "heading": { "eyebrow": "Before and after", "title": "One screen, one job", "text": "The home screen went from eleven entry points to one clear next step.", "id": "before-after-title", "align": "start" },
+    "items": [
+        { "icon": "layers", "title": "Four tabs, not eleven menus", "text": "Accounts, payments, cards and help. Everything else is one tap away." },
+        { "icon": "zap", "title": "The next action first", "text": "The home screen shows the payment that’s due, not the whole history." },
+        { "icon": "heart", "title": "Accessible by default", "text": "Contrast, focus order and labels tested with screen reader users." }
+    ],
+    "action": "See the prototype"
+} %}
+{% set imageCompare = {
+    "before": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=70&sat=-100&con=-30",
+    "beforeAlt": "The old app (before): a gray home screen crowded with menus.",
+    "after": "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=70",
+    "afterAlt": "The new app (after): a calm home screen with the balance and one action.",
+    "beforeLabel": "2024", "afterLabel": "2025",
+    "caption": "Drag the handle (or use the arrow keys) to compare the old and the new app."
+} %}
+{% set timelineBlock = {
+    "heading": { "eyebrow": "Process", "title": "Six weeks, from interviews to launch", "id": "timeline-title" },
+    "items": [
+        { "date": "Week 1–2", "title": "Research", "text": "24 customer interviews, 60 support calls, a map of every task." },
+        { "date": "Week 3", "title": "Navigation", "text": "Paper prototypes tested in three branches, then in the app." },
+        { "date": "Week 4–5", "title": "Design and system", "text": "The screens and 32 components, built together with the engineers." },
+        { "date": "Week 6", "title": "Launch", "text": "A staged rollout to 5%, 25% and then every customer." }
+    ]
+} %}
+{% set ctaBlock = {
+    "title": "Have a product that grew too big?",
+    "text": "I take on two new projects a quarter. Tell me about yours, and I’ll reply within two days.",
+    "actions": [{ "label": "Book an intro call", "href": "#", "primary": true }, { "label": "See all work", "href": "#" }],
+    "proof": "Trusted by 60 product teams"
+} %}
+{% include "../content-and-layout/site-header.html" %}
+<main class="l-page" id="content" tabindex="-1">
+    {% include "../block/hero-case.html" %}
+    <div class="l-page__alt">
+        {% include "../block/results.html" %}
+    </div>
+    {% include "../block/story.html" %}
+    <div class="l-page__alt">
+        {% include "../block/before-after.html" %}
+    </div>
+    {% include "../block/timeline.html" %}
+    {% include "../block/quote.html" %}
+    {% include "../block/next-project.html" %}
+    {% include "../block/cta.html" %}
+</main>
+{% include "../content-and-layout/site-footer-centered.html" %}

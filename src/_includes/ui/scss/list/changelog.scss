@@ -1,32 +1,94 @@
 @use 'sprucecss/scss/spruce' as *;
 
 .l-changelog {
+  @include clear-list;
   @include layout-stack('l');
 
   &__item {
-    --gtc: minmax(0, 1fr);
-    align-items: flex-start;
+    align-items: start;
     display: grid;
-    gap: spacer('m') spacer('l');
-    grid-template-columns: var(--gtc);
+    gap: spacer('s') spacer('l');
+    grid-template-columns: minmax(0, 1fr);
 
     @include breakpoint('md') {
-      --gtc: minmax(0, 9rem) minmax(0, 1fr);
+      grid-template-columns: minmax(0, 9rem) minmax(0, 1fr);
+    }
+
+    + .l-changelog__item {
+      border-block-start: config('border-width-base', $display) solid color('border');
+      padding-block-start: spacer('l');
     }
   }
 
+  &__date {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+
+    @include breakpoint('md') {
+      inset-block-start: spacer('m');
+      position: sticky;
+    }
+  }
+
+  &__body {
+    @include layout-stack('s');
+  }
+
   &__title {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: font-size('h3');
+    gap: spacer('xs');
     margin-block: 0;
   }
 
-  &__date {
-    background-color: color('primary-background', 'btn');
-    border-radius: config('border-radius-sm', $display);
+  &__latest {
+    background-color: color('primary');
+    border-radius: radius('pill');
     color: color('primary-foreground', 'btn');
-    display: inline-flex;
-    flex-shrink: 0;
+    font-size: 0.75rem;
     font-weight: 700;
-    justify-self: start;
-    padding: spacer('xxs') spacer('s');
+    padding: 0.2em 0.7em;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    @include layout-stack('xs');
+  }
+
+  &__tag {
+    border-radius: radius('sm');
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-inline-end: spacer('xxs');
+    min-inline-size: 6.5rem;
+    padding: 0.15em 0.5em;
+    text-align: center;
+
+    &--added { background-color: color-alpha('success', 0.12, 'alert');
+      color: color('success', 'alert'); }
+
+    &--changed { background-color: color-alpha('primary', 0.12);
+      color: color('primary'); }
+
+    &--deprecated,
+    &--security { background-color: color-alpha('warning', 0.15, 'alert');
+      color: color('warning', 'alert'); }
+
+    &--fixed { background-color: color-alpha('info', 0.12, 'alert');
+      color: color('info', 'alert'); }
+
+    &--removed { background-color: color-alpha('danger', 0.12, 'alert');
+      color: color('danger', 'alert'); }
+  }
+
+  &__link {
+    font-size: config('font-size-sm', $typography);
+    font-weight: 600;
   }
 }

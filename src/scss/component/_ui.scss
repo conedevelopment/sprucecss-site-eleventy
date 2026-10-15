@@ -37,6 +37,35 @@
     }
   }
 
+  // Generic preview widths for the components.
+  &--narrow,
+  &--medium,
+  &--wide {
+    margin-inline: auto;
+    @include layout-stack('m');
+  }
+
+  &--narrow {
+    max-inline-size: 30rem;
+  }
+
+  &--medium {
+    max-inline-size: 45rem;
+  }
+
+  &--wide {
+    max-inline-size: 70rem;
+  }
+
+  &--block,
+  &--page {
+    padding: 0;
+  }
+
+  &--full {
+    @include layout-stack('m');
+  }
+
   &--feature {
     padding-inline: 0;
   }
@@ -68,7 +97,7 @@
   }
 
   &--lang-switcher {
-    block-size: 12.5rem;
+    min-block-size: 22rem;
   }
 
   &--skip-link {
@@ -151,21 +180,35 @@
   }
 
   &--context-menu {
-    block-size: 20rem;
-
-    .btn-dropdown {
-      position: relative;
-    }
+    min-block-size: 36rem;
+    overflow: visible;
   }
 
   &--site-navigation {
-    block-size: 10rem;
+    block-size: 16rem;
     position: relative;
   }
 
   &--site-header {
-    block-size: 20rem;
+    block-size: 26rem;
     padding-block: spacer('s');
+  }
+
+  // The layout containment makes the preview the containing block of the fixed off-canvas sidebar.
+  &--app-shell {
+    contain: layout;
+    padding: 0;
+
+    .app-shell {
+      --app-shell-block-size: 40rem;
+    }
+  }
+
+  &--mini-cart {
+    align-items: flex-start;
+    display: flex;
+    justify-content: flex-end;
+    min-block-size: 36rem;
   }
 
   .bit {

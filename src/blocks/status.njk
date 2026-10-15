@@ -1,0 +1,32 @@
+---
+category: 'Content'
+title: 'Status'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--block ui--status">
+        {% include "ui/html/block/status.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/block/status.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/block/status.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/block/status.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/container.css">
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/block-heading.css">
+    <link rel="stylesheet" href="/_includes/ui/css/dashboard/status-monitor.css">
+    <link rel="stylesheet" href="/_includes/ui/css/dashboard/metric-grid.css">
+    <link rel="stylesheet" href="/_includes/ui/css/block/status.css">
+{% endblock %}

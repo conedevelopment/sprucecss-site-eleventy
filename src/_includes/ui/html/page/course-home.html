@@ -1,0 +1,66 @@
+{#- A sales landing page for a book and a video course sold in tiers, composed from Spruce UI blocks and components. -#}
+{% set siteHeader = {
+    "links": [{ "label": "The book", "href": "#book-preview" }, { "label": "Videos", "href": "#video-library" }, { "label": "Reviews", "href": "#reviews" }, { "label": "Pricing", "href": "#pricing" }, { "label": "FAQ", "href": "#faq" }],
+    "action": { "label": "Buy now", "href": "#pricing", "icon": false }
+} %}
+{% set heroProductBlock = {
+    "badge": "New", "eyebrow": "2nd edition, fully updated for 2026",
+    "title": "Master modern CSS with a book and a video course",
+    "lead": "Fourteen chapters and 64 videos on layouts, design tokens, theming and accessible components. Read it, watch it, build it.",
+    "primary": "Get the bundle", "price": "$129", "secondary": "Read a free chapter",
+    "rating": 4.9, "reviews": "2,100 readers",
+    "points": [{ "icon": "book", "text": "380-page ebook" }, { "icon": "video", "text": "12 hours of video" }, { "icon": "infinity", "text": "Lifetime updates" }],
+    "book": { "edition": "2nd edition", "title": "Modern CSS, Explained", "subtitle": "From the cascade to design systems", "author": "Daniel Okafor" },
+    "video": { "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=70", "label": "Watch the trailer", "duration": "2:14" }
+} %}
+{% set logoCloud = { "title": "Read by developers at", "logos": [{ "name": "Google", "icon": "google" }, { "name": "Spotify", "icon": "spotify" }, { "name": "Shopify", "icon": "shopify" }, { "name": "Atlassian", "icon": "atlassian" }, { "name": "Duolingo", "icon": "duolingo" }] } %}
+{% set reviewsBlock = {
+    "heading": { "eyebrow": "Reviews", "title": "2,100 readers, one verdict", "id": "reviews-title", "align": "start" },
+    "average": 4.9, "total": "2,100",
+    "distribution": [92, 6, 1, 1, 0],
+    "items": [
+        { "title": "Finally understand the cascade", "text": "Chapter one alone fixed bugs I’d been fighting for years. Two months later I led our design system.", "name": "Leo Novak", "role": "Frontend Developer", "rating": 5, "source": "Book" },
+        { "title": "The videos make it click", "text": "Reading it, then watching it built, is the best way I’ve learned anything.", "name": "Sara Kim", "role": "Product Engineer", "rating": 5, "source": "Complete" },
+        { "title": "Bought it for the whole team", "text": "It’s now our onboarding material for every new frontend hire.", "name": "Omar Haddad", "role": "Engineering Manager", "rating": 5, "source": "Team" },
+        { "title": "Practical and modern", "text": "No outdated hacks. Every example is something I use at work now.", "name": "Ava Martinez", "role": "Designer who codes", "rating": 4, "source": "Book" }
+    ]
+} %}
+{% set faqBlock = {
+    "heading": { "eyebrow": "FAQ", "title": "Questions before you buy", "id": "faq-title", "align": "start" },
+    "items": [
+        { "question": "Who is it for?", "answer": "Developers who know the basics of HTML and CSS and want to write CSS that scales. Designers who code will feel at home too." },
+        { "question": "What formats do I get?", "answer": "The book comes as PDF, EPUB and Kindle files. The videos stream in 4K with subtitles, and you can download them to watch offline." },
+        { "question": "Can I upgrade from the book later?", "answer": "Yes. Book owners pay only the difference to upgrade to the Complete bundle, at any time." },
+        { "question": "Do I get the updates?", "answer": "Every tier includes free updates of the book and the videos, including the next edition." },
+        { "question": "Is there a refund policy?", "answer": "If it isn’t for you, email us within 30 days for a full refund. No questions, no forms." }
+    ],
+    "help": { "title": "Buying for a company?", "text": "We send invoices and offer volume licenses for larger teams.", "action": "Contact us" }
+} %}
+{% set ctaBlock = {
+    "title": "Write CSS you’re proud of",
+    "text": "The book, 64 videos and every update. 30% off until October 31.",
+    "actions": [{ "label": "Get the bundle for $129", "href": "#pricing", "primary": true }, { "label": "Read a free chapter", "href": "#book-preview" }],
+    "proof": "Join 2,100+ readers"
+} %}
+{% include "../content-and-layout/site-header.html" %}
+<main class="l-home" id="content" tabindex="-1">
+    {% include "../block/hero-product.html" %}
+    <div class="l-home__band">
+        {% include "../content-and-layout/logo-cloud.html" %}
+    </div>
+    {% include "../block/offer.html" %}
+    <div class="l-home__alt">
+        {% include "../block/book-preview.html" %}
+    </div>
+    {% include "../block/video-library.html" %}
+    <div class="l-home__alt" id="reviews">
+        {% include "../block/reviews.html" %}
+        {% include "../block/author.html" %}
+    </div>
+    {% include "../block/pricing-tiers.html" %}
+    <div class="l-home__alt" id="faq">
+        {% include "../block/faq.html" %}
+    </div>
+    {% include "../block/cta.html" %}
+</main>
+{% include "../content-and-layout/site-footer-centered.html" %}

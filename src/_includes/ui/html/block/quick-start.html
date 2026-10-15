@@ -1,0 +1,57 @@
+{#- Override with `quickStartBlock` ({ heading, steps: [{ title, text, label, command }], tip, links: [{ title, text }] }). -#}
+{%- set _s = quickStartBlock or {
+    "heading": { "eyebrow": "Quick start", "title": "Up and running in three steps", "text": "No build step required to try it; add Sass when you want to customize.", "id": "quick-start-title" },
+    "steps": [
+        { "title": "Install the package", "text": "Add Spruce CSS to your project with npm.", "label": "Install command", "command": "npm install sprucecss" },
+        { "title": "Use it in your Sass", "text": "Load the module and generate the styles with your settings.", "label": "Sass", "command": "@use 'sprucecss/scss/spruce' with ($settings: ('css-custom-properties': true));" },
+        { "title": "Pick a design style", "text": "Switch the whole look with one attribute on any element.", "label": "HTML", "command": "<html data-spruce-style=\"minimal\">" }
+    ],
+    "tip": "Prefer plain CSS? Link spruce.complete.css from a CDN and skip the first two steps.",
+    "links": [
+        { "title": "Read the docs", "text": "Settings, tokens and every mixin." },
+        { "title": "Browse components", "text": "170+ copy-paste ready pieces." },
+        { "title": "Start from a page", "text": "Complete templates to adapt." }
+    ]
+} %}
+<section class="quick-start-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="quick-start-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            <ol class="quick-start-block__steps" role="list">
+                {%- for step in _s.steps %}
+                <li class="quick-start-block__step">
+                    <span class="quick-start-block__marker" aria-hidden="true">{{ loop.index }}</span>
+                    <div class="quick-start-block__body">
+                        <h3 class="quick-start-block__title"><span class="sr-only">Step {{ loop.index }}: </span>{{ step.title }}</h3>
+                        <p class="quick-start-block__text">{{ step.text }}</p>
+                        <div class="copy-field">
+                            <label class="sr-only" for="quick-start-command-{{ loop.index }}">{{ step.label }}</label>
+                            <div class="form-group--stacked">
+                                <input class="form-control copy-field__input" id="quick-start-command-{{ loop.index }}" type="text" value="{{ step.command }}" readonly spellcheck="false">
+                                <button class="btn btn--primary copy-button" type="button" data-copy-target="quick-start-command-{{ loop.index }}">
+                                    <svg class="btn__icon copy-button__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                                    <span class="copy-button__label">Copy</span><span class="sr-only"> {{ step.label | lower }}</span>
+                                </button>
+                            </div>
+                            <p class="sr-only" aria-live="polite" data-copy-status></p>
+                        </div>
+                    </div>
+                </li>
+                {%- endfor %}
+            </ol>
+            <aside class="callout callout--tip" aria-label="Tip">
+                <svg class="callout__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/></svg>
+                <div class="callout__content">
+                    <p class="callout__title">Tip</p>
+                    <p>{{ _s.tip }}</p>
+                </div>
+            </aside>
+            <ul class="quick-start-block__links" role="list">
+                {%- for link in _s.links %}
+                <li><a href="#"><strong>{{ link.title }} <span aria-hidden="true">→</span></strong> <span>{{ link.text }}</span></a></li>
+                {%- endfor %}
+            </ul>
+        </div>
+    </div>
+</section>

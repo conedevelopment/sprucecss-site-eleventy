@@ -1,61 +1,84 @@
-@use 'sass:color';
 @use 'sass:map';
 @use 'sprucecss/scss/spruce' as *;
 
 .alert {
-  align-items: center;
-  border: 1px solid;
-  border-radius: config('border-radius-lg', $display);
+  --alert-color: #{color('primary')};
+  align-items: start;
+  background-color: color-mix(in srgb, var(--alert-color) 8%, #{color('background')});
+  border: config('border-width-base', $display) solid color-mix(in srgb, var(--alert-color) 30%, #{color('background')});
+  border-inline-start-width: 0.25rem;
+  border-radius: radius('md');
+  color: color('text');
   display: flex;
-  gap: spacer('m');
-  justify-content: space-between;
+  gap: spacer('s');
   line-height: config('line-height-md', $typography);
-  padding: 1em 1.25em;
+  padding: 0.9em 1.1em;
 
+  + .alert {
+    margin-block-start: spacer('s');
+  }
+
+  // One modifier per alert color (info, success, warning, danger).
   @each $name, $value in map.get($colors, 'alert') {
-    @at-root .alert--#{$name} {
-      @include set-css-variable((
-        --base-color-text: color.scale($value, $lightness: -50%),
-        --base-color-heading: color.scale($value, $lightness: -50%),
-        --base-color-link: color.scale($value, $lightness: -50%),
-        --base-color-link-hover: color.scale($value, $lightness: -30%),
-        --base-color-strong: color.scale($value, $lightness: -50%)
-      ));
-      background-color: color.scale($value, $lightness: 95%);
-
-      border-color: color.scale($value, $lightness: 85%);
-      color: color.scale($value, $lightness: -50%);
+    &--#{$name} {
+      --alert-color: #{color($name, 'alert')};
     }
+  }
 
-    @at-root .alert--#{$name} .alert__close {
-      background-color: color.scale($value, $lightness: -30%);
-      color: color.scale($value, $lightness: 90%);
-    }
+  &__icon {
+    block-size: 1.25rem;
+    color: var(--alert-color);
+    flex-shrink: 0;
+    inline-size: 1.25rem;
+    margin-block-start: 0.1em;
+  }
+
+  &__text,
+  &__title {
+    color: color('heading');
+    font-weight: 700;
+    margin-block: 0;
   }
 
   &__caption {
     @include layout-stack('xxs');
+    flex-grow: 1;
+
+    a {
+      color: inherit;
+      font-weight: 600;
+    }
   }
 
   &__close {
     @include clear-btn;
-    @include transition;
+    @include transition($property: 'background-color');
     align-items: center;
-    border-radius: config('border-radius-sm', $display);
+    border-radius: radius('sm');
+    color: color('heading');
     display: flex;
     flex-shrink: 0;
     justify-content: center;
-    padding: config('icon-padding', $btn-sm, false);
+    margin-block: -0.25em;
+    margin-inline-start: auto;
+    padding: 0.4em;
 
-    &:hover,
-    &:focus {
-      opacity: 0.75;
+    &:hover {
+      background-color: color-mix(in srgb, var(--alert-color) 15%, transparent);
+    }
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 1px;
     }
 
     svg {
-      --size: #{config('icon-size', $btn-sm, false)};
-      block-size: var(--size);
-      inline-size: var(--size);
+      block-size: 1rem;
+      inline-size: 1rem;
     }
   }
+}
+
+.alert-region:not(:empty) {
+  margin-block: spacer('m') spacer('s');
 }

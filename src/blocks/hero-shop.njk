@@ -1,0 +1,29 @@
+---
+category: 'Hero'
+title: 'Hero Shop'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--block ui--hero-shop">
+        {% include "ui/html/block/hero-shop.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/block/hero-shop.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/block/hero-shop.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/block/hero-shop.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/container.css">
+    <link rel="stylesheet" href="/_includes/ui/css/block/hero-shop.css">
+{% endblock %}

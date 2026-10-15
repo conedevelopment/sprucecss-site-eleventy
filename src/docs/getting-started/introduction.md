@@ -5,13 +5,24 @@ order: 1
 github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/getting-started/introduction.md"
 ---
 
-<p class= "lead">Spruce is a Sass-based minimalistic CSS framework to get the foundation right for any web-based project.</p>
+<p class="lead">Spruce is a Sass-based, minimalistic CSS framework to get the foundation right for any web-based project. One markup, many looks: with version 3, the same HTML can wear eight different design styles.</p>
 
-By minimalism, we mean it contains only the bare minimum needed for a complex system. Besides the form elements, there aren’t any classical components in it.
+By minimalism, we mean it contains only the bare minimum needed for a complex system. It styles the native elements (typography, tables, forms, `details`, `dialog`, `progress`) and buttons; there aren’t any classical components in it. Those live in [Spruce UI](/ui/getting-started/introduction/).
 
-The generated CSS is relatively tiny (~7kb gzipped), somewhere around [+1500 lines of code](https://github.com/conedevelopment/sprucecss/blob/main/css/spruce.css) (it uses [normalize.css](https://necolas.github.io/normalize.css/), which takes up +200 lines of code).
+The generated CSS is small (~9 KB gzipped), around [2,000 lines of code](https://github.com/conedevelopment/sprucecss/blob/main/css/spruce.css), including [normalize.css](https://necolas.github.io/normalize.css/) (about 200 lines). Every new feature of v3 that adds a lot of CSS, like the styles and the dark mode, is opt-in.
 
 {% notification %}Although it seems small, it isn’t. Spruce CSS uses Sass with many <a href="/docs/sass/variables/">variables</a>, <a href="/docs/sass/mixins/">mixins</a>, and <a href="/docs/sass/functions/">functions</a> to ease the work and use its code on demand.{% endnotification %}
+
+## What’s New in Version 3
+
+- **[Design styles](/docs/customization/styles/):** restyle the same markup as minimal, brutalist, soft, glass, corporate, playful, editorial or terminal, or create your own.
+- **[Built-in dark mode](/docs/customization/themes/)** with a complete default palette.
+- **New elements:** [details and dialog](/docs/elements/details-and-dialog/), [progress and meter](/docs/elements/progress-and-meter/), code blocks and keyboard keys.
+- **More options everywhere:** new [button variants](/docs/elements/buttons/), [table modifiers](/docs/elements/tables/), form sizes, shadow, radius and z-index tokens.
+- **[Layout](/docs/elements/layout/) and [text utilities](/docs/elements/utilities/)** (opt-in).
+- **[AI skills](/docs/ai/skills/)** for coding assistants.
+
+Upgrading? Read the [upgrade guide](/docs/getting-started/upgrade/).
 
 ## Our Goals with Spruce CSS
 
@@ -29,10 +40,10 @@ The generated CSS is relatively tiny (~7kb gzipped), somewhere around [+1500 lin
 Choosing a CSS library is a challenging task. Let us help you with why you should select Spruce:
 
 - Spruce is a good choice if you prefer writing CSS instead of HTML. It uses just a few classic utility classes.
-- It is a relatively small (~7kb gzipped) framework with a smaller learning curve. The codebase is small but can add more to any project with the available mixins and functions.
+- It is a relatively small (~9 KB gzipped) framework with a smaller learning curve. The codebase is small, but you can do a lot more with the available mixins and functions.
 - It is that bunch of code you keep manually carrying from project to project.
 - You like Sass. We think it is great, but you must know what you are doing. Although it uses Sass, it generates custom CSS properties where needed.
-- It is themeable. You can create different themes using CSS custom properties like a dark one.
+- It is themeable. It has a built-in dark mode, and with the style presets your project can switch its whole look at runtime.
 
 ## Why Make Another CSS Framework?
 

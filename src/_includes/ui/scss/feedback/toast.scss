@@ -1,0 +1,80 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.toast-demo {
+  @include layout-cluster('s');
+}
+
+.toast-region {
+  inset-block-end: spacer('m');
+  inset-inline-end: spacer('m');
+  max-inline-size: calc(100vi - #{spacer('l')});
+  position: fixed;
+  z-index: z-index('toast');
+}
+
+.toast-list {
+  @include clear-list;
+  display: flex;
+  flex-direction: column;
+  gap: spacer('xs');
+}
+
+.toast {
+  --toast-color: #{color('info', 'alert')};
+  align-items: center;
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('md');
+  box-shadow: shadow('lg');
+  display: flex;
+  gap: spacer('s');
+  inline-size: 22rem;
+  margin: 0 !important;
+  max-inline-size: 100%;
+  padding: spacer('xs') spacer('xs') spacer('xs') spacer('s');
+
+  @include motion-safe {
+    animation: toast-in 0.2s ease-out;
+  }
+
+  &--success {
+    --toast-color: #{color('success', 'alert')};
+  }
+
+  &--danger {
+    --toast-color: #{color('danger', 'alert')};
+  }
+
+  &--info {
+    --toast-color: #{color('info', 'alert')};
+  }
+
+  &__indicator {
+    background-color: var(--toast-color);
+    block-size: 0.625rem;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--toast-color) 20%, transparent);
+    flex-shrink: 0;
+    inline-size: 0.625rem;
+  }
+
+  &__message {
+    color: color('heading');
+    flex-grow: 1;
+    line-height: config('line-height-md', $typography);
+    margin: 0;
+  }
+
+  &.is-leaving {
+    opacity: 0;
+    translate: 0 0.5rem;
+    @include transition($property: 'opacity, translate');
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    translate: 0 0.5rem;
+  }
+}

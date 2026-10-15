@@ -1,0 +1,85 @@
+<section class="activity-log" aria-labelledby="activity-log-title" data-activity-log>
+    <header class="activity-log__header">
+        <h3 class="activity-log__title" id="activity-log-title">Activity log</h3>
+        <form class="activity-log__filter" action="#" method="get">
+            <label class="sr-only" for="activity-log-type">Show</label>
+            <select class="form-control form-control--sm" id="activity-log-type" name="type" data-activity-filter>
+                <option value="all">All activity</option>
+                <option value="order">Orders</option>
+                <option value="product">Products</option>
+                <option value="team">Team</option>
+                <option value="security">Security</option>
+            </select>
+            <button class="btn btn--outline-secondary btn--sm" type="submit" data-activity-submit>Filter</button>
+        </form>
+    </header>
+    <p class="sr-only" aria-live="polite" data-activity-live></p>
+    <div class="activity-log__days">
+        <section class="activity-log__day" aria-labelledby="activity-2026-10-04" data-activity-day>
+            <h4 class="activity-log__date" id="activity-2026-10-04"><time datetime="2026-10-04">Today</time></h4>
+            <ol class="activity-log__items" role="list">
+                <li class="activity-log__item" data-activity-type="team">
+                    <span class="activity-log__icon activity-log__icon--team" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                    <div class="activity-log__body">
+                        <p class="activity-log__text"><strong>Anna Smith</strong> changed the role of <strong>Ben King</strong> from Viewer to Admin</p>
+                        <p class="activity-log__meta"><span class="sr-only">Team event, </span><time datetime="2026-10-04T09:12">9:12 AM</time><span>84.2.11.4 · Chrome on macOS</span></p>
+                    </div>
+                </li>
+                <li class="activity-log__item" data-activity-type="order">
+                    <span class="activity-log__icon activity-log__icon--order" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+                    <div class="activity-log__body">
+                        <p class="activity-log__text"><strong>Ben King</strong> refunded <a href="#">order #10478</a> ($129.00)</p>
+                        <p class="activity-log__meta"><span class="sr-only">Order event, </span><time datetime="2026-10-04T08:47">8:47 AM</time><span>91.82.4.17 · Firefox on Windows</span></p>
+                    </div>
+                </li>
+                <li class="activity-log__item" data-activity-type="security">
+                    <span class="activity-log__icon activity-log__icon--security" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></span>
+                    <div class="activity-log__body">
+                        <p class="activity-log__text"><strong>Lea Moreau</strong> turned on two-factor authentication</p>
+                        <p class="activity-log__meta"><span class="sr-only">Security event, </span><time datetime="2026-10-04T07:30">7:30 AM</time><span>188.6.2.90 · Safari on iOS</span></p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+        <section class="activity-log__day" aria-labelledby="activity-2026-10-03" data-activity-day>
+            <h4 class="activity-log__date" id="activity-2026-10-03"><time datetime="2026-10-03">Yesterday</time></h4>
+            <ol class="activity-log__items" role="list">
+                <li class="activity-log__item" data-activity-type="product">
+                    <span class="activity-log__icon activity-log__icon--product" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span>
+                    <div class="activity-log__body">
+                        <p class="activity-log__text"><strong>Lea Moreau</strong> updated the price of <a href="#">Everyday Backpack</a> from $95.00 to $89.00</p>
+                        <p class="activity-log__meta"><span class="sr-only">Product event, </span><time datetime="2026-10-03T16:05">4:05 PM</time><span>188.6.2.90 · Safari on macOS</span></p>
+                    </div>
+                </li>
+                <li class="activity-log__item" data-activity-type="security">
+                    <span class="activity-log__icon activity-log__icon--security" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg></span>
+                    <div class="activity-log__body">
+                        <p class="activity-log__text">Failed sign-in attempt for <strong>ben@acme.com</strong></p>
+                        <p class="activity-log__meta"><span class="sr-only">Security event, </span><time datetime="2026-10-03T11:58">11:58 AM</time><span>203.0.113.5 · Unknown device</span></p>
+                    </div>
+                </li>
+                <li class="activity-log__item" data-activity-type="order">
+                    <span class="activity-log__icon activity-log__icon--order" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span>
+                    <div class="activity-log__body">
+                        <p class="activity-log__text"><strong>Jon Diaz</strong> fulfilled 12 orders</p>
+                        <p class="activity-log__meta"><span class="sr-only">Order event, </span><time datetime="2026-10-03T10:20">10:20 AM</time><span>84.2.11.4 · Chrome on Windows</span></p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+        <section class="activity-log__day" aria-labelledby="activity-2026-09-30" data-activity-day>
+            <h4 class="activity-log__date" id="activity-2026-09-30"><time datetime="2026-09-30">September 30</time></h4>
+            <ol class="activity-log__items" role="list">
+                <li class="activity-log__item" data-activity-type="team">
+                    <span class="activity-log__icon activity-log__icon--team" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                    <div class="activity-log__body">
+                        <p class="activity-log__text"><strong>Anna Smith</strong> invited <strong>jon.diaz@example.com</strong> as Viewer</p>
+                        <p class="activity-log__meta"><span class="sr-only">Team event, </span><time datetime="2026-09-30T14:41">2:41 PM</time><span>84.2.11.4 · Chrome on macOS</span></p>
+                    </div>
+                </li>
+            </ol>
+        </section>
+        <p class="activity-log__empty" data-activity-empty hidden>No activity of this type in this period.</p>
+    </div>
+    <a class="btn btn--ghost-secondary btn--sm btn--block" href="#">Show older activity</a>
+</section>

@@ -1,0 +1,27 @@
+---
+title: 'Status Monitor'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium">
+        {% include "ui/html/dashboard/status-monitor.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/dashboard/status-monitor.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/dashboard/status-monitor.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/dashboard/status-monitor.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/dashboard/status-monitor.css">
+{% endblock %}

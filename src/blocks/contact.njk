@@ -1,0 +1,30 @@
+---
+category: 'Contact'
+title: 'Contact'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--block ui--contact">
+        {% include "ui/html/block/contact.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/block/contact.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/block/contact.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/block/contact.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/container.css">
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/block-heading.css">
+    <link rel="stylesheet" href="/_includes/ui/css/block/contact.css">
+{% endblock %}

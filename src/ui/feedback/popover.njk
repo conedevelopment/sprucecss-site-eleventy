@@ -1,0 +1,31 @@
+---
+title: 'Popover'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium ui--popover">
+        {% include "ui/html/feedback/popover.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/feedback/popover.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/feedback/popover.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/feedback/popover.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/feedback/popover.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/misc/copy-button.js"></script>
+{% endblock %}

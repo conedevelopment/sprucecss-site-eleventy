@@ -12,4 +12,12 @@
   &--narrow {
     --inline-size: 50rem;
   }
+
+  &--wide {
+    --inline-size: 110rem;
+  }
+
+  &--full {
+    --inline-size: none;
+  }
 }

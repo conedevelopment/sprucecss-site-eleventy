@@ -1,0 +1,66 @@
+{#- Override with `videoLibraryBlock` ({ heading, stats: [{ value, label }], modules: [{ value, label }], lessons: [{ title, module, duration, image, free }], action }). -#}
+{%- set _s = videoLibraryBlock or {
+    "heading": { "eyebrow": "The video course", "title": "Watch it built, line by line", "text": "64 short lessons in six modules. Start with the free previews.", "id": "video-library-title" },
+    "stats": [{ "value": "64", "label": "lessons" }, { "value": "12 h", "label": "of video" }, { "value": "8", "label": "free previews" }],
+    "modules": [{ "value": "all", "label": "All" }, { "value": "cascade", "label": "Cascade" }, { "value": "layout", "label": "Layout" }, { "value": "tokens", "label": "Tokens" }],
+    "lessons": [
+        { "title": "How the cascade really works", "module": "cascade", "moduleLabel": "Cascade", "duration": "8:02", "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=640&q=70", "free": true },
+        { "title": "Cascade layers in a real project", "module": "cascade", "moduleLabel": "Cascade", "duration": "12:45", "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=640&q=70" },
+        { "title": "Container queries in practice", "module": "layout", "moduleLabel": "Layout", "duration": "14:36", "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=640&q=70", "free": true },
+        { "title": "A grid without breakpoints", "module": "layout", "moduleLabel": "Layout", "duration": "10:12", "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=640&q=70" },
+        { "title": "A token system that scales", "module": "tokens", "moduleLabel": "Tokens", "duration": "11:20", "image": "https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&w=640&q=70" },
+        { "title": "Dark mode in one afternoon", "module": "tokens", "moduleLabel": "Tokens", "duration": "16:05", "image": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=640&q=70" }
+    ],
+    "action": "See all 64 lessons"
+} %}
+<section class="video-library-block" id="video-library" aria-labelledby="{{ _s.heading.id }}" data-video-library>
+    <div class="container">
+        <div class="video-library-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            <dl class="video-library-block__stats">
+                {%- for stat in _s.stats %}
+                <div class="video-library-block__stat">
+                    <dt>{{ stat.label }}</dt>
+                    <dd>{{ stat.value }}</dd>
+                </div>
+                {%- endfor %}
+            </dl>
+            <div class="video-library-block__filters" role="group" aria-label="Filter by module">
+                {%- for module in _s.modules %}
+                <button class="btn btn--sm btn--pill {% if loop.first %}btn--primary{% else %}btn--soft-primary{% endif %}" type="button" data-filter="{{ module.value }}" aria-pressed="{{ 'true' if loop.first else 'false' }}">{{ module.label }}</button>
+                {%- endfor %}
+            </div>
+            <ul class="lesson-cards" role="list">
+                {%- for lesson in _s.lessons %}
+                <li data-module="{{ lesson.module }}">
+                    <article class="lesson-card">
+                        <div class="lesson-card__media">
+                            <img src="{{ lesson.image }}" alt="" loading="lazy" width="640" height="360">
+                            <span class="lesson-card__duration"><span class="sr-only">Duration: </span>{{ lesson.duration }}</span>
+                            <span class="lesson-card__icon" aria-hidden="true">
+                                {%- if lesson.free %}
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M7 4v16l13-8z"/></svg>
+                                {%- else %}
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                {%- endif %}
+                            </span>
+                        </div>
+                        <div class="lesson-card__body">
+                            <p class="lesson-card__module">{{ lesson.moduleLabel }}</p>
+                            <h3 class="lesson-card__title"><a class="lesson-card__link" href="#">{{ lesson.title }}</a></h3>
+                            {%- if lesson.free %}
+                            <p class="lesson-card__access lesson-card__access--free">Free preview</p>
+                            {%- else %}
+                            <p class="lesson-card__access">Included in the video course</p>
+                            {%- endif %}
+                        </div>
+                    </article>
+                </li>
+                {%- endfor %}
+            </ul>
+            <p class="sr-only" aria-live="polite" data-video-library-status></p>
+            <p class="video-library-block__more"><a class="btn btn--outline-primary" href="#">{{ _s.action }}</a></p>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,59 @@
+<a class="skip-link sr-only-focusable" href="#content">Skip to content</a>
+{#- Override the message with `announcement` ({ id, badge, text, link }); a new `id` shows the bar again to everyone who dismissed the previous one. -#}
+{%- set _announcement = announcement or { "id": "launch-2026-10", "badge": "New", "text": "Spruce UI 2 is here, with 40 new components.", "link": "Read the release notes" } %}
+<div class="site-header-announcement__banner" role="region" aria-label="Announcement" data-announcement="{{ _announcement.id }}">
+    <p><span class="badge badge--solid">{{ _announcement.badge }}</span> {{ _announcement.text }} <a href="#">{{ _announcement.link }}<span aria-hidden="true"> →</span></a></p>
+    <button class="site-header-announcement__close" type="button" hidden data-announcement-close>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        <span class="sr-only">Dismiss the announcement</span>
+    </button>
+</div>
+<header class="site-header-announcement">
+    <div class="container">
+        <div class="site-header-announcement__inner">
+            <a class="site-header-announcement__logo" href="#">
+                <img src="/img/cone-logo.svg" alt="" width="40" height="40">
+                <span>Cone</span>
+            </a>
+            <nav class="site-navigation site-header-announcement__navigation" aria-label="Main" data-site-navigation>
+                <button class="btn btn--secondary btn--icon site-navigation__btn" type="button" aria-controls="announcement-menu" aria-expanded="false">
+                    <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path class="site-navigation__line site-navigation__line--top" d="M4 6h16"/><path class="site-navigation__line site-navigation__line--middle" d="M4 12h16"/><path class="site-navigation__line site-navigation__line--bottom" d="M4 18h16"/></svg>
+                    <span class="sr-only">Menu</span>
+                </button>
+                <ul class="navigation-menu" id="announcement-menu">
+                    <li class="site-navigation__item">
+                        <button class="site-navigation__toggle" type="button" aria-expanded="false" aria-controls="announcement-submenu-product">
+                            Product
+                            <svg class="site-navigation__chevron" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <ul class="site-navigation__submenu" id="announcement-submenu-product">
+                            <li><a href="#">Features</a></li>
+                            <li><a href="#">Integrations</a></li>
+                            <li><a href="#">Changelog</a></li>
+                            <li><a href="#">Roadmap</a></li>
+                        </ul>
+                    </li>
+                    <li class="site-navigation__item">
+                        <button class="site-navigation__toggle" type="button" aria-expanded="false" aria-controls="announcement-submenu-solutions">
+                            Solutions
+                            <svg class="site-navigation__chevron" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"/></svg>
+                        </button>
+                        <ul class="site-navigation__submenu" id="announcement-submenu-solutions">
+                            <li><a href="#">Startups</a></li>
+                            <li><a href="#">Enterprise</a></li>
+                            <li><a href="#">Agencies</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" aria-current="page">Pricing</a></li>
+                    <li><a href="#">Docs</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li class="site-header-announcement__mobile-only"><a href="#">Log in</a></li>
+                </ul>
+            </nav>
+            <div class="site-header-announcement__actions">
+                <a class="btn btn--ghost-primary btn--sm site-header-announcement__login" href="#">Log in</a>
+                <a class="btn btn--primary btn--sm" href="#">Get started</a>
+            </div>
+        </div>
+    </div>
+</header>

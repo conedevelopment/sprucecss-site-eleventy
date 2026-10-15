@@ -1,0 +1,103 @@
+@charset "UTF-8";
+.image-compare {
+  --position: 50%;
+  margin: 0;
+  position: relative;
+}
+.image-compare > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.image-compare > * + * {
+  margin-block-start: 0.5rem;
+}
+.image-compare__frame {
+  border-radius: var(--spruce-border-radius-lg);
+  display: grid;
+  overflow: hidden;
+  position: relative;
+}
+.image-compare__image {
+  block-size: 100%;
+  grid-area: 1/1;
+  inline-size: 100%;
+  object-fit: cover;
+  user-select: none;
+}
+.image-compare__image--after {
+  clip-path: inset(0 0 0 var(--position));
+}
+.image-compare__handle {
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 0 0 1px hsla(0, 0%, 0%, 0.2);
+  inline-size: 3px;
+  inset-block: 0;
+  inset-inline-start: var(--position);
+  pointer-events: none;
+  position: absolute;
+  translate: -50% 0;
+}
+.image-compare__handle::after {
+  background-color: hsl(0, 0%, 100%);
+  block-size: 2.5rem;
+  border-radius: 50%;
+  box-shadow: var(--spruce-shadow-md);
+  color: hsl(0, 0%, 10%);
+  content: "↔";
+  display: grid;
+  font-weight: 700;
+  inline-size: 2.5rem;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  place-content: center;
+  position: absolute;
+  translate: -50% -50%;
+}
+.image-compare__tag {
+  background-color: hsla(0, 0%, 0%, 0.55);
+  border-radius: var(--spruce-border-radius-pill);
+  color: hsl(0, 0%, 100%);
+  font-size: var(--spruce-font-size-sm);
+  inset-block-start: 1rem;
+  padding-block: 0.25rem;
+  padding-inline: 1rem;
+  position: absolute;
+}
+.image-compare__tag--before {
+  inset-inline-start: 1rem;
+}
+.image-compare__tag--after {
+  inset-inline-end: 1rem;
+}
+.image-compare__range {
+  appearance: none;
+  background: transparent;
+  block-size: calc(100% - 2rem);
+  cursor: ew-resize;
+  inline-size: 100%;
+  inset-block-start: 0;
+  inset-inline-start: 0;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+}
+.image-compare__range:focus-visible {
+  opacity: 0;
+}
+.image-compare:has(.image-compare__range:focus-visible) .image-compare__frame {
+  outline: 2px solid var(--spruce-base-color-focus-ring);
+  outline-offset: 3px;
+}
+.image-compare__caption {
+  color: var(--spruce-base-color-muted);
+  font-size: var(--spruce-font-size-sm);
+  text-align: center;
+}
+
+[dir=rtl] .image-compare__image--after {
+  clip-path: inset(0 var(--position) 0 0);
+}
+
+[dir=rtl] .image-compare__handle {
+  translate: 50% 0;
+}

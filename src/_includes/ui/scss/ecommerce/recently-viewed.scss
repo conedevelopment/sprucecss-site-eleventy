@@ -1,0 +1,105 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.recently-viewed {
+  @include layout-stack('m');
+
+  &__header {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs') spacer('s');
+  }
+
+  &__title {
+    font-size: font-size('h4');
+    margin-inline-end: auto;
+  }
+
+  &__controls {
+    display: flex;
+    gap: spacer('xxs');
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__track {
+    display: grid;
+    gap: spacer('m');
+    grid-auto-columns: minmax(10rem, calc((100% - #{spacer('m')} * 4) / 5));
+    grid-auto-flow: column;
+    list-style: none;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding: 0 0 spacer('s');
+    scroll-padding-inline: 0;
+    scroll-snap-type: inline mandatory;
+    scrollbar-width: thin;
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 4px;
+    }
+
+    @include motion-safe {
+      scroll-behavior: smooth;
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__item {
+    scroll-snap-align: start;
+  }
+
+  &__link {
+    color: color('heading');
+    display: flex;
+    flex-direction: column;
+    gap: spacer('xxs');
+    text-decoration: none;
+
+    img {
+      aspect-ratio: 1;
+      background-color: color('surface-muted');
+      border-radius: radius('md');
+      inline-size: 100%;
+      margin-block-end: spacer('xxs');
+      object-fit: cover;
+      @include transition($property: 'opacity');
+    }
+
+    &:hover {
+      img {
+        opacity: 0.85;
+      }
+
+      .recently-viewed__name {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__name {
+    font-size: config('font-size-sm', $typography);
+    font-weight: 600;
+  }
+
+  &__price {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__cleared {
+    color: color('muted');
+  }
+}
+
+[dir='rtl'] .recently-viewed__arrow svg {
+  scale: -1 1;
+}

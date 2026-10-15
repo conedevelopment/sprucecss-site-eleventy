@@ -1,0 +1,81 @@
+{#- An online store front page, composed from Spruce UI blocks and e-commerce components. -#}
+{% set heroShopBlock = {
+    "main": { "eyebrow": "The autumn collection", "title": "Everyday things, made to last", "text": "Bags, homeware and tech accessories designed in Portland, built for years of daily use.", "primary": "Shop new arrivals", "secondary": "Explore homeware", "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=70", "alt": "" },
+    "tiles": [
+        { "eyebrow": "Up to 30% off", "title": "Travel bags", "action": "Shop bags", "image": "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=800&q=70" },
+        { "eyebrow": "New in", "title": "The coffee corner", "action": "Shop coffee", "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=70" }
+    ]
+} %}
+{% set productGridBlock = {
+    "heading": { "eyebrow": "Shop", "title": "Bestsellers", "text": "The pieces our customers buy again and again.", "id": "product-grid-title", "align": "start" },
+    "categories": [{ "value": "all", "label": "All" }, { "value": "bags", "label": "Bags" }, { "value": "home", "label": "Home" }, { "value": "tech", "label": "Tech" }, { "value": "wear", "label": "Wear" }],
+    "products": [
+        { "name": "Everyday Backpack", "category": "bags", "price": "$89", "rating": 4.8, "reviews": 412, "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=70", "tag": "Bestseller" },
+        { "name": "Ceramic Pour-Over", "category": "home", "price": "$42", "rating": 4.9, "reviews": 238, "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=70", "tag": "" },
+        { "name": "Wireless Headphones", "category": "tech", "price": "$159", "oldPrice": "$199", "rating": 4.6, "reviews": 189, "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=70", "tag": "-20%" },
+        { "name": "Linen Overshirt", "category": "wear", "price": "$79", "rating": 4.7, "reviews": 96, "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=600&q=70", "tag": "New" },
+        { "name": "Leather Weekender", "category": "bags", "price": "$249", "rating": 4.9, "reviews": 154, "image": "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=600&q=70", "tag": "" },
+        { "name": "Desk Lamp", "category": "home", "price": "$79", "rating": 4.5, "reviews": 77, "image": "https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=70", "tag": "" },
+        { "name": "Smart Watch", "category": "tech", "price": "$299", "rating": 4.4, "reviews": 301, "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=70", "tag": "" },
+        { "name": "Sunglasses", "category": "wear", "price": "$99", "oldPrice": "$129", "rating": 4.6, "reviews": 64, "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=600&q=70", "tag": "-25%" }
+    ],
+    "action": "Shop all 240 products"
+} %}
+{% set promoBannersBlock = {
+    "title": "Offers",
+    "banners": [
+        { "eyebrow": "Gift guide", "title": "Thoughtful gifts under $50", "text": "Hand-picked by our team, wrapped for free.", "action": "Shop gifts", "image": "https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&w=600&q=70" },
+        { "eyebrow": "Members", "title": "10% off every order", "text": "Join for free and get early access to every sale.", "action": "Join now", "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=70", "brand": true }
+    ]
+} %}
+{% set saleCountdownBlock = {
+    "eyebrow": "Autumn sale", "title": "Up to 40% off the bestsellers",
+    "text": "Our biggest sale of the year on the pieces you love most. Ends Sunday at midnight.",
+    "days": 3, "action": "Shop the sale",
+    "products": [
+        { "name": "Everyday Backpack", "price": "$62", "oldPrice": "$89", "discount": "-30%", "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=70" },
+        { "name": "Wireless Headphones", "price": "$139", "oldPrice": "$199", "discount": "-30%", "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=70" },
+        { "name": "Smart Watch", "price": "$179", "oldPrice": "$299", "discount": "-40%", "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=70" },
+        { "name": "Leather Weekender", "price": "$174", "oldPrice": "$249", "discount": "-30%", "image": "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=600&q=70" }
+    ]
+} %}
+{% set reviewsBlock = {
+    "heading": { "eyebrow": "Reviews", "title": "Loved by our customers", "id": "reviews-title", "align": "start" },
+    "average": 4.9, "total": "3,042",
+    "distribution": [88, 9, 2, 1, 0],
+    "items": [
+        { "title": "My everyday bag", "text": "Two years of daily use and it still looks new.", "name": "Leo N.", "role": "Everyday Backpack", "rating": 5, "source": "Store" },
+        { "title": "Beautiful pour-over", "text": "Makes the best coffee and looks great on the counter.", "name": "Sara K.", "role": "Ceramic Pour-Over", "rating": 5, "source": "Store" },
+        { "title": "Fast delivery", "text": "Arrived in two days, beautifully packed.", "name": "Omar H.", "role": "Desk Lamp", "rating": 4, "source": "Store" },
+        { "title": "Great headphones", "text": "Comfortable for hours, and the battery lasts all week.", "name": "Ava M.", "role": "Wireless Headphones", "rating": 5, "source": "Store" }
+    ]
+} %}
+{% set cartDrawerNoTrigger = true %}
+{% include "../content-and-layout/site-header-store.html" %}
+<main class="l-page" id="content" tabindex="-1">
+    <div class="l-page__band">
+        <div class="container">
+            {% include "../ecommerce/trust-bar.html" %}
+        </div>
+    </div>
+    {% include "../block/hero-shop.html" %}
+    <div class="l-page__section">
+        <div class="container">
+            {% include "../ecommerce/category-grid.html" %}
+        </div>
+    </div>
+    {% include "../block/product-grid.html" %}
+    {% include "../block/promo-banners.html" %}
+    <div class="l-page__alt">
+        {% include "../block/sale-countdown.html" %}
+    </div>
+    {% include "../block/product-spotlight.html" %}
+    {% include "../block/reviews.html" %}
+    <div class="l-page__section">
+        <div class="container">
+            {% include "../ecommerce/recently-viewed.html" %}
+        </div>
+    </div>
+</main>
+{% include "../content-and-layout/site-footer-newsletter.html" %}
+{% include "../ecommerce/cart-drawer.html" %}

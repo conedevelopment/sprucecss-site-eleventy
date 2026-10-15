@@ -1,0 +1,44 @@
+{#- Override with `addressBook` ({ addresses: [{ label, name, lines: [], phone, default }] }). -#}
+{%- set _s = addressBook or {
+    "addresses": [
+        { "label": "Home", "name": "Amelia Brooks", "lines": ["24 Juniper Lane, Apt 3B", "Portland, OR 97205", "United States"], "phone": "+1 (555) 010-2030", "default": true },
+        { "label": "Office", "name": "Amelia Brooks", "lines": ["Cone Studio, 410 Market Street", "San Francisco, CA 94105", "United States"], "phone": "+1 (555) 010-4410", "default": false },
+        { "label": "Mom", "name": "Helen Brooks", "lines": ["8 Orchard Road", "Burlington, VT 05401", "United States"], "phone": "", "default": false }
+    ]
+} %}
+<section class="address-book" aria-labelledby="address-book-title" data-address-book>
+    <h2 class="address-book__title" id="address-book-title">Addresses</h2>
+    <ul class="address-book__list" role="list" data-address-book-list>
+        {%- for address in _s.addresses %}
+        <li class="address-book__item{% if address.default %} address-book__item--default{% endif %}" data-address>
+            <article class="address-book__card" aria-labelledby="address-{{ loop.index }}">
+                <header class="address-book__header">
+                    <h3 class="address-book__label" id="address-{{ loop.index }}">{{ address.label }}</h3>
+                    <span class="badge badge--primary address-book__badge">Default</span>
+                </header>
+                <address class="address-book__address">
+                    <strong>{{ address.name }}</strong><br>
+                    {%- for line in address.lines %}
+                    {{ line }}<br>
+                    {%- endfor %}
+                    {%- if address.phone %}
+                    <span class="address-book__phone">{{ address.phone }}</span>
+                    {%- endif %}
+                </address>
+                <div class="address-book__actions">
+                    <a class="btn btn--ghost-primary btn--sm" href="#">Edit<span class="sr-only"> {{ address.label }}</span></a>
+                    <button class="btn btn--ghost-primary btn--sm address-book__make-default" type="button" data-address-default>Set as default<span class="sr-only">: {{ address.label }}</span></button>
+                    <button class="btn btn--ghost-danger btn--sm address-book__delete" type="button" data-address-delete>Delete<span class="sr-only"> {{ address.label }}</span></button>
+                </div>
+            </article>
+        </li>
+        {%- endfor %}
+        <li class="address-book__item address-book__item--add">
+            <a class="address-book__add" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg>
+                Add a new address
+            </a>
+        </li>
+    </ul>
+    <p class="sr-only" aria-live="polite" data-address-book-status></p>
+</section>

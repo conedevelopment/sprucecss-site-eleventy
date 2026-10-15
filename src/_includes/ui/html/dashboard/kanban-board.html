@@ -1,0 +1,129 @@
+<section class="kanban-board" aria-labelledby="kanban-title" data-kanban>
+    <header class="kanban-board__header">
+        <h3 class="kanban-board__title" id="kanban-title">Sprint 42</h3>
+        <p class="kanban-board__hint" id="kanban-hint" hidden>Drag a card to move it. With the keyboard, press the move button, use the arrow keys, then press Enter to drop or Escape to cancel.</p>
+    </header>
+    <div class="kanban-board__columns">
+        <section class="kanban-board__column" aria-labelledby="kanban-todo" data-kanban-column>
+            <h4 class="kanban-board__column-title"><span id="kanban-todo">To do</span> <span class="kanban-board__count" data-kanban-count>3<span class="sr-only"> cards</span></span></h4>
+            <ul class="kanban-board__list" role="list" data-kanban-list>
+                <li class="kanban-board__card" data-kanban-card>
+                    <div class="kanban-board__card-header">
+                        <span class="kanban-board__tag kanban-board__tag--bug">Bug</span>
+                        <button class="kanban-board__handle" type="button" aria-pressed="false" aria-describedby="kanban-hint" data-kanban-handle hidden>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><circle cx="9" cy="6" r="1.5"/><circle cx="15" cy="6" r="1.5"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><circle cx="9" cy="18" r="1.5"/><circle cx="15" cy="18" r="1.5"/></svg>
+                            <span class="sr-only">Move “Fix rounding in the tax total”</span>
+                        </button>
+                    </div>
+                    <h5 class="kanban-board__card-title"><a href="#">Fix rounding in the tax total</a></h5>
+                    <div class="kanban-board__meta">
+                        <span>#212</span>
+                        <span>Due <time datetime="2026-10-08">Oct 8</time></span>
+                        <span class="kanban-board__avatar" title="Anna Smith"><span aria-hidden="true">AS</span><span class="sr-only">Assigned to Anna Smith</span></span>
+                    </div>
+                </li>
+                <li class="kanban-board__card" data-kanban-card>
+                    <div class="kanban-board__card-header">
+                        <span class="kanban-board__tag kanban-board__tag--feature">Feature</span>
+                        <button class="kanban-board__handle" type="button" aria-pressed="false" aria-describedby="kanban-hint" data-kanban-handle hidden>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><circle cx="9" cy="6" r="1.5"/><circle cx="15" cy="6" r="1.5"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><circle cx="9" cy="18" r="1.5"/><circle cx="15" cy="18" r="1.5"/></svg>
+                            <span class="sr-only">Move “Export orders to CSV”</span>
+                        </button>
+                    </div>
+                    <h5 class="kanban-board__card-title"><a href="#">Export orders to CSV</a></h5>
+                    <div class="kanban-board__meta">
+                        <span>#219</span>
+                        <span>Due <time datetime="2026-10-12">Oct 12</time></span>
+                        <span class="kanban-board__avatar" title="Ben King"><span aria-hidden="true">BK</span><span class="sr-only">Assigned to Ben King</span></span>
+                    </div>
+                </li>
+                <li class="kanban-board__card" data-kanban-card>
+                    <div class="kanban-board__card-header">
+                        <span class="kanban-board__tag kanban-board__tag--design">Design</span>
+                        <button class="kanban-board__handle" type="button" aria-pressed="false" aria-describedby="kanban-hint" data-kanban-handle hidden>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><circle cx="9" cy="6" r="1.5"/><circle cx="15" cy="6" r="1.5"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><circle cx="9" cy="18" r="1.5"/><circle cx="15" cy="18" r="1.5"/></svg>
+                            <span class="sr-only">Move “New empty states for reports”</span>
+                        </button>
+                    </div>
+                    <h5 class="kanban-board__card-title"><a href="#">New empty states for reports</a></h5>
+                    <div class="kanban-board__meta">
+                        <span>#223</span>
+                        <span>Due <time datetime="2026-10-15">Oct 15</time></span>
+                        <span class="kanban-board__avatar" title="Lea Moreau"><span aria-hidden="true">LM</span><span class="sr-only">Assigned to Lea Moreau</span></span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="kanban-board__column" aria-labelledby="kanban-progress" data-kanban-column>
+            <h4 class="kanban-board__column-title"><span id="kanban-progress">In progress</span> <span class="kanban-board__count" data-kanban-count>2<span class="sr-only"> cards</span></span></h4>
+            <ul class="kanban-board__list" role="list" data-kanban-list>
+                <li class="kanban-board__card" data-kanban-card>
+                    <div class="kanban-board__card-header">
+                        <span class="kanban-board__tag kanban-board__tag--feature">Feature</span>
+                        <button class="kanban-board__handle" type="button" aria-pressed="false" aria-describedby="kanban-hint" data-kanban-handle hidden>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><circle cx="9" cy="6" r="1.5"/><circle cx="15" cy="6" r="1.5"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><circle cx="9" cy="18" r="1.5"/><circle cx="15" cy="18" r="1.5"/></svg>
+                            <span class="sr-only">Move “Saved filters on the order list”</span>
+                        </button>
+                    </div>
+                    <h5 class="kanban-board__card-title"><a href="#">Saved filters on the order list</a></h5>
+                    <div class="kanban-board__meta">
+                        <span>#204</span>
+                        <span>Due <time datetime="2026-10-06">Oct 6</time></span>
+                        <span class="kanban-board__avatar" title="Anna Smith"><span aria-hidden="true">AS</span><span class="sr-only">Assigned to Anna Smith</span></span>
+                    </div>
+                </li>
+                <li class="kanban-board__card" data-kanban-card>
+                    <div class="kanban-board__card-header">
+                        <span class="kanban-board__tag kanban-board__tag--bug">Bug</span>
+                        <button class="kanban-board__handle" type="button" aria-pressed="false" aria-describedby="kanban-hint" data-kanban-handle hidden>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><circle cx="9" cy="6" r="1.5"/><circle cx="15" cy="6" r="1.5"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><circle cx="9" cy="18" r="1.5"/><circle cx="15" cy="18" r="1.5"/></svg>
+                            <span class="sr-only">Move “Webhook retries stop after 3 attempts”</span>
+                        </button>
+                    </div>
+                    <h5 class="kanban-board__card-title"><a href="#">Webhook retries stop after 3 attempts</a></h5>
+                    <div class="kanban-board__meta">
+                        <span>#209</span>
+                        <span>Due <time datetime="2026-10-05">Oct 5</time></span>
+                        <span class="kanban-board__avatar" title="Jon Diaz"><span aria-hidden="true">JD</span><span class="sr-only">Assigned to Jon Diaz</span></span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section class="kanban-board__column" aria-labelledby="kanban-done" data-kanban-column>
+            <h4 class="kanban-board__column-title"><span id="kanban-done">Done</span> <span class="kanban-board__count" data-kanban-count>2<span class="sr-only"> cards</span></span></h4>
+            <ul class="kanban-board__list" role="list" data-kanban-list>
+                <li class="kanban-board__card" data-kanban-card>
+                    <div class="kanban-board__card-header">
+                        <span class="kanban-board__tag kanban-board__tag--design">Design</span>
+                        <button class="kanban-board__handle" type="button" aria-pressed="false" aria-describedby="kanban-hint" data-kanban-handle hidden>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><circle cx="9" cy="6" r="1.5"/><circle cx="15" cy="6" r="1.5"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><circle cx="9" cy="18" r="1.5"/><circle cx="15" cy="18" r="1.5"/></svg>
+                            <span class="sr-only">Move “Dark mode for the invoice PDF”</span>
+                        </button>
+                    </div>
+                    <h5 class="kanban-board__card-title"><a href="#">Dark mode for the invoice PDF</a></h5>
+                    <div class="kanban-board__meta">
+                        <span>#198</span>
+                        <span>Due <time datetime="2026-10-01">Oct 1</time></span>
+                        <span class="kanban-board__avatar" title="Lea Moreau"><span aria-hidden="true">LM</span><span class="sr-only">Assigned to Lea Moreau</span></span>
+                    </div>
+                </li>
+                <li class="kanban-board__card" data-kanban-card>
+                    <div class="kanban-board__card-header">
+                        <span class="kanban-board__tag kanban-board__tag--feature">Feature</span>
+                        <button class="kanban-board__handle" type="button" aria-pressed="false" aria-describedby="kanban-hint" data-kanban-handle hidden>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><circle cx="9" cy="6" r="1.5"/><circle cx="15" cy="6" r="1.5"/><circle cx="9" cy="12" r="1.5"/><circle cx="15" cy="12" r="1.5"/><circle cx="9" cy="18" r="1.5"/><circle cx="15" cy="18" r="1.5"/></svg>
+                            <span class="sr-only">Move “Bulk fulfillment”</span>
+                        </button>
+                    </div>
+                    <h5 class="kanban-board__card-title"><a href="#">Bulk fulfillment</a></h5>
+                    <div class="kanban-board__meta">
+                        <span>#187</span>
+                        <span>Due <time datetime="2026-09-29">Sep 29</time></span>
+                        <span class="kanban-board__avatar" title="Ben King"><span aria-hidden="true">BK</span><span class="sr-only">Assigned to Ben King</span></span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <p class="sr-only" aria-live="assertive" data-kanban-live></p>
+</section>

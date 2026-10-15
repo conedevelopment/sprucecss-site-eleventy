@@ -18,10 +18,18 @@ title: 'File List'
     {% include "ui/scss/form/file-list.scss" %}
 {% endset %}
 
+{% set js %}
+    {% include "ui/js/form/file-list.js" %}
+{% endset %}
+
 {% set description %}
     {% include "ui/md/form/file-list.md" %}
 {% endset %}
 
 {% block style %}
     <link rel="stylesheet" href="/_includes/ui/css/form/file-list.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/form/file-list.js"></script>
 {% endblock %}

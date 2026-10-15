@@ -1,0 +1,96 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.promo-banners-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__list {
+    display: grid;
+    gap: spacer('m');
+    grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__banner {
+    align-items: center;
+    background-color: color('surface-muted');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    display: grid;
+    gap: spacer('m');
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+    overflow: hidden;
+
+    &--brand {
+      @include set-css-variable((
+        --base-color-heading: color('primary-foreground', 'btn'),
+        --base-color-muted: color-alpha('primary-foreground', 0.8, 'btn'),
+        --base-color-text: color('primary-foreground', 'btn'),
+      ));
+      background-color: color('primary-background', 'btn');
+      border-color: transparent;
+      color: color('primary-foreground', 'btn');
+
+      .promo-banners-block__action {
+        background-color: color('primary-foreground', 'btn');
+        border-color: color('primary-foreground', 'btn');
+        color: color('primary-background', 'btn');
+
+        &:hover {
+          background-color: color-alpha('primary-foreground', 0.9, 'btn');
+          color: color('primary-background', 'btn');
+        }
+      }
+    }
+  }
+
+  &__content {
+    padding: spacer-clamp('m', 'l');
+    @include layout-stack('s');
+  }
+
+  &__eyebrow {
+    color: color('primary');
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    .promo-banners-block__banner--brand & {
+      color: inherit;
+    }
+  }
+
+  &__title {
+    font-size: font-size('h3');
+  }
+
+  &__text {
+    color: color('muted');
+  }
+
+  &__action {
+    background-color: color('heading');
+    border-color: color('heading');
+    color: color('background');
+
+    &:hover {
+      background-color: color('text');
+      color: color('background');
+    }
+  }
+
+  &__image {
+    aspect-ratio: 1;
+    block-size: 100%;
+    inline-size: 100%;
+    object-fit: cover;
+  }
+}

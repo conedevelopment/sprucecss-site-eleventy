@@ -1,0 +1,87 @@
+.steps-block {
+  padding-block: clamp(4.5rem, 5vw, 7rem);
+}
+.steps-block__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.steps-block__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 3rem;
+}
+@media (min-width: 64em) {
+  .steps-block__list {
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+  }
+}
+.steps-block__list > li {
+  margin-block: 0;
+  padding-block: 0;
+}
+.steps-block__step {
+  position: relative;
+  text-align: center;
+}
+.steps-block__step > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.steps-block__step > * + * {
+  margin-block-start: 0.5rem;
+}
+@media (min-width: 64em) {
+  .steps-block__step:not(:last-child)::after {
+    border-block-start: 2px dashed var(--spruce-base-color-border-strong);
+    content: "";
+    inline-size: calc(100% - 5rem);
+    inset-block-start: 2rem;
+    inset-inline-start: calc(50% + 2.5rem);
+    position: absolute;
+  }
+}
+.steps-block__marker {
+  align-items: center;
+  background-color: var(--spruce-base-color-surface);
+  block-size: 4rem;
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  border-radius: 50%;
+  box-shadow: var(--spruce-shadow-sm);
+  color: var(--spruce-base-color-primary);
+  display: inline-flex;
+  inline-size: 4rem;
+  justify-content: center;
+  position: relative;
+}
+.steps-block__marker svg {
+  block-size: 1.5rem;
+  inline-size: 1.5rem;
+}
+.steps-block__number {
+  align-items: center;
+  background-color: var(--spruce-base-color-primary);
+  block-size: 1.5rem;
+  border-radius: 50%;
+  color: var(--spruce-btn-color-primary-foreground);
+  display: flex;
+  font-size: 0.75rem;
+  font-weight: 700;
+  inline-size: 1.5rem;
+  inset-block-start: -0.25rem;
+  inset-inline-end: -0.25rem;
+  justify-content: center;
+  position: absolute;
+}
+.steps-block__title {
+  font-size: clamp(1.0625rem, 2vw + 1rem, 1.25rem);
+  margin-block-start: 1rem !important;
+}
+.steps-block__text {
+  color: var(--spruce-base-color-muted);
+  margin-inline: auto;
+  max-inline-size: 22rem;
+}

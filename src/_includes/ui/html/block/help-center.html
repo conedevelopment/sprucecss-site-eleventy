@@ -1,0 +1,74 @@
+{#- Override with `helpCenterBlock` ({ heading, placeholder, popular: [], topics: [{ icon, title, text, count }], faq: [{ question, answer }], contact: { title, text, action } }). -#}
+{%- set _s = helpCenterBlock or {
+    "heading": { "eyebrow": "Help center", "title": "How can we help?", "id": "help-center-title" },
+    "placeholder": "Search articles, like “export invoices”",
+    "popular": ["Reset password", "Invite teammates", "Custom domain", "Refunds"],
+    "topics": [
+        { "icon": "rocket", "title": "Getting started", "text": "Set up your account, workspace and first project.", "count": 18 },
+        { "icon": "users", "title": "Teams and roles", "text": "Invite people, manage seats and permissions.", "count": 12 },
+        { "icon": "shield", "title": "Security", "text": "Two-factor login, SSO and audit logs.", "count": 9 },
+        { "icon": "code", "title": "API and webhooks", "text": "Keys, rate limits and event payloads.", "count": 24 }
+    ],
+    "faq": [
+        { "question": "How do I change my plan?", "answer": "Go to Settings, then Billing, and choose Change plan. Upgrades apply right away; downgrades apply at the end of the billing period." },
+        { "question": "Can I export my data?", "answer": "Yes. Every workspace owner can export the projects, the members and the invoices as CSV or JSON from Settings, then Data." },
+        { "question": "Do you offer discounts for nonprofits?", "answer": "Registered nonprofits and schools get 50% off every paid plan. Contact us with your registration document." },
+        { "question": "How do I delete my account?", "answer": "Transfer or delete your workspaces first, then choose Delete account in your profile. We remove your data within 30 days." }
+    ],
+    "contact": { "title": "Still need help?", "text": "Our support team answers in under 2 hours on weekdays.", "action": "Contact support" }
+} %}
+<section class="help-center-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="help-center-block__inner">
+            <div class="help-center-block__top">
+                {% set heading = _s.heading %}
+                {% include "../content-and-layout/block-heading.html" %}
+                <form class="help-center-block__search" action="#" method="get" role="search">
+                    <label class="sr-only" for="help-center-search">Search the help center</label>
+                    <input class="form-control form-control--lg" id="help-center-search" name="q" type="search" placeholder="{{ _s.placeholder }}">
+                    <button class="btn btn--primary btn--lg" type="submit">Search</button>
+                </form>
+                <p class="help-center-block__popular"><span>Popular:</span>
+                    {%- for item in _s.popular %} <a href="#">{{ item }}</a>{% if not loop.last %},{% endif %}{% endfor %}
+                </p>
+            </div>
+            <ul class="info-card-list help-center-block__topics">
+                {%- for topic in _s.topics %}
+                <li class="info-card">
+                    <span class="info-card__icon" aria-hidden="true">{% set iconName = topic.icon %}{% include "../block/icon.html" %}</span>
+                    <div class="info-card__caption">
+                        <h3 class="info-card__title" id="help-topic-{{ loop.index }}">{{ topic.title }}</h3>
+                        <p class="info-card__text">{{ topic.text }}</p>
+                    </div>
+                    <a class="info-card__link" href="#" aria-describedby="help-topic-{{ loop.index }}">{{ topic.count }} articles</a>
+                </li>
+                {%- endfor %}
+            </ul>
+            <div class="help-center-block__bottom">
+                <div class="help-center-block__faq">
+                    <h3 class="help-center-block__subtitle">Frequently asked questions</h3>
+                    <div class="accordion-list" data-accordion>
+                        {%- for item in _s.faq %}
+                        <div class="accordion-card">
+                            <h4 class="accordion-card__title">{{ item.question }}</h4>
+                            <div class="accordion-card__content">
+                                <div>
+                                    <p>{{ item.answer }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {%- endfor %}
+                    </div>
+                </div>
+                <aside class="callout callout--tip help-center-block__contact" aria-labelledby="help-center-contact">
+                    <svg class="callout__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    <div class="callout__content">
+                        <p class="callout__title" id="help-center-contact">{{ _s.contact.title }}</p>
+                        <p>{{ _s.contact.text }}</p>
+                        <p><a class="btn btn--primary btn--sm" href="#">{{ _s.contact.action }}</a></p>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>

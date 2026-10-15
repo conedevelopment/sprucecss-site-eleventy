@@ -1,0 +1,40 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.style-demo-grid {
+  @include layout-grid('s', 15rem);
+}
+
+.style-demo {
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  display: flex;
+  flex-direction: column;
+  gap: spacer('xs');
+  padding: spacer('m');
+
+  &__name {
+    color: color('heading');
+    font-family: config('font-family-heading', $typography);
+    font-weight: config('font-weight-heading', $typography);
+    margin: 0;
+  }
+
+  &__buttons {
+    @include layout-cluster('xs');
+    margin-block-end: spacer('xs');
+  }
+}
+
+.layout-preview {
+  border: config('border-width-base', $display) dashed color('border-strong');
+  border-radius: radius('md');
+  padding: spacer('s');
+
+  &__box {
+    background-color: color-alpha('primary', 0.1);
+    border: config('border-width-base', $display) solid color-alpha('primary', 0.3);
+    border-radius: radius('sm');
+    color: color('heading');
+    padding: spacer('xs') spacer('s');
+  }
+}

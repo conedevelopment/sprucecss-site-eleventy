@@ -1,0 +1,114 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.integrations-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+  }
+
+  &__search {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
+    justify-content: center;
+
+    .form-control {
+      max-inline-size: 24rem;
+    }
+  }
+
+  &__count {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    margin: 0;
+  }
+
+  &__grid {
+    @include clear-list;
+    @include layout-grid('s', 15rem);
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+    }
+  }
+
+  &__item {
+    @include a11y-card-link('.integrations-block__link', true);
+    align-items: center;
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    display: grid;
+    gap: 0 spacer('s');
+    grid-template-columns: auto 1fr;
+    padding: spacer('s');
+    @include transition($property: 'border-color, box-shadow');
+
+    &:hover,
+    &:focus-within {
+      border-color: color('primary');
+      box-shadow: shadow('md');
+    }
+  }
+
+  &__logo {
+    align-items: center;
+    background-color: var(--logo-color);
+    block-size: 3rem;
+    border-radius: radius('md');
+    // A hairline keeps the dark brand tiles visible in dark mode.
+    box-shadow: inset 0 0 0 1px hsl(0deg 0% 100% / 12%);
+    color: var(--logo-foreground, hsl(0deg 0% 100%));
+    display: flex;
+    font-size: 1.25rem;
+    font-weight: 800;
+    grid-row: span 2;
+    inline-size: 3rem;
+    justify-content: center;
+    text-shadow: 0 1px 2px hsl(0deg 0% 0% / 35%);
+  }
+
+  &__icon {
+    block-size: 1.5rem;
+    inline-size: 1.5rem;
+  }
+
+  &__name {
+    color: color('heading');
+    font-weight: 700;
+  }
+
+  &__category {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__link {
+    font-size: config('font-size-sm', $typography);
+    font-weight: 600;
+    grid-column: 2;
+    text-decoration: none;
+
+    &:focus-visible {
+      outline: none;
+
+      &::before {
+        border-radius: radius('lg');
+        outline: 2px solid color('focus-ring');
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  &__empty {
+    color: color('muted');
+    // A child of the flex __inner: the gap spaces it, so drop the browser margins.
+    margin-block: 0;
+    text-align: center;
+  }
+}

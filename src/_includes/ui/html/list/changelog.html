@@ -1,51 +1,37 @@
-<div class="l-changelog">
-    <div class="l-changelog__item">
-        <time datetime="2023-05-24T00:00:00.000Z" class="l-changelog__date">May 24, 2023</time>
-        <div class="l-changelog__body post-content">
-            <h2 class="l-changelog__title">v1.1.0</h2>
-            <ul>
-                <li>
-                    <strong>This is a test changelog record for demonstration.</strong>
-                </li>
-                <li>
-                    <strong>Improvement:</strong> add <code>$btn-font-family</code> to control the button's font family.
-                </li>
-                <li>
-                    <strong>Improvement:</strong> add <code>$heading-font-weight</code> to control the heading's font-weight.
-                </li>
-                <li>
-                    <strong>Improvement:</strong> rename some keys in the <code>$colors</code> map (<code>mark-color</code> : <code>mark-foreground</code>, <code>code-color</code> : <code>code-foreground</code>).
-                </li>
-                <li>
-                    <strong>Improvement:</strong> reorganize the recurrent colors into variables.
-                </li>
-                <li>
-                    <strong>Fix:</strong> modify <code>btn-variant()</code> mixin: add hover foreground color.
-                </li>
-                <li>
-                    Global switch to <code>color()</code> function's fallback value under the <a href="https://sprucecss.com/docs/sass/variables#settings"><code>$settings</code></a> map.
-                </li>
-                <li>
-                    Modify the <a href="https://sprucecss.com/docs/sass/mixins#scrollbar"><code>scrollbar()</code></a> mixin to accept hover thumb background-color value.
-                </li>
-                <li>
-                    Make <code>$breakpoints</code> overwritable by key.
-                </li>
-                <li>
-                    Modify <code>font-size()</code> and <code>responsive-font-size()</code> function to accept optimal size value. The optimal value will fallback to a global settnigs under the <code>$settings</code> map.
-                </li>
+<ol class="l-changelog" reversed>
+    <li class="l-changelog__item" aria-labelledby="release-v3-0-0">
+        <time class="l-changelog__date" datetime="2026-10-01">Oct 1, 2026</time>
+        <div class="l-changelog__body">
+            <h2 class="l-changelog__title" id="release-v3-0-0">v3.0.0 <span class="l-changelog__latest">Latest</span></h2>
+            <ul class="l-changelog__list">
+                <li><span class="l-changelog__tag l-changelog__tag--added">Added</span> Design styles: switch the whole look with one <code>data-spruce-style</code> attribute.</li>
+                <li><span class="l-changelog__tag l-changelog__tag--added">Added</span> Built-in dark mode that can follow the system preference.</li>
+                <li><span class="l-changelog__tag l-changelog__tag--changed">Changed</span> The form controls use <code>block-size</code> instead of <code>height</code>.</li>
+                <li><span class="l-changelog__tag l-changelog__tag--fixed">Fixed</span> The select icon in right-to-left layouts.</li>
             </ul>
+            <p class="l-changelog__more"><a class="l-changelog__link" href="#">Release notes for v3.0.0</a></p>
         </div>
-    </div>
-    <div class="l-changelog__item">
-        <time datetime="2023-05-23T00:00:00.000Z" class="l-changelog__date">May 23, 2023</time>
-        <div class="l-changelog__body post-content">
-            <h2 class="l-changelog__title">v1.0.0</h2>
-            <ul>
-                <li>
-                    Initial release
-                </li>
+    </li>
+    <li class="l-changelog__item" aria-labelledby="release-v2-4-0">
+        <time class="l-changelog__date" datetime="2026-03-12">Mar 12, 2026</time>
+        <div class="l-changelog__body">
+            <h2 class="l-changelog__title" id="release-v2-4-0">v2.4.0</h2>
+            <ul class="l-changelog__list">
+                <li><span class="l-changelog__tag l-changelog__tag--added">Added</span> The <code>layout-cluster()</code> mixin.</li>
+                <li><span class="l-changelog__tag l-changelog__tag--deprecated">Deprecated</span> The <code>$btn-font-family</code> variable; use the <code>$btn</code> map.</li>
             </ul>
+            <p class="l-changelog__more"><a class="l-changelog__link" href="#">Release notes for v2.4.0</a></p>
         </div>
-    </div>
-</div>
+    </li>
+    <li class="l-changelog__item" aria-labelledby="release-v2-3-1">
+        <time class="l-changelog__date" datetime="2025-11-03">Nov 3, 2025</time>
+        <div class="l-changelog__body">
+            <h2 class="l-changelog__title" id="release-v2-3-1">v2.3.1</h2>
+            <ul class="l-changelog__list">
+                <li><span class="l-changelog__tag l-changelog__tag--fixed">Fixed</span> The focus ring of the outline buttons in Safari.</li>
+                <li><span class="l-changelog__tag l-changelog__tag--security">Security</span> Updated the build dependencies.</li>
+            </ul>
+            <p class="l-changelog__more"><a class="l-changelog__link" href="#">Release notes for v2.3.1</a></p>
+        </div>
+    </li>
+</ol>

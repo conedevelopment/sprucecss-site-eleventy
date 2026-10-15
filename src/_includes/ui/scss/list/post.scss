@@ -3,17 +3,23 @@
 .l-post-list {
   &__inner {
     --columns: 1;
+    @include clear-list;
 
     display: grid;
     gap: spacer('l');
-    grid-template-columns: repeat(var(--columns), minmax(0, 2fr));
+    grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
 
-    @include breakpoint(sm) {
+    @include breakpoint('sm') {
       --columns: 2;
     }
 
-    @include breakpoint(md) {
+    @include breakpoint('md') {
       --columns: 3;
+    }
+
+    > li {
+      margin-block: 0;
+      padding-block: 0;
     }
   }
 }

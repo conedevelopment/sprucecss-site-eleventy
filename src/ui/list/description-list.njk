@@ -1,0 +1,28 @@
+---
+title: 'Description List'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium ui--description-list">
+        {% include "ui/html/list/description-list.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/list/description-list.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/list/description-list.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/list/description-list.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/misc/badge.css">
+    <link rel="stylesheet" href="/_includes/ui/css/list/description-list.css">
+{% endblock %}

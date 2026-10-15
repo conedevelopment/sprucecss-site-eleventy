@@ -1,0 +1,42 @@
+{#- Override with `heroSignupBlock` ({ eyebrow, title, lead, points, form: { title, submit, note } }). -#}
+{%- set _s = heroSignupBlock or {
+    "eyebrow": "Free 14-day trial",
+    "title": "Launch your next site in an afternoon",
+    "lead": "Start with a design style, add blocks, and ship a fast, accessible website your whole team can edit.",
+    "points": ["No credit card required", "Unlimited projects during the trial", "Cancel anytime in one click"],
+    "form": { "title": "Create your account", "submit": "Start free trial", "note": "By signing up, you agree to the Terms and the Privacy Policy." }
+} %}
+<section class="hero-signup-block" aria-labelledby="hero-signup-title">
+    <div class="container">
+        <div class="hero-signup-block__inner">
+            <div class="hero-signup-block__content">
+                <p class="hero-signup-block__eyebrow">{{ _s.eyebrow }}</p>
+                <h1 class="hero-signup-block__title" id="hero-signup-title">{{ _s.title }}</h1>
+                <p class="hero-signup-block__lead">{{ _s.lead }}</p>
+                <ul class="hero-signup-block__points" role="list">
+                    {%- for point in _s.points %}
+                    <li><svg class="hero-signup-block__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg> {{ point }}</li>
+                    {%- endfor %}
+                </ul>
+            </div>
+            <form class="hero-signup-block__form" onsubmit="return false;" aria-labelledby="hero-signup-form-title">
+                <h2 class="hero-signup-block__form-title" id="hero-signup-form-title">{{ _s.form.title }}</h2>
+                <div class="form-group">
+                    <label class="form-label" for="hero-signup-name">Full name</label>
+                    <input class="form-control" id="hero-signup-name" type="text" autocomplete="name" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="hero-signup-email">Work email</label>
+                    <input class="form-control" id="hero-signup-email" type="email" autocomplete="email" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="hero-signup-password">Password</label>
+                    <input class="form-control" id="hero-signup-password" type="password" autocomplete="new-password" minlength="12" aria-describedby="hero-signup-password-help" required>
+                    <span class="form-description" id="hero-signup-password-help">At least 12 characters.</span>
+                </div>
+                <button class="btn btn--primary btn--lg btn--block" type="submit">{{ _s.form.submit }}</button>
+                <p class="hero-signup-block__note">{{ _s.form.note }}</p>
+            </form>
+        </div>
+    </div>
+</section>

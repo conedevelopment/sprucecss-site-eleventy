@@ -1,0 +1,27 @@
+---
+title: 'Order History'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--wide">
+        {% include "ui/html/ecommerce/order-history.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/ecommerce/order-history.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/ecommerce/order-history.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/ecommerce/order-history.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/ecommerce/order-history.css">
+{% endblock %}

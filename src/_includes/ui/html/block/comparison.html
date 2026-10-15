@@ -1,0 +1,57 @@
+{#- Override with `comparisonBlock` ({ heading, plans: [{ name, price, featured }], rows: [{ feature, values }] }); "yes"/"no" values render icons. -#}
+{%- set _s = comparisonBlock or {
+    "heading": { "eyebrow": "Compare plans", "title": "Find the plan that fits", "text": "Every plan includes the core framework, the components and the blocks.", "id": "comparison-title" },
+    "plans": [{ "name": "Starter", "price": "$0" }, { "name": "Team", "price": "$29", "featured": true }, { "name": "Enterprise", "price": "$99" }],
+    "rows": [
+        { "feature": "Projects", "values": ["1", "Unlimited", "Unlimited"] },
+        { "feature": "Team members", "values": ["1", "10", "Unlimited"] },
+        { "feature": "Design styles", "values": ["3", "10", "10 + custom"] },
+        { "feature": "Custom domains", "values": ["no", "yes", "yes"] },
+        { "feature": "Analytics", "values": ["Basic", "Advanced", "Advanced"] },
+        { "feature": "SSO and audit logs", "values": ["no", "no", "yes"] },
+        { "feature": "Priority support", "values": ["no", "yes", "yes"] },
+        { "feature": "Dedicated manager", "values": ["no", "no", "yes"] }
+    ]
+} %}
+<section class="comparison-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="comparison-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            <div class="table-responsive comparison-block__scroll">
+                <table class="table table--middle table--sticky-header comparison-block__table">
+                    <caption class="sr-only">Plan comparison</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Feature</th>
+                            {%- for plan in _s.plans %}
+                            <th scope="col"{% if plan.featured %} class="comparison-block__featured"{% endif %}>
+                                <span class="comparison-block__plan">{{ plan.name }}</span>
+                                <span class="comparison-block__price">{{ plan.price }}<small>/ month</small></span>
+                            </th>
+                            {%- endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%- for row in _s.rows %}
+                        <tr>
+                            <th scope="row">{{ row.feature }}</th>
+                            {%- for value in row.values %}
+                            <td{% if _s.plans[loop.index0].featured %} class="comparison-block__featured"{% endif %}>{% if value == "yes" %}<svg class="comparison-block__icon comparison-block__icon--yes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg><span class="sr-only">Included</span>{% elif value == "no" %}<svg class="comparison-block__icon comparison-block__icon--no" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/></svg><span class="sr-only">Not included</span>{% else %}{{ value }}{% endif %}</td>
+                            {%- endfor %}
+                        </tr>
+                        {%- endfor %}
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td></td>
+                            {%- for plan in _s.plans %}
+                            <td{% if plan.featured %} class="comparison-block__featured"{% endif %}><a class="btn btn--sm {% if plan.featured %}btn--primary{% else %}btn--outline-primary{% endif %}" href="#">Choose<span class="sr-only"> {{ plan.name }}</span></a></td>
+                            {%- endfor %}
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>

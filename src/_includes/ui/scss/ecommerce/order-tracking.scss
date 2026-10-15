@@ -1,0 +1,229 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.order-tracking {
+  --order-tracking-dot: 1.75rem;
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  padding: spacer-clamp('m', 'l');
+  @include layout-stack('m');
+
+  &__header {
+    align-items: flex-end;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
+    justify-content: space-between;
+  }
+
+  &__heading {
+    @include layout-stack('xxs');
+  }
+
+  &__eyebrow {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    font-weight: 600;
+  }
+
+  &__title {
+    font-size: font-size('h3');
+  }
+
+  // Vertical on phones, horizontal from the sm breakpoint.
+  &__steps {
+    display: grid;
+    gap: spacer('s');
+    // The parent's layout-stack sets the margins.
+    list-style: none;
+    padding: 0;
+    position: relative;
+
+    @include breakpoint('sm') {
+      align-items: start;
+      gap: spacer('xs');
+      grid-auto-columns: minmax(0, 1fr);
+      grid-auto-flow: column;
+      text-align: center;
+
+      // The track and its filled part, behind the dots.
+      &::before,
+      &::after {
+        block-size: 3px;
+        border-radius: radius('pill');
+        content: '';
+        inset-block-start: calc(var(--order-tracking-dot) / 2 - 1.5px);
+        inset-inline-start: 10%;
+        position: absolute;
+      }
+
+      &::before {
+        background-color: color('border');
+        inline-size: 80%;
+      }
+
+      &::after {
+        background-color: color('primary');
+        inline-size: calc(80% * var(--progress) / 100%);
+      }
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__step {
+    align-items: center;
+    display: grid;
+    gap: 0 spacer('s');
+    grid-template-columns: var(--order-tracking-dot) 1fr;
+    hyphens: manual;
+    line-height: config('line-height-md', $typography);
+    position: relative;
+    z-index: 1;
+
+    @include breakpoint('sm') {
+      gap: spacer('xxs');
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+  }
+
+  &__dot {
+    align-items: center;
+    aspect-ratio: 1;
+    background-color: color('surface');
+    border: 2px solid color('border-strong');
+    border-radius: 50%;
+    color: color('primary-foreground', 'btn');
+    display: inline-flex;
+    grid-row: span 2;
+    inline-size: var(--order-tracking-dot);
+    justify-content: center;
+
+    svg {
+      block-size: 0.875rem;
+      inline-size: 0.875rem;
+    }
+
+    @include breakpoint('sm') {
+      grid-row: auto;
+    }
+  }
+
+  &__step--done &__dot {
+    background-color: color('primary');
+    border-color: color('primary');
+  }
+
+  &__step--current &__dot {
+    border-color: color('primary');
+    box-shadow: 0 0 0 4px color-alpha('primary', 0.2);
+
+    &::before {
+      aspect-ratio: 1;
+      background-color: color('primary');
+      border-radius: 50%;
+      content: '';
+      inline-size: 0.625rem;
+    }
+  }
+
+  &__step-label {
+    color: color('heading');
+    font-weight: 600;
+  }
+
+  &__step--todo &__step-label {
+    color: color('muted');
+    font-weight: 400;
+  }
+
+  &__step-date {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__details {
+    background-color: color('surface-muted');
+    border-radius: radius('md');
+    display: grid;
+    gap: spacer('s');
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    margin-inline: 0;
+    padding: spacer('s') spacer('m');
+
+    dt {
+      color: color('muted');
+      font-size: config('font-size-sm', $typography);
+      font-weight: 400;
+    }
+
+    dd {
+      color: color('heading');
+      font-weight: 600;
+      margin: 0;
+      @include word-wrap;
+    }
+
+    code {
+      background: none;
+      color: inherit;
+      padding: 0;
+    }
+  }
+
+  &__events {
+    @include clear-list;
+  }
+
+  &__event {
+    border-inline-start: 2px solid color('border');
+    display: grid;
+    margin: 0 0 0 spacer('xxs') !important;
+    padding: 0 0 spacer('s') spacer('s');
+    position: relative;
+
+    &::before {
+      aspect-ratio: 1;
+      background-color: color('border-strong');
+      border-radius: 50%;
+      content: '';
+      inline-size: 0.625rem;
+      inset-block-start: 0.4rem;
+      inset-inline-start: calc(-0.3125rem - 1px);
+      position: absolute;
+    }
+
+    &:first-child::before {
+      background-color: color('primary');
+    }
+
+    &:last-child {
+      padding-block-end: 0;
+    }
+  }
+
+  &__event-time,
+  &__event-place {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__event-text {
+    color: color('heading');
+    font-weight: 600;
+  }
+
+  &__help {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+}
+
+[dir='rtl'] .order-tracking__event {
+  margin: 0 spacer('xxs') 0 0 !important;
+}

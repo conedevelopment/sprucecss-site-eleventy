@@ -1,0 +1,27 @@
+---
+title: 'Logo Cloud'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--wide ui--logo-cloud">
+        {% include "ui/html/content-and-layout/logo-cloud.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/content-and-layout/logo-cloud.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/content-and-layout/logo-cloud.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/content-and-layout/logo-cloud.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/logo-cloud.css">
+{% endblock %}

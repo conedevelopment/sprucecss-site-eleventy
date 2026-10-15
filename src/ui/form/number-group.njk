@@ -19,10 +19,18 @@ order: 28
     {% include "ui/scss/form/number-group.scss" %}
 {% endset %}
 
+{% set js %}
+    {% include "ui/js/form/number-group.js" %}
+{% endset %}
+
 {% set description %}
     {% include "ui/md/form/number-group.md" %}
 {% endset %}
 
 {% block style %}
     <link rel="stylesheet" href="/_includes/ui/css/form/number-group.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/form/number-group.js"></script>
 {% endblock %}

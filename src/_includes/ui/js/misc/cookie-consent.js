@@ -8,20 +8,20 @@ import Cookie from '../../../../js/qkie.js';
   let redirect = false;
 
   if (
-    !cookie.isset(`analytics`) &&
-    !cookie.isset(`denied`)
+    !cookie.isset('analytics') &&
+    !cookie.isset('denied')
   ) {
-    caption = `<div class="cookie-consent-helper"><div class="cookie-consent cookie-consent--slidein" tabindex="-1">
-        <div class="cookie-consent__caption">This is a preview of the cookie consent component. Read more in the <a href="#">privacy policy</a> page.</div>
+    caption = `<div class="cookie-consent-helper"><section class="cookie-consent cookie-consent--slidein" aria-label="Cookie consent">
+        <p class="cookie-consent__caption">We use analytics cookies to understand how the site is used. Read more in our <a href="#">privacy policy</a>.</p>
         <div class="cookie-consent__btns">
-        <button class="btn btn--sm btn--decline" data-action="cookie-decline">Decline</button>
-          <button class="btn btn--sm btn--primary" data-action="cookie-accept">Accept</button>
+        <button class="btn btn--sm btn--outline-primary" type="button" data-action="cookie-decline">Decline</button>
+          <button class="btn btn--sm btn--primary" type="button" data-action="cookie-accept">Accept</button>
         </div>
-      </div></div>`;
+      </section></div>`;
 
+    // At the start of the body, so it's the first thing keyboard and screen reader users reach (without stealing the focus).
     document.body.insertAdjacentHTML('afterbegin', caption);
     consentModal = document.querySelector('.cookie-consent');
-    consentModal.focus();
   }
 
   function animationEndCallback () {
@@ -37,7 +37,7 @@ import Cookie from '../../../../js/qkie.js';
       e.target &&
       e.target.getAttribute('data-action') === 'cookie-accept'
     ) {
-      cookie.set(`analytics`, 'accepted', 365);
+      cookie.set('analytics', 'accepted', 365);
 
       redirect = true;
       consentModal.classList.add('cookie-consent--slideout');
@@ -48,7 +48,7 @@ import Cookie from '../../../../js/qkie.js';
       e.target &&
       e.target.getAttribute('data-action') === 'cookie-decline'
     ) {
-      cookie.set(`denied`, 'true');
+      cookie.set('denied', 'true');
 
       redirect = false;
       consentModal.classList.add('cookie-consent--slideout');

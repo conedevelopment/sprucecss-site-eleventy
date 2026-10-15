@@ -1,14 +1,13 @@
-@use '../../../../scss/config/config'; // DELETE
 @use 'sprucecss/scss/spruce' as *;
 
 .l-feature {
   &__inner {
-    @include layout-stack(spacer-clamp('xl', 'xxl'));
+    display: flex;
+    flex-direction: column;
+    gap: spacer-clamp('xl', 'xxl');
 
     @include breakpoint('md') {
-      > * + * {
-        margin-block-start: 0;
-      }
+      gap: 0;
     }
   }
 }
@@ -46,13 +45,17 @@
   }
 
   &__thumbnail {
+    aspect-ratio: 4 / 3;
     block-size: 100%;
+    border-radius: radius('lg');
     object-fit: cover;
     object-position: center;
   }
 
   &__caption {
     @include layout-stack('s');
+    align-content: start;
+    display: grid;
 
     @include breakpoint('md') {
       padding-block: spacer-clamp('xl', 8rem, 7.5vw);
@@ -61,12 +64,13 @@
 
   &__subtitle {
     align-items: center;
-    background-color: color('subtitle-background', 'feature');
-    border: 1px solid color('subtitle-border', 'feature');
-    border-radius: config('border-radius-lg', $display);
+    background-color: color-alpha('primary', 0.06);
+    border: config('border-width-base', $display) solid color-alpha('primary', 0.15);
+    border-radius: radius('pill');
     color: color('primary');
     display: inline-flex;
     font-size: 0.9375rem;
+    font-weight: 600;
     gap: 0.65rem;
     padding: 0.15em spacer('s');
     text-align: start;
@@ -76,7 +80,44 @@
     font-size: responsive-font-size(3rem, 25, '4vw + 1rem');
   }
 
-  &__btn {
-    margin-block-start: spacer('m');
+  &__text {
+    color: color('muted');
+    font-size: config('font-size-lead', $typography);
   }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    @include layout-stack('xs');
+
+    li {
+      align-items: center;
+      display: flex;
+      gap: spacer('xs');
+
+      // A check mark drawn with borders; it's decorative, the list items carry the meaning.
+      /* stylelint-disable property-disallowed-list */
+      &::before {
+        block-size: 0.35em;
+        border-block-end: 2px solid color('primary');
+        border-left: 2px solid color('primary');
+        content: '';
+        flex-shrink: 0;
+        inline-size: 0.7em;
+        margin-block-end: 0.2em;
+        rotate: -45deg;
+      }
+      /* stylelint-enable property-disallowed-list */
+    }
+  }
+
+  &__btn {
+    justify-self: start;
+    margin-block-start: spacer('s');
+  }
+
+}
+
+[dir='rtl'] .feature__btn .btn__icon {
+  scale: -1 1;
 }

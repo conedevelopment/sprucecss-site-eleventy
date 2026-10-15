@@ -1,0 +1,46 @@
+{#- Override with `servicesBlock` ({ heading, services: [{ title, text, deliverables, duration, price }], note }). -#}
+{%- set _s = servicesBlock or {
+    "heading": { "eyebrow": "Services", "title": "Ways to work together", "text": "Fixed scope, fixed price. You always know what you get and when.", "id": "services-title", "align": "start" },
+    "services": [
+        { "title": "Product sprint", "text": "Two weeks to go from a fuzzy idea to a tested prototype.", "deliverables": ["User interviews", "Clickable prototype", "Test report"], "duration": "2 weeks", "price": "€8,000" },
+        { "title": "Product design", "text": "A dedicated designer for your team, from flows to polished screens.", "deliverables": ["Flows and wireframes", "UI design", "Design QA"], "duration": "3 months+", "price": "€12,000 / month" },
+        { "title": "Design system", "text": "Tokens, components and documentation your developers will love.", "deliverables": ["Audit", "Component library", "Documentation"], "duration": "6–10 weeks", "price": "€24,000" },
+        { "title": "Workshop", "text": "A hands-on day to align product, design and engineering.", "deliverables": ["Preparation call", "On-site day", "Summary"], "duration": "1 day", "price": "€3,500" }
+    ],
+    "note": "Prices exclude VAT. Non-profits get 30% off."
+} %}
+<section class="services-block" id="services" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="services-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            <ol class="services-block__list" role="list">
+                {%- for service in _s.services %}
+                <li class="services-block__service">
+                    <span class="services-block__number" aria-hidden="true">{{ "0" if loop.index < 10 }}{{ loop.index }}</span>
+                    <div class="services-block__body">
+                        <h3 class="services-block__title">{{ service.title }}</h3>
+                        <p class="services-block__text">{{ service.text }}</p>
+                    </div>
+                    <ul class="services-block__deliverables" role="list" aria-label="Deliverables">
+                        {%- for item in service.deliverables %}
+                        <li>{{ item }}</li>
+                        {%- endfor %}
+                    </ul>
+                    <dl class="services-block__terms">
+                        <div class="services-block__term">
+                            <dt>Duration</dt>
+                            <dd>{{ service.duration }}</dd>
+                        </div>
+                        <div class="services-block__term">
+                            <dt>From</dt>
+                            <dd>{{ service.price }}</dd>
+                        </div>
+                    </dl>
+                </li>
+                {%- endfor %}
+            </ol>
+            <p class="services-block__note">{{ _s.note }}</p>
+        </div>
+    </div>
+</section>

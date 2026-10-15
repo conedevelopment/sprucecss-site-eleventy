@@ -1,0 +1,41 @@
+@use 'sprucecss/scss/spruce' as *;
+
+// The floating options bar of the standalone page templates (/pages/{name}/).
+.page-preview-bar {
+  align-items: center;
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('pill');
+  box-shadow: shadow('lg');
+  display: flex;
+  font-family: var(--doc-body-font-family, inherit);
+  gap: spacer('xxs');
+  inset-block-end: spacer('s');
+  inset-inline-end: spacer('s');
+  max-inline-size: calc(100vi - #{spacer('m')});
+  padding: spacer('xxs');
+  position: fixed;
+  z-index: z-index('toast');
+
+  .form-control {
+    border-radius: radius('pill');
+    inline-size: auto;
+  }
+
+  &__back {
+    border-radius: radius('pill');
+
+    svg {
+      block-size: 1rem;
+      inline-size: 1rem;
+    }
+  }
+}
+
+[dir='rtl'] .page-preview-bar__back svg {
+  scale: -1 1;
+}
+
+.is-capture .page-preview-bar {
+  display: none;
+}

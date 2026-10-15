@@ -1,0 +1,101 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.drawer {
+  --drawer-inline-size: 24rem;
+  background: transparent;
+  block-size: 100dvb;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  inset-inline: auto 0;
+  margin: 0;
+  max-block-size: none;
+  max-inline-size: 100vi;
+  // The body scrolls, not the dialog (`dialog:modal` defaults to `overflow: auto`); visible keeps the panel shadow.
+  overflow: visible;
+  padding: 0;
+
+  &::backdrop {
+    background-color: color('overlay');
+  }
+
+  // Slide in and out (and fade the backdrop) where the browser supports it.
+  @include motion-safe {
+    --drawer-offset: 100%;
+    transition: translate 0.3s cubic-bezier(0.32, 0.72, 0, 1), overlay 0.3s allow-discrete, display 0.3s allow-discrete;
+    translate: var(--drawer-offset) 0;
+
+    &[open] {
+      translate: 0 0;
+
+      @starting-style {
+        translate: var(--drawer-offset) 0;
+      }
+    }
+
+    &::backdrop {
+      opacity: 0;
+      transition: opacity 0.3s, overlay 0.3s allow-discrete, display 0.3s allow-discrete;
+    }
+
+    &[open]::backdrop {
+      opacity: 1;
+
+      @starting-style {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__panel {
+    background-color: color('background');
+    block-size: 100%;
+    border-inline-start: config('border-width-base', $display) solid color('border');
+    box-shadow: shadow('xl');
+    display: flex;
+    flex-direction: column;
+    inline-size: min(var(--drawer-inline-size), 100vi);
+  }
+
+  &__header,
+  &__footer {
+    align-items: center;
+    display: flex;
+    gap: spacer('s');
+    padding: spacer('s') spacer('m');
+  }
+
+  &__header {
+    border-block-end: config('border-width-base', $display) solid color('border');
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: font-size('h4');
+    margin: 0;
+  }
+
+  &__body {
+    flex-grow: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: spacer('m');
+    @include layout-stack('m');
+  }
+
+  &__footer {
+    border-block-start: config('border-width-base', $display) solid color('border');
+    justify-content: flex-end;
+  }
+}
+
+// The drawer comes from the inline end: from the left in RTL.
+[dir='rtl'] .drawer {
+  --drawer-offset: -100%;
+}
+
+// No page scroll behind the open drawer.
+html:has(.drawer[open]) {
+  overflow: hidden;
+  scrollbar-gutter: stable;
+}

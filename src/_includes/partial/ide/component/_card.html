@@ -1,0 +1,43 @@
+{% highlight "scss" %}
+@use 'sprucecss/scss/spruce' as *;
+
+.card {
+  @include a11y-card-link('.card__title a', true);
+  @include layout-stack('xs');
+  @include transition($property: 'box-shadow, translate');
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  box-shadow: shadow('sm');
+  padding: spacer-clamp('m', 'l');
+
+  &:hover {
+    box-shadow: shadow('lg');
+  }
+
+  @include motion-safe {
+    &:hover {
+      translate: 0 -0.25rem;
+    }
+  }
+
+  &:focus-within {
+    @include focus-ring($ring-color: color('focus-ring'));
+  }
+
+  &__title {
+    font-size: font-size('h4');
+    margin-block: 0;
+
+    a {
+      color: color('heading');
+      text-decoration: none;
+    }
+  }
+
+  &__text {
+    color: color('muted');
+    margin-block: 0;
+  }
+}
+{% endhighlight %}

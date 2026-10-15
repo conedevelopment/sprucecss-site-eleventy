@@ -1,0 +1,41 @@
+{#- Override with `integrationsBlock` ({ heading, items: [{ name, category, icon, color, foreground }] }). `icon` is a name from block/brand-icon.html; without it, the tile shows the first letter. -#}
+{%- set _s = integrationsBlock or {
+    "heading": { "eyebrow": "Integrations", "title": "Works with the tools you already use", "text": "Connect your stack in a few clicks.", "id": "integrations-title" },
+    "items": [
+        { "name": "Discord", "category": "Communication", "icon": "discord", "color": "#5865f2" },
+        { "name": "GitHub", "category": "Development", "icon": "github", "color": "#181717" },
+        { "name": "Figma", "category": "Design", "icon": "figma", "color": "#1e1e1e" },
+        { "name": "Stripe", "category": "Payments", "icon": "stripe", "color": "#635bff" },
+        { "name": "Notion", "category": "Productivity", "icon": "notion", "color": "#000000" },
+        { "name": "Make", "category": "Automation", "icon": "make", "color": "#6d00cc" },
+        { "name": "Google Analytics", "category": "Analytics", "icon": "googleanalytics", "color": "#e37400" },
+        { "name": "Mailchimp", "category": "Marketing", "icon": "mailchimp", "color": "#ffe01b", "foreground": "#241c15" },
+        { "name": "Shopify", "category": "Commerce", "icon": "shopify", "color": "#5e8e3e" }
+    ]
+} %}
+<section class="integrations-block" aria-labelledby="{{ _s.heading.id }}" data-integrations>
+    <div class="container">
+        <div class="integrations-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            <div class="integrations-block__search">
+                <label class="sr-only" for="integrations-search">Search integrations</label>
+                <input class="form-control" id="integrations-search" type="search" placeholder="Search integrations…" data-integrations-search>
+                <p class="integrations-block__count" aria-live="polite" data-integrations-count>{{ _s.items.length }} integrations</p>
+            </div>
+            <ul class="integrations-block__grid" role="list">
+                {%- for item in _s.items %}
+                <li class="integrations-block__item" data-name="{{ item.name | lower }} {{ item.category | lower }}">
+                    <span class="integrations-block__logo" style="--logo-color: {{ item.color }};{% if item.foreground %} --logo-foreground: {{ item.foreground }};{% endif %}" aria-hidden="true">
+                        {%- if item.icon %}{% set brandName = item.icon %}{% set brandClass = "integrations-block__icon" %}{% include "../block/brand-icon.html" %}{% else %}{{ item.name | first }}{% endif -%}
+                    </span>
+                    <span class="integrations-block__name">{{ item.name }}</span>
+                    <span class="integrations-block__category">{{ item.category }}</span>
+                    <a class="integrations-block__link" href="#">Connect<span class="sr-only"> {{ item.name }}</span></a>
+                </li>
+                {%- endfor %}
+            </ul>
+            <p class="integrations-block__empty" hidden data-integrations-empty>No integration matches your search. <a href="#">Request one</a>.</p>
+        </div>
+    </div>
+</section>

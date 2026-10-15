@@ -20,11 +20,4 @@
     flex-shrink: 0;
     inline-size: var(--size);
   }
-
-  &__link {
-    font-size: config('font-size-sm', $typography);
-    font-weight: 700;
-    text-decoration: none;
-    text-transform: uppercase;
-  }
 }

@@ -1,0 +1,61 @@
+{#- A SaaS startup home page, composed from Spruce UI components. -#}
+{% set heroDashboardBlock = {
+    "eyebrow": "Lumen 2.0 with AI insights",
+    "title": "Analytics your whole team will actually use",
+    "text": "Lumen turns your product data into clear dashboards and weekly insights, without SQL or a data team.",
+    "primary": "Start free trial", "secondary": "Book a demo",
+    "note": "14-day free trial · No credit card required",
+    "url": "app.lumen.io/overview"
+} %}
+{% set announcement = { "id": "lumen-2-0", "badge": "New", "text": "Lumen 2.0: AI insights in your weekly report.", "link": "See what’s new" } %}
+{% set featuresBlock = {
+    "heading": { "eyebrow": "Features", "title": "Everything you need to understand your users", "text": "From the first click to long-term retention, in one place.", "id": "features-title" },
+    "items": [
+        { "icon": "chart", "title": "Live dashboards", "text": "Drag-and-drop dashboards that update in real time." },
+        { "icon": "sparkles", "title": "AI insights", "text": "A weekly summary of what changed and why it matters." },
+        { "icon": "users", "title": "Cohorts and funnels", "text": "See where users drop off and who comes back." },
+        { "icon": "shield", "title": "Privacy first", "text": "EU hosting, no cookies required, GDPR ready." },
+        { "icon": "zap", "title": "5-minute setup", "text": "One script tag or our SDKs for every platform." },
+        { "icon": "message", "title": "Slack alerts", "text": "Get notified when a metric goes off track." }
+    ]
+} %}
+{% set stepsBlock = {
+    "heading": { "eyebrow": "How it works", "title": "From raw events to answers in minutes", "id": "steps-title" },
+    "items": [
+        { "icon": "code", "title": "Connect", "text": "Add the snippet or connect your warehouse." },
+        { "icon": "search", "title": "Explore", "text": "Ask questions in plain English or build a chart." },
+        { "icon": "message", "title": "Share", "text": "Send dashboards to your team or embed them anywhere." }
+    ]
+} %}
+{% set statsBlock = {
+    "heading": { "eyebrow": "Why teams switch", "title": "Results our customers see in the first quarter", "id": "stats-title" },
+    "brand": true,
+    "items": [
+        { "value": 3200, "suffix": "+", "label": "Teams", "text": "rely on Lumen every day" },
+        { "value": 38, "suffix": "%", "label": "Faster decisions", "text": "reported by product teams" },
+        { "value": 4.8, "label": "Average rating", "text": "on the major review sites" },
+        { "value": 5, "suffix": " min", "label": "Setup time", "text": "to the first dashboard" }
+    ]
+} %}
+{% include "../content-and-layout/site-header-announcement.html" %}
+<main class="l-home" id="content" tabindex="-1">
+    {% include "../block/hero-dashboard.html" %}
+    <div class="l-home__band">
+        {% include "../content-and-layout/logo-cloud.html" %}
+    </div>
+    {% include "../block/features.html" %}
+    {% include "../block/bento.html" %}
+    <div class="l-home__alt">
+        {% include "../block/steps.html" %}
+    </div>
+    {% include "../block/integrations.html" %}
+    {% include "../block/stats.html" %}
+    {% include "../block/pricing.html" %}
+    {% include "../block/comparison.html" %}
+    <div class="l-home__alt">
+        {% include "../block/case-study.html" %}
+        {% include "../block/testimonials.html" %}
+    </div>
+    {% include "../block/faq.html" %}
+</main>
+{% include "../content-and-layout/site-footer-cta.html" %}

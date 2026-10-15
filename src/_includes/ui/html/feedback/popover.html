@@ -1,0 +1,15 @@
+<div class="popover-demo">
+    <button class="btn btn--outline-primary" type="button" popovertarget="popover-share">Share</button>
+    <div class="popover" id="popover-share" popover>
+        <div class="popover__header">
+            <h2 class="popover__title">Share this page</h2>
+            <button class="btn btn--ghost-secondary btn--icon btn--sm" type="button" popovertarget="popover-share" popovertargetaction="hide" aria-label="Close"><svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <div class="form-group--stacked">
+            <label class="sr-only" for="popover-share-link">Link</label>
+            <input class="form-control form-control--sm" id="popover-share-link" type="text" value="https://sprucecss.com/blocks/" readonly>
+            <button class="btn btn--primary btn--sm" type="button" data-copy-target="popover-share-link">Copy</button>
+        </div>
+        <p class="popover__text">Anyone with the link can view the page.</p>
+    </div>
+</div>

@@ -1,0 +1,109 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.cart-summary {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  padding: spacer-clamp('m', 'l');
+  @include layout-stack('m');
+
+  &__title {
+    font-size: font-size('h4');
+  }
+
+  &__items {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__item {
+    align-items: center;
+    border-block-end: config('border-width-base', $display) solid color('border');
+    display: grid;
+    gap: spacer('s');
+    grid-template-columns: 4rem 1fr auto;
+    margin: 0 !important;
+    padding-block: spacer('s');
+
+    @include breakpoint('sm') {
+      grid-template-columns: 4rem 1fr 5rem auto;
+    }
+  }
+
+  &__thumb {
+    block-size: 4rem;
+    border-radius: radius('md');
+    inline-size: 4rem;
+    object-fit: cover;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    line-height: config('line-height-md', $typography);
+  }
+
+  &__name {
+    color: color('heading');
+    font-weight: 700;
+  }
+
+  &__meta,
+  &__note {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__qty {
+    grid-column: 2;
+
+    @include breakpoint('sm') {
+      grid-column: auto;
+    }
+  }
+
+  &__price {
+    color: color('heading');
+    font-weight: 700;
+    grid-column: 3;
+    grid-row: 1;
+
+    @include breakpoint('sm') {
+      grid-column: auto;
+    }
+  }
+
+  &__totals {
+    @include layout-stack('xs');
+
+    div {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    dt {
+      font-weight: 400;
+    }
+
+    dd {
+      color: color('heading');
+      margin: 0;
+    }
+  }
+
+  &__total {
+    border-block-start: config('border-width-base', $display) solid color('border');
+    font-size: config('font-size-lg', $typography);
+    padding-block-start: spacer('s');
+
+    dt,
+    dd {
+      color: color('heading');
+      font-weight: 700;
+    }
+  }
+
+  &__note {
+    text-align: center;
+  }
+}

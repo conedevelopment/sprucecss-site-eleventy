@@ -1,0 +1,29 @@
+{#- Override with `stepsBlock` ({ heading, items: [{ icon, title, text }] }). -#}
+{%- set _s = stepsBlock or {
+    "heading": { "eyebrow": "How it works", "title": "From install to launch in three steps", "text": "No build system lock-in. Just Sass and your favorite tools.", "id": "steps-title" },
+    "items": [
+        { "icon": "code", "title": "Install", "text": "Add the npm package and import Spruce in your Sass entry file." },
+        { "icon": "palette", "title": "Configure", "text": "Set your colors, fonts and tokens, or pick a design style." },
+        { "icon": "rocket", "title": "Ship", "text": "Build pages with the elements and copy-paste components." }
+    ]
+} %}
+<section class="steps-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="steps-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            <ol class="steps-block__list" role="list">
+                {%- for item in _s.items %}
+                <li class="steps-block__step">
+                    <span class="steps-block__marker">
+                        {% set iconName = item.icon %}{% include "../block/icon.html" %}
+                        <span class="steps-block__number" aria-hidden="true">{{ loop.index }}</span>
+                    </span>
+                    <h3 class="steps-block__title"><span class="sr-only">Step {{ loop.index }}: </span>{{ item.title }}</h3>
+                    <p class="steps-block__text">{{ item.text }}</p>
+                </li>
+                {%- endfor %}
+            </ol>
+        </div>
+    </div>
+</section>

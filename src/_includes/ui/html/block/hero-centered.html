@@ -1,0 +1,34 @@
+{#- Override with `heroCenteredBlock` ({ badge, eyebrow, title, lead, primary, secondary, proof, image, alt }). -#}
+{%- set _s = heroCenteredBlock or {
+    "badge": "New", "eyebrow": "Design styles are here",
+    "title": "The calm way to build beautiful websites",
+    "lead": "Spruce gives your team a solid CSS foundation, ready-made components and blocks, and eight design styles on the same markup.",
+    "primary": "Get started for free", "secondary": "See the components",
+    "proof": "Loved by 12,000+ developers",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=70", "alt": "A product dashboard with charts and tables."
+} %}
+<section class="hero-centered-block" aria-labelledby="hero-centered-title">
+    <div class="container">
+        <div class="hero-centered-block__inner">
+            <p class="hero-centered-block__eyebrow"><span class="hero-centered-block__badge">{{ _s.badge }}</span> {{ _s.eyebrow }}</p>
+            <h1 class="hero-centered-block__title" id="hero-centered-title">{{ _s.title }}</h1>
+            <p class="hero-centered-block__lead">{{ _s.lead }}</p>
+            <div class="hero-centered-block__actions">
+                <a class="btn btn--primary btn--lg" href="#">{{ _s.primary }}</a>
+                <a class="btn btn--outline-primary btn--lg" href="#">{{ _s.secondary }}</a>
+            </div>
+            <div class="hero-centered-block__proof">
+                <ul class="avatar-group" role="list" aria-hidden="true">
+                    <li><span class="avatar avatar--sm"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=96&q=70&h=96" alt="" width="32" height="32"></span></li>
+                    <li><span class="avatar avatar--sm"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=96&q=70&h=96" alt="" width="32" height="32"></span></li>
+                    <li><span class="avatar avatar--sm"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=96&q=70&h=96" alt="" width="32" height="32"></span></li>
+                </ul>
+                <span>{{ _s.proof }}</span>
+            </div>
+            <figure class="hero-centered-block__media">
+                <span class="hero-centered-block__frame" aria-hidden="true"><i></i><i></i><i></i></span>
+                <img src="{{ _s.image }}" alt="{{ _s.alt }}" width="1600" height="1000">
+            </figure>
+        </div>
+    </div>
+</section>

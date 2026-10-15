@@ -1,0 +1,35 @@
+---
+title: 'Notification List'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--narrow ui--notification">
+        {% include "ui/html/list/notification.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/list/notification.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/list/notification.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/list/notification.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/list/notification.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/list/notification.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/list/notification.js"></script>
+{% endblock %}

@@ -1,0 +1,201 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.file-manager {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  padding: spacer('m');
+  @include layout-stack('m');
+
+  &__header {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
+    justify-content: space-between;
+  }
+
+  &__path ol {
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 600;
+    gap: spacer('xxs');
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0;
+    }
+
+    li + li::before {
+      color: color('muted');
+      content: '/';
+      margin-inline-end: spacer('xxs');
+    }
+
+    [aria-current] {
+      color: color('heading');
+    }
+  }
+
+  &__tools,
+  &__view {
+    align-items: center;
+    display: flex;
+    gap: spacer('xs');
+  }
+
+  &__view {
+    gap: 0;
+
+    &[hidden] {
+      display: none;
+    }
+
+    [aria-pressed='true'] {
+      background-color: color-alpha('primary', 0.12);
+    }
+  }
+
+  &__items {
+    display: grid;
+    gap: spacer('s');
+    grid-template-columns: repeat(auto-fill, minmax(min(9.5rem, 100%), 1fr));
+    list-style: none;
+    padding: 0;
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+    }
+  }
+
+  &__item {
+    @include a11y-card-link('.file-manager__name', true);
+    align-items: center;
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('md');
+    display: flex;
+    flex-direction: column;
+    gap: spacer('xxs');
+    padding: spacer('s');
+    text-align: center;
+
+    &:hover {
+      background-color: color('surface-muted');
+    }
+
+    &:focus-within {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 2px;
+    }
+  }
+
+  &__icon {
+    --icon-color: #{color('muted')};
+    color: var(--icon-color);
+    display: grid;
+    margin-block-end: spacer('xxs');
+    place-items: center;
+
+    > * {
+      grid-area: 1 / 1;
+    }
+
+    svg {
+      block-size: 3rem;
+      inline-size: 3rem;
+    }
+  }
+
+  &__item--folder &__icon { --icon-color: #{color('warning', 'alert')}; }
+  &__item--image &__icon { --icon-color: #{color('info', 'alert')}; }
+  &__item--pdf &__icon { --icon-color: #{color('danger', 'alert')}; }
+  &__item--doc &__icon { --icon-color: #{color('primary')}; }
+  &__item--sheet &__icon { --icon-color: #{color('success', 'alert')}; }
+  &__item--video &__icon { --icon-color: #{color('secondary')}; }
+
+  &__ext {
+    font-size: 0.55rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    padding-block-start: 0.6rem;
+  }
+
+  &__name {
+    color: color('heading');
+    font-size: config('font-size-sm', $typography);
+    font-weight: 600;
+    inline-size: 100%;
+    overflow: hidden;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__meta,
+  &__modified {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__modified {
+    display: none;
+  }
+
+  // The list view: one row per item with the details in columns.
+  &__items--list {
+    gap: 0;
+    grid-template-columns: minmax(0, 1fr);
+
+    .file-manager__item {
+      border-radius: 0;
+      border-width: 0 0 config('border-width-base', $display);
+      display: grid;
+      gap: spacer('s');
+      grid-template-columns: 2rem minmax(0, 1fr) 6rem 6rem;
+      padding: spacer('xs') spacer('xxs');
+      text-align: start;
+    }
+
+    .file-manager__icon {
+      margin: 0;
+
+      svg {
+        block-size: 1.75rem;
+        inline-size: 1.75rem;
+      }
+    }
+
+    .file-manager__ext {
+      display: none;
+    }
+
+    .file-manager__modified {
+      display: block;
+    }
+  }
+
+  &__storage {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xxs') spacer('s');
+
+    label {
+      color: color('heading');
+      font-weight: 600;
+    }
+
+    meter {
+      block-size: 0.5rem;
+      flex: 1 1 8rem;
+    }
+
+    span {
+      color: color('muted');
+    }
+  }
+}

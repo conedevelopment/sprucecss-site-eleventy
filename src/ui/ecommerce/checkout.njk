@@ -18,6 +18,10 @@ title: 'Checkout'
     {% include "ui/scss/ecommerce/checkout.scss" %}
 {% endset %}
 
+{% set js %}
+    {% include "ui/js/ecommerce/checkout.js" %}
+{% endset %}
+
 {% set description %}
     {% include "ui/md/ecommerce/checkout.md" %}
 {% endset %}
@@ -27,4 +31,10 @@ title: 'Checkout'
     <link rel="stylesheet" href="/_includes/ui/css/card/payment.css">
     <link rel="stylesheet" href="/_includes/ui/css/card/order.css">
     <link rel="stylesheet" href="/_includes/ui/css/form/number-group.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/form/number-group.js"></script>
+    <script defer src="/_includes/ui/js/card/order.js"></script>
+    <script defer src="/_includes/ui/js/ecommerce/checkout.js"></script>
 {% endblock %}

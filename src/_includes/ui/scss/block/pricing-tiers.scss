@@ -1,0 +1,171 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.pricing-tiers-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+  }
+
+  &__deal {
+    align-items: center;
+    align-self: center;
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('pill');
+    display: inline-flex;
+    font-size: config('font-size-sm', $typography);
+    font-weight: 600;
+    gap: spacer('xs');
+    margin-block: 0;
+    padding: spacer('xxs') spacer('s') spacer('xxs') spacer('xxs');
+  }
+
+  &__tiers {
+    align-items: start;
+    display: grid;
+    gap: spacer('m');
+    grid-template-columns: repeat(auto-fit, minmax(min(17rem, 100%), 1fr));
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+    }
+
+    // The featured tier rises above the others (more specific than the reset above).
+    > .pricing-tiers-block__tier--featured {
+      @include breakpoint('md') {
+        margin-block-start: calc(#{spacer('m')} * -1);
+      }
+    }
+  }
+
+  &__tier {
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    box-shadow: shadow('sm');
+    display: flex;
+    flex-direction: column;
+    gap: spacer('m');
+    padding: spacer-clamp('m', 'l');
+    position: relative;
+
+    &--featured {
+      border-color: color('primary');
+      box-shadow: shadow('xl'), 0 0 0 1px color('primary');
+
+      @include breakpoint('md') {
+        padding-block: calc(#{spacer-clamp('m', 'l')} + #{spacer('s')});
+      }
+    }
+  }
+
+  &__header {
+    @include layout-stack('xxs'); // name, description
+  }
+
+  &__badge {
+    background-color: color('primary');
+    border-radius: radius('pill');
+    color: color('primary-foreground', 'btn');
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+    inset-block-start: 0;
+    inset-inline-end: spacer('m');
+    margin: 0;
+    padding: spacer('xxs') spacer('s');
+    position: absolute;
+    translate: 0 -50%;
+  }
+
+  &__name {
+    font-size: font-size('h4');
+  }
+
+  &__description {
+    color: color('muted');
+  }
+
+  &__price {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xxs') spacer('xs');
+    margin-block: 0;
+  }
+
+  &__amount {
+    color: color('heading');
+    font-family: config('font-family-heading', $typography);
+    font-size: font-size('h1');
+    font-weight: config('font-weight-heading', $typography);
+    line-height: 1;
+  }
+
+  &__old {
+    color: color('muted');
+    font-size: font-size('h5');
+  }
+
+  &__period {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__features {
+    border-block-start: config('border-width-base', $display) solid color('border');
+    list-style: none;
+    margin: 0;
+    padding: spacer('m') 0 0;
+    @include layout-stack('xs');
+  }
+
+  &__feature {
+    align-items: flex-start;
+    display: flex;
+    gap: spacer('xs');
+
+    &--excluded {
+      color: color('muted');
+      text-decoration: line-through;
+      text-decoration-color: color-alpha('muted', 0.5);
+    }
+  }
+
+  &__mark {
+    block-size: 1rem;
+    color: color('primary');
+    flex-shrink: 0;
+    inline-size: 1rem;
+    margin-block-start: 0.3em;
+
+    .pricing-tiers-block__feature--excluded & {
+      color: color('muted');
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('s');
+    margin-inline: auto;
+    max-inline-size: 44rem;
+    text-align: center;
+
+    .guarantee {
+      text-align: start;
+    }
+  }
+
+  &__note {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    margin-block: 0;
+  }
+}

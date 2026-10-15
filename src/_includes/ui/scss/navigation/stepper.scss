@@ -1,0 +1,94 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.stepper {
+  &__list {
+    @include clear-list;
+    counter-reset: step;
+    display: grid;
+    gap: spacer('s');
+
+    @include breakpoint('md') {
+      grid-auto-columns: 1fr;
+      grid-auto-flow: column;
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__step {
+    --step-color: #{color('border-strong')};
+    display: grid;
+    gap: 0 spacer('s');
+    grid-template-columns: auto 1fr;
+    position: relative;
+
+    @include breakpoint('md') {
+      grid-template-columns: 1fr;
+      text-align: center;
+
+      &:not(:last-child)::after {
+        background-color: var(--step-color);
+        block-size: 2px;
+        content: '';
+        inline-size: calc(100% - 2.5rem - #{spacer('xs')} * 2);
+        inset-block-start: 1.25rem;
+        inset-inline-start: calc(50% + 1.25rem + #{spacer('xs')});
+        position: absolute;
+      }
+    }
+
+    &--complete {
+      --step-color: #{color('primary')};
+    }
+
+    &--current {
+      --step-color: #{color('primary')};
+    }
+  }
+
+  &__marker {
+    align-items: center;
+    block-size: 2.5rem;
+    border: 2px solid var(--step-color);
+    border-radius: 50%;
+    color: color('heading');
+    display: flex;
+    font-weight: 700;
+    grid-row: span 2;
+    inline-size: 2.5rem;
+    justify-content: center;
+
+    @include breakpoint('md') {
+      grid-row: auto;
+      margin-inline: auto;
+    }
+  }
+
+  &__step--complete &__marker {
+    background-color: var(--step-color);
+    color: color('primary-foreground', 'btn');
+  }
+
+  &__step--current &__marker {
+    box-shadow: 0 0 0 4px color-alpha('primary', 0.2);
+  }
+
+  &__label {
+    align-self: end;
+    color: color('heading');
+    font-weight: 700;
+
+    @include breakpoint('md') {
+      margin-block-start: spacer('xs');
+    }
+  }
+
+  &__description {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+}

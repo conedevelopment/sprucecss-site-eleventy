@@ -1,4 +1,5 @@
-{% set grouped = collections.ui | groupBy('category') %}
+{#- `library` selects the collection: 'ui' (components, default) or 'blocks'. -#}
+{% set grouped = collections[library or 'ui'] | groupBy('category') %}
 
 <aside class="sidebar">
     {% for category, items in grouped %}

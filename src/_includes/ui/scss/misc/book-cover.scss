@@ -1,0 +1,118 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.book-cover {
+  --book-cover-inline-size: 15rem;
+  --book-cover-tilt: -16deg;
+  aspect-ratio: 3 / 4;
+  // The text scales with the cover (cqi units).
+  container-type: inline-size;
+  inline-size: min(var(--book-cover-inline-size), 100%);
+  perspective: 75rem;
+  position: relative;
+
+  &--sm {
+    --book-cover-inline-size: 9rem;
+  }
+
+  &--lg {
+    --book-cover-inline-size: 20rem;
+  }
+
+  // The page edges behind the cover.
+  &::before {
+    background-color: color('surface');
+    background-image: repeating-linear-gradient(90deg, #{color('border')} 0 1px, transparent 1px 3px);
+    border: config('border-width-base', $display) solid color('border');
+    border-end-end-radius: radius('sm');
+    border-start-end-radius: radius('sm');
+    content: '';
+    inset-block: 2%;
+    inset-inline: 6% -4%;
+    position: absolute;
+    transform: rotateY(var(--book-cover-tilt));
+    transform-origin: left center;
+  }
+
+  &__front {
+    @include set-css-variable((
+      --base-color-heading: color('primary-foreground', 'btn'),
+      --base-color-text: color('primary-foreground', 'btn'),
+    ));
+    background-color: color('primary-background', 'btn');
+    background-image:
+      linear-gradient(90deg, #{color-alpha('primary-foreground', 0.18, 'btn')} 0 3%, transparent 3% 5%, #{color-alpha('primary-foreground', 0.08, 'btn')} 5% 6%, transparent 6%),
+      radial-gradient(circle at 85% 15%, #{color-alpha('secondary-background', 0.6, 'btn')}, transparent 45%),
+      radial-gradient(circle at 10% 100%, #{color-alpha('primary-foreground', 0.16, 'btn')}, transparent 50%);
+    block-size: 100%;
+    border-end-end-radius: radius('md');
+    border-end-start-radius: 2px;
+    border-start-end-radius: radius('md');
+    border-start-start-radius: 2px;
+    box-shadow: shadow('xl');
+    color: color('primary-foreground', 'btn');
+    display: flex;
+    flex-direction: column;
+    gap: spacer('s');
+    hyphens: manual;
+    justify-content: space-between;
+    padding: 12cqi 10cqi 10cqi 14cqi;
+    position: relative;
+    transform: rotateY(var(--book-cover-tilt));
+    transform-origin: left center;
+  }
+
+  &__edition,
+  &__author {
+    font-size: 6cqi;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  &__heading {
+    @include layout-stack('xs');
+  }
+
+  &__title {
+    font-family: config('font-family-heading', $typography);
+    font-size: 13cqi;
+    font-weight: config('font-weight-heading', $typography);
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+
+  &__subtitle {
+    font-size: 6.5cqi;
+    line-height: 1.35;
+    opacity: 0.85;
+  }
+
+  @include motion-safe {
+    &::before,
+    &__front {
+      transition: transform 0.4s ease;
+    }
+
+    &:hover {
+      --book-cover-tilt: -6deg;
+    }
+  }
+}
+
+// The spine is on the right in RTL.
+[dir='rtl'] .book-cover {
+  &::before,
+  &__front {
+    transform: rotateY(calc(var(--book-cover-tilt) * -1));
+    transform-origin: right center;
+  }
+
+  &__front {
+    background-image:
+      linear-gradient(270deg, #{color-alpha('primary-foreground', 0.18, 'btn')} 0 3%, transparent 3% 5%, #{color-alpha('primary-foreground', 0.08, 'btn')} 5% 6%, transparent 6%),
+      radial-gradient(circle at 15% 15%, #{color-alpha('secondary-background', 0.6, 'btn')}, transparent 45%),
+      radial-gradient(circle at 90% 100%, #{color-alpha('primary-foreground', 0.16, 'btn')}, transparent 50%);
+    padding: 12cqi 14cqi 10cqi 10cqi;
+  }
+}

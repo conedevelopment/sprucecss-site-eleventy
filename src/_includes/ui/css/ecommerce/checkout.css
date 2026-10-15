@@ -35,16 +35,40 @@
   display: flex;
   flex-direction: column;
 }
-.l-checkout__order {
-  margin-block-start: auto;
-  padding-top: 1.5rem;
+.l-checkout__payment .payment-card-group__legend {
+  block-size: 1px !important;
+  border: 0 !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  inline-size: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+}
+.l-checkout__total {
+  align-items: baseline;
+  border-block-start: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  display: flex;
+  font-size: clamp(1.0625rem, 2vw + 1rem, 1.25rem);
+  justify-content: space-between;
+  padding-block-start: 1rem;
+}
+.l-checkout__total strong {
+  color: var(--spruce-base-color-heading);
+  font-variant-numeric: tabular-nums;
 }
 .l-checkout__order > * {
   margin-block-end: 0;
   margin-block-start: 0;
 }
 .l-checkout__order > * + * {
-  margin-block-start: 0.5rem;
+  margin-block-start: 1rem;
+}
+.l-checkout__order {
+  margin-block-start: auto;
+  padding-block-start: 1.5rem;
 }
 .l-checkout__order .form-group--submit {
   margin-block-start: 1.5rem;

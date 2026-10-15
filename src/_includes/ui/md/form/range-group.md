@@ -1,13 +1,19 @@
-<p class="lead">The range-group component helps us to create a more complete range field with a value display and button control.</p>
+<p class="lead">A range slider with a live value display and step buttons, for choosing amounts like seats, storage or a budget.</p>
 
-## Dependencies
+## Anatomy
 
-- [Alpine.js](https://alpinejs.dev/) - Some or all of the components require Alpine.js for functionality.
+- **`.range-group`** with `data-unit-one` and `data-unit-many` (the unit in singular and plural).
+- **`.range-group__label`** holds the `label` and an `output` (`__value`) that shows the current value.
+- **`.range-group__inner`** puts the decrease and increase buttons around the native range input (`.form-range`).
+
+## Accessibility
+
+- The range input gets an `aria-valuetext` with the unit ("5 seats"), so screen readers read a meaningful value instead of a bare number. The visible `output` is hidden from them to avoid hearing it twice.
+- The step buttons have visually hidden labels ("Increase seats") and point to the input with `aria-controls`. At the limits, they become `disabled`.
+- The range input keeps its own keyboard support (arrows, <kbd>Page Up</kbd>/<kbd>Page Down</kbd>, <kbd>Home</kbd>/<kbd>End</kbd>); the buttons help touch and mouse users make precise steps.
 
 ## Technical Details
 
-- It uses native Spruce elements and styling, so the component is mainly about a small JS.
-- On the `.form-label__value` element, you can set a `data-suffix` value to add a unit at the end of the value display.
-- It automatically gets the `step`, `min`, and `max` values.
-- You should always use a proper `aria-label` value.
-
+- The buttons use the native `stepUp()` and `stepDown()`, which respect `step`, `min` and `max`; a `change` event fires after each press.
+- The unit is picked with `Intl.PluralRules`, in the page language.
+- It's built from Spruce's form range and button styles, so it follows every style and the dark mode.

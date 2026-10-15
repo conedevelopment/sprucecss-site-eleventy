@@ -1,21 +1,47 @@
 @use 'sprucecss/scss/spruce' as *;
 
 .order-card {
-  $this: &;
-
   align-items: center;
-  background-color: color('background');
-  border: 1px solid color('border');
-  border-radius: config('border-radius-lg', $display);
-  color: color('heading');
-  display: flex;
-  gap: spacer('m');
-  justify-content: space-between;
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  color: color('text');
+  display: grid;
+  gap: spacer('s') spacer('m');
+  grid-template-columns: auto minmax(0, 1fr);
   padding: spacer-clamp('s', 'm');
-  text-decoration: none;
+
+  @include breakpoint('sm') {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  + .order-card {
+    margin-block-start: spacer('s');
+  }
+
+  &__thumb {
+    align-items: center;
+    background-color: color-alpha('primary', 0.1);
+    block-size: 3.5rem;
+    border-radius: radius('md');
+    color: color('primary');
+    display: flex;
+    inline-size: 3.5rem;
+    justify-content: center;
+
+    svg {
+      block-size: 1.5rem;
+      inline-size: 1.5rem;
+    }
+  }
+
+  &__data {
+    @include layout-stack('xxs');
+  }
 
   &__title {
-    font-size: font-size('h4');
+    font-size: font-size('h5');
+    margin-block: 0;
   }
 
   &__link {
@@ -28,13 +54,54 @@
     }
   }
 
-  &__data {
-    @include layout-stack('xs');
-  }
-
   &__meta {
+    color: color('muted');
     display: flex;
     flex-wrap: wrap;
-    gap: spacer('s') spacer('m');
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xxs') spacer('s');
+    margin-inline: 0;
+
+    div {
+      display: flex;
+      gap: spacer('xxs');
+    }
+
+    dt::after {
+      content: ':';
+    }
+
+    dd {
+      color: color('text');
+      margin: 0;
+    }
+  }
+
+  &__actions {
+    align-items: center;
+    display: flex;
+    gap: spacer('s');
+    grid-column: 1 / -1;
+    justify-content: space-between;
+
+    @include breakpoint('sm') {
+      grid-column: auto;
+    }
+  }
+
+  &__total {
+    color: color('heading');
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    margin: 0;
+    min-inline-size: 4.5rem;
+    text-align: end;
+  }
+
+  &.is-removing {
+    @include motion-safe {
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+    }
   }
 }

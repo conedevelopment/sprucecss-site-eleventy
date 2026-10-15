@@ -1,0 +1,49 @@
+{#- Override with `authorBlock` ({ eyebrow, name, role, bio: [paragraphs], photo, alt, stats: [{ value, label }], linksLabel, links: [{ label, href }] }). -#}
+{%- set _s = authorBlock or {
+    "eyebrow": "Your teacher",
+    "name": "Hi, I’m Daniel Okafor",
+    "role": "Frontend architect · Author · Speaker",
+    "bio": [
+        "I’ve spent ten years building CSS architectures for products used by millions, from a banking app to the design system of a large e-commerce platform.",
+        "I wrote this book because I kept explaining the same ideas to new teammates. The videos are those explanations, recorded with the code on the screen."
+    ],
+    "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=720&h=880&q=70",
+    "alt": "Daniel Okafor smiling in front of a bright wall.",
+    "stats": [{ "value": "10", "label": "years of CSS architecture" }, { "value": "40k", "label": "newsletter readers" }, { "value": "25", "label": "conference talks" }],
+    "linksLabel": "Find Daniel online",
+    "links": [{ "label": "Newsletter", "href": "#" }, { "label": "GitHub", "href": "#" }, { "label": "Mastodon", "href": "#" }]
+} %}
+<section class="author-block" aria-labelledby="author-title">
+    <div class="container">
+        <div class="author-block__inner">
+            <figure class="author-block__media">
+                <img src="{{ _s.photo }}" alt="{{ _s.alt }}" loading="lazy" width="720" height="880">
+            </figure>
+            <div class="author-block__content">
+                <div class="author-block__heading">
+                    <p class="author-block__eyebrow">{{ _s.eyebrow }}</p>
+                    <h2 class="author-block__title" id="author-title">{{ _s.name }}</h2>
+                    <p class="author-block__role">{{ _s.role }}</p>
+                </div>
+                <div class="author-block__bio">
+                    {%- for paragraph in _s.bio %}
+                    <p>{{ paragraph }}</p>
+                    {%- endfor %}
+                </div>
+                <dl class="author-block__stats">
+                    {%- for stat in _s.stats %}
+                    <div class="author-block__stat">
+                        <dt>{{ stat.label }}</dt>
+                        <dd>{{ stat.value }}</dd>
+                    </div>
+                    {%- endfor %}
+                </dl>
+                <ul class="author-block__links" role="list" aria-label="{{ _s.linksLabel }}">
+                    {%- for link in _s.links %}
+                    <li><a href="{{ link.href }}">{{ link.label }}</a></li>
+                    {%- endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

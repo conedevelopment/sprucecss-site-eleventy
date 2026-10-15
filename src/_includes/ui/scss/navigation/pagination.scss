@@ -1,4 +1,3 @@
-@use '../../../../scss/config/config'; // DELETE
 @use 'sprucecss/scss/spruce' as *;
 
 @include generate-btn(
@@ -12,33 +11,66 @@
   display: flex;
   justify-content: center;
 
+  + .pagination {
+    margin-block-start: spacer('l');
+  }
+
   &__links {
     @include clear-list;
+    align-items: center;
     display: flex;
     flex-wrap: wrap;
-    gap: spacer('s');
+    gap: spacer('xs');
+    justify-content: center;
 
-    > * + * {
-      margin-block-start: 0;
+    > li {
+      margin-block: 0;
+      padding-block: 0;
     }
   }
 
   &__page-number {
-    @include btn-variant('pagination');
+    @include btn-variant-soft('primary');
+    font-variant-numeric: tabular-nums;
+    justify-content: center;
+    min-inline-size: 2.75rem;
 
     &[aria-current='page'] {
-      background: color('pagination-background-hover', 'btn');
-      border-color: color('pagination-background-hover', 'btn');
-      color: color('pagination-foreground-hover', 'btn');
+      background-color: color('primary-background', 'btn');
+      border-color: color('primary-background', 'btn');
+      color: color('primary-foreground', 'btn');
+    }
+
+    &[aria-disabled='true'] {
+      opacity: 0.45;
       pointer-events: none;
     }
 
-    &[disabled] {
-      pointer-events: none;
-    }
-
-    &--sm {
-      min-inline-size: 1.75rem;
+    svg {
+      block-size: 1em;
+      inline-size: 1em;
     }
   }
+
+  &__ellipsis {
+    color: color('muted');
+    padding-inline: spacer('xxs');
+  }
+
+  // On phones, the previous and next links show only their arrows.
+  &__direction-text {
+    @include breakpoint-down('sm') {
+      @include visually-hidden;
+    }
+  }
+
+  &--sm &__page-number {
+    font-size: config('font-size', $btn-sm);
+    min-inline-size: 2.25rem;
+    padding: config('padding', $btn-sm);
+  }
+}
+
+[dir='rtl'] .pagination__direction svg {
+  scale: -1 1;
 }

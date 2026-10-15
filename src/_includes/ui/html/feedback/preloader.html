@@ -1,6 +1,21 @@
-<span class="preloader--circle"></span>
-<span class="preloader--bars">
-    <span></span>
-    <span></span>
-    <span></span>
-</span>
+<div class="preloader-demo">
+    <span class="preloader preloader--circle" role="status">
+        <span class="sr-only">Loading</span>
+    </span>
+
+    <span class="preloader preloader--bars" role="status">
+        <span class="sr-only">Loading</span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+    </span>
+
+    <span class="preloader preloader--circle preloader--lg" style="--color: var(--spruce-base-color-primary, hsl(262deg 71% 49%));" role="status">
+        <span class="sr-only">Loading the report</span>
+    </span>
+
+    <button class="btn btn--primary" type="button" aria-disabled="true">
+        <span class="preloader preloader--circle preloader--sm" aria-hidden="true"></span>
+        Saving…
+    </button>
+</div>

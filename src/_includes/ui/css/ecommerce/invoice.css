@@ -4,7 +4,7 @@
 }
 .invoice {
   background-color: var(--spruce-base-color-background);
-  border-radius: 0.925rem;
+  border-radius: var(--spruce-border-radius-lg);
   box-shadow: 0 0 2.5rem hsla(0, 0%, 0%, 0.025);
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@
     box-shadow: none;
     inline-size: 21cm;
     padding: 1.25cm;
-    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 }
 .invoice__header {
@@ -37,33 +37,38 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  line-height: 1;
   margin-block: 0;
 }
 .invoice__serial-number {
   background-color: var(--spruce-base-color-secondary);
-  border-radius: 0.425rem;
+  border-radius: var(--spruce-border-radius-sm);
   color: hsl(0, 0%, 100%);
-  font-size: 1rem;
+  font-size: var(--spruce-font-size-base);
   padding-block: 0.25rem;
   padding-inline: 0.5rem;
   text-align: center;
 }
 .invoice__highlighted {
-  list-style: none;
-  margin: 0;
-  padding: 0;
   background-color: var(--spruce-table-color-stripe);
-  border-radius: 0.425rem;
+  border-radius: var(--spruce-border-radius-sm);
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
+  gap: 0.5rem 3rem;
   justify-content: flex-end;
-  padding-block: 1rem;
-  padding-inline: 1.5rem;
+  margin: 0;
+  padding: 1rem 1.5rem;
 }
-.invoice__highlighted > li + li {
-  margin-block-start: 0;
+.invoice__highlighted div {
+  display: flex;
+  gap: 0.25rem;
+}
+.invoice__highlighted dt::after {
+  content: ":";
+}
+.invoice__highlighted dd {
+  color: var(--spruce-base-color-heading);
+  font-weight: 700;
+  margin: 0;
 }
 .invoice__meta {
   display: flex;
@@ -137,4 +142,26 @@
 }
 .invoice__table .summary-row th {
   text-align: end;
+}
+.invoice__table .summary-row--total {
+  font-size: clamp(1.0625rem, 2vw + 1rem, 1.25rem);
+}
+.invoice__table .summary-row--total th,
+.invoice__table .summary-row--total td {
+  color: var(--spruce-base-color-heading);
+  font-weight: 700;
+}
+.invoice__number {
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+  white-space: nowrap;
+}
+.invoice__actions {
+  display: flex;
+  justify-content: end;
+}
+@media print {
+  .invoice__actions {
+    display: none;
+  }
 }

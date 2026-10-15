@@ -1,0 +1,64 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.description-list {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  container-type: inline-size;
+  overflow: hidden;
+
+  &__header {
+    align-items: flex-start;
+    border-block-end: config('border-width-base', $display) solid color('border');
+    display: flex;
+    gap: spacer('s');
+    justify-content: space-between;
+    padding: spacer('m');
+  }
+
+  &__heading {
+    @include layout-stack('xxs');
+  }
+
+  &__title {
+    font-size: font-size('h5');
+  }
+
+  &__text {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__list {
+    margin: 0;
+  }
+
+  &__row {
+    display: grid;
+    gap: spacer('xxs') spacer('m');
+    padding: spacer('s') spacer('m');
+
+    & + & {
+      border-block-start: config('border-width-base', $display) solid color('border');
+    }
+
+    @include container-query(32rem) {
+      grid-template-columns: 12rem 1fr;
+    }
+
+    dt {
+      color: color('muted');
+      font-size: config('font-size-sm', $typography);
+      font-weight: 600;
+    }
+
+    dd {
+      align-items: center;
+      color: color('heading');
+      display: flex;
+      flex-wrap: wrap;
+      gap: spacer('xs');
+      margin: 0;
+    }
+  }
+}

@@ -2,30 +2,35 @@
 
 .l-timeline {
   --size: 1.25em;
+  --line-size: 0.15em;
   --offset: calc(#{config('line-height-base', $typography, false) + 0em} / 6);
-  position: relative;
+  @include clear-list;
   @include layout-stack('l');
+  position: relative;
 
+  // The line connects the markers; logical insets keep it at the start in RTL.
   &::before {
-    --inline-size: 0.15em;
     background-color: color('border');
     content: '';
-    inline-size: var(--inline-size);
-    inset: var(--offset) auto var(--offset) calc(var(--size) / 2 - var(--inline-size) / 2);
+    inline-size: var(--line-size);
+    inset-block: var(--offset);
+    inset-inline-start: calc(var(--size) / 2 - var(--line-size) / 2);
     position: absolute;
-    z-index: -1;
   }
 
   &__item {
     display: flex;
     gap: spacer('s');
+    position: relative;
 
     &::before {
       background-color: color('primary');
       block-size: var(--size);
-      border-radius: config('border-radius-sm', $display);
+      border: 0.25em solid color('background');
+      border-radius: 50%;
+      box-shadow: 0 0 0 var(--line-size) color('primary');
+      box-sizing: border-box;
       content: '';
-      display: flex;
       flex-shrink: 0;
       inline-size: var(--size);
       margin-block-start: var(--offset);
@@ -33,12 +38,16 @@
   }
 
   &__content {
-    @include layout-stack('s');
+    @include layout-stack('xxs');
+  }
 
-    strong {
-      color: color('heading');
-    }
+  &__date {
+    color: color('primary');
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+  }
+
+  &__title {
+    font-size: font-size('h4');
   }
 }
-
-

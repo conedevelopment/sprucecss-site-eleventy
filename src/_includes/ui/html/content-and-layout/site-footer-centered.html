@@ -1,0 +1,22 @@
+<footer class="site-footer-centered">
+    <div class="container">
+        <div class="site-footer-centered__inner">
+            <a class="site-footer-centered__logo" href="#">
+                <img src="/img/cone-logo.svg" alt="" width="40" height="40">
+                <span>Cone</span>
+            </a>
+            <nav aria-label="Footer">
+                <ul class="site-footer-centered__links" role="list">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Work</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            {% set socialClass = "site-footer-centered__social" %}{% include "../content-and-layout/social-links.html" %}
+            <p class="site-footer-centered__copyright">© {{ helper.currentYear() }} Cone. Made with care in Budapest. <a href="#">Privacy</a> · <a href="#">Imprint</a></p>
+        </div>
+    </div>
+</footer>

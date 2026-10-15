@@ -1,28 +1,7 @@
 @use 'sprucecss/scss/spruce' as *;
 
-@include generate-color-variables(
-  $dark-colors,
-  ':root[data-theme-mode="dark"]'
-);
-
-[data-theme-mode='dark'] {
-  color-scheme: dark;
-
-  /* stylelint-disable-next-line selector-no-qualifying-type */
-  select.form-control:not([multiple]):not([size]) {
-    @include field-icon(
-      config('select', $form-icon, false),
-      color('select-foreground', 'form', true, $dark-colors),
-    );
-  }
-
-  .combobox__control {
-    @include field-icon(
-      config('select', $form-icon, false),
-      color('select-foreground', 'form', true, $dark-colors),
-    );
-  }
-
+// The dark color variables, the color scheme and the form icons come from the `dark-mode` generator.
+@include dark-mode {
   .cta {
     border-block-start: 1px solid color('border');
   }

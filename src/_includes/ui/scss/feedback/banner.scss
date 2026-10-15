@@ -1,0 +1,42 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.banner {
+  align-items: center;
+  background-color: color-tint('primary', 90%);
+  border: config('border-width-base', $display) solid color-alpha('primary', 0.25);
+  border-radius: radius('md');
+  color: color('heading');
+  display: flex;
+  gap: spacer('s');
+  justify-content: space-between;
+  padding: spacer('xs') spacer('xs') spacer('xs') spacer('m');
+
+  &__message {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs');
+    line-height: config('line-height-md', $typography);
+    margin: 0;
+  }
+
+  &__label {
+    background-color: color('primary');
+    border-radius: radius('pill');
+    color: color('primary-foreground', 'btn');
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+    padding: 0 spacer('xs');
+  }
+
+  a {
+    color: color('heading');
+    font-weight: 700;
+  }
+}
+
+@include dark-mode {
+  .banner {
+    background-color: color-alpha('primary', 0.15);
+  }
+}

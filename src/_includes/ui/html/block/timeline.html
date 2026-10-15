@@ -1,0 +1,31 @@
+{#- Override with `timelineBlock` ({ heading, items: [{ date, title, text }] }). -#}
+{%- set _s = timelineBlock or {
+    "heading": { "eyebrow": "Our story", "title": "From a side project to a framework", "id": "timeline-title" },
+    "items": [
+        { "date": "2021", "title": "The first commit", "text": "Spruce starts as the CSS we kept copying from project to project." },
+        { "date": "2022", "title": "Version 1.0", "text": "The framework, the documentation and the first components are public." },
+        { "date": "2023", "title": "Spruce UI", "text": "A growing library of accessible, copy-paste components." },
+        { "date": "2024", "title": "Version 2", "text": "CSS custom property mode, dark mode and logical properties everywhere." },
+        { "date": "2026", "title": "Version 3", "text": "Design styles, blocks, pages and AI skills." }
+    ]
+} %}
+<section class="timeline-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="timeline-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            <ol class="timeline-block__list" role="list">
+                {%- for item in _s.items %}
+                <li class="timeline-block__item">
+                    <span class="timeline-block__marker" aria-hidden="true"></span>
+                    <div class="timeline-block__card">
+                        <p class="timeline-block__date">{{ item.date }}</p>
+                        <h3 class="timeline-block__title">{{ item.title }}</h3>
+                        <p class="timeline-block__text">{{ item.text }}</p>
+                    </div>
+                </li>
+                {%- endfor %}
+            </ol>
+        </div>
+    </div>
+</section>

@@ -13,7 +13,7 @@
     "selector-no-qualifying-type": [
       true,
       {
-        "ignore": ["attribute"]
+        "ignore": ["attribute", "class"]
       }
     ],
     "value-no-vendor-prefix": [

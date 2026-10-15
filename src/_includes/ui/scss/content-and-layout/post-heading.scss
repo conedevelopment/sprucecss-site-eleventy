@@ -4,8 +4,7 @@
   text-align: center;
 
   &__inner {
-    display: grid;
-    gap: spacer('s');
+    @include layout-stack('m');
   }
 
   &__title {
@@ -14,16 +13,26 @@
     text-wrap: balance;
   }
 
+  &__lead {
+    color: color('muted');
+    font-size: config('font-size-lead', $typography);
+    margin-inline: auto;
+    max-inline-size: 40rem;
+    text-wrap: pretty;
+  }
+
   &__meta {
     align-items: center;
+    color: color('muted');
     display: flex;
     flex-wrap: wrap;
+    font-size: config('font-size-sm', $typography);
     gap: spacer('xs:m');
     justify-content: center;
     margin-block-start: spacer-clamp('m', 'l');
   }
 
-  .breadcrumb-list {
+  .breadcrumb {
     justify-self: center;
   }
 }

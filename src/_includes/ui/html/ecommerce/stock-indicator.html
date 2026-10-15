@@ -1,0 +1,25 @@
+<section class="stock-indicator" aria-label="Availability" data-stock-indicator>
+    <fieldset class="stock-indicator__sizes">
+        <legend class="stock-indicator__legend">Size</legend>
+        <label class="stock-indicator__size"><input type="radio" name="stock-size" value="S" data-stock="14"><span>S</span></label>
+        <label class="stock-indicator__size"><input type="radio" name="stock-size" value="M" data-stock="3" checked><span>M</span></label>
+        <label class="stock-indicator__size"><input type="radio" name="stock-size" value="L" data-stock="0"><span>L</span></label>
+        <label class="stock-indicator__size"><input type="radio" name="stock-size" value="XL" data-stock="8"><span>XL</span></label>
+    </fieldset>
+    <div class="stock-indicator__status stock-indicator__status--low" aria-live="polite" data-stock-status>
+        <span class="stock-indicator__level" aria-hidden="true"><span></span><span></span><span></span></span>
+        <p><strong data-stock-text>Only 3 left</strong> <span data-stock-detail>Order soon. Ships tomorrow.</span></p>
+    </div>
+    <form class="stock-indicator__notify" action="#" method="post" hidden data-stock-notify>
+        <label class="form-label" for="stock-notify-email">Get an email when it’s back</label>
+        <div class="stock-indicator__notify-row">
+            <input class="form-control" id="stock-notify-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+            <button class="btn btn--secondary" type="submit">Notify me</button>
+        </div>
+    </form>
+    <ul class="stock-indicator__stores" role="list" aria-label="Pick up in a store">
+        <li><span class="stock-indicator__dot stock-indicator__dot--in" aria-hidden="true"></span><span><strong>Portland, Pearl District</strong> Available today</span></li>
+        <li><span class="stock-indicator__dot stock-indicator__dot--low" aria-hidden="true"></span><span><strong>Seattle, Capitol Hill</strong> Limited stock</span></li>
+        <li><span class="stock-indicator__dot stock-indicator__dot--out" aria-hidden="true"></span><span><strong>San Francisco, Mission</strong> Not available</span></li>
+    </ul>
+</section>

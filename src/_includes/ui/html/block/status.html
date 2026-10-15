@@ -1,0 +1,33 @@
+{#- Override with `statusBlock` ({ heading, metrics }) — `metrics` is a Metric Grid object. The services come from the Status Monitor component. -#}
+{%- set _s = statusBlock or {
+    "heading": { "eyebrow": "Status", "title": "Current system status", "text": "Live availability of every service, updated every minute.", "id": "status-block-title" },
+    "metrics": {
+        "title": "Reliability",
+        "period": "Last 90 days",
+        "metrics": [
+            { "label": "Uptime", "value": "99.98%", "delta": "0.02 pt", "trend": "up", "good": true, "points": [60, 62, 61, 64, 63, 66, 65, 67, 66, 68, 69, 70] },
+            { "label": "Median response time", "value": "182 ms", "delta": "11%", "trend": "down", "good": true, "points": [70, 68, 66, 67, 62, 60, 58, 56, 57, 52, 50, 48] },
+            { "label": "Incidents", "value": "2", "delta": "1", "trend": "down", "good": true, "points": [50, 50, 70, 50, 50, 50, 60, 50, 50, 50, 50, 50] }
+        ]
+    }
+} %}
+<section class="status-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="status-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            {% include "../dashboard/status-monitor.html" %}
+            {% set metricGrid = _s.metrics %}
+            {% include "../dashboard/metric-grid.html" %}
+            <form class="status-block__subscribe" action="#" method="post" aria-labelledby="status-subscribe-title">
+                <div class="status-block__subscribe-text">
+                    <h3 class="status-block__subscribe-title" id="status-subscribe-title">Get notified about incidents</h3>
+                    <p>We email you when an incident starts and when it’s resolved. Or follow the <a href="#">RSS feed</a>.</p>
+                </div>
+                <label class="sr-only" for="status-subscribe-email">Email address</label>
+                <input class="form-control" id="status-subscribe-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                <button class="btn btn--primary" type="submit">Subscribe</button>
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,48 +1,75 @@
-.modal-backdrop {
-  align-items: start;
-  background-color: var(--spruce-modal-color-background);
-  display: flex;
-  inset: 0;
-  justify-content: center;
-  overflow-y: auto;
-  position: fixed;
-  z-index: 25;
-}
-
 .modal {
-  --spruce-inline-size: 34rem;
-  background-color: var(--spruce-base-color-background);
-  border: 1px solid var(--spruce-base-color-border);
-  border-radius: var(--spruce-border-radius-sm);
-  box-shadow: 0 0 0.25rem hsla(201.15, 72.03%, 32.71%, 0.05);
-  inline-size: var(--spruce-inline-size);
-  margin: 1.5rem;
-  max-inline-size: 100%;
-  outline: 0;
-  position: relative;
+  --inline-size: 34rem;
+  background-color: var(--spruce-base-color-surface);
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  border-radius: var(--spruce-border-radius-lg);
+  box-shadow: var(--spruce-shadow-xl);
+  color: var(--spruce-base-color-text);
+  inline-size: var(--inline-size);
+  max-block-size: calc(100dvb - 3rem);
+  max-inline-size: calc(100vi - 1.5rem);
+  overflow-y: auto;
+  padding: 0;
+}
+.modal::backdrop {
+  backdrop-filter: blur(4px);
+  background-color: hsla(220, 40%, 8%, 0.5);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .modal {
+    opacity: 0;
+    scale: 0.96;
+    transition: opacity 0.2s, scale 0.2s, overlay 0.2s allow-discrete, display 0.2s allow-discrete;
+  }
+  .modal[open] {
+    opacity: 1;
+    scale: 1;
+  }
+  @starting-style {
+    .modal[open] {
+      opacity: 0;
+      scale: 0.96;
+    }
+  }
+  .modal::backdrop {
+    opacity: 0;
+    transition: opacity 0.2s, overlay 0.2s allow-discrete, display 0.2s allow-discrete;
+  }
+  .modal[open]::backdrop {
+    opacity: 1;
+  }
+  @starting-style {
+    .modal[open]::backdrop {
+      opacity: 0;
+    }
+  }
+}
+.modal--lg {
+  --inline-size: 48rem;
 }
 .modal__header {
-  align-items: center;
+  align-items: start;
   display: flex;
-  flex-wrap: wrap;
   gap: 1rem;
   justify-content: space-between;
-  padding: 1rem clamp(1rem, 5vw, 1.5rem) 0;
+  padding: clamp(1rem, 5vw, 1.5rem) clamp(1rem, 5vw, 1.5rem) 0;
 }
 .modal__header-caption > * {
   margin-block-end: 0;
   margin-block-start: 0;
 }
 .modal__header-caption > * + * {
-  margin-block-start: 0;
+  margin-block-start: 0.25rem;
 }
 .modal__title {
   font-size: clamp(1.328125rem, 2vw + 1rem, 1.5625rem);
-  font-weight: 600;
   margin-block: 0;
 }
-.modal__body {
-  padding: clamp(1rem, 5vw, 1.5rem);
+.modal__subtitle {
+  color: var(--spruce-base-color-muted);
+}
+.modal__close {
+  flex-shrink: 0;
 }
 .modal__body > * {
   margin-block-end: 0;
@@ -51,10 +78,15 @@
 .modal__body > * + * {
   margin-block-start: 1rem;
 }
+.modal__body {
+  padding: clamp(1rem, 5vw, 1.5rem);
+}
 .modal__footer {
   align-items: center;
-  border-block-start: 1px solid var(--spruce-base-color-border);
+  background-color: color-mix(in srgb, var(--spruce-base-color-primary) 3%, transparent);
+  border-block-start: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   justify-content: end;
   padding: 1rem clamp(1rem, 5vw, 1.5rem);
@@ -62,7 +94,7 @@
 .modal__footer--space-between {
   justify-content: space-between;
 }
-.modal__footer input {
-  flex-grow: 1;
-  max-inline-size: 25rem;
+
+html:has(.modal[open]) {
+  overflow: hidden;
 }

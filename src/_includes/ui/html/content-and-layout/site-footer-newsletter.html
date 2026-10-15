@@ -1,0 +1,52 @@
+<footer class="site-footer-newsletter">
+    <div class="container">
+        <div class="site-footer-newsletter__signup">
+            <div class="site-footer-newsletter__intro">
+                <h2 class="site-footer-newsletter__heading" id="footer-newsletter-title">Get the monthly digest</h2>
+                <p>New components, design tips and release notes. No spam, unsubscribe anytime.</p>
+            </div>
+            <form class="site-footer-newsletter__form" action="#" method="post" aria-labelledby="footer-newsletter-title">
+                <label class="sr-only" for="footer-newsletter-email">Email address</label>
+                <input class="form-control" id="footer-newsletter-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                <button class="btn btn--primary" type="submit">Subscribe</button>
+                <label class="form-check site-footer-newsletter__consent" for="footer-newsletter-consent">
+                    <input class="form-check__control" id="footer-newsletter-consent" name="consent" type="checkbox" required>
+                    <span class="form-label form-check__label">I agree to receive the newsletter and accept the <a href="#">privacy policy</a>. Unsubscribe anytime.</span>
+                </label>
+            </form>
+        </div>
+        <nav class="site-footer-newsletter__columns" aria-label="Footer">
+            <div class="site-footer-newsletter__brand">
+                <a class="site-footer-newsletter__logo" href="#">
+                    <img src="/img/cone-logo.svg" alt="" width="40" height="40">
+                    <span>Cone</span>
+                </a>
+                <p>Fast, accessible websites and products with Laravel and WordPress.</p>
+            </div>
+            {%- set _columns = [
+                { "title": "Product", "links": ["Features", "Pricing", "Changelog", "Roadmap"] },
+                { "title": "Resources", "links": ["Documentation", "Guides", "Components", "Support"] },
+                { "title": "Company", "links": ["About", "Careers", "Blog", "Contact"] }
+            ] %}
+            {%- for column in _columns %}
+            <div class="site-footer-newsletter__column">
+                <h2 class="site-footer-newsletter__title" id="footer-newsletter-column-{{ loop.index }}">{{ column.title }}</h2>
+                <ul class="site-footer-newsletter__links" aria-labelledby="footer-newsletter-column-{{ loop.index }}">
+                    {%- for link in column.links %}
+                    <li><a href="#">{{ link }}</a></li>
+                    {%- endfor %}
+                </ul>
+            </div>
+            {%- endfor %}
+        </nav>
+        <div class="site-footer-newsletter__bottom">
+            <p class="site-footer-newsletter__copyright">© {{ helper.currentYear() }} Cone. All rights reserved.</p>
+            <ul class="site-footer-newsletter__legal" role="list">
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Cookies</a></li>
+            </ul>
+            {% set socialClass = "site-footer-newsletter__social" %}{% include "../content-and-layout/social-links.html" %}
+        </div>
+    </div>
+</footer>

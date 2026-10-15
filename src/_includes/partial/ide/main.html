@@ -1,4 +1,12 @@
 {% highlight "scss" %}
-@forward 'config';
-@forward 'component';
+// 1. Configure Spruce once, before anything else uses it.
+@use 'config/config';
+
+// 2. The base: normalize, typography, forms, dark mode and style presets.
+@use 'config/fonts';
+@use 'config/styles';
+
+// 3. Your own code, written with Spruce's tokens.
+@use 'component';
+@use 'block';
 {% endhighlight %}

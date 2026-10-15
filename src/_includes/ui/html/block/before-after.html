@@ -1,0 +1,35 @@
+{#- Override with `beforeAfterBlock` ({ heading, items: [{ icon, title, text }], action }). The images come from the Image Compare component. -#}
+{%- set _s = beforeAfterBlock or {
+    "heading": { "eyebrow": "Auto color", "title": "From flat to finished in one click", "text": "The color engine reads the light of every photo and grades it like a pro would.", "id": "before-after-title", "align": "start" },
+    "items": [
+        { "icon": "sparkles", "title": "Smart color grading", "text": "Natural skin tones and skies, without the oversaturated look." },
+        { "icon": "layers", "title": "Non-destructive", "text": "Every edit is a layer: compare, tweak or undo it anytime." },
+        { "icon": "zap", "title": "Batch in seconds", "text": "Apply one look to a whole shoot of 500 photos at once." }
+    ],
+    "action": "Try it on your photos"
+} %}
+<section class="before-after-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="before-after-block__inner">
+            <div class="before-after-block__content">
+                {% set heading = _s.heading %}
+                {% include "../content-and-layout/block-heading.html" %}
+                <ul class="before-after-block__list" role="list">
+                    {%- for item in _s.items %}
+                    <li class="before-after-block__item">
+                        <span class="before-after-block__icon" aria-hidden="true">{% set iconName = item.icon %}{% include "../block/icon.html" %}</span>
+                        <div class="before-after-block__body">
+                            <h3 class="before-after-block__title">{{ item.title }}</h3>
+                            <p class="before-after-block__text">{{ item.text }}</p>
+                        </div>
+                    </li>
+                    {%- endfor %}
+                </ul>
+                <a class="btn btn--primary btn--lg" href="#">{{ _s.action }}</a>
+            </div>
+            <div class="before-after-block__compare">
+                {% include "../content-and-layout/image-compare.html" %}
+            </div>
+        </div>
+    </div>
+</section>

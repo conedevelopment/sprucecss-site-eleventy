@@ -1,0 +1,35 @@
+---
+title: 'Image Compare'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium ui--image-compare">
+        {% include "ui/html/content-and-layout/image-compare.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/content-and-layout/image-compare.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/content-and-layout/image-compare.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/content-and-layout/image-compare.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/content-and-layout/image-compare.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/image-compare.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/content-and-layout/image-compare.js"></script>
+{% endblock %}

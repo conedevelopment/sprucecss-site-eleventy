@@ -1,0 +1,27 @@
+---
+title: 'Newsletter'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium ui--newsletter">
+        {% include "ui/html/form/newsletter.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/form/newsletter.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/form/newsletter.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/form/newsletter.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/form/newsletter.css">
+{% endblock %}

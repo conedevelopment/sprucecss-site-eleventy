@@ -1,0 +1,100 @@
+<section class="product-compare" aria-labelledby="product-compare-title" data-product-compare>
+    <header class="product-compare__header">
+        <h2 class="product-compare__title" id="product-compare-title">Compare backpacks</h2>
+        <label class="form-switch" data-compare-differences hidden>
+            <input class="form-switch__control" type="checkbox" role="switch">
+            <span class="form-label form-switch__label">Only show differences</span>
+        </label>
+    </header>
+    <div class="product-compare__scroll" role="region" aria-labelledby="product-compare-title" tabindex="0">
+        <table class="table product-compare__table">
+            <caption class="sr-only">Comparison of 3 backpacks; the products are in the columns</caption>
+            <thead>
+                <tr>
+                    <td class="product-compare__corner"></td>
+                    <th scope="col" class="product-compare__product" data-compare-column>
+                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=240&h=240&q=60" alt="" width="120" height="120" loading="lazy">
+                        <a class="product-compare__name" href="#">Everyday Backpack</a>
+                        <span class="product-compare__price">$89</span>
+                        <a class="btn btn--primary btn--sm" href="#">Add to cart<span class="sr-only">: Everyday Backpack</span></a>
+                        <button class="product-compare__remove" type="button" data-compare-remove hidden>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                            <span class="sr-only">Remove Everyday Backpack from the comparison</span>
+                        </button>
+                    </th>
+                    <th scope="col" class="product-compare__product" data-compare-column>
+                        <img src="https://images.unsplash.com/photo-1577733966973-d680bffd2e80?auto=format&fit=crop&w=240&h=240&q=60" alt="" width="120" height="120" loading="lazy">
+                        <a class="product-compare__name" href="#">Heritage Backpack</a>
+                        <span class="product-compare__price">$189</span>
+                        <a class="btn btn--primary btn--sm" href="#">Add to cart<span class="sr-only">: Heritage Backpack</span></a>
+                        <button class="product-compare__remove" type="button" data-compare-remove hidden>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                            <span class="sr-only">Remove Heritage Backpack from the comparison</span>
+                        </button>
+                    </th>
+                    <th scope="col" class="product-compare__product" data-compare-column>
+                        <img src="https://images.unsplash.com/photo-1585916420730-d7f95e942d43?auto=format&fit=crop&w=240&h=240&q=60" alt="" width="120" height="120" loading="lazy">
+                        <a class="product-compare__name" href="#">Commuter Pack</a>
+                        <span class="product-compare__price">$129</span>
+                        <a class="btn btn--primary btn--sm" href="#">Add to cart<span class="sr-only">: Commuter Pack</span></a>
+                        <button class="product-compare__remove" type="button" data-compare-remove hidden>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                            <span class="sr-only">Remove Commuter Pack from the comparison</span>
+                        </button>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-compare-row>
+                    <th scope="row">Rating</th>
+                    <td>4.7 / 5</td>
+                    <td>4.6 / 5</td>
+                    <td>4.4 / 5</td>
+                </tr>
+                <tr data-compare-row>
+                    <th scope="row">Capacity</th>
+                    <td>22 L</td>
+                    <td>26 L</td>
+                    <td>24 L</td>
+                </tr>
+                <tr data-compare-row>
+                    <th scope="row">Weight</th>
+                    <td>0.9 kg</td>
+                    <td>1.4 kg</td>
+                    <td>1.1 kg</td>
+                </tr>
+                <tr data-compare-row>
+                    <th scope="row">Material</th>
+                    <td>Recycled canvas</td>
+                    <td>Waxed cotton, leather</td>
+                    <td>Coated nylon</td>
+                </tr>
+                <tr data-compare-row>
+                    <th scope="row">Laptop sleeve</th>
+                    <td>16″</td>
+                    <td>16″</td>
+                    <td>16″</td>
+                </tr>
+                <tr data-compare-row>
+                    <th scope="row">Water-resistant</th>
+                    <td><svg class="product-compare__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/></svg><span class="sr-only">No</span></td>
+                    <td><svg class="product-compare__icon product-compare__icon--yes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg><span class="sr-only">Yes</span></td>
+                    <td><svg class="product-compare__icon product-compare__icon--yes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg><span class="sr-only">Yes</span></td>
+                </tr>
+                <tr data-compare-row>
+                    <th scope="row">Lifetime repairs</th>
+                    <td><svg class="product-compare__icon product-compare__icon--yes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg><span class="sr-only">Yes</span></td>
+                    <td><svg class="product-compare__icon product-compare__icon--yes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg><span class="sr-only">Yes</span></td>
+                    <td><svg class="product-compare__icon product-compare__icon--yes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg><span class="sr-only">Yes</span></td>
+                </tr>
+                <tr data-compare-row>
+                    <th scope="row">Warranty</th>
+                    <td>2 years</td>
+                    <td>2 years</td>
+                    <td>5 years</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="sr-only" aria-live="polite" data-compare-live></p>
+</section>

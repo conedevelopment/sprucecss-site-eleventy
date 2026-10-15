@@ -1,0 +1,63 @@
+{#- Override with `contactBlock` ({ heading, methods: [{ icon, label, value, href }], topics, submit }). -#}
+{%- set _s = contactBlock or {
+    "heading": { "eyebrow": "Contact", "title": "Let’s talk about your project", "text": "Tell us what you need, and we’ll get back to you within one business day.", "id": "contact-title", "align": "start" },
+    "methods": [
+        { "icon": "mail", "label": "Email", "value": "hello@example.com", "href": "mailto:hello@example.com" },
+        { "icon": "phone", "label": "Phone", "value": "+1 (555) 010-2030", "href": "tel:+15550102030" },
+        { "icon": "map-pin", "label": "Office", "value": "12 Pine Street, Portland, OR" }
+    ],
+    "topics": ["A new website", "A design system", "Consulting", "Something else"],
+    "submit": "Send message"
+} %}
+<section class="contact-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="contact-block__inner">
+            <div class="contact-block__info">
+                {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+                <ul class="contact-block__methods" role="list">
+                    {%- for method in _s.methods %}
+                    <li>
+                        <span class="contact-block__icon">{% set iconName = method.icon %}{% include "../block/icon.html" %}</span>
+                        <span>
+                            <span class="contact-block__label">{{ method.label }}</span>
+                            {% if method.href %}<a href="{{ method.href }}">{{ method.value }}</a>{% else %}<span>{{ method.value }}</span>{% endif %}
+                        </span>
+                    </li>
+                    {%- endfor %}
+                </ul>
+            </div>
+            <form class="contact-block__form" onsubmit="return false;">
+                <div class="contact-block__row">
+                    <div class="form-group">
+                        <label class="form-label form-label--required" for="contact-name">Name</label>
+                        <input class="form-control" id="contact-name" type="text" autocomplete="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label form-label--required" for="contact-email">Email</label>
+                        <input class="form-control" id="contact-email" type="email" autocomplete="email" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="contact-topic">What can we help with?</label>
+                    <select class="form-control" id="contact-topic">
+                        {%- for topic in _s.topics %}
+                        <option>{{ topic }}</option>
+                        {%- endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label form-label--required" for="contact-message">Message</label>
+                    <textarea class="form-control" id="contact-message" rows="5" required></textarea>
+                </div>
+                <label class="form-check">
+                    <input class="form-check__control" type="checkbox" required>
+                    <span class="form-label form-check__label">I agree to the privacy policy.</span>
+                </label>
+                <div class="form-group">
+                    <button class="btn btn--primary btn--lg" type="submit">{{ _s.submit }}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

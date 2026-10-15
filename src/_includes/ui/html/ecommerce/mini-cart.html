@@ -1,0 +1,64 @@
+<div class="mini-cart" data-mini-cart>
+    <a class="btn btn--outline-secondary mini-cart__toggle" href="#" aria-controls="mini-cart-panel" data-mini-cart-toggle>
+        <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+        Cart
+        <span class="mini-cart__count"><span data-mini-cart-count>4</span><span class="sr-only"> items</span></span>
+    </a>
+    <div class="mini-cart__panel" id="mini-cart-panel" role="region" aria-labelledby="mini-cart-title" tabindex="-1" hidden>
+        <header class="mini-cart__header">
+            <h2 class="mini-cart__title" id="mini-cart-title">Your cart</h2>
+            <button class="btn btn--ghost-secondary btn--icon btn--sm" type="button" data-mini-cart-close>
+                <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                <span class="sr-only">Close the cart</span>
+            </button>
+        </header>
+        <ul class="mini-cart__items" role="list" data-mini-cart-items>
+            <li class="mini-cart__item" data-mini-cart-item data-price="89" data-quantity="1">
+                <img class="mini-cart__thumb" src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=128&h=128&q=60" alt="" width="64" height="64" loading="lazy">
+                <div class="mini-cart__info">
+                    <a class="mini-cart__name" href="#">Everyday Backpack</a>
+                    <span class="mini-cart__meta">Charcoal · 22 L · Qty 1</span>
+                </div>
+                <span class="mini-cart__price">$89.00</span>
+                <button class="mini-cart__remove" type="button" data-mini-cart-remove>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                    <span class="sr-only">Remove Everyday Backpack</span>
+                </button>
+            </li>
+            <li class="mini-cart__item" data-mini-cart-item data-price="42" data-quantity="2">
+                <img class="mini-cart__thumb" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=128&h=128&q=60" alt="" width="64" height="64" loading="lazy">
+                <div class="mini-cart__info">
+                    <a class="mini-cart__name" href="#">Ceramic Pour-Over</a>
+                    <span class="mini-cart__meta">White · Qty 2</span>
+                </div>
+                <span class="mini-cart__price">$84.00</span>
+                <button class="mini-cart__remove" type="button" data-mini-cart-remove>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                    <span class="sr-only">Remove Ceramic Pour-Over</span>
+                </button>
+            </li>
+            <li class="mini-cart__item" data-mini-cart-item data-price="199" data-quantity="1">
+                <img class="mini-cart__thumb" src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=128&h=128&q=60" alt="" width="64" height="64" loading="lazy">
+                <div class="mini-cart__info">
+                    <a class="mini-cart__name" href="#">Wireless Headphones</a>
+                    <span class="mini-cart__meta">Black · Qty 1</span>
+                </div>
+                <span class="mini-cart__price">$199.00</span>
+                <button class="mini-cart__remove" type="button" data-mini-cart-remove>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg>
+                    <span class="sr-only">Remove Wireless Headphones</span>
+                </button>
+            </li>
+        </ul>
+        <p class="mini-cart__empty" data-mini-cart-empty hidden>Your cart is empty.</p>
+        <footer class="mini-cart__footer">
+            <p class="mini-cart__subtotal"><span>Subtotal</span> <strong data-mini-cart-subtotal>$372.00</strong></p>
+            <p class="mini-cart__note">Shipping and taxes are calculated at checkout.</p>
+            <div class="mini-cart__actions">
+                <a class="btn btn--outline-primary" href="#">View cart</a>
+                <a class="btn btn--primary" href="#" data-mini-cart-checkout>Checkout</a>
+            </div>
+        </footer>
+        <p class="sr-only" aria-live="polite" data-mini-cart-live></p>
+    </div>
+</div>

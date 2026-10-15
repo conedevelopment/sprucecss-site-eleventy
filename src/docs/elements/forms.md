@@ -1,13 +1,14 @@
 ---
 title: "Forms"
 description: "Spruce CSS comes with overall form support for styling the different native elements."
-order: 22
+order: 24
 github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/elements/forms.md"
 ---
 
 <p class="lead">Spruce CSS comes with overall form support for styling the different native elements. Also, it has some form layout helpers.</p>
 
 We differentiate the following groups for styling:
+
 - the `form-control` class is used for input (not radio, checkbox, range, or file), textarea, select elements,
 - the `form-check` is used for radio and checkbox,
 - the `form-switch` is used for switch-styled checkboxes,
@@ -22,7 +23,7 @@ Wrap the label and the input into `form-group` elements to control the two’s m
 
 You can set two additional sizes with `form-control--sm` and `form-control--lg` modifier class.
 
-[Form-control related variables.](/docs/sass/variables#control)
+[Form-control related variables.](/docs/sass/variables/#form-control)
 
 {% preview %}
 <div class="form-group">
@@ -70,7 +71,7 @@ Use the `form-file` class on an `input[type="file"]` to natively style the file 
 - The styling is the same as the `.btn`.
 - The focus state differs from the button because we can’t set box-shadow (it will be cut down).
 
-[Form-file related variables.](/docs/sass/variables#file)
+[Form-file related variables.](/docs/sass/variables/#form-file)
 
 {% preview %}
 <fieldset>
@@ -112,15 +113,23 @@ Use the `form-file` class on an `input[type="file"]` to natively style the file 
 
 Use the `form-range` class on an `input[type="range"]` to natively style the range input.
 
-- You can size the input with `form-range--sm` and `form-range--lg`.
+- You can size the input with `form-range--sm` and `form-range--lg` (fixed in v3: these classes were documented before but missing from the CSS).
 
-[Form-range related variables.](/docs/sass/variables#range)
+[Form-range related variables.](/docs/sass/variables/#form-range)
 
 {% preview %}
 <fieldset>
     <legend>Range</legend>
     <div class="form-group">
-        <label class="form-label" for="rating">Your Rating</label>
+        <label class="form-label" for="rating-sm">Small</label>
+        <input class="form-range form-range--sm" type="range" id="rating-sm" min="-10" max="10"/>
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="rating-md">Regular</label>
+        <input class="form-range" type="range" id="rating-md" min="-10" max="10"/>
+    </div>
+    <div class="form-group">
+        <label class="form-label" for="rating">Large</label>
         <input class="form-range form-range--lg" type="range" id="rating" min="-10" max="10"/>
     </div>
 </fieldset>
@@ -138,7 +147,7 @@ Use the `form-range` class on an `input[type="range"]` to natively style the ran
 
 ## Textarea
 
-Use the `form-control` class on any textarea element to style it. To set the global height of it use the <code><a href="/docs/sass/variables#control">config('textarea-block-size', $form-control)</a></code> variable.
+Use the `form-control` class on any textarea element to style it. To set its global height, use the <code><a href="/docs/sass/variables/#form-control">config('textarea-block-size', $form-control)</a></code> variable.
 
 {% preview %}
 <div class="form-group">
@@ -158,7 +167,7 @@ Use the `form-control` class on any textarea element to style it. To set the glo
 
 Use the `form-control` class on any select element to style it. Use the `multiple` attributes for multiple option selection.
 
-[Select related variables.](/docs/sass/variables#select)
+[Select related variables.](/docs/sass/variables/#form-select)
 
 {% preview %}
 <div class="form-group">
@@ -211,7 +220,7 @@ For styling radio elements, use the `form-check` class on the label element and 
 
 You can set two additional sizes with `form-check--sm` and `form-check--lg` modifier class.
 
-[Check related variables.](/docs/sass/variables#check)
+[Check related variables.](/docs/sass/variables/#form-check)
 
 {% preview %}
 <fieldset>
@@ -311,7 +320,7 @@ You can set two additional sizes with `form-check--sm` and `form-check--lg` modi
 
 ## Checkbox
 
-Use the `form-check` class on the label element for styling checkbox elements and place the input (with the `form-check__control` class) and span (with the `form-check__label` class) inside it.  You can also display an indeterminate state programmatically.
+Use the `form-check` class on the label element for styling checkbox elements and place the input (with the `form-check__control` class) and span (with the `form-check__label` class) inside it. You can also display an indeterminate state by setting the `indeterminate` property with JavaScript.
 
 {% preview %}
 <fieldset>
@@ -339,7 +348,7 @@ Use the `form-check` class on the label element for styling checkbox elements an
 
 ```html
 <fieldset>
-    <legend>Which one of you like?</legend>
+    <legend>Which ones do you like?</legend>
     <div class="form-group form-group--vertical-check">
         <label class="form-check">
             <input class="form-check__control" type="checkbox" value="own" name="property-ownership2"/>
@@ -360,7 +369,7 @@ Use the `form-check` class on the label element for styling checkbox elements an
     </div>
 </fieldset>
 ```
-Using the`config('vertical-alignment', $form-control)` variable, you can control the checkbox and radio input's vertical alignment. Also, with the additional `.form-check--vertical-start` and `.form-check--vertical--center` you can do it individually.
+Using the `config('vertical-alignment', $form-check)` variable, you can control the vertical alignment of the checkbox and radio inputs. With the `.form-check--vertical-start` and `.form-check--vertical-center` modifiers, you can do it individually.
 
 {% preview %}
 <fieldset>
@@ -400,7 +409,9 @@ The switch is a styled checkbox. Use the `form-switch` class to display it.
 
 You can set two additional sizes with `form-switch--sm` and `form-switch--lg` modifier class.
 
-[Switch related variables.](/docs/sass/variables#switch)
+[Switch related variables.](/docs/sass/variables/#form-switch)
+
+Use `role="switch"` on the input so screen readers announce it as a switch (on/off) instead of a checkbox.
 
 {% preview %}
 <div class="form-group form-group--vertical-check">
@@ -484,6 +495,40 @@ You can use `fieldset` and `legend` elements to group more fields and set a vert
 </fieldset>
 ```
 
+## Required Fields
+
+**New in v3.** Add the `form-label--required` modifier to the label to show a required marker (`*` by default, in the `required` form color). Keep the `required` attribute on the input: the marker is visual only.
+
+{% preview %}
+<div class="form-group">
+    <label class="form-label form-label--required" for="required-email">Email</label>
+    <input class="form-control" id="required-email" type="email" required/>
+</div>
+{% endpreview %}
+
+```html
+<div class="form-group">
+    <label class="form-label form-label--required" for="required-email">Email</label>
+    <input class="form-control" id="required-email" type="email" required/>
+</div>
+```
+
+Change the marker with the `required-content` and `required-gap` keys of the `$form-label` map, for example `'required-content': '(required)'`.
+
+## Read-Only Fields
+
+**New in v3.** Read-only controls (`readonly` attribute) can have their own background with the `background-readonly` form color (`null`, so the same as the regular background, by default).
+
+```scss
+@use 'sprucecss/scss/spruce' with (
+  $colors: (
+    'form': (
+      'background-readonly': hsl(210deg 40% 97%),
+    ),
+  ),
+);
+```
+
 ## Description
 
 Use the `form-description` class to create a description text under an input element.
@@ -554,7 +599,7 @@ Form-group is the generic container class for form elements. Besides the basic i
 - `form-group`: to group a label and an input element.
 - `form-group--vertical-check`: to stack the radio, checkbox, and switches vertically.
 - `form-group--horizontal-check`: to stack the radio, checkbox, and switches horizontally.
-- `form-group--row`: to align the label to the left side of the group. This layout using `@container` so you also need a wrapper with the `form-group-container` class like in the example.
+- `form-group--row`: to align the label to the left side of the group. This layout uses `@container`, so you also need a wrapper with the `form-group-container` class, like in the example.
 - `form-group--stacked`: to stack the inputs beside each other.
 
 {% preview %}
@@ -563,7 +608,7 @@ Form-group is the generic container class for form elements. Besides the basic i
     <div class="form-group--row">
         <label class="form-label" for="first-name-row">First Name</label>
         <input class="form-control" id="first-name-row" type="text"/>
-        <span class="form-description">Just a help text for presentation purpose</span>
+        <span class="form-description">Just a help text for presentation purposes</span>
     </div>
     <div class="form-group--row">
         <label class="form-label" for="front-end-frameworks-row">Front-end Frameworks</label>
@@ -583,7 +628,7 @@ Form-group is the generic container class for form elements. Besides the basic i
     <div class="form-group--row">
         <label class="form-label" for="first-name-row">First Name</label>
         <input class="form-control" id="first-name-row" type="text"/>
-        <span class="form-description">Just a help text for presentation purpose</span>
+        <span class="form-description">Just a help text for presentation purposes</span>
     </div>
     <div class="form-group--row">
         <label class="form-label" for="front-end-frameworks-row">Front-end Frameworks</label>
@@ -690,3 +735,7 @@ You can create a row stack using `form-row--mixed` class. It uses flexbox and au
     </div>
 </div>
 ```
+
+## More Form Patterns
+
+Looking for more? Spruce UI has ready-made form components built on these styles: [password field](/ui/form/password-field/), [OTP input](/ui/form/otp-input/), [tag input](/ui/form/tag-input/), [rating](/ui/form/rating/), [segmented control](/ui/form/segmented-control/), [combobox](/ui/form/combobox/) and more.

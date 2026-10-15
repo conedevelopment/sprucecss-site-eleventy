@@ -1,142 +1,146 @@
 ---
-title: "Themes"
-description: "Create dark - or any additional - theme easily with Spruce CSS and custom CSS properties."
-order: 13
+title: "Themes and Dark Mode"
+description: "Spruce CSS comes with a built-in, opt-in dark mode and makes any color theme easy through CSS custom properties."
+order: 14
 github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/src/docs/customization/themes.md"
 ---
 
-<p class="lead">Spruce uses CSS custom properties to handle the theming. It means that you can easily overwrite the colors if needed (like in a case of a dark theme mode).</p>
+<p class="lead">Spruce CSS outputs every color as a CSS custom property, so a theme is just a new set of values for them. Version 3 ships a complete, opt-in dark mode that you can switch on with one line.</p>
 
-## Detect Dark Mode
+Themes (color modes) and [styles](/docs/customization/styles/) are independent: a theme changes the colors, a style changes the whole look. They work together; every style has a dark palette too.
 
-Achieving a dark or any color mode can be different project by project. Spruce CSS gives you the structure to handle themes, but it’s on you to manage end detect them.
+## Turn On the Dark Mode
 
-Our method usually adds a `data-theme-mode` attribute on the HTML element and does the styling based on its value. We detect the `prefers-color-scheme` and/or the user settings, then add the dark value if needed.
+Enable the `dark-mode` generator. It needs no other configuration:
+
+```scss
+@use 'sprucecss/scss/spruce' with (
+  $generators: (
+    'content': (
+      'dark-mode': true,
+    ),
+  ),
+);
+```
+
+The generator outputs:
+
+- the dark color custom properties under the dark mode selector (`:root[data-theme-mode="dark"]` by default);
+- `color-scheme: dark`, so the scrollbars and native controls follow;
+- the regenerated SVG icons of the select, checkbox, radio, switch and validation states, because data URI images can't use custom properties.
+
+Then set the attribute on the `<html>` element:
 
 ```html
 <html lang="en" data-theme-mode="dark">
 ```
 
-## Set Up the Dark Colors
+## Customize the Dark Colors
 
-Setting up any theme mode is simple but can be tricky and complicated because of the many values (from the `$colors` map). For redeclaring dark mode, we have a predefined empty `$dark-colors` map which you can use when importing Spruce (but you can use any object you like).
-
-First, declare the new colors, and keep in mind you have to use the same key names because we will overwrite them.
-
-The following values are the ones that we use for this site’s dark mode.
+The dark mode uses the built-in `$default-dark-colors` palette. Your `$dark-colors` map is deep-merged into it, so you only set what you want to change:
 
 ```scss
-@use 'sass:color';
-
-$color-black: hsl(206deg 100% 7%);
-$color-danger: hsl(0deg 71% 51%);
-$color-gray: hsl(0deg 0% 97%);
-$color-gray-dark: hsl(0deg 0% 100% / 8%);
-$color-primary: hsl(261deg 54% 70%);
-$color-secondary: hsl(227deg 92% 55%);
-$color-success: hsl(150deg 100% 33%);
-$color-white: hsl(0deg 0% 95%);
-
-$colors: (
-  'base': (
-    'background': $color-black,
-    'blockquote-border': $color-primary,
-    'border': $color-gray-dark,
-    'code-background': hsl(207deg 64% 18%),
-    'code-foreground': $color-white,
-    'heading': $color-white,
-    'link': $color-primary,
-    'link-hover': color.scale($color-primary, $lightness: 20%),
-    'mark-background': hsl(50deg 100% 80%),
-    'mark-foreground': $color-black,
-    'marker': $color-primary,
-    'primary': $color-primary,
-    'secondary': $color-secondary,
-    'text': $color-gray,
+@use 'sprucecss/scss/spruce' with (
+  $dark-colors: (
+    'base': (
+      'background': hsl(222deg 47% 8%),
+      'primary': hsl(199deg 89% 60%),
+    ),
+    'btn': (
+      'primary-background': hsl(199deg 89% 48%),
+      'primary-background-hover': hsl(199deg 89% 55%),
+    ),
   ),
-  'btn': (
-    'primary-background': hsl(261deg 52% 59%),
-    'primary-background-hover': hsl(261deg 52% 65%),
-    'primary-foreground': $color-white,
-    'primary-shadow': color.adjust($color-primary, $lightness: -25%),
-    'secondary-background': $color-secondary,
-    'secondary-background-hover': color.adjust($color-secondary, $lightness: 5%),
-    'secondary-foreground': $color-white,
-    'secondary-shadow': color.adjust($color-secondary, $lightness: -20%),
-  ),
-  'form': (
-    'background': color.scale($color-black, $lightness: 5%),
-    'background-disabled': $color-black,
-    'border': $color-gray-dark,
-    'border-disabled': $color-gray-dark,
-    'border-focus': $color-primary,
-    'check-background': $color-primary,
-    'check-focus-ring': $color-primary,
-    'check-foreground': $color-black,
-    'group-label-background': color.scale($color-black, $lightness: 2.5%),
-    'group-label-foreground': $color-gray,
-    'invalid': $color-danger,
-    'invalid-focus-ring': color.adjust($color-danger, $alpha: -0.75),
-    'label': $color-white,
-    'legend': $color-white,
-    'placeholder': hsl(0deg 0% 60%),
-    'range-thumb-background': $color-primary,
-    'range-thumb-focus-ring': $color-primary,
-    'range-track-background': hsl(206deg 100% 20%),
-    'ring-focus': color.adjust($color-primary, $alpha: -0.75),
-    'select-foreground': hsl(0deg 0% 100%),
-    'text': $color-gray,
-    'valid': $color-success,
-    'valid-focus-ring': color.adjust($color-success, $alpha: -0.75),
-  ),
-  'selection': (
-    'background': $color-primary,
-    'foreground': $color-white,
-  ),
-  'scrollbar': (
-    'thumb-background': hsl(0deg 0% 100% / 15%),
-    'thumb-background-hover': hsl(0deg 0% 100% / 25%),
-    'track-background': hsl(0deg 0% 100% / 5%),
-  ),
-  'table': (
-    'border': $color-gray-dark,
-    'caption': $color-gray,
-    'heading': $color-white,
-    'hover': hsl(0deg 0% 100% / 5%),
-    'text': $color-gray,
-    'stripe': hsl(0deg 0% 100% / 2.5%),
+  $generators: (
+    'content': ('dark-mode': true),
   ),
 );
 ```
 
-## Generate the Variables
+You can also change the base colors of the default palette with the `$dark-color-background`, `$dark-color-border`, `$dark-color-heading`, `$dark-color-primary`, `$dark-color-secondary` and `$dark-color-text` variables. The full palette is in the [color config on GitHub](https://github.com/conedevelopment/sprucecss/blob/main/scss/config/_color.scss).
 
-Use the `generate-color-variables` to generate the color variables under a specified selector.
+## Follow the System Preference
+
+With the `prefers-color-scheme` option, the dark mode applies automatically when the operating system is dark, unless the user explicitly picked the light mode (`data-theme-mode="light"`):
+
+```scss
+@use 'sprucecss/scss/spruce' with (
+  $settings: (
+    'dark-mode': (
+      'prefers-color-scheme': true,
+    ),
+  ),
+  $generators: (
+    'content': ('dark-mode': true),
+  ),
+);
+```
+
+| Setting | Default | Description |
+|---|---|---|
+| `selector` | `':root[data-theme-mode="dark"]'` | The selector of the dark mode. Use a class (like `'.dark'`) if your stack prefers it. |
+| `light-selector` | `'[data-theme-mode="light"]'` | The explicit light mode, which opts out of `prefers-color-scheme`. |
+| `prefers-color-scheme` | `false` | Also apply the dark mode with `@media (prefers-color-scheme: dark)`. |
+
+## Detect and Switch the Mode
+
+Spruce gives you the styles; detecting and storing the user's choice is up to your project. A minimal, flash-free setup runs in the `<head>`:
+
+```html
+<script>
+  const preferred = localStorage.getItem('preferred-theme') ?? 'system';
+  const system = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme-mode', preferred === 'system' ? system : preferred);
+</script>
+```
+
+You can grab ready-made switchers from Spruce UI: the [theme switcher button](/ui/misc/theme-switcher-button/) and the [theme switcher select](/ui/misc/theme-switcher-select/).
+
+## Dark Mode in Your Components
+
+Most components need nothing: they use colors through the `color()` function, so the custom properties switch automatically. When you need something specific for dark mode, use the `dark-mode` mixin. It works at the root level and inside a rule:
 
 ```scss
 @use 'sprucecss/scss/spruce' as *;
 
-@include generate-color-variables(
-  $dark-colors,
-  ':root[data-theme-mode="dark"]'
-);
-```
+.hero {
+  background-image: url('hero-light.webp');
 
-## Set Up Other Necessities
+  @include dark-mode {
+    background-image: url('hero-dark.webp');
+  }
+}
 
-Usually, setting up a theme is not just mean overwriting the color variables. We want to do more.
-
-For example, we want to set the `color-scheme` to `dark` to discolor the scrollbars. Also, in the case of Spruce CSS, we may wish to change the select image too.
-
-```scss
-[data-theme-mode="dark"] {
-  color-scheme: dark;
-
-  select.form-control:not([multiple]):not([size]) {
-    @include field-icon(
-      config('select', $form-icon, false),
-      color('select-foreground', 'form', true, $dark-colors)
-    );
+@include dark-mode {
+  .logo--light {
+    display: none;
   }
 }
 ```
+
+It follows your `dark-mode` settings (selector and `prefers-color-scheme`), so you never repeat the selector.
+
+## Any Other Theme
+
+The same technique works for any theme (high contrast, seasonal, brand variants): generate a color map under your own selector with `generate-color-variables`, and regenerate the field icons if you change the form colors.
+
+```scss
+@use 'sprucecss/scss/spruce' as *;
+
+$high-contrast: (
+  'base': (
+    'background': hsl(0deg 0% 100%),
+    'border': hsl(0deg 0% 0%),
+    'text': hsl(0deg 0% 0%),
+  ),
+  'form': (
+    'border': hsl(0deg 0% 0%),
+    'select-foreground': hsl(0deg 0% 0%),
+  ),
+);
+
+@include generate-color-variables($high-contrast, '[data-theme-mode="high-contrast"]');
+@include generate-field-icons($high-contrast, '[data-theme-mode="high-contrast"]');
+```
+
+{% notification %}Upgrading from v2? Your existing manual dark mode (<code>generate-color-variables($dark-colors, …)</code> plus the select icon fix) keeps working. You can replace it with the generator; your <code>$dark-colors</code> map works as it is.{% endnotification %}

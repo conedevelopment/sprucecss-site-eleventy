@@ -1,0 +1,37 @@
+---
+title: 'Notification Center'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--narrow">
+        {% include "ui/html/dashboard/notification-center.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/dashboard/notification-center.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/dashboard/notification-center.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/dashboard/notification-center.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/dashboard/notification-center.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/misc/avatar.css">
+    <link rel="stylesheet" href="/_includes/ui/css/misc/badge.css">
+    <link rel="stylesheet" href="/_includes/ui/css/dashboard/notification-center.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/dashboard/notification-center.js"></script>
+{% endblock %}

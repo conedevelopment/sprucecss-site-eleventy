@@ -19,6 +19,10 @@ extendedTitle: 'Order Card'
     {% include "ui/scss/card/order.scss" %}
 {% endset %}
 
+{% set js %}
+    {% include "ui/js/card/order.js" %}
+{% endset %}
+
 {% set description %}
     {% include "ui/md/card/order.md" %}
 {% endset %}
@@ -26,4 +30,9 @@ extendedTitle: 'Order Card'
 {% block style %}
     <link rel="stylesheet" href="/_includes/ui/css/card/order.css">
     <link rel="stylesheet" href="/_includes/ui/css/form/number-group.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/form/number-group.js"></script>
+    <script defer src="/_includes/ui/js/card/order.js"></script>
 {% endblock %}

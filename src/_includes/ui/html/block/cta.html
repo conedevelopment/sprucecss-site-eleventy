@@ -1,0 +1,43 @@
+{#- Override with `ctaBlock` ({ title, text, placeholder, action, consent, proof }); with `actions` ([{ label, href, primary }]) it shows buttons instead of the form. -#}
+{%- set _s = ctaBlock or {
+    "title": "Start building with Spruce today",
+    "text": "Get the newsletter with new components, styles and tips. One email a month.",
+    "placeholder": "you@example.com",
+    "action": "Get started",
+    "proof": "Join 12,000+ developers"
+} %}
+<section class="cta-block" aria-labelledby="cta-block-title">
+    <div class="container">
+        <div class="cta-block__inner">
+            <div class="cta-block__box">
+                <h2 class="cta-block__title" id="cta-block-title">{{ _s.title }}</h2>
+                <p class="cta-block__text">{{ _s.text }}</p>
+                {%- if _s.actions %}
+                <div class="cta-block__actions">
+                    {%- for action in _s.actions %}
+                    <a class="btn btn--lg {% if action.primary %}cta-block__primary{% else %}cta-block__secondary{% endif %}" href="{{ action.href or '#' }}">{{ action.label }}</a>
+                    {%- endfor %}
+                </div>
+                {%- else %}
+                <form class="cta-block__form" onsubmit="return false;">
+                    <label class="sr-only" for="cta-email">Email address</label>
+                    <input class="form-control form-control--lg" id="cta-email" type="email" placeholder="{{ _s.placeholder }}" autocomplete="email" required>
+                    <button class="btn btn--secondary btn--lg" type="submit">{{ _s.action }}</button>
+                    <label class="form-check cta-block__consent" for="cta-consent">
+                        <input class="form-check__control" id="cta-consent" name="consent" type="checkbox" required>
+                        <span class="form-label form-check__label">{{ (_s.consent or 'I agree to receive emails and accept the <a href="#">privacy policy</a>. Unsubscribe anytime.') | safe }}</span>
+                    </label>
+                </form>
+                {%- endif %}
+                <div class="cta-block__proof">
+                    <ul class="avatar-group" role="list" aria-hidden="true">
+                        <li><span class="avatar avatar--sm"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=96&h=96&q=70" alt="" width="32" height="32" loading="lazy"></span></li>
+                        <li><span class="avatar avatar--sm"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=96&h=96&q=70" alt="" width="32" height="32" loading="lazy"></span></li>
+                        <li><span class="avatar avatar--sm"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=96&h=96&q=70" alt="" width="32" height="32" loading="lazy"></span></li>
+                    </ul>
+                    <span>{{ _s.proof }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

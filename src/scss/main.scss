@@ -17,13 +17,14 @@
 }
 
 body {
-  --doc-heading-font-family: 'Figtree', sans-serif;
-  --doc-body-font-family: 'Inter', sans-serif;
-  --doc-border-radius-sm: 0.5rem;
-  --doc-border-radius-md: 0.925rem;
-  --doc-border-radius-lg: 2rem;
+  // The site tokens follow the active design style (data-spruce-style).
+  --doc-heading-font-family: #{config('font-family-heading', $typography)};
+  --doc-body-font-family: #{config('font-family-base', $typography)};
+  --doc-border-radius-sm: calc(#{radius('sm')} * 1.1765);
+  --doc-border-radius-md: #{radius('lg')};
+  --doc-border-radius-lg: calc(#{radius('lg')} * 2.1622);
 
-  font-family: var(--doc-body-font-family);
+  font-family: config('font-family-base', $typography);
   overflow-x: hidden;
 }
 
@@ -33,7 +34,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--doc-heading-font-family);
+  font-family: config('font-family-heading', $typography);
 }
 
 [x-cloak] { display: none !important; }
+
+// Lock the page scroll while a code tab is in the CSS full screen fallback.
+.has-code-tab-fullscreen {
+  overflow: hidden;
+}

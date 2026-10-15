@@ -1,0 +1,42 @@
+{#- An e-commerce admin dashboard, composed from Spruce UI dashboard and e-commerce components in the app shell. -#}
+{% set appShell = { "brand": "Cone Store", "title": "Store overview" } %}
+{% set metricGrid = {
+    "title": "Key numbers",
+    "period": "Sep 6 – Oct 5, 2026",
+    "metrics": [
+        { "label": "Revenue", "value": "$128,400", "delta": "8.2%", "trend": "up", "good": true, "points": [40, 44, 42, 50, 48, 56, 54, 60, 66, 64, 72, 80] },
+        { "label": "Orders", "value": "1,284", "delta": "5.6%", "trend": "up", "good": true, "points": [42, 46, 40, 52, 50, 54, 58, 56, 62, 60, 64, 68] },
+        { "label": "Average order value", "value": "$100.00", "delta": "2.4%", "trend": "up", "good": true, "points": [50, 48, 52, 54, 50, 56, 58, 55, 60, 58, 62, 64] },
+        { "label": "Return rate", "value": "3.1%", "delta": "0.6 pt", "trend": "down", "good": true, "points": [70, 66, 68, 62, 60, 58, 56, 54, 50, 48, 46, 44] }
+    ]
+} %}
+{% set appShellContent %}
+    <header class="l-dashboard__header">
+        <div class="l-dashboard__heading">
+            <h1 class="l-dashboard__title">Store overview</h1>
+            <p class="l-dashboard__text">Good morning, Anna. Here’s how the store did in the last 30 days.</p>
+        </div>
+        <form class="l-dashboard__actions" action="#" method="get">
+            <label class="sr-only" for="dashboard-period">Period</label>
+            <select class="form-control form-control--sm" id="dashboard-period" name="period">
+                <option value="7">Last 7 days</option>
+                <option value="30" selected>Last 30 days</option>
+                <option value="90">Last 90 days</option>
+                <option value="365">Last 12 months</option>
+            </select>
+            <a class="btn btn--outline-primary btn--sm" href="#">Export</a>
+        </form>
+    </header>
+    {% include "../dashboard/metric-grid.html" %}
+    {% include "../dashboard/chart.html" %}
+    <div class="l-dashboard__row">
+        {% include "../dashboard/recent-orders.html" %}
+        {% include "../dashboard/top-products.html" %}
+    </div>
+    <div class="l-dashboard__row l-dashboard__row--thirds">
+        {% include "../dashboard/donut-chart.html" %}
+        {% include "../dashboard/bar-chart.html" %}
+        {% include "../dashboard/stock-alerts.html" %}
+    </div>
+{% endset %}
+{% include "../dashboard/app-shell.html" %}

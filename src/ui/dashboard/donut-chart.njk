@@ -1,0 +1,27 @@
+---
+title: 'Donut Chart'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium">
+        {% include "ui/html/dashboard/donut-chart.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/dashboard/donut-chart.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/dashboard/donut-chart.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/dashboard/donut-chart.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/dashboard/donut-chart.css">
+{% endblock %}

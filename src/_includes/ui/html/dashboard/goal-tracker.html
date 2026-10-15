@@ -1,0 +1,49 @@
+{#- Override with `goalTracker` ({ title, quarter, goals: [{ title, owner, status: "on-track"|"at-risk"|"behind", progress, results: [{ text, current, target, unit }] }] }). `progress` is the average of the key results (each capped at 100%). -#}
+{%- set _s = goalTracker or {
+    "title": "Q4 goals",
+    "quarter": "October 1 – December 31",
+    "goals": [
+        { "title": "Grow the self-serve revenue", "owner": "Growth", "status": "on-track", "progress": 78, "results": [
+            { "text": "Monthly recurring revenue", "current": 182, "target": 240, "unit": "k$" },
+            { "text": "Trial to paid conversion", "current": 9.2, "target": 12, "unit": "%" },
+            { "text": "New paying teams", "current": 410, "target": 500, "unit": "" }
+        ] },
+        { "title": "Make onboarding effortless", "owner": "Product", "status": "at-risk", "progress": 48, "results": [
+            { "text": "Activation in the first week", "current": 38, "target": 60, "unit": "%" },
+            { "text": "Time to first published page", "current": 2, "target": 6, "unit": "of 6 steps shipped" }
+        ] }
+    ]
+} %}
+{%- set _labels = { "on-track": "On track", "at-risk": "At risk", "behind": "Behind" } %}
+{%- set _badges = { "on-track": "success", "at-risk": "warning", "behind": "danger" } %}
+<section class="goal-tracker" aria-labelledby="goal-tracker-title">
+    <header class="goal-tracker__header">
+        <h2 class="goal-tracker__title" id="goal-tracker-title">{{ _s.title }}</h2>
+        <p class="goal-tracker__quarter">{{ _s.quarter }}</p>
+    </header>
+    {%- for goal in _s.goals %}
+    {%- set goalId = 'goal-' ~ loop.index %}
+    {%- set progress = goal.progress %}
+    <article class="goal-tracker__goal goal-tracker__goal--{{ goal.status }}" aria-labelledby="{{ goalId }}">
+        <header class="goal-tracker__goal-header">
+            <h3 class="goal-tracker__goal-title" id="{{ goalId }}">{{ goal.title }}</h3>
+            <span class="badge badge--{{ _badges[goal.status] }}">{{ _labels[goal.status] }}</span>
+        </header>
+        <div class="goal-tracker__summary">
+            <progress class="goal-tracker__progress" max="100" value="{{ progress }}" aria-labelledby="{{ goalId }}">{{ progress }}%</progress>
+            <span class="goal-tracker__percent">{{ progress }}%</span>
+            <span class="goal-tracker__owner">Owner: {{ goal.owner }}</span>
+        </div>
+        <ul class="goal-tracker__results" role="list">
+            {%- for result in goal.results %}
+            {%- set share = 100 if result.current >= result.target else result.current / result.target * 100 %}
+            <li class="goal-tracker__result">
+                <span class="goal-tracker__result-text">{{ result.text }}</span>
+                <span class="goal-tracker__result-value">{{ result.current }}{{ result.unit if result.unit.length <= 2 }} <span>/ {{ result.target }}{{ result.unit if result.unit.length <= 2 else ' ' ~ result.unit }}</span></span>
+                <span class="goal-tracker__bar" style="--value: {{ share | round(0) }}%;" aria-hidden="true"></span>
+            </li>
+            {%- endfor %}
+        </ul>
+    </article>
+    {%- endfor %}
+</section>

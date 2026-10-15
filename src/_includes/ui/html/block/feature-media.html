@@ -1,0 +1,33 @@
+{#- Override with `featureMediaBlock` ({ heading, items: [{ eyebrow, title, text, points, image, alt, link }] }). -#}
+{%- set _s = featureMediaBlock or {
+    "heading": { "eyebrow": "Why Spruce", "title": "Built for teams who care about details", "id": "feature-media-title" },
+    "items": [
+        { "eyebrow": "Design styles", "title": "One markup, eight looks", "text": "Switch between minimal, brutalist, glass and more with a single attribute. Your HTML never changes.", "points": ["Scoped to any element", "Dark mode for every style"], "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=900&q=70", "alt": "Color swatches and design sketches on a desk.", "link": "Explore the styles" },
+        { "eyebrow": "Tokens", "title": "Consistency without effort", "text": "Colors, spacing, radii and shadows come from tokens, so every component speaks the same visual language.", "points": ["Sass functions and custom properties", "Runtime theming with hooks"], "image": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=900&q=70", "alt": "A designer arranging interface components on a screen.", "link": "Read about tokens" },
+        { "eyebrow": "Accessibility", "title": "Inclusive by default", "text": "Visible focus states, logical properties, reduced motion support and semantic markup in every element.", "points": ["RTL ready", "WCAG 2.2 AA colors"], "image": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=900&q=70", "alt": "A team discussing a project around a laptop.", "link": "Accessibility notes" }
+    ]
+} %}
+<section class="feature-media-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="feature-media-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            {%- for item in _s.items %}
+            <article class="feature-media-block__row">
+                <img class="feature-media-block__image" src="{{ item.image }}" alt="{{ item.alt }}" width="900" height="675" loading="lazy">
+                <div class="feature-media-block__content">
+                    <p class="feature-media-block__eyebrow">{{ item.eyebrow }}</p>
+                    <h3 class="feature-media-block__title">{{ item.title }}</h3>
+                    <p>{{ item.text }}</p>
+                    <ul class="feature-media-block__points" role="list">
+                        {%- for point in item.points %}
+                        <li><svg class="feature-media-block__check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg> {{ point }}</li>
+                        {%- endfor %}
+                    </ul>
+                    <p class="feature-media-block__more"><a class="feature-media-block__link" href="#">{{ item.link }} <span aria-hidden="true">→</span></a></p>
+                </div>
+            </article>
+            {%- endfor %}
+        </div>
+    </div>
+</section>

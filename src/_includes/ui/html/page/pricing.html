@@ -1,0 +1,28 @@
+{#- A pricing page, composed only of Spruce UI blocks. -#}
+{% set pricingBlock = {
+    "heading": { "eyebrow": "Pricing", "title": "Plans for teams of every size", "text": "Start free, upgrade when you grow. Every plan includes all eight design styles in the trial.", "id": "pricing-title" },
+    "note": "Prices in USD, excluding VAT. Cancel anytime."
+} %}
+{% set faqBlock = {
+    "heading": { "eyebrow": "FAQ", "title": "Billing questions", "text": "Everything about plans, payments and invoices.", "id": "faq-title", "align": "start" },
+    "items": [
+        { "question": "Can I try the paid plans for free?", "answer": "Yes. Every paid plan starts with a 14-day trial, no credit card required." },
+        { "question": "What happens when the trial ends?", "answer": "You choose a plan or your workspace moves to the free Starter plan. Nothing is deleted." },
+        { "question": "Do you offer invoices and purchase orders?", "answer": "The Enterprise plan supports invoices, purchase orders and custom contracts." },
+        { "question": "Can I switch between monthly and yearly billing?", "answer": "Anytime. We prorate the difference automatically." }
+    ],
+    "help": { "title": "Need a custom plan?", "text": "Talk to our team about volume pricing and procurement.", "action": "Contact sales" }
+} %}
+{% set announcement = { "id": "pricing-annual-2026", "badge": "Save", "text": "Get two months free with yearly billing.", "link": "Compare the plans" } %}
+{% include "../content-and-layout/site-header-announcement.html" %}
+<main class="l-page" id="content" tabindex="-1">
+    {% include "../block/pricing.html" %}
+    <div class="l-page__alt">
+        {% include "../block/comparison.html" %}
+    </div>
+    {% include "../block/case-study.html" %}
+    <div class="l-page__alt">
+        {% include "../block/faq.html" %}
+    </div>
+</main>
+{% include "../content-and-layout/site-footer-cta.html" %}

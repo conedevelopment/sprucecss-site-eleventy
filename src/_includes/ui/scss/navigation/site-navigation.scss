@@ -1,44 +1,71 @@
 @use 'sprucecss/scss/spruce' as *;
 
 .site-navigation {
-  --inset-block-start: 6rem;
+  --inset-block-start: 100%;
 
   &__btn {
-    @include breakpoint('md') {
-      display: none;
-    }
+    // Without JavaScript, the menu is always visible and there's nothing to toggle.
+    display: none;
 
-    &[aria-expanded='true'] + ul {
-      display: flex;
+    @include breakpoint('md') {
+      display: none !important;
     }
   }
 
-  ul {
-    background-color: color('background');
-    display: none;
-    flex-direction: column;
-    gap: spacer('s');
-    inset: var(--inset-block-start) 0 auto 0;
+  &[data-enhanced] &__btn {
+    display: inline-flex;
+  }
+
+  &__line {
+    @include transition($property: 'opacity, rotate, translate');
+    transform-origin: center;
+  }
+
+  &__btn[aria-expanded='true'] {
+    .site-navigation__line--top {
+      rotate: 45deg;
+      translate: 0 6px;
+    }
+
+    .site-navigation__line--middle {
+      opacity: 0;
+    }
+
+    .site-navigation__line--bottom {
+      rotate: -45deg;
+      translate: 0 -6px;
+    }
+  }
+
+  > ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s') spacer('m');
     list-style: none;
     margin: 0;
-    padding-block: 0 spacer('m');
-    padding-inline: spacer-clamp('m', 'l');
-    position: absolute;
-
-    @include breakpoint('md') {
-      align-items: center;
-      background-color: transparent;
-      display: flex !important;
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: spacer('m');
-      inset: auto;
-      padding: 0;
-      position: relative;
-    }
+    padding: 0;
 
     @include breakpoint('lg') {
       gap: spacer('l');
+    }
+  }
+
+  // The collapsible panel on small screens.
+  @include breakpoint-down('md') {
+    &[data-enhanced] > ul {
+      background-color: color('background');
+      border-block: config('border-width-base', $display) solid color('border');
+      box-shadow: shadow('md');
+      flex-direction: column;
+      inset-block-start: var(--inset-block-start);
+      inset-inline: 0;
+      padding: spacer('m') spacer-clamp('m', 'l');
+      position: absolute;
+      z-index: z-index('dropdown');
+    }
+
+    &[data-enhanced] &__btn[aria-expanded='false'] + ul {
+      display: none;
     }
   }
 
@@ -46,8 +73,108 @@
     margin-block: 0;
   }
 
+  // A menu item with a dropdown: the toggle button and the submenu.
+  &__item {
+    position: relative;
+  }
+
+  &__toggle {
+    align-items: center;
+    background: none;
+    border: 0;
+    color: color('heading');
+    cursor: pointer;
+    display: inline-flex;
+    font: inherit;
+    font-weight: 600;
+    gap: spacer('xxs');
+    padding: 0;
+
+    &:hover,
+    &[aria-expanded='true'] {
+      color: color('primary');
+    }
+  }
+
+  // The parent of the current page is highlighted too.
+  &__item:has([aria-current='page']) > &__toggle {
+    color: color('primary');
+  }
+
+  &__chevron {
+    @include transition($property: 'rotate');
+    block-size: 0.85em;
+    flex-shrink: 0;
+    inline-size: 0.85em;
+  }
+
+  &__toggle[aria-expanded='true'] &__chevron {
+    rotate: 180deg;
+  }
+
+  &__submenu {
+    @include clear-list;
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('md');
+    box-shadow: shadow('lg');
+    display: none;
+    inset-block-start: calc(100% + #{spacer('xs')});
+    inset-inline-start: calc(#{spacer('s')} * -1);
+    min-inline-size: 12rem;
+    padding: spacer('xxs');
+    position: absolute;
+    z-index: z-index('dropdown');
+
+    // Bridges the gap above the panel, so it stays open on hover without JavaScript.
+    &::before {
+      block-size: spacer('xs');
+      content: '';
+      inset-block-end: 100%;
+      inset-inline: 0;
+      position: absolute;
+    }
+
+    a {
+      border-radius: radius('sm');
+      display: block;
+      padding: spacer('xs') spacer('s');
+      white-space: nowrap;
+
+      &:hover {
+        background-color: color-alpha('primary', 0.1);
+      }
+    }
+  }
+
+  // Without JavaScript, the submenu opens on hover and focus; with it, the toggle button opens it.
+  &:not([data-enhanced]) &__item:is(:hover, :focus-within) > &__submenu,
+  &[data-enhanced] &__toggle[aria-expanded='true'] + &__submenu {
+    display: block;
+  }
+
+  // In the collapsible panel, the submenu is an indented list under its toggle.
+  @include breakpoint-down('md') {
+    &[data-enhanced] &__submenu {
+      background-color: transparent;
+      border: 0;
+      border-inline-start: config('border-width-base', $display) solid color('border');
+      border-radius: 0;
+      box-shadow: none;
+      margin-block-start: spacer('xs');
+      min-inline-size: 0;
+      padding: 0 0 0 spacer('xs');
+      position: static;
+
+      &::before {
+        content: none;
+      }
+    }
+  }
+
   a {
     color: color('heading');
+    font-weight: 600;
     text-decoration: none;
 
     &:hover {
@@ -55,7 +182,17 @@
     }
 
     &[aria-current='page'] {
-      font-weight: 700;
+      color: color('primary');
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.4em;
     }
+  }
+}
+
+@include motion-reduce {
+  .site-navigation__line,
+  .site-navigation__chevron {
+    transition: none;
   }
 }

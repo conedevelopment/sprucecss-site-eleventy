@@ -1,0 +1,35 @@
+---
+title: 'Data Table'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--wide ui--data-table">
+        {% include "ui/html/list/data-table.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/list/data-table.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/list/data-table.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/list/data-table.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/list/data-table.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/list/data-table.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/list/data-table.js"></script>
+{% endblock %}

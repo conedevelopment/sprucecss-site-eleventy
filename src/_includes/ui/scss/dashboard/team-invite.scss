@@ -1,0 +1,112 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.team-invite {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  padding: spacer('m');
+  @include layout-stack('m');
+
+  &__header {
+    @include layout-stack('xxs');
+  }
+
+  &__title {
+    font-size: font-size('h5');
+  }
+
+  &__text {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+
+    strong {
+      color: color('heading');
+    }
+  }
+
+  &__form {
+    align-items: end;
+    display: grid;
+    gap: spacer('s');
+
+    @include breakpoint('sm') {
+      grid-template-columns: minmax(0, 1fr) 9rem auto;
+    }
+  }
+
+  &__error {
+    color: color('invalid', 'form');
+    grid-column: 1 / -1;
+    margin: 0;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__pending {
+    border-block-start: config('border-width-base', $display) solid color('border');
+    padding-block-start: spacer('m');
+    @include layout-stack('s');
+  }
+
+  &__subtitle {
+    font-size: config('font-size-base', $typography);
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    @include layout-stack('xs');
+  }
+
+  &__item {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs') spacer('s');
+  }
+
+  &__initial {
+    align-items: center;
+    background-color: color-alpha('primary', 0.12);
+    block-size: 2.25rem;
+    border-radius: radius('pill');
+    color: color('primary');
+    display: flex;
+    flex-shrink: 0;
+    font-weight: 700;
+    inline-size: 2.25rem;
+    justify-content: center;
+    text-transform: uppercase;
+  }
+
+  &__person {
+    display: flex;
+    flex: 1 1 12rem;
+    flex-direction: column;
+    line-height: config('line-height-md', $typography);
+    min-inline-size: 0;
+  }
+
+  &__address {
+    color: color('heading');
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+
+  &__meta {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__actions {
+    display: flex;
+    gap: spacer('xxs');
+  }
+
+  &__empty {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+}

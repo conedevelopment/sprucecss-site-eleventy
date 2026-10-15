@@ -1,0 +1,27 @@
+---
+title: 'Top Products'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--narrow">
+        {% include "ui/html/dashboard/top-products.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/dashboard/top-products.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/dashboard/top-products.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/dashboard/top-products.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/dashboard/top-products.css">
+{% endblock %}

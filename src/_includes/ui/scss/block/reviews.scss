@@ -1,0 +1,138 @@
+@use 'sprucecss/scss/spruce' as *;
+
+$reviews-star: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>';
+
+.reviews-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: grid;
+    gap: spacer-clamp('l', 'xl');
+
+    @include breakpoint('lg') {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    }
+  }
+
+  &__summary {
+    align-self: start;
+    @include layout-stack('m');
+
+    @include breakpoint('lg') {
+      inset-block-start: spacer('l');
+      position: sticky;
+    }
+  }
+
+  &__average {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs') spacer('s');
+
+    strong {
+      color: color('heading');
+      font-family: config('font-family-heading', $typography);
+      font-size: font-size('h1');
+      line-height: 1;
+    }
+
+    span:last-child {
+      color: color('muted');
+      font-size: config('font-size-sm', $typography);
+      inline-size: 100%;
+    }
+  }
+
+  // Five stars from one element: a star-shaped mask over a two-color fill, so partial ratings (4.8) work too.
+  &__stars {
+    --direction: to right;
+    --rating: 0;
+    --size: 1.1rem;
+    background-image: linear-gradient(var(--direction), #{color('warning', 'alert')} calc(var(--rating) / 5 * 100%), #{color('border-strong')} 0);
+    block-size: var(--size);
+    display: inline-block;
+    flex-shrink: 0;
+    inline-size: calc(var(--size) * 5);
+    mask: url('#{svg-escape($reviews-star)}') 0 0 / var(--size) var(--size) repeat-x;
+    vertical-align: middle;
+  }
+
+  &__distribution {
+    font-size: config('font-size-sm', $typography);
+    list-style: none;
+    padding: 0;
+    @include layout-stack('xxs');
+
+    li {
+      align-items: center;
+      display: grid;
+      gap: spacer('xs');
+      grid-template-columns: 4rem 1fr 2.5rem;
+    }
+
+    meter {
+      block-size: 0.5rem;
+    }
+
+    span:last-child {
+      color: color('muted');
+      text-align: end;
+    }
+  }
+
+  &__grid {
+    @include clear-list;
+    @include layout-grid('m', 16rem);
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__card {
+    article {
+      background-color: color('surface');
+      block-size: 100%;
+      border: config('border-width-base', $display) solid color('border');
+      border-radius: radius('lg');
+      display: flex;
+      flex-direction: column;
+      gap: spacer('xs');
+      padding: spacer('m');
+    }
+  }
+
+  &__rating {
+    margin: 0;
+  }
+
+  // The card is a flex column (the text grows), so its text children drop the browser margins.
+  &__title {
+    font-size: font-size('h5');
+    margin-block: 0;
+  }
+
+  &__text {
+    color: color('text');
+    flex-grow: 1;
+    margin-block: 0;
+  }
+
+  &__footer {
+    align-items: center;
+    border-block-start: config('border-width-base', $display) solid color('border');
+    display: flex;
+    flex-wrap: wrap;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xs');
+    justify-content: space-between;
+    padding-block-start: spacer('s');
+  }
+}
+
+[dir='rtl'] .reviews-block__stars {
+  --direction: to left;
+}

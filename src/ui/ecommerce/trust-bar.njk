@@ -1,0 +1,27 @@
+---
+title: 'Trust Bar'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--wide">
+        {% include "ui/html/ecommerce/trust-bar.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/ecommerce/trust-bar.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/ecommerce/trust-bar.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/ecommerce/trust-bar.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/ecommerce/trust-bar.css">
+{% endblock %}

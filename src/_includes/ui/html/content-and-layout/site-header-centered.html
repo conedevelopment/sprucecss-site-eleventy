@@ -1,0 +1,56 @@
+{#- Override the brand and the button with `siteHeaderCentered` ({ name, action }). -#}
+{%- set _header = siteHeaderCentered or { "name": "The Cone Journal", "action": "Subscribe" } %}
+<a class="skip-link sr-only-focusable" href="#content">Skip to content</a>
+<header class="site-header-centered">
+    <div class="container">
+        <div class="site-header-centered__top">
+            <a class="btn btn--ghost-primary btn--icon site-header-centered__search" href="#">
+                <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+                <span class="sr-only">Search</span>
+            </a>
+            <a class="site-header-centered__logo" href="#">
+                <img src="/img/cone-logo.svg" alt="" width="40" height="40">
+                <span>{{ _header.name }}</span>
+            </a>
+            <div class="site-header-centered__actions">
+                <a class="site-header-centered__subscribe btn btn--primary btn--sm" href="#">{{ _header.action }}</a>
+            </div>
+        </div>
+        <nav class="site-navigation site-header-centered__navigation" aria-label="Main" data-site-navigation>
+            <button class="btn btn--secondary btn--icon site-navigation__btn" type="button" aria-controls="centered-menu" aria-expanded="false">
+                <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path class="site-navigation__line site-navigation__line--top" d="M4 6h16"/><path class="site-navigation__line site-navigation__line--middle" d="M4 12h16"/><path class="site-navigation__line site-navigation__line--bottom" d="M4 18h16"/></svg>
+                <span class="sr-only">Menu</span>
+            </button>
+            <ul class="navigation-menu" id="centered-menu">
+                <li><a href="#" aria-current="page">Latest</a></li>
+                <li class="site-navigation__item">
+                    <button class="site-navigation__toggle" type="button" aria-expanded="false" aria-controls="centered-submenu-design">
+                        Design
+                        <svg class="site-navigation__chevron" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <ul class="site-navigation__submenu" id="centered-submenu-design">
+                        <li><a href="#">Typography</a></li>
+                        <li><a href="#">Color</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                        <li><a href="#">Design systems</a></li>
+                    </ul>
+                </li>
+                <li class="site-navigation__item">
+                    <button class="site-navigation__toggle" type="button" aria-expanded="false" aria-controls="centered-submenu-engineering">
+                        Engineering
+                        <svg class="site-navigation__chevron" aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m6 9 6 6 6-6"/></svg>
+                    </button>
+                    <ul class="site-navigation__submenu" id="centered-submenu-engineering">
+                        <li><a href="#">Frontend</a></li>
+                        <li><a href="#">Backend</a></li>
+                        <li><a href="#">Infrastructure</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Product</a></li>
+                <li><a href="#">Culture</a></li>
+                <li><a href="#">Podcast</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>

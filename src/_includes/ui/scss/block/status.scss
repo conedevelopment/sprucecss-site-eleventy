@@ -1,0 +1,44 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.status-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+    margin-inline: auto;
+    max-inline-size: 60rem;
+
+    // The parts are flex children here; the gap spaces them.
+    > * {
+      margin: 0 !important;
+    }
+  }
+
+  &__subscribe {
+    align-items: center;
+    background-color: color('surface-muted');
+    border-radius: radius('lg');
+    display: grid;
+    gap: spacer('s');
+    padding: spacer('m');
+
+    @include breakpoint('md') {
+      grid-template-columns: minmax(0, 1fr) 16rem auto;
+    }
+  }
+
+  &__subscribe-text {
+    @include layout-stack('xxs');
+
+    p {
+      color: color('muted');
+      font-size: config('font-size-sm', $typography);
+    }
+  }
+
+  &__subscribe-title {
+    font-size: font-size('h5');
+  }
+}

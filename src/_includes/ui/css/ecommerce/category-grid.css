@@ -1,0 +1,103 @@
+.category-grid > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.category-grid > * + * {
+  margin-block-start: 1.5rem;
+}
+.category-grid__header {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  justify-content: space-between;
+}
+.category-grid__title {
+  font-size: clamp(1.328125rem, 2vw + 1rem, 1.5625rem);
+}
+.category-grid__all {
+  font-weight: 600;
+}
+.category-grid__list {
+  display: grid;
+  gap: 1rem;
+  grid-auto-rows: 11rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  list-style: none;
+  padding: 0;
+}
+@media (min-width: 64em) {
+  .category-grid__list {
+    gap: 1.5rem;
+    grid-auto-rows: 13rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+.category-grid__list > li {
+  margin-block: 0;
+  padding-block: 0;
+}
+.category-grid__item--featured {
+  grid-column: span 2;
+}
+@media (min-width: 64em) {
+  .category-grid__item--featured {
+    grid-row: span 2;
+  }
+}
+.category-grid__link {
+  block-size: 100%;
+  border-radius: var(--spruce-border-radius-lg);
+  color: hsl(0, 0%, 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding: 1.5rem;
+  position: relative;
+  text-decoration: none;
+}
+.category-grid__link::after {
+  background-image: linear-gradient(to top, hsla(0, 0%, 0%, 0.7), hsla(0, 0%, 0%, 0.05) 60%);
+  content: "";
+  inset: 0;
+  position: absolute;
+}
+.category-grid__link img {
+  block-size: 100%;
+  inline-size: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  transition-duration: var(--spruce-duration);
+  transition-property: scale;
+  transition-timing-function: var(--spruce-timing-function);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .category-grid__link:hover img {
+    scale: 1.05;
+  }
+}
+.category-grid__link:hover .category-grid__name {
+  text-decoration: underline;
+}
+.category-grid__link:focus-visible {
+  outline: 2px solid var(--spruce-base-color-focus-ring);
+  outline-offset: 3px;
+}
+.category-grid__name, .category-grid__count {
+  position: relative;
+  z-index: 1;
+}
+.category-grid__name {
+  font-family: var(--spruce-font-family-heading);
+  font-size: 1rem;
+  font-weight: var(--spruce-font-weight-heading);
+}
+.category-grid__item--featured .category-grid__name {
+  font-size: clamp(1.328125rem, 2vw + 1rem, 1.5625rem);
+}
+.category-grid__count {
+  font-size: var(--spruce-font-size-sm);
+  opacity: 0.85;
+}

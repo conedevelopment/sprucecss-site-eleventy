@@ -1,0 +1,104 @@
+.video-block {
+  padding-block: clamp(4.5rem, 5vw, 7rem);
+}
+.video-block__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.video-block__player {
+  aspect-ratio: 16/9;
+  background-color: var(--spruce-base-color-heading);
+  border-radius: var(--spruce-border-radius-lg);
+  box-shadow: var(--spruce-shadow-xl);
+  inline-size: 100%;
+  margin-inline: auto;
+  max-inline-size: 64rem;
+  overflow: hidden;
+  position: relative;
+}
+.video-block__player iframe {
+  block-size: 100%;
+  border: 0;
+  inline-size: 100%;
+}
+.video-block__poster {
+  block-size: 100%;
+  inline-size: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+.video-block__play {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  outline: inherit;
+  padding: 0;
+  align-items: center;
+  color: hsl(0, 0%, 100%);
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  gap: 1rem;
+  inset: 0;
+  justify-content: center;
+  position: absolute;
+  text-shadow: 0 1px 4px hsla(0, 0%, 0%, 0.5);
+}
+.video-block__play:focus-visible .video-block__play-icon {
+  outline: 3px solid hsl(0, 0%, 100%);
+  outline-offset: 4px;
+}
+.video-block__play:hover .video-block__play-icon {
+  scale: 1.08;
+}
+.video-block__play-icon {
+  align-items: center;
+  background-color: var(--spruce-btn-color-primary-background);
+  block-size: 5rem;
+  border-radius: 50%;
+  box-shadow: 0 0 0 0.6rem color-mix(in srgb, var(--spruce-btn-color-primary-background) 30%, transparent);
+  color: var(--spruce-btn-color-primary-foreground);
+  display: flex;
+  inline-size: 5rem;
+  justify-content: center;
+  transition-duration: var(--spruce-duration);
+  transition-property: scale;
+  transition-timing-function: var(--spruce-timing-function);
+}
+.video-block__play-icon svg {
+  block-size: 2rem;
+  inline-size: 2rem;
+}
+.video-block__duration {
+  font-weight: 400;
+}
+.video-block__points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem 3rem;
+  justify-content: center;
+}
+.video-block__points li {
+  align-items: center;
+  color: var(--spruce-base-color-heading);
+  display: flex;
+  font-weight: 600;
+  gap: 0.5rem;
+  margin: 0 !important;
+}
+.video-block__points svg {
+  block-size: 1.25rem;
+  color: var(--spruce-base-color-primary);
+  inline-size: 1.25rem;
+}
+.video-block__points > li {
+  margin-block: 0;
+  padding-block: 0;
+}

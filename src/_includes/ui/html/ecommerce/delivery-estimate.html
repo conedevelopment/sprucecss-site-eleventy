@@ -1,0 +1,23 @@
+<section class="delivery-estimate" aria-labelledby="delivery-estimate-title" data-delivery-estimate data-cutoff="16">
+    <h2 class="delivery-estimate__title" id="delivery-estimate-title">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.75"/><circle cx="17" cy="17.5" r="1.75"/></svg>
+        Delivery
+    </h2>
+    <p class="delivery-estimate__cutoff" data-delivery-cutoff hidden></p>
+    <form class="delivery-estimate__form" action="#" method="get" novalidate data-delivery-form>
+        <label class="form-label" for="delivery-zip">ZIP code</label>
+        <div class="delivery-estimate__row">
+            <input class="form-control form-control--sm" id="delivery-zip" name="zip" type="text" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}" maxlength="5" placeholder="97205" aria-describedby="delivery-zip-error">
+            <button class="btn btn--secondary btn--sm" type="submit">Check</button>
+        </div>
+        <p class="delivery-estimate__error" id="delivery-zip-error" hidden data-delivery-error>Enter a 5-digit ZIP code.</p>
+    </form>
+    <div aria-live="polite" data-delivery-results-region>
+        <ul class="delivery-estimate__options" role="list" hidden data-delivery-results>
+            <li><span><strong>Standard</strong> Free over $50</span> <span data-delivery-days="5">—</span></li>
+            <li><span><strong>Express</strong> $12.90</span> <span data-delivery-days="2">—</span></li>
+            <li><span><strong>Pick up in store</strong> Free</span> <span data-delivery-days="0">—</span></li>
+        </ul>
+    </div>
+    <p class="delivery-estimate__returns"><a href="#">Free 30-day returns</a></p>
+</section>

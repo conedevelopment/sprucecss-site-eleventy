@@ -1,0 +1,48 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.segmented-control {
+  background-color: color('surface-muted');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('md');
+  display: inline-flex;
+  gap: spacer('xxs');
+  margin: 0;
+  padding: spacer('xxs');
+
+  > * + * {
+    margin-block-start: 0;
+  }
+
+  &__option {
+    border-radius: calc(#{radius('md')} - #{spacer('xxs')});
+    color: color('text');
+    cursor: pointer;
+    font-weight: 600;
+    padding: spacer('xs') spacer('s');
+    @include transition($property: 'background-color, box-shadow, color');
+
+    &:hover {
+      color: color('heading');
+    }
+
+    &:has(:checked) {
+      background-color: color('background');
+      box-shadow: shadow('sm');
+      color: color('heading');
+    }
+
+    &:has(:focus-visible) {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 2px;
+    }
+  }
+
+  &__input {
+    @include visually-hidden;
+  }
+
+  &__hint {
+    color: color('success', 'alert');
+    font-weight: 700;
+  }
+}

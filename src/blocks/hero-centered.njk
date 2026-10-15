@@ -1,0 +1,30 @@
+---
+category: 'Hero'
+title: 'Hero Centered'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--block ui--hero-centered">
+        {% include "ui/html/block/hero-centered.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/block/hero-centered.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/block/hero-centered.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/block/hero-centered.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/container.css">
+    <link rel="stylesheet" href="/_includes/ui/css/misc/avatar.css">
+    <link rel="stylesheet" href="/_includes/ui/css/block/hero-centered.css">
+{% endblock %}

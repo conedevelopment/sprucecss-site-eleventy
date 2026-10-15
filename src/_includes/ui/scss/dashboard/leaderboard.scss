@@ -1,0 +1,113 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.leaderboard {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  padding: spacer('m');
+  @include layout-stack('m');
+
+  &__header {
+    @include layout-stack('xxs');
+  }
+
+  &__title {
+    font-size: font-size('h5');
+  }
+
+  &__metric {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    @include layout-stack('s');
+  }
+
+  &__item {
+    align-items: center;
+    column-gap: spacer('s');
+    display: grid;
+    grid-template-columns: 1.75rem auto minmax(0, 1fr) auto;
+    row-gap: spacer('xxs');
+  }
+
+  &__rank {
+    align-items: center;
+    background-color: color('surface-muted');
+    block-size: 1.75rem;
+    border-radius: radius('pill');
+    color: color('muted');
+    display: flex;
+    font-size: config('font-size-sm', $typography);
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    justify-content: center;
+  }
+
+  &__item--top &__rank {
+    background-color: color-alpha('primary', 0.14);
+    color: color('primary');
+  }
+
+  &__person,
+  &__result {
+    display: flex;
+    flex-direction: column;
+    line-height: config('line-height-md', $typography);
+    min-inline-size: 0;
+  }
+
+  &__result {
+    align-items: flex-end;
+    font-variant-numeric: tabular-nums;
+
+    strong {
+      color: color('heading');
+    }
+  }
+
+  &__name {
+    color: color('heading');
+    font-weight: 600;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__team,
+  &__change {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__change {
+    &--up {
+      color: color('success', 'alert');
+    }
+
+    &--down {
+      color: color('danger', 'alert');
+    }
+  }
+
+  // The result as a share of the leader's.
+  &__bar {
+    background-color: color('surface-muted');
+    block-size: 0.3rem;
+    border-radius: radius('pill');
+    grid-column: 3 / -1;
+    overflow: hidden;
+
+    &::before {
+      background-color: color('primary');
+      block-size: 100%;
+      border-radius: inherit;
+      content: '';
+      display: block;
+      inline-size: var(--value);
+    }
+  }
+}

@@ -1,0 +1,168 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.bar-charts {
+  @include layout-grid('m', 20rem);
+}
+
+.bar-chart {
+  --bar-chart-color: #{color('primary')};
+  --bar-chart-track: #{color('surface-muted')};
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  margin: 0;
+  padding: spacer('m');
+  @include layout-stack('m');
+
+  &__caption {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xxs') spacer('xs');
+    justify-content: space-between;
+  }
+
+  &__title {
+    color: color('heading');
+    font-weight: 700;
+  }
+
+  &__subtitle {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__items {
+    display: grid;
+    gap: spacer('s');
+    // The parent's layout-stack sets the margins.
+    list-style: none;
+    padding: 0;
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  // Horizontal (default): label and value on one line, the bar under them.
+  &__item {
+    align-items: baseline;
+    display: grid;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xxs') spacer('s');
+    grid-template-columns: 1fr auto;
+  }
+
+  &__label abbr {
+    border: 0;
+    cursor: default;
+    text-decoration: none;
+  }
+
+  &__value {
+    color: color('heading');
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+  }
+
+  &__bar {
+    background-color: var(--bar-chart-track);
+    block-size: 0.625rem;
+    border-radius: radius('pill');
+    grid-column: 1 / -1;
+    grid-row: 2;
+    overflow: hidden;
+    position: relative;
+
+    &::before {
+      background-color: var(--bar-chart-color);
+      border-radius: inherit;
+      content: '';
+      inline-size: calc(var(--value) / var(--max) * 100%);
+      inset-block: 0;
+      inset-inline-start: 0;
+      position: absolute;
+      transform-origin: left;
+
+      @include motion-safe {
+        animation: bar-chart-grow-inline 0.6s ease-out;
+      }
+    }
+  }
+
+  &__item--highlight {
+    --bar-chart-color: #{color('secondary')};
+
+    .bar-chart__label {
+      color: color('heading');
+      font-weight: 700;
+    }
+  }
+
+  // Vertical columns.
+  &--column {
+    .bar-chart__items {
+      align-items: stretch;
+      block-size: var(--bar-chart-block-size, 12rem);
+      gap: spacer('xs');
+      grid-auto-columns: minmax(0, 1fr);
+      grid-auto-flow: column;
+    }
+
+    .bar-chart__item {
+      gap: spacer('xxs');
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr auto;
+      justify-items: center;
+      text-align: center;
+    }
+
+    .bar-chart__value {
+      font-size: 0.75rem;
+      grid-row: 1;
+    }
+
+    .bar-chart__bar {
+      align-self: end;
+      background-color: transparent;
+      block-size: calc(var(--value) / var(--max) * 100%);
+      border-radius: radius('sm') radius('sm') 0 0;
+      grid-column: 1;
+      grid-row: 2;
+      inline-size: 100%;
+      max-inline-size: 2.5rem;
+
+      &::before {
+        animation-name: bar-chart-grow-block;
+        block-size: 100%;
+        inline-size: 100%;
+        transform-origin: bottom;
+      }
+    }
+
+    .bar-chart__label {
+      border-block-start: config('border-width-base', $display) solid color('border');
+      color: color('muted');
+      grid-row: 3;
+      inline-size: 100%;
+      padding-block-start: spacer('xxs');
+    }
+  }
+}
+
+[dir='rtl'] .bar-chart:not(.bar-chart--column) .bar-chart__bar::before {
+  transform-origin: right;
+}
+
+@keyframes bar-chart-grow-inline {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+@keyframes bar-chart-grow-block {
+  from {
+    transform: scaleY(0);
+  }
+}

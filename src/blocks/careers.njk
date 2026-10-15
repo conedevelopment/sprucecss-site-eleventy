@@ -1,0 +1,39 @@
+---
+category: 'Content'
+title: 'Careers'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--block ui--careers">
+        {% include "ui/html/block/careers.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/block/careers.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/block/careers.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/block/careers.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/block/careers.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/container.css">
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/block-heading.css">
+    <link rel="stylesheet" href="/_includes/ui/css/misc/badge.css">
+    <link rel="stylesheet" href="/_includes/ui/css/block/careers.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/block/careers.js"></script>
+{% endblock %}

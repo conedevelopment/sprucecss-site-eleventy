@@ -1,0 +1,35 @@
+---
+title: 'Delivery Estimate'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--narrow">
+        {% include "ui/html/ecommerce/delivery-estimate.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/ecommerce/delivery-estimate.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/ecommerce/delivery-estimate.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/ecommerce/delivery-estimate.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/ecommerce/delivery-estimate.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/ecommerce/delivery-estimate.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/ecommerce/delivery-estimate.js"></script>
+{% endblock %}

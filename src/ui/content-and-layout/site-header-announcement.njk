@@ -1,0 +1,38 @@
+---
+title: 'Site Header Announcement'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--site-header">
+        {% include "ui/html/content-and-layout/site-header-announcement.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/content-and-layout/site-header-announcement.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/content-and-layout/site-header-announcement.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/content-and-layout/site-header-announcement.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/content-and-layout/site-header-announcement.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/navigation/site-navigation.css">
+    <link rel="stylesheet" href="/_includes/ui/css/misc/badge.css">
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/site-header-announcement.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/navigation/site-navigation.js"></script>
+    <script defer src="/_includes/ui/js/content-and-layout/site-header-announcement.js"></script>
+{% endblock %}

@@ -1,0 +1,44 @@
+{#- Override with `galleryBlock` ({ heading, captions, items: [{ image, full, alt, caption }] }). `captions: false` hides every caption; an item without a caption shows none. -#}
+{%- set _s = galleryBlock or {
+    "heading": { "eyebrow": "Gallery", "title": "Behind the scenes", "text": "A look at our studio, our workshops and our work.", "id": "gallery-title" },
+    "captions": true,
+    "items": [
+        { "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=700&q=70", "full": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=70", "alt": "A bright studio with plants.", "caption": "Studio" },
+        { "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=700&q=70", "full": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=70", "alt": "A team meeting around a table.", "caption": "Team" },
+        { "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=700&q=70", "full": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=70", "alt": "A laptop with code.", "caption": "Code" },
+        { "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=700&q=70", "full": "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1600&q=70", "alt": "Color swatches.", "caption": "Color" },
+        { "image": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=700&q=70", "full": "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1600&q=70", "alt": "A workshop in progress.", "caption": "Workshop" },
+        { "image": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=700&q=70", "full": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1600&q=70", "alt": "Interface sketches on a screen.", "caption": "Interface" }
+    ]
+} %}
+<section class="gallery-block" aria-labelledby="{{ _s.heading.id }}" data-gallery>
+    <div class="container">
+        <div class="gallery-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            <ul class="gallery-block__grid" role="list">
+                {%- for item in _s.items %}
+                <li>
+                    {%- set caption = item.caption if _s.captions !== false else '' %}
+                    <a class="gallery-block__item" href="{{ item.full }}" data-gallery-item{% if caption %} data-caption="{{ caption }}"{% endif %}>
+                        <img src="{{ item.image }}" alt="{{ item.alt }}" loading="lazy">
+                        {%- if caption %}
+                        <span class="gallery-block__caption">{{ caption }}</span>
+                        {%- endif %}
+                    </a>
+                </li>
+                {%- endfor %}
+            </ul>
+        </div>
+    </div>
+    <dialog class="gallery-block__lightbox" aria-label="Image viewer" data-gallery-dialog>
+        <button class="btn btn--secondary btn--icon btn--sm gallery-block__close" type="button" aria-label="Close" data-gallery-close><svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        <button class="btn btn--secondary btn--icon gallery-block__nav gallery-block__nav--prev" type="button" aria-label="Previous image" data-gallery-prev><svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6"/></svg></button>
+        <figure class="gallery-block__figure">
+            <img src="" alt="" data-gallery-image>
+            <figcaption data-gallery-caption hidden></figcaption>
+        </figure>
+        <button class="btn btn--secondary btn--icon gallery-block__nav gallery-block__nav--next" type="button" aria-label="Next image" data-gallery-next><svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg></button>
+        <span class="gallery-block__counter" aria-live="polite" data-gallery-counter></span>
+    </dialog>
+</section>

@@ -1,0 +1,73 @@
+{#- Override with `communityBlock` ({ heading, stats: [{ value, suffix, label }], channels: [{ name, icon, text }], avatars: [], more, leaderboard }) — `leaderboard` is a Leaderboard object. -#}
+{%- set _s = communityBlock or {
+    "heading": { "eyebrow": "Community", "title": "Built in the open, with 12,000 developers", "text": "Ask questions, share what you build and help shape the roadmap.", "id": "community-title", "align": "start" },
+    "stats": [
+        { "value": 12400, "suffix": "+", "label": "Members" },
+        { "value": 860, "suffix": "", "label": "Contributors" },
+        { "value": 98, "suffix": "%", "label": "Questions answered" }
+    ],
+    "channels": [
+        { "name": "Join the Discord", "icon": "discord", "text": "Chat, help and weekly office hours" },
+        { "name": "Star on GitHub", "icon": "github", "text": "Issues, discussions and pull requests" }
+    ],
+    "avatars": [
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=96&h=96&q=70",
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=96&h=96&q=70",
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=96&h=96&q=70",
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=96&h=96&q=70",
+        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=96&h=96&q=70"
+    ],
+    "more": "+12k",
+    "leaderboard": {
+        "title": "Top contributors",
+        "metric": "Merged pull requests in 2026",
+        "people": [
+            { "name": "Amelia Brooks", "team": "Core team", "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=96&h=96&q=70", "value": 100, "label": "148", "change": 0 },
+            { "name": "Noah Fischer", "team": "Docs", "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=96&h=96&q=70", "value": 71, "label": "105", "change": 1 },
+            { "name": "Priya Raman", "team": "Components", "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=96&h=96&q=70", "value": 62, "label": "92", "change": -1 },
+            { "name": "Lucas Moreau", "team": "Accessibility", "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=96&h=96&q=70", "value": 44, "label": "65", "change": 2 }
+        ]
+    }
+} %}
+<section class="community-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="community-block__inner">
+            <div class="community-block__content">
+                {% set heading = _s.heading %}
+                {% include "../content-and-layout/block-heading.html" %}
+                <ul class="number-card-list community-block__stats">
+                    {%- for stat in _s.stats %}
+                    <li class="number-card">
+                        <p class="number-card__data">
+                            <span class="sr-only">{{ stat.value }}{{ stat.suffix }}</span>
+                            <span aria-hidden="true"><span data-countup="{{ stat.value }}">{{ stat.value }}</span>{{ stat.suffix }}</span>
+                        </p>
+                        <p class="number-card__caption">{{ stat.label }}</p>
+                    </li>
+                    {%- endfor %}
+                </ul>
+                <ul class="community-block__channels" role="list">
+                    {%- for channel in _s.channels %}
+                    <li>
+                        <a class="community-block__channel community-block__channel--{{ channel.icon }}" href="#">
+                            {% set brandName = channel.icon %}{% set brandClass = "community-block__brand" %}{% include "../block/brand-icon.html" %}
+                            <span><strong>{{ channel.name }}</strong> {{ channel.text }}</span>
+                        </a>
+                    </li>
+                    {%- endfor %}
+                </ul>
+                <div class="community-block__members">
+                    <ul class="avatar-group" role="list" aria-hidden="true">
+                        {%- for avatar in _s.avatars %}
+                        <li><span class="avatar"><img src="{{ avatar }}" alt="" width="48" height="48" loading="lazy"></span></li>
+                        {%- endfor %}
+                        <li><span class="avatar avatar--more">{{ _s.more }}</span></li>
+                    </ul>
+                    <p>Join the people who build with us every day.</p>
+                </div>
+            </div>
+            {% set leaderboard = _s.leaderboard %}
+            {% include "../dashboard/leaderboard.html" %}
+        </div>
+    </div>
+</section>

@@ -1,0 +1,188 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.kanban-board {
+  @include layout-stack('m');
+
+  &__header {
+    @include layout-stack('xxs');
+  }
+
+  &__title {
+    font-size: font-size('h4');
+    margin: 0;
+  }
+
+  &__hint {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__columns {
+    display: grid;
+    gap: spacer('s');
+    grid-auto-columns: minmax(16rem, 1fr);
+    grid-auto-flow: column;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding-block-end: spacer('xs');
+    scroll-snap-type: inline mandatory;
+  }
+
+  &__column {
+    background-color: color('surface-muted');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    display: flex;
+    flex-direction: column;
+    gap: spacer('s');
+    padding: spacer('s');
+    scroll-snap-align: start;
+  }
+
+  &__column-title {
+    align-items: center;
+    display: flex;
+    font-family: inherit;
+    font-size: config('font-size-base', $typography);
+    gap: spacer('xs');
+    margin: 0;
+  }
+
+  &__count {
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('pill');
+    color: color('muted');
+    font-size: 0.75rem;
+    line-height: 1;
+    padding: 0.25em 0.6em;
+  }
+
+  &__list {
+    @include clear-list;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: spacer('xs');
+    // An empty column stays a drop target.
+    min-block-size: 5rem;
+  }
+
+  &__card {
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('md');
+    box-shadow: shadow('xs');
+    margin: 0 !important;
+    padding: spacer('s');
+    @include layout-stack('xs');
+    @include transition($property: 'box-shadow, opacity, outline-color');
+
+    &[draggable='true'] {
+      cursor: grab;
+    }
+
+    &:hover {
+      box-shadow: shadow('sm');
+    }
+
+    &--dragging {
+      opacity: 0.4;
+    }
+
+    &--grabbed {
+      box-shadow: shadow('lg');
+      outline: 2px solid color('primary');
+      outline-offset: 2px;
+    }
+  }
+
+  &__card-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__tag {
+    border-radius: radius('sm');
+    color: color('heading');
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0.35em 0.6em;
+
+    &--bug {
+      background-color: color-alpha('danger', 0.15, 'alert');
+    }
+
+    &--feature {
+      background-color: color-alpha('primary', 0.12);
+    }
+
+    &--design {
+      background-color: color-alpha('info', 0.15, 'alert');
+    }
+  }
+
+  &__handle {
+    @include clear-btn;
+    border-radius: radius('sm');
+    color: color('muted');
+    cursor: grab;
+    display: inline-flex;
+    padding: spacer('xxs');
+
+    svg {
+      block-size: 1rem;
+      inline-size: 1rem;
+    }
+
+    &:hover,
+    &[aria-pressed='true'] {
+      background-color: color('surface-muted');
+      color: color('heading');
+    }
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 1px;
+    }
+  }
+
+  &__card-title {
+    font-family: inherit;
+    font-size: config('font-size-base', $typography);
+    font-weight: 600;
+
+    a {
+      color: color('heading');
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__meta {
+    align-items: center;
+    color: color('muted');
+    display: flex;
+    font-size: 0.8125rem;
+    gap: spacer('xs');
+  }
+
+  &__avatar {
+    align-items: center;
+    aspect-ratio: 1;
+    background-color: color-alpha('primary', 0.15);
+    border-radius: radius('pill');
+    color: color('primary');
+    display: inline-flex;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    inline-size: 1.75rem;
+    justify-content: center;
+    margin-inline-start: auto;
+  }
+}

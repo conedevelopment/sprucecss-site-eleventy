@@ -1,0 +1,13 @@
+{#- Override with `guarantee` ({ days, title, text }). -#}
+{%- set _g = guarantee or {
+    "days": 30,
+    "title": "30-day money-back guarantee",
+    "text": "Read the book, watch the videos. If it isn’t for you, email us within 30 days for a full refund. No questions, no forms."
+} %}
+<aside class="guarantee" aria-labelledby="guarantee-title">
+    <p class="guarantee__seal" aria-hidden="true"><strong>{{ _g.days }}</strong> days</p>
+    <div class="guarantee__body">
+        <h3 class="guarantee__title" id="guarantee-title">{{ _g.title }}</h3>
+        <p class="guarantee__text">{{ _g.text }}</p>
+    </div>
+</aside>

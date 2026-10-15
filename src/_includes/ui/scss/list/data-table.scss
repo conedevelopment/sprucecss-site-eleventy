@@ -1,0 +1,106 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.data-table {
+  @include layout-stack('s');
+
+  &__toolbar {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
+    justify-content: space-between;
+  }
+
+  &__filter {
+    max-inline-size: 20rem;
+  }
+
+  &__summary,
+  &__empty {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__summary {
+    margin-block: 0;
+  }
+
+  &__empty {
+    padding: spacer('m');
+    text-align: center;
+  }
+
+  &__sort {
+    @include clear-btn;
+    align-items: center;
+    display: inline-flex;
+    font-weight: inherit;
+    gap: spacer('xxs');
+    white-space: nowrap;
+
+    &:focus-visible {
+      border-radius: radius('sm');
+      outline: 2px solid color('focus-ring');
+      outline-offset: 2px;
+    }
+  }
+
+  &__sort-icon {
+    block-size: 0.75em;
+    inline-size: 0.5em;
+    opacity: 0.35;
+    position: relative;
+
+    &::before,
+    &::after {
+      border-inline: 0.25em solid transparent;
+      content: '';
+      inset-inline-start: 0;
+      position: absolute;
+    }
+
+    &::before {
+      border-block-end: 0.3em solid currentcolor;
+      inset-block-start: 0;
+    }
+
+    &::after {
+      border-block-start: 0.3em solid currentcolor;
+      inset-block-end: 0;
+    }
+  }
+
+  th[aria-sort='ascending'] &__sort-icon,
+  th[aria-sort='descending'] &__sort-icon {
+    opacity: 1;
+  }
+
+  th[aria-sort='ascending'] &__sort-icon::after,
+  th[aria-sort='descending'] &__sort-icon::before {
+    opacity: 0;
+  }
+
+  &__status {
+    --status-color: #{color('success', 'alert')};
+    align-items: center;
+    display: inline-flex;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xxs');
+
+    &::before {
+      background-color: var(--status-color);
+      block-size: 0.5rem;
+      border-radius: 50%;
+      content: '';
+      inline-size: 0.5rem;
+    }
+
+    &--away {
+      --status-color: #{color('warning', 'alert')};
+    }
+
+    &--offline {
+      --status-color: #{color('border-strong')};
+    }
+  }
+}

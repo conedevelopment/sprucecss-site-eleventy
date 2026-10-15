@@ -1,0 +1,74 @@
+{#- A freelance product designer's portfolio home page, composed from Spruce UI blocks. -#}
+{% set siteHeader = {
+    "links": [{ "label": "Work", "href": "#work" }, { "label": "Services", "href": "#services" }, { "label": "About", "href": "#about" }, { "label": "Writing", "href": "#blog-title" }],
+    "email": "hello@noralind.design",
+    "action": { "label": "Book a call", "href": "#contact", "icon": false }
+} %}
+{% set heroIntroBlock = {
+    "status": "Available for new projects from June",
+    "name": "Nora Lind", "role": "Independent product designer, Copenhagen",
+    "title": "I design calm, accessible products for", "highlight": "ambitious teams.",
+    "lead": "For twelve years I’ve helped startups and studios turn complex ideas into simple interfaces, from the first interview to the design system.",
+    "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=240&h=240&q=70",
+    "primary": "See selected work", "secondary": "Book an intro call",
+    "facts": [{ "value": "12", "label": "years in product design" }, { "value": "140+", "label": "launched projects" }, { "value": "9", "label": "design awards" }]
+} %}
+{% set authorBlock = {
+    "eyebrow": "About",
+    "name": "Hej, I’m Nora",
+    "role": "Product designer · Former design lead at Fjord Bank",
+    "bio": [
+        "I started as a graphic designer, fell in love with interfaces, and spent a decade in product teams, the last three leading design at Fjord Bank.",
+        "Today I work with a handful of teams a year, close to research and close to code. I care about the details nobody notices, until they’re missing."
+    ],
+    "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=720&h=880&q=70",
+    "alt": "Nora Lind smiling in her studio.",
+    "stats": [{ "value": "60", "label": "clients worldwide" }, { "value": "38", "label": "five-star reviews" }, { "value": "4", "label": "languages spoken" }],
+    "linksLabel": "Find Nora online",
+    "links": [{ "label": "Dribbble", "href": "#" }, { "label": "LinkedIn", "href": "#" }, { "label": "Read.cv", "href": "#" }]
+} %}
+{% set testimonialsBlock = {
+    "heading": { "eyebrow": "Kind words", "title": "What clients say", "id": "testimonials-title" },
+    "rating": "5.0", "reviews": "38 client reviews"
+} %}
+{% set testimonials = [
+    { "quote": "Nora simplified a product that had grown over ten years. Our support tickets dropped by a third after the redesign.", "name": "Jonas Berg", "role": "CPO, Fjord Bank", "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=96&q=70&h=96" },
+    { "quote": "The design system she built is still the backbone of everything we ship, two years later.", "name": "Maya Chen", "role": "Head of Design, Lumen", "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=96&q=70&h=96" }
+] %}
+{% set logoCloud = { "title": "Clients include", "logos": [{ "name": "Mozilla", "icon": "mozilla" }, { "name": "Spotify", "icon": "spotify" }, { "name": "Dropbox", "icon": "dropbox" }, { "name": "Airbnb", "icon": "airbnb" }, { "name": "Vercel", "icon": "vercel" }] } %}
+{% set blogBlock = {
+    "heading": { "eyebrow": "Writing", "title": "Notes on design", "text": "Essays about interfaces, systems and accessibility.", "id": "blog-title", "align": "start" },
+    "action": "Read all essays",
+    "posts": [
+        { "image": "/img/blog/writing-better-css.png", "title": "Designing with tokens, not pixels", "tag": "systems", "date": "March 8, 2026", "datetime": "2026-03-08" },
+        { "image": "/img/blog/how-to-choose-a-css-framework.png", "title": "The quiet interface", "tag": "ux", "date": "January 21, 2026", "datetime": "2026-01-21" },
+        { "image": "/img/blog/internationalization-right-to-left-support-with-css-frameworks.png", "title": "Accessible color from day one", "tag": "a11y", "date": "November 2, 2025", "datetime": "2025-11-02" }
+    ]
+} %}
+{% set contactBlock = {
+    "heading": { "eyebrow": "Contact", "title": "Let’s make something good together", "text": "Tell me about your product and timeline. I reply within two days.", "id": "contact-title", "align": "start" },
+    "methods": [
+        { "icon": "mail", "label": "Email", "value": "hello@noralind.design", "href": "mailto:hello@noralind.design" },
+        { "icon": "calendar", "label": "Availability", "value": "From June 2026" },
+        { "icon": "map-pin", "label": "Studio", "value": "Copenhagen, Denmark" }
+    ],
+    "topics": ["Product design", "Design system", "Research", "Workshop"],
+    "submit": "Send inquiry"
+} %}
+{% include "../content-and-layout/site-header.html" %}
+<main class="l-home" id="content" tabindex="-1">
+    {% include "../block/hero-intro.html" %}
+    {% include "../block/projects.html" %}
+    <div class="l-home__alt">
+        {% include "../block/services.html" %}
+    </div>
+    {% include "../block/testimonials.html" %}
+    <div class="l-home__alt" id="about">
+        {% include "../block/author.html" %}
+    </div>
+    {% include "../block/blog.html" %}
+    <div class="l-home__alt" id="contact">
+        {% include "../block/contact.html" %}
+    </div>
+</main>
+{% include "../content-and-layout/site-footer-centered.html" %}

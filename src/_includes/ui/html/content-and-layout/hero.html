@@ -1,0 +1,27 @@
+{#- Override any text with a `hero` object set before the include. -#}
+{%- set _hero = hero or {
+    "badge": "New",
+    "eyebrow": "Spruce CSS 3.0 is out",
+    "title": "Build the foundation once. Restyle it forever.",
+    "lead": "A Sass-powered CSS framework with design tokens, dark mode and swappable design styles. One markup, many looks.",
+    "primary": "Get started",
+    "secondary": "Read the docs",
+    "note": "Free and open source · MIT license",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=70",
+    "alt": "A laptop with code on the screen on a wooden desk."
+} %}
+<section class="hero" aria-labelledby="hero-title">
+    <div class="hero__content">
+        <p class="hero__eyebrow"><span class="hero__badge">{{ _hero.badge }}</span> {{ _hero.eyebrow }}</p>
+        <h1 class="hero__title" id="hero-title">{{ _hero.title }}</h1>
+        <p class="hero__lead">{{ _hero.lead }}</p>
+        <div class="hero__actions">
+            <a class="btn btn--primary btn--lg" href="#">{{ _hero.primary }}</a>
+            <a class="btn btn--ghost-primary btn--lg" href="#">{{ _hero.secondary }}</a>
+        </div>
+        <p class="hero__note">{{ _hero.note }}</p>
+    </div>
+    <div class="hero__media">
+        <img src="{{ _hero.image }}" alt="{{ _hero.alt }}" width="1000" height="667" fetchpriority="high">
+    </div>
+</section>

@@ -1,0 +1,90 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.pricing-cards {
+  @include layout-grid('m', 16rem);
+  align-items: start;
+}
+
+.pricing-card {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  box-shadow: shadow('sm');
+  display: flex;
+  flex-direction: column;
+  gap: spacer('m');
+  padding: spacer-clamp('m', 'l');
+  position: relative;
+
+  &--featured {
+    border-color: color('primary');
+    box-shadow: shadow('lg');
+
+    @include breakpoint('md') {
+      margin-block-start: calc(#{spacer('s')} * -1);
+    }
+  }
+
+  &__header {
+    @include layout-stack('xxs');
+  }
+
+  &__badge {
+    background-color: color('primary');
+    border-radius: radius('pill');
+    color: color('primary-foreground', 'btn');
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+    inset-block-start: 0;
+    inset-inline-end: spacer('m');
+    padding: spacer('xxs') spacer('s');
+    position: absolute;
+    translate: 0 -50%;
+  }
+
+  &__title {
+    font-size: font-size('h4');
+  }
+
+  &__description {
+    color: color('muted');
+  }
+
+  &__price {
+    align-items: baseline;
+    display: flex;
+    gap: spacer('xxs');
+    margin-block: 0;
+  }
+
+  &__amount {
+    color: color('heading');
+    font-family: config('font-family-heading', $typography);
+    font-size: font-size('h1');
+    font-weight: config('font-weight-heading', $typography);
+    line-height: 1;
+  }
+
+  &__period {
+    color: color('muted');
+  }
+
+  &__features {
+    @include clear-list;
+    @include layout-stack('xs');
+    flex-grow: 1;
+
+    li {
+      align-items: center;
+      display: flex;
+      gap: spacer('xs');
+    }
+  }
+
+  &__check {
+    block-size: 1rem;
+    color: color('primary');
+    flex-shrink: 0;
+    inline-size: 1rem;
+  }
+}

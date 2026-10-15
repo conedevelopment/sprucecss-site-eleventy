@@ -1,0 +1,145 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.returns-form {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  padding: spacer('m');
+  @include layout-stack('m');
+
+  &__header {
+    @include layout-stack('xxs');
+  }
+
+  &__title {
+    font-size: font-size('h4');
+  }
+
+  &__text {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__items,
+  &__methods {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    @include layout-stack('xs');
+  }
+
+  &__legend {
+    color: color('heading');
+    font-size: config('font-size-lg', $typography);
+    font-weight: 700;
+    margin-block-end: spacer('xs');
+    padding: 0;
+  }
+
+  &__item {
+    align-items: center;
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('md');
+    column-gap: spacer('s');
+    display: grid;
+    grid-template-areas:
+      'check image name'
+      'check image meta'
+      'reason reason reason';
+    grid-template-columns: auto 4rem minmax(0, 1fr);
+    padding: spacer('s');
+
+    &:has(input:checked) {
+      border-color: color('primary');
+      box-shadow: 0 0 0 1px color('primary');
+    }
+
+    img {
+      aspect-ratio: 1;
+      border-radius: radius('sm');
+      grid-area: image;
+      object-fit: cover;
+    }
+  }
+
+  &__check {
+    grid-area: check;
+  }
+
+  &__name {
+    align-self: end;
+    color: color('heading');
+    cursor: pointer;
+    font-weight: 600;
+    grid-area: name;
+  }
+
+  &__meta {
+    align-self: start;
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    grid-area: meta;
+  }
+
+  &__reason {
+    display: grid;
+    gap: spacer('xxs');
+    grid-area: reason;
+    margin-block-start: spacer('s');
+  }
+
+  // The reason appears for the selected items only (where :has() works; otherwise it's always visible).
+  @supports selector(:has(*)) {
+    &__item:not(:has(.returns-form__check:checked)) &__reason {
+      display: none;
+    }
+  }
+
+  &__method {
+    align-items: flex-start;
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('md');
+    cursor: pointer;
+    display: flex;
+    gap: spacer('s');
+    padding: spacer('s');
+
+    &:has(input:checked) {
+      border-color: color('primary');
+      box-shadow: 0 0 0 1px color('primary');
+    }
+
+    input {
+      margin-block-start: 0.2em;
+    }
+
+    span {
+      color: color('muted');
+      font-size: config('font-size-sm', $typography);
+    }
+
+    strong {
+      color: color('heading');
+      display: block;
+      font-size: config('font-size-base', $typography);
+    }
+  }
+
+  &__footer {
+    align-items: center;
+    border-block-start: config('border-width-base', $display) solid color('border');
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
+    justify-content: space-between;
+    padding-block-start: spacer('m');
+  }
+
+  &__summary {
+    margin: 0;
+
+    strong {
+      color: color('heading');
+    }
+  }
+}

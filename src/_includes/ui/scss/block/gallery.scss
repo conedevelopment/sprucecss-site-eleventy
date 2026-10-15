@@ -1,0 +1,132 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.gallery-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+  }
+
+  &__grid {
+    @include clear-list;
+    columns: 3 16rem;
+    gap: spacer('m');
+
+    li {
+      break-inside: avoid;
+      margin: 0 0 spacer('m') !important;
+    }
+  }
+
+  &__item {
+    border-radius: radius('lg');
+    display: block;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      inline-size: 100%;
+      @include transition($property: 'scale');
+    }
+
+    &:hover img {
+      @include motion-safe {
+        scale: 1.04;
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 3px;
+    }
+  }
+
+  &__caption {
+    background-image: linear-gradient(to top, hsl(0deg 0% 0% / 65%), transparent);
+    color: hsl(0deg 0% 100%);
+    font-weight: 700;
+    inset-block-end: 0;
+    inset-inline: 0;
+    padding: spacer('l') spacer('s') spacer('s');
+    position: absolute;
+  }
+
+  &__lightbox {
+    background: transparent;
+    block-size: 100dvb;
+    border: 0;
+    box-shadow: none;
+    inline-size: 100vi;
+    max-block-size: none;
+    max-inline-size: none;
+    padding: spacer('s');
+
+    &[open] {
+      align-items: center;
+      display: grid;
+      gap: spacer('xs') spacer-clamp('xs', 'm');
+      grid-template-areas:
+        '. . close'
+        'prev figure next'
+        '. counter .';
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      grid-template-rows: auto minmax(0, 1fr) auto;
+    }
+
+    &::backdrop {
+      background-color: hsl(0deg 0% 0% / 85%);
+    }
+  }
+
+  &__close {
+    grid-area: close;
+  }
+
+  &__nav {
+    &--prev {
+      grid-area: prev;
+    }
+
+    &--next {
+      grid-area: next;
+    }
+  }
+
+  &__figure {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    grid-area: figure;
+    justify-content: center;
+    margin: 0;
+    min-block-size: 0;
+
+    img {
+      border-radius: radius('md');
+      margin-inline: auto;
+      max-block-size: 100%;
+      min-block-size: 0;
+      object-fit: contain;
+    }
+
+    figcaption {
+      color: hsl(0deg 0% 100%);
+      margin-block-start: spacer('xs');
+      text-align: center;
+    }
+  }
+
+  &__counter {
+    color: hsl(0deg 0% 100%);
+    font-size: config('font-size-sm', $typography);
+    grid-area: counter;
+    text-align: center;
+  }
+}
+
+// The arrows point the reading direction.
+[dir='rtl'] .gallery-block__nav svg {
+  scale: -1 1;
+}

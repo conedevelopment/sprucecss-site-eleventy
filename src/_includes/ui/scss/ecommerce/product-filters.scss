@@ -1,0 +1,290 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.product-filters {
+  @include layout-stack('s');
+
+  &__header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: font-size('h4');
+    margin: 0;
+  }
+
+  &__clear {
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__active {
+    // The parent's layout-stack sets the margins.
+    list-style: none;
+    padding: 0;
+    @include layout-cluster('xxs');
+
+    li {
+      margin: 0;
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__chip {
+    @include clear-btn;
+    align-items: center;
+    background-color: color-alpha('primary', 0.1);
+    border-radius: radius('pill');
+    color: color('heading');
+    display: inline-flex;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xxs');
+    padding: 0.25em 0.5em 0.25em 0.75em;
+    @include transition;
+
+    svg {
+      block-size: 0.875rem;
+      inline-size: 0.875rem;
+    }
+
+    &:hover {
+      background-color: color-alpha('primary', 0.2);
+    }
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 2px;
+    }
+  }
+
+  &__group {
+    border: 0;
+    border-block-start: config('border-width-base', $display) solid color('border');
+    border-radius: 0;
+    padding-block-start: spacer('xxs');
+
+    > summary {
+      padding-inline: 0;
+    }
+
+    > :not(summary) {
+      padding-inline: 0;
+    }
+
+    fieldset {
+      border: 0;
+      margin: 0;
+      padding: 0;
+    }
+
+    &--plain {
+      padding-block: spacer('s') 0;
+    }
+  }
+
+  &__checks {
+    @include layout-stack('xs');
+  }
+
+  &__check {
+    align-items: center;
+    display: flex;
+
+    .form-check__label {
+      flex-grow: 1;
+    }
+  }
+
+  &__count {
+    color: color('muted');
+    font-size: 0.75rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__price {
+    --from: 0%;
+    --to: 100%;
+    @include layout-stack('s');
+  }
+
+  // Two range inputs on top of each other; only their thumbs catch the pointer.
+  &__range {
+    block-size: 1.5rem;
+    position: relative;
+
+    &::before,
+    &::after {
+      block-size: 0.25rem;
+      border-radius: radius('pill');
+      content: '';
+      inset-block-start: 50%;
+      position: absolute;
+      translate: 0 -50%;
+    }
+
+    &::before {
+      background-color: color('range-track-background', 'form');
+      inset-inline: 0;
+    }
+
+    &::after {
+      background-color: color('primary');
+      inset-inline: var(--from) calc(100% - var(--to));
+    }
+
+    input {
+      appearance: none;
+      background: none;
+      block-size: 100%;
+      inline-size: 100%;
+      inset: 0;
+      margin: 0;
+      pointer-events: none;
+      position: absolute;
+      z-index: 1;
+
+      &::-webkit-slider-runnable-track {
+        background: none;
+      }
+
+      &::-moz-range-track {
+        background: none;
+      }
+
+      &::-webkit-slider-thumb {
+        appearance: none;
+        background-color: color('surface');
+        block-size: 1.25rem;
+        border: 2px solid color('primary');
+        border-radius: 50%;
+        cursor: grab;
+        inline-size: 1.25rem;
+        pointer-events: auto;
+      }
+
+      &::-moz-range-thumb {
+        background-color: color('surface');
+        block-size: 1rem;
+        border: 2px solid color('primary');
+        border-radius: 50%;
+        cursor: grab;
+        inline-size: 1rem;
+        pointer-events: auto;
+      }
+    }
+  }
+
+  &__price-inputs {
+    display: grid;
+    gap: spacer('s');
+    grid-template-columns: 1fr 1fr;
+
+    .form-group {
+      @include layout-stack('xxs');
+    }
+  }
+
+  &__colors,
+  &__sizes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs');
+  }
+
+  &__color,
+  &__size {
+    cursor: pointer;
+    position: relative;
+
+    input {
+      appearance: none;
+      cursor: pointer;
+      inset: 0;
+      margin: 0;
+      // Invisible but focusable and clickable; the label shows the state.
+      opacity: 0;
+      position: absolute;
+    }
+  }
+
+  &__color {
+    aspect-ratio: 1;
+    background-color: var(--swatch);
+    border: 2px solid color('surface');
+    border-radius: radius('pill');
+    box-shadow: 0 0 0 1px color('border');
+    inline-size: 2rem;
+
+    input {
+      border-radius: inherit;
+    }
+
+    // The check mark of the selected color.
+    &:has(:checked) {
+      box-shadow: 0 0 0 2px color('heading');
+
+      &::after {
+        block-size: 0.6rem;
+        // A check mark is not mirrored in right-to-left languages, so it uses physical borders.
+        border-bottom: 2px solid hsl(0deg 0% 100%);
+        border-right: 2px solid hsl(0deg 0% 100%);
+        content: '';
+        inline-size: 0.35rem;
+        inset: 0;
+        margin: auto;
+        pointer-events: none;
+        position: absolute;
+        rotate: 45deg;
+        translate: 0 -10%;
+      }
+    }
+
+    &:has(:focus-visible) {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 3px;
+    }
+  }
+
+  &__size {
+    > span {
+      border: config('border-width-base', $display) solid color('border-strong');
+      border-radius: radius('md');
+      color: color('heading');
+      display: block;
+      font-size: config('font-size-sm', $typography);
+      font-weight: 600;
+      min-inline-size: 2.75rem;
+      padding: spacer('xxs') spacer('xs');
+      text-align: center;
+      @include transition;
+    }
+
+    &:has(:checked) > span {
+      background-color: color('heading');
+      border-color: color('heading');
+      color: color('surface');
+    }
+
+    &:has(:focus-visible) > span {
+      outline: 2px solid color('focus-ring');
+      outline-offset: 2px;
+    }
+  }
+
+  &__footer {
+    background-color: color('background');
+    border-block-start: config('border-width-base', $display) solid color('border');
+    inset-block-end: 0;
+    padding-block: spacer('s');
+    position: sticky;
+  }
+}
+
+[dir='rtl'] .product-filters__chip {
+  padding: 0.25em 0.75em 0.25em 0.5em;
+}

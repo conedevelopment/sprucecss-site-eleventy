@@ -1,0 +1,134 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.hero-case-block {
+  padding-block: spacer-clamp('m', 'xl') spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer-clamp('l', 'xl');
+  }
+
+  &__back {
+    margin-block: 0;
+
+    a {
+      align-items: center;
+      display: inline-flex;
+      font-weight: 700;
+      gap: spacer('xs');
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  // The arrow points back.
+  &__back-icon {
+    block-size: 1rem;
+    inline-size: 1rem;
+    scale: -1 1;
+  }
+
+  &__intro {
+    align-items: end;
+    display: grid;
+    gap: spacer-clamp('l', 'xl');
+
+    @include breakpoint('lg') {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    }
+  }
+
+  &__heading {
+    @include layout-stack('m');
+  }
+
+  &__eyebrow {
+    color: color('primary');
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font-size: responsive-font-size(4.5rem, 35, '5vw + 1rem');
+    hyphens: manual;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    text-wrap: balance;
+  }
+
+  &__summary {
+    font-size: config('font-size-lead', $typography);
+    max-inline-size: 42rem;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xxs');
+    list-style: none;
+    padding: 0;
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+    }
+  }
+
+  &__facts {
+    border-block-start: config('border-width-base', $display) solid color('heading');
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-block: 0;
+  }
+
+  &__fact {
+    border-block-end: config('border-width-base', $display) solid color('border');
+    padding-block: spacer('s');
+    @include layout-stack('xxs');
+
+    &:nth-child(odd) {
+      padding-inline-end: spacer('s');
+    }
+
+    dt {
+      color: color('muted');
+      font-size: config('font-size-sm', $typography);
+      font-weight: 400;
+    }
+
+    dd {
+      color: color('heading');
+      font-weight: 700;
+      margin-inline: 0;
+    }
+  }
+
+  &__cover {
+    margin: 0;
+    @include layout-stack('xs');
+
+    img {
+      aspect-ratio: 2 / 1;
+      background-color: color('surface-muted');
+      border-radius: radius('lg');
+      inline-size: 100%;
+      object-fit: cover;
+    }
+
+    figcaption {
+      color: color('muted');
+      font-size: config('font-size-sm', $typography);
+    }
+  }
+}
+
+// The back arrow points to the right (back) in RTL.
+[dir='rtl'] .hero-case-block__back-icon {
+  scale: 1;
+}

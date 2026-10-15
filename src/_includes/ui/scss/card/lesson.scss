@@ -1,0 +1,119 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.lesson-cards {
+  @include clear-list;
+  @include layout-grid('m', 18rem);
+
+  // The items sit side by side: clear the stack margins of the base list style.
+  > li {
+    margin-block: 0;
+    padding-block: 0;
+  }
+}
+
+.lesson-card {
+  @include a11y-card-link('.lesson-card__link', true);
+  background-color: color('surface');
+  block-size: 100%;
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  box-shadow: shadow('sm');
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  &__media {
+    aspect-ratio: 16 / 9;
+    background-color: color('surface-muted');
+    position: relative;
+
+    img {
+      block-size: 100%;
+      inline-size: 100%;
+      object-fit: cover;
+    }
+
+    // A shade, so the icon and the duration stay readable on any image.
+    &::after {
+      background-image: linear-gradient(to top, hsl(0deg 0% 0% / 45%), transparent 60%);
+      content: '';
+      inset: 0;
+      position: absolute;
+    }
+  }
+
+  &__duration {
+    background-color: hsl(0deg 0% 0% / 70%);
+    border-radius: radius('sm');
+    color: hsl(0deg 0% 100%);
+    font-size: config('font-size-sm', $typography);
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    inset-block-end: spacer('xs');
+    inset-inline-end: spacer('xs');
+    line-height: 1.4;
+    padding: 0 spacer('xxs');
+    position: absolute;
+  }
+
+  &__icon {
+    align-items: center;
+    background-color: color('surface');
+    block-size: 2.75rem;
+    border-radius: 50%;
+    box-shadow: shadow('md');
+    color: color('primary');
+    display: flex;
+    inline-size: 2.75rem;
+    inset: 0;
+    justify-content: center;
+    margin: auto;
+    position: absolute;
+
+    svg {
+      block-size: 1.15rem;
+      inline-size: 1.15rem;
+    }
+  }
+
+  &__body {
+    flex-grow: 1;
+    padding: spacer('s') spacer('m') spacer('m');
+    @include layout-stack('xxs'); // module, title, access
+  }
+
+  &__module {
+    color: color('primary');
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+  }
+
+  &__title {
+    font-size: font-size('h5');
+  }
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &__access {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+
+    &--free {
+      color: color('success', 'alert');
+      font-weight: 600;
+    }
+  }
+
+  @include motion-safe {
+    img {
+      transition: scale 0.3s ease;
+    }
+
+    &:hover img {
+      scale: 1.04;
+    }
+  }
+}

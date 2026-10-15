@@ -1,0 +1,113 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.sale-countdown-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+  }
+
+  // The countdown component on the brand background.
+  &__banner {
+    @include set-css-variable((
+      --base-color-heading: color('primary-foreground', 'btn'),
+      --base-color-muted: color-alpha('primary-foreground', 0.8, 'btn'),
+      --base-color-text: color('primary-foreground', 'btn'),
+    ));
+    @include selection(color('secondary-background', 'btn'), color('secondary-foreground', 'btn'));
+    align-items: center;
+    background-color: color('primary-background', 'btn');
+    background-image: radial-gradient(circle at 0% 100%, #{color-alpha('secondary-background', 0.6, 'btn')}, transparent 55%);
+    border: 0;
+    color: color('primary-foreground', 'btn');
+    display: grid;
+    gap: spacer('l');
+    text-align: start;
+
+    @include breakpoint('lg') {
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    // The banner is a grid, so the stack margins of the component don't apply.
+    > * {
+      margin: 0 !important;
+    }
+
+    .countdown__unit {
+      background-color: hsl(0deg 0% 100% / 14%);
+      min-inline-size: 4.5rem;
+    }
+  }
+
+  &__copy {
+    @include layout-stack('xs');
+  }
+
+  &__eyebrow {
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  &__title {
+    font-size: responsive-font-size(2.75rem, 35, '3vw + 1rem');
+  }
+
+  &__text {
+    font-size: config('font-size-lead', $typography);
+    max-inline-size: 34rem;
+    opacity: 0.9;
+  }
+
+  &__timer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: spacer('s');
+
+    .countdown__title {
+      font-size: config('font-size-base', $typography);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+  }
+
+  &__action {
+    background-color: color('primary-foreground', 'btn');
+    border-color: color('primary-foreground', 'btn');
+    color: color('primary-background', 'btn');
+
+    &:hover {
+      background-color: color-alpha('primary-foreground', 0.9, 'btn');
+      color: color('primary-background', 'btn');
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: spacer('m');
+    grid-template-columns: repeat(auto-fill, minmax(min(13rem, 100%), 1fr));
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    > li {
+      display: flex;
+      margin: 0 !important;
+      margin-block: 0;
+      padding-block: 0;
+    }
+
+    .product-card {
+      inline-size: 100%;
+    }
+
+    del {
+      color: color('muted');
+      font-size: config('font-size-sm', $typography);
+      font-weight: 400;
+    }
+  }
+}

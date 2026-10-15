@@ -1,0 +1,36 @@
+---
+title: 'Subscribe and Save'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--narrow">
+        {% include "ui/html/ecommerce/subscribe-and-save.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/ecommerce/subscribe-and-save.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/ecommerce/subscribe-and-save.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/ecommerce/subscribe-and-save.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/ecommerce/subscribe-and-save.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/misc/badge.css">
+    <link rel="stylesheet" href="/_includes/ui/css/ecommerce/subscribe-and-save.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/ecommerce/subscribe-and-save.js"></script>
+{% endblock %}

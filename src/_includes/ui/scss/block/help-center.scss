@@ -1,0 +1,93 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.help-center-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer-clamp('l', 'xl');
+  }
+
+  &__top {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: spacer('m');
+    text-align: center;
+  }
+
+  &__search {
+    display: flex;
+    gap: spacer('xs');
+    inline-size: min(100%, 40rem);
+
+    .form-control {
+      flex: 1 1 auto;
+      min-inline-size: 0;
+    }
+  }
+
+  &__popular {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    margin: 0;
+
+    span {
+      font-weight: 600;
+    }
+  }
+
+  // Four topics in a row from lg, two from sm.
+  &__topics {
+    display: grid;
+    gap: spacer('m');
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include breakpoint('sm') {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include breakpoint('lg') {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .block-icon {
+      block-size: 1.5rem;
+      inline-size: 1.5rem;
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+    }
+  }
+
+  &__bottom {
+    align-items: start;
+    display: grid;
+    gap: spacer-clamp('m', 'l');
+
+    @include breakpoint('lg') {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    }
+  }
+
+  &__faq {
+    @include layout-stack('s');
+  }
+
+  &__subtitle {
+    font-size: font-size('h4');
+  }
+
+  &__contact {
+    @include breakpoint('lg') {
+      inset-block-start: spacer('l');
+      margin-block-start: calc(#{font-size('h4')} * 1.2 + #{spacer('s')});
+      position: sticky;
+    }
+  }
+}

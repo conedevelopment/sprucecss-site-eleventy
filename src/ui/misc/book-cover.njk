@@ -1,0 +1,27 @@
+---
+title: 'Book Cover'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--narrow">
+        {% include "ui/html/misc/book-cover.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/misc/book-cover.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/misc/book-cover.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/misc/book-cover.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/misc/book-cover.css">
+{% endblock %}

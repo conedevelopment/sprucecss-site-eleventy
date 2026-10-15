@@ -1,0 +1,152 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.status-monitor {
+  --status-monitor-operational: #{color('success', 'alert')};
+  --status-monitor-degraded: #{color('warning', 'alert')};
+  --status-monitor-outage: #{color('danger', 'alert')};
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  padding: spacer('m');
+  @include layout-stack('m');
+
+  &__header {
+    @include layout-stack('s');
+  }
+
+  &__title {
+    font-size: font-size('h5');
+    margin: 0;
+  }
+
+  &__overall {
+    align-items: center;
+    background-color: color-alpha('success', 0.12, 'alert');
+    border-radius: radius('md');
+    color: color('heading');
+    display: flex;
+    font-weight: 600;
+    gap: spacer('xs');
+    padding: spacer('xs') spacer('s');
+
+    svg {
+      block-size: 1.25rem;
+      flex-shrink: 0;
+      inline-size: 1.25rem;
+    }
+
+    &--degraded {
+      background-color: color-alpha('warning', 0.2, 'alert');
+    }
+
+    &--outage {
+      background-color: color-alpha('danger', 0.15, 'alert');
+    }
+  }
+
+  &__services {
+    display: grid;
+    // The parent's layout-stack sets the margins.
+    list-style: none;
+    padding: 0;
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+    }
+  }
+
+  &__service {
+    border-block-start: config('border-width-base', $display) solid color('border');
+    padding-block: spacer('s');
+    @include layout-stack('xs');
+  }
+
+  &__row {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xxs') spacer('s');
+    justify-content: space-between;
+  }
+
+  &__name {
+    font-family: inherit;
+    font-size: config('font-size-base', $typography);
+    margin: 0;
+  }
+
+  &__status {
+    align-items: center;
+    display: inline-flex;
+    font-size: config('font-size-sm', $typography);
+    font-weight: 600;
+    gap: spacer('xxs');
+
+    &::before {
+      aspect-ratio: 1;
+      background-color: var(--status-monitor-operational);
+      border-radius: 50%;
+      content: '';
+      inline-size: 0.5rem;
+    }
+
+    &--degraded::before {
+      background-color: var(--status-monitor-degraded);
+    }
+
+    &--outage::before {
+      background-color: var(--status-monitor-outage);
+    }
+  }
+
+  &__bars {
+    block-size: 2rem;
+    display: grid;
+    gap: 2px;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+    list-style: none;
+    padding: 0;
+
+    li {
+      background-color: var(--status-monitor-operational);
+      border-radius: 2px;
+      margin: 0;
+      @include transition($property: 'opacity');
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    [data-status='degraded'] {
+      background-color: var(--status-monitor-degraded);
+    }
+
+    [data-status='outage'] {
+      background-color: var(--status-monitor-outage);
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__summary,
+  &__footer {
+    color: color('muted');
+    display: flex;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('s');
+    justify-content: space-between;
+  }
+
+  &__footer {
+    border-block-start: config('border-width-base', $display) solid color('border');
+    font-size: 0.75rem;
+    padding-block-start: spacer('s');
+  }
+}

@@ -1,0 +1,47 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.newsletter {
+  align-items: center;
+  background-color: color('surface-muted');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  display: grid;
+  gap: spacer('m');
+  padding: spacer-clamp('m', 'l');
+
+  @include breakpoint('md') {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__content {
+    @include layout-stack('xs');
+  }
+
+  &__title {
+    font-size: font-size('h3');
+  }
+
+  &__text {
+    color: color('muted');
+  }
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs');
+
+    .form-control {
+      flex: 1 1 14rem;
+    }
+
+    .btn {
+      flex: 0 0 auto;
+    }
+  }
+
+  // The GDPR consent takes its own row under the field and the button.
+  &__consent {
+    flex-basis: 100%;
+    font-size: config('font-size-sm', $typography);
+  }
+}

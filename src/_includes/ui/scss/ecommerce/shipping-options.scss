@@ -1,0 +1,118 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.shipping-options {
+  @include layout-stack('m');
+
+  &__fieldset {
+    border: 0;
+    margin-inline: 0;
+    padding: 0;
+  }
+
+  &__legend {
+    color: color('heading');
+    font-size: font-size('h5');
+    font-weight: 700;
+    margin-block-end: spacer('s');
+    padding: 0;
+  }
+
+  &__list {
+    display: grid;
+    gap: spacer('xs');
+  }
+
+  &__option {
+    align-items: center;
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('md');
+    cursor: pointer;
+    display: grid;
+    gap: spacer('s');
+    grid-template-columns: auto auto minmax(0, 1fr) auto;
+    padding: spacer('s');
+    @include transition($property: 'background-color, border-color, box-shadow');
+
+    &:hover {
+      border-color: color('border-strong');
+    }
+
+    &:has(:checked) {
+      background-color: color-alpha('primary', 0.05);
+      border-color: color('primary');
+      box-shadow: 0 0 0 1px color('primary');
+    }
+
+    &:has(:disabled) {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    .form-check__control {
+      margin: 0;
+    }
+  }
+
+  &__icon {
+    block-size: 1.5rem;
+    color: color('muted');
+    inline-size: 1.5rem;
+  }
+
+  &__option:has(:checked) &__icon {
+    color: color('primary');
+  }
+
+  &__body {
+    display: grid;
+    line-height: config('line-height-md', $typography);
+  }
+
+  &__name {
+    color: color('heading');
+    font-weight: 700;
+  }
+
+  &__eta {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__price {
+    color: color('heading');
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+  }
+
+  &__summary {
+    border-block-start: config('border-width-base', $display) solid color('border');
+    padding-block-start: spacer('s');
+    @include layout-stack('xs');
+
+    div {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    dt {
+      font-weight: 400;
+    }
+
+    dd {
+      color: color('heading');
+      font-variant-numeric: tabular-nums;
+      margin: 0;
+    }
+  }
+
+  &__total {
+    font-size: config('font-size-lg', $typography);
+
+    dt,
+    dd {
+      color: color('heading');
+      font-weight: 700;
+    }
+  }
+}

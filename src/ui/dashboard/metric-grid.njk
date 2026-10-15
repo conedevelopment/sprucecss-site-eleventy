@@ -1,0 +1,27 @@
+---
+title: 'Metric Grid'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--wide">
+        {% include "ui/html/dashboard/metric-grid.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/dashboard/metric-grid.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/dashboard/metric-grid.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/dashboard/metric-grid.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/dashboard/metric-grid.css">
+{% endblock %}

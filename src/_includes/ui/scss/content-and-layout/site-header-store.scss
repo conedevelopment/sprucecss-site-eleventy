@@ -1,0 +1,194 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.site-header-store {
+  background-color: color('background');
+  border-block-end: config('border-width-base', $display) solid color('border');
+  position: relative;
+
+  &__bar {
+    background-color: color('heading');
+    color: color('background');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__bar-inner {
+    align-items: center;
+    display: flex;
+    gap: spacer('s');
+    justify-content: center;
+    min-block-size: 2.25rem;
+
+    @include breakpoint('md') {
+      justify-content: space-between;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__links {
+    display: none;
+    gap: spacer('m');
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include breakpoint('md') {
+      display: flex;
+    }
+
+    li {
+      margin: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  // The search moves to its own row on small screens.
+  &__main {
+    align-items: center;
+    display: grid;
+    gap: spacer('s') spacer-clamp('s', 'l');
+    grid-template-areas:
+      'logo actions'
+      'search search';
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding-block: spacer('s');
+
+    @include breakpoint('md') {
+      grid-template-areas: 'logo search actions';
+      grid-template-columns: auto minmax(0, 1fr) auto;
+    }
+  }
+
+  &__logo {
+    align-items: center;
+    color: color('heading');
+    display: inline-flex;
+    font-family: config('font-family-heading', $typography);
+    font-size: font-size('h5');
+    font-weight: config('font-weight-heading', $typography);
+    gap: spacer('xs');
+    grid-area: logo;
+    text-decoration: none;
+
+    img {
+      block-size: 2rem;
+      inline-size: 2rem;
+    }
+  }
+
+  &__search {
+    display: flex;
+    gap: spacer('xxs');
+    grid-area: search;
+    inline-size: 100%;
+    margin-inline: auto;
+    max-inline-size: 40rem;
+
+    .form-control {
+      flex: 1 1 auto;
+      min-inline-size: 0;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: spacer('xxs');
+    grid-area: actions;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0;
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__action {
+    align-items: center;
+    border-radius: radius('md');
+    color: color('heading');
+    display: flex;
+    flex-direction: column;
+    font-size: 0.75rem;
+    font-weight: 600;
+    gap: 2px;
+    min-block-size: 2.75rem;
+    min-inline-size: 2.75rem;
+    padding: spacer('xxs') spacer('xs');
+    position: relative;
+    text-decoration: none;
+
+    &:hover {
+      background-color: color('surface-muted');
+      color: color('primary');
+    }
+
+    svg {
+      block-size: 1.4rem;
+      inline-size: 1.4rem;
+    }
+  }
+
+  // The labels are visible from md; below it, they're still there for screen readers.
+  &__label {
+    @include breakpoint-down('md') {
+      @include visually-hidden;
+    }
+  }
+
+  &__count {
+    align-items: center;
+    background-color: color('primary');
+    block-size: 1.15rem;
+    border-radius: radius('pill');
+    color: color('primary-foreground', 'btn');
+    display: flex;
+    font-size: 0.7rem;
+    font-weight: 700;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    justify-content: center;
+    min-inline-size: 1.15rem;
+    padding-inline: 0.3rem;
+    position: absolute;
+  }
+
+  &__navigation {
+    padding-block-end: spacer('s');
+
+    @include breakpoint('md') {
+      padding-block: 0 spacer('s');
+    }
+
+    a,
+    .site-navigation__toggle {
+      font-size: config('font-size-sm', $typography);
+    }
+  }
+
+  &__sale {
+    color: color('danger', 'alert') !important;
+  }
+}

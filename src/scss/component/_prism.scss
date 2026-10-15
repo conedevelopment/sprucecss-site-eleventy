@@ -4,12 +4,13 @@ code[class*='language-'],
 pre[class*='language-'] {
   border-radius: config('border-radius-sm', $display);
   color: color('color', 'prism');
+  direction: ltr; // Code always reads left to right, even on RTL pages.
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: 0.9375rem;
   hyphens: none;
   line-height: 1.5;
   tab-size: 4;
-  text-align: left;
+  text-align: start;
   white-space: pre;
   word-break: normal;
   word-spacing: normal;

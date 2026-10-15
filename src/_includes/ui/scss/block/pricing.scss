@@ -1,0 +1,25 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.pricing-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+  }
+
+  &__toggle {
+    display: flex;
+    margin-inline: auto;
+    max-inline-size: max-content;
+  }
+
+  &__note {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    // A child of the flex __inner: the gap spaces it, so drop the browser margins.
+    margin-block: 0;
+    text-align: center;
+  }
+}

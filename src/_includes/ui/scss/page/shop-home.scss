@@ -1,0 +1,24 @@
+@use 'sprucecss/scss/spruce' as *;
+
+// A page composed of blocks and components: the blocks bring their own spacing, the components get it from __section.
+.l-page {
+  // One background, one padding: a section that follows a section on the same background drops its top padding,
+  // the bottom padding of the previous one already separates them. `__alt` starts a new background, the bordered `__band` a new section.
+  > :not(.l-page__alt, .l-page__band) + :not(.l-page__alt, .l-page__band),
+  &__alt > * + * {
+    padding-block-start: 0;
+  }
+
+  &__band {
+    border-block-end: config('border-width-base', $display) solid color('border');
+    padding-block: spacer('s');
+  }
+
+  &__alt {
+    background-color: color('surface-muted');
+  }
+
+  &__section {
+    padding-block: spacer-clamp('xl', 'xxl');
+  }
+}

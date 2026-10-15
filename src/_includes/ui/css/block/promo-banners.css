@@ -1,0 +1,83 @@
+.promo-banners-block {
+  padding-block: clamp(4.5rem, 5vw, 7rem);
+}
+.promo-banners-block__list {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(22rem, 100%), 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.promo-banners-block__list > li {
+  margin-block: 0;
+  padding-block: 0;
+}
+.promo-banners-block__banner {
+  align-items: center;
+  background-color: var(--spruce-base-color-surface-muted);
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  border-radius: var(--spruce-border-radius-lg);
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  overflow: hidden;
+}
+.promo-banners-block__banner--brand {
+  --spruce-base-color-heading: var(--spruce-btn-color-primary-foreground);
+  --spruce-base-color-muted: color-mix(in srgb, var(--spruce-btn-color-primary-foreground) 80%, transparent);
+  --spruce-base-color-text: var(--spruce-btn-color-primary-foreground);
+  background-color: var(--spruce-btn-color-primary-background);
+  border-color: transparent;
+  color: var(--spruce-btn-color-primary-foreground);
+}
+.promo-banners-block__banner--brand .promo-banners-block__action {
+  background-color: var(--spruce-btn-color-primary-foreground);
+  border-color: var(--spruce-btn-color-primary-foreground);
+  color: var(--spruce-btn-color-primary-background);
+}
+.promo-banners-block__banner--brand .promo-banners-block__action:hover {
+  background-color: color-mix(in srgb, var(--spruce-btn-color-primary-foreground) 90%, transparent);
+  color: var(--spruce-btn-color-primary-background);
+}
+.promo-banners-block__content {
+  padding: clamp(1.5rem, 5vw, 3rem);
+}
+.promo-banners-block__content > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.promo-banners-block__content > * + * {
+  margin-block-start: 1rem;
+}
+.promo-banners-block__eyebrow {
+  color: var(--spruce-base-color-primary);
+  font-size: var(--spruce-font-size-sm);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.promo-banners-block__banner--brand .promo-banners-block__eyebrow {
+  color: inherit;
+}
+.promo-banners-block__title {
+  font-size: clamp(1.328125rem, 2vw + 1rem, 1.5625rem);
+}
+.promo-banners-block__text {
+  color: var(--spruce-base-color-muted);
+}
+.promo-banners-block__action {
+  background-color: var(--spruce-base-color-heading);
+  border-color: var(--spruce-base-color-heading);
+  color: var(--spruce-base-color-background);
+}
+.promo-banners-block__action:hover {
+  background-color: var(--spruce-base-color-text);
+  color: var(--spruce-base-color-background);
+}
+.promo-banners-block__image {
+  aspect-ratio: 1;
+  block-size: 100%;
+  inline-size: 100%;
+  object-fit: cover;
+}

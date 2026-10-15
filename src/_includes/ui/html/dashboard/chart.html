@@ -1,0 +1,74 @@
+<div class="chart-cards">
+    <article class="chart-card" aria-labelledby="chart-revenue-title">
+        <header class="chart-card__header">
+            <div class="chart-card__heading">
+                <h3 class="chart-card__title" id="chart-revenue-title">Revenue</h3>
+                <p class="chart-card__value">$128,400 <span class="chart-card__change chart-card__change--up"><span class="sr-only">Increased by</span> 8.2%</span></p>
+            </div>
+            <ul class="chart-card__legend" role="list">
+                <li><span class="chart-card__swatch" aria-hidden="true"></span>2026</li>
+                <li><span class="chart-card__swatch chart-card__swatch--muted" aria-hidden="true"></span>2025</li>
+            </ul>
+        </header>
+        <div class="chart-card__canvas">
+            <canvas data-chart="line" data-chart-table="chart-revenue-data" role="img" aria-label="Line chart of the monthly revenue in 2026 and 2025. The data is in the table below."></canvas>
+        </div>
+        <details class="chart-card__data" open>
+            <summary>Data table</summary>
+            <div class="table-responsive">
+                <table class="table table--sm" id="chart-revenue-data" data-chart-prefix="$">
+                    <caption class="sr-only">Monthly revenue, in US dollars</caption>
+                    <thead>
+                        <tr><th scope="col">Month</th><th scope="col">2026</th><th scope="col">2025</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="row">Jan</th><td>8200</td><td>7400</td></tr>
+                        <tr><th scope="row">Feb</th><td>9100</td><td>7900</td></tr>
+                        <tr><th scope="row">Mar</th><td>10400</td><td>8800</td></tr>
+                        <tr><th scope="row">Apr</th><td>9800</td><td>9300</td></tr>
+                        <tr><th scope="row">May</th><td>11900</td><td>10100</td></tr>
+                        <tr><th scope="row">Jun</th><td>12600</td><td>10900</td></tr>
+                        <tr><th scope="row">Jul</th><td>12100</td><td>11400</td></tr>
+                        <tr><th scope="row">Aug</th><td>13800</td><td>11800</td></tr>
+                        <tr><th scope="row">Sep</th><td>15200</td><td>12500</td></tr>
+                        <tr><th scope="row">Oct</th><td>16300</td><td>13900</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </details>
+    </article>
+    <article class="chart-card" aria-labelledby="chart-orders-title">
+        <header class="chart-card__header">
+            <div class="chart-card__heading">
+                <h3 class="chart-card__title" id="chart-orders-title">Orders by channel</h3>
+                <p class="chart-card__value">1,284 <span class="chart-card__change chart-card__change--down"><span class="sr-only">Decreased by</span> 2.1%</span></p>
+            </div>
+            <ul class="chart-card__legend" role="list">
+                <li><span class="chart-card__swatch" aria-hidden="true"></span>Online store</li>
+                <li><span class="chart-card__swatch chart-card__swatch--muted" aria-hidden="true"></span>Marketplace</li>
+            </ul>
+        </header>
+        <div class="chart-card__canvas">
+            <canvas data-chart="bar" data-chart-table="chart-orders-data" role="img" aria-label="Bar chart of the weekly orders by channel. The data is in the table below."></canvas>
+        </div>
+        <details class="chart-card__data" open>
+            <summary>Data table</summary>
+            <div class="table-responsive">
+                <table class="table table--sm" id="chart-orders-data">
+                    <caption class="sr-only">Weekly orders by channel</caption>
+                    <thead>
+                        <tr><th scope="col">Week</th><th scope="col">Online store</th><th scope="col">Marketplace</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="row">W35</th><td>182</td><td>96</td></tr>
+                        <tr><th scope="row">W36</th><td>201</td><td>104</td></tr>
+                        <tr><th scope="row">W37</th><td>176</td><td>121</td></tr>
+                        <tr><th scope="row">W38</th><td>214</td><td>98</td></tr>
+                        <tr><th scope="row">W39</th><td>198</td><td>87</td></tr>
+                        <tr><th scope="row">W40</th><td>187</td><td>92</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </details>
+    </article>
+</div>

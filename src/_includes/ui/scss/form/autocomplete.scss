@@ -1,0 +1,44 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.autocomplete {
+  @include layout-stack('xs');
+
+  &__control {
+    position: relative;
+  }
+
+  &__listbox {
+    @include clear-list;
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('md');
+    box-shadow: shadow('lg');
+    inline-size: 100%;
+    inset-block-start: calc(100% + #{spacer('xxs')});
+    inset-inline-start: 0;
+    max-block-size: 15rem;
+    overflow-y: auto;
+    padding: spacer('xxs');
+    position: absolute;
+    z-index: z-index('dropdown');
+
+    li {
+      border-radius: radius('sm');
+      cursor: pointer;
+      margin: 0 !important;
+      padding: spacer('xs') spacer('s');
+
+      &[aria-selected='true'] {
+        background-color: color-alpha('primary', 0.12);
+        color: color('primary');
+      }
+
+      mark {
+        background-color: transparent;
+        color: inherit;
+        font-weight: 700;
+        padding: 0;
+      }
+    }
+  }
+}

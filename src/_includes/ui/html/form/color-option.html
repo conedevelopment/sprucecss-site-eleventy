@@ -1,31 +1,30 @@
-<fieldset
-    class="form-color-option"
-    x-data="{ selected: 'Teal' }"
->
-    <legend class="form-color-option__label">Color: <span class="form-color-option__selected" x-text="selected"></span></legend>
+<fieldset class="form-color-option" data-option-group>
+    <legend class="form-color-option__label">
+        Color: <span class="form-color-option__selected" data-option-selected>Teal</span>
+    </legend>
     <div class="form-color-option__inner">
-        <label class="form-color form-color--check-dark" style="color: pink;">
-            <input class="form-color__control" type="radio" value="pink" name="color" @change="selected = 'Pink'" aria-label="Pink"/>
+        <label class="form-color form-color--check-dark" style="--color: hsl(340deg 82% 76%);" title="Rose">
+            <input class="form-color__control" type="radio" value="rose" name="color" aria-label="Rose" data-label="Rose"/>
             <span class="form-color__label"></span>
         </label>
-        <label class="form-color form-color--check-light" style="color: purple;">
-            <input class="form-color__control" type="radio" value="purple" name="color" @change="selected = 'Purple'" aria-label="Purple"/>
+        <label class="form-color form-color--check-light" style="--color: hsl(282deg 44% 42%);" title="Plum">
+            <input class="form-color__control" type="radio" value="plum" name="color" aria-label="Plum" data-label="Plum"/>
             <span class="form-color__label"></span>
         </label>
-        <label class="form-color form-color--check-light" style="color: teal;">
-            <input class="form-color__control" type="radio" value="teal" name="color" @change="selected = 'Teal'" checked aria-label="Teal"/>
+        <label class="form-color form-color--check-light" style="--color: hsl(180deg 60% 32%);" title="Teal">
+            <input class="form-color__control" type="radio" value="teal" name="color" aria-label="Teal" data-label="Teal" checked/>
             <span class="form-color__label"></span>
         </label>
-        <label class="form-color form-color--check-light" style="color: coral;">
-            <input class="form-color__control" type="radio" value="coral" name="color" @change="selected = 'Coral'"/>
+        <label class="form-color form-color--check-dark" style="--color: hsl(16deg 100% 66%);" title="Coral">
+            <input class="form-color__control" type="radio" value="coral" name="color" aria-label="Coral" data-label="Coral"/>
             <span class="form-color__label"></span>
         </label>
-        <label class="form-color form-color--check-dark" style="color: lavender;">
-            <input class="form-color__control" type="radio" value="lavender" name="color" @change="selected = 'Lavender'"/>
+        <label class="form-color form-color--check-dark" style="--color: hsl(240deg 67% 90%);" title="Lavender (sold out)">
+            <input class="form-color__control" type="radio" value="lavender" name="color" aria-label="Lavender (sold out)" data-label="Lavender" disabled/>
             <span class="form-color__label"></span>
         </label>
-        <label class="form-color form-color--check-light" style="color: indianred;">
-            <input class="form-color__control" type="radio" value="indianred" name="color" @change="selected = 'Indianred'"/>
+        <label class="form-color form-color--check-light" style="--color: hsl(220deg 8% 25%);" title="Graphite">
+            <input class="form-color__control" type="radio" value="graphite" name="color" aria-label="Graphite" data-label="Graphite"/>
             <span class="form-color__label"></span>
         </label>
     </div>

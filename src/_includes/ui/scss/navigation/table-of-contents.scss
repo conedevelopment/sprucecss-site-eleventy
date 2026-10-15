@@ -1,0 +1,61 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.table-of-contents-demo {
+  display: grid;
+  gap: spacer('l');
+
+  @include breakpoint('md') {
+    grid-template-columns: 14rem 1fr;
+  }
+
+  &__content {
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    max-block-size: 22rem;
+    overflow-y: auto;
+    padding: spacer('m');
+    @include layout-stack('s');
+  }
+}
+
+.table-of-contents {
+  align-self: start;
+  font-size: config('font-size-sm', $typography);
+  @include layout-stack('xs');
+
+  &__title {
+    color: color('heading');
+    font-weight: 700;
+  }
+
+  ol {
+    list-style: none;
+    padding: 0;
+    @include layout-stack('xxs');
+  }
+
+  ol ol {
+    margin-block-start: spacer('xxs');
+    padding-inline-start: spacer('s');
+  }
+
+  a {
+    border-inline-start: 2px solid color('border');
+    color: color('muted');
+    display: block;
+    padding-block: spacer('xxs');
+    padding-inline-start: spacer('s');
+    text-decoration: none;
+    @include transition($property: 'border-color, color');
+
+    &:hover {
+      color: color('heading');
+    }
+
+    &[aria-current='true'] {
+      border-color: color('primary');
+      color: color('primary');
+      font-weight: 700;
+    }
+  }
+}

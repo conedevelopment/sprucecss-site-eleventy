@@ -37,10 +37,29 @@
     flex-direction: column;
   }
 
+  // The section heading names the payment options, so the fieldset legend is only for screen readers here.
+  &__payment .payment-card-group__legend {
+    @include visually-hidden;
+  }
+
+  &__total {
+    align-items: baseline;
+    border-block-start: config('border-width-base', $display) solid color('border');
+    display: flex;
+    font-size: font-size('h4');
+    justify-content: space-between;
+    padding-block-start: spacer('s');
+
+    strong {
+      color: color('heading');
+      font-variant-numeric: tabular-nums;
+    }
+  }
+
   &__order {
+    @include layout-stack('s');
     margin-block-start: auto;
-    padding-top: spacer('m');
-    @include layout-stack('xs');
+    padding-block-start: spacer('m');
 
     .form-group--submit {
       margin-block-start: spacer('m');

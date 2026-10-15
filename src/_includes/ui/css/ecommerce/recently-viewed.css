@@ -1,0 +1,92 @@
+.recently-viewed > * {
+  margin-block-end: 0;
+  margin-block-start: 0;
+}
+.recently-viewed > * + * {
+  margin-block-start: 1.5rem;
+}
+.recently-viewed__header {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+.recently-viewed__title {
+  font-size: clamp(1.0625rem, 2vw + 1rem, 1.25rem);
+  margin-inline-end: auto;
+}
+.recently-viewed__controls {
+  display: flex;
+  gap: 0.25rem;
+}
+.recently-viewed__controls[hidden] {
+  display: none;
+}
+.recently-viewed__track {
+  display: grid;
+  gap: 1.5rem;
+  grid-auto-columns: minmax(10rem, calc((100% - 1.5rem * 4) / 5));
+  grid-auto-flow: column;
+  list-style: none;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  padding: 0 0 1rem;
+  scroll-padding-inline: 0;
+  scroll-snap-type: inline mandatory;
+  scrollbar-width: thin;
+}
+.recently-viewed__track:focus-visible {
+  outline: 2px solid var(--spruce-base-color-focus-ring);
+  outline-offset: 4px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .recently-viewed__track {
+    scroll-behavior: smooth;
+  }
+}
+.recently-viewed__track > li {
+  margin-block: 0;
+  padding-block: 0;
+}
+.recently-viewed__item {
+  scroll-snap-align: start;
+}
+.recently-viewed__link {
+  color: var(--spruce-base-color-heading);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-decoration: none;
+}
+.recently-viewed__link img {
+  aspect-ratio: 1;
+  background-color: var(--spruce-base-color-surface-muted);
+  border-radius: var(--spruce-border-radius-md);
+  inline-size: 100%;
+  margin-block-end: 0.25rem;
+  object-fit: cover;
+  transition-duration: var(--spruce-duration);
+  transition-property: opacity;
+  transition-timing-function: var(--spruce-timing-function);
+}
+.recently-viewed__link:hover img {
+  opacity: 0.85;
+}
+.recently-viewed__link:hover .recently-viewed__name {
+  text-decoration: underline;
+}
+.recently-viewed__name {
+  font-size: var(--spruce-font-size-sm);
+  font-weight: 600;
+}
+.recently-viewed__price {
+  color: var(--spruce-base-color-muted);
+  font-size: var(--spruce-font-size-sm);
+}
+.recently-viewed__cleared {
+  color: var(--spruce-base-color-muted);
+}
+
+[dir=rtl] .recently-viewed__arrow svg {
+  scale: -1 1;
+}

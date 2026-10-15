@@ -1,0 +1,104 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.community-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    align-items: center;
+    display: grid;
+    gap: spacer-clamp('l', 'xl');
+
+    @include breakpoint('lg') {
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    }
+
+    > * {
+      margin: 0 !important;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+  }
+
+  &__stats {
+    gap: spacer('m');
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr));
+
+    .number-card__data {
+      font-size: responsive-font-size(3rem, 30);
+    }
+  }
+
+  &__channels {
+    display: grid;
+    gap: spacer('s');
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      display: flex;
+      margin: 0;
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__channel {
+    --brand: #5865f2;
+    align-items: center;
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    color: color('muted');
+    display: flex;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('s');
+    inline-size: 100%;
+    padding: spacer('s') spacer('m');
+    text-decoration: none;
+    @include transition($property: 'border-color, box-shadow');
+
+    &--github {
+      --brand: #{color('heading')};
+    }
+
+    &:hover {
+      border-color: var(--brand);
+      box-shadow: 0 0 0 1px var(--brand);
+    }
+
+    strong {
+      color: color('heading');
+      display: block;
+      font-size: config('font-size-base', $typography);
+    }
+  }
+
+  &__brand {
+    block-size: 2rem;
+    color: var(--brand);
+    flex-shrink: 0;
+    inline-size: 2rem;
+  }
+
+  &__members {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
+
+    p {
+      color: color('muted');
+      margin: 0;
+    }
+  }
+}

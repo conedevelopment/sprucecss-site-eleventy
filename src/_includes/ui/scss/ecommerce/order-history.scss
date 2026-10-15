@@ -1,0 +1,170 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.order-history {
+  @include layout-stack('m');
+
+  &__top {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: font-size('h3');
+    margin: 0;
+  }
+
+  &__filter {
+    @include layout-cluster('xs');
+
+    .form-control {
+      inline-size: auto;
+    }
+  }
+
+  &__label {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__list {
+    // The parent's layout-stack sets the margins.
+    list-style: none;
+    padding: 0;
+    @include layout-stack('s');
+  }
+
+  &__order {
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    overflow: hidden;
+  }
+
+  &__header {
+    align-items: center;
+    background-color: color('surface-muted');
+    border-block-end: config('border-width-base', $display) solid color('border');
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs') spacer('m');
+    justify-content: space-between;
+    padding: spacer('s') spacer('m');
+  }
+
+  &__facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs') spacer('l');
+    margin: 0;
+
+    dt {
+      color: color('muted');
+      font-size: 0.75rem;
+      font-weight: 400;
+    }
+
+    dd {
+      color: color('heading');
+      font-weight: 700;
+      margin: 0;
+    }
+  }
+
+  &__invoice {
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__body {
+    align-items: center;
+    display: grid;
+    gap: spacer('s') spacer('m');
+    padding: spacer('m');
+
+    @include breakpoint('md') {
+      grid-template-columns: minmax(0, 1fr) auto auto;
+    }
+  }
+
+  &__status {
+    @include layout-stack('xxs');
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__badge {
+    align-items: center;
+    color: color('heading');
+    display: flex;
+    font-weight: 700;
+    gap: spacer('xs');
+
+    &::before {
+      aspect-ratio: 1;
+      background-color: color('muted');
+      border-radius: 50%;
+      content: '';
+      inline-size: 0.625rem;
+    }
+
+    &--shipped::before {
+      background-color: color('info', 'alert');
+    }
+
+    &--delivered::before {
+      background-color: color('success', 'alert');
+    }
+
+    &--returned::before {
+      background-color: color('warning', 'alert');
+    }
+  }
+
+  &__note,
+  &__count {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__items {
+    @include clear-list;
+    display: flex;
+    gap: spacer('xs');
+
+    li {
+      margin: 0;
+    }
+
+    img {
+      aspect-ratio: 1;
+      background-color: color('surface-muted');
+      border-radius: radius('md');
+      inline-size: 4rem;
+      object-fit: cover;
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs');
+
+    @include breakpoint('md') {
+      flex-direction: column;
+
+      .btn {
+        inline-size: 100%;
+      }
+    }
+  }
+}

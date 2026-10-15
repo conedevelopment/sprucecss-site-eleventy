@@ -7,20 +7,15 @@
     font-size: 1.0375rem;
   }
 
-  :is(dd, dl, dl, h1, h2, h3, h4, h5, h6, hr, ul, ol, p, blockquote) {
+  // The text gets a readable measure; media, tables and galleries can be wider.
+  > :is(dd, dl, h1, h2, h3, h4, h5, h6, hr, ul, ol, p, blockquote, details, pre) {
     @include layout-center(null, 47.5rem);
   }
 
   * + h2,
   * + h3,
-  > * + img,
-  > * + iframe,
-  > * + figure,
-  > * + .gallery,
-  > iframe + *,
-  > img + *,
-  > figure + *,
-  > .gallery + * {
+  > * + :is(img, iframe, figure, .gallery, .table-responsive),
+  > :is(img, iframe, figure, .gallery, .table-responsive) + * {
     margin-block-start: spacer('l');
   }
 
@@ -34,11 +29,24 @@
 
   img,
   iframe {
-    border-radius: config('border-radius-sm', $display);
+    border-radius: radius('md');
+  }
+
+  > img,
+  > figure img {
+    block-size: auto;
+    inline-size: 100%;
   }
 
   iframe {
     aspect-ratio: 16 / 9;
-    block-size: initial;
+    block-size: auto;
+    border: 0;
+    inline-size: 100%;
+  }
+
+  h2,
+  h3 {
+    scroll-margin-block-start: spacer('l');
   }
 }

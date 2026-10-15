@@ -1,0 +1,38 @@
+---
+category: 'Features'
+title: 'Integrations'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--block ui--integrations">
+        {% include "ui/html/block/integrations.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/block/integrations.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/block/integrations.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/block/integrations.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/block/integrations.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/container.css">
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/block-heading.css">
+    <link rel="stylesheet" href="/_includes/ui/css/block/integrations.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/block/integrations.js"></script>
+{% endblock %}

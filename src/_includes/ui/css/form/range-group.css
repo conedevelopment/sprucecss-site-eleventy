@@ -3,15 +3,20 @@
   flex-direction: column;
   gap: 0.5rem;
 }
-.range-group .form-label {
-  align-items: center;
+.range-group + .range-group {
+  margin-block-start: 3rem;
+}
+.range-group__label {
+  align-items: baseline;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   justify-content: space-between;
 }
-.range-group .form-label__value {
-  font-weight: 400;
+.range-group__value {
+  color: var(--spruce-base-color-primary);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
 }
 .range-group__inner {
   align-items: center;
@@ -22,6 +27,6 @@
   flex-grow: 1;
   margin-block-start: 0;
 }
-.range-group__inner .form-range-control {
+.range-group__inner .btn {
   flex-shrink: 0;
 }

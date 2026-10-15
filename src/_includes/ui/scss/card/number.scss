@@ -1,15 +1,34 @@
 @use 'sprucecss/scss/spruce' as *;
 
+.number-card-list {
+  @include clear-list;
+  display: grid;
+  gap: spacer('l');
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+
+  // The items sit side by side: clear the stack margins of the base list style.
+  > li {
+    margin-block: 0;
+  }
+}
+
 .number-card {
-  border-bottom: 1px solid color('border');
-  padding-block-end: spacer('l');
   @include layout-stack('xs');
+  border-block-end: config('border-width-base', $display) solid color('border');
+  margin-block: 0;
+  padding-block-end: spacer('l');
 
   &__data {
     color: color('primary');
     font-family: config('font-family-heading', $typography);
-    font-size: responsive-font-size(5rem);
+    font-size: responsive-font-size(4.5rem, 35);
+    font-variant-numeric: tabular-nums;
     font-weight: 700;
     line-height: 1;
+  }
+
+  &__caption {
+    color: color('muted');
+    font-weight: 600;
   }
 }

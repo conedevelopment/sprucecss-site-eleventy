@@ -1,4 +1,3 @@
-@use '../../../../scss/config/config'; // DELETE
 @use 'sprucecss/scss/spruce' as *;
 
 .file-group-container {
@@ -20,6 +19,12 @@
     flex-direction: column;
   }
 
+  + .file-group,
+  .form-group + .form-group & {
+    margin-block-start: 0;
+  }
+
+  // An image is selected: show the remove button instead of the input.
   &:has([style*='background-image']) {
     #{$this}__remove {
       display: inline-flex;
@@ -33,7 +38,7 @@
   &__preview {
     align-items: center;
     aspect-ratio: 1;
-    background-color: color('primary-50');
+    background-color: color-alpha('primary', 0.08);
     background-position: center;
     background-size: cover;
     border-radius: config('border-radius', $form-control);
@@ -54,14 +59,8 @@
   }
 
   &__body {
-    display: flex;
-    flex-direction: column;
-    gap: spacer('xxs');
     inline-size: 100%;
-
-    > * {
-      margin-block: 0;
-    }
+    @include layout-stack('xxs');
   }
 
   &__icon {

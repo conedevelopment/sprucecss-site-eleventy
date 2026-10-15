@@ -1,0 +1,49 @@
+<section class="product-bundle" aria-labelledby="product-bundle-title" data-product-bundle data-discount="0.1">
+    <h2 class="product-bundle__title" id="product-bundle-title">Frequently bought together</h2>
+    <ul class="product-bundle__images" role="list" aria-hidden="true">
+        <li class="product-bundle__media" data-bundle-media="heritage">
+            <img src="https://images.unsplash.com/photo-1577733966973-d680bffd2e80?auto=format&fit=crop&w=240&h=240&q=60" alt="" width="120" height="120" loading="lazy">
+        </li>
+        <li class="product-bundle__media" data-bundle-media="bottle">
+            <img src="https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=240&h=240&q=60" alt="" width="120" height="120" loading="lazy">
+        </li>
+        <li class="product-bundle__media" data-bundle-media="pouch">
+            <img src="https://images.unsplash.com/photo-1622560481156-01fc7e1693e6?auto=format&fit=crop&w=240&h=240&q=60" alt="" width="120" height="120" loading="lazy">
+        </li>
+    </ul>
+    <form class="product-bundle__form" action="#" method="post">
+        <ul class="product-bundle__items" role="list">
+            <li class="product-bundle__item">
+                <input type="hidden" name="items[]" value="heritage">
+                <span class="product-bundle__fixed" data-bundle-item="heritage" data-price="189" data-fixed>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"/></svg>
+                    <span><strong>This item:</strong> Heritage Backpack</span>
+                </span>
+                <span class="product-bundle__price">$189.00</span>
+            </li>
+            <li class="product-bundle__item">
+                <label class="form-check">
+                    <input class="form-check__control" type="checkbox" name="items[]" value="bottle" checked data-bundle-item="bottle" data-price="24">
+                    <span class="form-label form-check__label"><a href="#">Steel Water Bottle</a></span>
+                </label>
+                <span class="product-bundle__price">$24.00</span>
+            </li>
+            <li class="product-bundle__item">
+                <label class="form-check">
+                    <input class="form-check__control" type="checkbox" name="items[]" value="pouch" checked data-bundle-item="pouch" data-price="39">
+                    <span class="form-label form-check__label"><a href="#">Leather Tech Pouch</a></span>
+                </label>
+                <span class="product-bundle__price">$39.00</span>
+            </li>
+        </ul>
+        <div class="product-bundle__summary">
+            <p class="product-bundle__total">
+                Total: <strong data-bundle-total>$226.80</strong>
+                <s data-bundle-full><span class="sr-only">Regular price:</span> $252.00</s>
+            </p>
+            <p class="product-bundle__note" data-bundle-note>You save 10% when you buy all three.</p>
+            <button class="btn btn--primary" type="submit" data-bundle-submit>Add all three to cart</button>
+        </div>
+        <p class="sr-only" aria-live="polite" data-bundle-live></p>
+    </form>
+</section>

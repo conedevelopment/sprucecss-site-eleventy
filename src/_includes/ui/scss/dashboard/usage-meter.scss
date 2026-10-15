@@ -1,0 +1,162 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.usage-meter {
+  --usage-meter-color-1: #{color('primary')};
+  --usage-meter-color-2: #{color('info', 'alert')};
+  --usage-meter-color-3: #{color('warning', 'alert')};
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  padding: spacer('m');
+  @include layout-stack('m');
+
+  &__header {
+    align-items: flex-start;
+    display: flex;
+    gap: spacer('s');
+    justify-content: space-between;
+  }
+
+  &__heading {
+    @include layout-stack('xxs');
+  }
+
+  &__title {
+    font-size: font-size('h5');
+  }
+
+  &__plan {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  &__list {
+    // The parent's layout-stack sets the margins.
+    list-style: none;
+    padding: 0;
+    @include layout-stack('m');
+  }
+
+  &__item {
+    @include layout-stack('xs');
+  }
+
+  &__row {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xxs') spacer('s');
+    justify-content: space-between;
+  }
+
+  &__label {
+    color: color('heading');
+    font-family: inherit;
+    font-size: config('font-size-base', $typography);
+    font-weight: 600;
+    margin: 0;
+  }
+
+  &__amount {
+    color: color('heading');
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+
+    span {
+      color: color('muted');
+      font-weight: 400;
+    }
+  }
+
+  &__meter {
+    block-size: 0.5rem;
+  }
+
+  &__note {
+    align-items: center;
+    display: flex;
+    font-size: config('font-size-sm', $typography);
+    gap: spacer('xxs');
+
+    &::before {
+      aspect-ratio: 1;
+      border-radius: 50%;
+      content: '';
+      flex-shrink: 0;
+      inline-size: 0.5rem;
+    }
+
+    &--warning::before {
+      background-color: color('warning', 'alert');
+    }
+
+    &--danger::before {
+      background-color: color('danger', 'alert');
+    }
+  }
+
+  &__storage {
+    border-block-start: config('border-width-base', $display) solid color('border');
+    padding-block-start: spacer('m');
+    @include layout-stack('xs');
+  }
+
+  &__stack {
+    background-color: color('progress-background', 'form');
+    block-size: 0.5rem;
+    border-radius: radius('pill');
+    display: flex;
+    gap: 2px;
+    overflow: hidden;
+
+    span {
+      inline-size: var(--share);
+
+      @for $i from 1 through 3 {
+        &:nth-child(#{$i}) {
+          background-color: var(--usage-meter-color-#{$i});
+        }
+      }
+    }
+  }
+
+  &__legend {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+    // The parent's layout-stack sets the margins.
+    list-style: none;
+    padding: 0;
+    @include layout-cluster('xs:s');
+
+    li {
+      align-items: center;
+      display: inline-flex;
+      gap: spacer('xxs');
+      margin: 0;
+
+      &::before {
+        background-color: color('progress-background', 'form');
+        block-size: 0.625rem;
+        border-radius: radius('sm');
+        content: '';
+        inline-size: 0.625rem;
+      }
+
+      @for $i from 1 through 3 {
+        &:nth-child(#{$i})::before {
+          background-color: var(--usage-meter-color-#{$i});
+        }
+      }
+    }
+
+    strong {
+      color: color('heading');
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+}

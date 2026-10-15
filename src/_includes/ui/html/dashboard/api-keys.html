@@ -1,0 +1,63 @@
+<section class="api-keys" aria-labelledby="api-keys-title" data-api-keys>
+    <header class="api-keys__header">
+        <div class="api-keys__heading">
+            <h2 class="api-keys__title" id="api-keys-title">API keys</h2>
+            <p class="api-keys__text">Keys give full access to your account. Keep them secret and rotate them regularly.</p>
+        </div>
+        <a class="btn btn--primary btn--sm" href="#">Create key</a>
+    </header>
+    <div class="table-responsive">
+        <table class="table api-keys__table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Key</th>
+                    <th scope="col">Last used</th>
+                    <th scope="col"><span class="sr-only">Actions</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-api-key="spr_live_51Hx9QeK2vT8mLw3pZr7Yd4N">
+                    <th scope="row">
+                        <span class="api-keys__name">Production</span>
+                        <span class="badge badge--success">Live</span>
+                    </th>
+                    <td>
+                        <div class="api-keys__key">
+                            <code data-api-key-value>spr_live_••••••••••••••••Yd4N</code>
+                            <button class="btn btn--ghost-primary btn--icon btn--sm" type="button" aria-pressed="false" hidden data-api-key-reveal><svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span class="sr-only">Show the Production key</span></button>
+                            <button class="btn btn--ghost-primary btn--icon btn--sm" type="button" hidden data-api-key-copy><svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span class="sr-only">Copy the Production key</span></button>
+                        </div>
+                    </td>
+                    <td><time datetime="2026-10-04T09:30">Today, 09:30</time></td>
+                    <td><button class="btn btn--outline-danger btn--sm" type="button" data-api-key-revoke>Revoke<span class="sr-only"> the Production key</span></button></td>
+                </tr>
+                <tr data-api-key="spr_test_4eC39HqLyjWDarjtT1zdp7dc">
+                    <th scope="row">
+                        <span class="api-keys__name">Staging</span>
+                        <span class="badge">Test</span>
+                    </th>
+                    <td>
+                        <div class="api-keys__key">
+                            <code data-api-key-value>spr_test_••••••••••••••••p7dc</code>
+                            <button class="btn btn--ghost-primary btn--icon btn--sm" type="button" aria-pressed="false" hidden data-api-key-reveal><svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg><span class="sr-only">Show the Staging key</span></button>
+                            <button class="btn btn--ghost-primary btn--icon btn--sm" type="button" hidden data-api-key-copy><svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span class="sr-only">Copy the Staging key</span></button>
+                        </div>
+                    </td>
+                    <td><time datetime="2026-09-28T14:02">Sep 28</time></td>
+                    <td><button class="btn btn--outline-danger btn--sm" type="button" data-api-key-revoke>Revoke<span class="sr-only"> the Staging key</span></button></td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <span class="api-keys__name">Old CI token</span>
+                        <span class="badge badge--danger">Revoked</span>
+                    </th>
+                    <td><code>spr_live_••••••••••••••••Q2aK</code></td>
+                    <td>Never</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p class="sr-only" aria-live="polite" data-api-keys-status></p>
+</section>

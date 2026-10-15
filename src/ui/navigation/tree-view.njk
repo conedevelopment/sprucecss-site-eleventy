@@ -1,0 +1,35 @@
+---
+title: 'Tree View'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--narrow ui--tree-view">
+        {% include "ui/html/navigation/tree-view.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/navigation/tree-view.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/navigation/tree-view.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/navigation/tree-view.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/navigation/tree-view.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/navigation/tree-view.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/navigation/tree-view.js"></script>
+{% endblock %}

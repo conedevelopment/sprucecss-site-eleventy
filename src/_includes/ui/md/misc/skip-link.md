@@ -1,17 +1,28 @@
-<p class="lead">A skip link is a practical way of navigating with the keyboard. Usually, one is always needed to jump through your site’s header navigation to the main content (using an anchor).</p>
+<p class="lead">A "Skip to content" link that appears on keyboard focus and lets people jump over the header and navigation to the main content.</p>
 
-In this example, we aren’t using any visual styling; we use the buttons of Spruce CSS.
+## Usage
 
-<Notification type="info">Please, note that in this example, the click (and enter) is disabled, so you won’t see it working correctly.</Notification>
+```html
+<body>
+    <a class="btn btn--primary skip-link" href="#content">Skip to content</a>
+    <header>…</header>
+    <main id="content" tabindex="-1">…</main>
+</body>
+```
+
+## Accessibility
+
+- It has to be the first focusable element in the `body`, so it's the first <kbd>Tab</kbd> stop.
+- The target needs an `id`; `tabindex="-1"` on the `main` element makes sure the focus (not only the scroll position) moves there in every browser, so the next <kbd>Tab</kbd> continues from the content.
+- Don't hide it with `display: none` or `visibility: hidden`: it couldn't get focus. It's moved off-screen and slides in on `:focus`.
+- More than one is fine for complex pages ("Skip to search", "Skip to results"), but keep it short. It meets [WCAG 2.4.1 Bypass Blocks](https://www.w3.org/WAI/WCAG22/Understanding/bypass-blocks.html).
 
 ## Technical Details
 
-- The skip link should be the first element inside your `<body>`.
-- Set up an ID on the element (usually on the `<main>`) where you want to navigate to (skip to).
-- You can use multiple skip links but don’t overdo it. A good example of it is the [Google search page](https://www.google.com/search?q=a11y&oq=a11y&aqs=chrome..69i57j0i512j46i512j0i512l7.834j0j15&sourceid=chrome&ie=UTF-8).
-- As with anything accessibility-related, test [with your target browsers](https://css-tricks.com/how-to-create-a-skip-to-content-link/#comment-1755109).
+- It's a regular Spruce button, positioned with logical properties (`inset-inline-start`), so it appears in the top-left corner (top-right in RTL).
+- It slides in with `translate`, with no animation for reduced motion, and sits above everything (the top of the z-index scale).
+- With a sticky header, add `scroll-padding-block-start` to the `html` element, so the target isn't covered.
 
 ## Resources
 
 - [How to Create a “Skip to Content” Link](https://css-tricks.com/how-to-create-a-skip-to-content-link/)
-- [Bypass Blocks: Understanding SC 2.4.1](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-skip.html)

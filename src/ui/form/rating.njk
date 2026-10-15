@@ -1,0 +1,27 @@
+---
+title: 'Rating'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium ui--rating">
+        {% include "ui/html/form/rating.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/form/rating.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/form/rating.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/form/rating.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/form/rating.css">
+{% endblock %}

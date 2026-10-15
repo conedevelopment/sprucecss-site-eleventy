@@ -1,24 +1,26 @@
-<nav class="pagination" aria-label="Posts">
-    <h2 class="sr-only">Post Navigation</h2>
+<nav class="pagination" aria-label="Posts pagination">
     <ul class="pagination__links">
-        <li>
-            <a class="pagination__page-number" aria-current="page">1</a></li>
-        <li>
-            <a class="pagination__page-number" href="#">2</a>
-        </li>
-        <li>
-            <a class="pagination__page-number" href="#">3</a>
-        </li>
-        <li>
-            <a class="pagination__page-number" href="#">4</a>
-        </li>
-        <li>
-            <a class="pagination__page-number" disabled>...</a></li>
-        <li>
-            <a class="pagination__page-number" href="#">10</a>
-        </li>
-        <li>
-            <a class="pagination__page-number" href="#">Next</a>
-        </li>
+        <li><span class="pagination__page-number pagination__direction" aria-disabled="true"><svg aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m15 18-6-6 6-6"/></svg><span class="pagination__direction-text">Previous<span class="sr-only"> page</span></span></span></li>
+        <li><a class="pagination__page-number" href="#" aria-current="page"><span class="sr-only">Page </span>1</a></li>
+        <li><a class="pagination__page-number" href="#"><span class="sr-only">Page </span>2</a></li>
+        <li><a class="pagination__page-number" href="#"><span class="sr-only">Page </span>3</a></li>
+        <li><a class="pagination__page-number" href="#"><span class="sr-only">Page </span>4</a></li>
+        <li><span class="pagination__ellipsis" aria-hidden="true">…</span></li>
+        <li><a class="pagination__page-number" href="#"><span class="sr-only">Page </span>10</a></li>
+        <li><a class="pagination__page-number pagination__direction" href="#" rel="next"><span class="pagination__direction-text">Next<span class="sr-only"> page</span></span><svg aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m9 18 6-6-6-6"/></svg></a></li>
+    </ul>
+</nav>
+
+<nav class="pagination pagination--sm" aria-label="Comments pagination">
+    <ul class="pagination__links">
+        <li><a class="pagination__page-number pagination__direction" href="#" rel="prev"><svg aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m15 18-6-6 6-6"/></svg><span class="pagination__direction-text">Previous<span class="sr-only"> page</span></span></a></li>
+        <li><a class="pagination__page-number" href="#"><span class="sr-only">Page </span>1</a></li>
+        <li><span class="pagination__ellipsis" aria-hidden="true">…</span></li>
+        <li><a class="pagination__page-number" href="#"><span class="sr-only">Page </span>4</a></li>
+        <li><a class="pagination__page-number" href="#" aria-current="page"><span class="sr-only">Page </span>5</a></li>
+        <li><a class="pagination__page-number" href="#"><span class="sr-only">Page </span>6</a></li>
+        <li><span class="pagination__ellipsis" aria-hidden="true">…</span></li>
+        <li><a class="pagination__page-number" href="#"><span class="sr-only">Page </span>12</a></li>
+        <li><a class="pagination__page-number pagination__direction" href="#" rel="next"><span class="pagination__direction-text">Next<span class="sr-only"> page</span></span><svg aria-hidden="true" fill="none" focusable="false" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m9 18 6-6-6-6"/></svg></a></li>
     </ul>
 </nav>

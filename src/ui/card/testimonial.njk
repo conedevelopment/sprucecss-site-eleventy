@@ -1,0 +1,27 @@
+---
+title: 'Testimonial'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium ui--testimonial">
+        {% include "ui/html/card/testimonial.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/card/testimonial.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/card/testimonial.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/card/testimonial.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/card/testimonial.css">
+{% endblock %}

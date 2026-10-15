@@ -1,0 +1,35 @@
+---
+title: 'Autocomplete'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--narrow ui--autocomplete">
+        {% include "ui/html/form/autocomplete.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/form/autocomplete.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/form/autocomplete.scss" %}
+{% endset %}
+
+{% set js %}
+    {% include "ui/js/form/autocomplete.js" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/form/autocomplete.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/form/autocomplete.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/form/autocomplete.js"></script>
+{% endblock %}

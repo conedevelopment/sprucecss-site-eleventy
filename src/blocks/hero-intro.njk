@@ -1,0 +1,29 @@
+---
+category: 'Hero'
+title: 'Hero Intro'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--block ui--hero-intro">
+        {% include "ui/html/block/hero-intro.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/block/hero-intro.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/block/hero-intro.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/block/hero-intro.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/container.css">
+    <link rel="stylesheet" href="/_includes/ui/css/block/hero-intro.css">
+{% endblock %}

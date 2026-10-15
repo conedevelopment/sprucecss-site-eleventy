@@ -1,0 +1,45 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.callout {
+  --callout-color: #{color('info', 'alert')};
+  background-color: color-mix(in srgb, var(--callout-color) 8%, transparent);
+  border: config('border-width-base', $display) solid color-mix(in srgb, var(--callout-color) 30%, transparent);
+  border-inline-start-width: 4px;
+  border-radius: radius('md');
+  display: flex;
+  gap: spacer('s');
+  padding: spacer('s') spacer('m');
+
+  & + & {
+    margin-block-start: spacer('s');
+  }
+
+  &--tip {
+    --callout-color: #{color('success', 'alert')};
+  }
+
+  &--warning {
+    --callout-color: #{color('warning', 'alert')};
+  }
+
+  &--danger {
+    --callout-color: #{color('danger', 'alert')};
+  }
+
+  &__icon {
+    block-size: 1.25rem;
+    color: var(--callout-color);
+    flex-shrink: 0;
+    inline-size: 1.25rem;
+    margin-block-start: 0.2em;
+  }
+
+  &__content {
+    @include layout-stack('xxs');
+  }
+
+  &__title {
+    color: color('heading');
+    font-weight: 700;
+  }
+}

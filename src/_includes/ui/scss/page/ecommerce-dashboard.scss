@@ -1,0 +1,50 @@
+@use 'sprucecss/scss/spruce' as *;
+
+// The content area of the app shell: a header and rows of panels.
+.l-dashboard {
+  &__header {
+    align-items: flex-end;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s') spacer('m');
+    justify-content: space-between;
+  }
+
+  &__heading {
+    @include layout-stack('xxs'); // title, text
+  }
+
+  &__title {
+    font-size: font-size('h3');
+  }
+
+  &__text {
+    color: color('muted');
+  }
+
+  &__actions {
+    align-items: center;
+    display: flex;
+    gap: spacer('xs');
+
+    .form-control {
+      inline-size: auto;
+    }
+  }
+
+  &__row {
+    align-items: start;
+    display: grid;
+    gap: spacer('m');
+
+    @include breakpoint('lg') {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    }
+
+    &--thirds {
+      @include breakpoint('lg') {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+  }
+}

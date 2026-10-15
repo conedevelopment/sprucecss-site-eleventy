@@ -13,10 +13,11 @@ github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/sr
 - We use Stylelint with a [modified configuration](https://github.com/conedevelopment/sprucecss/blob/main/.stylelintrc.json) with [stylelint-config-sass-guidelines](https://www.npmjs.com/package/stylelint-config-sass-guidelines) preset to quality control.
 - We [alphabetize](https://jerrylowm.medium.com/alphabetize-your-css-properties-for-crying-out-loud-780eb1852153) the property declaration order. It is practical, no joke.
 - We use mostly BEM when a more complicated structure is necessary.
-- We try not to use px as units. Right now, it is only present at border values.
+- We try not to use px as units. Right now, it is only present at border values and some shadows.
 - We use modern Sass with `@use` and `@forward`.
 - We mark the strings as strings, so we will wrap any value that is technically one of them with single quotations.
 - We use trailing commas in the map declarations.
+- We use logical properties and values (`inline-size`, `margin-block`, `inset-inline-start`), so every layout works in right-to-left languages too.
 
 ## BEM (Block Element Modifier)
 
@@ -38,22 +39,23 @@ Spruce uses npm scripts to compile Sass and to do other tasks. The scripts are i
 
 **Our two main scripts are:**
 
-- `npm start` is for development purposes. It will fire up the development preview (which is a sandbox for us), a pug-based, simple HTML page where you can see all the styled elements.
-- `npm run prod` is for production. It will create the right compiled CSS files.
+- `npm start` is for development purposes. It starts the development preview, an [Eleventy](https://www.11ty.dev/) sandbox where you can see every element, option and style, with a style, direction and theme mode switcher.
+- `npm run prod` is for production. It creates the compiled CSS files.
+- `npm test` runs the Sass unit tests (with [True](https://www.oddbird.net/true/) and the Node.js test runner).
+- `npm run sass:lint` lints the source code.
 
 ### The Structure of the Project
 
-You can find the main code under the `scss` folder at the root. The `.vscode` folder contains a VS Code configuration file. The `preview` folder is a developer helper where we can see the effect of the modification right away.
+You can find the main code under the `scss` folder at the root. The `preview` folder is a developer helper where we can see the effect of the modification right away. The `skills` folder contains the [AI skills](/docs/ai/skills/).
 
 ```scss
 sprucecss/
-├─ .vscode/
 ├─ css/               // Compiled CSS folder
 │  ├─ spruce.css
 │  ├─ spruce.min.css
-├─ js/
-|  |- cookie.js
-├─ preview/           // Spruce preview for development
+│  ├─ spruce.complete.css
+│  ├─ spruce.complete.min.css
+├─ preview/           // Spruce preview for development (Eleventy)
 │  ├─ ...
 ├─ scss/              // Source .scss files, Spruce CSS itself
 │  ├─ config/         // Variables
@@ -64,6 +66,9 @@ sprucecss/
 │  ├─ plugin/
 │  ├─ print/
 │  ├─ spruce.scss
+│  ├─ spruce-styles.scss    // The source of spruce.css
+│  ├─ spruce-complete.scss  // The source of spruce.complete.css
+├─ skills/            // AI skills
 ├─ test/
 ├─ .gitignore
 ├─ package.json
@@ -71,10 +76,12 @@ sprucecss/
 ├─ ...
 ```
 
-If you plan to contribute first, please visit our [contribution](/docs/getting-started/contribution/). Thank you!
+If you plan to contribute, please visit our [contribution page](/docs/getting-started/contribution/) first. Thank you!
 
 ## Browser Support
 
-Spruce uses [Autoprefixer](https://github.com/postcss/autoprefixer) with the [default configurations](https://github.com/browserslist/browserslist#best-practices).
+Spruce uses [Autoprefixer](https://github.com/postcss/autoprefixer) with the [default configuration](https://github.com/browserslist/browserslist#best-practices).
+
+Some v3 features rely on newer CSS: `color-mix()` (soft and ghost buttons, `color-alpha()`, `color-tint()`), `:has()` (some Spruce UI components), `:where()` and `text-wrap: balance`. They are supported in every evergreen browser; older browsers fall back gracefully (for example, a missing tint or balance).
 
 The browser support is flexible, but one of the goals of this framework is to be modern. We plan to support new features early, but we understand the browser landscape is not so simple. Please [open an issue](https://github.com/conedevelopment/sprucecss/issues/new) if you have any questions or ideas regarding this topic.

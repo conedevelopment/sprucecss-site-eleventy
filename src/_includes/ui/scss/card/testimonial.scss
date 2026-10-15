@@ -1,0 +1,57 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.testimonial-cards {
+  @include layout-grid('m', 18rem);
+}
+
+.testimonial-card {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  display: flex;
+  flex-direction: column;
+  gap: spacer('m');
+  margin: 0;
+  padding: spacer-clamp('m', 'l');
+
+  &__icon {
+    block-size: 2rem;
+    color: color('primary');
+    inline-size: 2rem;
+  }
+
+  &__quote {
+    border: 0;
+    color: color('heading');
+    flex-grow: 1;
+    font-size: config('font-size-lg', $typography);
+    margin: 0;
+    padding: 0;
+  }
+
+  &__author {
+    align-items: center;
+    display: flex;
+    gap: spacer('s');
+    text-align: start;
+  }
+
+  &__avatar {
+    block-size: 3rem;
+    border-radius: 50%;
+    inline-size: 3rem;
+    object-fit: cover;
+  }
+
+  &__name {
+    color: color('heading');
+    display: block;
+    font-weight: 700;
+  }
+
+  &__role {
+    color: color('muted');
+    display: block;
+    font-size: config('font-size-sm', $typography);
+  }
+}

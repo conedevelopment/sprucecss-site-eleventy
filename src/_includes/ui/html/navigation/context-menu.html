@@ -1,16 +1,48 @@
-<div class="btn-dropdown" x-data="{ open: false }" @click.outside="open = false">
-    <button class="btn btn--primary btn--icon" :aria-expanded="open" @click="open = ! open">
-        Add section
-        <svg class="btn__icon" aria-hidden="true" fill="none" focusable="false" height="24" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" stroke="currentColor" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-            <polyline points="6 9 12 15 18 9"></polyline>
-        </svg>
-    </button>
-    <ul x-cloak x-show="open" x-transition class="context-menu context-menu--inline-start">
-        <li>
-            <button class="context-menu__item">YouTube Video</button>
+<div class="context-menu-demo">
+    <div class="btn-dropdown" data-menu>
+        <button class="btn btn--primary" type="button" id="menu-add-block-button" aria-haspopup="menu" aria-expanded="false" aria-controls="menu-add-block" data-menu-trigger>
+            Add block
+            <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+    <ul class="context-menu context-menu--inline-start" id="menu-add-block" role="menu" aria-labelledby="menu-add-block-button" hidden data-menu-list>
+        <li class="context-menu__label" role="presentation">Content</li>
+        <li role="none"><button class="context-menu__item" type="button" role="menuitem" tabindex="-1"><svg class="context-menu__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7V4h16v3M9 20h6M12 4v16"/></svg><span class="context-menu__text">Text</span><kbd class="context-menu__shortcut">T</kbd></button></li>
+        <li role="none"><button class="context-menu__item" type="button" role="menuitem" tabindex="-1"><svg class="context-menu__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg><span class="context-menu__text">Image</span><kbd class="context-menu__shortcut">I</kbd></button></li>
+        <li role="none"><button class="context-menu__item" type="button" role="menuitem" tabindex="-1"><svg class="context-menu__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg><span class="context-menu__text">Quote</span><kbd class="context-menu__shortcut">Q</kbd></button></li>
+        <li role="none" class="context-menu__submenu-wrapper">
+            <button class="context-menu__item" type="button" role="menuitem" tabindex="-1" aria-haspopup="menu" aria-expanded="false" aria-controls="menu-embed" id="menu-embed-button" data-submenu-trigger><svg class="context-menu__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></svg><span class="context-menu__text">Embed</span><svg class="context-menu__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg></button>
+            <ul class="context-menu context-menu--submenu" id="menu-embed" role="menu" aria-labelledby="menu-embed-button" hidden data-menu-list>
+                <li role="none"><button class="context-menu__item" type="button" role="menuitem" tabindex="-1"><span class="context-menu__text">YouTube video</span></button></li>
+                <li role="none"><button class="context-menu__item" type="button" role="menuitem" tabindex="-1"><span class="context-menu__text">Vimeo video</span></button></li>
+                <li role="none"><button class="context-menu__item" type="button" role="menuitem" tabindex="-1"><span class="context-menu__text">CodePen</span></button></li>
+                <li role="none"><button class="context-menu__item" type="button" role="menuitem" tabindex="-1" aria-disabled="true"><span class="context-menu__text">Map</span></button></li>
+            </ul>
         </li>
-        <li>
-            <button class="context-menu__item">Testimonial</button>
+        <li class="context-menu__separator" role="separator"></li>
+        <li class="context-menu__label" role="presentation">View</li>
+        <li role="none"><button class="context-menu__item" type="button" role="menuitemcheckbox" tabindex="-1" aria-checked="true"><span class="context-menu__text">Show outlines</span></button></li>
+        <li role="none"><button class="context-menu__item" type="button" role="menuitemcheckbox" tabindex="-1" aria-checked="false"><span class="context-menu__text">Snap to grid</span></button></li>
+        <li class="context-menu__separator" role="separator"></li>
+        <li role="none">
+            <ul class="context-menu__group" role="group" aria-label="Width">
+                <li role="none"><button class="context-menu__item" type="button" role="menuitemradio" tabindex="-1" aria-checked="false"><span class="context-menu__text">Narrow</span></button></li>
+                <li role="none"><button class="context-menu__item" type="button" role="menuitemradio" tabindex="-1" aria-checked="true"><span class="context-menu__text">Regular</span></button></li>
+                <li role="none"><button class="context-menu__item" type="button" role="menuitemradio" tabindex="-1" aria-checked="false"><span class="context-menu__text">Full width</span></button></li>
+            </ul>
         </li>
     </ul>
+    </div>
+
+    <div class="context-menu-area" tabindex="0" aria-describedby="context-menu-area-help" data-context-area data-menu>
+        <p class="context-menu-area__title">Right-click this area</p>
+        <p class="context-menu-area__help" id="context-menu-area-help">Or focus it and press <kbd>Shift</kbd> + <kbd>F10</kbd> (or the Menu key).</p>
+        <ul class="context-menu" id="menu-canvas" role="menu" aria-label="Block actions" hidden data-menu-list>
+            <li role="none"><button class="context-menu__item" type="button" role="menuitem" tabindex="-1"><svg class="context-menu__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg><span class="context-menu__text">Duplicate</span><kbd class="context-menu__shortcut">Ctrl D</kbd></button></li>
+            <li role="none"><button class="context-menu__item" type="button" role="menuitem" tabindex="-1"><svg class="context-menu__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg><span class="context-menu__text">Copy link</span></button></li>
+            <li class="context-menu__separator" role="separator"></li>
+            <li role="none"><button class="context-menu__item context-menu__item--danger" type="button" role="menuitem" tabindex="-1"><svg class="context-menu__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h18M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg><span class="context-menu__text">Delete</span><kbd class="context-menu__shortcut">Del</kbd></button></li>
+        </ul>
+    </div>
+
+    <p class="sr-only" aria-live="polite" data-menu-status></p>
 </div>

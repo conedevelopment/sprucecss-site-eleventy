@@ -1,0 +1,69 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.toolbar {
+  align-items: center;
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-start-end-radius: radius('md');
+  border-start-start-radius: radius('md');
+  display: flex;
+  flex-wrap: wrap;
+  gap: spacer('xxs');
+  padding: spacer('xxs');
+
+  &__group {
+    display: flex;
+    gap: 2px;
+
+    & + & {
+      border-inline-start: config('border-width-base', $display) solid color('border');
+      padding-inline-start: spacer('xxs');
+    }
+  }
+
+  &__button {
+    @include clear-btn;
+    align-items: center;
+    block-size: 2.25rem;
+    border-radius: radius('sm');
+    color: color('text');
+    display: inline-flex;
+    inline-size: 2.25rem;
+    justify-content: center;
+    @include transition($property: 'background-color, color');
+
+    svg {
+      block-size: 1.1rem;
+      inline-size: 1.1rem;
+    }
+
+    &:hover {
+      background-color: color('surface-muted');
+      color: color('heading');
+    }
+
+    &[aria-pressed='true'] {
+      background-color: color-alpha('primary', 0.12);
+      color: color('primary');
+    }
+
+    &:focus-visible {
+      outline: 2px solid color('focus-ring');
+      outline-offset: -2px;
+    }
+  }
+}
+
+.toolbar-editor {
+  border: config('border-width-base', $display) solid color('border');
+  border-block-start: 0;
+  border-end-end-radius: radius('md');
+  border-end-start-radius: radius('md');
+  min-block-size: 8rem;
+  padding: spacer('s');
+
+  &:focus-visible {
+    outline: 2px solid color('focus-ring');
+    outline-offset: -2px;
+  }
+}

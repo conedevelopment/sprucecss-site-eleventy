@@ -1,0 +1,38 @@
+{#- Override with `heroShopBlock` ({ main: { eyebrow, title, text, primary, secondary, image, alt }, tiles: [{ eyebrow, title, action, image }] }). -#}
+{%- set _s = heroShopBlock or {
+    "main": { "eyebrow": "The autumn collection", "title": "Everyday things, made to last", "text": "Bags, homeware and tech accessories designed in Portland, built for years of daily use.", "primary": "Shop new arrivals", "secondary": "Explore homeware", "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1400&q=70", "alt": "" },
+    "tiles": [
+        { "eyebrow": "Up to 30% off", "title": "Travel bags", "action": "Shop bags", "image": "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=800&q=70" },
+        { "eyebrow": "New in", "title": "The coffee corner", "action": "Shop coffee", "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=70" }
+    ]
+} %}
+<section class="hero-shop-block" aria-labelledby="hero-shop-title">
+    <div class="container">
+        <div class="hero-shop-block__inner">
+            <div class="hero-shop-block__main">
+                <img class="hero-shop-block__image" src="{{ _s.main.image }}" alt="{{ _s.main.alt }}" width="1400" height="933" fetchpriority="high">
+                <div class="hero-shop-block__content">
+                    <p class="hero-shop-block__eyebrow">{{ _s.main.eyebrow }}</p>
+                    <h1 class="hero-shop-block__title" id="hero-shop-title">{{ _s.main.title }}</h1>
+                    <p class="hero-shop-block__text">{{ _s.main.text }}</p>
+                    <div class="hero-shop-block__actions">
+                        <a class="btn btn--lg hero-shop-block__primary" href="#">{{ _s.main.primary }}</a>
+                        <a class="btn btn--lg hero-shop-block__secondary" href="#">{{ _s.main.secondary }}</a>
+                    </div>
+                </div>
+            </div>
+            <ul class="hero-shop-block__tiles" role="list">
+                {%- for tile in _s.tiles %}
+                <li class="hero-shop-block__tile">
+                    <img class="hero-shop-block__image" src="{{ tile.image }}" alt="" width="800" height="600">
+                    <div class="hero-shop-block__tile-content">
+                        <p class="hero-shop-block__eyebrow">{{ tile.eyebrow }}</p>
+                        <h2 class="hero-shop-block__tile-title"><a class="hero-shop-block__link" href="#">{{ tile.title }}</a></h2>
+                        <p class="hero-shop-block__more" aria-hidden="true">{{ tile.action }} {% set iconName = "arrow-right" %}{% include "../block/icon.html" %}</p>
+                    </div>
+                </li>
+                {%- endfor %}
+            </ul>
+        </div>
+    </div>
+</section>

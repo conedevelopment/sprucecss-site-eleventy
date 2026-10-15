@@ -1,0 +1,75 @@
+{#- Override with `bookPreviewBlock` ({ heading, book: { bookCover }, details: [{ label, value }], form: { title, text, placeholder, action, note }, chapters: [{ title, text, pages, free }] }). -#}
+{%- set _s = bookPreviewBlock or {
+    "heading": { "eyebrow": "The book", "title": "Fourteen chapters, zero filler", "text": "Every chapter ends with a small project you can drop into your own work.", "id": "book-preview-title", "align": "start" },
+    "book": { "edition": "2nd edition", "title": "Modern CSS, Explained", "subtitle": "From the cascade to design systems", "author": "Daniel Okafor" },
+    "details": [{ "label": "Pages", "value": "380" }, { "label": "Formats", "value": "PDF, EPUB, Kindle" }, { "label": "Updated", "value": "September 2026" }],
+    "form": { "title": "Read chapter 3 for free", "text": "Get “Intrinsic layouts” (42 pages) in your inbox, plus the table of contents.", "placeholder": "you@example.com", "action": "Send me the chapter", "note": "No spam. Unsubscribe with one click." },
+    "chapters": [
+        { "title": "The cascade, for real", "text": "Specificity, layers and inheritance without guesswork.", "pages": 24 },
+        { "title": "The box model and flow", "text": "Sizing, margins and the logical properties.", "pages": 22 },
+        { "title": "Intrinsic layouts", "text": "Grid, flexbox and container queries.", "pages": 42, "free": true },
+        { "title": "Typography that scales", "text": "Fluid type, rhythm and readable measures.", "pages": 26 },
+        { "title": "Design tokens", "text": "Colors, spacing and type with Sass and custom properties.", "pages": 30 },
+        { "title": "Theming and dark mode", "text": "One markup, many styles.", "pages": 28 }
+    ],
+    "more": "+ 8 more chapters: components, forms, motion, accessibility, testing, performance, architecture and the capstone."
+} %}
+<section class="book-preview-block" id="book-preview" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="book-preview-block__inner">
+            <div class="book-preview-block__aside">
+                <div class="book-preview-block__cover">
+                    {% set bookCover = _s.book %}
+                    {% include "../misc/book-cover.html" %}
+                </div>
+                <dl class="book-preview-block__details">
+                    {%- for detail in _s.details %}
+                    <div class="book-preview-block__detail">
+                        <dt>{{ detail.label }}</dt>
+                        <dd>{{ detail.value }}</dd>
+                    </div>
+                    {%- endfor %}
+                </dl>
+                <form class="book-preview-block__form" action="#" method="post" aria-labelledby="book-preview-form-title">
+                    <div class="book-preview-block__form-heading">
+                        <h3 class="book-preview-block__form-title" id="book-preview-form-title">{{ _s.form.title }}</h3>
+                        <p class="book-preview-block__form-text">{{ _s.form.text }}</p>
+                    </div>
+                    <div class="book-preview-block__field">
+                        <label class="sr-only" for="book-preview-email">Email address</label>
+                        <input class="form-control" id="book-preview-email" name="email" type="email" autocomplete="email" placeholder="{{ _s.form.placeholder }}" required>
+                        <button class="btn btn--primary" type="submit">
+                            {% set iconName = "download" %}{% set iconClass = "btn__icon" %}{% include "../block/icon.html" %}{% set iconClass = false %}
+                            {{ _s.form.action }}
+                        </button>
+                    </div>
+                    <label class="form-check book-preview-block__consent" for="book-preview-consent">
+                        <input class="form-check__control" id="book-preview-consent" name="consent" type="checkbox" required>
+                        <span class="form-label form-check__label">I agree to receive the chapter and occasional emails about the book, and accept the <a href="#">privacy policy</a>.</span>
+                    </label>
+                    <p class="book-preview-block__note">{{ _s.form.note }}</p>
+                </form>
+            </div>
+            <div class="book-preview-block__content">
+                {% set heading = _s.heading %}
+                {% include "../content-and-layout/block-heading.html" %}
+                <ol class="book-preview-block__chapters" role="list">
+                    {%- for chapter in _s.chapters %}
+                    <li class="book-preview-block__chapter{% if chapter.free %} book-preview-block__chapter--free{% endif %}">
+                        <span class="book-preview-block__number" aria-hidden="true">{{ "0" if loop.index < 10 }}{{ loop.index }}</span>
+                        <div class="book-preview-block__chapter-body">
+                            <h3 class="book-preview-block__chapter-title"><span class="sr-only">Chapter {{ loop.index }}: </span>{{ chapter.title }}</h3>
+                            <p class="book-preview-block__chapter-text">{{ chapter.text }}</p>
+                        </div>
+                        <p class="book-preview-block__pages">
+                            {%- if chapter.free %}<span class="badge badge--success">Free sample</span> {% endif -%}
+                            {{ chapter.pages }} pages
+                        </p>
+                    </li>
+                    {%- endfor %}
+                </ol>
+                <p class="book-preview-block__more">{{ _s.more }}</p>
+            </div>
+        </div>
+    </div>
+</section>

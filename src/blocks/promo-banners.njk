@@ -1,0 +1,29 @@
+---
+category: 'Commerce'
+title: 'Promo Banners'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--block ui--promo-banners">
+        {% include "ui/html/block/promo-banners.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/block/promo-banners.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/block/promo-banners.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/block/promo-banners.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/container.css">
+    <link rel="stylesheet" href="/_includes/ui/css/block/promo-banners.css">
+{% endblock %}

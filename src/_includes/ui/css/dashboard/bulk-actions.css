@@ -1,0 +1,97 @@
+.bulk-actions {
+  background-color: var(--spruce-base-color-surface);
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  border-radius: var(--spruce-border-radius-lg);
+  overflow: hidden;
+}
+.bulk-actions__header {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  justify-content: space-between;
+  min-block-size: 3.75rem;
+  padding: 0.5rem 1.5rem;
+}
+.bulk-actions__title {
+  font-size: 1rem;
+  margin: 0;
+}
+.bulk-actions__bar {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+  border-radius: var(--spruce-border-radius-md);
+  margin-inline-start: auto;
+  transition-duration: var(--spruce-duration);
+  transition-property: background-color, padding;
+  transition-timing-function: var(--spruce-timing-function);
+}
+.bulk-actions__bar--active {
+  background-color: color-mix(in srgb, var(--spruce-base-color-primary) 8%, transparent);
+  padding: 0.25rem 0.25rem 0.25rem 1rem;
+}
+.bulk-actions__count {
+  color: var(--spruce-base-color-muted);
+  font-size: var(--spruce-font-size-sm);
+  margin: 0;
+}
+.bulk-actions__bar--active .bulk-actions__count {
+  color: var(--spruce-base-color-heading);
+  font-weight: 700;
+  margin-inline-end: 0.5rem;
+}
+.bulk-actions__count:empty {
+  display: none;
+}
+.bulk-actions__table {
+  margin: 0;
+}
+.bulk-actions__table tr:has(.form-check__control:checked) {
+  background-color: color-mix(in srgb, var(--spruce-base-color-primary) 6%, transparent);
+}
+.bulk-actions__table th[scope=row] a {
+  font-weight: 700;
+  text-decoration: none;
+}
+.bulk-actions__table th[scope=row] a:hover {
+  text-decoration: underline;
+}
+.bulk-actions__check {
+  inline-size: 3.5rem;
+  min-inline-size: 0 !important;
+  padding-inline-start: 1.5rem !important;
+}
+.bulk-actions__check .form-check__control {
+  display: block;
+}
+.bulk-actions__number {
+  font-variant-numeric: tabular-nums;
+  text-align: end;
+}
+.bulk-actions__status {
+  align-items: center;
+  display: inline-flex;
+  font-size: var(--spruce-font-size-sm);
+  gap: 0.25rem;
+  white-space: nowrap;
+}
+.bulk-actions__status::before {
+  aspect-ratio: 1;
+  background-color: var(--spruce-base-color-muted);
+  border-radius: 50%;
+  content: "";
+  inline-size: 0.5rem;
+}
+.bulk-actions__status--success::before {
+  background-color: var(--spruce-alert-color-success);
+}
+.bulk-actions__status--warning::before {
+  background-color: var(--spruce-alert-color-warning);
+}
+
+[dir=rtl] .bulk-actions__bar--active {
+  padding: 0.25rem 1rem 0.25rem 0.25rem;
+}

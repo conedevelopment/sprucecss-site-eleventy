@@ -2,6 +2,82 @@
     publish = "dist"
     command = "npm run build"
 
+# The machine-readable Spruce UI library (/library.json, /llms.txt and the .md endpoints) for AI agents and tools.
+[[headers]]
+    for = "/*.md"
+    [headers.values]
+        Content-Type = "text/markdown; charset=utf-8"
+        Access-Control-Allow-Origin = "*"
+
+[[headers]]
+    for = "/library.json"
+    [headers.values]
+        Content-Type = "application/json; charset=utf-8"
+        Access-Control-Allow-Origin = "*"
+
+[[headers]]
+    for = "/llms.txt"
+    [headers.values]
+        Content-Type = "text/plain; charset=utf-8"
+        Access-Control-Allow-Origin = "*"
+
+# The how-to posts moved into the documentation as guides; the blog was removed.
+[[redirects]]
+    from = "/blog/the-simplest-sass-compile-setup/*"
+    to = "/docs/guides/compile-sass/"
+    status = 301
+
+[[redirects]]
+    from = "/blog/how-to-configure-spruce-css-in-your-project/*"
+    to = "/docs/guides/configure-your-project/"
+    status = 301
+
+[[redirects]]
+    from = "/blog/how-to-make-a-new-button-variant/*"
+    to = "/docs/guides/create-a-button-variant/"
+    status = 301
+
+[[redirects]]
+    from = "/blog/how-to-reduce-spruce-css-size/*"
+    to = "/docs/guides/reduce-the-css-size/"
+    status = 301
+
+[[redirects]]
+    from = "/blog/how-to-setup-a-dark-theme-in-spruce-css/*"
+    to = "/docs/guides/set-up-a-dark-theme/"
+    status = 301
+
+[[redirects]]
+    from = "/blog/cracking-the-theme-switcher-and-dark-mode/*"
+    to = "/docs/guides/build-a-theme-switcher/"
+    status = 301
+
+[[redirects]]
+    from = "/blog/*"
+    to = "/docs/getting-started/introduction/"
+    status = 301
+
+[[redirects]]
+    from = "/templates/*"
+    to = "/pages/"
+    status = 301
+
+# Blocks and pages got their own sections.
+[[redirects]]
+    from = "/ui/block/*"
+    to = "/blocks/:splat"
+    status = 301
+
+[[redirects]]
+    from = "/ui/section/*"
+    to = "/blocks/:splat"
+    status = 301
+
+[[redirects]]
+    from = "/ui/page/*"
+    to = "/pages/"
+    status = 301
+
 [[redirects]]
     from = "/*"
     to = "/404.html"

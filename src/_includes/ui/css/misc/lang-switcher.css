@@ -1,13 +1,18 @@
+.lang-switcher-demo {
+  align-items: start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: space-between;
+  min-block-size: 18rem;
+}
+.lang-switcher-demo .lang-switcher--upward {
+  align-self: end;
+}
+
 .lang-switcher {
-  min-inline-size: 2.875rem;
+  display: inline-block;
   position: relative;
-  text-transform: uppercase;
-}
-.lang-switcher--upward .lang-switcher__panel {
-  inset: auto 0 120% auto;
-}
-.lang-switcher--upward svg {
-  rotate: 180deg;
 }
 .lang-switcher__control {
   background: none;
@@ -17,46 +22,101 @@
   font: inherit;
   outline: inherit;
   padding: 0;
+  transition-duration: var(--spruce-duration);
+  transition-property: background-color, color;
+  transition-timing-function: var(--spruce-timing-function);
   align-items: center;
-  border-radius: 0.425rem;
+  border-radius: var(--spruce-border-radius);
   color: var(--spruce-base-color-heading);
-  display: flex;
+  display: inline-flex;
+  font-size: var(--spruce-font-size-sm);
+  font-weight: 700;
   gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
   text-transform: uppercase;
+}
+.lang-switcher__control:hover, .lang-switcher__control[aria-expanded=true] {
+  background-color: color-mix(in srgb, var(--spruce-base-color-primary) 10%, transparent);
 }
 .lang-switcher__control:focus-visible {
   outline: 2px solid var(--spruce-btn-color-primary-background);
   outline-offset: 2px;
 }
+.lang-switcher__control[aria-expanded=true] .lang-switcher__chevron {
+  rotate: 180deg;
+}
+.lang-switcher__icon, .lang-switcher__chevron {
+  block-size: 1em;
+  color: var(--spruce-base-color-primary);
+  flex-shrink: 0;
+  inline-size: 1em;
+}
+.lang-switcher__chevron {
+  transition-duration: var(--spruce-duration);
+  transition-property: rotate;
+  transition-timing-function: var(--spruce-timing-function);
+  block-size: 0.85em;
+  inline-size: 0.85em;
+}
 .lang-switcher__panel {
   list-style: none;
   margin: 0;
   padding: 0;
-  background-color: hsl(0, 0%, 0%);
-  border-radius: 0.425rem;
-  inset: 120% 0 auto auto;
-  padding-block: 0.25rem;
+  background-color: var(--spruce-base-color-surface);
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  border-radius: var(--spruce-border-radius-md);
+  box-shadow: var(--spruce-shadow-lg);
+  inset-block-start: calc(100% + 0.25rem);
+  inset-inline-start: 0;
+  min-inline-size: 11rem;
+  padding: 0.25rem;
   position: absolute;
+  z-index: 1000;
 }
-.lang-switcher__panel > * + * {
-  margin-block-start: 0;
+.lang-switcher__panel[hidden] {
+  display: none;
 }
-.lang-switcher__panel li {
-  line-height: 1;
+.lang-switcher__panel > li {
+  margin: 0 !important;
 }
-.lang-switcher__panel a {
-  color: hsl(0, 0%, 100%);
+.lang-switcher__link {
+  align-items: center;
+  border-radius: var(--spruce-border-radius-sm);
+  color: var(--spruce-base-color-heading);
   display: flex;
-  padding-block: 0.25rem;
-  padding-inline: 1rem;
+  font-size: var(--spruce-font-size-sm);
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
   text-decoration: none;
 }
-.lang-switcher__panel a:hover {
-  color: hsl(262, 71%, 89%);
-}
-.lang-switcher svg {
-  --size: 1em;
-  block-size: var(--size);
+.lang-switcher__link:hover, .lang-switcher__link:focus-visible {
+  background-color: color-mix(in srgb, var(--spruce-base-color-primary) 10%, transparent);
   color: var(--spruce-base-color-primary);
-  inline-size: var(--size);
+  outline: none;
+}
+.lang-switcher__link[aria-current=true] {
+  font-weight: 700;
+}
+.lang-switcher__code {
+  color: var(--spruce-base-color-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  inline-size: 1.5rem;
+  text-transform: uppercase;
+}
+.lang-switcher__check {
+  block-size: 1rem;
+  color: var(--spruce-base-color-primary);
+  inline-size: 1rem;
+  margin-inline-start: auto;
+}
+.lang-switcher--upward .lang-switcher__panel {
+  inset-block: auto calc(100% + 0.25rem);
+  inset-inline: auto 0;
+}
+.lang-switcher--upward .lang-switcher__chevron {
+  rotate: 180deg;
+}
+.lang-switcher--upward .lang-switcher__control[aria-expanded=true] .lang-switcher__chevron {
+  rotate: 0deg;
 }

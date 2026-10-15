@@ -1,0 +1,23 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.blog-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+  }
+
+  &__header {
+    align-items: end;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('m');
+    justify-content: space-between;
+  }
+
+  &__grid {
+    @include layout-grid('m', 18rem);
+  }
+}

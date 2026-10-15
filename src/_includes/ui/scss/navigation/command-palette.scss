@@ -1,0 +1,108 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.command-palette-trigger {
+  kbd {
+    font-size: 0.75em;
+    margin-inline-start: spacer('s');
+  }
+}
+
+.command-palette {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  box-shadow: shadow('xl');
+  inline-size: min(36rem, calc(100vi - #{spacer('m')}));
+  margin-block-start: 12dvb;
+  max-inline-size: none;
+  padding: 0;
+
+  &::backdrop {
+    backdrop-filter: blur(2px);
+    background-color: color('overlay');
+  }
+
+  &__search {
+    align-items: center;
+    border-block-end: config('border-width-base', $display) solid color('border');
+    display: flex;
+    gap: spacer('s');
+    padding: spacer('s') spacer('m');
+
+    svg {
+      block-size: 1.25rem;
+      color: color('muted');
+      flex-shrink: 0;
+      inline-size: 1.25rem;
+    }
+
+    kbd {
+      font-size: 0.75rem;
+    }
+  }
+
+  &__input {
+    background: transparent;
+    border: 0;
+    color: color('heading');
+    flex-grow: 1;
+    font: inherit;
+    font-size: config('font-size-lg', $typography);
+    min-inline-size: 0;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__results {
+    max-block-size: min(24rem, 60dvb);
+    overflow-y: auto;
+    padding: spacer('xs');
+  }
+
+  &__group {
+    color: color('muted');
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    margin: spacer('xs') spacer('s') spacer('xxs');
+    text-transform: uppercase;
+  }
+
+  &__list {
+    @include clear-list;
+  }
+
+  &__option {
+    align-items: center;
+    border-radius: radius('md');
+    color: color('heading');
+    cursor: pointer;
+    display: flex;
+    gap: spacer('s');
+    justify-content: space-between;
+    margin: 0 !important;
+    padding: spacer('xs') spacer('s');
+
+    &[aria-selected='true'] {
+      background-color: color-alpha('primary', 0.12);
+      color: color('primary');
+    }
+  }
+
+  &__keys {
+    display: flex;
+    gap: spacer('xxs');
+
+    kbd {
+      font-size: 0.75rem;
+    }
+  }
+
+  &__empty {
+    color: color('muted');
+    padding: spacer('l');
+    text-align: center;
+  }
+}

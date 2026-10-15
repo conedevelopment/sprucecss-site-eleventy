@@ -1,0 +1,129 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.product-bundle {
+  background-color: color('surface');
+  border: config('border-width-base', $display) solid color('border');
+  border-radius: radius('lg');
+  padding: spacer-clamp('m', 'l');
+  @include layout-stack('m');
+
+  &__title {
+    font-size: font-size('h4');
+    margin: 0;
+  }
+
+  &__images {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('s');
+    // The parent's layout-stack sets the margins.
+    list-style: none;
+    padding: 0;
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__media {
+    align-items: center;
+    display: flex;
+    gap: spacer('s');
+
+    img {
+      aspect-ratio: 1;
+      background-color: color('surface-muted');
+      border-radius: radius('md');
+      inline-size: clamp(4rem, 20vi, 6rem);
+      object-fit: cover;
+      @include transition($property: 'opacity, filter');
+    }
+
+    & + &::before {
+      color: color('muted');
+      content: '+';
+      font-size: font-size('h4');
+      font-weight: 300;
+    }
+
+    &--off img {
+      filter: grayscale(1);
+      opacity: 0.35;
+    }
+  }
+
+  &__form {
+    display: grid;
+    gap: spacer('m');
+
+    @include breakpoint('md') {
+      align-items: end;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    }
+  }
+
+  &__items {
+    @include clear-list;
+    @include layout-stack('xs');
+  }
+
+  &__item {
+    align-items: center;
+    display: flex;
+    gap: spacer('s');
+    justify-content: space-between;
+
+
+  }
+
+  // The main product is always part of the bundle.
+  &__fixed {
+    align-items: center;
+    color: color('heading');
+    display: flex;
+    gap: spacer('xs');
+
+    svg {
+      block-size: 1rem;
+      color: color('success', 'alert');
+      flex-shrink: 0;
+      inline-size: 1rem;
+    }
+  }
+
+  &__price {
+    color: color('heading');
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+
+  &__summary {
+    @include layout-stack('xs');
+  }
+
+  &__total {
+    align-items: baseline;
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs');
+    margin: 0;
+
+    strong {
+      color: color('heading');
+      font-size: font-size('h4');
+    }
+
+    s {
+      color: color('muted');
+    }
+  }
+
+  &__note {
+    color: color('success', 'alert');
+    font-size: config('font-size-sm', $typography);
+    font-weight: 600;
+  }
+}

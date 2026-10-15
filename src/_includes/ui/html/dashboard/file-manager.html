@@ -1,0 +1,52 @@
+{#- Override with `fileManager` ({ path: [], items: [{ name, type: "folder"|"image"|"pdf"|"doc"|"sheet"|"video"|"zip", meta, modified }] }). -#}
+{%- set _s = fileManager or {
+    "path": ["Workspace", "Marketing"],
+    "items": [
+        { "name": "Brand assets", "type": "folder", "meta": "48 files", "modified": "Oct 2" },
+        { "name": "Campaigns", "type": "folder", "meta": "12 files", "modified": "Sep 30" },
+        { "name": "hero-autumn.jpg", "type": "image", "meta": "2.4 MB", "modified": "Today" },
+        { "name": "Q4 plan.pdf", "type": "pdf", "meta": "860 KB", "modified": "Yesterday" },
+        { "name": "Launch copy.docx", "type": "doc", "meta": "48 KB", "modified": "Oct 1" },
+        { "name": "Budget 2027.xlsx", "type": "sheet", "meta": "112 KB", "modified": "Sep 29" },
+        { "name": "Product tour.mp4", "type": "video", "meta": "84 MB", "modified": "Sep 21" },
+        { "name": "Press kit.zip", "type": "zip", "meta": "16 MB", "modified": "Sep 12" }
+    ]
+} %}
+<section class="file-manager" aria-labelledby="file-manager-title" data-file-manager>
+    <header class="file-manager__header">
+        <h2 class="sr-only" id="file-manager-title">Files</h2>
+        <nav class="file-manager__path" aria-label="Folder path">
+            <ol role="list">
+                {%- for part in _s.path %}
+                <li>{% if loop.last %}<span aria-current="location">{{ part }}</span>{% else %}<a href="#">{{ part }}</a>{% endif %}</li>
+                {%- endfor %}
+            </ol>
+        </nav>
+        <div class="file-manager__tools">
+            <div class="file-manager__view" role="group" aria-label="View" hidden data-file-manager-view>
+                <button class="btn btn--sm btn--icon btn--ghost-primary" type="button" aria-pressed="true" data-view="grid"><svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span class="sr-only">Grid</span></button>
+                <button class="btn btn--sm btn--icon btn--ghost-primary" type="button" aria-pressed="false" data-view="list"><svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg><span class="sr-only">List</span></button>
+            </div>
+            <a class="btn btn--primary btn--sm" href="#">Upload</a>
+        </div>
+    </header>
+    <ul class="file-manager__items" role="list" data-file-manager-items>
+        {%- for item in _s.items %}
+        <li class="file-manager__item file-manager__item--{{ item.type }}">
+            <span class="file-manager__icon" aria-hidden="true">
+                {%- if item.type == 'folder' %}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" focusable="false"><path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h3.6a2 2 0 0 1 1.5.7L12 6.2h6.5A2.5 2.5 0 0 1 21 8.7v8.8a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5z"/></svg>
+                {%- else %}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round" focusable="false"><path d="M14 2.5H7A2.5 2.5 0 0 0 4.5 5v14A2.5 2.5 0 0 0 7 21.5h10a2.5 2.5 0 0 0 2.5-2.5V8z"/><path d="M14 2.5V8h5.5"/></svg><span class="file-manager__ext">{{ item.name.split('.') | last | upper }}</span>
+                {%- endif -%}
+            </span>
+            <a class="file-manager__name" href="#">{{ item.name }}</a>
+            <span class="file-manager__meta">{{ item.meta }}</span>
+            <span class="file-manager__modified"><span class="sr-only">Modified: </span>{{ item.modified }}</span>
+        </li>
+        {%- endfor %}
+    </ul>
+    <p class="file-manager__storage">
+        <label for="file-manager-storage">Storage</label>
+        <meter id="file-manager-storage" min="0" max="100" low="75" high="90" optimum="0" value="64">6.4 of 10 GB</meter>
+        <span>6.4 GB of 10 GB used</span>
+    </p>
+</section>

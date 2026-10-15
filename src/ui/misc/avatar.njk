@@ -1,0 +1,27 @@
+---
+title: 'Avatar'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium ui--avatar">
+        {% include "ui/html/misc/avatar.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/misc/avatar.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/misc/avatar.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/misc/avatar.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/misc/avatar.css">
+{% endblock %}

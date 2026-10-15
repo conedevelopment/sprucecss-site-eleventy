@@ -1,0 +1,28 @@
+---
+title: 'Goal Tracker'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--medium">
+        {% include "ui/html/dashboard/goal-tracker.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/dashboard/goal-tracker.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/dashboard/goal-tracker.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/dashboard/goal-tracker.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/misc/badge.css">
+    <link rel="stylesheet" href="/_includes/ui/css/dashboard/goal-tracker.css">
+{% endblock %}

@@ -1,0 +1,30 @@
+<button class="btn btn--primary" type="button" data-drawer-open="drawer-cart" aria-haspopup="dialog">Open drawer</button>
+
+<dialog class="drawer" id="drawer-cart" aria-labelledby="drawer-cart-title">
+    <div class="drawer__panel">
+        <header class="drawer__header">
+            <h2 class="drawer__title" id="drawer-cart-title">Filters</h2>
+            <button class="btn btn--ghost-secondary btn--icon btn--sm" type="button" data-drawer-close aria-label="Close">
+                <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+        </header>
+        <div class="drawer__body">
+            <fieldset>
+                <legend>Category</legend>
+                <div class="form-group form-group--vertical-check">
+                    <label class="form-check"><input class="form-check__control" type="checkbox" checked> <span class="form-label form-check__label">Backpacks</span></label>
+                    <label class="form-check"><input class="form-check__control" type="checkbox"> <span class="form-label form-check__label">Accessories</span></label>
+                    <label class="form-check"><input class="form-check__control" type="checkbox"> <span class="form-label form-check__label">Outdoor</span></label>
+                </div>
+            </fieldset>
+            <div class="form-group">
+                <label class="form-label" for="drawer-price">Maximum price</label>
+                <input class="form-range" id="drawer-price" type="range" min="0" max="500" value="250">
+            </div>
+        </div>
+        <footer class="drawer__footer">
+            <button class="btn btn--outline-primary" type="button" data-drawer-close>Reset</button>
+            <button class="btn btn--primary" type="button" data-drawer-close>Show 24 results</button>
+        </footer>
+    </div>
+</dialog>

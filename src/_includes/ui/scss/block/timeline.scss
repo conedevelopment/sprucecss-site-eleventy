@@ -1,0 +1,98 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.timeline-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+  }
+
+  &__list {
+    @include clear-list;
+    display: grid;
+    gap: spacer('m');
+    inline-size: 100%;
+    margin-inline: auto;
+    max-inline-size: 56rem;
+    position: relative;
+
+    &::before {
+      background-color: color('border');
+      content: '';
+      inline-size: 2px;
+      inset-block: 0;
+      inset-inline-start: 0.6rem;
+      position: absolute;
+
+      @include breakpoint('md') {
+        inset-inline-start: calc(50% - 1px);
+      }
+    }
+
+    // The items sit side by side: clear the stack margins of the base list style.
+    > li {
+      margin-block: 0;
+      padding-block: 0;
+    }
+  }
+
+  &__item {
+    display: grid;
+    gap: spacer('m');
+    grid-template-columns: 1.25rem 1fr;
+    position: relative;
+
+    @include breakpoint('md') {
+      grid-template-columns: 1fr 1.25rem 1fr;
+
+      &:nth-child(odd) .timeline-block__card {
+        grid-column: 1;
+        grid-row: 1;
+        text-align: end;
+      }
+
+      &:nth-child(even) .timeline-block__card {
+        grid-column: 3;
+      }
+
+      .timeline-block__marker {
+        grid-column: 2;
+        grid-row: 1;
+      }
+    }
+  }
+
+  &__marker {
+    background-color: color('background');
+    block-size: 1.25rem;
+    border: 3px solid color('primary');
+    border-radius: 50%;
+    inline-size: 1.25rem;
+    margin-block-start: spacer('m');
+    position: relative;
+  }
+
+  &__card {
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    padding: spacer('m');
+    @include layout-stack('xxs');
+  }
+
+  &__date {
+    color: color('primary');
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+  }
+
+  &__title {
+    font-size: font-size('h4');
+  }
+
+  &__text {
+    color: color('muted');
+  }
+}

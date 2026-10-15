@@ -1,0 +1,97 @@
+{#- Override with `appShell` ({ brand, title }) and fill the main area with `appShellContent` (a `{% set appShellContent %}…{% endset %}` capture). -#}
+{%- set _a = appShell or { "brand": "Acme Admin", "title": "Dashboard" } %}
+<div class="app-shell" data-app-shell>
+    <a class="app-shell__skip-link" href="#app-shell-content">Skip to content</a>
+    <aside class="app-shell__sidebar" id="app-shell-sidebar" aria-label="Sidebar">
+        <a class="app-shell__brand" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m12 2 8 15H4z"/><path d="M12 17v5"/></svg>
+            {{ _a.brand }}
+        </a>
+        <nav class="app-shell__navigation" aria-label="Main">
+            <ul class="app-shell__menu" role="list">
+                <li>
+                    <a class="app-shell__link" href="#" aria-current="page">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>
+                        Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a class="app-shell__link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                        Orders
+                        <span class="app-shell__count">12<span class="sr-only"> new</span></span>
+                    </a>
+                </li>
+                <li>
+                    <a class="app-shell__link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+                        Products
+                    </a>
+                </li>
+                <li>
+                    <a class="app-shell__link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        Customers
+                    </a>
+                </li>
+                <li>
+                    <a class="app-shell__link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                        Analytics
+                    </a>
+                </li>
+            </ul>
+            <p class="app-shell__menu-title" id="app-shell-workspace">Workspace</p>
+            <ul class="app-shell__menu" role="list" aria-labelledby="app-shell-workspace">
+                <li>
+                    <a class="app-shell__link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                        Settings
+                    </a>
+                </li>
+                <li>
+                    <a class="app-shell__link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+                        Billing
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="app-shell__user">
+            <span class="app-shell__avatar" aria-hidden="true">AS</span>
+            <span class="app-shell__user-info">
+                <span class="app-shell__user-name">Anna Smith</span>
+                <span class="app-shell__user-email">anna@acme.com</span>
+            </span>
+        </div>
+    </aside>
+    <div class="app-shell__main">
+        <header class="app-shell__topbar">
+            <button class="btn btn--ghost-secondary btn--icon btn--sm app-shell__toggle" type="button" aria-controls="app-shell-sidebar" aria-expanded="false" data-app-shell-toggle>
+                <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <span class="sr-only">Menu</span>
+            </button>
+            <form class="app-shell__search" role="search" action="#">
+                <label class="sr-only" for="app-shell-search">Search</label>
+                <input class="form-control form-control--sm" id="app-shell-search" type="search" name="q" placeholder="Search orders, products…">
+            </form>
+            <div class="app-shell__actions">
+                <button class="btn btn--ghost-secondary btn--icon btn--sm" type="button">
+                    <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                    <span class="sr-only">Notifications (3 unread)</span>
+                </button>
+                <a class="btn btn--primary btn--sm" href="#">New order</a>
+            </div>
+        </header>
+        <main class="app-shell__content" id="app-shell-content" tabindex="-1">
+            {%- if appShellContent %}
+            {{ appShellContent | safe }}
+            {%- else %}
+            <h1 class="app-shell__title">{{ _a.title }}</h1>
+            <div class="app-shell__placeholder" aria-hidden="true"></div>
+            <div class="app-shell__placeholder app-shell__placeholder--tall" aria-hidden="true"></div>
+            {%- endif %}
+        </main>
+    </div>
+    <div class="app-shell__backdrop" data-app-shell-close hidden></div>
+</div>

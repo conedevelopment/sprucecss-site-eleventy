@@ -1,16 +1,38 @@
 {% highlight "scss" %}
-@use 'dark-colors' as dark;
+@use 'brand-style' as brand;
 
 @use 'sprucecss/scss/spruce' with (
-  $colors: (
-    'footer': (
-      'background': hsl(215deg 100% 98%),
-    )
+  $settings: (
+    'css-custom-properties': true,
+    'dark-mode': (
+      'prefers-color-scheme': true,
+    ),
+    'styles': (
+      'include': ('brand', 'minimal', 'editorial'),
+    ),
   ),
-  $dark-colors: dark.$colors,
+  $generators: (
+    'content': (
+      'dark-mode': true,
+      'styles': true,
+    ),
+  ),
+  $colors: (
+    'base': (
+      'primary': hsl(262deg 71% 49%),
+    ),
+  ),
+  $dark-colors: (
+    'base': (
+      'primary': hsl(262deg 90% 72%),
+    ),
+  ),
   $typography: (
-    'font-family-base': #{'Open Sans', sans-serif},
+    'font-family-base': #{'Inter', sans-serif},
     'font-family-heading': #{'Manrope', sans-serif},
+  ),
+  $styles: (
+    'brand': brand.$style,
   ),
 );
 {% endhighlight %}

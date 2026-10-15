@@ -1,0 +1,37 @@
+---
+category: 'Commerce'
+title: 'Product Spotlight'
+---
+
+{% extends "layout/component.html" %}
+
+{% set preview %}
+    <div class="ui ui--block ui--product-spotlight">
+        {% include "ui/html/block/product-spotlight.html" %}
+    </div>
+{% endset %}
+
+{% set html %}
+    {% include "ui/html/block/product-spotlight.html" %}
+{% endset %}
+
+{% set scss %}
+    {% include "ui/scss/block/product-spotlight.scss" %}
+{% endset %}
+
+{% set description %}
+    {% include "ui/md/block/product-spotlight.md" %}
+{% endset %}
+
+{% block style %}
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/container.css">
+    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/block-heading.css">
+    <link rel="stylesheet" href="/_includes/ui/css/ecommerce/stock-indicator.css">
+    <link rel="stylesheet" href="/_includes/ui/css/ecommerce/delivery-estimate.css">
+    <link rel="stylesheet" href="/_includes/ui/css/block/product-spotlight.css">
+{% endblock %}
+
+{% block script %}
+    <script defer src="/_includes/ui/js/ecommerce/stock-indicator.js"></script>
+    <script defer src="/_includes/ui/js/ecommerce/delivery-estimate.js"></script>
+{% endblock %}

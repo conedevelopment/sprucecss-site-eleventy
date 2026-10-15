@@ -1,0 +1,59 @@
+{#- Override with `offerBlock` ({ heading, items: [{ icon, kicker, title, text, facts: [{ value, label }], features, link, href, value }], total: { label, value, price, text } }). -#}
+{%- set _s = offerBlock or {
+    "heading": { "eyebrow": "What you get", "title": "Two ways to learn, one bundle", "text": "Read at your own pace, then watch every technique built from scratch.", "id": "offer-title" },
+    "items": [
+        { "icon": "book", "kicker": "The book", "title": "Modern CSS, Explained", "text": "A practical guide from the cascade to a complete design system.",
+          "facts": [{ "value": "380", "label": "pages" }, { "value": "14", "label": "chapters" }, { "value": "120", "label": "code samples" }],
+          "features": ["PDF, EPUB and Kindle", "Copy-paste code samples", "Free updates for every edition"], "link": "See the chapters", "href": "#book-preview", "value": "$49" },
+        { "icon": "video", "kicker": "The video course", "title": "Modern CSS, Built", "text": "Watch every technique from the book built in real projects.",
+          "facts": [{ "value": "64", "label": "lessons" }, { "value": "12 h", "label": "of video" }, { "value": "6", "label": "projects" }],
+          "features": ["4K video with subtitles", "Source code for every lesson", "Watch online or download"], "link": "Browse the lessons", "href": "#video-library", "value": "$149" }
+    ],
+    "total": { "label": "Together", "value": "$198", "price": "$129", "text": "Get both in the Complete bundle and save $69." }
+} %}
+<section class="offer-block" aria-labelledby="{{ _s.heading.id }}">
+    <div class="container">
+        <div class="offer-block__inner">
+            {% set heading = _s.heading %}
+            {% include "../content-and-layout/block-heading.html" %}
+            <ul class="offer-block__items" role="list">
+                {%- for item in _s.items %}
+                <li class="offer-block__item">
+                    <div class="offer-block__header">
+                        <span class="offer-block__icon" aria-hidden="true">{% set iconName = item.icon %}{% include "../block/icon.html" %}</span>
+                        <div class="offer-block__heading">
+                            <p class="offer-block__kicker">{{ item.kicker }}</p>
+                            <h3 class="offer-block__title">{{ item.title }}</h3>
+                        </div>
+                        <p class="offer-block__value"><span class="sr-only">Value: </span>{{ item.value }}</p>
+                    </div>
+                    <p class="offer-block__text">{{ item.text }}</p>
+                    <dl class="offer-block__facts">
+                        {%- for fact in item.facts %}
+                        <div class="offer-block__fact">
+                            <dt>{{ fact.label }}</dt>
+                            <dd>{{ fact.value }}</dd>
+                        </div>
+                        {%- endfor %}
+                    </dl>
+                    <ul class="offer-block__features" role="list">
+                        {%- for feature in item.features %}
+                        <li>{% set iconName = "check" %}{% include "../block/icon.html" %} {{ feature }}</li>
+                        {%- endfor %}
+                    </ul>
+                    <p class="offer-block__more"><a href="{{ item.href }}">{{ item.link }}</a></p>
+                </li>
+                {%- endfor %}
+            </ul>
+            <div class="offer-block__total">
+                <p class="offer-block__sum">
+                    {{ _s.total.label }}
+                    <del><span class="sr-only">Regular price: </span>{{ _s.total.value }}</del>
+                    <strong><span class="sr-only">Bundle price: </span>{{ _s.total.price }}</strong>
+                </p>
+                <p class="offer-block__save">{{ _s.total.text }}</p>
+                <a class="btn btn--primary" href="#pricing">See the bundles</a>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,130 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.hero-dashboard-block {
+  background-image: radial-gradient(ellipse at 50% 0%, #{color-alpha('primary', 0.14)}, transparent 60%);
+  overflow: hidden;
+  padding-block: spacer-clamp('xl', 'xxl') 0;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: spacer-clamp('l', 'xl');
+  }
+
+  &__content {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: spacer('m');
+    margin-inline: auto;
+    max-inline-size: 46rem;
+    text-align: center;
+
+    > * {
+      margin: 0;
+    }
+  }
+
+  &__eyebrow {
+    background-color: color-alpha('primary', 0.12);
+    border-radius: radius('pill');
+    color: color('primary');
+    font-size: config('font-size-sm', $typography);
+    font-weight: 700;
+    padding: spacer('xxs') spacer('s');
+  }
+
+  &__title {
+    font-size: responsive-font-size(4rem, 40, '5vw + 1rem');
+    letter-spacing: -0.03em;
+  }
+
+  &__lead {
+    color: color('muted');
+    font-size: config('font-size-lead', $typography);
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: spacer('xs');
+    justify-content: center;
+  }
+
+  &__note {
+    color: color('muted');
+    font-size: config('font-size-sm', $typography);
+  }
+
+  // A browser window cut off at the bottom edge of the block.
+  &__frame {
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-block-end: 0;
+    border-start-end-radius: radius('lg');
+    border-start-start-radius: radius('lg');
+    box-shadow: shadow('xl');
+    inline-size: 100%;
+    margin-inline: auto;
+    max-block-size: 34rem;
+    max-inline-size: 64rem;
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+
+    // Fade the bottom into the page.
+    &::after {
+      background-image: linear-gradient(to top, #{color('background')}, transparent);
+      block-size: 6rem;
+      content: '';
+      inset-block-end: 0;
+      inset-inline: 0;
+      position: absolute;
+    }
+  }
+
+  &__bar {
+    align-items: center;
+    background-color: color('surface-muted');
+    border-block-end: config('border-width-base', $display) solid color('border');
+    display: flex;
+    gap: spacer('s');
+    padding: spacer('xs') spacer('s');
+  }
+
+  &__dots {
+    display: flex;
+    gap: 6px;
+
+    span {
+      background-color: color('border-strong');
+      block-size: 0.65rem;
+      border-radius: radius('pill');
+      inline-size: 0.65rem;
+    }
+  }
+
+  &__url {
+    background-color: color('background');
+    border-radius: radius('sm');
+    color: color('muted');
+    flex: 0 1 22rem;
+    font-size: 0.75rem;
+    margin-inline: auto;
+    overflow: hidden;
+    padding: 2px spacer('s');
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__screen {
+    display: grid;
+    gap: spacer('m');
+    padding: spacer('m');
+
+    > * {
+      margin: 0 !important;
+    }
+  }
+}

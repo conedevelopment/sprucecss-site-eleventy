@@ -1,0 +1,46 @@
+@use 'sprucecss/scss/spruce' as *;
+
+.faq-block {
+  padding-block: spacer-clamp('xl', 'xxl');
+
+  &__inner {
+    display: grid;
+    gap: spacer-clamp('l', 'xl');
+
+    @include breakpoint('lg') {
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    }
+  }
+
+  &__aside {
+    align-self: start;
+    display: flex;
+    flex-direction: column;
+    gap: spacer('l');
+
+    @include breakpoint('lg') {
+      inset-block-start: spacer('l');
+      position: sticky;
+    }
+  }
+
+  &__help {
+    background-color: color('surface-muted');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    padding: spacer('m');
+    @include layout-stack('xs');
+  }
+
+  &__help-title {
+    font-size: font-size('h5');
+  }
+
+  &__list {
+    @include layout-stack('s');
+
+    details {
+      background-color: color('surface');
+    }
+  }
+}
