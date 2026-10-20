@@ -25,6 +25,7 @@
   &__media {
     aspect-ratio: 16 / 9;
     background-color: color('surface-muted');
+    overflow: hidden;
     position: relative;
 
     img {

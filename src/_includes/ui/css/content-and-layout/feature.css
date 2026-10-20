@@ -67,6 +67,7 @@
   font-size: 0.9375rem;
   font-weight: 600;
   gap: 0.65rem;
+  justify-self: start;
   padding: 0.15em 1rem;
   text-align: start;
 }

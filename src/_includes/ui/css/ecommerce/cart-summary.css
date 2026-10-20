@@ -2,7 +2,7 @@
   background-color: var(--spruce-base-color-surface);
   border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
   border-radius: var(--spruce-border-radius-lg);
-  padding: clamp(1.5rem, 5vw, 3rem);
+  padding: clamp(1.5rem, 5vw, 2rem);
 }
 .cart-summary > * {
   margin-block-end: 0;

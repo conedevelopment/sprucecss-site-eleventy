@@ -5,6 +5,7 @@
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  inline-size: 100%;
 }
 .info-card-list > li {
   margin-block: 0;

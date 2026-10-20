@@ -104,7 +104,7 @@
 }
 .coupon-form__totals {
   border-block-start: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
-  margin: 0;
+  margin-block: 1rem 0;
   padding-block-start: 1rem;
 }
 .coupon-form__totals > * {

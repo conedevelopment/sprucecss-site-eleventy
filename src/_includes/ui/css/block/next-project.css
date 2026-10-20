@@ -13,6 +13,8 @@
 .next-project-block__card {
   --spruce-base-color-heading: hsl(0, 0%, 100%);
   --spruce-base-color-text: hsl(0, 0%, 100%);
+  --spruce-base-color-link: hsl(0, 0%, 100%);
+  --spruce-base-color-link-hover: hsla(0, 0%, 100%, 0.75);
   align-items: flex-end;
   background-color: var(--spruce-base-color-heading);
   border-radius: var(--spruce-border-radius-lg);

@@ -4,6 +4,8 @@
   text-align: center;
 
   &__inner {
+    display: flex;
+    flex-direction: column;
     @include layout-stack('m');
   }
 
@@ -33,6 +35,6 @@
   }
 
   .breadcrumb {
-    justify-self: center;
+    align-self: center;
   }
 }

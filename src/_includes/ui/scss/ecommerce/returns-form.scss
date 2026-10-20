@@ -142,4 +142,8 @@
       color: color('heading');
     }
   }
+
+  > * + fieldset {
+    margin-block-start: spacer('m');
+  }
 }

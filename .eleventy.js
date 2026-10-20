@@ -95,6 +95,30 @@ export default function (config) {
     },
   });
 
+  /**
+   * Indent the UI partials' standalone includes to the include tag's column, so the rendered HTML tab keeps its nesting.
+   */
+  config.amendLibrary('njk', (env) => {
+    env.addFilter('indentInclude', (content, width) => env.getFilter('safe')(env.getFilter('indent')(content, width)));
+
+    env.loaders.forEach((loader) => {
+      const getSource = loader.getSource.bind(loader);
+
+      loader.getSource = (name) => {
+        const source = getSource(name);
+
+        if (source && /[\\/]ui[\\/]html[\\/]/.test(source.path)) {
+          source.src = source.src.replace(
+            /^([ \t]+)((?:\{%-?\s*set\s[^%]*%\})*)(\{%-?\s*include\s[^%]*%\})[ \t]*$/gm,
+            (match, space, set, tag) => `${space}${set}{% filter indentInclude(${space.length}) %}${tag}{% endfilter %}`
+          );
+        }
+
+        return source;
+      };
+    });
+  });
+
   config.addFilter('markdown', (content) => {
     return md.render(content.trim());
   });
@@ -176,8 +200,8 @@ export default function (config) {
     return Image.generateHTML(metadata, imageAttributes);
   });
 
-  config.addShortcode('color', (color, name, value, bordered = false) => {
-    return `<div class="color-card ${bordered ? 'color-card--bordered' : ''}">
+  config.addShortcode('color', (color, name, value) => {
+    return `<div class="color-card">
               <span class="color-card__color" style="background-color: ${color};"></span>
               <span class="color-card__caption">
                 <span class="color-card__name">${name}</span>
@@ -261,15 +285,24 @@ export default function (config) {
   /**
    * List the blocks and the layout components a page template includes, in page order ("built with" labels).
    */
-  config.addFilter('pageParts', (pageInclude) => {
+  // The blocks and components a page template includes, linked to their own pages and named after their current titles.
+  config.addFilter('pageParts', (pageInclude, blocks = [], components = []) => {
     const skip = ['site-header', 'site-footer', 'block-heading', 'app-shell'];
-    const title = (name) => name.split('-').map((word) => ({ faq: 'FAQ', cta: 'CTA' })[word] ?? word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    // These block titles only make sense with their category ("Centered" → "Hero: Centered").
+    const qualified = ['Hero', 'Header', 'Footer'];
     const source = readFileSync(`./src/_includes/${pageInclude}`, 'utf8');
+    const find = (group, name) => group === 'block'
+      ? blocks.find((item) => item.inputPath.endsWith(`/blocks/${name}.njk`))
+      : components.find((item) => item.inputPath.endsWith(`/ui/${group}/${name}.njk`));
 
     return [...source.matchAll(/include "\.\.\/(block|content-and-layout|dashboard|ecommerce)\/([a-z-]+)\.html"/g)]
       .filter(([, , name]) => !skip.includes(name))
-      .map(([, group, name]) => (group === 'block' ? `${title(name)} block` : title(name)))
-      .filter((label, index, labels) => labels.indexOf(label) === index);
+      .map(([, group, name]) => find(group, name))
+      .filter((item, index, items) => item && items.indexOf(item) === index)
+      .map((item) => ({
+        label: qualified.includes(item.data.category) ? `${item.data.category}: ${item.data.title}` : item.data.title,
+        url: item.url
+      }));
   });
 
   config.addFilter('groupBy', (array, key) => {

@@ -4,7 +4,7 @@
   background-color: color('surface');
   border: config('border-width-base', $display) solid color('border');
   border-radius: radius('lg');
-  padding: spacer-clamp('m', 'l');
+  padding: spacer-clamp('m', 2rem);
   @include layout-stack('m');
 
   &__title {

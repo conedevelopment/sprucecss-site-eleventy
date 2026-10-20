@@ -113,7 +113,7 @@
 
   &__totals {
     border-block-start: config('border-width-base', $display) solid color('border');
-    margin: 0;
+    margin-block: spacer('s') 0;
     padding-block-start: spacer('s');
     @include layout-stack('xxs');
 

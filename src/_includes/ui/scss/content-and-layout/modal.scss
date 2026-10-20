@@ -1,17 +1,23 @@
 @use 'sprucecss/scss/spruce' as *;
 
+// The dialog covers the viewport and scrolls; the panel inside is the visible box.
 .modal {
   --inline-size: 34rem;
-  background-color: color('surface');
-  border: config('border-width-base', $display) solid color('border');
-  border-radius: radius('lg');
-  box-shadow: shadow('xl');
+  background-color: transparent;
+  block-size: 100%;
+  border: 0;
   color: color('text');
-  inline-size: var(--inline-size);
-  max-block-size: calc(100dvb - #{spacer('l')});
-  max-inline-size: calc(100vi - #{spacer('m')});
+  inline-size: 100%;
+  max-block-size: none;
+  max-inline-size: none;
   overflow-y: auto;
-  padding: 0;
+  overscroll-behavior: contain;
+  padding: spacer('s');
+
+  &[open] {
+    display: grid;
+    justify-items: center;
+  }
 
   &::backdrop {
     backdrop-filter: blur(4px);
@@ -21,16 +27,26 @@
   // Fade and scale in (and out) where the browser supports it.
   @include motion-safe {
     opacity: 0;
-    scale: 0.96;
-    transition: opacity 0.2s, scale 0.2s, overlay 0.2s allow-discrete, display 0.2s allow-discrete;
+    transition: opacity 0.2s, overlay 0.2s allow-discrete, display 0.2s allow-discrete;
+
+    .modal__panel {
+      scale: 0.96;
+      transition: scale 0.2s;
+    }
 
     &[open] {
       opacity: 1;
-      scale: 1;
 
       @starting-style {
         opacity: 0;
-        scale: 0.96;
+      }
+
+      .modal__panel {
+        scale: 1;
+
+        @starting-style {
+          scale: 0.96;
+        }
       }
     }
 
@@ -50,6 +66,16 @@
 
   &--lg {
     --inline-size: 48rem;
+  }
+
+  // The auto margins center the panel vertically; a taller panel starts at the top and the dialog scrolls.
+  &__panel {
+    background-color: color('surface');
+    border: config('border-width-base', $display) solid color('border');
+    border-radius: radius('lg');
+    box-shadow: shadow('xl');
+    inline-size: min(var(--inline-size), 100%);
+    margin-block: auto;
   }
 
   &__header {

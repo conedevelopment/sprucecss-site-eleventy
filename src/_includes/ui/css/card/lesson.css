@@ -37,6 +37,7 @@
 .lesson-card__media {
   aspect-ratio: 16/9;
   background-color: var(--spruce-base-color-surface-muted);
+  overflow: hidden;
   position: relative;
 }
 .lesson-card__media img {

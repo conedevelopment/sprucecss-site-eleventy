@@ -107,6 +107,7 @@
     gap: spacer('xs') spacer('m');
     grid-template-columns: auto minmax(0, 1fr);
     padding-block: spacer('m');
+    padding-inline: spacer('s');
 
     @include breakpoint('sm') {
       grid-template-columns: auto minmax(0, 1fr) auto;

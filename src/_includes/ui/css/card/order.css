@@ -59,7 +59,9 @@
 }
 .order-card__meta div {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.25rem;
+  line-height: var(--spruce-line-height-sm);
 }
 .order-card__meta dt::after {
   content: ":";

@@ -38,7 +38,7 @@
   .steps-block__step:not(:last-child)::after {
     border-block-start: 2px dashed var(--spruce-base-color-border-strong);
     content: "";
-    inline-size: calc(100% - 5rem);
+    inline-size: calc(100% - 2rem);
     inset-block-start: 2rem;
     inset-inline-start: calc(50% + 2.5rem);
     position: absolute;

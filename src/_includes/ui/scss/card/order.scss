@@ -64,7 +64,9 @@
 
     div {
       display: flex;
+      flex-wrap: wrap;
       gap: spacer('xxs');
+      line-height: config('line-height-sm', $typography);
     }
 
     dt::after {

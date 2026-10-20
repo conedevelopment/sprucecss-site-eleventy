@@ -27,7 +27,7 @@
 }
 .billing-overview__card--plan {
   border-color: color-mix(in srgb, var(--spruce-base-color-primary) 40%, transparent);
-  box-shadow: inset 0 3px 0 var(--spruce-base-color-primary);
+  box-shadow: inset 0 10px 0 var(--spruce-base-color-primary);
 }
 .billing-overview__label {
   color: var(--spruce-base-color-muted);

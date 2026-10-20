@@ -1,6 +1,10 @@
 .post-heading {
   text-align: center;
 }
+.post-heading__inner {
+  display: flex;
+  flex-direction: column;
+}
 .post-heading__inner > * {
   margin-block-end: 0;
   margin-block-start: 0;
@@ -31,5 +35,5 @@
   margin-block-start: clamp(1.5rem, 5vw, 3rem);
 }
 .post-heading .breadcrumb {
-  justify-self: center;
+  align-self: center;
 }

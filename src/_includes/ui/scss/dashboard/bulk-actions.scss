@@ -26,11 +26,6 @@
     border-radius: radius('md');
     margin-inline-start: auto;
     @include transition($property: 'background-color, padding');
-
-    &--active {
-      background-color: color-alpha('primary', 0.08);
-      padding: spacer('xxs') spacer('xxs') spacer('xxs') spacer('s');
-    }
   }
 
   &__count {
@@ -53,7 +48,7 @@
     margin: 0;
 
     tr:has(.form-check__control:checked) {
-      background-color: color-alpha('primary', 0.06);
+      background-color: color-alpha('primary', 0.03);
     }
 
     th[scope='row'] a {

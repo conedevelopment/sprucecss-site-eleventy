@@ -9,11 +9,11 @@
   box-shadow: shadow('lg');
   display: flex;
   font-family: var(--doc-body-font-family, inherit);
-  gap: spacer('xxs');
+  gap: spacer('xs');
   inset-block-end: spacer('s');
   inset-inline-end: spacer('s');
   max-inline-size: calc(100vi - #{spacer('m')});
-  padding: spacer('xxs');
+  padding: spacer('xs');
   position: fixed;
   z-index: z-index('toast');
 
@@ -24,6 +24,12 @@
 
   &__back {
     border-radius: radius('pill');
+
+    // The ghost button takes the secondary background as its text color, which is a light tint in some styles (minimal, soft, glass).
+    &,
+    &:hover {
+      color: color('heading');
+    }
 
     svg {
       block-size: 1rem;

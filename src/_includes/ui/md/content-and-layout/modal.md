@@ -4,7 +4,7 @@
 
 - **A button with `data-modal-open="{id}"`** opens the modal.
 - **`.modal`** is the `dialog` element, named by its title (`aria-labelledby`) and described by its subtitle (`aria-describedby`). `.modal--lg` makes it wider; any width works with `--inline-size`.
-- **`.modal__form`** is a `form method="dialog"`: submitting it closes the dialog and sets its `returnValue` to the submit button's `value`.
+- **`.modal__panel`** is the visible box inside the dialog. Here it's a `form method="dialog"`: submitting it closes the dialog and sets its `returnValue` to the submit button's `value`.
 - **`.modal__header`**, **`.modal__body`** and **`.modal__footer`** (with `--space-between`) structure the content. Every `[data-modal-close]` element closes it.
 
 ## Accessibility
@@ -18,6 +18,7 @@
 
 - No dependencies. The script only wires the openers, the backdrop click and the close buttons; the `close` event and `returnValue` tell you how it was closed (here, the form is reset and a `modal:submit` event fires).
 - The open and close animations use `@starting-style` and `transition-behavior: allow-discrete`; browsers without them show the modal without the animation, and nothing animates with reduced motion.
+- The `dialog` covers the viewport and is the scroll container, so a panel taller than the screen scrolls with the whole viewport instead of inside the box. A click on the area around the panel targets the dialog itself, so it closes the modal like a backdrop click.
 - The page behind doesn't scroll while a modal is open (`html:has(.modal[open])`).
 - The colors, the radius and the shadow come from the tokens; the old `modal` color group isn't needed any more.
 

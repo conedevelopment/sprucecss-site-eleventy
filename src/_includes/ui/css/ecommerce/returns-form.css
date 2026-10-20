@@ -131,3 +131,6 @@
 .returns-form__summary strong {
   color: var(--spruce-base-color-heading);
 }
+.returns-form > * + fieldset {
+  margin-block-start: 1.5rem;
+}

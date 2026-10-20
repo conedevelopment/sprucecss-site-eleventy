@@ -33,4 +33,7 @@ faq:
     -
         title: "It Is Built on Sass"
         description: "<p>Sass can help a lot when writing a CSS framework or using one. You can use Spruce as a standalone CSS file, too, but to maximalize its potential, we suggest Sass. For a simple compile setup, read the <a href='/docs/guides/compile-sass/'>Compile Sass</a> guide.</p>"
+    -
+        title: "Built With the Help of AI"
+        description: "<p>We use AI coding assistants to help write parts of Spruce CSS, like the components, blocks, pages and the documentation. Every change is reviewed, tested and edited by a human before it is released.</p>"
 ---

@@ -1,29 +1,30 @@
 ---
-title: 'Site Footer'
+category: 'Footer'
+title: 'Basic'
 ---
 
 {% extends "layout/component.html" %}
 
 {% set preview %}
     <div class="ui ui--site-footer">
-        {% include "ui/html/content-and-layout/site-footer.html" %}
+        {% include "ui/html/block/site-footer.html" %}
     </div>
 {% endset %}
 
 {% set html %}
-    {% include "ui/html/content-and-layout/site-footer.html" %}
+    {% include "ui/html/block/site-footer.html" %}
 {% endset %}
 
 {% set scss %}
-    {% include "ui/scss/content-and-layout/site-footer.scss" %}
+    {% include "ui/scss/block/site-footer.scss" %}
 {% endset %}
 
 {% set description %}
-    {% include "ui/md/content-and-layout/site-footer.md" %}
+    {% include "ui/md/block/site-footer.md" %}
 {% endset %}
 
 {% block style %}
-    <link rel="stylesheet" href="/_includes/ui/css/content-and-layout/site-footer.css">
+    <link rel="stylesheet" href="/_includes/ui/css/block/site-footer.css">
     <link rel="stylesheet" href="/_includes/ui/css/misc/theme-switcher-button.css">
 {% endblock %}
 

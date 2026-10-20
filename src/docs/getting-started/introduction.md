@@ -50,7 +50,3 @@ Choosing a CSS library is a challenging task. Let us help you with why you shoul
 As you may know, there are many CSS frameworks (hundreds of them, and many are not maintained today). Everybody can choose one that suits their work style or project requirements. So why make another one? It is certainly not because we can do it better but because **we want to do it our way**. We want to be in control and make decisions.
 
 We are sure everybody uses a CSS system; it can be a complete framework or a set of custom utilities. Everyone uses some subset for new projects, as we do. But managing it is something that will be a burden over time. So why not outsource it, make it better, create a package, and document it well?
-
-## We Left the Grid Out
-
-We made a controversial decision with Spruce to leave a classical grid system out. Because of the late CSS layout model developments like Flexbox and Grid, we think it can be eliminated; this doesn’t mean that we won’t show you how to make layouts with ease, but we try to make it the modern way.

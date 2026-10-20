@@ -40,7 +40,7 @@
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  justify-content: center;
+  justify-content: space-between;
   padding-block: 3rem;
   padding-inline: clamp(1.5rem, 5vw, 3rem);
 }

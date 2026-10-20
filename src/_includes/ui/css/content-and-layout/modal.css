@@ -1,15 +1,19 @@
 .modal {
   --inline-size: 34rem;
-  background-color: var(--spruce-base-color-surface);
-  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
-  border-radius: var(--spruce-border-radius-lg);
-  box-shadow: var(--spruce-shadow-xl);
+  background-color: transparent;
+  block-size: 100%;
+  border: 0;
   color: var(--spruce-base-color-text);
-  inline-size: var(--inline-size);
-  max-block-size: calc(100dvb - 3rem);
-  max-inline-size: calc(100vi - 1.5rem);
+  inline-size: 100%;
+  max-block-size: none;
+  max-inline-size: none;
   overflow-y: auto;
-  padding: 0;
+  overscroll-behavior: contain;
+  padding: 1rem;
+}
+.modal[open] {
+  display: grid;
+  justify-items: center;
 }
 .modal::backdrop {
   backdrop-filter: blur(4px);
@@ -18,16 +22,25 @@
 @media (prefers-reduced-motion: no-preference) {
   .modal {
     opacity: 0;
+    transition: opacity 0.2s, overlay 0.2s allow-discrete, display 0.2s allow-discrete;
+  }
+  .modal .modal__panel {
     scale: 0.96;
-    transition: opacity 0.2s, scale 0.2s, overlay 0.2s allow-discrete, display 0.2s allow-discrete;
+    transition: scale 0.2s;
   }
   .modal[open] {
     opacity: 1;
-    scale: 1;
   }
   @starting-style {
     .modal[open] {
       opacity: 0;
+    }
+  }
+  .modal[open] .modal__panel {
+    scale: 1;
+  }
+  @starting-style {
+    .modal[open] .modal__panel {
       scale: 0.96;
     }
   }
@@ -46,6 +59,14 @@
 }
 .modal--lg {
   --inline-size: 48rem;
+}
+.modal__panel {
+  background-color: var(--spruce-base-color-surface);
+  border: var(--spruce-border-width-base) solid var(--spruce-base-color-border);
+  border-radius: var(--spruce-border-radius-lg);
+  box-shadow: var(--spruce-shadow-xl);
+  inline-size: min(var(--inline-size), 100%);
+  margin-block: auto;
 }
 .modal__header {
   align-items: start;

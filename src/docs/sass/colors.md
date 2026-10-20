@@ -16,13 +16,15 @@ These are the default colors, grouped as in the `$colors` map. The swatches use 
 <h3 class="l-color__title">{{ group.name | capitalize }}</h3>
 <div class="l-color__inner">
 {%- for item in group.colors %}{% if item.value != 'null' %}
-{% color "var(--spruce-" + group.name + "-color-" + item.name + ")", item.name, item.value, item.name in ['background', 'surface', 'border', 'stripe', 'hover'] %}
+{% color "var(--spruce-" + group.name + "-color-" + item.name + ")", item.name, item.value %}
 {%- endif %}{% endfor %}
 </div>
 </div>
 {% endfor %}
 
 {% notification %}Some keys are <code>null</code> by default (like <code>background-readonly</code> or the table <code>heading-background</code>). Spruce doesn’t output anything for them until you give them a value.{% endnotification %}
+
+<script defer src="/js/color-card.js"></script>
 
 ## Shared Colors
 

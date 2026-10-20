@@ -128,8 +128,3 @@ You can control the flow of the style generation in a lot of ways (for more info
 ## Compiling Sass
 
 Depending on your development setup, using Sass could be a burden. We think that Sass is a handy tool and easy to use. Compiling is one of the more significant barriers; for this reason, we wrote a guide about [a simple Sass compile setup](/docs/guides/compile-sass/).
-
-## Starter Templates
-
-- [Spruce CSS Eleventy Starter](https://github.com/conedevelopment/sprucecss-eleventy-starter): a boilerplate with the compile setup ready.
-- [AI skills](/docs/ai/skills/): let your coding assistant set up and write Spruce CSS for you.

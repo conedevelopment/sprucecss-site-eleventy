@@ -29,10 +29,6 @@
   transition-property: background-color, padding;
   transition-timing-function: var(--spruce-timing-function);
 }
-.bulk-actions__bar--active {
-  background-color: color-mix(in srgb, var(--spruce-base-color-primary) 8%, transparent);
-  padding: 0.25rem 0.25rem 0.25rem 1rem;
-}
 .bulk-actions__count {
   color: var(--spruce-base-color-muted);
   font-size: var(--spruce-font-size-sm);
@@ -50,7 +46,7 @@
   margin: 0;
 }
 .bulk-actions__table tr:has(.form-check__control:checked) {
-  background-color: color-mix(in srgb, var(--spruce-base-color-primary) 6%, transparent);
+  background-color: color-mix(in srgb, var(--spruce-base-color-primary) 3%, transparent);
 }
 .bulk-actions__table th[scope=row] a {
   font-weight: 700;

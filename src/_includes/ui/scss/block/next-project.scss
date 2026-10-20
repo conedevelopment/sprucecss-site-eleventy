@@ -9,6 +9,8 @@
     @include set-css-variable((
       --base-color-heading: hsl(0deg 0% 100%),
       --base-color-text: hsl(0deg 0% 100%),
+      --base-color-link: hsl(0deg 0% 100%),
+      --base-color-link-hover: hsl(0deg 0% 100% / 0.75),
     ));
     align-items: flex-end;
     background-color: color('heading');

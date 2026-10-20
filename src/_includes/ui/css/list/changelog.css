@@ -58,7 +58,7 @@
   color: var(--spruce-btn-color-primary-foreground);
   font-size: 0.75rem;
   font-weight: 700;
-  padding: 0.2em 0.7em;
+  padding: 0 0.7em;
 }
 .l-changelog__list {
   list-style: none;

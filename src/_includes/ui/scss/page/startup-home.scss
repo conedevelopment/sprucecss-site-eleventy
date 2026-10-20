@@ -3,7 +3,7 @@
 .l-home {
   // One background, one padding: a block that follows a block on the same background drops its top padding,
   // the bottom padding of the previous one already separates them. `__alt` starts a new background, the bordered `__band` a new section.
-  > :not(.l-home__alt, .l-home__band) + :not(.l-home__alt, .l-home__band),
+  > :not(.l-home__alt, .l-home__band) + :not(.l-home__alt, .l-home__band, .pricing-block, .stats-block--brand),
   &__alt > * + * {
     padding-block-start: 0;
   }

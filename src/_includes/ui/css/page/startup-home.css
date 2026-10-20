@@ -1,4 +1,4 @@
-.l-home > :not(.l-home__alt, .l-home__band) + :not(.l-home__alt, .l-home__band), .l-home__alt > * + * {
+.l-home > :not(.l-home__alt, .l-home__band) + :not(.l-home__alt, .l-home__band, .pricing-block, .stats-block--brand), .l-home__alt > * + * {
   padding-block-start: 0;
 }
 .l-home__hero {

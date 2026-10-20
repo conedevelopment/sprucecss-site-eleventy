@@ -5,6 +5,7 @@
   display: grid;
   gap: spacer('m');
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  inline-size: 100%;
 
   > li {
     margin-block: 0;

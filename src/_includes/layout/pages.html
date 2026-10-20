@@ -42,10 +42,10 @@
                                     <h3 class="page-card__title" id="page-card-{{ item.fileSlug }}">{{ item.data.title }}</h3>
                                     <p class="page-card__description">{{ item.data.description }}</p>
                                 </div>
-                                {% set parts = item.data.pageInclude | pageParts %}
+                                {% set parts = item.data.pageInclude | pageParts(collections.blocks, collections.ui) %}
                                 {% if parts.length %}
                                     <ul class="page-card__parts" role="list" aria-label="Built with">
-                                        {% for part in parts %}<li>{{ part }}</li>{% endfor %}
+                                        {% for part in parts %}<li><a href="{{ part.url }}">{{ part.label }}</a></li>{% endfor %}
                                     </ul>
                                 {% endif %}
                                 <div class="page-card__actions">

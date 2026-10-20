@@ -27,7 +27,7 @@
     -webkit-box-decoration-break: clone; // stylelint-disable-line
     box-decoration-break: clone;
     color: color('note-color', 'hero');
-    display: inline;
+    display: inline-flex;
     font-size: 1rem;
     isolation: isolate;
     line-height: config('line-height-md', $typography);
@@ -58,7 +58,6 @@
     font-weight: 400;
     letter-spacing: -0.035em;
     margin-block: 0;
-    margin-inline: auto;
     max-inline-size: 15ch;
     text-wrap: balance;
 

@@ -9,19 +9,19 @@ github: "https://github.com/conedevelopment/sprucecss-site-eleventy/blob/main/sr
 
 Spruce CSS v3 ships eight style presets. The example below shows each of them on the same markup, and every [component](/ui/getting-started/introduction/) preview has a style picker to try them.
 
-{% preview %}
 <div class="style-demo-grid">
 {%- for style in styles %}
 <div class="style-demo" data-spruce-style="{{ style.name }}">
 <p class="style-demo__name">{{ style.label }}</p>
 <div class="style-demo__buttons"><button class="btn btn--primary btn--sm" type="button">Primary</button> <button class="btn btn--outline-primary btn--sm" type="button">Outline</button></div>
-<label class="form-label" for="style-demo-{{ style.name }}">Email</label>
-<input class="form-control form-control--sm" id="style-demo-{{ style.name }}" type="email" placeholder="you@example.com">
+<div class="form-group">
+  <label class="form-label" for="style-demo-{{ style.name }}">Email</label>
+  <input class="form-control form-control--sm" id="style-demo-{{ style.name }}" type="email" placeholder="you@example.com">
+</div>
 <label class="form-switch"><input class="form-switch__control" type="checkbox" checked> <span class="form-label form-switch__label">Notifications</span></label>
 </div>
 {%- endfor %}
 </div>
-{% endpreview %}
 
 | Style | Description |
 |---|---|

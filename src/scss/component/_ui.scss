@@ -84,7 +84,7 @@
   }
 
   &--changelog {
-    --inline-size: 60rem;
+    --inline-size: 80rem;
   }
 
   &--file-list {
@@ -110,21 +110,6 @@
 
   &--auth {
     padding: 0;
-  }
-
-  &--info-card {
-    --column: 1;
-    display: grid;
-    gap: spacer('m');
-    grid-template-columns: repeat(var(--column), minmax(0, 1fr));
-
-    @include breakpoint('md') {
-      --column: 2;
-    }
-
-    @include breakpoint('lg') {
-      --column: 3;
-    }
   }
 
   &--number-card {
