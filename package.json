@@ -16,7 +16,7 @@
     "ui:watch": "node scripts/build-ui-css.js --watch"
   },
   "dependencies": {
-    "@11ty/eleventy": "^3.1.6",
+    "@11ty/eleventy": "^3.1.7",
     "@11ty/eleventy-fetch": "^5.1.3",
     "@11ty/eleventy-img": "^7.0.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.2",
